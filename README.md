@@ -18,6 +18,6 @@ ComfyUI Nodes that generates prompts with the help of LLM from local or remote O
 
 # How to use :
 
-Use this example Workflow to use it :
+Use this example workflow to get started:
 
 ![Example_Isulion_Workflow](https://github.com/user-attachments/assets/02d24645-5f01-4ebc-a6b0-7837d8a2676c)
