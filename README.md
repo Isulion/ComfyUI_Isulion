@@ -2,7 +2,7 @@
 
 --------------
 
-ComfyUI Nodes that generates prompts with the help of LLM from local or remote Ollama.
+ComfyUI Nodes that generate prompts with the help of LLM from local or remote Ollama.
 
 --------------
 
