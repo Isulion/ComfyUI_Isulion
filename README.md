@@ -1,12 +1,22 @@
-# ComfyUI_Isulion
-Some nodes for ComfyUI
+# ComfyUI_Isulion Random Prompt Generator
 
+--------------
 
-Installation :
+ComfyUI Nodes that generates prompts with the help of LLM from local or remote Ollama.
 
-cd your_ComfyUI_install_dir
-cd custom_nodes
-git clone https://github.com/Isulion/ComfyUI_Isulion
+--------------
+
+# Installation :
+
+- cd your_ComfyUI_install_dir
+
+- cd custom_nodes
+
+- git clone https://github.com/Isulion/ComfyUI_Isulion
+
+--------------
+
+# How to use :
 
 Use this example Workflow to use it :
 
