@@ -6,6 +6,15 @@ ComfyUI Nodes that generate prompts with the help of LLM from local or remote Ol
 
 --------------
 
+# Requirement :
+
+Recomanded environnement variables :
+- OLLAMA_KEEP_ALIVE  	0
+- OLLAMA_ORIGINS		*
+
+ComfyUI installed node :
+- Ollama_generator 
+
 # Installation :
 
 - cd your_ComfyUI_install_dir
