@@ -1,10 +1,6 @@
 # ComfyUI Isulion LLM Chain
 An advanced ComfyUI extension that enables multi-agent LLM conversations using Ollama models.
 
-![Example Workflow](https://github.com/user-attachments/assets/ba6d7eaa-c068-4f88-a2c9-fb07aa95052b)
-
-
-
 ## 🌟 Features
 - Create complex multi-agent conversations using different LLM personas
 - Support for local Ollama models
