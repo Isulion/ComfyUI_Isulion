@@ -35,3 +35,7 @@ Use this example workflow to get started:
 Advanced Mode for More Flexibility:
 
 ![Example_Isulion_Workflow_Split](https://github.com/user-attachments/assets/e578ff7a-0c03-47a1-900f-a7e209a64914)
+
+Chimere Animals Workflow
+
+![workflowAnimals](https://github.com/user-attachments/assets/100cb116-c6ef-43cf-b5d3-d7782949ad9c)
