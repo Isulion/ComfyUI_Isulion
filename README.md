@@ -1,18 +1,16 @@
-# ComfyUI Isulion LLM Chain
-An advanced ComfyUI extension that enables multi-agent LLM conversations using Ollama models.
+# ComfyUI_Isulion Random Prompt Generator
 
-![Example Workflow](https://github.com/user-attachments/assets/ba6d7eaa-c068-4f88-a2c9-fb07aa95052b)
+--------------
 
+ComfyUI Nodes that generate prompts with the help of LLM from local or remote Ollama.
 
+--------------
 
-## 🌟 Features
-- Create complex multi-agent conversations using different LLM personas
-- Support for local Ollama models
-- Flexible chain configurations from simple to complex (3-agent, 5-agent, or 10-agent chains)
-- Each agent can be assigned unique roles and perspectives
-- Real-time conversation visualization
--system prompt for each agent/node
+# Requirement :
 
+Recomanded environnement variables :
+- OLLAMA_KEEP_ALIVE  	0
+- OLLAMA_ORIGINS		*
 
 ComfyUI installed node :
 - Ollama_generator 
