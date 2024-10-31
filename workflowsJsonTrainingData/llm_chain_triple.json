@@ -1,0 +1,530 @@
+{
+  "last_node_id": 330,
+  "last_link_id": 460,
+  "nodes": [
+    {
+      "id": 309,
+      "type": "OllamaModelSelector",
+      "pos": {
+        "0": -800,
+        "1": -4560
+      },
+      "size": {
+        "0": 378,
+        "1": 58
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "STRING",
+          "links": [
+            442
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaModelSelector"
+      },
+      "widgets_values": [
+        "dolphin-phi"
+      ]
+    },
+    {
+      "id": 313,
+      "type": "JjkText",
+      "pos": {
+        "0": -800,
+        "1": -4432
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            444
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkText"
+      },
+      "widgets_values": [
+        "What is the nature of consciousness?"
+      ]
+    },
+    {
+      "id": 305,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": -200,
+        "1": -4531
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 442,
+          "widget": {
+            "name": "model_name"
+          }
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 444,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            445,
+            451
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Initial response",
+        "http://127.0.0.1:11434"
+      ]
+    },
+    {
+      "id": 320,
+      "type": "OllamaModelSelector",
+      "pos": {
+        "0": -200,
+        "1": -4660
+      },
+      "size": {
+        "0": 378,
+        "1": 58
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "STRING",
+          "links": [
+            446
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaModelSelector"
+      },
+      "widgets_values": [
+        "llama2"
+      ]
+    },
+    {
+      "id": 319,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 300,
+        "1": -4531
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 446,
+          "widget": {
+            "name": "model_name"
+          }
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 445,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            447,
+            452
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Second analysis",
+        "http://127.0.0.1:11434"
+      ]
+    },
+    {
+      "id": 325,
+      "type": "OllamaModelSelector",
+      "pos": {
+        "0": 300,
+        "1": -4660
+      },
+      "size": {
+        "0": 378,
+        "1": 58
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "STRING",
+          "links": [
+            448
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaModelSelector"
+      },
+      "widgets_values": [
+        "mistral"
+      ]
+    },
+    {
+      "id": 326,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 800,
+        "1": -4531
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 448,
+          "widget": {
+            "name": "model_name"
+          }
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 447,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            449,
+            453
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Final synthesis",
+        "http://127.0.0.1:11434"
+      ]
+    },
+    {
+      "id": 327,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 1300,
+        "1": -4548
+      },
+      "size": {
+        "0": 314.3045959472656,
+        "1": 393.1268310546875
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 449,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      }
+    },
+    {
+      "id": 328,
+      "type": "JjkShowText",
+      "pos": {
+        "0": -200,
+        "1": -4200
+      },
+      "size": {
+        "0": 314.3045959472656,
+        "1": 393.1268310546875
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 451,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      }
+    },
+    {
+      "id": 329,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 300,
+        "1": -4200
+      },
+      "size": {
+        "0": 314.3045959472656,
+        "1": 393.1268310546875
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 452,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      }
+    },
+    {
+      "id": 330,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 800,
+        "1": -4200
+      },
+      "size": {
+        "0": 314.3045959472656,
+        "1": 393.1268310546875
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 453,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      }
+    }
+  ],
+  "links": [
+    [
+      442,
+      309,
+      0,
+      305,
+      0,
+      "STRING"
+    ],
+    [
+      444,
+      313,
+      0,
+      305,
+      1,
+      "STRING"
+    ],
+    [
+      445,
+      305,
+      0,
+      319,
+      1,
+      "STRING"
+    ],
+    [
+      446,
+      320,
+      0,
+      319,
+      0,
+      "STRING"
+    ],
+    [
+      447,
+      319,
+      0,
+      326,
+      1,
+      "STRING"
+    ],
+    [
+      448,
+      325,
+      0,
+      326,
+      0,
+      "STRING"
+    ],
+    [
+      449,
+      326,
+      0,
+      327,
+      0,
+      "STRING"
+    ],
+    [
+      451,
+      305,
+      0,
+      328,
+      0,
+      "STRING"
+    ],
+    [
+      452,
+      319,
+      0,
+      329,
+      0,
+      "STRING"
+    ],
+    [
+      453,
+      326,
+      0,
+      330,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9090909090909097,
+      "offset": [
+        1217.8964059894877,
+        4740.859219258694
+      ]
+    },
+    "groupNodes": {}
+  },
+  "version": 0.4
+} 

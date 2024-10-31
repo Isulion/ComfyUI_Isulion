@@ -1,0 +1,199 @@
+{
+  "last_node_id": 313,
+  "last_link_id": 444,
+  "nodes": [
+    {
+      "id": 312,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 1,
+        "1": -4548
+      },
+      "size": {
+        "0": 314.3045959472656,
+        "1": 393.1268310546875
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 441,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "widgets_values": [
+        "Hello! How can I assist you today? Are you looking for information on a particular topic, or do you have any specific questions? Let me know, and I'll be happy to help!"
+      ]
+    },
+    {
+      "id": 305,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": -462,
+        "1": -4531
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 442,
+          "widget": {
+            "name": "model_name"
+          }
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 444,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            441
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "What is Art?",
+        "http://127.0.0.1:11434"
+      ]
+    },
+    {
+      "id": 309,
+      "type": "OllamaModelSelector",
+      "pos": {
+        "0": -955,
+        "1": -4560
+      },
+      "size": {
+        "0": 378,
+        "1": 58
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "STRING",
+          "links": [
+            442
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaModelSelector"
+      },
+      "widgets_values": [
+        "dolphin-phi"
+      ]
+    },
+    {
+      "id": 313,
+      "type": "JjkText",
+      "pos": {
+        "0": -980,
+        "1": -4432
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            444
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkText"
+      },
+      "widgets_values": [
+        "hi"
+      ]
+    }
+  ],
+  "links": [
+    [
+      441,
+      305,
+      0,
+      312,
+      0,
+      "STRING"
+    ],
+    [
+      442,
+      309,
+      0,
+      305,
+      0,
+      "STRING"
+    ],
+    [
+      444,
+      313,
+      0,
+      305,
+      1,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9090909090909097,
+      "offset": [
+        1217.8964059894877,
+        4740.859219258694
+      ]
+    },
+    "groupNodes": {}
+  },
+  "version": 0.4
+}

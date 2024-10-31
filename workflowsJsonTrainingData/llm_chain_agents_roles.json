@@ -1,0 +1,433 @@
+{
+  "last_node_id": 350,
+  "last_link_id": 490,
+  "nodes": [
+    {
+      "id": 309,
+      "type": "OllamaModelSelector",
+      "pos": {
+        "0": -1200,
+        "1": -4700
+      },
+      "size": {
+        "0": 247.32920837402344,
+        "1": 58
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL_NAME",
+          "type": "STRING",
+          "links": [
+            442,
+            462,
+            463,
+            464,
+            465
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaModelSelector"
+      },
+      "widgets_values": [
+        "dolphin-mixtral"
+      ]
+    },
+    {
+      "id": 313,
+      "type": "JjkText",
+      "pos": {
+        "0": -1200,
+        "1": -4500
+      },
+      "size": {
+        "0": 225.64781188964844,
+        "1": 118.71192932128906
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            487
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkText"
+      },
+      "widgets_values": [
+        "What is the future of artificial intelligence?"
+      ]
+    },
+    {
+      "id": 348,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": -800,
+        "1": -4500
+      },
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 487,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 462,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            488,
+            489
+          ]
+        }
+      ],
+      "title": "Scientist",
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Analyze the question",
+        "You are a scientific expert. Analyze topics with a focus on empirical evidence, research data, and scientific methodology. Be precise and analytical in your responses.",
+        "dolphin-mixtral",
+        "http://localhost:11434",
+        "true"
+      ]
+    },
+    {
+      "id": 349,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": -300,
+        "1": -4500
+      },
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 488,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 463,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            490,
+            491
+          ]
+        }
+      ],
+      "title": "Philosopher",
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Contemplate implications",
+        "You are a philosophical thinker. Consider the ethical, existential, and societal implications of topics. Explore deep questions and paradoxes while maintaining a balanced perspective.",
+        "dolphin-mixtral",
+        "http://localhost:11434",
+        "true"
+      ]
+    },
+    {
+      "id": 350,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 200,
+        "1": -4500
+      },
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 490,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 464,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            492,
+            493
+          ]
+        }
+      ],
+      "title": "Futurist",
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Project future scenarios",
+        "You are a futurist and technology forecaster. Analyze trends, make predictions, and explore possible future scenarios. Consider both opportunities and challenges while maintaining a practical perspective.",
+        "dolphin-mixtral",
+        "http://localhost:11434",
+        "true"
+      ]
+    },
+    {
+      "id": 323,
+      "type": "JjkShowText",
+      "pos": {
+        "0": -800,
+        "1": -4200
+      },
+      "size": {
+        "0": 400,
+        "1": 300
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 489,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "title": "Scientific Analysis"
+    },
+    {
+      "id": 324,
+      "type": "JjkShowText",
+      "pos": {
+        "0": -300,
+        "1": -4200
+      },
+      "size": {
+        "0": 400,
+        "1": 300
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 491,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "title": "Philosophical Perspective"
+    },
+    {
+      "id": 325,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 200,
+        "1": -4200
+      },
+      "size": {
+        "0": 400,
+        "1": 300
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 492,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "title": "Future Predictions"
+    }
+  ],
+  "links": [
+    [
+      462,
+      309,
+      0,
+      348,
+      1,
+      "STRING"
+    ],
+    [
+      463,
+      309,
+      0,
+      349,
+      1,
+      "STRING"
+    ],
+    [
+      464,
+      309,
+      0,
+      350,
+      1,
+      "STRING"
+    ],
+    [
+      487,
+      313,
+      0,
+      348,
+      0,
+      "STRING"
+    ],
+    [
+      488,
+      348,
+      0,
+      349,
+      0,
+      "STRING"
+    ],
+    [
+      489,
+      348,
+      0,
+      323,
+      0,
+      "STRING"
+    ],
+    [
+      490,
+      349,
+      0,
+      350,
+      0,
+      "STRING"
+    ],
+    [
+      491,
+      349,
+      0,
+      324,
+      0,
+      "STRING"
+    ],
+    [
+      492,
+      350,
+      0,
+      325,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1,
+      "offset": [
+        1200,
+        4700
+      ]
+    }
+  },
+  "version": 0.4
+} 

@@ -1,0 +1,456 @@
+{
+  "last_node_id": 370,
+  "last_link_id": 512,
+  "nodes": [
+    {
+      "id": 309,
+      "type": "OllamaModelSelector",
+      "pos": {
+        "0": -1200,
+        "1": -4700
+      },
+      "size": {
+        "0": 247.32920837402344,
+        "1": 58
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL_NAME",
+          "type": "STRING",
+          "links": [
+            462,
+            463,
+            464,
+            465,
+            466
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaModelSelector"
+      },
+      "widgets_values": [
+        "dolphin-llama3"
+      ]
+    },
+    {
+      "id": 337,
+      "type": "OllamaModelSelector",
+      "pos": {
+        "0": 1200,
+        "1": -4700
+      },
+      "size": {
+        "0": 247.32920837402344,
+        "1": 58
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL_NAME",
+          "type": "STRING",
+          "links": [
+            469,
+            471,
+            473,
+            478,
+            481
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaModelSelector"
+      },
+      "widgets_values": [
+        "dolphin-phi"
+      ]
+    },
+    {
+      "id": 313,
+      "type": "JjkText",
+      "pos": {
+        "0": -1200,
+        "1": -4500
+      },
+      "size": {
+        "0": 225.64781188964844,
+        "1": 118.71192932128906
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            487
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkText"
+      },
+      "widgets_values": [
+        "What is the future of artificial intelligence?"
+      ]
+    },
+    {
+      "id": 348,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": -800,
+        "1": -4500
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "title": "Scientist 1",
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 487,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 462,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            488,
+            489
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      }
+    },
+    {
+      "id": 353,
+      "type": "JjkShowText",
+      "pos": {
+        "0": -800,
+        "1": -4200
+      },
+      "size": {
+        "0": 400,
+        "1": 300
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "title": "Scientific Analysis 1",
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 489,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      }
+    }
+  ],
+  "links": [
+    [
+      462,
+      309,
+      0,
+      348,
+      1,
+      "STRING"
+    ],
+    [
+      463,
+      309,
+      0,
+      349,
+      1,
+      "STRING"
+    ],
+    [
+      464,
+      309,
+      0,
+      350,
+      1,
+      "STRING"
+    ],
+    [
+      465,
+      309,
+      0,
+      351,
+      1,
+      "STRING"
+    ],
+    [
+      466,
+      309,
+      0,
+      352,
+      1,
+      "STRING"
+    ],
+    [
+      469,
+      337,
+      0,
+      361,
+      1,
+      "STRING"
+    ],
+    [
+      471,
+      337,
+      0,
+      362,
+      1,
+      "STRING"
+    ],
+    [
+      473,
+      337,
+      0,
+      363,
+      1,
+      "STRING"
+    ],
+    [
+      478,
+      337,
+      0,
+      364,
+      1,
+      "STRING"
+    ],
+    [
+      481,
+      337,
+      0,
+      365,
+      1,
+      "STRING"
+    ],
+    [
+      487,
+      313,
+      0,
+      348,
+      0,
+      "STRING"
+    ],
+    [
+      488,
+      348,
+      0,
+      349,
+      0,
+      "STRING"
+    ],
+    [
+      489,
+      348,
+      0,
+      353,
+      0,
+      "STRING"
+    ],
+    [
+      490,
+      349,
+      0,
+      350,
+      0,
+      "STRING"
+    ],
+    [
+      491,
+      349,
+      0,
+      354,
+      0,
+      "STRING"
+    ],
+    [
+      492,
+      350,
+      0,
+      351,
+      0,
+      "STRING"
+    ],
+    [
+      493,
+      350,
+      0,
+      355,
+      0,
+      "STRING"
+    ],
+    [
+      494,
+      350,
+      0,
+      356,
+      0,
+      "STRING"
+    ],
+    [
+      495,
+      351,
+      0,
+      352,
+      0,
+      "STRING"
+    ],
+    [
+      496,
+      352,
+      0,
+      361,
+      0,
+      "STRING"
+    ],
+    [
+      498,
+      361,
+      0,
+      362,
+      0,
+      "STRING"
+    ],
+    [
+      499,
+      361,
+      0,
+      358,
+      0,
+      "STRING"
+    ],
+    [
+      500,
+      362,
+      0,
+      363,
+      0,
+      "STRING"
+    ],
+    [
+      501,
+      362,
+      0,
+      359,
+      0,
+      "STRING"
+    ],
+    [
+      502,
+      363,
+      0,
+      364,
+      0,
+      "STRING"
+    ],
+    [
+      503,
+      363,
+      0,
+      360,
+      0,
+      "STRING"
+    ],
+    [
+      504,
+      364,
+      0,
+      365,
+      0,
+      "STRING"
+    ],
+    [
+      505,
+      364,
+      0,
+      366,
+      0,
+      "STRING"
+    ],
+    [
+      506,
+      365,
+      0,
+      367,
+      0,
+      "STRING"
+    ],
+    [
+      511,
+      352,
+      0,
+      357,
+      0,
+      "STRING"
+    ],
+    [
+      512,
+      365,
+      0,
+      367,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5131581182307068,
+      "offset": [
+        1450.2412393345642,
+        5495.215919783973
+      ]
+    }
+  },
+  "version": 0.4
+}
