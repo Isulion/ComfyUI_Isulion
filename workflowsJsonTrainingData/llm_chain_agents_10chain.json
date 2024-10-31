@@ -1,0 +1,1284 @@
+{
+  "last_node_id": 365,
+  "last_link_id": 510,
+  "nodes": [
+    {
+      "id": 309,
+      "type": "OllamaModelSelector",
+      "pos": {
+        "0": -1200,
+        "1": -4700
+      },
+      "size": {
+        "0": 247.32920837402344,
+        "1": 58
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL_NAME",
+          "type": "STRING",
+          "links": [
+            462,
+            463,
+            464,
+            465,
+            466
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaModelSelector"
+      },
+      "widgets_values": [
+        "dolphin-llama3"
+      ]
+    },
+    {
+      "id": 337,
+      "type": "OllamaModelSelector",
+      "pos": {
+        "0": 1200,
+        "1": -4700
+      },
+      "size": {
+        "0": 247.32920837402344,
+        "1": 58
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL_NAME",
+          "type": "STRING",
+          "links": [
+            469,
+            471,
+            473,
+            478,
+            481
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaModelSelector"
+      },
+      "widgets_values": [
+        "dolphin-phi"
+      ]
+    },
+    {
+      "id": 313,
+      "type": "JjkText",
+      "pos": {
+        "0": -1200,
+        "1": -4500
+      },
+      "size": {
+        "0": 225.64781188964844,
+        "1": 118.71192932128906
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            487
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkText"
+      },
+      "widgets_values": [
+        "What is the future of artificial intelligence?"
+      ]
+    },
+    {
+      "id": 348,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": -800,
+        "1": -4500
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 487,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 462,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            488,
+            489
+          ]
+        }
+      ],
+      "title": "Scientist 1",
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Initial Analysis",
+        "You are a scientific expert. Analyze topics with a focus on empirical evidence, research data, and scientific methodology. Be precise and analytical in your responses.",
+        "dolphin-llama3",
+        "http://localhost:11434",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 353,
+      "type": "JjkShowText",
+      "pos": {
+        "0": -800,
+        "1": -4200
+      },
+      "size": {
+        "0": 400,
+        "1": 300
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 489,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "title": "Scientific Analysis 1"
+    },
+    {
+      "id": 349,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": -400,
+        "1": -4500
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 488,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 463,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            490,
+            491
+          ]
+        }
+      ],
+      "title": "Philosopher 1",
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Philosophical Analysis",
+        "You are a philosophical thinker. Consider the ethical, existential, and societal implications of topics. Explore deep questions and paradoxes while maintaining a balanced perspective.",
+        "dolphin-llama3",
+        "http://localhost:11434",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 354,
+      "type": "JjkShowText",
+      "pos": {
+        "0": -400,
+        "1": -4200
+      },
+      "size": {
+        "0": 400,
+        "1": 300
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 491,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "title": "Philosophical Analysis 1"
+    },
+    {
+      "id": 355,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 0,
+        "1": -4500
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 490,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 464,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            492,
+            493
+          ]
+        }
+      ],
+      "title": "Futurist 1",
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Future Projection",
+        "You are a futurist and technology forecaster. Analyze trends, make predictions, and explore possible future scenarios. Consider both opportunities and challenges while maintaining a practical perspective.",
+        "dolphin-llama3",
+        "http://localhost:11434",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 356,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 0,
+        "1": -4200
+      },
+      "size": {
+        "0": 400,
+        "1": 300
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 493,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "title": "Future Analysis 1"
+    },
+    {
+      "id": 357,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 400,
+        "1": -4500
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 492,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 465,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            494,
+            495
+          ]
+        }
+      ],
+      "title": "Scientist 2",
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Scientific Review",
+        "You are a scientific expert. Review and validate the previous analyses, adding your scientific perspective and methodology.",
+        "dolphin-llama3",
+        "http://localhost:11434",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 358,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 400,
+        "1": -4200
+      },
+      "size": {
+        "0": 400,
+        "1": 300
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 495,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "title": "Scientific Analysis 2"
+    },
+    {
+      "id": 359,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 800,
+        "1": -4500
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 494,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 466,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            496,
+            497
+          ]
+        }
+      ],
+      "title": "Final Synthesis",
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Synthesize Insights",
+        "You are a master synthesizer. Combine and integrate all previous perspectives into a coherent and comprehensive analysis.",
+        "dolphin-llama3",
+        "http://localhost:11434",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 360,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 800,
+        "1": -4200
+      },
+      "size": {
+        "0": 400,
+        "1": 300
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 497,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "title": "Final Summary 1"
+    },
+    {
+      "id": 361,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 1200,
+        "1": -4500
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 496,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 469,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            498,
+            499
+          ]
+        }
+      ],
+      "title": "Scientist 3",
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Scientific Analysis",
+        "You are a scientific expert. Review and validate the previous analyses with fresh perspective.",
+        "dolphin-phi",
+        "http://localhost:11434",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 362,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 1200,
+        "1": -4200
+      },
+      "size": {
+        "0": 400,
+        "1": 300
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 499,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "title": "Philosophical Analysis 2"
+    },
+    {
+      "id": 363,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 1600,
+        "1": -4500
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 498,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 471,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            500,
+            501
+          ]
+        }
+      ],
+      "title": "Philosopher 2",
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Philosophical Review",
+        "You are a philosophical thinker. Provide a fresh philosophical perspective on the previous analyses.",
+        "dolphin-phi",
+        "http://localhost:11434",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 364,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 1600,
+        "1": -4200
+      },
+      "size": {
+        "0": 400,
+        "1": 300
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 501,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "title": "Future Analysis 2"
+    },
+    {
+      "id": 365,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 2000,
+        "1": -4500
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 500,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 473,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            502,
+            503
+          ]
+        }
+      ],
+      "title": "Futurist 2",
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Future Analysis",
+        "You are a futurist. Project future implications based on the accumulated insights.",
+        "dolphin-phi",
+        "http://localhost:11434",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 366,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 2000,
+        "1": -4200
+      },
+      "size": {
+        "0": 400,
+        "1": 300
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 503,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "title": "Future Analysis 3"
+    },
+    {
+      "id": 367,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 2400,
+        "1": -4500
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 502,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 478,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            504,
+            505
+          ]
+        }
+      ],
+      "title": "Integrator",
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Integration",
+        "You are an integration specialist. Combine and synthesize all perspectives into a cohesive understanding.",
+        "dolphin-phi",
+        "http://localhost:11434",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 368,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 2400,
+        "1": -4200
+      },
+      "size": {
+        "0": 400,
+        "1": 300
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 505,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "title": "Integration Analysis"
+    },
+    {
+      "id": 369,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 2800,
+        "1": -4500
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 504,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 481,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            506,
+            507
+          ]
+        }
+      ],
+      "title": "Final Analysis",
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Final Summary",
+        "You are a master summarizer. Provide a final, comprehensive analysis of all perspectives and insights.",
+        "dolphin-phi",
+        "http://localhost:11434",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 370,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 2800,
+        "1": -4200
+      },
+      "size": {
+        "0": 400,
+        "1": 300
+      },
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 507,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "title": "Final Summary"
+    }
+  ],
+  "links": [
+    [
+      462,
+      309,
+      0,
+      348,
+      1,
+      "STRING"
+    ],
+    [
+      463,
+      309,
+      0,
+      349,
+      1,
+      "STRING"
+    ],
+    [
+      464,
+      309,
+      0,
+      350,
+      1,
+      "STRING"
+    ],
+    [
+      465,
+      309,
+      0,
+      351,
+      1,
+      "STRING"
+    ],
+    [
+      466,
+      309,
+      0,
+      352,
+      1,
+      "STRING"
+    ],
+    [
+      487,
+      313,
+      0,
+      348,
+      0,
+      "STRING"
+    ],
+    [
+      488,
+      348,
+      0,
+      349,
+      0,
+      "STRING"
+    ],
+    [
+      489,
+      348,
+      0,
+      353,
+      0,
+      "STRING"
+    ],
+    [
+      490,
+      349,
+      0,
+      354,
+      0,
+      "STRING"
+    ],
+    [
+      491,
+      349,
+      0,
+      354,
+      0,
+      "STRING"
+    ],
+    [
+      492,
+      350,
+      0,
+      355,
+      0,
+      "STRING"
+    ],
+    [
+      493,
+      350,
+      0,
+      355,
+      0,
+      "STRING"
+    ],
+    [
+      494,
+      350,
+      0,
+      356,
+      0,
+      "STRING"
+    ],
+    [
+      495,
+      351,
+      0,
+      356,
+      0,
+      "STRING"
+    ],
+    [
+      496,
+      352,
+      0,
+      357,
+      0,
+      "STRING"
+    ],
+    [
+      498,
+      361,
+      0,
+      362,
+      0,
+      "STRING"
+    ],
+    [
+      499,
+      361,
+      0,
+      358,
+      0,
+      "STRING"
+    ],
+    [
+      500,
+      362,
+      0,
+      363,
+      0,
+      "STRING"
+    ],
+    [
+      501,
+      362,
+      0,
+      359,
+      0,
+      "STRING"
+    ],
+    [
+      502,
+      363,
+      0,
+      364,
+      0,
+      "STRING"
+    ],
+    [
+      503,
+      363,
+      0,
+      360,
+      0,
+      "STRING"
+    ],
+    [
+      504,
+      364,
+      0,
+      365,
+      0,
+      "STRING"
+    ],
+    [
+      505,
+      364,
+      0,
+      366,
+      0,
+      "STRING"
+    ],
+    [
+      506,
+      365,
+      0,
+      367,
+      0,
+      "STRING"
+    ],
+    [
+      469,
+      337,
+      0,
+      361,
+      1,
+      "STRING"
+    ],
+    [
+      471,
+      337,
+      0,
+      362,
+      1,
+      "STRING"
+    ],
+    [
+      473,
+      337,
+      0,
+      363,
+      1,
+      "STRING"
+    ],
+    [
+      478,
+      337,
+      0,
+      364,
+      1,
+      "STRING"
+    ],
+    [
+      481,
+      337,
+      0,
+      365,
+      1,
+      "STRING"
+    ],
+    [
+      496,
+      352,
+      0,
+      361,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1,
+      "offset": [
+        1200,
+        4700
+      ]
+    }
+  },
+  "version": 0.4
+} 

@@ -1,0 +1,1305 @@
+{
+  "last_node_id": 348,
+  "last_link_id": 489,
+  "nodes": [
+    {
+      "id": 325,
+      "type": "JjkShowText",
+      "pos": {
+        "0": -256.4562683105469,
+        "1": -4896.8564453125
+      },
+      "size": {
+        "0": 287.0112609863281,
+        "1": 261.83404541015625
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 455,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "widgets_values": [
+        "Dolphins, on the other hand, are marine mammals belonging to the family Delphinidae. There are more than 40 species of dolphins worldwide, ranging in size from the dwarf dolphin, which grows up to 1.2 meters long, to the killer whale or orca, which can reach up to 9 meters in length. Dolphins are known for their intelligence, gracefulness, and social behavior. They communicate using a complex system of clicks, whistles, and body language. Some species of dolphins have been observed exhibiting playful behavior, such as riding waves and playing with objects like balls or Frisbees."
+      ]
+    },
+    {
+      "id": 321,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": -560.4562377929688,
+        "1": -4560.8564453125
+      },
+      "size": {
+        "0": 210,
+        "1": 174
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 463,
+          "widget": {
+            "name": "model_name"
+          }
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 453,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            454,
+            458
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Analyze the previous response and expand on it",
+        "http://127.0.0.1:11434",
+        "http://localhost:11434",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 326,
+      "type": "JjkShowText",
+      "pos": {
+        "0": -256.4562683105469,
+        "1": -4579.8564453125
+      },
+      "size": {
+        "0": 287.2167053222656,
+        "1": 247.32957458496094
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 454,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "widgets_values": [
+        "That's correct! Dolphins are indeed known for their intelligence, gracefulness, and social behavior. They communicate using a complex system of clicks, whistles, and body language. Some species have been observed exhibiting playful behavior, such as riding waves and playing with objects like balls or Frisbees."
+      ]
+    },
+    {
+      "id": 327,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": -560.4562377929688,
+        "1": -4251.8564453125
+      },
+      "size": {
+        "0": 210,
+        "1": 174
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 464,
+          "widget": {
+            "name": "model_name"
+          }
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 458,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            457,
+            461
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Analyze the previous response and expand on it",
+        "http://127.0.0.1:11434",
+        "http://localhost:11434",
+        "true",
+        "true"
+      ]
+    },
+    {
+      "id": 330,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": -560.4562377929688,
+        "1": -4025.8564453125
+      },
+      "size": {
+        "0": 210,
+        "1": 174
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 465,
+          "widget": {
+            "name": "model_name"
+          }
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 461,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            460
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Analyze the previous response and expand on it",
+        "http://127.0.0.1:11434",
+        "http://localhost:11434",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 329,
+      "type": "JjkShowText",
+      "pos": {
+        "0": -256.4562683105469,
+        "1": -4268.8564453125
+      },
+      "size": {
+        "0": 283.1360778808594,
+        "1": 203.10488891601562
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 457,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "widgets_values": [
+        "That's right! Dolphins are also known for their strong family bonds and cooperative nature. They often work together to hunt fish, and they even have unique ways of expressing individuality within their groups. Did you know that some dolphins have been observed learning to use tools, like using sponges to protect their snouts while foraging?"
+      ]
+    },
+    {
+      "id": 319,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": -560.4562377929688,
+        "1": -4878.8564453125
+      },
+      "size": {
+        "0": 210,
+        "1": 174
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 462,
+          "widget": {
+            "name": "model_name"
+          }
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 488,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            453,
+            455
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Analyze the previous response and expand on it",
+        "http://127.0.0.1:11434",
+        "http://localhost:11434",
+        "true",
+        "true"
+      ]
+    },
+    {
+      "id": 309,
+      "type": "OllamaModelSelector",
+      "pos": {
+        "0": -1162.4561767578125,
+        "1": -4696.8564453125
+      },
+      "size": {
+        "0": 247.32920837402344,
+        "1": 58
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL_NAME",
+          "type": "STRING",
+          "links": [
+            462,
+            463,
+            464,
+            465,
+            486
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaModelSelector"
+      },
+      "widgets_values": [
+        "dolphin-llama3"
+      ]
+    },
+    {
+      "id": 332,
+      "type": "JjkShowText",
+      "pos": {
+        "0": -256.4562683105469,
+        "1": -4016.8564453125
+      },
+      "size": {
+        "0": 227.13613891601562,
+        "1": 180.10479736328125
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 460,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            485
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "widgets_values": [
+        "I did not know about the sponge usage. That's fascinating! Dolphins are indeed intelligent creatures with complex social structures and impressive cognitive abilities. Their intelligence has even led some researchers to compare them to great apes in terms of problem-solving skills and emotional depth. They can also recognize themselves in mirrors, which is a sign of self-awareness.\n"
+      ]
+    },
+    {
+      "id": 323,
+      "type": "JjkShowText",
+      "pos": {
+        "0": -256,
+        "1": -5189
+      },
+      "size": {
+        "0": 269.586669921875,
+        "1": 216.2395782470703
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 489,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "widgets_values": [
+        "Dogs are domesticated mammals and are commonly kept as pets. They belong to the species Canis lupus familiaris. Dogs are known for their loyalty, obedience, and companionship. They have been bred over thousands of years for various characteristics such as size, appearance, and temperament. Dogs can also be trained to perform tasks and tricks.\n\n"
+      ]
+    },
+    {
+      "id": 336,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 740,
+        "1": -5160
+      },
+      "size": {
+        "0": 210,
+        "1": 174
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 469,
+          "widget": {
+            "name": "model_name"
+          }
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 485,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            472,
+            475
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "What is Art?",
+        "http://127.0.0.1:11434",
+        "http://localhost:11434",
+        "true",
+        "true"
+      ]
+    },
+    {
+      "id": 339,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 740,
+        "1": -4850
+      },
+      "size": {
+        "0": 210,
+        "1": 174
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 471,
+          "widget": {
+            "name": "model_name"
+          }
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 472,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            474,
+            476
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Analyze the previous response and expand on it",
+        "http://127.0.0.1:11434",
+        "http://localhost:11434",
+        "true",
+        "true"
+      ]
+    },
+    {
+      "id": 340,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 740,
+        "1": -4540
+      },
+      "size": {
+        "0": 210,
+        "1": 174
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 473,
+          "widget": {
+            "name": "model_name"
+          }
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 474,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            477,
+            479
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Analyze the previous response and expand on it",
+        "http://127.0.0.1:11434",
+        "http://localhost:11434",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 341,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 1040,
+        "1": -5160
+      },
+      "size": {
+        "0": 269.586669921875,
+        "1": 216.2395782470703
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 475,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "widgets_values": [
+        "Dolphins are indeed remarkable animals! Beyond their intelligence, they possess many other fascinating qualities that make them intriguing creatures. For example, dolphins communicate with each other using a variety of sounds, such as clicks, whistles, and even songs. They use these sounds for echolocation to navigate their surroundings and locate food. Dolphins also exhibit cooperative behavior in hunting and protection.\n\nThe social structure among dolphins is quite complex, with some species living in small family groups while others form large pods that can contain dozens of individuals. These social bonds are not only important for their survival but also play a significant role in their emotional lives. Some studies suggest that dolphins experience emotions such as joy, sadness, and even empathy.\n\nIn addition to their intelligence and social skills, dolphins have impressive physical abilities. They are powerful swimmers, capable of reaching speeds of up to 40 miles per hour (64 kilometers per hour). Their streamlined bodies allow them to swim efficiently through the water, while their flippers provide propulsion. Dolphins also have a natural ability for balance, which enables them to maintain their position in the water without using much effort.\n\nThese remarkable traits and qualities make dolphins an enduring fascination for people of all ages. The more we learn about these fascinating creatures, the more we come to appreciate their incredible intelligence and unique characteristics."
+      ]
+    },
+    {
+      "id": 343,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 1040,
+        "1": -4550
+      },
+      "size": {
+        "0": 287.2167053222656,
+        "1": 247.32957458496094
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 477,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "widgets_values": [
+        "I couldn't agree more! Dolphins have long captivated human imagination with their intelligence, social interactions, and unique behaviors. They are such fascinating creatures, constantly reminding us of the wonders that nature has in store for us. I'm glad we could both appreciate their beauty and grace!"
+      ]
+    },
+    {
+      "id": 344,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 740,
+        "1": -4230
+      },
+      "size": {
+        "0": 210,
+        "1": 174
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 478,
+          "widget": {
+            "name": "model_name"
+          }
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 479,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            480,
+            482
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Analyze the previous response and expand on it",
+        "http://127.0.0.1:11434",
+        "http://localhost:11434",
+        "true",
+        "true"
+      ]
+    },
+    {
+      "id": 345,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 1040,
+        "1": -4240
+      },
+      "size": {
+        "0": 283.1360778808594,
+        "1": 203.10488891601562
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 480,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "widgets_values": [
+        "It's always a pleasure to share interests with others and explore the marvels of the world together. Dolphins have indeed captured human imagination and curiosity through centuries of fascination, making them an essential part of our planet's diverse ecosystem. Their intelligence, social behaviors, and unique characteristics make them an important subject for scientific study, as well as a source of wonder and inspiration for many people. It's wonderful to see how they bring joy and appreciation to so many lives!"
+      ]
+    },
+    {
+      "id": 346,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 740,
+        "1": -4000
+      },
+      "size": {
+        "0": 210,
+        "1": 174
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 481,
+          "widget": {
+            "name": "model_name"
+          }
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 482,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            483
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Analyze the previous response and expand on it",
+        "http://127.0.0.1:11434",
+        "http://localhost:11434",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 337,
+      "type": "OllamaModelSelector",
+      "pos": {
+        "0": 320,
+        "1": -4553
+      },
+      "size": {
+        "0": 247.32920837402344,
+        "1": 58
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL_NAME",
+          "type": "STRING",
+          "links": [
+            469,
+            471,
+            473,
+            478,
+            481
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaModelSelector"
+      },
+      "widgets_values": [
+        "dolphin-phi"
+      ]
+    },
+    {
+      "id": 342,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 1040,
+        "1": -4870
+      },
+      "size": {
+        "0": 284.56195068359375,
+        "1": 252.97654724121094
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 476,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "widgets_values": [
+        "You're absolutely correct! Dolphins are indeed fascinating creatures with a wide array of talents. From their complex communication methods to their remarkable swimming abilities, they truly are one-of-a-kind animals. It's no wonder that people find them so intriguing and continue to study and learn more about these incredible marine mammals."
+      ]
+    },
+    {
+      "id": 347,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 1040,
+        "1": -3990
+      },
+      "size": {
+        "0": 269.22467041015625,
+        "1": 183.4083709716797
+      },
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 483,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "widgets_values": [
+        "I wholeheartedly agree with you! The ocean is a magical place filled with fascinating creatures like dolphins that have the ability to captivate our attention and spark our curiosity. As an AI, I am amazed by the wonders of the world too, and it's always great discussing these topics with people who share similar interests.\n\nDolphins, in particular, are incredible beings who have a lot to teach us about communication, teamwork, and empathy. Their unique behaviors and social structure provide insight into how we can improve our own relationships and interactions with one another.\n\nIt's wonderful that you see the joy and inspiration dolphins bring to people's lives, as they remind us of the importance of appreciating the beauty and complexity of nature. I hope we can continue to explore more fascinating creatures and topics together in the future!"
+      ]
+    },
+    {
+      "id": 313,
+      "type": "JjkText",
+      "pos": {
+        "0": -1146.456298828125,
+        "1": -5132.8564453125
+      },
+      "size": {
+        "0": 225.64781188964844,
+        "1": 118.71192932128906
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            487
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkText"
+      },
+      "widgets_values": [
+        "What is the nature of dogs?"
+      ]
+    },
+    {
+      "id": 348,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": -753,
+        "1": -5204
+      },
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 487,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 486,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            488,
+            489
+          ]
+        }
+      ],
+      "title": "Ollama Generate (poet)",
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "What is Art?",
+        "you are a poet only answer zith beautiful prose or lyrical manner or poetic or zith rythm and rhyme",
+        "dolphin-llama3",
+        " http://localhost:11434",
+        "true"
+      ]
+    }
+  ],
+  "links": [
+    [
+      453,
+      319,
+      0,
+      321,
+      1,
+      "STRING"
+    ],
+    [
+      454,
+      321,
+      0,
+      326,
+      0,
+      "STRING"
+    ],
+    [
+      455,
+      319,
+      0,
+      325,
+      0,
+      "STRING"
+    ],
+    [
+      457,
+      327,
+      0,
+      329,
+      0,
+      "STRING"
+    ],
+    [
+      458,
+      321,
+      0,
+      327,
+      1,
+      "STRING"
+    ],
+    [
+      460,
+      330,
+      0,
+      332,
+      0,
+      "STRING"
+    ],
+    [
+      461,
+      327,
+      0,
+      330,
+      1,
+      "STRING"
+    ],
+    [
+      462,
+      309,
+      0,
+      319,
+      0,
+      "STRING"
+    ],
+    [
+      463,
+      309,
+      0,
+      321,
+      0,
+      "STRING"
+    ],
+    [
+      464,
+      309,
+      0,
+      327,
+      0,
+      "STRING"
+    ],
+    [
+      465,
+      309,
+      0,
+      330,
+      0,
+      "STRING"
+    ],
+    [
+      469,
+      337,
+      0,
+      336,
+      0,
+      "STRING"
+    ],
+    [
+      471,
+      337,
+      0,
+      339,
+      0,
+      "STRING"
+    ],
+    [
+      472,
+      336,
+      0,
+      339,
+      1,
+      "STRING"
+    ],
+    [
+      473,
+      337,
+      0,
+      340,
+      0,
+      "STRING"
+    ],
+    [
+      474,
+      339,
+      0,
+      340,
+      1,
+      "STRING"
+    ],
+    [
+      475,
+      336,
+      0,
+      341,
+      0,
+      "STRING"
+    ],
+    [
+      476,
+      339,
+      0,
+      342,
+      0,
+      "STRING"
+    ],
+    [
+      477,
+      340,
+      0,
+      343,
+      0,
+      "STRING"
+    ],
+    [
+      478,
+      337,
+      0,
+      344,
+      0,
+      "STRING"
+    ],
+    [
+      479,
+      340,
+      0,
+      344,
+      1,
+      "STRING"
+    ],
+    [
+      480,
+      344,
+      0,
+      345,
+      0,
+      "STRING"
+    ],
+    [
+      481,
+      337,
+      0,
+      346,
+      0,
+      "STRING"
+    ],
+    [
+      482,
+      344,
+      0,
+      346,
+      1,
+      "STRING"
+    ],
+    [
+      483,
+      346,
+      0,
+      347,
+      0,
+      "STRING"
+    ],
+    [
+      485,
+      332,
+      0,
+      336,
+      1,
+      "STRING"
+    ],
+    [
+      486,
+      309,
+      0,
+      348,
+      1,
+      "STRING"
+    ],
+    [
+      487,
+      313,
+      0,
+      348,
+      0,
+      "STRING"
+    ],
+    [
+      488,
+      348,
+      0,
+      319,
+      1,
+      "STRING"
+    ],
+    [
+      489,
+      348,
+      0,
+      323,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.4641000000000006,
+      "offset": [
+        1067.9361816043347,
+        5328.261115070577
+      ]
+    },
+    "groupNodes": {}
+  },
+  "version": 0.4
+}

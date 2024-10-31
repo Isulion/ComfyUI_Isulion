@@ -8,9 +8,8 @@ NODE_CLASS_MAPPINGS = {
     "OllamaModelSelector": OllamaModelSelector
 }
 
-# Optional: Provide a custom display name for the node
 NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionPromptGenerator": "Isulion Prompt Generator",
-    "OllamaGenerate": "Isulion Ollama Generate",
-    "OllamaModelSelector": "Ollama Model Selector"
+    "OllamaGenerate": "Ollama Generate",
+    "OllamaModelSelector": "Ixulion Ollama Model Selector"
 }

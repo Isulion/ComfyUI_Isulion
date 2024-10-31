@@ -2,9 +2,6 @@ import subprocess
 import logging
 
 class OllamaModelSelector:
-    def __init__(self):
-        pass    
-    
     @classmethod
     def INPUT_TYPES(s):
         try:
@@ -42,23 +39,23 @@ class OllamaModelSelector:
         return {
             "required": {
                 "model_name": (models, {
-                    "default": "dolphin-llama3" if models else "No models found",
+                    "default": models[2] if models else "No models found",
                     "tooltip": "Select an Ollama model to use"
                 }),
             }
         }
 
-    RETURN_TYPES = ("STRING",)
-    RETURN_NAMES = ("MODEL_NAME",)
+    RETURN_TYPES = ("STRING",)  # Simple string return type
+    RETURN_NAMES = ("MODEL",)
     FUNCTION = "get_model"
     
     CATEGORY = "Isulion/Ollama"
     DESCRIPTION = "Select an Ollama model from installed models"
 
     def get_model(self, model_name):
-        return (model_name,)
+        # Return just the model name string
+        return (model_name,)  # Return as tuple with single string value
 
-# Fix: Make sure the key in NODE_CLASS_MAPPINGS matches the key in NODE_DISPLAY_NAME_MAPPINGS
 NODE_CLASS_MAPPINGS = {
     "OllamaModelSelector": OllamaModelSelector
 }

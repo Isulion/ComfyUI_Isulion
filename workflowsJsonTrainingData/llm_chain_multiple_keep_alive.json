@@ -1,0 +1,301 @@
+{
+  "last_node_id": 320,
+  "last_link_id": 450,
+  "nodes": [
+    {
+      "id": 312,
+      "type": "JjkShowText",
+      "pos": {
+        "0": 800,
+        "1": -4548
+      },
+      "size": {
+        "0": 314.3045959472656,
+        "1": 393.1268310546875
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 447,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 305,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": -200,
+        "1": -4531
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 442,
+          "widget": {
+            "name": "model_name"
+          }
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 444,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            445
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "What is Art?",
+        "http://127.0.0.1:11434",
+        "http://localhost:11434",
+        5
+      ]
+    },
+    {
+      "id": 309,
+      "type": "OllamaModelSelector",
+      "pos": {
+        "0": -800,
+        "1": -4560
+      },
+      "size": {
+        "0": 378,
+        "1": 58
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "STRING",
+          "links": [
+            442
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaModelSelector"
+      },
+      "widgets_values": [
+        "dolphin-phi"
+      ]
+    },
+    {
+      "id": 313,
+      "type": "JjkText",
+      "pos": {
+        "0": -800,
+        "1": -4432
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            444
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkText"
+      },
+      "widgets_values": [
+        "What is the nature of consciousness?"
+      ]
+    },
+    {
+      "id": 319,
+      "type": "OllamaGenerate",
+      "pos": {
+        "0": 300,
+        "1": -4531
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "STRING",
+          "link": 446,
+          "widget": {
+            "name": "model_name"
+          }
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 445,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            447
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerate"
+      },
+      "widgets_values": [
+        "Analyze the previous response and expand on it",
+        "http://127.0.0.1:11434",
+        "http://localhost:11434",
+        5
+      ]
+    },
+    {
+      "id": 320,
+      "type": "OllamaModelSelector",
+      "pos": {
+        "0": -199,
+        "1": -4660
+      },
+      "size": {
+        "0": 378,
+        "1": 58
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "STRING",
+          "links": [
+            446
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaModelSelector"
+      },
+      "widgets_values": [
+        "dolphi"
+      ]
+    }
+  ],
+  "links": [
+    [
+      442,
+      309,
+      0,
+      305,
+      0,
+      "STRING"
+    ],
+    [
+      444,
+      313,
+      0,
+      305,
+      1,
+      "STRING"
+    ],
+    [
+      445,
+      305,
+      0,
+      319,
+      1,
+      "STRING"
+    ],
+    [
+      446,
+      320,
+      0,
+      319,
+      0,
+      "STRING"
+    ],
+    [
+      447,
+      319,
+      0,
+      312,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6830134553650705,
+      "offset": [
+        1164.3825152468874,
+        4968.847162162794
+      ]
+    },
+    "groupNodes": {}
+  },
+  "version": 0.4
+}
