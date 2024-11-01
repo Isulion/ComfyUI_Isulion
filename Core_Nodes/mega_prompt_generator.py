@@ -443,10 +443,20 @@ class IsulionMegaPromptGenerator:
                 action = random.choice(self.actions)
                 subject_text = f"{character} {action}"
             elif theme == "cute chimera":
-                # Create cute chimera by combining 2 animals
-                animal_parts = random.sample(self.cute_animals, 2)
+                # Modified chimera creation to mix normal and cute animals
+                if random.random() < 0.5:
+                    # Mix cute head with normal body
+                    head = random.choice(self.cute_animals)
+                    body = random.choice(self.animals)
+                    subject_text = f"cute hybrid creature with {head} head and {body} body"
+                else:
+                    # Mix normal head with cute body
+                    head = random.choice(self.animals)
+                    body = random.choice(self.cute_animals)
+                    subject_text = f"cute hybrid creature with {head} head and {body} body"
+                
                 behavior = random.choice(self.behaviors)
-                subject_text = f"cute hybrid creature with {animal_parts[0]} head and {animal_parts[1]} body, {behavior}"
+                subject_text += f", {behavior}"
             elif theme == "anime":
                 character = random.choice(self.anime_characters)
                 action = random.choice(self.actions)
