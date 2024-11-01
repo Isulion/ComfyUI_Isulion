@@ -93,11 +93,86 @@ class IsulionMegaPromptGenerator:
         "ed", "edd", "eddy", "cow and chicken", "i am weasel", "samurai jack"
     ]
 
+    anime_characters = [
+        "schoolgirl", "ninja", "samurai", "mecha pilot", "magical girl", 
+        "shrine maiden", "demon slayer", "alchemist", "spirit", "yokai",
+        "shinobi", "ronin", "sensei", "student", "idol", "witch", "summoner",
+        "warrior", "priestess", "hero", "villain", "anti-hero", "guardian",
+        "assassin", "swordmaster", "dragon rider", "beast tamer"
+    ]
+
+    architecture_styles = [
+        "gothic", "modern", "art deco", "baroque", "minimalist", "brutalist",
+        "victorian", "classical", "renaissance", "contemporary", "futuristic",
+        "industrial", "organic", "high-tech", "postmodern", "deconstructivist",
+        "traditional japanese", "islamic", "greek revival", "romanesque",
+        "neoclassical", "tudor", "colonial", "art nouveau", "beaux-arts",
+        "rococo", "bauhaus", "mid-century modern", "neo-gothic", "byzantine",
+        "modernist", "prairie style", "international style", "spanish colonial",
+        "craftsman", "mediterranean", "georgian", "edwardian", "neo-futuristic",
+        "sustainable", "parametric", "vernacular", "pueblo revival"
+    ]
+
+    architecture_elements = [
+        "cathedral", "skyscraper", "temple", "palace", "castle", "mansion",
+        "bridge", "tower", "museum", "library", "opera house", "station",
+        "observatory", "pavilion", "monument", "arch", "dome", "spire",
+        "courtyard", "garden", "amphitheater", "aqueduct", "basilica",
+        "belvedere", "citadel", "colonnade", "conservatory", "fortress",
+        "gatehouse", "greenhouse", "lighthouse", "mausoleum", "minaret",
+        "monastery", "obelisk", "pagoda", "pantheon", "pyramid", "rotunda",
+        "sanctuary", "terrace", "vault", "ziggurat", "acropolis", "arcade",
+        "atrium", "balustrade", "buttress", "cloister", "portico"
+    ]
+
+    abstract_elements = [
+        "geometric shapes", "flowing lines", "color fields", "patterns",
+        "fractals", "curves", "spirals", "dots", "waves", "symmetry",
+        "asymmetry", "gradients", "textures", "layers", "dimensions",
+        "perspective", "depth", "movement", "rhythm", "space",
+        "tessellations", "mosaics", "kaleidoscope", "interference",
+        "diffraction", "refraction", "distortion", "reflection",
+        "transparency", "opacity", "luminosity", "contrast", "harmony",
+        "discord", "balance", "tension", "fluidity", "rigidity",
+        "compression", "expansion", "intersection", "overlay", "repetition",
+        "fragmentation", "convergence", "divergence", "radial patterns",
+        "linear patterns", "organic patterns", "crystalline structures"
+    ]
+
+    abstract_styles = [
+        "cubist", "expressionist", "constructivist", "suprematist",
+        "de stijl", "abstract expressionist", "color field", "minimalist",
+        "geometric abstraction", "lyrical abstraction", "op art", "kinetic art",
+        "hard-edge painting", "organic abstraction", "biomorphic",
+        "abstract surrealism", "abstract impressionism", "action painting",
+        "tachisme", "art informel", "neo-plasticism", "orphism",
+        "rayonism", "synchronism", "concrete art", "systems art",
+        "process art", "color abstraction", "gestural abstraction",
+        "post-painterly abstraction", "abstract illusionism", "neo-geo",
+        "digital abstraction", "generative art", "glitch art",
+        "abstract photography", "abstract sculpture", "light art",
+        "sound art", "conceptual abstraction", "neo-expressionism"
+    ]
+
+    # Add theme prefixes as a class variable
+    theme_prefixes = {
+        "anime": "anime artwork of",
+        "realistic": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k of",
+        "sci_fi": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k of",
+        "fantasy": "fantasy artwork, epic scene of",
+        "chimera": "cute digital art of",
+        "cinema": "cinematic shot, movie scene of",
+        "cartoon": "cartoon style image of",
+        "architecture": "architectural photography of",
+        "abstract": "abstract artwork featuring",
+        "mixed": "high quality digital art of"
+    }
+
     @classmethod
     def INPUT_TYPES(s):
         return {
             "required": {
-                "theme": (["fantasy", "sci_fi", "realistic", "mixed", "chimera", "cinema", "cartoon"], {"default": "fantasy"}),
+                "theme": (["fantasy", "sci_fi", "realistic", "mixed", "chimera", "cinema", "cartoon", "anime", "architecture", "abstract"], {"default": "fantasy"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
             },
@@ -140,6 +215,12 @@ class IsulionMegaPromptGenerator:
             seed = random.randint(0, 0xffffffffffffffff) if seed == 0 else seed
         
         components = []
+        
+        # Add theme prefix at the start
+        prefix = self.theme_prefixes.get(theme, "")
+        if prefix:
+            components.append(prefix)
+
         subject_text = ""
         action_text = ""
         environment_text = ""
@@ -148,12 +229,20 @@ class IsulionMegaPromptGenerator:
 
         # Subject generation
         if include_subject == "yes":
-            if theme == "cinema":
-                character = random.choice(self.cinema_characters)
+            if theme == "anime":
+                character = random.choice(self.anime_characters)
                 action = random.choice(self.actions)
                 subject_text = f"{character} {action}"
-            elif theme == "cartoon":
-                character = random.choice(self.cartoon_characters)
+            elif theme == "architecture":
+                style = random.choice(self.architecture_styles)
+                element = random.choice(self.architecture_elements)
+                subject_text = f"{style} {element}"
+            elif theme == "abstract":
+                element = random.choice(self.abstract_elements)
+                style = random.choice(self.abstract_styles)
+                subject_text = f"{style} composition with {element}"
+            elif theme == "cinema":
+                character = random.choice(self.cinema_characters)
                 action = random.choice(self.actions)
                 subject_text = f"{character} {action}"
             elif theme == "chimera":
@@ -201,6 +290,19 @@ class IsulionMegaPromptGenerator:
                 terrain = random.choice(self.alien_world_elements["terrains"])
                 feature = random.choice(self.alien_world_elements["features"])
                 environment_text = f"on an alien world with {atmos} atmosphere, {terrain}, and {feature}"
+            elif theme == "architecture":
+                weather_cond = random.choice(self.weather)
+                time = random.choice(self.times)
+                environment_text = f"during {weather_cond} {time}"
+            elif theme == "abstract":
+                environment_text = f"in {random.choice(['infinite space', 'void', 'dimensional plane', 'abstract realm', 'geometric space'])}"
+            elif theme == "anime":
+                if random.choice([True, False]):
+                    location = random.choice(self.mythical_locations)
+                    environment_text = f"in {location}"
+                else:
+                    habitat = random.choice(self.habitats)
+                    environment_text = f"in {habitat}"
             else:
                 habitat = random.choice(self.habitats)
                 weather_cond = random.choice(self.weather)
