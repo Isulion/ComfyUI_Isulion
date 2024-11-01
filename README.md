@@ -38,6 +38,7 @@ ComfyUI installed node:
 The Mega Prompt Generator is an advanced node that combines multiple themes and generation capabilities:
 
 ### Available Themes:
+- Random: Randomly selects from available themes
 - Fantasy: Epic fantasy scenes and characters
 - Sci-Fi: Futuristic and technological scenes
 - Realistic: Real-world photography style
@@ -52,7 +53,7 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 - 3D: Three-dimensional artwork
 - Halloween: Spooky and horror themes
 - Instagram: Social media influencer photography
-- Random: Randomly selects from available themes
+- Strange_animal: Creates unique creatures with cute animal heads and normal animal bodies
 
 ### Features:
 - Theme-specific prefixes and styles
