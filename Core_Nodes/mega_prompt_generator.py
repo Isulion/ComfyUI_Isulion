@@ -253,6 +253,31 @@ class IsulionMegaPromptGenerator:
         ]
     }
 
+    # Add new class variables
+    influencer_types = [
+        "fashion blogger", "fitness model", "travel influencer", "lifestyle blogger",
+        "food critic", "beauty guru", "tech reviewer", "wellness coach",
+        "yoga instructor", "digital nomad", "streetwear model", "makeup artist",
+        "personal trainer", "luxury lifestyle", "sustainable living blogger",
+        "adventure photographer", "home decor expert", "fashion model"
+    ]
+
+    influencer_activities = [
+        "posing", "taking selfie", "vlogging", "doing photoshoot",
+        "showcasing product", "recording story", "doing unboxing",
+        "creating content", "doing tutorial", "reviewing product",
+        "sharing lifestyle tips", "doing workout", "traveling",
+        "doing makeup tutorial", "sharing fashion tips"
+    ]
+
+    influencer_locations = [
+        "luxury hotel", "infinity pool", "beach resort", "rooftop bar",
+        "trendy cafe", "designer store", "yoga studio", "private jet",
+        "exotic beach", "urban rooftop", "luxury apartment",
+        "high-end restaurant", "fashion show", "art gallery",
+        "boutique hotel", "sunset viewpoint", "luxury yacht"
+    ]
+
     # Update theme prefixes
     theme_prefixes = {
         "anime": "anime artwork of",
@@ -269,6 +294,7 @@ class IsulionMegaPromptGenerator:
         "interior": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, interior design photography of",
         "3D": "3D rendering of",
         "halloween": "spooky halloween scene of",
+        "instagram": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, instagram influencer photo of",
     }
 
     @classmethod
@@ -277,7 +303,7 @@ class IsulionMegaPromptGenerator:
             "required": {
                 "theme": (["fantasy", "sci_fi", "realistic", "random", "cute chimera", 
                           "cinema", "cartoon", "anime", "architecture", "abstract",
-                          "food", "interior", "3D", "halloween"], {"default": "fantasy"}),
+                          "food", "interior", "3D", "halloween", "instagram"], {"default": "fantasy"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
             },
@@ -425,6 +451,10 @@ class IsulionMegaPromptGenerator:
                 creature = random.choice(self.halloween_elements["creatures"])
                 prop = random.choice(self.halloween_elements["props"])
                 subject_text = f"{creature} with {prop}"
+            elif theme == "instagram":
+                influencer = random.choice(self.influencer_types)
+                activity = random.choice(self.influencer_activities)
+                subject_text = f"beautiful {influencer} {activity}"
             else:  # realistic or mixed
                 if random.choice([True, False]):
                     animal = random.choice(self.cute_animals if random.random() < 0.3 else self.animals)
@@ -471,6 +501,10 @@ class IsulionMegaPromptGenerator:
                 time = random.choice(["midnight", "witching hour", "full moon night", "foggy twilight"])
                 weather = random.choice(["misty", "stormy", "cloudy", "windy"])
                 environment_text = f"in a {setting} during {weather} {time}"
+            elif theme == "instagram":
+                location = random.choice(self.influencer_locations)
+                time = random.choice(["golden hour", "sunset", "blue hour", "morning light"])
+                environment_text = f"at {location} during {time}"
             else:
                 habitat = random.choice(self.habitats)
                 weather_cond = random.choice(self.weather)
@@ -517,6 +551,14 @@ class IsulionMegaPromptGenerator:
                 ])
                 effect2 = random.choice(self.halloween_elements["props"])
                 effects_text = f"with {effect1} and {effect2}"
+            elif theme == "instagram":
+                effect = random.choice([
+                    "perfect lighting", "bokeh effect", "lens flare", "natural glow",
+                    "soft focus", "golden light", "backlit", "rim lighting",
+                    "professional lighting", "studio lighting"
+                ])
+                effects_text = f"with {effect} and lifestyle aesthetic"
+                components.append(effects_text)
             else:  # realistic or mixed
                 if random.choice([True, False]):
                     effect = random.choice(self.magical_effects["nature"])
