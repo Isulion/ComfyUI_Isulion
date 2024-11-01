@@ -1,103 +1,78 @@
-import os
-import sys
-import importlib.util
+from .nodes.core.prompt_generator import IsulionPromptGenerator
+from .nodes.core.ollama_generate import OllamaGenerate
+from .nodes.animals.animal_selector import Isulion_AnimalRandom
+from .nodes.animals.cute_animal_selector import IsulionCuteAnimalRandom
+from .nodes.animals.animal_behavior import Isulion_AnimalBehaviorGenerator
+from .nodes.characters.profession import IsulionProfessionGenerator
+from .nodes.characters.fantasy_race import IsulionFantasyRaceGenerator
+from .nodes.characters.clothing import IsulionClothingGenerator
+from .nodes.environment.habitat import Isulion_HabitatGenerator
+from .nodes.environment.weather import Isulion_WeatherGenerator
+from .nodes.environment.time_of_day import Isulion_TimeOfDayGenerator
+from .nodes.scene.action import IsulionActionGenerator
+from .nodes.scene.composition import IsulionSceneComposition
+from .nodes.style.art_style import Isulion_ArtStyleGenerator
+from .nodes.style.emotion import Isulion_EmotionGenerator
+from .nodes.fantasy.magical_effect import IsulionMagicalEffectGenerator
+from .nodes.fantasy.mythical_location import IsulionMythicalLocationGenerator
+from .nodes.fantasy.artifact import IsulionArtifactGenerator
+from .nodes.scifi.tech import IsulionTechGenerator
+from .nodes.scifi.alien_world import IsulionAlienWorldGenerator
+from .nodes.scifi.spacecraft import IsulionSpacecraftGenerator
+from .nodes.enhancement.style_mixer import IsulionStyleMixer
+from .nodes.enhancement.prompt_enhancer import IsulionPromptEnhancer
+from .nodes.enhancement.negative_prompt import IsulionNegativePromptGenerator
 
-# Add the current directory to the path
-current_path = os.path.dirname(os.path.realpath(__file__))
-sys.path.append(current_path)
+NODE_CLASS_MAPPINGS = {
+    "IsulionPromptGenerator": IsulionPromptGenerator,
+    "IsulionOllamaGenerate": OllamaGenerate,
+    "IsulionAnimalRandom": Isulion_AnimalRandom,
+    "IsulionCuteAnimalRandom": IsulionCuteAnimalRandom,
+    "IsulionEmotionGenerator": Isulion_EmotionGenerator,
+    "IsulionHabitatGenerator": Isulion_HabitatGenerator,
+    "IsulionWeatherGenerator": Isulion_WeatherGenerator,
+    "IsulionTimeOfDayGenerator": Isulion_TimeOfDayGenerator,
+    "IsulionArtStyleGenerator": Isulion_ArtStyleGenerator,
+    "IsulionAnimalBehaviorGenerator": Isulion_AnimalBehaviorGenerator,
+    "IsulionProfessionGenerator": IsulionProfessionGenerator,
+    "IsulionFantasyRaceGenerator": IsulionFantasyRaceGenerator,
+    "IsulionClothingGenerator": IsulionClothingGenerator,
+    "IsulionActionGenerator": IsulionActionGenerator,
+    "IsulionSceneComposition": IsulionSceneComposition,
+    "IsulionMagicalEffectGenerator": IsulionMagicalEffectGenerator,
+    "IsulionMythicalLocationGenerator": IsulionMythicalLocationGenerator,
+    "IsulionArtifactGenerator": IsulionArtifactGenerator,
+    "IsulionTechGenerator": IsulionTechGenerator,
+    "IsulionAlienWorldGenerator": IsulionAlienWorldGenerator,
+    "IsulionSpacecraftGenerator": IsulionSpacecraftGenerator,
+    "IsulionStyleMixer": IsulionStyleMixer,
+    "IsulionPromptEnhancer": IsulionPromptEnhancer,
+    "IsulionNegativePromptGenerator": IsulionNegativePromptGenerator,
+}
 
-# Initialize empty mappings
-NODE_CLASS_MAPPINGS = {}
-NODE_DISPLAY_NAME_MAPPINGS = {}
-
-try:
-    # Import core modules
-    if importlib.util.find_spec("core.prompt_generator") is not None:
-        from core.prompt_generator import IsulionPromptGenerator
-        NODE_CLASS_MAPPINGS["IsulionPromptGenerator"] = IsulionPromptGenerator
-        NODE_DISPLAY_NAME_MAPPINGS["IsulionPromptGenerator"] = "Isulion Prompt Generator ✨"
-
-    if importlib.util.find_spec("core.ollama_generator") is not None:
-        from core.ollama_generator import OllamaGenerate
-        NODE_CLASS_MAPPINGS["IsulionOllamaGenerate"] = OllamaGenerate
-        NODE_DISPLAY_NAME_MAPPINGS["IsulionOllamaGenerate"] = "Isulion Ollama Generate 🤖"
-
-    # Import character nodes
-    if importlib.util.find_spec("nodes.character.profession_generator") is not None:
-        from nodes.character.profession_generator import IsulionProfessionGenerator
-        NODE_CLASS_MAPPINGS["IsulionProfessionGenerator"] = IsulionProfessionGenerator
-        NODE_DISPLAY_NAME_MAPPINGS["IsulionProfessionGenerator"] = "Isulion Character Profession 👨‍🍳"
-
-    if importlib.util.find_spec("nodes.character.fantasy_race_generator") is not None:
-        from nodes.character.fantasy_race_generator import IsulionFantasyRaceGenerator
-        NODE_CLASS_MAPPINGS["IsulionFantasyRaceGenerator"] = IsulionFantasyRaceGenerator
-        NODE_DISPLAY_NAME_MAPPINGS["IsulionFantasyRaceGenerator"] = "Isulion Fantasy Race Generator 🧝‍♂️"
-
-    if importlib.util.find_spec("nodes.character.clothing_generator") is not None:
-        from nodes.character.clothing_generator import IsulionClothingGenerator
-        NODE_CLASS_MAPPINGS["IsulionClothingGenerator"] = IsulionClothingGenerator
-        NODE_DISPLAY_NAME_MAPPINGS["IsulionClothingGenerator"] = "Isulion Clothing Style Generator 👔"
-
-    # Import scene nodes
-    if importlib.util.find_spec("nodes.scene.action_generator") is not None:
-        from nodes.scene.action_generator import IsulionActionGenerator
-        NODE_CLASS_MAPPINGS["IsulionActionGenerator"] = IsulionActionGenerator
-        NODE_DISPLAY_NAME_MAPPINGS["IsulionActionGenerator"] = "Isulion Action Generator ⚔️"
-
-    if importlib.util.find_spec("nodes.scene.scene_composition") is not None:
-        from nodes.scene.scene_composition import IsulionSceneComposition
-        NODE_CLASS_MAPPINGS["IsulionSceneComposition"] = IsulionSceneComposition
-        NODE_DISPLAY_NAME_MAPPINGS["IsulionSceneComposition"] = "Isulion Scene Composition 🎬"
-
-    # Import fantasy nodes
-    if importlib.util.find_spec("nodes.fantasy.magical_effect_generator") is not None:
-        from nodes.fantasy.magical_effect_generator import IsulionMagicalEffectGenerator
-        NODE_CLASS_MAPPINGS["IsulionMagicalEffectGenerator"] = IsulionMagicalEffectGenerator
-        NODE_DISPLAY_NAME_MAPPINGS["IsulionMagicalEffectGenerator"] = "Isulion Magical Effect Generator ✨"
-
-    if importlib.util.find_spec("nodes.fantasy.mythical_location_generator") is not None:
-        from nodes.fantasy.mythical_location_generator import IsulionMythicalLocationGenerator
-        NODE_CLASS_MAPPINGS["IsulionMythicalLocationGenerator"] = IsulionMythicalLocationGenerator
-        NODE_DISPLAY_NAME_MAPPINGS["IsulionMythicalLocationGenerator"] = "Isulion Mythical Location Generator 🏰"
-
-    if importlib.util.find_spec("nodes.fantasy.artifact_generator") is not None:
-        from nodes.fantasy.artifact_generator import IsulionArtifactGenerator
-        NODE_CLASS_MAPPINGS["IsulionArtifactGenerator"] = IsulionArtifactGenerator
-        NODE_DISPLAY_NAME_MAPPINGS["IsulionArtifactGenerator"] = "Isulion Artifact Generator 📿"
-
-    # Import sci-fi nodes
-    if importlib.util.find_spec("nodes.scifi.tech_generator") is not None:
-        from nodes.scifi.tech_generator import IsulionTechGenerator
-        NODE_CLASS_MAPPINGS["IsulionTechGenerator"] = IsulionTechGenerator
-        NODE_DISPLAY_NAME_MAPPINGS["IsulionTechGenerator"] = "Isulion Tech Generator 🤖"
-
-    if importlib.util.find_spec("nodes.scifi.alien_world_generator") is not None:
-        from nodes.scifi.alien_world_generator import IsulionAlienWorldGenerator
-        NODE_CLASS_MAPPINGS["IsulionAlienWorldGenerator"] = IsulionAlienWorldGenerator
-        NODE_DISPLAY_NAME_MAPPINGS["IsulionAlienWorldGenerator"] = "Isulion Alien World Generator 🪐"
-
-    if importlib.util.find_spec("nodes.scifi.spacecraft_generator") is not None:
-        from nodes.scifi.spacecraft_generator import IsulionSpacecraftGenerator
-        NODE_CLASS_MAPPINGS["IsulionSpacecraftGenerator"] = IsulionSpacecraftGenerator
-        NODE_DISPLAY_NAME_MAPPINGS["IsulionSpacecraftGenerator"] = "Isulion Spacecraft Designer 🚀"
-
-    # Import enhancement nodes
-    if importlib.util.find_spec("nodes.enhancement.style_mixer") is not None:
-        from nodes.enhancement.style_mixer import IsulionStyleMixer
-        NODE_CLASS_MAPPINGS["IsulionStyleMixer"] = IsulionStyleMixer
-        NODE_DISPLAY_NAME_MAPPINGS["IsulionStyleMixer"] = "Isulion Style Mixer 🎨"
-
-    if importlib.util.find_spec("nodes.enhancement.prompt_enhancer") is not None:
-        from nodes.enhancement.prompt_enhancer import IsulionPromptEnhancer
-        NODE_CLASS_MAPPINGS["IsulionPromptEnhancer"] = IsulionPromptEnhancer
-        NODE_DISPLAY_NAME_MAPPINGS["IsulionPromptEnhancer"] = "Isulion Prompt Enhancer 📝"
-
-    if importlib.util.find_spec("nodes.enhancement.negative_prompt_generator") is not None:
-        from nodes.enhancement.negative_prompt_generator import IsulionNegativePromptGenerator
-        NODE_CLASS_MAPPINGS["IsulionNegativePromptGenerator"] = IsulionNegativePromptGenerator
-        NODE_DISPLAY_NAME_MAPPINGS["IsulionNegativePromptGenerator"] = "Isulion Negative Prompt Generator ⛔"
-
-except ImportError as e:
-    print(f"Error importing Isulion nodes: {str(e)}")
-except Exception as e:
-    print(f"Error initializing Isulion nodes: {str(e)}")
+NODE_DISPLAY_NAME_MAPPINGS = {
+    "IsulionPromptGenerator": "Isulion Prompt Generator ✨",
+    "IsulionOllamaGenerate": "Isulion Ollama Generate 🤖",
+    "IsulionAnimalRandom": "Isulion Animal Selector 🦁",
+    "IsulionCuteAnimalRandom": "Isulion Cute Animal Selector 🐱",
+    "IsulionEmotionGenerator": "Isulion Emotion Generator 😊",
+    "IsulionHabitatGenerator": "Isulion Habitat Generator 🌲",
+    "IsulionWeatherGenerator": "Isulion Weather Generator ⛅",
+    "IsulionTimeOfDayGenerator": "Isulion Time of Day Generator 🌅",
+    "IsulionArtStyleGenerator": "Isulion Art Style Generator 🎨",
+    "IsulionAnimalBehaviorGenerator": "Isulion Animal Behavior Generator 🦊",
+    "IsulionProfessionGenerator": "Isulion Character Profession 👨‍🍳",
+    "IsulionFantasyRaceGenerator": "Isulion Fantasy Race Generator 🧝‍♂️",
+    "IsulionClothingGenerator": "Isulion Clothing Style Generator 👔",
+    "IsulionActionGenerator": "Isulion Action Generator ⚔️",
+    "IsulionSceneComposition": "Isulion Scene Composition 🎬",
+    "IsulionMagicalEffectGenerator": "Isulion Magical Effect Generator ✨",
+    "IsulionMythicalLocationGenerator": "Isulion Mythical Location Generator 🏰",
+    "IsulionArtifactGenerator": "Isulion Artifact Generator 📿",
+    "IsulionTechGenerator": "Isulion Tech Generator 🤖",
+    "IsulionAlienWorldGenerator": "Isulion Alien World Generator 🪐",
+    "IsulionSpacecraftGenerator": "Isulion Spacecraft Designer 🚀",
+    "IsulionStyleMixer": "Isulion Style Mixer 🎨",
+    "IsulionPromptEnhancer": "Isulion Prompt Enhancer 📝",
+    "IsulionNegativePromptGenerator": "Isulion Negative Prompt Generator ⛔",
+}

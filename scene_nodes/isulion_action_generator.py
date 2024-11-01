@@ -1,23 +1,14 @@
 import random
 
 class IsulionActionGenerator:
-    actions = [
-        "running", "jumping", "fighting", "casting spell", "dancing",
-        "flying", "swimming", "climbing", "meditating", "reading",
-        "wielding weapon", "performing ritual", "crafting", "sneaking",
-        "charging", "defending", "shooting", "aiming", "falling",
-        "floating", "levitating", "sprinting", "crouching", "leaping",
-        "spinning", "twirling", "marching", "crawling", "balancing",
-        "diving", "gliding", "hovering", "kneeling", "posing",
-        "reaching", "sitting", "standing", "walking", "writing"
-    ]
-
     @classmethod
     def INPUT_TYPES(s):
         return {
             "required": {
                 "randomize": (["enable", "disable"],),
-                "action": (s.actions,),
+                "action": (["running", "jumping", "fighting", "casting spell", "dancing",
+                          "flying", "swimming", "climbing", "meditating", "reading",
+                          "wielding weapon", "performing ritual", "crafting"],),
             },
             "optional": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
@@ -37,6 +28,6 @@ class IsulionActionGenerator:
                 seed = random.randint(0, 0xffffffffffffffff)
                 random.seed(seed)
             
-            action = random.choice(self.actions)
+            action = random.choice(self.INPUT_TYPES()["required"]["action"][0])
         
         return (action, seed) 
