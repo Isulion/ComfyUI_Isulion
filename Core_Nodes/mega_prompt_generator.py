@@ -278,6 +278,12 @@ class IsulionMegaPromptGenerator:
                 include_effects="yes"):
         if randomize == "enable":
             seed = random.randint(0, 0xffffffffffffffff) if seed == 0 else seed
+            random.seed(seed)
+
+        # For random theme, pick a random theme except "random" itself
+        if theme == "random":
+            available_themes = [t for t in self.theme_prefixes.keys() if t != "random"]
+            theme = random.choice(available_themes)
         
         components = []
         
