@@ -297,6 +297,35 @@ class IsulionMegaPromptGenerator:
         "instagram": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, instagram influencer photo of",
     }
 
+    # Add these new class variables after the existing ones
+    enhancements = {
+        "detail": {
+            "subtle": ["detailed", "fine", "precise", "clean", "polished", "neat", "crisp", "clear", "defined", "sharp"],
+            "moderate": ["highly detailed", "intricate", "elaborate", "refined", "meticulous", "well-defined", "finely crafted", "carefully detailed", "precisely rendered", "expertly detailed"],
+            "dramatic": ["extremely detailed", "ultra high detail", "masterfully detailed", "hyper-realistic", "photo-realistic", "incredibly intricate", "exceptionally detailed", "stunningly detailed", "microscopically detailed", "obsessively detailed"]
+        },
+        "mood": {
+            "subtle": ["pleasant", "calm", "gentle", "soft", "peaceful", "serene", "tranquil", "relaxed", "soothing", "mild"],
+            "moderate": ["atmospheric", "moody", "emotional", "expressive", "evocative", "poignant", "stirring", "moving", "touching", "sentimental"],
+            "dramatic": ["intense", "powerful", "dramatic", "passionate", "overwhelming", "gripping", "electrifying", "heart-wrenching", "soul-stirring", "awe-inspiring"]
+        },
+        "composition": {
+            "subtle": ["balanced", "centered", "harmonious", "structured", "orderly", "symmetrical", "aligned", "measured", "proportioned", "organized"],
+            "moderate": ["dynamic", "well-composed", "artistically framed", "professionally shot", "thoughtfully arranged", "skillfully composed", "elegantly framed", "beautifully balanced", "artfully structured", "expertly positioned"],
+            "dramatic": ["cinematic", "epic composition", "stunning arrangement", "masterfully composed", "breathtaking composition", "grand scale", "visually striking", "perfectly orchestrated", "magnificently framed", "spectacularly arranged"]
+        },
+        "lighting": {
+            "subtle": ["well-lit", "soft lighting", "natural light", "gentle shadows", "ambient lighting", "diffused light", "even lighting", "balanced lighting", "delicate shadows", "subtle highlights"],
+            "moderate": ["dramatic lighting", "professional lighting", "perfect exposure", "beautiful lighting", "artistic lighting", "controlled lighting", "expert illumination", "refined lighting", "sophisticated lighting", "calculated shadows"],
+            "dramatic": ["volumetric lighting", "ray tracing", "god rays", "studio lighting", "spectacular illumination", "dynamic light rays", "ethereal glow", "heavenly beams", "brilliant luminescence", "radiant lighting"]
+        },
+        "color": {
+            "subtle": ["colorful", "harmonious colors", "balanced tones", "natural colors", "gentle hues", "soft tones", "muted colors", "understated palette", "delicate tints", "refined shades"],
+            "moderate": ["vibrant colors", "rich colors", "beautiful palette", "perfect color balance", "vivid hues", "dynamic colors", "expressive palette", "striking tones", "bold colors", "saturated hues"],
+            "dramatic": ["stunning colors", "extreme color contrast", "vivid colors", "spectacular color palette", "extraordinary hues", "intense chromatic range", "dazzling colors", "electrifying palette", "magnificent color harmony", "phenomenal color composition"]
+        }
+    }
+
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -314,6 +343,8 @@ class IsulionMegaPromptGenerator:
                 "include_environment": (["yes", "no"], {"default": "yes"}),
                 "include_style": (["yes", "no"], {"default": "yes"}),
                 "include_effects": (["yes", "no"], {"default": "yes"}),
+                "enhancement_level": (["subtle", "moderate", "dramatic"], {"default": "moderate"}),
+                "enhancement_focus": (["detail", "mood", "composition", "lighting", "color"], {"default": "detail"}),
             }
         }
     
@@ -341,7 +372,8 @@ class IsulionMegaPromptGenerator:
     def generate(self, theme, complexity, randomize, seed=0, 
                 include_subject="yes", include_action="yes", 
                 include_environment="yes", include_style="yes",
-                include_effects="yes"):
+                include_effects="yes", enhancement_level="moderate",
+                enhancement_focus="detail"):
         if randomize == "enable":
             seed = random.randint(0, 0xffffffffffffffff) if seed == 0 else seed
             random.seed(seed)
@@ -582,4 +614,11 @@ class IsulionMegaPromptGenerator:
                 components.append(f"additional {extra_tech}")
 
         prompt = ", ".join(components)
+
+        # Add enhancement
+        if enhancement_level in self.enhancements[enhancement_focus]:
+            enhancement = random.choice(self.enhancements[enhancement_focus][enhancement_level])
+            prompt = f"{prompt}, {enhancement}"
+            effects_text = f"{effects_text}, {enhancement}"
+
         return (prompt, subject_text, action_text, environment_text, style_text, effects_text, seed)

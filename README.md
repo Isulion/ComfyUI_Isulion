@@ -17,6 +17,10 @@ ComfyUI installed node:
 
 # Installation:
 
+## Simple install:
+   use the Manager Custom Nodes and look for "Isulion"
+
+## Old install:
 - cd your_ComfyUI_install_dir
 - cd custom_nodes
 - git clone https://github.com/Isulion/ComfyUI_Isulion
@@ -55,15 +59,15 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 - Professional photography settings for relevant themes
 - Adjustable complexity (simple/detailed/complex)
 - Component control (subject/action/environment/style/effects)
+- Built-in enhancement system with multiple focuses:
+  - Detail: From subtle refinements to dramatic detail
+  - Mood: Emotional atmosphere adjustments
+  - Composition: Scene arrangement and framing
+  - Lighting: Various lighting effects and styles
+  - Color: Color palette and harmony control
+- Enhancement levels (subtle/moderate/dramatic)
 - Randomization options
 - Separate outputs for each prompt component
-
-### Example Usage:
-1. Select a theme
-2. Choose complexity level
-3. Enable/disable components as needed
-4. Use randomization for variety
-5. Connect to your preferred image generation node
 
 The Mega Prompt Generator provides both a combined prompt and individual components, allowing for maximum flexibility in your workflows.
 
@@ -128,20 +132,3 @@ For more flexibility and control:
 ## Special Workflows
 ### Chimera Animals:
 ![workflowAnimals](https://github.com/user-attachments/assets/afd6916a-22d0-4c4b-9989-9b78b9eaf83f)
-
-### Using Enhancement Nodes:
-The enhancement nodes can be used to refine and improve your prompts:
-
-1. **Style Mixer**: Combine two different art styles with control over their balance
-   - Input two styles and choose blend mode (balanced/style1_dominant/style2_dominant)
-   - Great for creating unique artistic combinations
-
-2. **Prompt Enhancer**: Add specific improvements to your prompts
-   - Choose enhancement level (subtle/moderate/dramatic)
-   - Focus on specific aspects (detail/mood/composition/lighting/color)
-   - Perfect for refining and elevating prompt quality
-
-3. **Negative Prompt Generator**: Create matching negative prompts
-   - Adjustable strictness levels (basic/standard/strict)
-   - Automatically generates appropriate negative prompts
-   - Helps prevent common artifacts and issues
