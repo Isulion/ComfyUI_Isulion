@@ -34,6 +34,15 @@ ComfyUI installed node:
 - Isulion Cute Animal Selector 🐱 - Cute and baby animal selection
 - Isulion Animal Behavior Generator 🦊 - Animal actions and poses
 
+## Character Elements
+- Isulion Character Profession 👨‍🍳 - Occupations and roles
+- Isulion Fantasy Race Generator 🧝‍♂️ - Fantasy species and races
+- Isulion Clothing Style Generator 👔 - Outfit and fashion descriptions
+
+## Scene Composition
+- Isulion Action Generator ⚔️ - Dynamic poses and activities
+- Isulion Scene Composition 🎬 - Camera angles and shot types
+
 ## Environment
 - Isulion Habitat Generator 🌲 - Natural environments and landscapes
 - Isulion Weather Generator ⛅ - Weather conditions
@@ -43,12 +52,21 @@ ComfyUI installed node:
 - Isulion Art Style Generator 🎨 - Artistic styles and techniques
 - Isulion Emotion Generator 😊 - Emotional characteristics
 
+## Fantasy & Magic
+- Isulion Magical Effect Generator ✨ - Spell effects and magical phenomena
+- Isulion Mythical Location Generator 🏰 - Fantasy environments
+- Isulion Artifact Generator 📿 - Magical items and artifacts
+
+## Sci-Fi Elements
+- Isulion Tech Generator 🤖 - Futuristic technology descriptions
+- Isulion Alien World Generator 🪐 - Exotic planet environments
+- Isulion Spacecraft Designer 🚀 - Space vehicle descriptions
+
 # How to use:
 
 Use this example workflow to get started:
 
 ![Example_Isulion_Workflow](https://github.com/user-attachments/assets/ba6d7eaa-c068-4f88-a2c9-fb07aa95052b)
-
 
 Advanced Mode for More Flexibility:
 

@@ -19,6 +19,9 @@ from .fantasy_nodes.isulion_artifact_generator import IsulionArtifactGenerator
 from .scifi_nodes.isulion_tech_generator import IsulionTechGenerator
 from .scifi_nodes.isulion_alien_world_generator import IsulionAlienWorldGenerator
 from .scifi_nodes.isulion_spacecraft_generator import IsulionSpacecraftGenerator
+from .enhancement_nodes.isulion_style_mixer import IsulionStyleMixer
+from .enhancement_nodes.isulion_prompt_enhancer import IsulionPromptEnhancer
+from .enhancement_nodes.isulion_negative_prompt_generator import IsulionNegativePromptGenerator
 
 NODE_CLASS_MAPPINGS = {
     "IsulionPromptGenerator": IsulionPromptGenerator,
@@ -42,6 +45,9 @@ NODE_CLASS_MAPPINGS = {
     "IsulionTechGenerator": IsulionTechGenerator,
     "IsulionAlienWorldGenerator": IsulionAlienWorldGenerator,
     "IsulionSpacecraftGenerator": IsulionSpacecraftGenerator,
+    "IsulionStyleMixer": IsulionStyleMixer,
+    "IsulionPromptEnhancer": IsulionPromptEnhancer,
+    "IsulionNegativePromptGenerator": IsulionNegativePromptGenerator,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -66,4 +72,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionTechGenerator": "Isulion Tech Generator 🤖",
     "IsulionAlienWorldGenerator": "Isulion Alien World Generator 🪐",
     "IsulionSpacecraftGenerator": "Isulion Spacecraft Designer 🚀",
+    "IsulionStyleMixer": "Isulion Style Mixer 🎨",
+    "IsulionPromptEnhancer": "Isulion Prompt Enhancer 📝",
+    "IsulionNegativePromptGenerator": "Isulion Negative Prompt Generator ⛔",
 }
