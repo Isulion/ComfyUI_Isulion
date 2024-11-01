@@ -225,7 +225,7 @@ class IsulionMegaPromptGenerator:
         "cartoon": "cartoon style image of",
         "architecture": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, architectural photography of",
         "abstract": "abstract artwork featuring",
-        "mixed": "high quality digital art of",
+        "random": "high quality digital art of",
         "food": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, food photography of",
         "interior": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, interior design photography of",
         "3D": "3D rendering of",
@@ -235,7 +235,7 @@ class IsulionMegaPromptGenerator:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "theme": (["fantasy", "sci_fi", "realistic", "mixed", "cute chimera", 
+                "theme": (["fantasy", "sci_fi", "realistic", "random", "cute chimera", 
                           "cinema", "cartoon", "anime", "architecture", "abstract",
                           "food", "interior", "3D"], {"default": "fantasy"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
