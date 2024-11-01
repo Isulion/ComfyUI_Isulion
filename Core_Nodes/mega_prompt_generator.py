@@ -292,6 +292,37 @@ class IsulionMegaPromptGenerator:
         style_text = ""
         effects_text = ""
 
+        if theme == "abstract":
+            # Special handling for abstract theme - completely separate from other themes
+            abstract_components = [prefix] if prefix else []
+            
+            # Core abstract elements
+            primary = random.choice([
+                "geometric", "organic", "linear", "circular", "angular",
+                "fluid", "crystalline", "prismatic", "recursive", "fractal"
+            ])
+            element = random.choice(self.abstract_elements)
+            style = random.choice(self.abstract_styles)
+            
+            abstract_components.append(f"{style} {primary} composition with {element}")
+            
+            # Abstract-specific effects
+            effect1 = random.choice([
+                "intersecting", "overlapping", "radiating", "repeating",
+                "dissolving", "merging", "fragmenting", "tessellating",
+                "undulating", "oscillating", "bifurcating", "converging"
+            ])
+            effect2 = random.choice([
+                "forms", "shapes", "patterns", "structures",
+                "compositions", "arrangements", "configurations",
+                "constructions", "formations", "geometries"
+            ])
+            
+            abstract_components.append(f"with {effect1} {effect2}")
+            
+            prompt = ", ".join(abstract_components)
+            return (prompt, abstract_components[1], "", "", "", abstract_components[2], seed)
+
         # Subject generation
         if include_subject == "yes":
             if theme == "abstract":
