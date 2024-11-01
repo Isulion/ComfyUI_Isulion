@@ -26,46 +26,46 @@ ComfyUI installed node:
 # Available Nodes:
 
 ## Core Generators
-- Prompt Generator ✨ - Main prompt generation node
-- Ollama Generate 🤖 - LLM-based text generation
+- Prompt  ✨ - Main prompt generation node
+- Ollama  🤖 - LLM-based text generation
 
 ## Animal Related
-- Animal Selector 🦁 - General animal selection
-- Cute Animal Selector 🐱 - Cute and baby animal selection
-- Animal Behavior Generator 🦊 - Animal actions and poses
+- Animal 🦁 - General animal selection
+- Cute Animal 🐱 - Cute and baby animal selection
+- Animal Behavior 🦊 - Animal actions and poses
 
 ## Character Elements
 - Character Profession 👨‍🍳 - Occupations and roles
-- Fantasy Race Generator 🧝‍♂️ - Fantasy species and races
-- Clothing Style Generator 👔 - Outfit and fashion descriptions
+- Fantasy Race 🧝‍♂️ - Fantasy species and races
+- Clothing Style 👔 - Outfit and fashion descriptions
 
 ## Scene Composition
-- Action Generator ⚔️ - Dynamic poses and activities
+- Action ⚔️ - Dynamic poses and activities
 - Scene Composition 🎬 - Camera angles and shot types
 
 ## Environment
-- Habitat Generator 🌲 - Natural environments and landscapes
-- Weather Generator ⛅ - Weather conditions
-- Time of Day Generator 🌅 - Time and lighting conditions
+- Habitat 🌲 - Natural environments and landscapes
+- Weather ⛅ - Weather conditions
+- Time of Day 🌅 - Time and lighting conditions
 
 ## Style and Mood
-- Art Style Generator 🎨 - Artistic styles and techniques
-- Emotion Generator 😊 - Emotional characteristics
+- Art Style 🎨 - Artistic styles and techniques
+- Emotion 😊 - Emotional characteristics
 
 ## Fantasy & Magic
-- Magical Effect Generator ✨ - Spell effects and magical phenomena
-- Mythical Location Generator 🏰 - Fantasy environments
-- Artifact Generator 📿 - Magical items and artifacts
+- Magical Effect ✨ - Spell effects and magical phenomena
+- Mythical Location 🏰 - Fantasy environments
+- Artifact 📿 - Magical items and artifacts
 
 ## Sci-Fi Elements
-- Tech Generator 🤖 - Futuristic technology descriptions
-- Alien World Generator 🪐 - Exotic planet environments
-- Spacecraft Designer 🚀 - Space vehicle descriptions
+- Tech 🤖 - Futuristic technology descriptions
+- Alien World 🪐 - Exotic planet environments
+- Spacecraft 🚀 - Space vehicle descriptions
 
 ## Enhancement Nodes
 - Style Mixer 🎨 - Combines multiple art styles with adjustable blend modes
 - Prompt Enhancer 📝 - Adds detail, mood, composition, lighting, or color enhancements
-- Negative Prompt Generator ⛔ - Creates matching negative prompts with adjustable strictness
+- Negative Prompt ⛔ - Creates matching negative prompts with adjustable strictness
 
 # How to use:
 
