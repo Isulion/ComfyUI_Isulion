@@ -73,24 +73,7 @@ class IsulionMegaPromptGenerator:
         "homer simpson", "mario", "luigi", "sonic", "pikachu", "sailor moon",
         "goku", "naruto", "ash ketchum", "doraemon", "hello kitty", "popeye",
         "fred flintstone", "scooby doo", "shaggy", "tom and jerry", "pink panther",
-        "garfield", "ninja turtles", "winnie the pooh", "tigger", "elsa",
-        "bart simpson", "lisa simpson", "marge simpson", "ned flanders", "mr burns",
-        "patrick star", "squidward", "mr krabs", "sandy cheeks", "plankton",
-        "daffy duck", "elmer fudd", "porky pig", "tweety bird", "sylvester",
-        "road runner", "wile e coyote", "foghorn leghorn", "marvin the martian",
-        "peppa pig", "paw patrol", "bluey", "dora the explorer", "snoopy",
-        "charlie brown", "woodstock", "lucy van pelt", "linus", "peppermint patty",
-        "pinocchio", "jiminy cricket", "peter pan", "tinker bell", "captain hook",
-        "aladdin", "jasmine", "genie", "simba", "timon", "pumbaa", "rafiki",
-        "ariel", "sebastian", "flounder", "ursula", "belle", "beast", "lumiere",
-        "mulan", "mushu", "pocahontas", "moana", "maui", "anna", "olaf",
-        "buzz lightyear", "woody", "jessie", "rex", "slinky dog", "mr potato head",
-        "shrek", "donkey", "fiona", "lord farquaad", "dragon", "puss in boots",
-        "po", "master shifu", "tigress", "monkey", "mantis", "viper", "crane",
-        "spongebob", "patrick", "squidward", "sandy", "mr krabs", "plankton",
-        "timmy turner", "cosmo", "wanda", "jimmy neutron", "danny phantom",
-        "dexter", "dee dee", "johnny bravo", "powerpuff girls", "courage the cowardly dog",
-        "ed", "edd", "eddy", "cow and chicken", "i am weasel", "samurai jack"
+        "garfield", "ninja turtles", "winnie the pooh", "tigger", "elsa"
     ]
 
     anime_characters = [
@@ -154,13 +137,13 @@ class IsulionMegaPromptGenerator:
         "sound art", "conceptual abstraction", "neo-expressionism"
     ]
 
-    # Add theme prefixes as a class variable
+    # Update theme prefixes
     theme_prefixes = {
         "anime": "anime artwork of",
         "realistic": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k of",
         "sci_fi": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k of",
         "fantasy": "fantasy artwork, epic scene of",
-        "chimera": "cute digital art of",
+        "cute chimera": "cute digital art of",
         "cinema": "cinematic shot, movie scene of",
         "cartoon": "cartoon style image of",
         "architecture": "architectural photography of",
@@ -172,7 +155,7 @@ class IsulionMegaPromptGenerator:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "theme": (["fantasy", "sci_fi", "realistic", "mixed", "chimera", "cinema", "cartoon", "anime", "architecture", "abstract"], {"default": "fantasy"}),
+                "theme": (["fantasy", "sci_fi", "realistic", "mixed", "cute chimera", "cinema", "cartoon", "anime", "architecture", "abstract"], {"default": "fantasy"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
             },
@@ -229,7 +212,16 @@ class IsulionMegaPromptGenerator:
 
         # Subject generation
         if include_subject == "yes":
-            if theme == "anime":
+            if theme == "cartoon":
+                character = random.choice(self.cartoon_characters)
+                action = random.choice(self.actions)
+                subject_text = f"{character} {action}"
+            elif theme == "cute chimera":
+                # Create cute chimera by combining 2 animals
+                animal_parts = random.sample(self.cute_animals, 2)
+                behavior = random.choice(self.behaviors)
+                subject_text = f"cute hybrid creature with {animal_parts[0]} head and {animal_parts[1]} body, {behavior}"
+            elif theme == "anime":
                 character = random.choice(self.anime_characters)
                 action = random.choice(self.actions)
                 subject_text = f"{character} {action}"
@@ -245,12 +237,6 @@ class IsulionMegaPromptGenerator:
                 character = random.choice(self.cinema_characters)
                 action = random.choice(self.actions)
                 subject_text = f"{character} {action}"
-            elif theme == "chimera":
-                # Create cute chimera by combining 2 animals
-                animal_parts = random.sample(self.cute_animals, 2)
-                behavior = random.choice(self.behaviors)
-                subject_text = f"cute hybrid creature with {animal_parts[0]} head and {animal_parts[1]} body, {behavior}"
-            
             elif theme == "fantasy":
                 race = random.choice(self.races)
                 profession = random.choice(self.professions)
