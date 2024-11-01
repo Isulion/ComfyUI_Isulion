@@ -214,6 +214,45 @@ class IsulionMegaPromptGenerator:
         "character modeling", "environment modeling", "hard surface modeling"
     ]
 
+    # Add these new class variables
+    halloween_elements = {
+        "creatures": [
+            "ghost", "skeleton", "zombie", "vampire", "werewolf", "witch",
+            "black cat", "demon", "gargoyle", "grim reaper", "mummy",
+            "haunted doll", "possessed puppet", "banshee", "goblin",
+            "headless horseman", "phantom", "wraith", "imp", "living scarecrow",
+            "ghoul", "poltergeist", "wendigo", "hellhound", "shadow creature",
+            "faceless entity", "doppelganger", "changeling", "boogeyman", "revenant",
+            "lich", "necromancer", "dark fairy", "night stalker", "possessed child",
+            "corpse bride", "pumpkin head", "plague doctor", "shadow walker", "sin eater"
+        ],
+        "settings": [
+            "haunted house", "graveyard", "dark forest", "abandoned church",
+            "cursed castle", "foggy cemetery", "witch's cottage", "crypt",
+            "dungeon", "misty moor", "haunted mansion", "dark alley",
+            "abandoned asylum", "cursed village", "spooky carnival",
+            "ancient tomb", "forbidden tower", "ghost town", "dark swamp",
+            "haunted lighthouse", "cursed school", "abandoned hospital",
+            "forgotten catacombs", "haunted theater", "cursed library",
+            "abandoned mine", "witch's grove", "demon's lair", "shadow realm",
+            "haunted circus", "forgotten monastery", "cursed ruins",
+            "abandoned orphanage", "dark carnival", "witch's cave"
+        ],
+        "props": [
+            "jack o'lantern", "cobwebs", "candelabra", "crystal ball",
+            "spell book", "cauldron", "cursed mirror", "haunted painting",
+            "old tombstone", "creepy doll", "raven", "full moon",
+            "twisted trees", "carved pumpkin", "black roses", "skull",
+            "ancient runes", "poison bottles", "tarot cards",
+            "ouija board", "haunted music box", "bone wind chimes",
+            "cursed jewelry", "witch's broom", "black candles", "dead flowers",
+            "rusty chains", "broken mirrors", "ghostly photographs",
+            "possessed teddy bear", "voodoo doll", "pentagram", "blood stains",
+            "ancient artifacts", "cursed diary", "spirit board", "demon mask",
+            "witch's herbs", "sacrificial altar", "evil eye amulet"
+        ]
+    }
+
     # Update theme prefixes
     theme_prefixes = {
         "anime": "anime artwork of",
@@ -229,6 +268,7 @@ class IsulionMegaPromptGenerator:
         "food": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, food photography of",
         "interior": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, interior design photography of",
         "3D": "3D rendering of",
+        "halloween": "spooky halloween scene of",
     }
 
     @classmethod
@@ -237,7 +277,7 @@ class IsulionMegaPromptGenerator:
             "required": {
                 "theme": (["fantasy", "sci_fi", "realistic", "random", "cute chimera", 
                           "cinema", "cartoon", "anime", "architecture", "abstract",
-                          "food", "interior", "3D"], {"default": "fantasy"}),
+                          "food", "interior", "3D", "halloween"], {"default": "fantasy"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
             },
@@ -381,6 +421,10 @@ class IsulionMegaPromptGenerator:
                              [f"{race} character" for race in self.races])
                     subject = random.choice(options)
                 subject_text = f"{style} {subject}"
+            elif theme == "halloween":
+                creature = random.choice(self.halloween_elements["creatures"])
+                prop = random.choice(self.halloween_elements["props"])
+                subject_text = f"{creature} with {prop}"
             else:  # realistic or mixed
                 if random.choice([True, False]):
                     animal = random.choice(self.cute_animals if random.random() < 0.3 else self.animals)
@@ -422,6 +466,11 @@ class IsulionMegaPromptGenerator:
                 environment_text = f"during {time} with {random.choice(['natural lighting', 'ambient lighting', 'mood lighting', 'spot lighting', 'indirect lighting'])}"
             elif theme == "3D":
                 environment_text = f"in {random.choice(['studio lighting setup', 'environmental lighting', 'dramatic lighting', 'realistic environment', 'abstract space', 'geometric background'])}"
+            elif theme == "halloween":
+                setting = random.choice(self.halloween_elements["settings"])
+                time = random.choice(["midnight", "witching hour", "full moon night", "foggy twilight"])
+                weather = random.choice(["misty", "stormy", "cloudy", "windy"])
+                environment_text = f"in a {setting} during {weather} {time}"
             else:
                 habitat = random.choice(self.habitats)
                 weather_cond = random.choice(self.weather)
@@ -460,6 +509,14 @@ class IsulionMegaPromptGenerator:
                 tech = random.choice(self.technology["weapons"])
                 ship = random.choice(self.spacecraft["military"])
                 effects_text = f"with {tech} and {ship} in background"
+            elif theme == "halloween":
+                effect1 = random.choice([
+                    "eerie glow", "ghostly mist", "dark shadows", "moonlight rays",
+                    "spectral aura", "mysterious fog", "sinister atmosphere",
+                    "supernatural lighting", "ominous clouds", "creepy ambiance"
+                ])
+                effect2 = random.choice(self.halloween_elements["props"])
+                effects_text = f"with {effect1} and {effect2}"
             else:  # realistic or mixed
                 if random.choice([True, False]):
                     effect = random.choice(self.magical_effects["nature"])

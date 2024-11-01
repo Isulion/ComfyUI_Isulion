@@ -28,6 +28,7 @@ ComfyUI installed node:
 ## Core Generators
 - Prompt  ✨ - Main prompt generation node
 - Ollama  🤖 - LLM-based text generation
+- Mega Prompt 🎯 - Advanced multi-theme prompt generator
 
 ## Animal Related
 - Animal 🦁 - General animal selection
@@ -66,6 +67,40 @@ ComfyUI installed node:
 - Style Mixer 🎨 - Combines multiple art styles with adjustable blend modes
 - Prompt Enhancer 📝 - Adds detail, mood, composition, lighting, or color enhancements
 - Negative Prompt ⛔ - Creates matching negative prompts with adjustable strictness
+
+## Mega Prompt Generator
+The Mega Prompt Generator is an advanced node that combines multiple themes and generation capabilities:
+
+### Available Themes:
+- Fantasy: Epic fantasy scenes and characters
+- Sci-Fi: Futuristic and technological scenes
+- Realistic: Real-world photography style
+- Cute Chimera: Hybrid cute animal combinations
+- Cinema: Movie characters and scenes
+- Cartoon: Animated characters and styles
+- Anime: Anime-style artwork
+- Architecture: Building and structural designs
+- Abstract: Pure abstract art compositions
+- Food: Culinary and food photography
+- Interior: Interior design and spaces
+- 3D: Three-dimensional artwork
+- Random: Randomly selects from available themes
+
+### Features:
+- Theme-specific prefixes and styles
+- Adjustable complexity (simple/detailed/complex)
+- Component control (subject/action/environment/style/effects)
+- Randomization options
+- Separate outputs for each prompt component
+
+### Example Usage:
+1. Select a theme
+2. Choose complexity level
+3. Enable/disable components as needed
+4. Use randomization for variety
+5. Connect to your preferred image generation node
+
+The Mega Prompt Generator provides both a combined prompt and individual components, allowing for maximum flexibility in your workflows.
 
 # How to use:
 
