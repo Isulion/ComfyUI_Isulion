@@ -67,7 +67,7 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 
 The Mega Prompt Generator provides both a combined prompt and individual components, allowing for maximum flexibility in your workflows.
 
-Showcase : 
+# Showcase : 
 ![image](https://github.com/user-attachments/assets/56d69f0a-d840-42de-93ef-5378293263ee)
 
 
