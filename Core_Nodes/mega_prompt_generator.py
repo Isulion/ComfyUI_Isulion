@@ -3,7 +3,7 @@ import random
 class IsulionMegaPromptGenerator:
     # Reuse all the existing lists/dictionaries from other nodes
     animals = ['Dog','Cat','Horse','Cow','Chicken','Pig','Sheep','Goat','Lion','Tiger','Elephant','Bear','Wolf','Fox','Deer','Rabbit','Kangaroo','Giraffe','Zebra','Monkey','Chimpanzee','Gorilla','Orangutan','Panda','Koala','Hippopotamus','Rhinoceros','Crocodile','Alligator','Eagle','Hawk','Falcon','Owl','Penguin','Dolphin','Whale','Shark','Octopus','Squid','Jellyfish','Crab','Lobster','Clownfish','Sea Turtle','Frog','Toad','Snake','Lizard','Gecko','Tortoise','Camel','Donkey','Bat','Rat','Mouse','Squirrel','Chipmunk','Porcupine','Hedgehog','Skunk','Raccoon','Otter','Seal','Walrus','Polar Bear','Grizzly Bear','Cheetah','Leopard','Jaguar','Antelope','Buffalo','Bison','Moose','Reindeer','Mole','Platypus','Echidna','Parrot','Peacock','Swan','Duck','Goose','Turkey','Flamingo','Pelican','Seagull','Sparrow','Pigeon','Crow','Magpie','Woodpecker','Hummingbird','Butterfly','Bee','Ant','Spider','Scorpion','Worm','Snail','Slug']  # from Animal node
-    cute_animals = ["kitten", "puppy", "baby fox", "baby panda", "baby penguin", "baby seal", "baby rabbit", "baby deer", "baby elephant", "baby giraffe", "baby koala", "baby monkey", "baby owl", "baby hedgehog", "baby hamster", "baby duckling", "baby chick", "baby tiger", "baby lion", "baby polar bear"]  # from Cute Animal node
+    cute_animals = ["kitten", "puppy", "baby fox", "baby panda", "baby penguin", "baby seal", "baby rabbit", "baby deer", "baby elephant", "baby giraffe", "baby koala", "baby monkey", "baby owl", "baby hedgehog", "baby hamster", "baby duckling", "baby chick", "baby tiger", "baby lion", "baby polar bear", "baby otter", "baby red panda", "baby sloth", "baby alpaca", "baby dolphin", "baby sea turtle", "baby platypus", "baby raccoon", "baby squirrel", "baby beaver", "baby ferret", "baby chinchilla", "baby capybara", "baby sheep", "baby goat", "baby pig", "baby hippo", "baby kangaroo", "baby quokka", "baby meerkat"]  # from Cute Animal node
     behaviors = ["sleeping", "running", "hunting", "playing", "eating", "drinking", "grooming", "nesting", "swimming", "flying", "climbing", "jumping", "stalking", "resting", "fighting", "mating", "nursing", "exploring", "hiding", "gathering"]  # from Animal Behavior node
     professions = ["chef", "wizard", "warrior", "merchant", "blacksmith", "healer", "ranger", "bard", "alchemist", "scholar", "knight", "assassin", "monk", "necromancer", "paladin", "druid", "hunter", "mage", "thief", "priest"]  # from Profession node
     races = ["elf", "dwarf", "orc", "halfling", "human", "gnome", "troll", "goblin", "fairy", "centaur", "mermaid", "dragon-kin", "tiefling", "angel", "demon", "giant", "vampire", "werewolf", "nymph", "satyr"]  # from Fantasy Race node
@@ -104,15 +104,10 @@ class IsulionMegaPromptGenerator:
         # Subject generation
         if include_subject == "yes":
             if theme == "chimera":
-                # Create cute chimera by combining 2-3 animals
-                num_parts = random.randint(2, 3)
-                animal_parts = random.sample(self.cute_animals, num_parts)
+                # Create cute chimera by combining 2 animals
+                animal_parts = random.sample(self.cute_animals, 2)
                 behavior = random.choice(self.behaviors)
-                
-                if num_parts == 2:
-                    subject_text = f"cute hybrid creature with {animal_parts[0]} head and {animal_parts[1]} body, {behavior}"
-                else:
-                    subject_text = f"cute hybrid creature with {animal_parts[0]} head, {animal_parts[1]} body, and {animal_parts[2]} tail, {behavior}"
+                subject_text = f"cute hybrid creature with {animal_parts[0]} head and {animal_parts[1]} body, {behavior}"
             
             elif theme == "fantasy":
                 race = random.choice(self.races)
