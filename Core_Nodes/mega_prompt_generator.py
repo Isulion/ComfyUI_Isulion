@@ -9,7 +9,7 @@ class IsulionMegaPromptGenerator:
     races = ["elf", "dwarf", "orc", "halfling", "human", "gnome", "troll", "goblin", "fairy", "centaur", "mermaid", "dragon-kin", "tiefling", "angel", "demon", "giant", "vampire", "werewolf", "nymph", "satyr"]  # from Fantasy Race node
     clothing = {
         "fantasy": ["ornate robes", "leather armor", "chainmail", "plate armor", "mage robes", "ranger cloak", "druid vestments", "royal garments", "battle armor", "mystic robes", "elven silk", "dwarven steel armor", "assassin's garb", "priest's vestments", "tribal attire"],
-        "modern": ["business suit", "casual wear", "jeans and t-shirt", "dress", "uniform", "sportswear", "formal attire", "streetwear", "hoodie", "leather jacket", "blazer", "sweater", "coat", "shorts", "skirt"],
+        "realistic": ["business suit", "casual wear", "jeans and t-shirt", "dress", "uniform", "sportswear", "formal attire", "streetwear", "hoodie", "leather jacket", "blazer", "sweater", "coat", "shorts", "skirt"],
         "sci_fi": ["space suit", "cybernetic armor", "nanotech suit", "power armor", "environmental suit", "combat exoskeleton", "stealth suit", "hazmat suit", "neural interface suit", "quantum armor", "plasma-resistant gear", "gravity suit", "bio-enhanced armor", "energy shield suit", "phase shift armor"]
     }
     actions = ["running", "jumping", "fighting", "casting spell", "flying", "swimming", "climbing", "sneaking", "dancing", "meditating", "charging", "defending", "attacking", "healing", "crafting", "exploring", "investigating", "performing ritual", "transforming", "commanding"]
@@ -47,12 +47,57 @@ class IsulionMegaPromptGenerator:
         "military": ["battlecruiser", "stealth frigate", "carrier", "destroyer", "dreadnought", "gunship", "interceptor", "warship", "assault carrier", "combat shuttle"],
         "civilian": ["passenger liner", "cargo hauler", "mining vessel", "exploration ship", "colony ship", "research vessel", "transport", "space yacht", "rescue ship", "diplomatic vessel"],
     }  # from Spacecraft node
+    cinema_characters = [
+        "spiderman", "batman", "hulk", "wonder woman", "superman", "iron man",
+        "captain america", "thor", "black widow", "deadpool", "wolverine",
+        "optimus prime", "megatron", "buzz lightyear", "woody", "shrek",
+        "donkey", "puss in boots", "harley quinn", "joker", "catwoman", 
+        "black panther", "doctor strange", "scarlet witch", "vision",
+        "ant-man", "wasp", "thanos", "loki", "captain marvel", "star-lord",
+        "gamora", "groot", "rocket raccoon", "drax", "nebula", "venom",
+        "miles morales", "ghost rider", "blade", "punisher", "daredevil",
+        "jessica jones", "luke cage", "iron fist", "green goblin", "doctor octopus",
+        "venom", "carnage", "mysterio", "sandman", "vulture", "electro",
+        "terminator", "robocop", "predator", "alien", "indiana jones",
+        "james bond", "ethan hunt", "john wick", "neo", "trinity", "morpheus",
+        "luke skywalker", "darth vader", "yoda", "princess leia", "han solo",
+        "chewbacca", "obi-wan kenobi", "rey", "kylo ren", "mandalorian",
+        "gandalf", "frodo", "aragorn", "legolas", "gimli", "gollum", "saruman",
+        "harry potter", "hermione granger", "ron weasley", "dumbledore", "voldemort",
+        "jack sparrow", "davy jones", "king kong", "godzilla", "jurassic park raptor",
+        "t-rex", "marty mcfly", "doc brown", "ghostbusters", "xenomorph"
+    ]
+    
+    cartoon_characters = [
+        "mickey mouse", "donald duck", "goofy", "bugs bunny", "spongebob",
+        "homer simpson", "mario", "luigi", "sonic", "pikachu", "sailor moon",
+        "goku", "naruto", "ash ketchum", "doraemon", "hello kitty", "popeye",
+        "fred flintstone", "scooby doo", "shaggy", "tom and jerry", "pink panther",
+        "garfield", "ninja turtles", "winnie the pooh", "tigger", "elsa",
+        "bart simpson", "lisa simpson", "marge simpson", "ned flanders", "mr burns",
+        "patrick star", "squidward", "mr krabs", "sandy cheeks", "plankton",
+        "daffy duck", "elmer fudd", "porky pig", "tweety bird", "sylvester",
+        "road runner", "wile e coyote", "foghorn leghorn", "marvin the martian",
+        "peppa pig", "paw patrol", "bluey", "dora the explorer", "snoopy",
+        "charlie brown", "woodstock", "lucy van pelt", "linus", "peppermint patty",
+        "pinocchio", "jiminy cricket", "peter pan", "tinker bell", "captain hook",
+        "aladdin", "jasmine", "genie", "simba", "timon", "pumbaa", "rafiki",
+        "ariel", "sebastian", "flounder", "ursula", "belle", "beast", "lumiere",
+        "mulan", "mushu", "pocahontas", "moana", "maui", "anna", "olaf",
+        "buzz lightyear", "woody", "jessie", "rex", "slinky dog", "mr potato head",
+        "shrek", "donkey", "fiona", "lord farquaad", "dragon", "puss in boots",
+        "po", "master shifu", "tigress", "monkey", "mantis", "viper", "crane",
+        "spongebob", "patrick", "squidward", "sandy", "mr krabs", "plankton",
+        "timmy turner", "cosmo", "wanda", "jimmy neutron", "danny phantom",
+        "dexter", "dee dee", "johnny bravo", "powerpuff girls", "courage the cowardly dog",
+        "ed", "edd", "eddy", "cow and chicken", "i am weasel", "samurai jack"
+    ]
 
     @classmethod
     def INPUT_TYPES(s):
         return {
             "required": {
-                "theme": (["fantasy", "sci_fi", "modern", "mixed", "chimera"], {"default": "fantasy"}),
+                "theme": (["fantasy", "sci_fi", "realistic", "mixed", "chimera", "cinema", "cartoon"], {"default": "fantasy"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
             },
@@ -103,7 +148,15 @@ class IsulionMegaPromptGenerator:
 
         # Subject generation
         if include_subject == "yes":
-            if theme == "chimera":
+            if theme == "cinema":
+                character = random.choice(self.cinema_characters)
+                action = random.choice(self.actions)
+                subject_text = f"{character} {action}"
+            elif theme == "cartoon":
+                character = random.choice(self.cartoon_characters)
+                action = random.choice(self.actions)
+                subject_text = f"{character} {action}"
+            elif theme == "chimera":
                 # Create cute chimera by combining 2 animals
                 animal_parts = random.sample(self.cute_animals, 2)
                 behavior = random.choice(self.behaviors)
@@ -118,14 +171,14 @@ class IsulionMegaPromptGenerator:
                 tech = random.choice(self.technology["augments"])
                 clothing = random.choice(self.clothing["sci_fi"])
                 subject_text = f"futuristic character with {tech} wearing {clothing}"
-            else:  # modern or mixed
+            else:  # realistic or mixed
                 if random.choice([True, False]):
                     animal = random.choice(self.cute_animals if random.random() < 0.3 else self.animals)
                     behavior = random.choice(self.behaviors)
                     subject_text = f"{animal} {behavior}"
                 else:
                     profession = random.choice(self.professions)
-                    clothing = random.choice(self.clothing["modern"])
+                    clothing = random.choice(self.clothing["realistic"])
                     subject_text = f"{profession} wearing {clothing}"
             components.append(subject_text)
 
@@ -172,7 +225,7 @@ class IsulionMegaPromptGenerator:
                 tech = random.choice(self.technology["weapons"])
                 ship = random.choice(self.spacecraft["military"])
                 effects_text = f"with {tech} and {ship} in background"
-            else:  # modern or mixed
+            else:  # realistic or mixed
                 if random.choice([True, False]):
                     effect = random.choice(self.magical_effects["nature"])
                     effects_text = f"with {effect}"
