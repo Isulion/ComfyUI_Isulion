@@ -457,6 +457,11 @@ class IsulionMegaPromptGenerator:
                 
                 behavior = random.choice(self.behaviors)
                 subject_text += f", {behavior}"
+            elif theme == "cinema":
+                # Add proper cinema character handling
+                character = random.choice(self.cinema_characters)
+                action = random.choice(self.actions)
+                subject_text = f"{character} {action}"
             elif theme == "anime":
                 character = random.choice(self.anime_characters)
                 action = random.choice(self.actions)
