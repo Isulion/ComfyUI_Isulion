@@ -52,7 +52,7 @@ class IsulionMegaPromptGenerator:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "theme": (["fantasy", "sci_fi", "modern", "mixed"], {"default": "fantasy"}),
+                "theme": (["fantasy", "sci_fi", "modern", "mixed", "chimera"], {"default": "fantasy"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
             },
@@ -66,8 +66,24 @@ class IsulionMegaPromptGenerator:
             }
         }
     
-    RETURN_TYPES = ("STRING", "INT",)
-    RETURN_NAMES = ("prompt", "seed",)
+    RETURN_TYPES = (
+        "STRING",  # combined prompt
+        "STRING",  # subject
+        "STRING",  # action
+        "STRING",  # environment
+        "STRING",  # style
+        "STRING",  # effects
+        "INT",     # seed
+    )
+    RETURN_NAMES = (
+        "prompt",
+        "subject",
+        "action",
+        "environment",
+        "style",
+        "effects",
+        "seed",
+    )
     FUNCTION = "generate"
     CATEGORY = "Isulion/Core"
 
@@ -79,33 +95,51 @@ class IsulionMegaPromptGenerator:
             seed = random.randint(0, 0xffffffffffffffff) if seed == 0 else seed
         
         components = []
+        subject_text = ""
+        action_text = ""
+        environment_text = ""
+        style_text = ""
+        effects_text = ""
 
         # Subject generation
         if include_subject == "yes":
-            if theme == "fantasy":
+            if theme == "chimera":
+                # Create cute chimera by combining 2-3 animals
+                num_parts = random.randint(2, 3)
+                animal_parts = random.sample(self.cute_animals, num_parts)
+                behavior = random.choice(self.behaviors)
+                
+                if num_parts == 2:
+                    subject_text = f"cute hybrid creature with {animal_parts[0]} head and {animal_parts[1]} body, {behavior}"
+                else:
+                    subject_text = f"cute hybrid creature with {animal_parts[0]} head, {animal_parts[1]} body, and {animal_parts[2]} tail, {behavior}"
+            
+            elif theme == "fantasy":
                 race = random.choice(self.races)
                 profession = random.choice(self.professions)
                 clothing = random.choice(self.clothing["fantasy"])
-                components.append(f"{race} {profession} wearing {clothing}")
+                subject_text = f"{race} {profession} wearing {clothing}"
             elif theme == "sci_fi":
                 tech = random.choice(self.technology["augments"])
                 clothing = random.choice(self.clothing["sci_fi"])
-                components.append(f"futuristic character with {tech} wearing {clothing}")
+                subject_text = f"futuristic character with {tech} wearing {clothing}"
             else:  # modern or mixed
                 if random.choice([True, False]):
                     animal = random.choice(self.cute_animals if random.random() < 0.3 else self.animals)
                     behavior = random.choice(self.behaviors)
-                    components.append(f"{animal} {behavior}")
+                    subject_text = f"{animal} {behavior}"
                 else:
                     profession = random.choice(self.professions)
                     clothing = random.choice(self.clothing["modern"])
-                    components.append(f"{profession} wearing {clothing}")
+                    subject_text = f"{profession} wearing {clothing}"
+            components.append(subject_text)
 
         # Action and composition
         if include_action == "yes":
             action = random.choice(self.actions)
             composition = random.choice(self.compositions)
-            components.append(f"{action}, {composition}")
+            action_text = f"{action}, {composition}"
+            components.append(action_text)
 
         # Environment
         if include_environment == "yes":
@@ -113,46 +147,57 @@ class IsulionMegaPromptGenerator:
                 location = random.choice(self.mythical_locations)
                 weather_cond = random.choice(self.weather)
                 time = random.choice(self.times)
-                components.append(f"in a {location} during {weather_cond} {time}")
+                environment_text = f"in a {location} during {weather_cond} {time}"
             elif theme == "sci_fi":
                 atmos = random.choice(self.alien_world_elements["atmospheres"])
                 terrain = random.choice(self.alien_world_elements["terrains"])
                 feature = random.choice(self.alien_world_elements["features"])
-                components.append(f"on an alien world with {atmos} atmosphere, {terrain}, and {feature}")
+                environment_text = f"on an alien world with {atmos} atmosphere, {terrain}, and {feature}"
             else:
                 habitat = random.choice(self.habitats)
                 weather_cond = random.choice(self.weather)
                 time = random.choice(self.times)
-                components.append(f"in a {habitat} during {weather_cond} {time}")
+                environment_text = f"in a {habitat} during {weather_cond} {time}"
+            components.append(environment_text)
 
         # Style and mood
         if include_style == "yes":
             art_style = random.choice(self.art_styles)
             emotion = random.choice(self.emotions)
-            components.append(f"{art_style} with {emotion} mood")
+            style_text = f"{art_style} with {emotion} mood"
+            components.append(style_text)
 
         # Special effects
         if include_effects == "yes":
             if theme == "fantasy":
-                effect = random.choice(self.magical_effects["fire"])  # Randomly choose effect type
-                artifact = random.choice(self.artifacts["weapon"])  # Randomly choose artifact type
-                components.append(f"with {effect} and {artifact}")
+                effect = random.choice(self.magical_effects["fire"])
+                artifact = random.choice(self.artifacts["weapon"])
+                effects_text = f"with {effect} and {artifact}"
             elif theme == "sci_fi":
-                tech = random.choice(self.technology["weapons"])  # Randomly choose tech type
-                ship = random.choice(self.spacecraft["military"])  # Randomly choose ship type
-                components.append(f"with {tech} and {ship} in background")
+                tech = random.choice(self.technology["weapons"])
+                ship = random.choice(self.spacecraft["military"])
+                effects_text = f"with {tech} and {ship} in background"
+            else:  # modern or mixed
+                if random.choice([True, False]):
+                    effect = random.choice(self.magical_effects["nature"])
+                    effects_text = f"with {effect}"
+                else:
+                    art = random.choice(self.artifacts["jewelry"])
+                    effects_text = f"with {art}"
+            components.append(effects_text)
 
         # Adjust detail level based on complexity
         if complexity == "simple":
             components = components[:3]
         elif complexity == "complex":
-            # Add extra details based on theme
             if theme == "fantasy":
                 extra_effect = random.choice(self.magical_effects["ice"])
+                effects_text += f", additional {extra_effect}"
                 components.append(f"additional {extra_effect}")
             elif theme == "sci_fi":
                 extra_tech = random.choice(self.technology["gadgets"])
+                effects_text += f", additional {extra_tech}"
                 components.append(f"additional {extra_tech}")
 
         prompt = ", ".join(components)
-        return (prompt, seed) 
+        return (prompt, subject_text, action_text, environment_text, style_text, effects_text, seed)
