@@ -5,10 +5,8 @@ class IsulionStyleMixer:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "style1": ("STRING", {"default": ""}),
-                "style2": ("STRING", {"default": ""}),
-            },
-            "optional": {
+                "style1": ("STRING", {"forceInput": True}),
+                "style2": ("STRING", {"forceInput": True}),
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
                 "blend_mode": (["balanced", "style1_dominant", "style2_dominant"], {"default": "balanced"}),
             }
