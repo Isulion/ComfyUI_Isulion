@@ -294,7 +294,16 @@ class IsulionMegaPromptGenerator:
 
         # Subject generation
         if include_subject == "yes":
-            if theme == "cartoon":
+            if theme == "abstract":
+                # More pure abstract elements
+                primary = random.choice([
+                    "geometric", "organic", "linear", "circular", "angular",
+                    "fluid", "crystalline", "prismatic", "recursive", "fractal"
+                ])
+                element = random.choice(self.abstract_elements)
+                style = random.choice(self.abstract_styles)
+                subject_text = f"{style} {primary} composition with {element}"
+            elif theme == "cartoon":
                 character = random.choice(self.cartoon_characters)
                 action = random.choice(self.actions)
                 subject_text = f"{character} {action}"
@@ -311,19 +320,6 @@ class IsulionMegaPromptGenerator:
                 style = random.choice(self.architecture_styles)
                 element = random.choice(self.architecture_elements)
                 subject_text = f"{style} {element}"
-            elif theme == "abstract":
-                element = random.choice(self.abstract_elements)
-                style = random.choice(self.abstract_styles)
-                subject_text = f"{style} composition with {element}"
-            elif theme == "cinema":
-                character = random.choice(self.cinema_characters)
-                action = random.choice(self.actions)
-                subject_text = f"{character} {action}"
-            elif theme == "fantasy":
-                race = random.choice(self.races)
-                profession = random.choice(self.professions)
-                clothing = random.choice(self.clothing["fantasy"])
-                subject_text = f"{race} {profession} wearing {clothing}"
             elif theme == "sci_fi":
                 tech = random.choice(self.technology["augments"])
                 clothing = random.choice(self.clothing["sci_fi"])
@@ -367,11 +363,8 @@ class IsulionMegaPromptGenerator:
             components.append(action_text)
 
         # Environment
-        if include_environment == "yes":
-            if theme == "abstract":
-                # More abstract-specific environments
-                environment_text = f"in {random.choice(['infinite void', 'abstract dimension', 'geometric space', 'color field', 'dynamic space', 'minimalist space'])}"
-            elif theme == "fantasy":
+        if include_environment == "yes" and theme != "abstract":
+            if theme == "fantasy":
                 location = random.choice(self.mythical_locations)
                 weather_cond = random.choice(self.weather)
                 time = random.choice(self.times)
@@ -409,10 +402,18 @@ class IsulionMegaPromptGenerator:
         # Special effects
         if include_effects == "yes":
             if theme == "abstract":
-                # Abstract-specific effects
-                effect1 = random.choice(["flowing", "geometric", "fragmented", "layered", "textured", "gradient"])
-                effect2 = random.choice(["dynamic", "harmonious", "chaotic", "balanced", "rhythmic", "minimal"])
-                effects_text = f"with {effect1} composition and {effect2} elements"
+                # More abstract-specific effects
+                effect1 = random.choice([
+                    "intersecting", "overlapping", "radiating", "repeating",
+                    "dissolving", "merging", "fragmenting", "tessellating",
+                    "undulating", "oscillating", "bifurcating", "converging"
+                ])
+                effect2 = random.choice([
+                    "forms", "shapes", "patterns", "structures",
+                    "compositions", "arrangements", "configurations",
+                    "constructions", "formations", "geometries"
+                ])
+                effects_text = f"with {effect1} {effect2}"
                 components.append(effects_text)
             elif theme == "fantasy":
                 effect = random.choice(self.magical_effects["fire"])
