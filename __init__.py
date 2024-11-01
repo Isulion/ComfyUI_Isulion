@@ -22,6 +22,7 @@ from .scifi_nodes.isulion_spacecraft_generator import IsulionSpacecraftGenerator
 from .enhancement_nodes.isulion_style_mixer import IsulionStyleMixer
 from .enhancement_nodes.isulion_prompt_enhancer import IsulionPromptEnhancer
 from .enhancement_nodes.isulion_negative_prompt_generator import IsulionNegativePromptGenerator
+from .nodes.core.mega_prompt_generator import IsulionMegaPromptGenerator
 
 NODE_CLASS_MAPPINGS = {
     "IsulionPromptGenerator": IsulionPromptGenerator,
@@ -48,6 +49,7 @@ NODE_CLASS_MAPPINGS = {
     "IsulionStyleMixer": IsulionStyleMixer,
     "IsulionPromptEnhancer": IsulionPromptEnhancer,
     "IsulionNegativePromptGenerator": IsulionNegativePromptGenerator,
+    "IsulionMegaPromptGenerator": IsulionMegaPromptGenerator,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -75,4 +77,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionStyleMixer": "Isulion Style Mixer 🎨",
     "IsulionPromptEnhancer": "Isulion Prompt Enhancer 📝",
     "IsulionNegativePromptGenerator": "Isulion Negative Prompt Generator ⛔",
+    "IsulionMegaPromptGenerator": "Isulion Mega Prompt Generator 🎯",
 }
