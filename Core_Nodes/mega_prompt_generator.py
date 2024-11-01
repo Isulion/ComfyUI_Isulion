@@ -137,6 +137,83 @@ class IsulionMegaPromptGenerator:
         "sound art", "conceptual abstraction", "neo-expressionism"
     ]
 
+    # Add these new class variables
+    food_types = [
+        "sushi", "pizza", "burger", "pasta", "steak", "salad", "soup", "dessert",
+        "cake", "ice cream", "chocolate", "sandwich", "ramen", "curry", "seafood",
+        "barbecue", "tacos", "pancakes", "waffles", "croissant", "bread", "pastry",
+        "macarons", "cupcakes", "donuts", "fruit platter", "cheese board", "dim sum",
+        "pho", "paella", "risotto", "lasagna", "sashimi", "tempura", "dumplings",
+        "bibimbap", "pad thai", "butter chicken", "falafel", "shawarma", "kebab",
+        "poke bowl", "ceviche", "enchiladas", "tamales", "empanadas", "spring rolls",
+        "samosas", "biryani", "moussaka", "couscous", "gnocchi", "ravioli",
+        "carbonara", "tiramisu", "creme brulee", "gelato", "baklava", "churros",
+        "crepes", "eclairs", "mochi", "truffles", "souffles", "tarts", "pies",
+        "cheesecake", "brownies", "cookies", "biscuits", "scones", "muffins"
+    ]
+
+    food_styles = [
+        "gourmet", "homemade", "street food", "fine dining", "rustic", "modern",
+        "traditional", "fusion", "minimalist", "artisanal", "molecular gastronomy",
+        "comfort food", "haute cuisine", "bistro style", "farm-to-table", "buffet",
+        "tapas", "family style", "al fresco", "prix fixe", "tasting menu",
+        "casual dining", "food truck", "pop-up restaurant", "cafeteria",
+        "brasserie", "trattoria", "izakaya", "gastropub", "deli", "patisserie",
+        "steakhouse", "seafood restaurant", "sushi bar", "pizzeria", "cafe",
+        "bakery", "food hall", "wine pairing", "seasonal menu", "organic",
+        "vegan", "vegetarian", "raw food", "slow food", "fast casual"
+    ]
+
+    interior_styles = [
+        "modern", "minimalist", "scandinavian", "industrial", "bohemian",
+        "contemporary", "traditional", "art deco", "mid-century modern",
+        "rustic", "coastal", "farmhouse", "eclectic", "japanese zen",
+        "mediterranean", "victorian", "tropical", "french country", "gothic",
+        "baroque", "renaissance", "neoclassical", "art nouveau", "shabby chic",
+        "hollywood regency", "asian fusion", "moroccan", "southwestern",
+        "colonial", "tudor", "georgian", "retro", "vintage", "steampunk",
+        "urban modern", "transitional", "maximalist", "wabi-sabi", "bauhaus",
+        "brutalist", "chinoiserie", "hamptons style", "lodge", "nautical",
+        "provincial", "rococo", "gothic revival", "modernist", "postmodern"
+    ]
+
+    interior_spaces = [
+        "living room", "kitchen", "bedroom", "bathroom", "dining room",
+        "home office", "library", "conservatory", "entrance hall", "loft",
+        "studio apartment", "penthouse", "master suite", "walk-in closet",
+        "game room", "home theater", "sunroom", "reading nook", "wine cellar",
+        "gym", "spa bathroom", "meditation room", "craft room", "music room",
+        "greenhouse", "mudroom", "pantry", "laundry room", "powder room",
+        "breakfast nook", "man cave", "she shed", "nursery", "playroom",
+        "guest room", "attic", "basement", "garage", "pool house", "solarium",
+        "observatory", "billiard room", "drawing room", "great room", "foyer",
+        "gallery", "study", "butler's pantry", "dressing room"
+    ]
+
+    interior_elements = [
+        "furniture", "lighting", "textiles", "artwork", "plants",
+        "decorative objects", "rugs", "window treatments", "architectural details",
+        "storage solutions", "seating", "tables", "mirrors", "wallpaper",
+        "throw pillows", "curtains", "blinds", "shelving", "cabinets",
+        "countertops", "flooring", "ceiling fixtures", "wall sconces",
+        "pendant lights", "chandeliers", "track lighting", "bookcases",
+        "armchairs", "sofas", "ottomans", "coffee tables", "side tables",
+        "dining tables", "beds", "dressers", "nightstands", "vanities",
+        "console tables", "bar carts", "room dividers", "sculptures",
+        "paintings", "photographs", "tapestries", "vases", "candleholders",
+        "clocks", "fireplaces", "fountains", "area rugs", "carpets",
+        "hardwood floors", "tile work", "crown molding", "wainscoting",
+        "built-ins", "exposed beams", "archways", "columns", "french doors",
+        "skylights", "bay windows", "stained glass", "indoor fountains"
+    ]
+
+    threed_styles = [
+        "low poly", "realistic 3D", "isometric", "voxel art", "clay render",
+        "wireframe", "procedural", "photorealistic 3D", "stylized 3D",
+        "geometric 3D", "architectural visualization", "product visualization",
+        "character modeling", "environment modeling", "hard surface modeling"
+    ]
+
     # Update theme prefixes
     theme_prefixes = {
         "anime": "anime artwork of",
@@ -144,18 +221,23 @@ class IsulionMegaPromptGenerator:
         "sci_fi": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k of",
         "fantasy": "fantasy artwork, epic scene of",
         "cute chimera": "cute digital art of",
-        "cinema": "cinematic shot, movie scene of",
+        "cinema": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, cinematic shot, movie scene of",
         "cartoon": "cartoon style image of",
-        "architecture": "architectural photography of",
+        "architecture": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, architectural photography of",
         "abstract": "abstract artwork featuring",
-        "mixed": "high quality digital art of"
+        "mixed": "high quality digital art of",
+        "food": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, food photography of",
+        "interior": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, interior design photography of",
+        "3D": "3D rendering of",
     }
 
     @classmethod
     def INPUT_TYPES(s):
         return {
             "required": {
-                "theme": (["fantasy", "sci_fi", "realistic", "mixed", "cute chimera", "cinema", "cartoon", "anime", "architecture", "abstract"], {"default": "fantasy"}),
+                "theme": (["fantasy", "sci_fi", "realistic", "mixed", "cute chimera", 
+                          "cinema", "cartoon", "anime", "architecture", "abstract",
+                          "food", "interior", "3D"], {"default": "fantasy"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
             },
@@ -246,6 +328,26 @@ class IsulionMegaPromptGenerator:
                 tech = random.choice(self.technology["augments"])
                 clothing = random.choice(self.clothing["sci_fi"])
                 subject_text = f"futuristic character with {tech} wearing {clothing}"
+            elif theme == "food":
+                food = random.choice(self.food_types)
+                style = random.choice(self.food_styles)
+                subject_text = f"{style} {food}"
+            elif theme == "interior":
+                style = random.choice(self.interior_styles)
+                space = random.choice(self.interior_spaces)
+                element = random.choice(self.interior_elements)
+                subject_text = f"{style} {space} with {element}"
+            elif theme == "3D":
+                style = random.choice(self.threed_styles)
+                if random.choice([True, False]):
+                    # Use architecture elements for environments
+                    subject = random.choice(self.architecture_elements)
+                else:
+                    # Use general objects or characters
+                    options = (self.technology["gadgets"] + 
+                             [f"{race} character" for race in self.races])
+                    subject = random.choice(options)
+                subject_text = f"{style} {subject}"
             else:  # realistic or mixed
                 if random.choice([True, False]):
                     animal = random.choice(self.cute_animals if random.random() < 0.3 else self.animals)
@@ -258,7 +360,7 @@ class IsulionMegaPromptGenerator:
             components.append(subject_text)
 
         # Action and composition
-        if include_action == "yes":
+        if include_action == "yes" and theme != "abstract":
             action = random.choice(self.actions)
             composition = random.choice(self.compositions)
             action_text = f"{action}, {composition}"
@@ -266,7 +368,10 @@ class IsulionMegaPromptGenerator:
 
         # Environment
         if include_environment == "yes":
-            if theme == "fantasy":
+            if theme == "abstract":
+                # More abstract-specific environments
+                environment_text = f"in {random.choice(['infinite void', 'abstract dimension', 'geometric space', 'color field', 'dynamic space', 'minimalist space'])}"
+            elif theme == "fantasy":
                 location = random.choice(self.mythical_locations)
                 weather_cond = random.choice(self.weather)
                 time = random.choice(self.times)
@@ -280,15 +385,13 @@ class IsulionMegaPromptGenerator:
                 weather_cond = random.choice(self.weather)
                 time = random.choice(self.times)
                 environment_text = f"during {weather_cond} {time}"
-            elif theme == "abstract":
-                environment_text = f"in {random.choice(['infinite space', 'void', 'dimensional plane', 'abstract realm', 'geometric space'])}"
-            elif theme == "anime":
-                if random.choice([True, False]):
-                    location = random.choice(self.mythical_locations)
-                    environment_text = f"in {location}"
-                else:
-                    habitat = random.choice(self.habitats)
-                    environment_text = f"in {habitat}"
+            elif theme == "food":
+                environment_text = f"on {random.choice(['rustic wooden table', 'marble counter', 'elegant plate', 'vintage dish', 'modern platter', 'chef table', 'restaurant setting'])}"
+            elif theme == "interior":
+                time = random.choice(self.times)
+                environment_text = f"during {time} with {random.choice(['natural lighting', 'ambient lighting', 'mood lighting', 'spot lighting', 'indirect lighting'])}"
+            elif theme == "3D":
+                environment_text = f"in {random.choice(['studio lighting setup', 'environmental lighting', 'dramatic lighting', 'realistic environment', 'abstract space', 'geometric background'])}"
             else:
                 habitat = random.choice(self.habitats)
                 weather_cond = random.choice(self.weather)
@@ -297,7 +400,7 @@ class IsulionMegaPromptGenerator:
             components.append(environment_text)
 
         # Style and mood
-        if include_style == "yes":
+        if include_style == "yes" and theme != "abstract":
             art_style = random.choice(self.art_styles)
             emotion = random.choice(self.emotions)
             style_text = f"{art_style} with {emotion} mood"
@@ -305,7 +408,13 @@ class IsulionMegaPromptGenerator:
 
         # Special effects
         if include_effects == "yes":
-            if theme == "fantasy":
+            if theme == "abstract":
+                # Abstract-specific effects
+                effect1 = random.choice(["flowing", "geometric", "fragmented", "layered", "textured", "gradient"])
+                effect2 = random.choice(["dynamic", "harmonious", "chaotic", "balanced", "rhythmic", "minimal"])
+                effects_text = f"with {effect1} composition and {effect2} elements"
+                components.append(effects_text)
+            elif theme == "fantasy":
                 effect = random.choice(self.magical_effects["fire"])
                 artifact = random.choice(self.artifacts["weapon"])
                 effects_text = f"with {effect} and {artifact}"
