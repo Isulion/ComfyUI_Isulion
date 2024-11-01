@@ -1,5 +1,4 @@
 import random
-from ...utils.common import handle_seed
 
 class IsulionMegaPromptGenerator:
     # Reuse all the existing lists/dictionaries from other nodes
@@ -77,7 +76,7 @@ class IsulionMegaPromptGenerator:
                 include_environment="yes", include_style="yes",
                 include_effects="yes"):
         if randomize == "enable":
-            seed = handle_seed(seed)
+            seed = random.randint(0, 0xffffffffffffffff) if seed == 0 else seed
         
         components = []
 
