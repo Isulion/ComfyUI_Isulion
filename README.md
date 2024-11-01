@@ -55,3 +55,4 @@ Advanced Mode for More Flexibility:
 ![Example_Isulion_Workflow_Split](https://github.com/user-attachments/assets/e578ff7a-0c03-47a1-900f-a7e209a64914)
 
 # Chimera Animals Workflow:
+![workflowAnimals](https://github.com/user-attachments/assets/afd6916a-22d0-4c4b-9989-9b78b9eaf83f)
