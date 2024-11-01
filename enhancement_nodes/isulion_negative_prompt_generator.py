@@ -4,9 +4,6 @@ class IsulionNegativePromptGenerator:
     @classmethod
     def INPUT_TYPES(s):
         return {
-            "required": {
-                "positive_prompt": ("STRING", {"default": ""}),
-            },
             "optional": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
                 "strictness": (["basic", "standard", "strict"], {"default": "standard"}),
@@ -17,7 +14,7 @@ class IsulionNegativePromptGenerator:
     FUNCTION = "generate"
     CATEGORY = "Isulion/Enhancement"
 
-    def generate(self, positive_prompt, seed=0, strictness="standard"):
+    def generate(self, seed=0, strictness="standard"):
         random.seed(seed)
         
         # Common negative elements by category
