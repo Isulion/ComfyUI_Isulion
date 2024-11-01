@@ -62,15 +62,40 @@ ComfyUI installed node:
 - Isulion Alien World Generator 🪐 - Exotic planet environments
 - Isulion Spacecraft Designer 🚀 - Space vehicle descriptions
 
+## Enhancement Nodes
+- Isulion Style Mixer 🎨 - Combines multiple art styles with adjustable blend modes
+- Isulion Prompt Enhancer 📝 - Adds detail, mood, composition, lighting, or color enhancements
+- Isulion Negative Prompt Generator ⛔ - Creates matching negative prompts with adjustable strictness
+
 # How to use:
 
+## Basic Workflow
 Use this example workflow to get started:
 
 ![Example_Isulion_Workflow](https://github.com/user-attachments/assets/ba6d7eaa-c068-4f88-a2c9-fb07aa95052b)
 
-Advanced Mode for More Flexibility:
+## Advanced Mode
+For more flexibility and control:
 
 ![Example_Isulion_Workflow_Split](https://github.com/user-attachments/assets/e578ff7a-0c03-47a1-900f-a7e209a64914)
 
-# Chimera Animals Workflow:
+## Special Workflows
+### Chimera Animals:
 ![workflowAnimals](https://github.com/user-attachments/assets/afd6916a-22d0-4c4b-9989-9b78b9eaf83f)
+
+### Using Enhancement Nodes:
+The enhancement nodes can be used to refine and improve your prompts:
+
+1. **Style Mixer**: Combine two different art styles with control over their balance
+   - Input two styles and choose blend mode (balanced/style1_dominant/style2_dominant)
+   - Great for creating unique artistic combinations
+
+2. **Prompt Enhancer**: Add specific improvements to your prompts
+   - Choose enhancement level (subtle/moderate/dramatic)
+   - Focus on specific aspects (detail/mood/composition/lighting/color)
+   - Perfect for refining and elevating prompt quality
+
+3. **Negative Prompt Generator**: Create matching negative prompts
+   - Adjustable strictness levels (basic/standard/strict)
+   - Automatically generates appropriate negative prompts
+   - Helps prevent common artifacts and issues
