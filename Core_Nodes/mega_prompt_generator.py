@@ -430,9 +430,26 @@ class IsulionMegaPromptGenerator:
         # Subject generation
         if include_subject == "yes":
             if theme == "strange_animal":
-                # Always mix cute head with normal body
+                # Get a cute head animal
                 head = random.choice(self.cute_animals)
+                # Get a distinctly different body animal
+                max_attempts = 10  # Prevent infinite loops
+                attempts = 0
                 body = random.choice(self.animals)
+                
+                while attempts < max_attempts:
+                    # Make sure the body animal is significantly different from the head
+                    # Remove common words to compare base animals
+                    head_base = head.lower().replace('baby ', '').replace('cub', '').replace('puppy', '').replace('kitten', '').replace('kit', '')
+                    body_base = body.lower()
+                    
+                    # Check if they're different enough
+                    if head_base not in body_base and body_base not in head_base:
+                        break
+                    
+                    body = random.choice(self.animals)
+                    attempts += 1
+                
                 behavior = random.choice(self.behaviors)
                 subject_text = f"a complex and intricate raw photograph of a fantastical creature with {head} head and {body} body, {behavior}, bokeh background, cinematic lighting, shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k"
                 
