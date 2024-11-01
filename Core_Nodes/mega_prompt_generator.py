@@ -434,7 +434,7 @@ class IsulionMegaPromptGenerator:
                 head = random.choice(self.cute_animals)
                 body = random.choice(self.animals)
                 behavior = random.choice(self.behaviors)
-                subject_text = f"strange creature with {head} head and {body} body, {behavior}"
+                subject_text = f"a complex and intricate raw photograph of a fantastical creature with {head} head and {body} body, {behavior}, bokeh background, cinematic lighting, shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k"
                 
             elif theme == "abstract":
                 # More pure abstract elements
