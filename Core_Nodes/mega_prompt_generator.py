@@ -255,10 +255,10 @@ class IsulionMegaPromptGenerator:
 
     # Add new class variables
     influencer_types = [
-        "fashion blogger", "fitness model", "travel influencer", "lifestyle blogger",
-        "food critic", "beauty guru", "tech reviewer", "wellness coach",
-        "yoga instructor", "digital nomad", "streetwear model", "makeup artist",
-        "personal trainer", "luxury lifestyle", "sustainable living blogger",
+        "fashion blogger", "curvy fitness model", "curvy travel influencer", "lifestyle blogger",
+        "food critic", "curvy beauty guru", "tech reviewer", "deep cleavage wellness coach",
+        "busty yoga instructor", "digital nomad", "busty streetwear model", "makeup artist",
+        "busty personal trainer", "luxury lifestyle", "sustainable living blogger",
         "adventure photographer", "home decor expert", "fashion model"
     ]
 
