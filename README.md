@@ -26,46 +26,46 @@ ComfyUI installed node:
 # Available Nodes:
 
 ## Core Generators
-- Isulion Prompt Generator ✨ - Main prompt generation node
-- Isulion Ollama Generate 🤖 - LLM-based text generation
+- Prompt Generator ✨ - Main prompt generation node
+- Ollama Generate 🤖 - LLM-based text generation
 
 ## Animal Related
-- Isulion Animal Selector 🦁 - General animal selection
-- Isulion Cute Animal Selector 🐱 - Cute and baby animal selection
-- Isulion Animal Behavior Generator 🦊 - Animal actions and poses
+- Animal Selector 🦁 - General animal selection
+- Cute Animal Selector 🐱 - Cute and baby animal selection
+- Animal Behavior Generator 🦊 - Animal actions and poses
 
 ## Character Elements
-- Isulion Character Profession 👨‍🍳 - Occupations and roles
-- Isulion Fantasy Race Generator 🧝‍♂️ - Fantasy species and races
-- Isulion Clothing Style Generator 👔 - Outfit and fashion descriptions
+- Character Profession 👨‍🍳 - Occupations and roles
+- Fantasy Race Generator 🧝‍♂️ - Fantasy species and races
+- Clothing Style Generator 👔 - Outfit and fashion descriptions
 
 ## Scene Composition
-- Isulion Action Generator ⚔️ - Dynamic poses and activities
-- Isulion Scene Composition 🎬 - Camera angles and shot types
+- Action Generator ⚔️ - Dynamic poses and activities
+- Scene Composition 🎬 - Camera angles and shot types
 
 ## Environment
-- Isulion Habitat Generator 🌲 - Natural environments and landscapes
-- Isulion Weather Generator ⛅ - Weather conditions
-- Isulion Time of Day Generator 🌅 - Time and lighting conditions
+- Habitat Generator 🌲 - Natural environments and landscapes
+- Weather Generator ⛅ - Weather conditions
+- Time of Day Generator 🌅 - Time and lighting conditions
 
 ## Style and Mood
-- Isulion Art Style Generator 🎨 - Artistic styles and techniques
-- Isulion Emotion Generator 😊 - Emotional characteristics
+- Art Style Generator 🎨 - Artistic styles and techniques
+- Emotion Generator 😊 - Emotional characteristics
 
 ## Fantasy & Magic
-- Isulion Magical Effect Generator ✨ - Spell effects and magical phenomena
-- Isulion Mythical Location Generator 🏰 - Fantasy environments
-- Isulion Artifact Generator 📿 - Magical items and artifacts
+- Magical Effect Generator ✨ - Spell effects and magical phenomena
+- Mythical Location Generator 🏰 - Fantasy environments
+- Artifact Generator 📿 - Magical items and artifacts
 
 ## Sci-Fi Elements
-- Isulion Tech Generator 🤖 - Futuristic technology descriptions
-- Isulion Alien World Generator 🪐 - Exotic planet environments
-- Isulion Spacecraft Designer 🚀 - Space vehicle descriptions
+- Tech Generator 🤖 - Futuristic technology descriptions
+- Alien World Generator 🪐 - Exotic planet environments
+- Spacecraft Designer 🚀 - Space vehicle descriptions
 
 ## Enhancement Nodes
-- Isulion Style Mixer 🎨 - Combines multiple art styles with adjustable blend modes
-- Isulion Prompt Enhancer 📝 - Adds detail, mood, composition, lighting, or color enhancements
-- Isulion Negative Prompt Generator ⛔ - Creates matching negative prompts with adjustable strictness
+- Style Mixer 🎨 - Combines multiple art styles with adjustable blend modes
+- Prompt Enhancer 📝 - Adds detail, mood, composition, lighting, or color enhancements
+- Negative Prompt Generator ⛔ - Creates matching negative prompts with adjustable strictness
 
 # How to use:
 
