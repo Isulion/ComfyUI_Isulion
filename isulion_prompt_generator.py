@@ -30,32 +30,36 @@ class IsulionPromptGenerator:
             }
         }
 
-    RETURN_TYPES = ("All", "Subject","Style", "Color_Palette", "Lighting", "Seed",)  # Two outputs: prompt string and seed
+    RETURN_TYPES = ("STRING", "STRING", "STRING", "STRING", "STRING", "INT",)  # All strings except seed
+    RETURN_NAMES = ("all", "subject", "style", "color_palette", "lighting", "seed",)
     FUNCTION = "choose_style_palette_and_lighting"
     CATEGORY = "Art/Styles"
 
     def choose_style_palette_and_lighting(self, randomize, seed, style, color_palette, lighting, subject):
         if randomize == "enable":
-            # Set seed for reproducibility if provided
             if seed is not None and seed > 0:
                 random.seed(seed)
             else:
                 seed = random.randint(0, 999999999)
                 random.seed(seed)
 
-            # Randomly select from predefined lists
             style = random.choice(self.styles)
             color_palette = random.choice(self.color_palettes)
             lighting = random.choice(self.lightings)
-            subject = random.choice(self.subjects)  # Use predefined subjects for randomization
+            subject = random.choice(self.subjects)
 
-        # If randomization is disabled, use the user's input for 'subject'
-        # The 'style', 'color_palette', and 'lighting' remain as selected from the lists
+        # Create the combined prompt string
+        all_prompt = f"Subject: {subject}\nStyle: {style}\nColor Palette: {color_palette}\nLighting: {lighting}"
 
-        # Return the prompt and the outputs
-        return (f"Subject: {subject}\nStyle: {style}\nColor Palette: {color_palette}\nLighting: {lighting}", subject, style, color_palette,lighting, seed)
+        # Return all values as strings except seed
+        return (all_prompt, subject, style, color_palette, lighting, seed)
 
 # Register the node with ComfyUI
 NODE_CLASS_MAPPINGS.update({
     "IsulionPromptGenerator": IsulionPromptGenerator
 })
+
+# At the end of the file, after NODE_CLASS_MAPPINGS
+NODE_DISPLAY_NAME_MAPPINGS = {
+    "IsulionPromptGenerator": "Isulion Prompt Generator ✨"
+}

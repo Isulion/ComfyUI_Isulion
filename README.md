@@ -6,26 +6,44 @@ ComfyUI Nodes that generate prompts with the help of LLM from local or remote Ol
 
 --------------
 
-# Requirement :
+# Requirement:
 
-Recomanded environnement variables :
+Recommended environment variables:
 - OLLAMA_KEEP_ALIVE  	0
 - OLLAMA_ORIGINS		*
 
-ComfyUI installed node :
+ComfyUI installed node:
 - Ollama_generator 
 
-# Installation :
+# Installation:
 
 - cd your_ComfyUI_install_dir
-
 - cd custom_nodes
-
 - git clone https://github.com/Isulion/ComfyUI_Isulion
 
 --------------
 
-# How to use :
+# Available Nodes:
+
+## Core Generators
+- Isulion Prompt Generator ✨ - Main prompt generation node
+- Isulion Ollama Generate 🤖 - LLM-based text generation
+
+## Animal Related
+- Isulion Animal Selector 🦁 - General animal selection
+- Isulion Cute Animal Selector 🐱 - Cute and baby animal selection
+- Isulion Animal Behavior Generator 🦊 - Animal actions and poses
+
+## Environment
+- Isulion Habitat Generator 🌲 - Natural environments and landscapes
+- Isulion Weather Generator ⛅ - Weather conditions
+- Isulion Time of Day Generator 🌅 - Time and lighting conditions
+
+## Style and Mood
+- Isulion Art Style Generator 🎨 - Artistic styles and techniques
+- Isulion Emotion Generator 😊 - Emotional characteristics
+
+# How to use:
 
 Use this example workflow to get started:
 
@@ -36,6 +54,4 @@ Advanced Mode for More Flexibility:
 
 ![Example_Isulion_Workflow_Split](https://github.com/user-attachments/assets/e578ff7a-0c03-47a1-900f-a7e209a64914)
 
-Chimere Animals Workflow
-
-![workflowAnimals](https://github.com/user-attachments/assets/100cb116-c6ef-43cf-b5d3-d7782949ad9c)
+# Chimera Animals Workflow:
