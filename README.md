@@ -47,6 +47,7 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 - Interior: Interior design and spaces
 - 3D: Three-dimensional artwork
 - Halloween: Spooky and horror themes
+- Instagram: Social media influencer photography
 - Random: Randomly selects from available themes
 
 ### Features:
