@@ -2,7 +2,7 @@ import random
 
 class IsulionMegaPromptGenerator:
     # Reuse all the existing lists/dictionaries from other nodes
-    animals = ['Dog','Cat','Horse','Cow','Chicken','Pig','Sheep','Goat','Lion','Tiger','Elephant','Bear','Wolf','Fox','Deer','Rabbit','Kangaroo','Giraffe','Zebra','Monkey','Chimpanzee','Gorilla','Orangutan','Panda','Koala','Hippopotamus','Rhinoceros','Crocodile','Alligator','Eagle','Hawk','Falcon','Owl','Penguin','Dolphin','Whale','Shark','Octopus','Squid','Jellyfish','Crab','Lobster','Clownfish','Sea Turtle','Frog','Toad','Snake','Lizard','Gecko','Tortoise','Camel','Donkey','Bat','Rat','Mouse','Squirrel','Chipmunk','Porcupine','Hedgehog','Skunk','Raccoon','Otter','Seal','Walrus','Polar Bear','Grizzly Bear','Cheetah','Leopard','Jaguar','Antelope','Buffalo','Bison','Moose','Reindeer','Mole','Platypus','Echidna','Parrot','Peacock','Swan','Duck','Goose','Turkey','Flamingo','Pelican','Seagull','Sparrow','Pigeon','Crow','Magpie','Woodpecker','Hummingbird','Butterfly','Bee','Ant','Spider','Scorpion','Worm','Snail','Slug']  # from Animal node
+    animals = ['Dog','Cat','Horse','Cow','Chicken','Pig','Sheep','Goat','Lion','Tiger','Elephant','Bear','Wolf','Fox','Deer','Rabbit','Kangaroo','Giraffe','Zebra','Monkey','Chimpanzee','Gorilla','Orangutan','Panda','Koala','Hippopotamus','Rhinoceros','Crocodile','Alligator','Eagle','Hawk','Falcon','Owl','Penguin','Dolphin','Whale','Shark','Octopus','Squid','Jellyfish','Crab','Lobster','Clownfish','Sea Turtle','Frog','Toad','Snake','Lizard','Gecko','Tortoise','Camel','Donkey','Bat','Rat','Mouse','Squirrel','Chipmunk','Porcupine','Hedgehog','Skunk','Raccoon','Otter','Seal','Walrus','Polar Bear','Grizzly Bear','Cheetah','Leopard','Jaguar','Antelope','Buffalo','Bison','Moose','Reindeer','Mole','Platypus','Echidna','Parrot','Peacock','Swan','Duck','Goose','Turkey','Flamingo','Pelican','Seagull','Sparrow','Pigeon','Crow','Magpie','Woodpecker','Hummingbird','Butterfly','Bee','Ant','Spider','Scorpion','Worm','Snail']  # from Animal node
     cute_animals = ["kitten", "puppy", "baby fox", "baby panda", "baby penguin", "baby seal", "baby rabbit", "baby deer", "baby elephant", "baby giraffe", "baby koala", "baby monkey", "baby owl", "baby hedgehog", "baby hamster", "baby duckling", "baby chick", "baby tiger", "baby lion", "baby polar bear", "baby otter", "baby red panda", "baby sloth", "baby alpaca", "baby dolphin", "baby sea turtle", "baby platypus", "baby raccoon", "baby squirrel", "baby beaver", "baby ferret", "baby chinchilla", "baby capybara", "baby sheep", "baby goat", "baby pig", "baby hippo", "baby kangaroo", "baby quokka", "baby meerkat"]  # from Cute Animal node
     behaviors = ["sleeping", "running", "hunting", "playing", "eating", "drinking", "grooming", "nesting", "swimming", "flying", "climbing", "jumping", "stalking", "resting", "fighting", "mating", "nursing", "exploring", "hiding", "gathering"]  # from Animal Behavior node
     professions = ["chef", "wizard", "warrior", "merchant", "blacksmith", "healer", "ranger", "bard", "alchemist", "scholar", "knight", "assassin", "monk", "necromancer", "paladin", "druid", "hunter", "mage", "thief", "priest"]  # from Profession node
@@ -332,7 +332,7 @@ class IsulionMegaPromptGenerator:
             "required": {
                 "theme": (["fantasy", "sci_fi", "realistic", "random", "cute chimera", 
                           "cinema", "cartoon", "anime", "architecture", "abstract",
-                          "food", "interior", "3D", "halloween", "instagram"], {"default": "fantasy"}),
+                          "food", "interior", "3D", "halloween", "instagram", "strange_animal"], {"default": "fantasy"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
             },
@@ -429,7 +429,14 @@ class IsulionMegaPromptGenerator:
 
         # Subject generation
         if include_subject == "yes":
-            if theme == "abstract":
+            if theme == "strange_animal":
+                # Always mix cute head with normal body
+                head = random.choice(self.cute_animals)
+                body = random.choice(self.animals)
+                behavior = random.choice(self.behaviors)
+                subject_text = f"strange creature with {head} head and {body} body, {behavior}"
+                
+            elif theme == "abstract":
                 # More pure abstract elements
                 primary = random.choice([
                     "geometric", "organic", "linear", "circular", "angular",
