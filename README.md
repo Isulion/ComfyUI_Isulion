@@ -37,37 +37,45 @@ Use ComfyUI Manager and search for "Isulion"
 The Mega Prompt Generator is an advanced node that combines multiple themes and generation capabilities:
 
 ### Available Themes:
-- Random: Randomly selects from available themes
-- Fantasy: Epic fantasy scenes and characters
-- Sci-Fi: Futuristic and technological scenes
-- Realistic: Real-world photography style
-- Cute Chimera: Hybrid cute animal combinations
-- Cinema: Movie and superhero characters
-- Cartoon: Classic animated characters
-- Anime: Anime-style artwork
-- Architecture: Building and structural designs
-- Abstract: Pure abstract art compositions
-- Food: Culinary and food photography
-- Interior: Interior design and spaces
-- 3D: Three-dimensional artwork
-- Halloween: Spooky and horror themes
-- Instagram: Social media influencer photography
-- Strange_animal: Creates unique creatures with cute animal heads and normal animal bodies
+- Essential Realistic: Professional photography with real-world subjects
+- Futuristic Sci-Fi: Advanced technology and space-age scenes
+- Studio Cinema: Movie and superhero character compositions
+- Enchanted Fantasy: Magical realms and mythical characters
+- Fusion Cute Animals: Adorable hybrid creature combinations
+- Animation Cartoon: Classic animated character styles
+- Anime: Japanese animation inspired artwork
+- Architectural: Sophisticated building and structural designs
+- Abstract: Pure geometric and non-representational compositions
+- Culinary: Professional food and beverage photography
+- Spaces Interior: Interior design and architectural spaces
+- Dimension 3D: Three-dimensional digital artwork
+- Ethereal Halloween: Spooky and atmospheric horror themes
+- Lifestyle Instagram: Professional social media photography
+- Chimera Strange Animals: Unique hybrid creatures with distinctive head-body combinations
+- Metropolis Futuristic City: Advanced cityscape and urban environments
+- Pixar Animation: 3D animation in the style of Pixar
+- Binet Surreal: Anthropomorphic portraits inspired by Sylvain Binet
+- Vintage Anthropomorphic: Classic anthropomorphic characters in vintage settings
+- Dynamic Random: Randomly selects and combines various themes
 
-### Features:
-- Theme-specific prefixes and styles
-- Professional photography settings for relevant themes
-- Adjustable complexity (simple/detailed/complex)
-- Component control (subject/action/environment/style/effects)
-- Built-in enhancement system with multiple focuses:
-  - Detail: From subtle refinements to dramatic detail
-  - Mood: Emotional atmosphere adjustments
-  - Composition: Scene arrangement and framing
-  - Lighting: Various lighting effects and styles
-  - Color: Color palette and harmony control
-- Enhancement levels (subtle/moderate/dramatic)
-- Randomization options
-- Separate outputs for each prompt component
+### Theme-Specific Features:
+- Realistic: Professional photography settings with studio lighting
+- Sci-Fi: Advanced technology and alien world elements
+- Fantasy: Magical effects and mythical locations
+- Cute Animals: Adorable hybrid combinations
+- Cinema: Movie character integration
+- Architecture: Diverse architectural styles and elements
+- Abstract: Pure geometric and non-representational art
+- Food: Professional culinary photography
+- Interior: Sophisticated space design
+- 3D: Three-dimensional rendering styles
+- Halloween: Spooky atmosphere and elements
+- Instagram: Social media influencer aesthetics
+- Strange Animals: Complex chimera combinations
+- Futuristic City: Advanced urban environments
+- Pixar: 3D animation with characteristic style
+- Binet: Sophisticated anthropomorphic portraits
+- Vintage Anthropomorphic: Classic animal characters in period settings
 
 The Mega Prompt Generator provides both a combined prompt and individual components, allowing for maximum flexibility in your workflows.
 
