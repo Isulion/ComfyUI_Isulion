@@ -1,24 +1,23 @@
-# ComfyUI_Isulion Random Prompt Generator
+# Isulion Prompt Generator
 
---------------
+Transform your creative workflow with advanced prompt generation technology.
 
-ComfyUI Nodes that generate prompts with the help of LLM from local or remote Ollama.
+![Showcase](https://github.com/user-attachments/assets/56d69f0a-d840-42de-93ef-5378293263ee)
 
---------------
+## Overview
 
-# Requirement:
+Isulion Prompt Generator introduces a new way to create, refine, and enhance your image generation prompts. With its intuitive interface and powerful capabilities, you can craft precise, detailed prompts for any creative vision.
 
-Recommended environment variables:
-- OLLAMA_KEEP_ALIVE  	0
-- OLLAMA_ORIGINS		*
+## Essential Requirements
 
-ComfyUI installed node:
-- Ollama_generator 
+- OLLAMA_KEEP_ALIVE: 0
+- OLLAMA_ORIGINS: *
+- Ollama_generator node installed in ComfyUI
 
-# Installation:
+## Installation
 
-## Simple install:
-   use the Manager Custom Nodes and look for "Isulion"
+### Quick Start
+Use ComfyUI Manager and search for "Isulion"
 
 ## Old install:
 - cd your_ComfyUI_install_dir
@@ -71,10 +70,6 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 - Separate outputs for each prompt component
 
 The Mega Prompt Generator provides both a combined prompt and individual components, allowing for maximum flexibility in your workflows.
-
-# Showcase : 
-![image](https://github.com/user-attachments/assets/56d69f0a-d840-42de-93ef-5378293263ee)
-
 
 
 ## Specific Nodes
