@@ -330,25 +330,47 @@ class IsulionMegaPromptGenerator:
     futuristic_city_elements = {
         "architecture": [
             "towering skyscrapers", "floating buildings", "anti-gravity structures",
-            "crystalline towers", "holographic billboards", "neon-lit facades",
+            "crystalline towers", "holographic billboards", "neon-lit facades", 
             "suspended walkways", "transparent domes", "energy spires",
             "vertical gardens", "quantum architecture", "plasma conduits",
-            "bio-organic buildings", "cybernetic structures", "nano-tech constructs"
+            "bio-organic buildings", "cybernetic structures", "nano-tech constructs",
+            "self-repairing structures", "modular megastructures", "force field protected buildings",
+            "artificial intelligence hubs", "data processing centers", "environmental purification towers",
+            "solar collection arrays", "hyperloop stations", "quantum computing facilities",
+            "biomimetic architecture", "space elevators", "atmospheric scrubbers",
+            "holographic projection centers", "energy distribution nodes", "climate control towers"
         ],
         "infrastructure": [
             "magnetic levitation trains", "flying vehicles", "teleportation hubs",
             "energy grid networks", "holographic streets", "sky bridges",
             "underground megastructures", "atmospheric processors", "fusion reactors",
-            "weather control systems", "orbital elevators", "gravity tubes"
+            "weather control systems", "orbital elevators", "gravity tubes",
+            "quantum transportation networks", "automated delivery systems", "drone highways",
+            "suborbital transport loops", "matter recycling facilities", "energy harvesting grids",
+            "vertical transportation pods", "antigravity public transit", "neural network hubs",
+            "plasma energy conduits", "waste reclamation systems", "atmospheric filtration networks",
+            "autonomous vehicle lanes", "molecular assembly plants", "smart city grids",
+            "hydroponic farming towers", "quantum communication arrays", "artificial ecosystem regulators"
         ],
         "atmosphere": [
             "neon-lit", "cyberpunk", "clean tech", "eco-futuristic", "dystopian",
             "utopian", "high-tech", "bio-mechanical", "quantum powered",
-            "holographic", "plasma-driven", "chrome and glass", "crystalline"
+            "holographic", "plasma-driven", "chrome and glass", "crystalline",
+            "bioluminescent", "nano-enhanced", "augmented reality infused", "solar punk",
+            "techno-organic", "hyper-connected", "artificially sustained",
+            "energy saturated", "digitally overlaid", "synthetically optimized",
+            "quantum stabilized", "electromagnetically charged", "fusion powered",
+            "holographically augmented", "climate controlled", "pollution free",
+            "technologically integrated", "AI monitored"
         ],
         "time": [
             "night", "sunset", "dawn", "dusk", "midnight", "golden hour",
-            "blue hour", "neon twilight", "artificial day", "perpetual twilight"
+            "blue hour", "neon twilight", "artificial day", "perpetual twilight",
+            "quantum time", "temporal flux", "synthetic daylight", "eternal dusk",
+            "programmed dawn", "digital midnight", "holographic sunset", "artificial aurora",
+            "binary sunrise", "plasma noon", "crystal clear morning", "nebula night",
+            "virtual daytime", "simulated evening", "matrix morning", "cyber sunset",
+            "quantum nightfall", "synthetic starlight", "digital dawn", "techno twilight"
         ]
     }
 
