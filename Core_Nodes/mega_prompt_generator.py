@@ -326,13 +326,40 @@ class IsulionMegaPromptGenerator:
         }
     }
 
+    # Add these new class variables at the start of the class
+    futuristic_city_elements = {
+        "architecture": [
+            "towering skyscrapers", "floating buildings", "anti-gravity structures",
+            "crystalline towers", "holographic billboards", "neon-lit facades",
+            "suspended walkways", "transparent domes", "energy spires",
+            "vertical gardens", "quantum architecture", "plasma conduits",
+            "bio-organic buildings", "cybernetic structures", "nano-tech constructs"
+        ],
+        "infrastructure": [
+            "magnetic levitation trains", "flying vehicles", "teleportation hubs",
+            "energy grid networks", "holographic streets", "sky bridges",
+            "underground megastructures", "atmospheric processors", "fusion reactors",
+            "weather control systems", "orbital elevators", "gravity tubes"
+        ],
+        "atmosphere": [
+            "neon-lit", "cyberpunk", "clean tech", "eco-futuristic", "dystopian",
+            "utopian", "high-tech", "bio-mechanical", "quantum powered",
+            "holographic", "plasma-driven", "chrome and glass", "crystalline"
+        ],
+        "time": [
+            "night", "sunset", "dawn", "dusk", "midnight", "golden hour",
+            "blue hour", "neon twilight", "artificial day", "perpetual twilight"
+        ]
+    }
+
     @classmethod
     def INPUT_TYPES(s):
         return {
             "required": {
                 "theme": (["fantasy", "sci_fi", "realistic", "random", "cute chimera", 
                           "cinema", "cartoon", "anime", "architecture", "abstract",
-                          "food", "interior", "3D", "halloween", "instagram", "strange_animal"], {"default": "fantasy"}),
+                          "food", "interior", "3D", "halloween", "instagram", 
+                          "strange_animal", "futuristic_city"], {"default": "fantasy"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
             },
@@ -429,7 +456,19 @@ class IsulionMegaPromptGenerator:
 
         # Subject generation
         if include_subject == "yes":
-            if theme == "strange_animal":
+            if theme == "futuristic_city":
+                # Select main architectural element
+                architecture = random.choice(self.futuristic_city_elements["architecture"])
+                # Select infrastructure
+                infrastructure = random.choice(self.futuristic_city_elements["infrastructure"])
+                # Select atmosphere
+                atmosphere = random.choice(self.futuristic_city_elements["atmosphere"])
+                # Select time
+                time = random.choice(self.futuristic_city_elements["time"])
+                
+                subject_text = f"cinematic wide shot of a {atmosphere} futuristic megacity with {architecture} and {infrastructure}, during {time}, ultra detailed cityscape, shallow depth of field, sharp focus, 8k"
+
+            elif theme == "strange_animal":
                 # Get a cute head animal
                 head = random.choice(self.cute_animals)
                 # Get a distinctly different body animal
@@ -453,6 +492,19 @@ class IsulionMegaPromptGenerator:
                 behavior = random.choice(self.behaviors)
                 subject_text = f"a complex and intricate raw photograph of a fantastical creature with {head} head and {body} body, {behavior}, bokeh background, cinematic lighting, shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k"
                 
+            elif theme == "fantasy":
+                # New specific handling for fantasy theme
+                if random.random() < 0.3:  # 30% chance for magical creature
+                    race = random.choice(self.races)
+                    profession = random.choice(self.professions)
+                    clothing = random.choice(self.clothing["fantasy"])
+                    subject_text = f"{race} {profession} wearing {clothing}"
+                else:  # 70% chance for character
+                    profession = random.choice(self.professions)
+                    race = random.choice(self.races)
+                    artifact = random.choice(self.artifacts["weapon"])
+                    clothing = random.choice(self.clothing["fantasy"])
+                    subject_text = f"{race} {profession} wielding {artifact}, wearing {clothing}"
             elif theme == "abstract":
                 # More pure abstract elements
                 primary = random.choice([
@@ -495,9 +547,14 @@ class IsulionMegaPromptGenerator:
                 element = random.choice(self.architecture_elements)
                 subject_text = f"{style} {element}"
             elif theme == "sci_fi":
-                tech = random.choice(self.technology["augments"])
-                clothing = random.choice(self.clothing["sci_fi"])
-                subject_text = f"futuristic character with {tech} wearing {clothing}"
+                if random.random() < 0.6:  # 60% chance for character
+                    tech = random.choice(self.technology["augments"])
+                    clothing = random.choice(self.clothing["sci_fi"])
+                    subject_text = f"futuristic character with {tech} wearing {clothing}"
+                else:  # 40% chance for spacecraft/tech
+                    ship = random.choice(self.spacecraft["military"])
+                    tech = random.choice(self.technology["weapons"])
+                    subject_text = f"advanced {ship} equipped with {tech}"
             elif theme == "food":
                 food = random.choice(self.food_types)
                 style = random.choice(self.food_styles)
@@ -509,11 +566,9 @@ class IsulionMegaPromptGenerator:
                 subject_text = f"{style} {space} with {element}"
             elif theme == "3D":
                 style = random.choice(self.threed_styles)
-                if random.choice([True, False]):
-                    # Use architecture elements for environments
+                if random.random() < 0.5:
                     subject = random.choice(self.architecture_elements)
                 else:
-                    # Use general objects or characters
                     options = (self.technology["gadgets"] + 
                              [f"{race} character" for race in self.races])
                     subject = random.choice(options)
@@ -526,15 +581,36 @@ class IsulionMegaPromptGenerator:
                 influencer = random.choice(self.influencer_types)
                 activity = random.choice(self.influencer_activities)
                 subject_text = f"beautiful {influencer} {activity}"
-            else:  # realistic or mixed
-                if random.choice([True, False]):
-                    animal = random.choice(self.cute_animals if random.random() < 0.3 else self.animals)
-                    behavior = random.choice(self.behaviors)
-                    subject_text = f"{animal} {behavior}"
-                else:
+            elif theme == "realistic":  # Changed from else to explicit theme
+                if random.random() < 0.7:  # 70% chance for human subject
                     profession = random.choice(self.professions)
                     clothing = random.choice(self.clothing["realistic"])
-                    subject_text = f"{profession} wearing {clothing}"
+                    pose = random.choice([
+                        "portrait", "candid shot", "environmental portrait",
+                        "profile shot", "three-quarter view", "full body shot"
+                    ])
+                    lighting = random.choice([
+                        "natural lighting", "studio lighting", "golden hour lighting",
+                        "dramatic lighting", "soft lighting", "window lighting"
+                    ])
+                    subject_text = f"professional {pose} photograph of {profession} wearing {clothing}, {lighting}, shallow depth of field, sharp focus, 8k"
+                else:  # 30% chance for nature/animal
+                    subject = random.choice([
+                        f"wildlife photograph of {random.choice(self.animals)} {random.choice(self.behaviors)}",
+                        f"landscape photograph of {random.choice(self.habitats)}",
+                        f"macro photograph of {random.choice(['flowers', 'insects', 'water droplets', 'leaves', 'crystals'])}",
+                        f"architectural photograph of {random.choice(self.architecture_elements)}"
+                    ])
+                    subject_text = f"professional {subject}, high detail, sharp focus, 8k"
+            else:  # random theme handling
+                if random.random() < 0.7:  # 70% chance for human subject
+                    profession = random.choice(self.professions)
+                    clothing = random.choice(self.clothing["realistic"])
+                    subject_text = f"professional photograph of {profession} wearing {clothing}"
+                else:  # 30% chance for nature/animal
+                    animal = random.choice(self.animals)
+                    behavior = random.choice(self.behaviors)
+                    subject_text = f"professional wildlife photograph of {animal} {behavior}"
             components.append(subject_text)
 
         # Action and composition
