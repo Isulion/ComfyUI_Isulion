@@ -531,9 +531,7 @@ class IsulionMegaPromptGenerator:
                         
                     max_attempts -= 1
                 
-                behavior = random.choice(self.behaviors)
-                
-                subject_text = f"a complex raw photograph of an intricated chimerical fantastical creature with ((the body of a {body})) and ((the head of a {head})), {behavior}, bokeh background, cinematic lighting, shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, masterfully detailed"
+                subject_text = f"a complex raw photograph of an intricated chimerical fantastical creature with ((the body of a {body})) and ((the head of a {head})), bokeh background, cinematic lighting, shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, masterfully detailed"
 
             elif theme == "fantasy":
                 # New specific handling for fantasy theme
