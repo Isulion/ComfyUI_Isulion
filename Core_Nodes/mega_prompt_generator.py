@@ -423,6 +423,41 @@ class IsulionMegaPromptGenerator:
         "dream dimension", "crystal cave", "fairy grove"
     ]
 
+    # Add Binet-specific whimsical activities
+    binet_activities = [
+        "smoking an ornate pipe", "smoking a fancy cigar", "driving a vintage car",
+        "piloting an old biplane", "playing a violin", "playing a grand piano",
+        "reading an ancient book", "painting on an easel", "drinking fine wine",
+        "playing chess", "writing with a quill pen", "conducting an orchestra",
+        "riding a penny-farthing bicycle", "sailing a wooden ship", "playing polo",
+        "having afternoon tea", "playing croquet", "fencing with elegance", 
+        "playing billiards", "wearing a monocle and top hat", "hunting with hounds",
+        "attending an opera", "collecting butterflies", "studying star charts",
+        "examining artifacts", "brewing exotic teas", "mixing alchemical potions",
+        "cataloging rare books", "polishing a pocket watch", "arranging flowers",
+        "writing poetry", "practicing calligraphy", "bird watching with binoculars",
+        "sketching in a leather-bound journal", "playing a harpsichord",
+        "examining specimens through a microscope", "sipping brandy by the fireplace",
+        "playing lawn tennis", "hosting a sophisticated dinner party",
+        "studying ancient maps", "collecting rare coins", "playing backgammon",
+        "tasting aged whiskey", "maintaining a curiosity cabinet",
+        "pressing flowers in books", "playing the cello", "practicing archery",
+        "riding a horse sidesaddle", "attending a masquerade ball",
+        "studying phrenology", "collecting mineral specimens", "playing bridge",
+        "maintaining a greenhouse", "writing letters with sealing wax",
+        "studying meteorology", "practicing taxidermy", "playing the harp",
+        "collecting mechanical watches", "studying astronomy", "playing bocce",
+        "maintaining a rose garden", "practicing palmistry", "playing whist",
+        "collecting antique weapons", "studying entomology", "playing the organ",
+        "maintaining a wine cellar", "practicing cartography", "playing shuffleboard",
+        "collecting rare stamps", "studying ornithology", "playing the flute",
+        "maintaining a library", "practicing numerology", "playing mahjong",
+        "collecting music boxes", "studying geology", "playing the mandolin",
+        "maintaining a menagerie", "practicing physiognomy", "playing dominoes",
+        "collecting snuff boxes", "studying botany", "playing the dulcimer",
+        "maintaining a cabinet of curiosities", "practicing mesmerism"
+    ]
+
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -758,8 +793,12 @@ class IsulionMegaPromptGenerator:
                 accessory = random.choice(self.binet_accessories)
                 background = random.choice(self.binet_backgrounds)
                 animal = random.choice(self.animals)
+                activity = random.choice(self.binet_activities) if random.random() < 0.7 else ""
                 
-                subject_text = f"{style} of a noble {animal} with {element}, wearing {accessory}, in a {background}, masterful digital painting, vibrant colors, dramatic lighting, ultra detailed, dreamlike atmosphere, expressive brushwork, 8k"
+                if activity:
+                    subject_text = f"{style} of a noble {animal} {activity}, with {element}, wearing {accessory}, in a {background}, masterful digital painting, vibrant colors, dramatic lighting, ultra detailed, dreamlike atmosphere, expressive brushwork, 8k"
+                else:
+                    subject_text = f"{style} of a noble {animal} with {element}, wearing {accessory}, in a {background}, masterful digital painting, vibrant colors, dramatic lighting, ultra detailed, dreamlike atmosphere, expressive brushwork, 8k"
             else:  # random theme handling
                 if random.random() < 0.7:  # 70% chance for human subject
                     profession = random.choice(self.professions)
