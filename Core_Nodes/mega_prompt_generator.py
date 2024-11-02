@@ -493,6 +493,11 @@ class IsulionMegaPromptGenerator:
             elif theme == "strange_animal":
                 # Get a cute head animal
                 head = random.choice(self.cute_animals)
+                # Remove baby-related words from the head animal name
+                head = head.lower().replace('baby ', '').replace('cub', '').replace('puppy', '').replace('kitten', '').replace('kit', '')
+                # Capitalize first letter
+                head = head.title()
+                
                 # Get a distinctly different body animal
                 max_attempts = 10  # Prevent infinite loops
                 attempts = 0
@@ -501,7 +506,7 @@ class IsulionMegaPromptGenerator:
                 while attempts < max_attempts:
                     # Make sure the body animal is significantly different from the head
                     # Remove common words to compare base animals
-                    head_base = head.lower().replace('baby ', '').replace('cub', '').replace('puppy', '').replace('kitten', '').replace('kit', '')
+                    head_base = head.lower()
                     body_base = body.lower()
                     
                     # Check if they're different enough
