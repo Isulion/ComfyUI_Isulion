@@ -298,6 +298,7 @@ class IsulionMegaPromptGenerator:
         "strange_animal": "premium studio photograph with architectural precision of",
         "futuristic_city": "ultra-modern architectural visualization with premium materials of",
         "pixar": "highly detailed Pixar-style 3D render with clean geometry and appealing design of",
+        "binet": "minimalist surreal fine art photograph with pristine studio lighting of",
     }
 
     # Add design-focused enhancement words
@@ -393,6 +394,33 @@ class IsulionMegaPromptGenerator:
         "metallic sheen", "pearlescent coating"
     ]
 
+    # Add Binet-specific elements
+    binet_styles = [
+        "minimalist surreal photograph", "elegant surreal composition",
+        "dreamlike studio photograph", "conceptual fine art photograph",
+        "surreal fashion photograph", "artistic portrait photograph"
+    ]
+
+    binet_elements = [
+        "floating objects", "levitating elements", "suspended in air",
+        "defying gravity", "geometric composition", "clean lines",
+        "perfect symmetry", "elegant minimalism", "surreal arrangement",
+        "dreamlike composition", "ethereal atmosphere", "pristine white background"
+    ]
+
+    binet_subjects = [
+        "elegant woman", "fashion model", "ballet dancer", "contemporary dancer",
+        "graceful figure", "minimalist portrait", "artistic nude",
+        "sculptural pose", "contorted figure", "geometric form"
+    ]
+
+    binet_poses = [
+        "sculptural pose", "geometric stance", "floating in space",
+        "suspended in air", "defying gravity", "elegant contortion",
+        "minimalist gesture", "surreal position", "balanced composition",
+        "artistic arrangement"
+    ]
+
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -415,6 +443,7 @@ class IsulionMegaPromptGenerator:
                     "Chimera Strange Animals",
                     "Metropolis Futuristic City",
                     "Pixar Animation",
+                    "Binet Surreal",
                     "Dynamic Random"
                 ], {"default": "Essential"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
@@ -478,6 +507,7 @@ class IsulionMegaPromptGenerator:
             "Chimera Strange Animals": "strange_animal",
             "Metropolis Futuristic City": "futuristic_city",
             "Pixar Animation": "pixar",
+            "Binet Surreal": "binet",
             "Dynamic Random": "random"
         }
 
@@ -720,6 +750,13 @@ class IsulionMegaPromptGenerator:
                         "musical instrument", "sports equipment"
                     ])
                     subject_text = f"{style} of a charming {object_or_scene} with {character_trait}, made of {material}, ultra detailed 3D model, octane render, soft lighting, subsurface scattering, 8k"
+            elif internal_theme == "binet":
+                style = random.choice(self.binet_styles)
+                element = random.choice(self.binet_elements)
+                subject = random.choice(self.binet_subjects)
+                pose = random.choice(self.binet_poses)
+                
+                subject_text = f"{style} of {subject} in {pose}, {element}, pure white background, ultra clean composition, perfect studio lighting, minimalist elegance, ultra sharp focus, medium format photography, pristine quality, 8k"
             else:  # random theme handling
                 if random.random() < 0.7:  # 70% chance for human subject
                     profession = random.choice(self.professions)
