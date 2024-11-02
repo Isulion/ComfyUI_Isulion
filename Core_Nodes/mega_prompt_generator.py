@@ -278,55 +278,47 @@ class IsulionMegaPromptGenerator:
         "boutique hotel", "sunset viewpoint", "luxury yacht"
     ]
 
-    # Update theme prefixes
+    # Update theme prefixes with more design-focused language
     theme_prefixes = {
-        "anime": "anime artwork of",
-        "realistic": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k of",
-        "sci_fi": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k of",
-        "fantasy": "fantasy artwork, epic scene of",
-        "cute chimera": "cute digital art of",
-        "cinema": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, cinematic shot, movie scene of",
-        "cartoon": "cartoon style image of",
-        "architecture": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, architectural photography of",
-        "abstract": "abstract artwork featuring",
-        "random": "high quality digital art of",
-        "food": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, food photography of",
-        "interior": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, interior design photography of",
-        "3D": "3D rendering of",
-        "halloween": "spooky halloween scene of",
-        "instagram": "shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, instagram influencer photo of",
+        "anime": "minimalist anime artwork with clean lines of",
+        "realistic": "professional studio photograph with precise lighting, ultra-sharp focus, minimalist composition of",
+        "sci_fi": "sleek and refined futuristic design, premium finish, elegant technological details of",
+        "fantasy": "elegant fantasy artwork with refined details of",
+        "cute chimera": "clean and polished digital art with smooth gradients of",
+        "cinema": "premium cinematic composition, studio-grade lighting, professional color grading of",
+        "cartoon": "refined animation style with smooth gradients and clean lines of",
+        "architecture": "architectural visualization with premium materials, clean lines, and precise details of",
+        "abstract": "minimalist abstract artwork featuring clean geometric forms of",
+        "random": "premium quality digital artwork with refined details of",
+        "food": "professional food photography with elegant plating, studio lighting of",
+        "interior": "premium interior design photography with architectural precision of",
+        "3D": "high-end 3D visualization with premium materials and precise details of",
+        "halloween": "elegantly crafted dark atmosphere with refined details of",
+        "instagram": "premium lifestyle photography with professional studio lighting of",
+        "strange_animal": "premium studio photograph with architectural precision of",
+        "futuristic_city": "ultra-modern architectural visualization with premium materials of"
     }
 
-    # Add these new class variables after the existing ones
+    # Add design-focused enhancement words
     enhancements = {
         "detail": {
-            "subtle": ["detailed", "fine", "precise", "clean", "polished", "neat", "crisp", "clear", "defined", "sharp"],
-            "moderate": ["highly detailed", "intricate", "elaborate", "refined", "meticulous", "well-defined", "finely crafted", "carefully detailed", "precisely rendered", "expertly detailed"],
-            "dramatic": ["extremely detailed", "ultra high detail", "masterfully detailed", "hyper-realistic", "photo-realistic", "incredibly intricate", "exceptionally detailed", "stunningly detailed", "microscopically detailed", "obsessively detailed"]
-        },
-        "mood": {
-            "subtle": ["pleasant", "calm", "gentle", "soft", "peaceful", "serene", "tranquil", "relaxed", "soothing", "mild"],
-            "moderate": ["atmospheric", "moody", "emotional", "expressive", "evocative", "poignant", "stirring", "moving", "touching", "sentimental"],
-            "dramatic": ["intense", "powerful", "dramatic", "passionate", "overwhelming", "gripping", "electrifying", "heart-wrenching", "soul-stirring", "awe-inspiring"]
+            "subtle": ["precisely detailed", "refined", "elegantly crafted", "clean", "polished"],
+            "moderate": ["meticulously detailed", "premium quality", "professionally crafted", "architectural precision", "studio grade"],
+            "dramatic": ["ultra-premium quality", "masterfully engineered", "exceptional craftsmanship", "flawless detail", "perfect precision"]
         },
         "composition": {
-            "subtle": ["balanced", "centered", "harmonious", "structured", "orderly", "symmetrical", "aligned", "measured", "proportioned", "organized"],
-            "moderate": ["dynamic", "well-composed", "artistically framed", "professionally shot", "thoughtfully arranged", "skillfully composed", "elegantly framed", "beautifully balanced", "artfully structured", "expertly positioned"],
-            "dramatic": ["cinematic", "epic composition", "stunning arrangement", "masterfully composed", "breathtaking composition", "grand scale", "visually striking", "perfectly orchestrated", "magnificently framed", "spectacularly arranged"]
+            "subtle": ["balanced", "harmonious", "precise", "clean layout", "minimalist"],
+            "moderate": ["professionally composed", "elegant arrangement", "refined composition", "premium layout", "architectural balance"],
+            "dramatic": ["perfect symmetry", "masterful composition", "ultra-premium arrangement", "flawless balance", "exceptional design"]
         },
         "lighting": {
-            "subtle": ["well-lit", "soft lighting", "natural light", "gentle shadows", "ambient lighting", "diffused light", "even lighting", "balanced lighting", "delicate shadows", "subtle highlights"],
-            "moderate": ["dramatic lighting", "professional lighting", "perfect exposure", "beautiful lighting", "artistic lighting", "controlled lighting", "expert illumination", "refined lighting", "sophisticated lighting", "calculated shadows"],
-            "dramatic": ["volumetric lighting", "ray tracing", "god rays", "studio lighting", "spectacular illumination", "dynamic light rays", "ethereal glow", "heavenly beams", "brilliant luminescence", "radiant lighting"]
-        },
-        "color": {
-            "subtle": ["colorful", "harmonious colors", "balanced tones", "natural colors", "gentle hues", "soft tones", "muted colors", "understated palette", "delicate tints", "refined shades"],
-            "moderate": ["vibrant colors", "rich colors", "beautiful palette", "perfect color balance", "vivid hues", "dynamic colors", "expressive palette", "striking tones", "bold colors", "saturated hues"],
-            "dramatic": ["stunning colors", "extreme color contrast", "vivid colors", "spectacular color palette", "extraordinary hues", "intense chromatic range", "dazzling colors", "electrifying palette", "magnificent color harmony", "phenomenal color composition"]
+            "subtle": ["clean lighting", "soft illumination", "precise shadows", "refined highlights", "elegant glow"],
+            "moderate": ["professional studio lighting", "premium illumination", "architectural lighting", "controlled shadows", "refined atmosphere"],
+            "dramatic": ["ultra-premium lighting", "perfect illumination", "exceptional atmosphere", "masterful light control", "flawless shadows"]
         }
     }
 
-    # Add these new class variables at the start of the class
+    # Add these new class variables after the existing ones
     futuristic_city_elements = {
         "architecture": [
             "towering skyscrapers", "floating buildings", "anti-gravity structures",
@@ -378,10 +370,25 @@ class IsulionMegaPromptGenerator:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "theme": (["fantasy", "sci_fi", "realistic", "random", "cute chimera", 
-                          "cinema", "cartoon", "anime", "architecture", "abstract",
-                          "food", "interior", "3D", "halloween", "instagram", 
-                          "strange_animal", "futuristic_city"], {"default": "fantasy"}),
+                "theme": ([
+                    "Essential Realistic",      # was "realistic"
+                    "Futuristic Sci-Fi",     # was "sci_fi"
+                    "Studio Cinema",         # was "cinema"
+                    "Enchanted Fantasy",      # was "fantasy"
+                    "Fusion Cute Animals",         # was "cute chimera"
+                    "Animation Cartoon",      # was "cartoon"
+                    "Anime",          # was "anime"
+                    "Architectural",  # was "architecture"
+                    "Abstract",       # was "abstract"
+                    "Culinary",       # was "food"
+                    "Spaces Interior",         # was "interior"
+                    "Dimension 3D",      # was "3D"
+                    "Ethereal Halloween",       # was "halloween"
+                    "Lifestyle Instagram",      # was "instagram"
+                    "Chimera Strange Animals",        # was "strange_animal"
+                    "Metropolis Futuristic City",     # was "futuristic_city"
+                    "Dynamic Random"         # was "random"
+                ], {"default": "Essential"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
             },
@@ -423,19 +430,44 @@ class IsulionMegaPromptGenerator:
                 include_environment="yes", include_style="yes",
                 include_effects="yes", enhancement_level="moderate",
                 enhancement_focus="detail"):
+        
+        # Create a mapping between new and old theme names
+        theme_mapping = {
+            "Essential Realistic": "realistic",
+            "Futuristic Sci-Fi": "sci_fi",
+            "Studio Cinema": "cinema",
+            "Enchanted Fantasy": "fantasy",
+            "Fusion Cute Animals": "cute chimera",
+            "Animation Cartoon": "cartoon",
+            "Anime": "anime",
+            "Architectural": "architecture",
+            "Abstract": "abstract",
+            "Culinary": "food",
+            "Spaces Interior": "interior",
+            "Dimension 3D": "3D",
+            "Ethereal Halloween": "halloween",
+            "Lifestyle Instagram": "instagram",
+            "Chimera Strange Animals": "strange_animal",
+            "Metropolis Futuristic City": "futuristic_city",
+            "Dynamic Random": "random"
+        }
+
+        # Convert new theme name to old theme name for internal processing
+        internal_theme = theme_mapping.get(theme, theme)
+
         if randomize == "enable":
             seed = random.randint(0, 0xffffffffffffffff) if seed == 0 else seed
             random.seed(seed)
 
         # For random theme, pick a random theme except "random" itself
-        if theme == "random":
+        if internal_theme == "random":
             available_themes = [t for t in self.theme_prefixes.keys() if t != "random"]
-            theme = random.choice(available_themes)
-        
+            internal_theme = random.choice(available_themes)
+
         components = []
         
         # Add theme prefix at the start
-        prefix = self.theme_prefixes.get(theme, "")
+        prefix = self.theme_prefixes.get(internal_theme, "")
         if prefix:
             components.append(prefix)
 
@@ -445,7 +477,7 @@ class IsulionMegaPromptGenerator:
         style_text = ""
         effects_text = ""
 
-        if theme == "abstract":
+        if internal_theme == "abstract":
             # Special handling for abstract theme - completely separate from other themes
             abstract_components = [prefix] if prefix else []
             
@@ -478,7 +510,7 @@ class IsulionMegaPromptGenerator:
 
         # Subject generation
         if include_subject == "yes":
-            if theme == "futuristic_city":
+            if internal_theme == "futuristic_city":
                 # Select main architectural element
                 architecture = random.choice(self.futuristic_city_elements["architecture"])
                 # Select infrastructure
@@ -490,7 +522,7 @@ class IsulionMegaPromptGenerator:
                 
                 subject_text = f"cinematic wide shot of a {atmosphere} futuristic megacity with {architecture} and {infrastructure}, during {time}, ultra detailed cityscape, shallow depth of field, sharp focus, 8k"
 
-            elif theme == "strange_animal":
+            elif internal_theme == "strange_animal":
                 # Define animal families to avoid similar combinations
                 animal_families = {
                     'felines': ['cat', 'lion', 'tiger', 'leopard', 'cheetah', 'jaguar', 'lynx', 'ocelot', 'caracal', 'cougar', 'panther', 'serval', 'bobcat', 'snow leopard', 'clouded leopard'],
@@ -533,7 +565,7 @@ class IsulionMegaPromptGenerator:
                 
                 subject_text = f"a complex raw photograph of an intricated chimerical fantastical creature with ((the body of a {body})) and ((the head of a {head})), bokeh background, cinematic lighting, shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, masterfully detailed"
 
-            elif theme == "fantasy":
+            elif internal_theme == "fantasy":
                 # New specific handling for fantasy theme
                 if random.random() < 0.3:  # 30% chance for magical creature
                     race = random.choice(self.races)
@@ -546,7 +578,7 @@ class IsulionMegaPromptGenerator:
                     artifact = random.choice(self.artifacts["weapon"])
                     clothing = random.choice(self.clothing["fantasy"])
                     subject_text = f"{race} {profession} wielding {artifact}, wearing {clothing}"
-            elif theme == "abstract":
+            elif internal_theme == "abstract":
                 # More pure abstract elements
                 primary = random.choice([
                     "geometric", "organic", "linear", "circular", "angular",
@@ -555,11 +587,11 @@ class IsulionMegaPromptGenerator:
                 element = random.choice(self.abstract_elements)
                 style = random.choice(self.abstract_styles)
                 subject_text = f"{style} {primary} composition with {element}"
-            elif theme == "cartoon":
+            elif internal_theme == "cartoon":
                 character = random.choice(self.cartoon_characters)
                 action = random.choice(self.actions)
                 subject_text = f"{character} {action}"
-            elif theme == "cute chimera":
+            elif internal_theme == "cute chimera":
                 # Modified chimera creation to mix normal and cute animals
                 if random.random() < 0.5:
                     # Mix cute head with normal body
@@ -574,20 +606,20 @@ class IsulionMegaPromptGenerator:
                 
                 behavior = random.choice(self.behaviors)
                 subject_text += f", {behavior}"
-            elif theme == "cinema":
+            elif internal_theme == "cinema":
                 # Add proper cinema character handling
                 character = random.choice(self.cinema_characters)
                 action = random.choice(self.actions)
                 subject_text = f"{character} {action}"
-            elif theme == "anime":
+            elif internal_theme == "anime":
                 character = random.choice(self.anime_characters)
                 action = random.choice(self.actions)
                 subject_text = f"{character} {action}"
-            elif theme == "architecture":
+            elif internal_theme == "architecture":
                 style = random.choice(self.architecture_styles)
                 element = random.choice(self.architecture_elements)
                 subject_text = f"{style} {element}"
-            elif theme == "sci_fi":
+            elif internal_theme == "sci_fi":
                 if random.random() < 0.6:  # 60% chance for character
                     tech = random.choice(self.technology["augments"])
                     clothing = random.choice(self.clothing["sci_fi"])
@@ -596,16 +628,16 @@ class IsulionMegaPromptGenerator:
                     ship = random.choice(self.spacecraft["military"])
                     tech = random.choice(self.technology["weapons"])
                     subject_text = f"advanced {ship} equipped with {tech}"
-            elif theme == "food":
+            elif internal_theme == "food":
                 food = random.choice(self.food_types)
                 style = random.choice(self.food_styles)
                 subject_text = f"{style} {food}"
-            elif theme == "interior":
+            elif internal_theme == "interior":
                 style = random.choice(self.interior_styles)
                 space = random.choice(self.interior_spaces)
                 element = random.choice(self.interior_elements)
                 subject_text = f"{style} {space} with {element}"
-            elif theme == "3D":
+            elif internal_theme == "3D":
                 style = random.choice(self.threed_styles)
                 if random.random() < 0.5:
                     subject = random.choice(self.architecture_elements)
@@ -614,15 +646,15 @@ class IsulionMegaPromptGenerator:
                              [f"{race} character" for race in self.races])
                     subject = random.choice(options)
                 subject_text = f"{style} {subject}"
-            elif theme == "halloween":
+            elif internal_theme == "halloween":
                 creature = random.choice(self.halloween_elements["creatures"])
                 prop = random.choice(self.halloween_elements["props"])
                 subject_text = f"{creature} with {prop}"
-            elif theme == "instagram":
+            elif internal_theme == "instagram":
                 influencer = random.choice(self.influencer_types)
                 activity = random.choice(self.influencer_activities)
                 subject_text = f"beautiful {influencer} {activity}"
-            elif theme == "realistic":  # Changed from else to explicit theme
+            elif internal_theme == "realistic":  # Changed from else to explicit theme
                 if random.random() < 0.7:  # 70% chance for human subject
                     profession = random.choice(self.professions)
                     clothing = random.choice(self.clothing["realistic"])
@@ -655,41 +687,41 @@ class IsulionMegaPromptGenerator:
             components.append(subject_text)
 
         # Action and composition
-        if include_action == "yes" and theme != "abstract":
+        if include_action == "yes" and internal_theme != "abstract":
             action = random.choice(self.actions)
             composition = random.choice(self.compositions)
             action_text = f"{action}, {composition}"
             components.append(action_text)
 
         # Environment
-        if include_environment == "yes" and theme != "abstract":
-            if theme == "fantasy":
+        if include_environment == "yes" and internal_theme != "abstract":
+            if internal_theme == "fantasy":
                 location = random.choice(self.mythical_locations)
                 weather_cond = random.choice(self.weather)
                 time = random.choice(self.times)
                 environment_text = f"in a {location} during {weather_cond} {time}"
-            elif theme == "sci_fi":
+            elif internal_theme == "sci_fi":
                 atmos = random.choice(self.alien_world_elements["atmospheres"])
                 terrain = random.choice(self.alien_world_elements["terrains"])
                 feature = random.choice(self.alien_world_elements["features"])
                 environment_text = f"on an alien world with {atmos} atmosphere, {terrain}, and {feature}"
-            elif theme == "architecture":
+            elif internal_theme == "architecture":
                 weather_cond = random.choice(self.weather)
                 time = random.choice(self.times)
                 environment_text = f"during {weather_cond} {time}"
-            elif theme == "food":
+            elif internal_theme == "food":
                 environment_text = f"on {random.choice(['rustic wooden table', 'marble counter', 'elegant plate', 'vintage dish', 'modern platter', 'chef table', 'restaurant setting'])}"
-            elif theme == "interior":
+            elif internal_theme == "interior":
                 time = random.choice(self.times)
                 environment_text = f"during {time} with {random.choice(['natural lighting', 'ambient lighting', 'mood lighting', 'spot lighting', 'indirect lighting'])}"
-            elif theme == "3D":
+            elif internal_theme == "3D":
                 environment_text = f"in {random.choice(['studio lighting setup', 'environmental lighting', 'dramatic lighting', 'realistic environment', 'abstract space', 'geometric background'])}"
-            elif theme == "halloween":
+            elif internal_theme == "halloween":
                 setting = random.choice(self.halloween_elements["settings"])
                 time = random.choice(["midnight", "witching hour", "full moon night", "foggy twilight"])
                 weather = random.choice(["misty", "stormy", "cloudy", "windy"])
                 environment_text = f"in a {setting} during {weather} {time}"
-            elif theme == "instagram":
+            elif internal_theme == "instagram":
                 location = random.choice(self.influencer_locations)
                 time = random.choice(["golden hour", "sunset", "blue hour", "morning light"])
                 environment_text = f"at {location} during {time}"
@@ -701,7 +733,7 @@ class IsulionMegaPromptGenerator:
             components.append(environment_text)
 
         # Style and mood
-        if include_style == "yes" and theme != "abstract":
+        if include_style == "yes" and internal_theme != "abstract":
             art_style = random.choice(self.art_styles)
             emotion = random.choice(self.emotions)
             style_text = f"{art_style} with {emotion} mood"
@@ -709,7 +741,7 @@ class IsulionMegaPromptGenerator:
 
         # Special effects
         if include_effects == "yes":
-            if theme == "abstract":
+            if internal_theme == "abstract":
                 # More abstract-specific effects
                 effect1 = random.choice([
                     "intersecting", "overlapping", "radiating", "repeating",
@@ -723,15 +755,15 @@ class IsulionMegaPromptGenerator:
                 ])
                 effects_text = f"with {effect1} {effect2}"
                 components.append(effects_text)
-            elif theme == "fantasy":
+            elif internal_theme == "fantasy":
                 effect = random.choice(self.magical_effects["fire"])
                 artifact = random.choice(self.artifacts["weapon"])
                 effects_text = f"with {effect} and {artifact}"
-            elif theme == "sci_fi":
+            elif internal_theme == "sci_fi":
                 tech = random.choice(self.technology["weapons"])
                 ship = random.choice(self.spacecraft["military"])
                 effects_text = f"with {tech} and {ship} in background"
-            elif theme == "halloween":
+            elif internal_theme == "halloween":
                 effect1 = random.choice([
                     "eerie glow", "ghostly mist", "dark shadows", "moonlight rays",
                     "spectral aura", "mysterious fog", "sinister atmosphere",
@@ -739,7 +771,7 @@ class IsulionMegaPromptGenerator:
                 ])
                 effect2 = random.choice(self.halloween_elements["props"])
                 effects_text = f"with {effect1} and {effect2}"
-            elif theme == "instagram":
+            elif internal_theme == "instagram":
                 effect = random.choice([
                     "perfect lighting", "bokeh effect", "lens flare", "natural glow",
                     "soft focus", "golden light", "backlit", "rim lighting",
@@ -760,11 +792,11 @@ class IsulionMegaPromptGenerator:
         if complexity == "simple":
             components = components[:3]
         elif complexity == "complex":
-            if theme == "fantasy":
+            if internal_theme == "fantasy":
                 extra_effect = random.choice(self.magical_effects["ice"])
                 effects_text += f", additional {extra_effect}"
                 components.append(f"additional {extra_effect}")
-            elif theme == "sci_fi":
+            elif internal_theme == "sci_fi":
                 extra_tech = random.choice(self.technology["gadgets"])
                 effects_text += f", additional {extra_tech}"
                 components.append(f"additional {extra_tech}")
