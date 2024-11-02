@@ -300,6 +300,8 @@ class IsulionMegaPromptGenerator:
         "pixar": "highly detailed Pixar-style 3D render with clean geometry and appealing design of",
         "binet": "highly detailed anthropomorphic portrait in the style of Sylvain Binet, digital painting of",
         "vintage_anthro": "photorealistic anthropomorphic portrait with vintage aesthetics of",
+        "star_wars": "cinematic Star Wars scene with premium details of",
+        "marvel": "epic Marvel Universe scene with cinematic composition of",
     }
 
     # Add design-focused enhancement words
@@ -523,6 +525,116 @@ class IsulionMegaPromptGenerator:
         "steam and brass machinery", "candlelit study", "sunlit conservatory"
     ]
 
+    # Add new Star Wars specific variables
+    star_wars_characters = [
+        # Existing characters
+        "jedi knight", "sith lord", "bounty hunter", "rebel pilot", "imperial officer",
+        "stormtrooper", "mandalorian warrior", "wookiee warrior", "twilek dancer",
+        "republic senator", "smuggler", "droid", "clone trooper", "royal guard",
+        "jedi master", "sith apprentice", "rebel commander", "imperial admiral",
+        "moisture farmer", "pod racer", "jawa trader", "tusken raider", "hutt crime lord",
+        "republic commando", "imperial inquisitor", "force user", "padawan learner",
+        "republic guard", "imperial spy", "rebel spy", "cantina patron", "podracer pilot",
+        
+        # Adding iconic characters
+        "Yoda", "Darth Vader", "Luke Skywalker", "Princess Leia", "Han Solo",
+        "Obi-Wan Kenobi", "Emperor Palpatine", "Chewbacca", "R2-D2", "C-3PO",
+        "Boba Fett", "Darth Maul", "Qui-Gon Jinn", "Mace Windu", "Count Dooku",
+        "Padmé Amidala", "Anakin Skywalker", "General Grievous", "Jabba the Hutt",
+        "Lando Calrissian", "Admiral Ackbar", "Din Djarin", "Grogu", "Ahsoka Tano",
+        "Captain Rex", "Asajj Ventress", "Grand Admiral Thrawn", "Kylo Ren", "Rey",
+        "Finn", "Poe Dameron", "BB-8", "General Hux", "Captain Phasma",
+        "Supreme Leader Snoke", "Moff Gideon", "Cara Dune", "Kuiil", "IG-11",
+        "Fennec Shand", "Cad Bane", "Grand Moff Tarkin", "Admiral Piett"
+    ]
+
+    star_wars_locations = [
+        "tatooine desert", "coruscant cityscape", "death star interior", "rebel base",
+        "imperial star destroyer", "mos eisley cantina", "jedi temple", "sith temple",
+        "endor forest", "cloud city", "naboo palace", "geonosis arena", "kamino facility",
+        "mustafar lava fields", "kashyyyk treetops", "yavin temple", "hoth ice caves",
+        "jabba's palace", "imperial base", "senate chamber", "trade federation ship",
+        "podrace track", "crystal cave", "sarlacc pit", "dune sea", "moisture farm",
+        "imperial academy", "rebel hangar", "spice mines", "smuggler's den"
+    ]
+
+    star_wars_vehicles = [
+        "x-wing fighter", "tie fighter", "millennium falcon", "star destroyer",
+        "lambda shuttle", "speeder bike", "at-at walker", "at-st walker",
+        "republic gunship", "jedi starfighter", "pod racer", "sand crawler",
+        "imperial shuttle", "y-wing bomber", "slave one", "nebulon-b frigate",
+        "imperial transport", "rebel transport", "tie interceptor", "b-wing fighter",
+        "imperial landing craft", "republic cruiser", "trade federation battleship"
+    ]
+
+    star_wars_props = [
+        "lightsaber", "blaster", "force pike", "thermal detonator", "holocron",
+        "comlink", "energy shield", "meditation chamber", "carbonite chamber",
+        "training remote", "imperial probe droid", "protocol droid", "astromech droid",
+        "vibroblade", "energy bow", "force artifact", "jedi robes", "imperial uniform",
+        "rebel flight suit", "stormtrooper armor", "mandalorian armor", "blast door",
+        "control panel", "power generator", "tractor beam", "ion cannon"
+    ]
+
+    star_wars_effects = [
+        "force lightning", "force push", "lightsaber glow", "blaster fire",
+        "force shield", "force healing", "force vision", "hyperspace jump",
+        "ion discharge", "laser blast", "energy shield", "force meditation",
+        "force choke", "force projection", "saber clash", "force storm",
+        "force illusion", "force barrier", "force explosion", "force wave"
+    ]
+
+    # Add Marvel-specific variables
+    marvel_characters = [
+        # Avengers
+        "Iron Man", "Captain America", "Thor", "Hulk", "Black Widow", "Hawkeye",
+        "Spider-Man", "Doctor Strange", "Black Panther", "Captain Marvel",
+        "Scarlet Witch", "Vision", "Falcon", "Winter Soldier", "War Machine",
+        "Ant-Man", "Wasp", "Star-Lord", "Gamora", "Drax", "Rocket Raccoon",
+        "Groot", "Nebula", "Nick Fury", "Maria Hill",
+        
+        # Villains
+        "Thanos", "Loki", "Ultron", "Red Skull", "Doctor Doom",
+        "Green Goblin", "Doctor Octopus", "Venom", "Mysterio", "Killmonger",
+        "Hela", "Ronan", "Vulture", "Taskmaster", "Kang the Conqueror",
+        
+        # X-Men
+        "Wolverine", "Professor X", "Magneto", "Jean Grey", "Cyclops",
+        "Storm", "Beast", "Rogue", "Gambit", "Deadpool", "Phoenix",
+        
+        # Supporting Characters
+        "Pepper Potts", "Happy Hogan", "Jane Foster", "MJ Watson", "Ned Leeds",
+        "Wong", "Shuri", "Okoye", "Agent Coulson", "Luis", "Valkyrie"
+    ]
+
+    marvel_locations = [
+        "Avengers Tower", "Stark Industries", "Sanctum Sanctorum", "Wakanda",
+        "Asgard", "SHIELD Helicarrier", "Xavier's School", "Quantum Realm",
+        "New York City streets", "Knowhere", "Titan", "Vormir", "Kamar-Taj",
+        "Dark Dimension", "Mirror Dimension", "Sokovia", "Triskelion",
+        "Latveria", "Asteroid M", "Genosha", "Savage Land", "K'un-Lun",
+        "Hell's Kitchen", "Oscorp Tower", "Daily Bugle", "Midtown High School"
+    ]
+
+    marvel_props = [
+        "Iron Man suit", "Captain America's shield", "Mjolnir", "Infinity Gauntlet",
+        "Eye of Agamotto", "Cloak of Levitation", "Vibranium suit", "Web shooters",
+        "Quantum suit", "Arc reactor", "Pym particles", "Spider suit", "Falcon wings",
+        "Winter Soldier arm", "War Machine armor", "Hawkeye's bow", "Black Widow's batons",
+        "Star-Lord's mask", "Groot's branches", "Rocket's weapons", "Infinity Stones",
+        "Ultron drones", "SHIELD badge", "Quinjet", "Helicarrier", "Milano spaceship"
+    ]
+
+    marvel_effects = [
+        "repulsor blast", "lightning strike", "magic portal", "quantum energy",
+        "vibranium pulse", "web effect", "mystic arts", "infinity stone glow",
+        "hulk smash impact", "nano-tech transformation", "spider-sense",
+        "time stone effect", "reality warping", "power stone surge",
+        "space stone portal", "mind stone beam", "soul stone aura",
+        "quantum particles", "arc reactor glow", "magic runes",
+        "cosmic energy", "gamma radiation", "mutant power effect"
+    ]
+
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -547,6 +659,8 @@ class IsulionMegaPromptGenerator:
                     "Pixar Animation",
                     "Binet Surreal",
                     "Vintage Anthropomorphic",
+                    "Star Wars Universe",
+                    "Marvel Universe",
                     "Dynamic Random"
                 ], {"default": "Essential"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
@@ -612,6 +726,8 @@ class IsulionMegaPromptGenerator:
             "Pixar Animation": "pixar",
             "Binet Surreal": "binet",
             "Vintage Anthropomorphic": "vintage_anthro",
+            "Star Wars Universe": "star_wars",
+            "Marvel Universe": "marvel",
             "Dynamic Random": "random"
         }
 
@@ -875,6 +991,57 @@ class IsulionMegaPromptGenerator:
                 atmosphere = random.choice(self.vintage_anthro_atmospheres)
                 
                 subject_text = f"Anthropomorphic {animal} as a {profession}, wearing {clothing}, in a {setting}, with {prop}, {atmosphere}, high detail on textures and fur, photorealistic, professional studio lighting, ultra sharp focus, 8k"
+            elif internal_theme == "star_wars":
+                character = random.choice(self.star_wars_characters)
+                prop = random.choice(self.star_wars_props)
+                vehicle = random.choice(self.star_wars_vehicles)
+                
+                if random.random() < 0.7:  # 70% chance for character-focused scene
+                    subject_text = f"cinematic scene of a {character} wielding {prop}"
+                    if random.random() < 0.5:  # 50% chance to add vehicle
+                        subject_text += f" near a {vehicle}"
+                else:  # 30% chance for vehicle-focused scene
+                    subject_text = f"epic shot of a {vehicle} with {character} in view"
+                
+                # Add Star Wars-specific environment handling
+                if include_environment == "yes":
+                    location = random.choice(self.star_wars_locations)
+                    environment_text = f"in {location}"
+                    
+                # Add Star Wars-specific effects handling
+                if include_effects == "yes":
+                    effect = random.choice(self.star_wars_effects)
+                    effects_text = f"with {effect}"
+            elif internal_theme == "marvel":
+                character = random.choice(self.marvel_characters)
+                prop = random.choice(self.marvel_props)
+                
+                if random.random() < 0.7:  # 70% chance for action scene
+                    action = random.choice([
+                        "in epic battle", "performing heroic rescue",
+                        "using powers", "defending against attack",
+                        "leading team", "training sequence"
+                    ])
+                    subject_text = f"cinematic action scene of {character} {action}"
+                    if random.random() < 0.5:  # 50% chance to add prop
+                        subject_text += f" with {prop}"
+                else:  # 30% chance for character portrait
+                    pose = random.choice([
+                        "heroic pose", "dramatic stance",
+                        "power stance", "ready for battle",
+                        "character portrait", "epic reveal"
+                    ])
+                    subject_text = f"epic portrait of {character} in {pose} with {prop}"
+                
+                # Marvel-specific environment handling
+                if include_environment == "yes":
+                    location = random.choice(self.marvel_locations)
+                    environment_text = f"in {location}"
+                    
+                # Marvel-specific effects handling
+                if include_effects == "yes":
+                    effect = random.choice(self.marvel_effects)
+                    effects_text = f"with {effect}"
             else:  # random theme handling
                 if random.random() < 0.7:  # 70% chance for human subject
                     profession = random.choice(self.professions)
