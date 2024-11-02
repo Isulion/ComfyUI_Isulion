@@ -58,25 +58,6 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 - Vintage Anthropomorphic: Classic anthropomorphic characters in vintage settings
 - Dynamic Random: Randomly selects and combines various themes
 
-### Theme-Specific Features:
-- Realistic: Professional photography settings with studio lighting
-- Sci-Fi: Advanced technology and alien world elements
-- Fantasy: Magical effects and mythical locations
-- Cute Animals: Adorable hybrid combinations
-- Cinema: Movie character integration
-- Architecture: Diverse architectural styles and elements
-- Abstract: Pure geometric and non-representational art
-- Food: Professional culinary photography
-- Interior: Sophisticated space design
-- 3D: Three-dimensional rendering styles
-- Halloween: Spooky atmosphere and elements
-- Instagram: Social media influencer aesthetics
-- Strange Animals: Complex chimera combinations
-- Futuristic City: Advanced urban environments
-- Pixar: 3D animation with characteristic style
-- Binet: Sophisticated anthropomorphic portraits
-- Vintage Anthropomorphic: Classic animal characters in period settings
-
 The Mega Prompt Generator provides both a combined prompt and individual components, allowing for maximum flexibility in your workflows.
 
 
