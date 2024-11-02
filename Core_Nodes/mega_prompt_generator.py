@@ -298,7 +298,7 @@ class IsulionMegaPromptGenerator:
         "strange_animal": "premium studio photograph with architectural precision of",
         "futuristic_city": "ultra-modern architectural visualization with premium materials of",
         "pixar": "highly detailed Pixar-style 3D render with clean geometry and appealing design of",
-        "binet": "minimalist surreal fine art photograph with pristine studio lighting of",
+        "binet": "highly detailed anthropomorphic portrait in the style of Sylvain Binet, digital painting of",
     }
 
     # Add design-focused enhancement words
@@ -394,31 +394,33 @@ class IsulionMegaPromptGenerator:
         "metallic sheen", "pearlescent coating"
     ]
 
-    # Add Binet-specific elements
+    # Update Binet-specific elements
     binet_styles = [
-        "minimalist surreal photograph", "elegant surreal composition",
-        "dreamlike studio photograph", "conceptual fine art photograph",
-        "surreal fashion photograph", "artistic portrait photograph"
+        "hyper-realistic digital painting", "detailed anthropomorphic portrait",
+        "fantasy animal portrait", "surreal wildlife artwork",
+        "dreamlike animal portrait", "magical creature illustration"
     ]
 
     binet_elements = [
-        "floating objects", "levitating elements", "suspended in air",
-        "defying gravity", "geometric composition", "clean lines",
-        "perfect symmetry", "elegant minimalism", "surreal arrangement",
-        "dreamlike composition", "ethereal atmosphere", "pristine white background"
+        "intricate fur details", "expressive eyes", "vibrant color palette",
+        "dramatic lighting", "ethereal glow", "fantasy elements",
+        "ornate decorative details", "flowing organic patterns",
+        "mystical atmosphere", "rich textures", "delicate brushwork",
+        "luminous highlights"
     ]
 
-    binet_subjects = [
-        "elegant woman", "fashion model", "ballet dancer", "contemporary dancer",
-        "graceful figure", "minimalist portrait", "artistic nude",
-        "sculptural pose", "contorted figure", "geometric form"
+    binet_accessories = [
+        "ornate jewelry", "royal attire", "mystical artifacts",
+        "glowing amulets", "floating crystals", "magical orbs",
+        "ethereal crown", "enchanted symbols", "celestial markings",
+        "ancient runes", "shimmering fabric", "golden ornaments"
     ]
 
-    binet_poses = [
-        "sculptural pose", "geometric stance", "floating in space",
-        "suspended in air", "defying gravity", "elegant contortion",
-        "minimalist gesture", "surreal position", "balanced composition",
-        "artistic arrangement"
+    binet_backgrounds = [
+        "magical forest", "starlit sky", "ethereal mist",
+        "golden clouds", "cosmic nebula", "enchanted garden",
+        "mystical void", "celestial realm", "aurora borealis",
+        "dream dimension", "crystal cave", "fairy grove"
     ]
 
     @classmethod
@@ -753,10 +755,11 @@ class IsulionMegaPromptGenerator:
             elif internal_theme == "binet":
                 style = random.choice(self.binet_styles)
                 element = random.choice(self.binet_elements)
-                subject = random.choice(self.binet_subjects)
-                pose = random.choice(self.binet_poses)
+                accessory = random.choice(self.binet_accessories)
+                background = random.choice(self.binet_backgrounds)
+                animal = random.choice(self.animals)
                 
-                subject_text = f"{style} of {subject} in {pose}, {element}, pure white background, ultra clean composition, perfect studio lighting, minimalist elegance, ultra sharp focus, medium format photography, pristine quality, 8k"
+                subject_text = f"{style} of a noble {animal} with {element}, wearing {accessory}, in a {background}, masterful digital painting, vibrant colors, dramatic lighting, ultra detailed, dreamlike atmosphere, expressive brushwork, 8k"
             else:  # random theme handling
                 if random.random() < 0.7:  # 70% chance for human subject
                     profession = random.choice(self.professions)
