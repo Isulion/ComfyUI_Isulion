@@ -296,7 +296,8 @@ class IsulionMegaPromptGenerator:
         "halloween": "elegantly crafted dark atmosphere with refined details of",
         "instagram": "premium lifestyle photography with professional studio lighting of",
         "strange_animal": "premium studio photograph with architectural precision of",
-        "futuristic_city": "ultra-modern architectural visualization with premium materials of"
+        "futuristic_city": "ultra-modern architectural visualization with premium materials of",
+        "pixar": "highly detailed Pixar-style 3D render with clean geometry and appealing design of",
     }
 
     # Add design-focused enhancement words
@@ -315,6 +316,11 @@ class IsulionMegaPromptGenerator:
             "subtle": ["clean lighting", "soft illumination", "precise shadows", "refined highlights", "elegant glow"],
             "moderate": ["professional studio lighting", "premium illumination", "architectural lighting", "controlled shadows", "refined atmosphere"],
             "dramatic": ["ultra-premium lighting", "perfect illumination", "exceptional atmosphere", "masterful light control", "flawless shadows"]
+        },
+        "color": {
+            "subtle": ["refined palette", "harmonious colors", "elegant tones", "clean color scheme", "polished hues"],
+            "moderate": ["premium colors", "professional palette", "sophisticated tones", "refined chromatic balance", "controlled saturation"],
+            "dramatic": ["exceptional color harmony", "masterful palette", "perfect color balance", "flawless tonal range", "supreme chromatic composition"]
         }
     }
 
@@ -366,28 +372,50 @@ class IsulionMegaPromptGenerator:
         ]
     }
 
+    # Add Pixar-specific elements
+    pixar_styles = [
+        "Pixar-style 3D render", "Pixar animation", "Pixar character design",
+        "Pixar-like CGI", "Pixar digital art", "Pixar concept art"
+    ]
+
+    pixar_characteristics = [
+        "expressive eyes", "squash and stretch animation", "exaggerated features",
+        "clean geometry", "soft lighting", "subsurface scattering",
+        "playful design", "appealing shapes", "rounded forms", "polished surfaces",
+        "vibrant colors", "subtle textures", "dynamic poses", "emotional expression",
+        "charming details", "whimsical elements"
+    ]
+
+    pixar_materials = [
+        "glossy plastic", "soft rubber", "brushed metal", "plush fabric",
+        "smooth ceramic", "polished wood", "shiny chrome", "matte finish",
+        "translucent material", "reflective surface", "velvet texture",
+        "metallic sheen", "pearlescent coating"
+    ]
+
     @classmethod
     def INPUT_TYPES(s):
         return {
             "required": {
                 "theme": ([
-                    "Essential Realistic",      # was "realistic"
-                    "Futuristic Sci-Fi",     # was "sci_fi"
-                    "Studio Cinema",         # was "cinema"
-                    "Enchanted Fantasy",      # was "fantasy"
-                    "Fusion Cute Animals",         # was "cute chimera"
-                    "Animation Cartoon",      # was "cartoon"
-                    "Anime",          # was "anime"
-                    "Architectural",  # was "architecture"
-                    "Abstract",       # was "abstract"
-                    "Culinary",       # was "food"
-                    "Spaces Interior",         # was "interior"
-                    "Dimension 3D",      # was "3D"
-                    "Ethereal Halloween",       # was "halloween"
-                    "Lifestyle Instagram",      # was "instagram"
-                    "Chimera Strange Animals",        # was "strange_animal"
-                    "Metropolis Futuristic City",     # was "futuristic_city"
-                    "Dynamic Random"         # was "random"
+                    "Essential Realistic",
+                    "Futuristic Sci-Fi",
+                    "Studio Cinema",
+                    "Enchanted Fantasy",
+                    "Fusion Cute Animals",
+                    "Animation Cartoon",
+                    "Anime",
+                    "Architectural",
+                    "Abstract",
+                    "Culinary",
+                    "Spaces Interior",
+                    "Dimension 3D",
+                    "Ethereal Halloween",
+                    "Lifestyle Instagram",
+                    "Chimera Strange Animals",
+                    "Metropolis Futuristic City",
+                    "Pixar Animation",
+                    "Dynamic Random"
                 ], {"default": "Essential"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
@@ -400,7 +428,7 @@ class IsulionMegaPromptGenerator:
                 "include_style": (["yes", "no"], {"default": "yes"}),
                 "include_effects": (["yes", "no"], {"default": "yes"}),
                 "enhancement_level": (["subtle", "moderate", "dramatic"], {"default": "moderate"}),
-                "enhancement_focus": (["detail", "mood", "composition", "lighting", "color"], {"default": "detail"}),
+                "enhancement_focus": (["detail", "composition", "lighting", "color"], {"default": "detail"}),
             }
         }
     
@@ -449,6 +477,7 @@ class IsulionMegaPromptGenerator:
             "Lifestyle Instagram": "instagram",
             "Chimera Strange Animals": "strange_animal",
             "Metropolis Futuristic City": "futuristic_city",
+            "Pixar Animation": "pixar",
             "Dynamic Random": "random"
         }
 
@@ -675,6 +704,22 @@ class IsulionMegaPromptGenerator:
                         f"architectural photograph of {random.choice(self.architecture_elements)}"
                     ])
                     subject_text = f"professional {subject}, high detail, sharp focus, 8k"
+            elif internal_theme == "pixar":
+                # Generate Pixar-style subject
+                style = random.choice(self.pixar_styles)
+                character_trait = random.choice(self.pixar_characteristics)
+                material = random.choice(self.pixar_materials)
+                
+                if random.random() < 0.5:  # 50% chance for character
+                    character = random.choice(self.cartoon_characters)
+                    subject_text = f"{style} of {character} with {character_trait}, made of {material}, ultra detailed 3D model, octane render, soft lighting, subsurface scattering, 8k"
+                else:  # 50% chance for object/scene
+                    object_or_scene = random.choice([
+                        "toy", "lamp", "robot", "vehicle", "household object",
+                        "kitchen appliance", "desk item", "garden tool",
+                        "musical instrument", "sports equipment"
+                    ])
+                    subject_text = f"{style} of a charming {object_or_scene} with {character_trait}, made of {material}, ultra detailed 3D model, octane render, soft lighting, subsurface scattering, 8k"
             else:  # random theme handling
                 if random.random() < 0.7:  # 70% chance for human subject
                     profession = random.choice(self.professions)
