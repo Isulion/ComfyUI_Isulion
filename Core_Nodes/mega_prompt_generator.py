@@ -2,7 +2,7 @@ import random
 
 class IsulionMegaPromptGenerator:
     # Reuse all the existing lists/dictionaries from other nodes
-    animals = ['Dog','Cat','Horse','Cow','Chicken','Pig','Sheep','Goat','Lion','Tiger','Elephant','Bear','Wolf','Fox','Deer','Rabbit','Kangaroo','Giraffe','Zebra','Monkey','Chimpanzee','Gorilla','Orangutan','Panda','Koala','Hippopotamus','Rhinoceros','Crocodile','Alligator','Eagle','Hawk','Falcon','Owl','Penguin','Dolphin','Whale','Shark','Octopus','Squid','Jellyfish','Crab','Lobster','Clownfish','Sea Turtle','Frog','Toad','Snake','Lizard','Gecko','Tortoise','Camel','Donkey','Bat','Rat','Mouse','Squirrel','Chipmunk','Porcupine','Hedgehog','Skunk','Raccoon','Otter','Seal','Walrus','Polar Bear','Grizzly Bear','Cheetah','Leopard','Jaguar','Antelope','Buffalo','Bison','Moose','Reindeer','Mole','Platypus','Echidna','Parrot','Peacock','Swan','Duck','Goose','Turkey','Flamingo','Pelican','Seagull','Sparrow','Pigeon','Crow','Magpie','Woodpecker','Hummingbird','Butterfly','Bee','Ant','Spider','Scorpion','Worm','Snail','Slug']  # from Animal node
+    animals = ['Dog','Cat','Horse','Cow','Chicken','Pig','Sheep','Goat','Lion','Tiger','Elephant','Bear','Wolf','Fox','Deer','Rabbit','Kangaroo','Giraffe','Zebra','Monkey','Chimpanzee','Gorilla','Orangutan','Panda','Koala','Hippopotamus','Rhinoceros','Crocodile','Alligator','Eagle','Hawk','Falcon','Owl','Penguin','Dolphin','Whale','Shark','Octopus','Squid','Jellyfish','Crab','Lobster','Clownfish','Sea Turtle','Frog','Toad','Snake','Lizard','Gecko','Tortoise','Camel','Donkey','Bat','Rat','Mouse','Squirrel','Chipmunk','Porcupine','Hedgehog','Skunk','Raccoon','Otter','Seal','Walrus','Polar Bear','Grizzly Bear','Cheetah','Leopard','Jaguar','Antelope','Buffalo','Bison','Moose','Reindeer','Mole','Platypus','Echidna','Parrot','Peacock','Swan','Duck','Goose','Turkey','Flamingo','Pelican','Seagull','Sparrow','Pigeon','Crow','Magpie','Woodpecker','Hummingbird','Butterfly','Bee','Ant','Spider','Scorpion','Worm','Snail']  # from Animal node
     cute_animals = ['Red Panda','Koala','Fennec Fox','Pygmy Marmoset','Quokka','Sea Otter','Harp Seal Pup','Panda Cub','Penguin Chick','Hedgehog','Axolotl','Sloth','Rabbit','Kitten','Puppy','Meerkat','Sugar Glider','Chinchilla','Slow Loris','Hamster','Red Fox Kit','Lamb','Piglet','Duckling','Pygmy Hippo','Baby Giraffe','Baby Alpaca','Otter Pup','Corgi Puppy','Golden Retriever Puppy','Seal Pup','Snow Leopard Cub','Tiger Cub','Lion Cub','Baby Gorilla','Baby Orangutan','Pygmy Goat','Fawn (Baby Deer)','Ferret','Platypus','Kangaroo Joey','Wallaby','Dik-Dik','Serval Kitten','Caracal Kitten','Clouded Leopard Cub','Red Squirrel','Chipmunk','Prairie Dog','Arctic Fox','Polar Bear Cub','Bottlenose Dolphin Calf','Beluga Whale Calf','Manatee Calf','Baby Skunk','Raccoon Kit','Baby Opossum','Baby Echidna (Puggle)','Baby Tapir','GiantPanda Cub','Baby Hippo','Baby Rhino','Baby Zebra','Baby Elephant Seal','Baby Wombat','Baby Emu','Baby Kiwi Bird','Baby Flamingo','Cygnet (Baby Swan)','Baby Tortoise','Baby Alligator','Baby Crocodile','Baby Chameleon','Baby Iguana','Baby Frog','Baby Toad','Baby Gecko','Ring-tailed Lemur','Sifaka Lemur','Mouse Lemur','Bush Baby','PygmyPossum','Baby Mole','Baby Bat','Leveret (Baby Hare)','Baby Mole Rat','Baby Porcupine','Baby Badger','Pygmy Rabbit','Baby Seal','Baby Puffin','Owlet (Baby Owl)','Hoglet(Baby Hedgehog)','Baby Armadillo','Baby Pangolin','Baby Okapi','Baby Cheetah','Baby Ocelot','Baby Lynx','Baby Tasmanian Devil']  # from Cute Animal node
     behaviors = ["sleeping", "running", "hunting", "playing", "eating", "drinking", "grooming", "swimming", "flying", "climbing", "jumping", "stalking", "resting", "fighting", "mating", "nursing", "exploring", "hiding", "gathering"]  # from Animal Behavior node
     professions = ["chef", "wizard", "warrior", "merchant", "blacksmith", "healer", "ranger", "bard", "alchemist", "scholar", "knight", "assassin", "monk", "necromancer", "paladin", "druid", "hunter", "mage", "thief", "priest"]  # from Profession node
@@ -299,6 +299,7 @@ class IsulionMegaPromptGenerator:
         "futuristic_city": "ultra-modern architectural visualization with premium materials of",
         "pixar": "highly detailed Pixar-style 3D render with clean geometry and appealing design of",
         "binet": "highly detailed anthropomorphic portrait in the style of Sylvain Binet, digital painting of",
+        "vintage_anthro": "photorealistic anthropomorphic portrait with vintage aesthetics of",
     }
 
     # Add design-focused enhancement words
@@ -458,6 +459,70 @@ class IsulionMegaPromptGenerator:
         "maintaining a cabinet of curiosities", "practicing mesmerism"
     ]
 
+    # Add new class variables for Vintage Anthropomorphic theme
+    vintage_anthro_professions = [
+        "detective", "pastry chef", "science professor", "jazz musician", "café waiter",
+        "librarian", "train conductor", "newspaper editor", "watchmaker", "tailor",
+        "botanist", "antiquarian", "theater actor", "poet", "photographer",
+        "cartographer", "archaeologist", "chess master", "violin maker", "astronomer",
+        "apothecary", "bookbinder", "clockmaker", "cobbler", "confectioner",
+        "curator", "diplomat", "etiquette teacher", "fortune teller", "governess",
+        "hat maker", "inventor", "jeweler", "linguist", "naturalist",
+        "opera singer", "perfumer", "philosopher", "portrait painter", "seamstress",
+        "tea merchant", "toymaker", "typographer", "violin tuner", "zoologist"
+    ]
+
+    vintage_anthro_clothing = [
+        "trench coat and fedora", "chef's hat and apron", "lab coat and glasses",
+        "stylish suit and hat", "white shirt and black vest", "tweed jacket with elbow patches",
+        "conductor's uniform", "bow tie and waistcoat", "leather apron and spectacles",
+        "smoking jacket and ascot", "explorer's outfit", "opera cape and top hat",
+        "morning coat and cravat", "tailcoat and white gloves", "frock coat and top hat",
+        "velvet smoking robe", "military dress uniform", "academic gown and hood",
+        "three-piece pinstripe suit", "silk dressing gown", "riding habit and boots",
+        "artist's smock and beret", "formal evening wear", "safari outfit and pith helmet",
+        "double-breasted peacoat", "monocle and pocket square", "high collar and cummerbund",
+        "embroidered waistcoat", "silk cravat and ruffled shirt", "leather riding boots"
+    ]
+
+    vintage_anthro_settings = [
+        "misty street corner", "Parisian bakery", "university classroom",
+        "dimly lit jazz club", "mountain lodge café", "antique bookshop",
+        "steam train station", "Victorian study", "clockmaker's workshop",
+        "botanical garden greenhouse", "museum archive", "vintage photography studio",
+        "grand opera house", "gentleman's club", "antiquarian bookshop",
+        "natural history museum", "astronomical observatory", "private library",
+        "curiosity shop", "perfumery", "botanical laboratory",
+        "cartography office", "vintage wine cellar", "art gallery",
+        "old world pharmacy", "scientific laboratory", "music conservatory",
+        "historic theater", "luxury ocean liner", "grand hotel lobby",
+        "vintage automobile garage", "crystal palace conservatory", "old printing press",
+        "Victorian tea room", "antique auction house", "vintage circus tent"
+    ]
+
+    vintage_anthro_props = [
+        "magnifying glass", "tray of pastries", "scientific beaker",
+        "musical instrument", "coffee service", "leather-bound books",
+        "pocket watch", "fountain pen", "brass telescope",
+        "vintage camera", "chess set", "botanical specimens",
+        "crystal decanter", "gramophone", "typewriter",
+        "globe", "sextant", "microscope",
+        "barometer", "compass", "quill and inkwell",
+        "opera glasses", "calling card case", "leather briefcase",
+        "brass scales", "vintage spectacles", "mechanical calculator",
+        "antique telephone", "brass microscope", "leather document case",
+        "vintage radio", "oil lamp", "brass instruments",
+        "antique maps", "vintage medical kit", "crystal ball",
+        "brass chronometer", "vintage chemistry set", "leather-bound journal"
+    ]
+
+    vintage_anthro_atmospheres = [
+        "dark, rainy city with vintage street lamps", "cozy, rustic interior with warm lighting",
+        "academic setting with chalkboards", "smoky atmosphere with dramatic lighting",
+        "rustic wooden interior with mountain views", "gas-lit Victorian ambiance",
+        "steam and brass machinery", "candlelit study", "sunlit conservatory"
+    ]
+
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -481,6 +546,7 @@ class IsulionMegaPromptGenerator:
                     "Metropolis Futuristic City",
                     "Pixar Animation",
                     "Binet Surreal",
+                    "Vintage Anthropomorphic",
                     "Dynamic Random"
                 ], {"default": "Essential"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
@@ -545,6 +611,7 @@ class IsulionMegaPromptGenerator:
             "Metropolis Futuristic City": "futuristic_city",
             "Pixar Animation": "pixar",
             "Binet Surreal": "binet",
+            "Vintage Anthropomorphic": "vintage_anthro",
             "Dynamic Random": "random"
         }
 
@@ -799,6 +866,15 @@ class IsulionMegaPromptGenerator:
                     subject_text = f"{style} of a noble {animal} {activity}, with {element}, wearing {accessory}, in a {background}, masterful digital painting, vibrant colors, dramatic lighting, ultra detailed, dreamlike atmosphere, expressive brushwork, 8k"
                 else:
                     subject_text = f"{style} of a noble {animal} with {element}, wearing {accessory}, in a {background}, masterful digital painting, vibrant colors, dramatic lighting, ultra detailed, dreamlike atmosphere, expressive brushwork, 8k"
+            elif internal_theme == "vintage_anthro":
+                animal = random.choice(self.animals)
+                profession = random.choice(self.vintage_anthro_professions)
+                clothing = random.choice(self.vintage_anthro_clothing)
+                setting = random.choice(self.vintage_anthro_settings)
+                prop = random.choice(self.vintage_anthro_props)
+                atmosphere = random.choice(self.vintage_anthro_atmospheres)
+                
+                subject_text = f"Anthropomorphic {animal} as a {profession}, wearing {clothing}, in a {setting}, with {prop}, {atmosphere}, high detail on textures and fur, photorealistic, professional studio lighting, ultra sharp focus, 8k"
             else:  # random theme handling
                 if random.random() < 0.7:  # 70% chance for human subject
                     profession = random.choice(self.professions)
