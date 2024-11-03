@@ -117,11 +117,15 @@ The Mega Prompt Generator provides both a combined prompt and individual compone
 
 ### Basic MegaPrompt Workflow
 
-![Isulion_Simple_Megaprompt_workflow](https://github.com/user-attachments/assets/d4117388-a488-448e-afe4-5f8ce7f762cd)
+![IsulionFLUX_00468_](https://github.com/user-attachments/assets/91e7db26-9315-45d3-8461-83f0bba457b1)
 
 ### Chimera (with Ollama) Work
 
-![IsulionFlux_00487_](https://github.com/user-attachments/assets/9cc152e9-0cee-4d79-9fa9-28600f49c217)
+
+![IsulionFlux_00487_](https://github.com/user-attachments/assets/66f20e7b-e1f8-408f-861a-1b6f737acad2)
+![IsulionFlux_00488_](https://github.com/user-attachments/assets/e35da21d-ebd9-47bc-b8ec-2853ed1d70cf)
+![IsulionFlux_00489_](https://github.com/user-attachments/assets/04628822-cc27-4f4b-86ed-fbcf51f88dfd)
+![IsulionFlux_00486_](https://github.com/user-attachments/assets/02dd4e8a-3514-4851-99ff-5e41cf17ca28)
 
 
 ### MegaPrompt + Ollama + LoRa Workflow
