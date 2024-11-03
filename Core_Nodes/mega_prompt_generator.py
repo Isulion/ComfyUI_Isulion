@@ -731,6 +731,7 @@ class IsulionMegaPromptGenerator:
         return {
             "required": {
                 "theme": ([
+                    "Dynamic Random",  # Moved to first position
                     "Essential Realistic",
                     "Futuristic Sci-Fi",
                     "Studio Cinema",
@@ -752,20 +753,19 @@ class IsulionMegaPromptGenerator:
                     "Vintage Anthropomorphic",
                     "Star Wars Universe",
                     "Marvel Universe",
-                    "Dynamic Random",
                     "Steampunk World",
                     "Post-Apocalyptic Wasteland",
                     "Underwater Civilization",
                     "Microscopic Universe",
                     "Bio-Organic Technology",
-                ], {"default": "Essential"}),
+                ], {"default": "Dynamic Random"}),  # Changed default to Dynamic Random
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
             },
             "optional": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
-                "custom_subject": ("STRING", {"default": "", "multiline": True}),  # Add this line
-                "use_custom_subject": (["yes", "no"], {"default": "no"}),  # Add this line
+                "custom_subject": ("STRING", {"default": "", "multiline": True}),
+                "use_custom_subject": (["yes", "no"], {"default": "no"}),
                 "include_subject": (["yes", "no"], {"default": "yes"}),
                 "include_action": (["yes", "no"], {"default": "yes"}),
                 "include_environment": (["yes", "no"], {"default": "yes"}),
@@ -827,7 +827,6 @@ class IsulionMegaPromptGenerator:
             "Vintage Anthropomorphic": "vintage_anthro",
             "Star Wars Universe": "star_wars",
             "Marvel Universe": "marvel",
-            "Dynamic Random": "random",
             "Steampunk World": "steampunk",
             "Post-Apocalyptic Wasteland": "post_apocalyptic",
             "Underwater Civilization": "underwater",

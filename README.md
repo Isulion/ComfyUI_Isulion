@@ -34,10 +34,11 @@ git clone https://github.com/Isulion/ComfyUI_Isulion
 
 ## 🎯 Mega Prompt Generator 🎯
 
-The Mega Prompt Generator is an advanced node that combines multiple themes and generation capabilities:
+The Mega Prompt Generator provides both a combined prompt and individual components, allowing for maximum flexibility in your workflows.
 
 ### Available Themes
 
+- Dynamic Random: Randomized combination of various styles (Default theme)
 - Essential Realistic: Professional photography with real-world subjects
 - Futuristic Sci-Fi: Advanced technology and space-age scenes
 - Studio Cinema: Movie and superhero character compositions
@@ -64,9 +65,7 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 - Underwater Civilization: Deep sea architecture and bioluminescent aquatic environments
 - Microscopic Universe: Scientific visualizations of cellular and molecular landscapes
 - Bio-Organic Technology: Fusion of biological organisms with mechanical systems
-- Dynamic Random: Randomized combination of various styles
 
-The Mega Prompt Generator provides both a combined prompt and individual components, allowing for maximum flexibility in your workflows.
 
 --------------
 
