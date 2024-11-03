@@ -28,9 +28,9 @@ git clone https://github.com/Isulion/ComfyUI_Isulion
 
 ### Core Generators
 
-- Prompt  ✨ - Main prompt generation node
-- Ollama  🦙 - LLM-based text generation
-- Mega Prompt 🎯 - Advanced multi-theme prompt generator
+- ✨ Prompt - Main prompt generation node
+- 🦙 Ollama - LLM-based text generation
+- 🎯 Mega Prompt - Advanced multi-theme prompt generator
 
 ## 🎯 Mega Prompt Generator 🎯
 
