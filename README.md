@@ -56,8 +56,15 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 - Metropolis Futuristic City: Advanced cityscape and urban environments
 - Pixar Animation: 3D animation in the style of Pixar
 - Binet Surreal: Anthropomorphic portraits inspired by Sylvain Binet
-- Vintage Anthropomorphic: Classic anthropomorphic characters in vintage settings
-- Dynamic Random: Randomly selects and combines various themes
+- Vintage Anthropomorphic: Victorian-era anthropomorphic characters in period settings
+- Star Wars Universe: Scenes and characters from the Star Wars galaxy
+- Marvel Universe: Epic scenes featuring Marvel superheroes and villains
+- Steampunk World: Victorian-era technology with brass, gears, and steam-powered machinery
+- Post-Apocalyptic Wasteland: Dramatic scenes of survival in ruined civilizations
+- Underwater Civilization: Deep sea architecture and bioluminescent aquatic environments
+- Microscopic Universe: Scientific visualizations of cellular and molecular landscapes
+- Bio-Organic Technology: Fusion of biological organisms with mechanical systems
+- Dynamic Random: Randomized combination of various styles
 
 The Mega Prompt Generator provides both a combined prompt and individual components, allowing for maximum flexibility in your workflows.
 

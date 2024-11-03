@@ -299,7 +299,7 @@ class IsulionMegaPromptGenerator:
         "futuristic_city": "ultra-modern architectural visualization with premium materials of",
         "pixar": "highly detailed Pixar-style 3D render with clean geometry and appealing design of",
         "binet": "highly detailed anthropomorphic portrait in the style of Sylvain Binet, digital painting of",
-        "vintage_anthro": "photorealistic anthropomorphic portrait with vintage aesthetics of",
+        "vintage_anthro": "ultra-realistic vintage photograph with professional studio lighting of",
         "star_wars": "cinematic Star Wars scene with premium details of",
         "marvel": "epic Marvel Universe scene with cinematic composition of",
         "steampunk": "Victorian-era steampunk artwork with brass and copper details of",
@@ -1143,13 +1143,14 @@ class IsulionMegaPromptGenerator:
                     prop = random.choice(self.vintage_anthro_props)
                     setting = random.choice(self.vintage_anthro_settings)
                     
-                    # Create detailed subject description
-                    subject_text = f"anthropomorphic {animal} as a {profession}"
-                    action_text = f"{activity}, wearing {clothing}, holding {prop}"
-                    environment_text = f"in a {setting}, vintage Victorian era atmosphere"
-                    style_text = "vintage photography style, sepia tones, professional studio lighting, ultra sharp focus, 8k"
-                    effects_text = "with atmospheric lighting, vintage photo effects, and period-accurate details"
+                    # Create detailed subject description with emphasis on photorealism
+                    subject_text = f"hyper-realistic anthropomorphic {animal} with detailed fur texture and human-like expressions, as a {profession}"
+                    action_text = f"{activity}, wearing ((highly detailed {clothing})), holding {prop}"
+                    environment_text = f"in a {setting}, vintage Victorian era atmosphere, volumetric lighting"
+                    style_text = "professional vintage photography, ultra-realistic textures, detailed fabric and fur rendering, studio lighting setup, sharp focus, 8k resolution, photorealistic details"
+                    effects_text = "with cinematic color grading, subtle film grain, perfect exposure, volumetric lighting, detailed shadows, and period-accurate details"
                     
+                    # Add components based on inclusion flags
                     components.extend([subject_text])
                     if include_action == "yes":
                         components.append(action_text)
