@@ -925,13 +925,17 @@ class IsulionMegaPromptGenerator:
                     # Get a body animal and ensure it's from a different family
                     max_attempts = 20
                     while max_attempts > 0:
+                        head = random.choice(self.animals)
                         body = random.choice(self.animals)
                         
                         # Check if they're from different families
                         head_family = get_animal_family(head)
                         body_family = get_animal_family(body)
                         
-                        if head_family != body_family or head_family is None or body_family is None:
+                        if (head_family != body_family and 
+                            head_family is not None and 
+                            body_family is not None and 
+                            head.lower() != body.lower()):
                             break
                             
                         max_attempts -= 1
@@ -963,7 +967,7 @@ class IsulionMegaPromptGenerator:
                     # Change this part to use animals list instead of cute_animals
                     max_attempts = 20
                     while max_attempts > 0:
-                        head = random.choice(self.animals)  # Changed from self.cute_animals
+                        head = random.choice(self.animals)
                         body = random.choice(self.animals)
                         
                         # Check if they're from different families
