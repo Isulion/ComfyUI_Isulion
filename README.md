@@ -34,40 +34,65 @@ git clone https://github.com/Isulion/ComfyUI_Isulion
 
 ## 🎯 Mega Prompt Generator 🎯
 
-The Mega Prompt Generator provides both a combined prompt and individual components, allowing for maximum flexibility in your workflows.
+The Mega Prompt Generator is an advanced node that combines multiple themes and generation capabilities. It provides both combined prompts and individual components for maximum flexibility in your workflows.
 
-### Available Themes
+### Core Features
 
-- Dynamic Random: Randomized combination of various styles (Default theme)
-- Essential Realistic: Professional photography with real-world subjects
-- Futuristic Sci-Fi: Advanced technology and space-age scenes
-- Studio Cinema: Movie and superhero character compositions
-- Enchanted Fantasy: Magical realms and mythical characters
-- Fusion Cute Animals: Adorable hybrid creature combinations
-- Animation Cartoon: Classic animated character styles
-- Anime: Japanese animation inspired artwork
-- Architectural: Sophisticated building and structural designs
-- Abstract: Pure geometric and non-representational compositions
-- Culinary: Professional food and beverage photography
-- Spaces Interior: Interior design and architectural spaces
-- Dimension 3D: Three-dimensional digital artwork
-- Ethereal Halloween: Spooky and atmospheric horror themes
-- Lifestyle Instagram: Professional social media photography
-- Chimera Strange Animals: Unique hybrid creatures with distinctive head-body combinations
-- Metropolis Futuristic City: Advanced cityscape and urban environments
-- Pixar Animation: 3D animation in the style of Pixar
-- Binet Surreal: Anthropomorphic portraits inspired by Sylvain Binet
-- Vintage Anthropomorphic: Victorian-era anthropomorphic characters in period settings
-- Star Wars Universe: Scenes and characters from the Star Wars galaxy
-- Marvel Universe: Epic scenes featuring Marvel superheroes and villains
-- Steampunk World: Victorian-era technology with brass, gears, and steam-powered machinery
-- Post-Apocalyptic Wasteland: Dramatic scenes of survival in ruined civilizations
-- Underwater Civilization: Deep sea architecture and bioluminescent aquatic environments
-- Microscopic Universe: Scientific visualizations of cellular and molecular landscapes
-- Bio-Organic Technology: Fusion of biological organisms with mechanical systems
+- **Complexity Levels**:
+  - Simple: Basic prompt with minimal elements
+  - Detailed: Balanced prompt with key elements (default)
+  - Complex: Rich prompt with additional details and effects
 
+- **Enhancement System**:
+  - Levels: Subtle, Moderate (default), Dramatic
+  - Focus Areas: Detail, Composition, Lighting, Color
 
---------------
+- **Customization**:
+  - Custom Subject Input
+  - Component Toggle (Subject, Action, Environment, Style, Effects)
+  - Randomization Options
+  - Seed Control
+
+### Theme Categories
+
+#### Core Themes
+- **Dynamic Random** (Default): Intelligently combines elements from various themes
+- **Essential Realistic**: Professional photography with real-world subjects
+- **Abstract**: Pure geometric and non-representational compositions
+
+#### Character Themes
+- **Fusion Cute Animals**: Adorable hybrid creature combinations
+- **Chimera Strange Animals**: Unique hybrid creatures with distinctive head-body combinations
+- **Vintage Anthropomorphic**: Photorealistic Victorian-era anthropomorphic characters
+- **Binet Surreal**: Anthropomorphic portraits inspired by Sylvain Binet
+
+#### Environment Themes
+- **Architectural**: Sophisticated building and structural designs
+- **Spaces Interior**: Interior design and architectural spaces
+- **Metropolis Futuristic City**: Advanced cityscape and urban environments
+- **Underwater Civilization**: Deep sea architecture and bioluminescent environments
+- **Microscopic Universe**: Scientific visualizations of cellular and molecular landscapes
+
+#### Style Themes
+- **Animation Cartoon**: Classic animated character styles
+- **Anime**: Japanese animation inspired artwork
+- **Pixar Animation**: 3D animation in the style of Pixar
+- **Dimension 3D**: Three-dimensional digital artwork
+- **Culinary**: Professional food and beverage photography
+- **Lifestyle Instagram**: Professional social media photography
+
+#### Genre Themes
+- **Futuristic Sci-Fi**: Advanced technology and space-age scenes
+- **Enchanted Fantasy**: Magical realms and mythical characters
+- **Ethereal Halloween**: Spooky and atmospheric horror themes
+- **Steampunk World**: Victorian-era technology with brass and copper details
+- **Post-Apocalyptic Wasteland**: Dramatic scenes of survival in ruins
+- **Bio-Organic Technology**: Fusion of biological organisms with mechanical systems
+
+#### Franchise Themes
+- **Star Wars Universe**: Scenes and characters from the Star Wars galaxy
+- **Marvel Universe**: Epic scenes featuring Marvel superheroes and villains
+- **Studio Cinema**: Movie and superhero character compositions
 
 ### Specific Nodes
 
