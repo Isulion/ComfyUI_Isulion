@@ -121,15 +121,13 @@ Use this example workflow to get started:
 
 ![Example_Isulion_Workflow](https://github.com/user-attachments/assets/ba6d7eaa-c068-4f88-a2c9-fb07aa95052b)
 
-### Advanced Mode
+### Chimera
 
-For more flexibility and control:
+![Isulion_Chimera_Advanced_workflow](https://github.com/user-attachments/assets/26894b34-aeae-4e90-a5a3-f77501b2ea72)
 
-![Example_Isulion_Workflow_Split](https://github.com/user-attachments/assets/e578ff7a-0c03-47a1-900f-a7e209a64914)
+### Megaprompt Workflow
 
-### Chimera Animals
-
-![workflowAnimals](https://github.com/user-attachments/assets/afd6916a-22d0-4c4b-9989-9b78b9eaf83f)
+![Isulion_Megaprompt_workflow](https://github.com/user-attachments/assets/60279c8e-2338-4d23-aef2-fb9461239319)
 
 ## Ollama Requirements
 
