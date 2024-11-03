@@ -30,7 +30,6 @@ git clone https://github.com/Isulion/ComfyUI_Isulion
 ### Core Generators
 
 - ✨ Prompt - Main prompt generation node
-- 🦙 Ollama - LLM-based text generation
 - 🎯 Mega Prompt - Advanced multi-theme prompt generator
 
 ## 🎯 Mega Prompt Generator 🎯
@@ -166,7 +165,7 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 ![IsulionFLUX_00484_](https://github.com/user-attachments/assets/6cbc3ea8-650b-44b3-9a59-a3476a7e513c)
 [LoRa used for this](https://civitai.com/models/673513/will-smith-flux-dev-lora)
 
-## Ollama Requirements
+## 🦙 Ollama Requirements
 
 - Ollama_generator node installed in ComfyUI
 
