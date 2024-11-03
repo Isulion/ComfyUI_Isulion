@@ -1041,7 +1041,7 @@ class IsulionMegaPromptGenerator:
                         max_attempts -= 1
                     
                     behavior = random.choice(self.behaviors)
-                    subject_text = f"adorable hybrid creature with ((the body of a {body})) and ((the head of a {head})), {behavior}, kawaii style, soft lighting, pastel colors, cute expression, fluffy texture, chibi proportions, sparkly eyes, ultra detailed, 8k"
+                    subject_text = f"adorable chimerical fantastical creature with ((the body of a {body})) and ((the head of a {head})), {behavior}, kawaii style, soft lighting, pastel colors, cute expression, fluffy texture, chibi proportions, sparkly eyes, ultra detailed, 8k"
                 elif internal_theme == "cinema":
                     # Add proper cinema character handling
                     character = random.choice(self.cinema_characters)
