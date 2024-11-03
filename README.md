@@ -8,20 +8,11 @@ Transform your creative workflow with advanced prompt generation technology.
 
 Isulion Prompt Generator introduces a new way to create, refine, and enhance your image generation prompts. With its intuitive interface and powerful capabilities, you can craft precise, detailed prompts for any creative vision.
 
-## Ollama Requirements
-
-- Ollama_generator node installed in ComfyUI
-
-### Environment Variables
-
-- OLLAMA_KEEP_ALIVE: 0
-- OLLAMA_ORIGINS: *
-
 ## Installation
 
 ### Quick Start
 
-Use ComfyUI Manager and search for "Isulion"
+Use [ComfyUI Manager](https://github.com/ltdrdata/ComfyUI-Manager), got to "Custome Nodes Manager" and search  "Isulion" !
 
 ### Old install
 
@@ -139,3 +130,12 @@ For more flexibility and control:
 ### Chimera Animals
 
 ![workflowAnimals](https://github.com/user-attachments/assets/afd6916a-22d0-4c4b-9989-9b78b9eaf83f)
+
+## Ollama Requirements
+
+- Ollama_generator node installed in ComfyUI
+
+### Environment Variables
+
+- OLLAMA_KEEP_ALIVE: 0
+- OLLAMA_ORIGINS: *
