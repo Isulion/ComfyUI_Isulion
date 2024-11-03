@@ -25,9 +25,11 @@ Use ComfyUI Manager and search for "Isulion"
 
 ### Old install
 
-- cd your_ComfyUI_install_dir
-- cd custom_nodes
-- git clone https://github.com/Isulion/ComfyUI_Isulion
+```bash
+cd "your_ComfyUI_install_dir"
+cd custom_nodes
+git clone https://github.com/Isulion/ComfyUI_Isulion
+```
 
 --------------
 
@@ -39,11 +41,11 @@ Use ComfyUI Manager and search for "Isulion"
 - Ollama  🤖 - LLM-based text generation
 - Mega Prompt 🎯 - Advanced multi-theme prompt generator
 
-### Mega Prompt Generator 🎯
+## 🎯 Mega Prompt Generator 🎯
 
 The Mega Prompt Generator is an advanced node that combines multiple themes and generation capabilities:
 
-#### Available Themes
+### Available Themes
 
 - Essential Realistic: Professional photography with real-world subjects
 - Futuristic Sci-Fi: Advanced technology and space-age scenes
