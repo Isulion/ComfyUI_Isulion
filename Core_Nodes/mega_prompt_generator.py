@@ -819,15 +819,13 @@ class IsulionMegaPromptGenerator:
                                 return family
                         return None
 
-                    # Use the custom subject as the body animal
-                    body = subject_text
+                    # Use the custom subject as the head animal (changed from body)
+                    head = subject_text
                     
-                    # Get a cute head animal and remove baby-related words
+                    # Get a body animal and ensure it's from a different family
                     max_attempts = 20
                     while max_attempts > 0:
-                        head = random.choice(self.cute_animals)
-                        head = head.lower().replace('baby ', '').replace('cub', '').replace('puppy', '').replace('kitten', '').replace('kit', '')
-                        head = head.title()
+                        body = random.choice(self.animals)
                         
                         # Check if they're from different families
                         head_family = get_animal_family(head)
