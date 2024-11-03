@@ -302,6 +302,11 @@ class IsulionMegaPromptGenerator:
         "vintage_anthro": "photorealistic anthropomorphic portrait with vintage aesthetics of",
         "star_wars": "cinematic Star Wars scene with premium details of",
         "marvel": "epic Marvel Universe scene with cinematic composition of",
+        "steampunk": "Victorian-era steampunk artwork with brass and copper details of",
+        "post_apocalyptic": "dramatic post-apocalyptic scene with weathered details of",
+        "underwater": "bioluminescent deep-sea photograph with crystalline clarity of",
+        "microscopic": "electron microscope visualization with precise detail of",
+        "bio_organic": "hybrid bio-mechanical artwork with organic integration of",
     }
 
     # Add design-focused enhancement words
@@ -497,9 +502,7 @@ class IsulionMegaPromptGenerator:
         "curiosity shop", "perfumery", "botanical laboratory",
         "cartography office", "vintage wine cellar", "art gallery",
         "old world pharmacy", "scientific laboratory", "music conservatory",
-        "historic theater", "luxury ocean liner", "grand hotel lobby",
-        "vintage automobile garage", "crystal palace conservatory", "old printing press",
-        "Victorian tea room", "antique auction house", "vintage circus tent"
+        "historic theater", "luxury ocean liner", "grand hotel lobby"
     ]
 
     vintage_anthro_props = [
@@ -510,19 +513,16 @@ class IsulionMegaPromptGenerator:
         "crystal decanter", "gramophone", "typewriter",
         "globe", "sextant", "microscope",
         "barometer", "compass", "quill and inkwell",
-        "opera glasses", "calling card case", "leather briefcase",
-        "brass scales", "vintage spectacles", "mechanical calculator",
-        "antique telephone", "brass microscope", "leather document case",
-        "vintage radio", "oil lamp", "brass instruments",
-        "antique maps", "vintage medical kit", "crystal ball",
-        "brass chronometer", "vintage chemistry set", "leather-bound journal"
+        "opera glasses", "calling card case", "leather briefcase"
     ]
 
-    vintage_anthro_atmospheres = [
-        "dark, rainy city with vintage street lamps", "cozy, rustic interior with warm lighting",
-        "academic setting with chalkboards", "smoky atmosphere with dramatic lighting",
-        "rustic wooden interior with mountain views", "gas-lit Victorian ambiance",
-        "steam and brass machinery", "candlelit study", "sunlit conservatory"
+    vintage_anthro_activities = [
+        "smoking an ornate pipe", "smoking a fancy cigar", "driving a vintage car",
+        "piloting an old biplane", "playing a violin", "playing a grand piano",
+        "reading an ancient book", "painting on an easel", "drinking fine wine",
+        "playing chess", "writing with a quill pen", "conducting an orchestra",
+        "riding a penny-farthing bicycle", "sailing a wooden ship", "playing polo",
+        "having afternoon tea", "playing croquet", "fencing with elegance"
     ]
 
     # Add new Star Wars specific variables
@@ -635,6 +635,97 @@ class IsulionMegaPromptGenerator:
         "cosmic energy", "gamma radiation", "mutant power effect"
     ]
 
+    # Add these new class variables at the top of the class with other theme-specific lists
+    steampunk_elements = {
+        "machines": [
+            "brass clockwork", "steam engine", "copper boiler", "mechanical gears",
+            "pneumatic tubes", "bronze automaton", "steam-powered robot", "gear train",
+            "pressure gauge", "brass telescope", "mechanical calculator", "steam turbine",
+            "copper pipes", "brass valves", "mechanical wings", "steam-powered armor"
+        ],
+        "accessories": [
+            "top hat", "brass goggles", "leather gloves", "pocket watch",
+            "mechanical monocle", "brass compass", "leather tool belt", "gear brooch",
+            "brass buttons", "leather boots", "mechanical arm", "steam pack"
+        ],
+        "environments": [
+            "Victorian factory", "clockwork workshop", "steam-powered laboratory",
+            "mechanical library", "brass foundry", "gear-filled chamber",
+            "steam engine room", "mechanical observatory", "copper-plated hall"
+        ]
+    }
+
+    post_apocalyptic_elements = {
+        "environments": [
+            "ruined cityscape", "abandoned highway", "overgrown mall",
+            "destroyed factory", "wasteland settlement", "radiation zone",
+            "underground bunker", "scrapyard city", "desert outpost"
+        ],
+        "props": [
+            "rusty vehicle", "broken machinery", "salvaged weapons",
+            "makeshift shelter", "scavenged supplies", "survival gear",
+            "radiation suit", "gas mask", "improvised tools"
+        ],
+        "atmosphere": [
+            "toxic fog", "nuclear sunset", "acid rain", "dust storm",
+            "radioactive haze", "perpetual twilight", "burning sky"
+        ]
+    }
+
+    underwater_elements = {
+        "structures": [
+            "crystal dome", "bioluminescent tower", "coral palace",
+            "kelp forest city", "pearl chamber", "abyssal architecture",
+            "pressure sphere", "aqua-glass tunnel", "oceanic temple"
+        ],
+        "life_forms": [
+            "luminous fish", "giant squid", "coral beings", "sea serpents",
+            "aquatic humanoids", "jellyfish swarms", "whale guardians",
+            "deep sea creatures", "phosphorescent life"
+        ],
+        "technology": [
+            "pressure shields", "water filtration", "current generators",
+            "aqua propulsion", "bubble transport", "coral computers",
+            "bioluminescent lights", "sonic communicators"
+        ]
+    }
+
+    microscopic_elements = {
+        "structures": [
+            "cell membrane", "molecular chain", "protein complex",
+            "DNA helix", "mitochondria", "cellular matrix",
+            "crystal lattice", "atomic structure", "quantum pattern"
+        ],
+        "processes": [
+            "cell division", "protein synthesis", "electron transfer",
+            "molecular binding", "neural firing", "quantum tunneling",
+            "crystallization", "cellular repair", "atomic interaction"
+        ],
+        "environments": [
+            "cellular landscape", "molecular forest", "quantum realm",
+            "crystalline matrix", "neural network", "protein maze",
+            "atomic void", "cellular city", "quantum field"
+        ]
+    }
+
+    bio_organic_elements = {
+        "structures": [
+            "living metal", "organic circuitry", "neural interface",
+            "bio-mechanical heart", "synthetic tissue", "living machine",
+            "organic processor", "bio-digital hybrid", "living architecture"
+        ],
+        "processes": [
+            "bio-synthesis", "organic computing", "neural integration",
+            "tissue-metal fusion", "bio-digital transfer", "organic power generation",
+            "synthetic evolution", "bio-mechanical growth"
+        ],
+        "aesthetics": [
+            "bioluminescent circuits", "pulsing veins", "living metal skin",
+            "organic crystal growth", "flowing circuitry", "breathing machinery",
+            "synthetic nervous system", "bio-mechanical symmetry"
+        ]
+    }
+
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -661,7 +752,12 @@ class IsulionMegaPromptGenerator:
                     "Vintage Anthropomorphic",
                     "Star Wars Universe",
                     "Marvel Universe",
-                    "Dynamic Random"
+                    "Dynamic Random",
+                    "Steampunk World",
+                    "Post-Apocalyptic Wasteland",
+                    "Underwater Civilization",
+                    "Microscopic Universe",
+                    "Bio-Organic Technology",
                 ], {"default": "Essential"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
@@ -731,7 +827,12 @@ class IsulionMegaPromptGenerator:
             "Vintage Anthropomorphic": "vintage_anthro",
             "Star Wars Universe": "star_wars",
             "Marvel Universe": "marvel",
-            "Dynamic Random": "random"
+            "Dynamic Random": "random",
+            "Steampunk World": "steampunk",
+            "Post-Apocalyptic Wasteland": "post_apocalyptic",
+            "Underwater Civilization": "underwater",
+            "Microscopic Universe": "microscopic",
+            "Bio-Organic Technology": "bio_organic",
         }
 
         # Convert new theme name to old theme name for internal processing
@@ -1034,25 +1135,30 @@ class IsulionMegaPromptGenerator:
                     else:
                         subject_text = f"{style} of a noble {animal} with {element}, wearing {accessory}, in a {background}, masterful digital painting, vibrant colors, dramatic lighting, ultra detailed, dreamlike atmosphere, expressive brushwork, 8k"
                 elif internal_theme == "vintage_anthro":
-                    # Keep subject simple - just the animal
+                    # Generate base anthropomorphic character
                     animal = random.choice(self.animals)
-                    subject_text = f"Anthropomorphic {animal}"
-                    
-                    # Move profession, clothing, setting, prop and atmosphere to action/environment
                     profession = random.choice(self.vintage_anthro_professions)
                     clothing = random.choice(self.vintage_anthro_clothing)
-                    setting = random.choice(self.vintage_anthro_settings)
+                    activity = random.choice(self.vintage_anthro_activities)
                     prop = random.choice(self.vintage_anthro_props)
-                    atmosphere = random.choice(self.vintage_anthro_atmospheres)
+                    setting = random.choice(self.vintage_anthro_settings)
                     
-                    # Add these details to action_text and environment_text
-                    action_text = f"as a {profession}, wearing {clothing}, with {prop}"
-                    environment_text = f"in a {setting}, {atmosphere}"
+                    # Create detailed subject description
+                    subject_text = f"anthropomorphic {animal} as a {profession}"
+                    action_text = f"{activity}, wearing {clothing}, holding {prop}"
+                    environment_text = f"in a {setting}, vintage Victorian era atmosphere"
+                    style_text = "vintage photography style, sepia tones, professional studio lighting, ultra sharp focus, 8k"
+                    effects_text = "with atmospheric lighting, vintage photo effects, and period-accurate details"
                     
-                    # Add the technical details to style_text
-                    style_text = "high detail on textures and fur, photorealistic, professional studio lighting, ultra sharp focus, 8k"
-                    
-                    components.append(subject_text)
+                    components.extend([subject_text])
+                    if include_action == "yes":
+                        components.append(action_text)
+                    if include_environment == "yes":
+                        components.append(environment_text)
+                    if include_style == "yes":
+                        components.append(style_text)
+                    if include_effects == "yes":
+                        components.append(effects_text)
                 elif internal_theme == "star_wars":
                     character = random.choice(self.star_wars_characters)
                     prop = random.choice(self.star_wars_props)
@@ -1104,6 +1210,55 @@ class IsulionMegaPromptGenerator:
                     if include_effects == "yes":
                         effect = random.choice(self.marvel_effects)
                         effects_text = f"with {effect}"
+                elif internal_theme == "steampunk":
+                    machine = random.choice(self.steampunk_elements["machines"])
+                    accessory = random.choice(self.steampunk_elements["accessories"])
+                    environment = random.choice(self.steampunk_elements["environments"])
+                    
+                    subject_text = f"Victorian-era steampunk scene with {machine} and {accessory}"
+                    environment_text = f"in a {environment}"
+                    style_text = "brass and copper details, mechanical complexity, vintage aesthetics, ultra sharp focus, 8k"
+                    effects_text = "with steam effects, gear mechanisms, and metallic reflections"
+
+                elif internal_theme == "post_apocalyptic":
+                    environment = random.choice(self.post_apocalyptic_elements["environments"])
+                    prop = random.choice(self.post_apocalyptic_elements["props"])
+                    atmosphere = random.choice(self.post_apocalyptic_elements["atmosphere"])
+                    
+                    subject_text = f"dramatic post-apocalyptic scene with {prop}"
+                    environment_text = f"in a {environment} during {atmosphere}"
+                    style_text = "weathered textures, dramatic lighting, gritty atmosphere, ultra sharp focus, 8k"
+                    effects_text = "with atmospheric dust, degraded materials, and survival elements"
+
+                elif internal_theme == "underwater":
+                    structure = random.choice(self.underwater_elements["structures"])
+                    life_form = random.choice(self.underwater_elements["life_forms"])
+                    tech = random.choice(self.underwater_elements["technology"])
+                    
+                    subject_text = f"bioluminescent deep-sea scene with {structure} and {life_form}"
+                    environment_text = f"featuring {tech}"
+                    style_text = "crystalline clarity, underwater lighting, aquatic atmosphere, ultra sharp focus, 8k"
+                    effects_text = "with water caustics, bioluminescent glow, and deep-sea particles"
+
+                elif internal_theme == "microscopic":
+                    structure = random.choice(self.microscopic_elements["structures"])
+                    process = random.choice(self.microscopic_elements["processes"])
+                    environment = random.choice(self.microscopic_elements["environments"])
+                    
+                    subject_text = f"electron microscope visualization of {structure} during {process}"
+                    environment_text = f"in a {environment}"
+                    style_text = "scientific visualization, precise detail, molecular clarity, ultra sharp focus, 8k"
+                    effects_text = "with quantum effects, molecular interactions, and microscopic patterns"
+
+                elif internal_theme == "bio_organic":
+                    structure = random.choice(self.bio_organic_elements["structures"])
+                    process = random.choice(self.bio_organic_elements["processes"])
+                    aesthetic = random.choice(self.bio_organic_elements["aesthetics"])
+                    
+                    subject_text = f"hybrid bio-mechanical artwork of {structure} performing {process}"
+                    environment_text = f"featuring {aesthetic}"
+                    style_text = "organic integration, seamless fusion, living technology, ultra sharp focus, 8k"
+                    effects_text = "with bioluminescent highlights, organic patterns, and technological elements"
                 else:  # random theme handling
                     if random.random() < 0.7:  # 70% chance for human subject
                         profession = random.choice(self.professions)
