@@ -726,6 +726,21 @@ class IsulionMegaPromptGenerator:
         ]
     }
 
+    # Add this animal families dictionary at the class level
+    animal_families = {
+        'felines': ['cat', 'lion', 'tiger', 'leopard', 'cheetah', 'jaguar', 'lynx', 'ocelot', 'caracal', 'cougar', 'panther', 'serval', 'bobcat', 'snow leopard', 'clouded leopard', 'margay', 'fishing cat', 'puma', 'sand cat', 'jaguarundi', 'asian golden cat', 'black-footed cat', 'pallas cat', 'rusty-spotted cat', 'oncilla'],
+        'canines': ['dog', 'wolf', 'fox', 'coyote', 'dingo', 'jackal', 'fennec fox', 'arctic fox', 'red wolf', 'african wild dog', 'maned wolf', 'golden retriever', 'puppy', 'german shepherd', 'husky', 'labrador', 'border collie', 'beagle', 'rottweiler', 'doberman', 'great dane', 'bulldog', 'poodle', 'corgi', 'dalmatian', 'swift fox', 'kit fox', 'gray fox', 'bush dog', 'raccoon dog'],
+        'bears': ['bear', 'panda', 'grizzly bear', 'polar bear', 'black bear', 'sun bear', 'spectacled bear', 'sloth bear', 'brown bear', 'asiatic black bear', 'kodiak bear', 'cave bear', 'giant panda', 'red panda', 'moon bear', 'syrian brown bear', 'tibetan blue bear', 'formosan black bear', 'himalayan brown bear', 'gobi bear'],
+        'primates': ['monkey', 'gorilla', 'chimpanzee', 'orangutan', 'baboon', 'gibbon', 'lemur', 'mandrill', 'capuchin', 'marmoset', 'tamarin', 'macaque', 'bonobo', 'siamang', 'proboscis monkey', 'howler monkey', 'spider monkey', 'langur', 'colobus', 'tarsier', 'galago', 'loris', 'indri', 'sifaka', 'aye-aye', 'vervet monkey', 'woolly monkey', 'squirrel monkey', 'mangabey', 'guereza'],
+        'rodents': ['rat', 'mouse', 'squirrel', 'chipmunk', 'hamster', 'beaver', 'capybara', 'gerbil', 'guinea pig', 'porcupine', 'chinchilla', 'marmot', 'prairie dog', 'dormouse', 'agouti', 'degu', 'jerboa', 'kangaroo rat', 'lemming', 'vole', 'woodchuck', 'groundhog', 'flying squirrel', 'nutria', 'viscacha', 'gopher', 'springhare', 'coypu', 'hutia', 'zokors'],
+        'birds': ['eagle', 'hawk', 'owl', 'penguin', 'parrot', 'peacock', 'swan', 'duck', 'goose', 'falcon', 'hummingbird', 'toucan', 'macaw', 'flamingo', 'crane', 'pelican', 'albatross', 'raven', 'crow', 'cardinal', 'blue jay', 'woodpecker', 'kingfisher', 'ostrich', 'emu', 'kiwi', 'condor', 'vulture', 'seagull', 'puffin', 'stork', 'heron', 'ibis', 'sparrow', 'finch', 'canary', 'cockatoo', 'parakeet', 'lorikeet', 'quail'],
+        'reptiles': ['crocodile', 'alligator', 'snake', 'lizard', 'gecko', 'tortoise', 'iguana', 'chameleon', 'komodo dragon', 'python', 'cobra', 'viper', 'turtle', 'monitor lizard', 'bearded dragon', 'anaconda', 'boa constrictor', 'rattlesnake', 'mamba', 'skink', 'gila monster', 'tuatara', 'caiman', 'basilisk', 'anole', 'tegu', 'agama', 'worm lizard', 'amphisbaena', 'horned lizard'],
+        'marine': ['dolphin', 'whale', 'shark', 'octopus', 'squid', 'jellyfish', 'crab', 'lobster', 'seal', 'sea lion', 'walrus', 'orca', 'narwhal', 'manatee', 'sea turtle', 'seahorse', 'ray', 'starfish', 'eel', 'anglerfish', 'clownfish', 'barracuda', 'moray eel', 'hammerhead shark', 'great white shark', 'manta ray', 'sea urchin', 'sea cucumber', 'sea anemone', 'coral', 'dugong', 'beluga whale', 'blue whale', 'sperm whale', 'humpback whale', 'sea dragon', 'lionfish', 'pufferfish', 'swordfish', 'marlin'],
+        'marsupials': ['kangaroo', 'koala', 'wallaby', 'tasmanian devil', 'wombat', 'quokka', 'opossum', 'numbat', 'bandicoot', 'sugar glider', 'quoll', 'potoroo', 'bettong', 'bilby', 'pademelon', 'tree kangaroo', 'cuscus', 'antechinus', 'dunnart', 'phascogale', 'ringtail possum', 'brushtail possum', 'glider possum', 'rock wallaby', 'swamp wallaby'],
+        'insects': ['butterfly', 'beetle', 'ant', 'bee', 'wasp', 'dragonfly', 'mantis', 'grasshopper', 'cricket', 'ladybug', 'moth', 'cicada', 'firefly', 'scarab', 'caterpillar', 'centipede', 'millipede', 'scorpion', 'spider', 'termite', 'cockroach', 'earwig', 'stick insect', 'leaf insect', 'walking stick', 'praying mantis', 'assassin bug', 'water strider', 'giant water bug', 'jewel beetle', 'stag beetle', 'rhinoceros beetle', 'hercules beetle', 'atlas beetle', 'dung beetle'],
+        'ungulates': ['horse', 'deer', 'elephant', 'giraffe', 'zebra', 'rhinoceros', 'hippopotamus', 'moose', 'elk', 'antelope', 'gazelle', 'bison', 'buffalo', 'camel', 'llama', 'alpaca', 'wildebeest', 'impala', 'kudu', 'oryx', 'eland', 'gemsbok', 'nyala', 'okapi', 'tapir', 'wild boar', 'warthog', 'peccary', 'mountain goat', 'bighorn sheep', 'ibex', 'chamois', 'markhor', 'tahr', 'muskox'],
+    }
+
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -898,24 +913,9 @@ class IsulionMegaPromptGenerator:
                 
                 # Special handling for strange_animal theme with custom subject
                 if internal_theme == "strange_animal":
-                    # Define animal families to avoid similar combinations
-                    animal_families = {
-                        'felines': ['cat', 'lion', 'tiger', 'leopard', 'cheetah', 'jaguar', 'lynx', 'ocelot', 'caracal', 'cougar', 'panther', 'serval', 'bobcat', 'snow leopard', 'clouded leopard'],
-                        'canines': ['dog', 'wolf', 'fox', 'coyote', 'dingo', 'jackal', 'fennec fox', 'arctic fox', 'red wolf', 'african wild dog', 'maned wolf'],
-                        'bears': ['bear', 'panda', 'grizzly bear', 'polar bear', 'black bear', 'sun bear', 'spectacled bear', 'sloth bear', 'brown bear', 'asiatic black bear'],
-                        'primates': ['monkey', 'gorilla', 'chimpanzee', 'orangutan', 'baboon', 'gibbon', 'lemur', 'mandrill', 'capuchin', 'marmoset', 'tamarin', 'macaque', 'bonobo', 'siamang'],
-                        'rodents': ['rat', 'mouse', 'squirrel', 'chipmunk', 'hamster', 'beaver', 'capybara', 'gerbil', 'guinea pig', 'porcupine', 'chinchilla', 'marmot', 'prairie dog', 'dormouse'],
-                        'birds': ['eagle', 'hawk', 'owl', 'penguin', 'parrot', 'peacock', 'swan', 'duck', 'goose', 'falcon', 'hummingbird', 'toucan', 'macaw', 'flamingo', 'crane', 'pelican', 'albatross', 'raven', 'crow', 'cardinal'],
-                        'reptiles': ['crocodile', 'alligator', 'snake', 'lizard', 'gecko', 'tortoise', 'iguana', 'chameleon', 'komodo dragon', 'python', 'cobra', 'viper', 'turtle', 'monitor lizard', 'bearded dragon', 'anaconda'],
-                        'marine': ['dolphin', 'whale', 'shark', 'octopus', 'squid', 'jellyfish', 'crab', 'lobster', 'seal', 'sea lion', 'walrus', 'orca', 'narwhal', 'manatee', 'sea turtle', 'seahorse', 'ray', 'starfish', 'eel', 'anglerfish'],
-                        'marsupials': ['kangaroo', 'koala', 'wallaby', 'tasmanian devil', 'wombat', 'quokka', 'opossum', 'numbat', 'bandicoot', 'sugar glider'],
-                        'insects': ['butterfly', 'beetle', 'ant', 'bee', 'wasp', 'dragonfly', 'mantis', 'grasshopper', 'cricket', 'ladybug', 'moth', 'cicada', 'firefly', 'scarab'],
-                        'ungulates': ['horse', 'deer', 'elephant', 'giraffe', 'zebra', 'rhinoceros', 'hippopotamus', 'moose', 'elk', 'antelope', 'gazelle', 'bison', 'buffalo', 'camel', 'llama', 'alpaca'],
-                    }
-
                     def get_animal_family(animal):
                         animal_lower = animal.lower()
-                        for family, members in animal_families.items():
+                        for family, members in self.animal_families.items():
                             if any(member in animal_lower for member in members):
                                 return family
                         return None
@@ -954,24 +954,9 @@ class IsulionMegaPromptGenerator:
                     subject_text = f"cinematic wide shot of a {atmosphere} futuristic megacity with {architecture} and {infrastructure}, during {time}, ultra detailed cityscape, shallow depth of field, sharp focus, 8k"
 
                 elif internal_theme == "strange_animal":
-                    # Define animal families to avoid similar combinations
-                    animal_families = {
-                        'felines': ['cat', 'lion', 'tiger', 'leopard', 'cheetah', 'jaguar', 'lynx', 'ocelot', 'caracal', 'cougar', 'panther', 'serval', 'bobcat', 'snow leopard', 'clouded leopard'],
-                        'canines': ['dog', 'wolf', 'fox', 'coyote', 'dingo', 'jackal', 'fennec fox', 'arctic fox', 'red wolf', 'african wild dog', 'maned wolf'],
-                        'bears': ['bear', 'panda', 'grizzly bear', 'polar bear', 'black bear', 'sun bear', 'spectacled bear', 'sloth bear', 'brown bear', 'asiatic black bear'],
-                        'primates': ['monkey', 'gorilla', 'chimpanzee', 'orangutan', 'baboon', 'gibbon', 'lemur', 'mandrill', 'capuchin', 'marmoset', 'tamarin', 'macaque', 'bonobo', 'siamang'],
-                        'rodents': ['rat', 'mouse', 'squirrel', 'chipmunk', 'hamster', 'beaver', 'capybara', 'gerbil', 'guinea pig', 'porcupine', 'chinchilla', 'marmot', 'prairie dog', 'dormouse'],
-                        'birds': ['eagle', 'hawk', 'owl', 'penguin', 'parrot', 'peacock', 'swan', 'duck', 'goose', 'falcon', 'hummingbird', 'toucan', 'macaw', 'flamingo', 'crane', 'pelican', 'albatross', 'raven', 'crow', 'cardinal'],
-                        'reptiles': ['crocodile', 'alligator', 'snake', 'lizard', 'gecko', 'tortoise', 'iguana', 'chameleon', 'komodo dragon', 'python', 'cobra', 'viper', 'turtle', 'monitor lizard', 'bearded dragon', 'anaconda'],
-                        'marine': ['dolphin', 'whale', 'shark', 'octopus', 'squid', 'jellyfish', 'crab', 'lobster', 'seal', 'sea lion', 'walrus', 'orca', 'narwhal', 'manatee', 'sea turtle', 'seahorse', 'ray', 'starfish', 'eel', 'anglerfish'],
-                        'marsupials': ['kangaroo', 'koala', 'wallaby', 'tasmanian devil', 'wombat', 'quokka', 'opossum', 'numbat', 'bandicoot', 'sugar glider'],
-                        'insects': ['butterfly', 'beetle', 'ant', 'bee', 'wasp', 'dragonfly', 'mantis', 'grasshopper', 'cricket', 'ladybug', 'moth', 'cicada', 'firefly', 'scarab'],
-                        'ungulates': ['horse', 'deer', 'elephant', 'giraffe', 'zebra', 'rhinoceros', 'hippopotamus', 'moose', 'elk', 'antelope', 'gazelle', 'bison', 'buffalo', 'camel', 'llama', 'alpaca'],
-                    }
-
                     def get_animal_family(animal):
                         animal_lower = animal.lower()
-                        for family, members in animal_families.items():
+                        for family, members in self.animal_families.items():
                             if any(member in animal_lower for member in members):
                                 return family
                         return None
@@ -1023,20 +1008,42 @@ class IsulionMegaPromptGenerator:
                     action = random.choice(self.actions)
                     subject_text = f"{character} {action}"
                 elif internal_theme == "cute chimera":
-                    # Modified chimera creation to mix normal and cute animals
-                    if random.random() < 0.5:
-                        # Mix cute head with normal body
+                    def get_animal_family(animal):
+                        animal_lower = animal.lower()
+                        for family, members in self.animal_families.items():
+                            if any(member in animal_lower for member in members):
+                                return family
+                        return None
+
+                    # Get unique combinations of cute animals
+                    max_attempts = 20
+                    while max_attempts > 0:
+                        # Select from cute_animals list for both parts
                         head = random.choice(self.cute_animals)
-                        body = random.choice(self.animals)
-                        subject_text = f"cute hybrid creature with {head} head and {body} body"
-                    else:
-                        # Mix normal head with cute body
-                        head = random.choice(self.animals)
                         body = random.choice(self.cute_animals)
-                        subject_text = f"cute hybrid creature with {head} head and {body} body"
+                        
+                        # Clean up the animal names
+                        head = head.lower().replace('baby ', '').replace('cub', '').replace('puppy', '').replace('kitten', '').replace('kit', '')
+                        body = body.lower().replace('baby ', '').replace('cub', '').replace('puppy', '').replace('kitten', '').replace('kit', '')
+                        head = head.title()
+                        body = body.title()
+                        
+                        # Check if they're from different families
+                        head_family = get_animal_family(head)
+                        body_family = get_animal_family(body)
+                        
+                        if (head_family != body_family and 
+                            head_family is not None and 
+                            body_family is not None and 
+                            head.lower() != body.lower()):
+                            break
+                            
+                        max_attempts -= 1
                     
+                    # Add a cute behavior
                     behavior = random.choice(self.behaviors)
-                    subject_text += f", {behavior}"
+                    
+                    subject_text = f"adorable hybrid creature with ((the head of a {head})) and ((the body of a {body})), {behavior}, kawaii style, cute expression, soft lighting, pastel colors, fluffy texture, chibi proportions"
                 elif internal_theme == "cinema":
                     # Add proper cinema character handling
                     character = random.choice(self.cinema_characters)
