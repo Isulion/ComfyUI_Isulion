@@ -668,6 +668,8 @@ class IsulionMegaPromptGenerator:
             },
             "optional": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
+                "custom_subject": ("STRING", {"default": "", "multiline": True}),  # Add this line
+                "use_custom_subject": (["yes", "no"], {"default": "no"}),  # Add this line
                 "include_subject": (["yes", "no"], {"default": "yes"}),
                 "include_action": (["yes", "no"], {"default": "yes"}),
                 "include_environment": (["yes", "no"], {"default": "yes"}),
@@ -700,6 +702,7 @@ class IsulionMegaPromptGenerator:
     CATEGORY = "Isulion/Core"
 
     def generate(self, theme, complexity, randomize, seed=0, 
+                custom_subject="", use_custom_subject="no",  # Add these parameters
                 include_subject="yes", include_action="yes", 
                 include_environment="yes", include_style="yes",
                 include_effects="yes", enhancement_level="moderate",
@@ -789,269 +792,273 @@ class IsulionMegaPromptGenerator:
 
         # Subject generation
         if include_subject == "yes":
-            if internal_theme == "futuristic_city":
-                # Select main architectural element
-                architecture = random.choice(self.futuristic_city_elements["architecture"])
-                # Select infrastructure
-                infrastructure = random.choice(self.futuristic_city_elements["infrastructure"])
-                # Select atmosphere
-                atmosphere = random.choice(self.futuristic_city_elements["atmosphere"])
-                # Select time
-                time = random.choice(self.futuristic_city_elements["time"])
-                
-                subject_text = f"cinematic wide shot of a {atmosphere} futuristic megacity with {architecture} and {infrastructure}, during {time}, ultra detailed cityscape, shallow depth of field, sharp focus, 8k"
-
-            elif internal_theme == "strange_animal":
-                # Define animal families to avoid similar combinations
-                animal_families = {
-                    'felines': ['cat', 'lion', 'tiger', 'leopard', 'cheetah', 'jaguar', 'lynx', 'ocelot', 'caracal', 'cougar', 'panther', 'serval', 'bobcat', 'snow leopard', 'clouded leopard'],
-                    'canines': ['dog', 'wolf', 'fox', 'coyote', 'dingo', 'jackal', 'fennec fox', 'arctic fox', 'red wolf', 'african wild dog', 'maned wolf'],
-                    'bears': ['bear', 'panda', 'grizzly bear', 'polar bear', 'black bear', 'sun bear', 'spectacled bear', 'sloth bear', 'brown bear', 'asiatic black bear'],
-                    'primates': ['monkey', 'gorilla', 'chimpanzee', 'orangutan', 'baboon', 'gibbon', 'lemur', 'mandrill', 'capuchin', 'marmoset', 'tamarin', 'macaque', 'bonobo', 'siamang'],
-                    'rodents': ['rat', 'mouse', 'squirrel', 'chipmunk', 'hamster', 'beaver', 'capybara', 'gerbil', 'guinea pig', 'porcupine', 'chinchilla', 'marmot', 'prairie dog', 'dormouse'],
-                    'birds': ['eagle', 'hawk', 'owl', 'penguin', 'parrot', 'peacock', 'swan', 'duck', 'goose', 'falcon', 'hummingbird', 'toucan', 'macaw', 'flamingo', 'crane', 'pelican', 'albatross', 'raven', 'crow', 'cardinal'],
-                    'reptiles': ['crocodile', 'alligator', 'snake', 'lizard', 'gecko', 'tortoise', 'iguana', 'chameleon', 'komodo dragon', 'python', 'cobra', 'viper', 'turtle', 'monitor lizard', 'bearded dragon', 'anaconda'],
-                    'marine': ['dolphin', 'whale', 'shark', 'octopus', 'squid', 'jellyfish', 'crab', 'lobster', 'seal', 'sea lion', 'walrus', 'orca', 'narwhal', 'manatee', 'sea turtle', 'seahorse', 'ray', 'starfish', 'eel', 'anglerfish'],
-                    'marsupials': ['kangaroo', 'koala', 'wallaby', 'tasmanian devil', 'wombat', 'quokka', 'opossum', 'numbat', 'bandicoot', 'sugar glider'],
-                    'insects': ['butterfly', 'beetle', 'ant', 'bee', 'wasp', 'dragonfly', 'mantis', 'grasshopper', 'cricket', 'ladybug', 'moth', 'cicada', 'firefly', 'scarab'],
-                    'ungulates': ['horse', 'deer', 'elephant', 'giraffe', 'zebra', 'rhinoceros', 'hippopotamus', 'moose', 'elk', 'antelope', 'gazelle', 'bison', 'buffalo', 'camel', 'llama', 'alpaca'],
-                }
-
-                def get_animal_family(animal):
-                    animal_lower = animal.lower()
-                    for family, members in animal_families.items():
-                        if any(member in animal_lower for member in members):
-                            return family
-                    return None
-
-                # Get a cute head animal and remove baby-related words
-                max_attempts = 20
-                while max_attempts > 0:
-                    head = random.choice(self.cute_animals)
-                    head = head.lower().replace('baby ', '').replace('cub', '').replace('puppy', '').replace('kitten', '').replace('kit', '')
-                    head = head.title()
+            if use_custom_subject == "yes" and custom_subject.strip():
+                subject_text = custom_subject.strip()
+                components.append(subject_text)
+            else:
+                if internal_theme == "futuristic_city":
+                    # Select main architectural element
+                    architecture = random.choice(self.futuristic_city_elements["architecture"])
+                    # Select infrastructure
+                    infrastructure = random.choice(self.futuristic_city_elements["infrastructure"])
+                    # Select atmosphere
+                    atmosphere = random.choice(self.futuristic_city_elements["atmosphere"])
+                    # Select time
+                    time = random.choice(self.futuristic_city_elements["time"])
                     
-                    body = random.choice(self.animals)
-                    
-                    # Check if they're from different families
-                    head_family = get_animal_family(head)
-                    body_family = get_animal_family(body)
-                    
-                    if head_family != body_family or head_family is None or body_family is None:
-                        break
+                    subject_text = f"cinematic wide shot of a {atmosphere} futuristic megacity with {architecture} and {infrastructure}, during {time}, ultra detailed cityscape, shallow depth of field, sharp focus, 8k"
+
+                elif internal_theme == "strange_animal":
+                    # Define animal families to avoid similar combinations
+                    animal_families = {
+                        'felines': ['cat', 'lion', 'tiger', 'leopard', 'cheetah', 'jaguar', 'lynx', 'ocelot', 'caracal', 'cougar', 'panther', 'serval', 'bobcat', 'snow leopard', 'clouded leopard'],
+                        'canines': ['dog', 'wolf', 'fox', 'coyote', 'dingo', 'jackal', 'fennec fox', 'arctic fox', 'red wolf', 'african wild dog', 'maned wolf'],
+                        'bears': ['bear', 'panda', 'grizzly bear', 'polar bear', 'black bear', 'sun bear', 'spectacled bear', 'sloth bear', 'brown bear', 'asiatic black bear'],
+                        'primates': ['monkey', 'gorilla', 'chimpanzee', 'orangutan', 'baboon', 'gibbon', 'lemur', 'mandrill', 'capuchin', 'marmoset', 'tamarin', 'macaque', 'bonobo', 'siamang'],
+                        'rodents': ['rat', 'mouse', 'squirrel', 'chipmunk', 'hamster', 'beaver', 'capybara', 'gerbil', 'guinea pig', 'porcupine', 'chinchilla', 'marmot', 'prairie dog', 'dormouse'],
+                        'birds': ['eagle', 'hawk', 'owl', 'penguin', 'parrot', 'peacock', 'swan', 'duck', 'goose', 'falcon', 'hummingbird', 'toucan', 'macaw', 'flamingo', 'crane', 'pelican', 'albatross', 'raven', 'crow', 'cardinal'],
+                        'reptiles': ['crocodile', 'alligator', 'snake', 'lizard', 'gecko', 'tortoise', 'iguana', 'chameleon', 'komodo dragon', 'python', 'cobra', 'viper', 'turtle', 'monitor lizard', 'bearded dragon', 'anaconda'],
+                        'marine': ['dolphin', 'whale', 'shark', 'octopus', 'squid', 'jellyfish', 'crab', 'lobster', 'seal', 'sea lion', 'walrus', 'orca', 'narwhal', 'manatee', 'sea turtle', 'seahorse', 'ray', 'starfish', 'eel', 'anglerfish'],
+                        'marsupials': ['kangaroo', 'koala', 'wallaby', 'tasmanian devil', 'wombat', 'quokka', 'opossum', 'numbat', 'bandicoot', 'sugar glider'],
+                        'insects': ['butterfly', 'beetle', 'ant', 'bee', 'wasp', 'dragonfly', 'mantis', 'grasshopper', 'cricket', 'ladybug', 'moth', 'cicada', 'firefly', 'scarab'],
+                        'ungulates': ['horse', 'deer', 'elephant', 'giraffe', 'zebra', 'rhinoceros', 'hippopotamus', 'moose', 'elk', 'antelope', 'gazelle', 'bison', 'buffalo', 'camel', 'llama', 'alpaca'],
+                    }
+
+                    def get_animal_family(animal):
+                        animal_lower = animal.lower()
+                        for family, members in animal_families.items():
+                            if any(member in animal_lower for member in members):
+                                return family
+                        return None
+
+                    # Get a cute head animal and remove baby-related words
+                    max_attempts = 20
+                    while max_attempts > 0:
+                        head = random.choice(self.cute_animals)
+                        head = head.lower().replace('baby ', '').replace('cub', '').replace('puppy', '').replace('kitten', '').replace('kit', '')
+                        head = head.title()
                         
-                    max_attempts -= 1
-                
-                subject_text = f"a complex raw photograph of an intricated chimerical fantastical creature with ((the body of a {body})) and ((the head of a {head})), bokeh background, cinematic lighting, shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, masterfully detailed"
+                        body = random.choice(self.animals)
+                        
+                        # Check if they're from different families
+                        head_family = get_animal_family(head)
+                        body_family = get_animal_family(body)
+                        
+                        if head_family != body_family or head_family is None or body_family is None:
+                            break
+                            
+                        max_attempts -= 1
+                    
+                    subject_text = f"a complex raw photograph of an intricated chimerical fantastical creature with ((the body of a {body})) and ((the head of a {head})), bokeh background, cinematic lighting, shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, masterfully detailed"
 
-            elif internal_theme == "fantasy":
-                # New specific handling for fantasy theme
-                if random.random() < 0.3:  # 30% chance for magical creature
-                    race = random.choice(self.races)
-                    profession = random.choice(self.professions)
-                    clothing = random.choice(self.clothing["fantasy"])
-                    subject_text = f"{race} {profession} wearing {clothing}"
-                else:  # 70% chance for character
-                    profession = random.choice(self.professions)
-                    race = random.choice(self.races)
-                    artifact = random.choice(self.artifacts["weapon"])
-                    clothing = random.choice(self.clothing["fantasy"])
-                    subject_text = f"{race} {profession} wielding {artifact}, wearing {clothing}"
-            elif internal_theme == "abstract":
-                # More pure abstract elements
-                primary = random.choice([
-                    "geometric", "organic", "linear", "circular", "angular",
-                    "fluid", "crystalline", "prismatic", "recursive", "fractal"
-                ])
-                element = random.choice(self.abstract_elements)
-                style = random.choice(self.abstract_styles)
-                subject_text = f"{style} {primary} composition with {element}"
-            elif internal_theme == "cartoon":
-                character = random.choice(self.cartoon_characters)
-                action = random.choice(self.actions)
-                subject_text = f"{character} {action}"
-            elif internal_theme == "cute chimera":
-                # Modified chimera creation to mix normal and cute animals
-                if random.random() < 0.5:
-                    # Mix cute head with normal body
-                    head = random.choice(self.cute_animals)
-                    body = random.choice(self.animals)
-                    subject_text = f"cute hybrid creature with {head} head and {body} body"
-                else:
-                    # Mix normal head with cute body
-                    head = random.choice(self.animals)
-                    body = random.choice(self.cute_animals)
-                    subject_text = f"cute hybrid creature with {head} head and {body} body"
-                
-                behavior = random.choice(self.behaviors)
-                subject_text += f", {behavior}"
-            elif internal_theme == "cinema":
-                # Add proper cinema character handling
-                character = random.choice(self.cinema_characters)
-                action = random.choice(self.actions)
-                subject_text = f"{character} {action}"
-            elif internal_theme == "anime":
-                character = random.choice(self.anime_characters)
-                action = random.choice(self.actions)
-                subject_text = f"{character} {action}"
-            elif internal_theme == "architecture":
-                style = random.choice(self.architecture_styles)
-                element = random.choice(self.architecture_elements)
-                subject_text = f"{style} {element}"
-            elif internal_theme == "sci_fi":
-                if random.random() < 0.6:  # 60% chance for character
-                    tech = random.choice(self.technology["augments"])
-                    clothing = random.choice(self.clothing["sci_fi"])
-                    subject_text = f"futuristic character with {tech} wearing {clothing}"
-                else:  # 40% chance for spacecraft/tech
-                    ship = random.choice(self.spacecraft["military"])
-                    tech = random.choice(self.technology["weapons"])
-                    subject_text = f"advanced {ship} equipped with {tech}"
-            elif internal_theme == "food":
-                food = random.choice(self.food_types)
-                style = random.choice(self.food_styles)
-                subject_text = f"{style} {food}"
-            elif internal_theme == "interior":
-                style = random.choice(self.interior_styles)
-                space = random.choice(self.interior_spaces)
-                element = random.choice(self.interior_elements)
-                subject_text = f"{style} {space} with {element}"
-            elif internal_theme == "3D":
-                style = random.choice(self.threed_styles)
-                if random.random() < 0.5:
-                    subject = random.choice(self.architecture_elements)
-                else:
-                    options = (self.technology["gadgets"] + 
-                             [f"{race} character" for race in self.races])
-                    subject = random.choice(options)
-                subject_text = f"{style} {subject}"
-            elif internal_theme == "halloween":
-                creature = random.choice(self.halloween_elements["creatures"])
-                prop = random.choice(self.halloween_elements["props"])
-                subject_text = f"{creature} with {prop}"
-            elif internal_theme == "instagram":
-                influencer = random.choice(self.influencer_types)
-                activity = random.choice(self.influencer_activities)
-                subject_text = f"beautiful {influencer} {activity}"
-            elif internal_theme == "realistic":  # Changed from else to explicit theme
-                if random.random() < 0.7:  # 70% chance for human subject
-                    profession = random.choice(self.professions)
-                    clothing = random.choice(self.clothing["realistic"])
-                    pose = random.choice([
-                        "portrait", "candid shot", "environmental portrait",
-                        "profile shot", "three-quarter view", "full body shot"
+                elif internal_theme == "fantasy":
+                    # New specific handling for fantasy theme
+                    if random.random() < 0.3:  # 30% chance for magical creature
+                        race = random.choice(self.races)
+                        profession = random.choice(self.professions)
+                        clothing = random.choice(self.clothing["fantasy"])
+                        subject_text = f"{race} {profession} wearing {clothing}"
+                    else:  # 70% chance for character
+                        profession = random.choice(self.professions)
+                        race = random.choice(self.races)
+                        artifact = random.choice(self.artifacts["weapon"])
+                        clothing = random.choice(self.clothing["fantasy"])
+                        subject_text = f"{race} {profession} wielding {artifact}, wearing {clothing}"
+                elif internal_theme == "abstract":
+                    # More pure abstract elements
+                    primary = random.choice([
+                        "geometric", "organic", "linear", "circular", "angular",
+                        "fluid", "crystalline", "prismatic", "recursive", "fractal"
                     ])
-                    lighting = random.choice([
-                        "natural lighting", "studio lighting", "golden hour lighting",
-                        "dramatic lighting", "soft lighting", "window lighting"
-                    ])
-                    subject_text = f"professional {pose} photograph of {profession} wearing {clothing}, {lighting}, shallow depth of field, sharp focus, 8k"
-                else:  # 30% chance for nature/animal
-                    subject = random.choice([
-                        f"wildlife photograph of {random.choice(self.animals)} {random.choice(self.behaviors)}",
-                        f"landscape photograph of {random.choice(self.habitats)}",
-                        f"macro photograph of {random.choice(['flowers', 'insects', 'water droplets', 'leaves', 'crystals'])}",
-                        f"architectural photograph of {random.choice(self.architecture_elements)}"
-                    ])
-                    subject_text = f"professional {subject}, high detail, sharp focus, 8k"
-            elif internal_theme == "pixar":
-                # Generate Pixar-style subject
-                style = random.choice(self.pixar_styles)
-                character_trait = random.choice(self.pixar_characteristics)
-                material = random.choice(self.pixar_materials)
-                
-                if random.random() < 0.5:  # 50% chance for character
+                    element = random.choice(self.abstract_elements)
+                    style = random.choice(self.abstract_styles)
+                    subject_text = f"{style} {primary} composition with {element}"
+                elif internal_theme == "cartoon":
                     character = random.choice(self.cartoon_characters)
-                    subject_text = f"{style} of {character} with {character_trait}, made of {material}, ultra detailed 3D model, octane render, soft lighting, subsurface scattering, 8k"
-                else:  # 50% chance for object/scene
-                    object_or_scene = random.choice([
-                        "toy", "lamp", "robot", "vehicle", "household object",
-                        "kitchen appliance", "desk item", "garden tool",
-                        "musical instrument", "sports equipment"
-                    ])
-                    subject_text = f"{style} of a charming {object_or_scene} with {character_trait}, made of {material}, ultra detailed 3D model, octane render, soft lighting, subsurface scattering, 8k"
-            elif internal_theme == "binet":
-                style = random.choice(self.binet_styles)
-                element = random.choice(self.binet_elements)
-                accessory = random.choice(self.binet_accessories)
-                background = random.choice(self.binet_backgrounds)
-                animal = random.choice(self.animals)
-                activity = random.choice(self.binet_activities) if random.random() < 0.7 else ""
-                
-                if activity:
-                    subject_text = f"{style} of a noble {animal} {activity}, with {element}, wearing {accessory}, in a {background}, masterful digital painting, vibrant colors, dramatic lighting, ultra detailed, dreamlike atmosphere, expressive brushwork, 8k"
-                else:
-                    subject_text = f"{style} of a noble {animal} with {element}, wearing {accessory}, in a {background}, masterful digital painting, vibrant colors, dramatic lighting, ultra detailed, dreamlike atmosphere, expressive brushwork, 8k"
-            elif internal_theme == "vintage_anthro":
-                animal = random.choice(self.animals)
-                profession = random.choice(self.vintage_anthro_professions)
-                clothing = random.choice(self.vintage_anthro_clothing)
-                setting = random.choice(self.vintage_anthro_settings)
-                prop = random.choice(self.vintage_anthro_props)
-                atmosphere = random.choice(self.vintage_anthro_atmospheres)
-                
-                subject_text = f"Anthropomorphic {animal} as a {profession}, wearing {clothing}, in a {setting}, with {prop}, {atmosphere}, high detail on textures and fur, photorealistic, professional studio lighting, ultra sharp focus, 8k"
-            elif internal_theme == "star_wars":
-                character = random.choice(self.star_wars_characters)
-                prop = random.choice(self.star_wars_props)
-                vehicle = random.choice(self.star_wars_vehicles)
-                
-                if random.random() < 0.7:  # 70% chance for character-focused scene
-                    subject_text = f"cinematic scene of a {character} wielding {prop}"
-                    if random.random() < 0.5:  # 50% chance to add vehicle
-                        subject_text += f" near a {vehicle}"
-                else:  # 30% chance for vehicle-focused scene
-                    subject_text = f"epic shot of a {vehicle} with {character} in view"
-                
-                # Add Star Wars-specific environment handling
-                if include_environment == "yes":
-                    location = random.choice(self.star_wars_locations)
-                    environment_text = f"in {location}"
+                    action = random.choice(self.actions)
+                    subject_text = f"{character} {action}"
+                elif internal_theme == "cute chimera":
+                    # Modified chimera creation to mix normal and cute animals
+                    if random.random() < 0.5:
+                        # Mix cute head with normal body
+                        head = random.choice(self.cute_animals)
+                        body = random.choice(self.animals)
+                        subject_text = f"cute hybrid creature with {head} head and {body} body"
+                    else:
+                        # Mix normal head with cute body
+                        head = random.choice(self.animals)
+                        body = random.choice(self.cute_animals)
+                        subject_text = f"cute hybrid creature with {head} head and {body} body"
                     
-                # Add Star Wars-specific effects handling
-                if include_effects == "yes":
-                    effect = random.choice(self.star_wars_effects)
-                    effects_text = f"with {effect}"
-            elif internal_theme == "marvel":
-                character = random.choice(self.marvel_characters)
-                prop = random.choice(self.marvel_props)
-                
-                if random.random() < 0.7:  # 70% chance for action scene
-                    action = random.choice([
-                        "in epic battle", "performing heroic rescue",
-                        "using powers", "defending against attack",
-                        "leading team", "training sequence"
-                    ])
-                    subject_text = f"cinematic action scene of {character} {action}"
-                    if random.random() < 0.5:  # 50% chance to add prop
-                        subject_text += f" with {prop}"
-                else:  # 30% chance for character portrait
-                    pose = random.choice([
-                        "heroic pose", "dramatic stance",
-                        "power stance", "ready for battle",
-                        "character portrait", "epic reveal"
-                    ])
-                    subject_text = f"epic portrait of {character} in {pose} with {prop}"
-                
-                # Marvel-specific environment handling
-                if include_environment == "yes":
-                    location = random.choice(self.marvel_locations)
-                    environment_text = f"in {location}"
-                    
-                # Marvel-specific effects handling
-                if include_effects == "yes":
-                    effect = random.choice(self.marvel_effects)
-                    effects_text = f"with {effect}"
-            else:  # random theme handling
-                if random.random() < 0.7:  # 70% chance for human subject
-                    profession = random.choice(self.professions)
-                    clothing = random.choice(self.clothing["realistic"])
-                    subject_text = f"professional photograph of {profession} wearing {clothing}"
-                else:  # 30% chance for nature/animal
-                    animal = random.choice(self.animals)
                     behavior = random.choice(self.behaviors)
-                    subject_text = f"professional wildlife photograph of {animal} {behavior}"
-            components.append(subject_text)
+                    subject_text += f", {behavior}"
+                elif internal_theme == "cinema":
+                    # Add proper cinema character handling
+                    character = random.choice(self.cinema_characters)
+                    action = random.choice(self.actions)
+                    subject_text = f"{character} {action}"
+                elif internal_theme == "anime":
+                    character = random.choice(self.anime_characters)
+                    action = random.choice(self.actions)
+                    subject_text = f"{character} {action}"
+                elif internal_theme == "architecture":
+                    style = random.choice(self.architecture_styles)
+                    element = random.choice(self.architecture_elements)
+                    subject_text = f"{style} {element}"
+                elif internal_theme == "sci_fi":
+                    if random.random() < 0.6:  # 60% chance for character
+                        tech = random.choice(self.technology["augments"])
+                        clothing = random.choice(self.clothing["sci_fi"])
+                        subject_text = f"futuristic character with {tech} wearing {clothing}"
+                    else:  # 40% chance for spacecraft/tech
+                        ship = random.choice(self.spacecraft["military"])
+                        tech = random.choice(self.technology["weapons"])
+                        subject_text = f"advanced {ship} equipped with {tech}"
+                elif internal_theme == "food":
+                    food = random.choice(self.food_types)
+                    style = random.choice(self.food_styles)
+                    subject_text = f"{style} {food}"
+                elif internal_theme == "interior":
+                    style = random.choice(self.interior_styles)
+                    space = random.choice(self.interior_spaces)
+                    element = random.choice(self.interior_elements)
+                    subject_text = f"{style} {space} with {element}"
+                elif internal_theme == "3D":
+                    style = random.choice(self.threed_styles)
+                    if random.random() < 0.5:
+                        subject = random.choice(self.architecture_elements)
+                    else:
+                        options = (self.technology["gadgets"] + 
+                                 [f"{race} character" for race in self.races])
+                        subject = random.choice(options)
+                    subject_text = f"{style} {subject}"
+                elif internal_theme == "halloween":
+                    creature = random.choice(self.halloween_elements["creatures"])
+                    prop = random.choice(self.halloween_elements["props"])
+                    subject_text = f"{creature} with {prop}"
+                elif internal_theme == "instagram":
+                    influencer = random.choice(self.influencer_types)
+                    activity = random.choice(self.influencer_activities)
+                    subject_text = f"beautiful {influencer} {activity}"
+                elif internal_theme == "realistic":  # Changed from else to explicit theme
+                    if random.random() < 0.7:  # 70% chance for human subject
+                        profession = random.choice(self.professions)
+                        clothing = random.choice(self.clothing["realistic"])
+                        pose = random.choice([
+                            "portrait", "candid shot", "environmental portrait",
+                            "profile shot", "three-quarter view", "full body shot"
+                        ])
+                        lighting = random.choice([
+                            "natural lighting", "studio lighting", "golden hour lighting",
+                            "dramatic lighting", "soft lighting", "window lighting"
+                        ])
+                        subject_text = f"professional {pose} photograph of {profession} wearing {clothing}, {lighting}, shallow depth of field, sharp focus, 8k"
+                    else:  # 30% chance for nature/animal
+                        subject = random.choice([
+                            f"wildlife photograph of {random.choice(self.animals)} {random.choice(self.behaviors)}",
+                            f"landscape photograph of {random.choice(self.habitats)}",
+                            f"macro photograph of {random.choice(['flowers', 'insects', 'water droplets', 'leaves', 'crystals'])}",
+                            f"architectural photograph of {random.choice(self.architecture_elements)}"
+                        ])
+                        subject_text = f"professional {subject}, high detail, sharp focus, 8k"
+                elif internal_theme == "pixar":
+                    # Generate Pixar-style subject
+                    style = random.choice(self.pixar_styles)
+                    character_trait = random.choice(self.pixar_characteristics)
+                    material = random.choice(self.pixar_materials)
+                    
+                    if random.random() < 0.5:  # 50% chance for character
+                        character = random.choice(self.cartoon_characters)
+                        subject_text = f"{style} of {character} with {character_trait}, made of {material}, ultra detailed 3D model, octane render, soft lighting, subsurface scattering, 8k"
+                    else:  # 50% chance for object/scene
+                        object_or_scene = random.choice([
+                            "toy", "lamp", "robot", "vehicle", "household object",
+                            "kitchen appliance", "desk item", "garden tool",
+                            "musical instrument", "sports equipment"
+                        ])
+                        subject_text = f"{style} of a charming {object_or_scene} with {character_trait}, made of {material}, ultra detailed 3D model, octane render, soft lighting, subsurface scattering, 8k"
+                elif internal_theme == "binet":
+                    style = random.choice(self.binet_styles)
+                    element = random.choice(self.binet_elements)
+                    accessory = random.choice(self.binet_accessories)
+                    background = random.choice(self.binet_backgrounds)
+                    animal = random.choice(self.animals)
+                    activity = random.choice(self.binet_activities) if random.random() < 0.7 else ""
+                    
+                    if activity:
+                        subject_text = f"{style} of a noble {animal} {activity}, with {element}, wearing {accessory}, in a {background}, masterful digital painting, vibrant colors, dramatic lighting, ultra detailed, dreamlike atmosphere, expressive brushwork, 8k"
+                    else:
+                        subject_text = f"{style} of a noble {animal} with {element}, wearing {accessory}, in a {background}, masterful digital painting, vibrant colors, dramatic lighting, ultra detailed, dreamlike atmosphere, expressive brushwork, 8k"
+                elif internal_theme == "vintage_anthro":
+                    animal = random.choice(self.animals)
+                    profession = random.choice(self.vintage_anthro_professions)
+                    clothing = random.choice(self.vintage_anthro_clothing)
+                    setting = random.choice(self.vintage_anthro_settings)
+                    prop = random.choice(self.vintage_anthro_props)
+                    atmosphere = random.choice(self.vintage_anthro_atmospheres)
+                    
+                    subject_text = f"Anthropomorphic {animal} as a {profession}, wearing {clothing}, in a {setting}, with {prop}, {atmosphere}, high detail on textures and fur, photorealistic, professional studio lighting, ultra sharp focus, 8k"
+                elif internal_theme == "star_wars":
+                    character = random.choice(self.star_wars_characters)
+                    prop = random.choice(self.star_wars_props)
+                    vehicle = random.choice(self.star_wars_vehicles)
+                    
+                    if random.random() < 0.7:  # 70% chance for character-focused scene
+                        subject_text = f"cinematic scene of a {character} wielding {prop}"
+                        if random.random() < 0.5:  # 50% chance to add vehicle
+                            subject_text += f" near a {vehicle}"
+                    else:  # 30% chance for vehicle-focused scene
+                        subject_text = f"epic shot of a {vehicle} with {character} in view"
+                    
+                    # Add Star Wars-specific environment handling
+                    if include_environment == "yes":
+                        location = random.choice(self.star_wars_locations)
+                        environment_text = f"in {location}"
+                        
+                    # Add Star Wars-specific effects handling
+                    if include_effects == "yes":
+                        effect = random.choice(self.star_wars_effects)
+                        effects_text = f"with {effect}"
+                elif internal_theme == "marvel":
+                    character = random.choice(self.marvel_characters)
+                    prop = random.choice(self.marvel_props)
+                    
+                    if random.random() < 0.7:  # 70% chance for action scene
+                        action = random.choice([
+                            "in epic battle", "performing heroic rescue",
+                            "using powers", "defending against attack",
+                            "leading team", "training sequence"
+                        ])
+                        subject_text = f"cinematic action scene of {character} {action}"
+                        if random.random() < 0.5:  # 50% chance to add prop
+                            subject_text += f" with {prop}"
+                    else:  # 30% chance for character portrait
+                        pose = random.choice([
+                            "heroic pose", "dramatic stance",
+                            "power stance", "ready for battle",
+                            "character portrait", "epic reveal"
+                        ])
+                        subject_text = f"epic portrait of {character} in {pose} with {prop}"
+                    
+                    # Marvel-specific environment handling
+                    if include_environment == "yes":
+                        location = random.choice(self.marvel_locations)
+                        environment_text = f"in {location}"
+                        
+                    # Marvel-specific effects handling
+                    if include_effects == "yes":
+                        effect = random.choice(self.marvel_effects)
+                        effects_text = f"with {effect}"
+                else:  # random theme handling
+                    if random.random() < 0.7:  # 70% chance for human subject
+                        profession = random.choice(self.professions)
+                        clothing = random.choice(self.clothing["realistic"])
+                        subject_text = f"professional photograph of {profession} wearing {clothing}"
+                    else:  # 30% chance for nature/animal
+                        animal = random.choice(self.animals)
+                        behavior = random.choice(self.behaviors)
+                        subject_text = f"professional wildlife photograph of {animal} {behavior}"
+                components.append(subject_text)
 
         # Action and composition
         if include_action == "yes" and internal_theme != "abstract":
