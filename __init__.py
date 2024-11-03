@@ -54,7 +54,7 @@ NODE_CLASS_MAPPINGS = {
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionPromptGenerator": "Isulion Prompt Generator ✨",
-    "IsulionOllamaGenerate": "Isulion Ollama Generate 🤖",
+    "IsulionOllamaGenerate": "Isulion Ollama Generate 🦙",
     "IsulionAnimalRandom": "Isulion Animal Selector 🦁",
     "IsulionCuteAnimalRandom": "Isulion Cute Animal Selector 🐱",
     "IsulionEmotionGenerator": "Isulion Emotion Generator 😊",

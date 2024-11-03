@@ -29,7 +29,7 @@ git clone https://github.com/Isulion/ComfyUI_Isulion
 ### Core Generators
 
 - Prompt  ✨ - Main prompt generation node
-- Ollama  🤖 - LLM-based text generation
+- Ollama  🦙 - LLM-based text generation
 - Mega Prompt 🎯 - Advanced multi-theme prompt generator
 
 ## 🎯 Mega Prompt Generator 🎯
@@ -102,51 +102,51 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 
 ### Specific Nodes
 
-#### Animal Related
+#### 🦁 Animal Related
 
-- Animal 🦁 - General animal selection
-- Cute Animal 🐱 - Cute and baby animal selection
-- Animal Behavior 🦊 - Animal actions and poses
+- 🦁 Animal - General animal selection
+- 🐱 Cute Animal - Cute and baby animal selection
+- 🦊 Animal Behavior - Animal actions and poses
 
-#### Character Elements
+#### 👤 Character Elements
 
-- Character Profession 👨‍🍳 - Occupations and roles
-- Fantasy Race 🧝‍♂️ - Fantasy species and races
-- Clothing Style 👔 - Outfit and fashion descriptions
+- 👨‍🍳 Character Profession - Occupations and roles
+- 🧝‍♂️ Fantasy Race - Fantasy species and races
+- 👔 Clothing Style - Outfit and fashion descriptions
 
-#### Scene Composition
+#### 🎬 Scene Composition
 
-- Action ⚔️ - Dynamic poses and activities
-- Scene Composition 🎬 - Camera angles and shot types
+- ⚔️ Action - Dynamic poses and activities
+- 🎥 Scene Composition - Camera angles and shot types
 
-#### Environment
+#### 🌍 Environment
 
-- Habitat 🌲 - Natural environments and landscapes
-- Weather ⛅ - Weather conditions
-- Time of Day 🌅 - Time and lighting conditions
+- 🌲 Habitat - Natural environments and landscapes
+- ⛅ Weather - Weather conditions
+- 🌅 Time of Day - Time and lighting conditions
 
-#### Style and Mood
+#### 🎨 Style and Mood
 
-- Art Style 🎨 - Artistic styles and techniques
-- Emotion 😊 - Emotional characteristics
+- 🖌️ Art Style - Artistic styles and techniques
+- 😊 Emotion - Emotional characteristics
 
-#### Fantasy & Magic
+#### ✨ Fantasy & Magic
 
-- Magical Effect ✨ - Spell effects and magical phenomena
-- Mythical Location 🏰 - Fantasy environments
-- Artifact 📿 - Magical items and artifacts
+- 🌟 Magical Effect - Spell effects and magical phenomena
+- 🏰 Mythical Location - Fantasy environments
+- 📿 Artifact - Magical items and artifacts
 
-#### Sci-Fi Elements
+#### 🚀 Sci-Fi Elements
 
-- Tech 🤖 - Futuristic technology descriptions
-- Alien World 🪐 - Exotic planet environments
-- Spacecraft 🚀 - Space vehicle descriptions
+- 🤖 Tech - Futuristic technology descriptions
+- 🪐 Alien World - Exotic planet environments
+- 🛸 Spacecraft - Space vehicle descriptions
 
-#### Enhancement Nodes
+#### 🔧 Enhancement Nodes
 
-- Style Mixer 🎨 - Combines multiple art styles with adjustable blend modes
-- Prompt Enhancer 📝 - Adds detail, mood, composition, lighting, or color enhancements
-- Negative Prompt ⛔ - Creates matching negative prompts with adjustable strictness
+- 🎨 Style Mixer - Combines multiple art styles with adjustable blend modes
+- 📝 Prompt Enhancer - Adds detail, mood, composition, lighting, or color enhancements
+- ⛔ Negative Prompt - Creates matching negative prompts with adjustable strictness
 
 --------------
 
