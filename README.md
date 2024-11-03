@@ -113,7 +113,7 @@ The Mega Prompt Generator provides both a combined prompt and individual compone
 
 --------------
 
-## Worflow Examples
+## FLUX Worflow Examples
 
 ### Basic MegaPrompt Workflow
 
