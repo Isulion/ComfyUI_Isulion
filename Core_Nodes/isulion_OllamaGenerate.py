@@ -17,13 +17,9 @@ class OllamaGenerate:
             self.current_host = "http://127.0.0.1:11434"
             models = self.client.list()
             self.available_models = [model['name'] for model in models['models']]
-            if not self.available_models:
-                # Fallback to default models if none found
-                self.available_models = ["llama2", "mistral", "mixtral", "phi", "neural-chat", "codellama"]
         except Exception as e:
             print(f"Failed to fetch models: {str(e)}")
-            # Fallback to default models
-            self.available_models = ["llama2", "mistral", "mixtral", "phi", "neural-chat", "codellama"]
+            self.available_models = []
     
     @classmethod
     def INPUT_TYPES(cls):
@@ -31,9 +27,11 @@ class OllamaGenerate:
             # Create temporary instance to get models
             temp = cls()
             models = temp.available_models
-        except:
-            # Fallback models if fetching fails
-            models = ["llama2", "mistral", "mixtral", "phi", "neural-chat", "codellama"]
+            if not models:
+                raise ValueError("No models available - Please check if Ollama server is running")
+        except Exception as e:
+            print(f"Error getting models: {str(e)}")
+            models = []
             
         return {
             "required": {
@@ -46,7 +44,7 @@ class OllamaGenerate:
                     "default": "http://127.0.0.1:11434"
                 }),
                 "model": (models, {
-                    "default": models[0] if models else "llama2"
+                    "default": models[0] if models else ""
                 }),
             },
         }
@@ -72,7 +70,6 @@ class OllamaGenerate:
             if not self.client or self.current_host != url:
                 self.client = Client(host=url)
                 self.current_host = url
-                # Update model list when URL changes
                 self._update_model_list()
 
             # Validate inputs
@@ -81,10 +78,6 @@ class OllamaGenerate:
                 
             if not url.startswith(("http://", "https://")):
                 raise ValueError("Invalid URL format")
-
-            # Check if model exists
-            if model not in self.available_models:
-                raise ValueError(f"Model '{model}' not found. Available models: {', '.join(self.available_models)}")
 
             # Generate response
             response = self.client.generate(
