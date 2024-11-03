@@ -1344,6 +1344,10 @@ class IsulionMegaPromptGenerator:
                 ])
                 effects_text = f"with {effect1} {effect2}"
                 components.append(effects_text)
+            elif internal_theme == "strange_animal":
+                # For chimera animals, use only lighting and atmosphere effects, no artifacts
+                effects_text = "with natural lighting and atmospheric depth"
+                components.append(effects_text)
             elif internal_theme == "fantasy":
                 effect = random.choice(self.magical_effects["fire"])
                 artifact = random.choice(self.artifacts["weapon"])
