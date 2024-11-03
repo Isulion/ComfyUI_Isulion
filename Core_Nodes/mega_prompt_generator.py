@@ -964,7 +964,7 @@ class IsulionMegaPromptGenerator:
                                 return family
                         return None
 
-                    # Change this part to use animals list instead of cute_animals
+                    # Get animals from different families
                     max_attempts = 20
                     while max_attempts > 0:
                         head = random.choice(self.animals)
@@ -982,7 +982,8 @@ class IsulionMegaPromptGenerator:
                             
                         max_attempts -= 1
                     
-                    subject_text = f"a complex raw photograph of an intricated chimerical fantastical creature with ((the body of a {body})) and ((the head of a {head})), bokeh background, cinematic lighting, shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, masterfully detailed"
+                    # Remove the prefix from here since it's already added by theme_prefixes
+                    subject_text = f"((the body of a {body})) and ((the head of a {head})), bokeh background, cinematic lighting, shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, masterfully detailed"
 
                 elif internal_theme == "fantasy":
                     # New specific handling for fantasy theme
@@ -1351,7 +1352,9 @@ class IsulionMegaPromptGenerator:
             elif internal_theme == "strange_animal":
                 # For chimera animals, use only lighting and atmosphere effects, no artifacts
                 effects_text = "with natural lighting and atmospheric depth"
-                components.append(effects_text)
+                # Only append if not already in components
+                if effects_text not in components:
+                    components.append(effects_text)
             elif internal_theme == "fantasy":
                 effect = random.choice(self.magical_effects["fire"])
                 artifact = random.choice(self.artifacts["weapon"])
