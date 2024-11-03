@@ -1034,14 +1034,25 @@ class IsulionMegaPromptGenerator:
                     else:
                         subject_text = f"{style} of a noble {animal} with {element}, wearing {accessory}, in a {background}, masterful digital painting, vibrant colors, dramatic lighting, ultra detailed, dreamlike atmosphere, expressive brushwork, 8k"
                 elif internal_theme == "vintage_anthro":
+                    # Keep subject simple - just the animal
                     animal = random.choice(self.animals)
+                    subject_text = f"Anthropomorphic {animal}"
+                    
+                    # Move profession, clothing, setting, prop and atmosphere to action/environment
                     profession = random.choice(self.vintage_anthro_professions)
                     clothing = random.choice(self.vintage_anthro_clothing)
                     setting = random.choice(self.vintage_anthro_settings)
                     prop = random.choice(self.vintage_anthro_props)
                     atmosphere = random.choice(self.vintage_anthro_atmospheres)
                     
-                    subject_text = f"Anthropomorphic {animal} as a {profession}, wearing {clothing}, in a {setting}, with {prop}, {atmosphere}, high detail on textures and fur, photorealistic, professional studio lighting, ultra sharp focus, 8k"
+                    # Add these details to action_text and environment_text
+                    action_text = f"as a {profession}, wearing {clothing}, with {prop}"
+                    environment_text = f"in a {setting}, {atmosphere}"
+                    
+                    # Add the technical details to style_text
+                    style_text = "high detail on textures and fur, photorealistic, professional studio lighting, ultra sharp focus, 8k"
+                    
+                    components.append(subject_text)
                 elif internal_theme == "star_wars":
                     character = random.choice(self.star_wars_characters)
                     prop = random.choice(self.star_wars_props)
