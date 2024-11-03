@@ -125,9 +125,8 @@ The Mega Prompt Generator provides both a combined prompt and individual compone
 
 ### MegaPrompt + Ollama + LoRa Workflow
 
-Lora used for this : https://civitai.com/models/673513/will-smith-flux-dev-lora
-
 ![IsulionFLUX_00484_](https://github.com/user-attachments/assets/6cbc3ea8-650b-44b3-9a59-a3476a7e513c)
+Lora used for this : https://civitai.com/models/673513/will-smith-flux-dev-lora
 
 ## Ollama Requirements
 
