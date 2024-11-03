@@ -1015,10 +1015,10 @@ class IsulionMegaPromptGenerator:
                                 return family
                         return None
 
-                    # Get unique combinations of cute animals
+                    # Get animals from different families
                     max_attempts = 20
                     while max_attempts > 0:
-                        # Select from cute_animals list for both parts
+                        # Use cute_animals list for both parts to ensure cuteness
                         head = random.choice(self.cute_animals)
                         body = random.choice(self.cute_animals)
                         
@@ -1040,10 +1040,8 @@ class IsulionMegaPromptGenerator:
                             
                         max_attempts -= 1
                     
-                    # Add a cute behavior
                     behavior = random.choice(self.behaviors)
-                    
-                    subject_text = f"adorable hybrid creature with ((the head of a {head})) and ((the body of a {body})), {behavior}, kawaii style, cute expression, soft lighting, pastel colors, fluffy texture, chibi proportions"
+                    subject_text = f"adorable hybrid creature with ((the body of a {body})) and ((the head of a {head})), {behavior}, kawaii style, soft lighting, pastel colors, cute expression, fluffy texture, chibi proportions, sparkly eyes, ultra detailed, 8k"
                 elif internal_theme == "cinema":
                     # Add proper cinema character handling
                     character = random.choice(self.cinema_characters)
