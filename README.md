@@ -113,19 +113,17 @@ The Mega Prompt Generator provides both a combined prompt and individual compone
 
 --------------
 
-## How to use
+## Worflow Examples
 
-### Basic Workflow
+### Basic MegaPrompt Workflow
 
-Use this example workflow to get started:
+![Isulion_Simple_Megaprompt_workflow](https://github.com/user-attachments/assets/d4117388-a488-448e-afe4-5f8ce7f762cd)
 
-![Example_Isulion_Workflow](https://github.com/user-attachments/assets/ba6d7eaa-c068-4f88-a2c9-fb07aa95052b)
-
-### Chimera
+### Chimera (with Ollama) Work
 
 ![Isulion_Chimera_Advanced_workflow](https://github.com/user-attachments/assets/26894b34-aeae-4e90-a5a3-f77501b2ea72)
 
-### Megaprompt Workflow
+### MegaPrompt + Ollama Workflow
 
 ![Isulion_Megaprompt_workflow](https://github.com/user-attachments/assets/60279c8e-2338-4d23-aef2-fb9461239319)
 
