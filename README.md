@@ -56,43 +56,49 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 ### Theme Categories
 
 #### Core Themes
-- **Dynamic Random** (Default): Intelligently combines elements from various themes
-- **Essential Realistic**: Professional photography with real-world subjects
-- **Abstract**: Pure geometric and non-representational compositions
+
+- **Dynamic Random** 🎲 (Default): Intelligently combines elements from various themes
+- **Essential Realistic** 📸: Professional photography with real-world subjects
+- **Abstract** 🎨: Pure geometric and non-representational compositions
 
 #### Character Themes
-- **Fusion Cute Animals**: Adorable hybrid creature combinations
-- **Chimera Strange Animals**: Unique hybrid creatures with distinctive head-body combinations
-- **Vintage Anthropomorphic**: Photorealistic Victorian-era anthropomorphic characters
-- **Binet Surreal**: Anthropomorphic portraits inspired by Sylvain Binet
+
+- **Fusion Cute Animals** 🐰: Adorable hybrid creature combinations
+- **Chimera Strange Animals** 🦄: Unique hybrid creatures with distinctive head-body combinations
+- **Vintage Anthropomorphic** 🎩: Photorealistic Victorian-era anthropomorphic characters
+- **Binet Surreal** 🖼️: Anthropomorphic portraits inspired by Sylvain Binet
 
 #### Environment Themes
-- **Architectural**: Sophisticated building and structural designs
-- **Spaces Interior**: Interior design and architectural spaces
-- **Metropolis Futuristic City**: Advanced cityscape and urban environments
-- **Underwater Civilization**: Deep sea architecture and bioluminescent environments
-- **Microscopic Universe**: Scientific visualizations of cellular and molecular landscapes
+
+- **Architectural** 🏛️: Sophisticated building and structural designs
+- **Spaces Interior** 🏠: Interior design and architectural spaces
+- **Metropolis Futuristic City** 🌆: Advanced cityscape and urban environments
+- **Underwater Civilization** 🌊: Deep sea architecture and bioluminescent environments
+- **Microscopic Universe** 🔬: Scientific visualizations of cellular and molecular landscapes
 
 #### Style Themes
-- **Animation Cartoon**: Classic animated character styles
-- **Anime**: Japanese animation inspired artwork
-- **Pixar Animation**: 3D animation in the style of Pixar
-- **Dimension 3D**: Three-dimensional digital artwork
-- **Culinary**: Professional food and beverage photography
-- **Lifestyle Instagram**: Professional social media photography
+
+- **Animation Cartoon** 📺: Classic animated character styles
+- **Anime** 🎌: Japanese animation inspired artwork
+- **Pixar Animation** 💫: 3D animation in the style of Pixar
+- **Dimension 3D** 💠: Three-dimensional digital artwork
+- **Culinary** 🍳: Professional food and beverage photography
+- **Lifestyle Instagram** 📱: Professional social media photography
 
 #### Genre Themes
-- **Futuristic Sci-Fi**: Advanced technology and space-age scenes
-- **Enchanted Fantasy**: Magical realms and mythical characters
-- **Ethereal Halloween**: Spooky and atmospheric horror themes
-- **Steampunk World**: Victorian-era technology with brass and copper details
-- **Post-Apocalyptic Wasteland**: Dramatic scenes of survival in ruins
-- **Bio-Organic Technology**: Fusion of biological organisms with mechanical systems
+
+- **Futuristic Sci-Fi** 🚀: Advanced technology and space-age scenes
+- **Enchanted Fantasy** ✨: Magical realms and mythical characters
+- **Ethereal Halloween** 👻: Spooky and atmospheric horror themes
+- **Steampunk World** ⚙️: Victorian-era technology with brass and copper details
+- **Post-Apocalyptic Wasteland** ☢️: Dramatic scenes of survival in ruins
+- **Bio-Organic Technology** 🧬: Fusion of biological organisms with mechanical systems
 
 #### Franchise Themes
-- **Star Wars Universe**: Scenes and characters from the Star Wars galaxy
-- **Marvel Universe**: Epic scenes featuring Marvel superheroes and villains
-- **Studio Cinema**: Movie and superhero character compositions
+
+- **Star Wars Universe** ⭐: Scenes and characters from the Star Wars galaxy
+- **Marvel Universe** 🦸‍♂️: Epic scenes featuring Marvel superheroes and villains
+- **Studio Cinema** 🎬: Movie and superhero character compositions
 
 ### Specific Nodes
 
