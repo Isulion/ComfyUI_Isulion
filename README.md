@@ -3,6 +3,7 @@
 Transform your creative workflow with advanced prompt generation technology.
 
 ![Showcase](https://github.com/user-attachments/assets/56d69f0a-d840-42de-93ef-5378293263ee)
+[Source](https://civitai.com/user/Isulion/images?sort=Newest)
 
 ## Overview
 
