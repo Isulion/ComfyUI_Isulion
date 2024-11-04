@@ -946,6 +946,25 @@ class IsulionMegaPromptGenerator:
         "victory parade atmosphere"
     ]
 
+    # Add color scheme options for Binet theme
+    binet_color_schemes = [
+        "vibrant red and black with glowing effects",
+        "luxury gold and white with soft highlights",
+        "racing yellow with dynamic motion blur",
+        "elegant emerald green with butterfly accents",
+        "royal blue with chrome details",
+        "neon colors with urban glow",
+        "pastel tones with ethereal lighting",
+        "rich burgundy with golden accents",
+        "racing team colors with metallic finish",
+        "designer brand colors with premium finish",
+        "medical white with professional blue accents",
+        "sports team official colors",
+        "luxury fashion brand palette",
+        "racing livery colors",
+        "urban street art colors"
+    ]
+
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -1337,62 +1356,21 @@ class IsulionMegaPromptGenerator:
                         ])
                         subject_text = f"{style} of a charming {object_or_scene} with {character_trait}, made of {material}, ultra detailed 3D model, octane render, soft lighting, subsurface scattering, 8k"
                 elif internal_theme == "binet":
-                    # Select core elements
-                    style = random.choice(self.binet_styles)
-                    element = random.choice(self.binet_elements)
+                    # Determine if we're doing color or black and white
+                    is_color = random.random() < 0.7  # 70% chance for color
                     
-                    # Determine if we're doing traditional or contemporary theme
-                    is_contemporary = random.random() < 0.6  # 60% chance for contemporary themes
-                    
-                    if is_contemporary:
-                        character_theme = random.choice(self.binet_contemporary_themes)
-                        costume = random.choice(self.binet_sports_gear)
-                        urban_element = random.choice(self.binet_urban_elements)
-                        celebration = random.choice(self.binet_celebration_elements)
+                    if is_color:
+                        color_scheme = random.choice(self.binet_color_schemes)
+                        style_prefix = "sophisticated colorful"
+                        color_emphasis = f", {color_scheme}"
                     else:
-                        character_theme = random.choice(self.binet_character_themes)
-                        costume = random.choice(self.binet_costume_elements)
-                        urban_element = ""
-                        celebration = ""
-                    
-                    animal = random.choice([
-                        "gorilla", "chimpanzee", "orangutan", "mandrill",  # Primates for expressive faces
-                        "lion", "tiger", "wolf", "bear",  # Power animals
-                        "eagle", "falcon", "owl", "rooster",  # Birds of character
-                        "rhinoceros", "elephant", "buffalo", "horse"  # Strong presence
-                    ])
-                    
-                    background = random.choice([
-                        "professional sports stadium",
-                        "urban street art gallery",
-                        "modern sports arena",
-                        "championship venue",
-                        "street culture backdrop",
-                        "victory celebration scene",
-                        "modern art studio",
-                        "urban landscape",
-                        "contemporary sports complex",
-                        "artistic urban environment",
-                        "championship stadium",
-                        "modern metropolitan setting"
-                    ] if is_contemporary else [
-                        "dramatic studio backdrop",
-                        "elegant formal setting",
-                        "classical interior",
-                        "vintage portrait studio",
-                        "timeless environment",
-                        "sophisticated venue",
-                        "historic location",
-                        "noble chamber",
-                        "distinguished gallery",
-                        "classic portrait setting"
-                    ])
+                        style_prefix = "sophisticated black and white"
+                        color_emphasis = ", ((dramatic black and white)), ((extreme contrast))"
                     
                     # Create detailed subject description
                     subject_text = (
-                        f"sophisticated anthropomorphic {animal} as a {character_theme}, "
-                        f"((dramatic black and white)), {style}, {element}, "
-                        f"wearing {costume}"
+                        f"{style_prefix} anthropomorphic {animal} as a {character_theme}, "
+                        f"{style}, {element}, wearing {costume}"
                     )
                     
                     if urban_element:
@@ -1400,16 +1378,19 @@ class IsulionMegaPromptGenerator:
                     if celebration:
                         subject_text += f", during {celebration}"
                     
+                    # Add specific color or B&W emphasis
+                    subject_text += color_emphasis
+                    
                     subject_text += (
                         f", against {background}, "
-                        f"((extreme contrast)), ((deep shadows)), ((bright highlights)), "
+                        f"((deep shadows)), ((bright highlights)), "
                         f"((intricate fur detail)), ((expressive face)), "
                         f"((professional studio lighting)), ((sharp focus)), "
                         f"((dynamic composition)), ((dramatic atmosphere)), "
                         f"((photorealistic detail)), ((cinematic framing)), "
                         f"8k resolution"
                     )
-                    
+
                     # Add specific environment elements if enabled
                     if include_environment == "yes":
                         if is_contemporary:
@@ -1424,11 +1405,29 @@ class IsulionMegaPromptGenerator:
                                 "modern athletic complex",
                                 "artistic urban space",
                                 "vibrant city backdrop"
+                                "Formula 1 racetrack",
+                                "luxury fashion boutique",
+                                "emergency hospital ward",
+                                "professional photo studio",
+                                "high-end shopping district",
+                                "modern art gallery",
+                                "sports stadium",
+                                "urban fashion street",
+                                "racing paddock",
+                                "designer store"
                             ])
                         else:
                             environment = random.choice([
                                 "elegant studio setting",
+                                "luxury showroom",
+                                "premium venue",
+                                "high-end interior",
+                                "professional workspace",
                                 "sophisticated gallery",
+                                "exclusive club",
+                                "premium hotel lobby",
+                                "luxury restaurant",
+                                "high-fashion runway"
                                 "classic portrait room",
                                 "timeless venue",
                                 "distinguished chamber",
@@ -1442,8 +1441,23 @@ class IsulionMegaPromptGenerator:
                     
                     # Add specific effects if enabled
                     if include_effects == "yes":
-                        if is_contemporary:
+                        if is_color:
                             effect = random.choice([
+                                "golden hour lighting",
+                                "neon glow effects",
+                                "premium color grading",
+                                "luxury brand aesthetics",
+                                "racing atmosphere",
+                                "professional lighting",
+                                "fashion photography style",
+                                "commercial advertising look",
+                                "editorial fashion style",
+                                "high-end product photography",
+                                "butterfly accent effects",
+                                "designer brand mood",
+                                "premium automotive finish",
+                                "medical emergency lights",
+                                "sports victory atmosphere"
                                 "dynamic motion effects",
                                 "street art overlays",
                                 "urban lighting",
@@ -1462,11 +1476,11 @@ class IsulionMegaPromptGenerator:
                                 "elegant atmosphere",
                                 "timeless mood",
                                 "sophisticated ambiance",
-                                "vintage photography style",
-                                "noble presence",
-                                "distinguished lighting",
-                                "formal portrait mood",
-                                "classical composition"
+                                "premium black and white",
+                                "professional contrast",
+                                "artistic shadows",
+                                "refined highlights",
+                                "editorial contrast"
                             ])
                         effects_text = f"with {effect}"
                 elif internal_theme == "vintage_anthro":
