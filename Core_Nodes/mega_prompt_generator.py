@@ -1356,18 +1356,60 @@ class IsulionMegaPromptGenerator:
                         ])
                         subject_text = f"{style} of a charming {object_or_scene} with {character_trait}, made of {material}, ultra detailed 3D model, octane render, soft lighting, subsurface scattering, 8k"
                 elif internal_theme == "binet":
-                    # Determine if we're doing color or black and white
-                    is_color = random.random() < 0.7  # 70% chance for color
+                    # Define these variables before using them
+                    style = random.choice(self.binet_styles)
+                    element = random.choice(self.binet_elements)
                     
-                    if is_color:
-                        color_scheme = random.choice(self.binet_color_schemes)
-                        style_prefix = "sophisticated colorful"
-                        color_emphasis = f", {color_scheme}"
+                    # Determine if we're doing traditional or contemporary theme
+                    is_contemporary = random.random() < 0.6  # 60% chance for contemporary themes
+                    
+                    if is_contemporary:
+                        character_theme = random.choice(self.binet_contemporary_themes)
+                        costume = random.choice(self.binet_sports_gear)
+                        urban_element = random.choice(self.binet_urban_elements)
+                        celebration = random.choice(self.binet_celebration_elements)
                     else:
-                        style_prefix = "sophisticated black and white"
-                        color_emphasis = ", ((dramatic black and white)), ((extreme contrast))"
+                        character_theme = random.choice(self.binet_character_themes)
+                        costume = random.choice(self.binet_costume_elements)
+                        urban_element = ""
+                        celebration = ""
                     
-                    # Create detailed subject description
+                    # Define animal selection
+                    animal = random.choice([
+                        "meerkat", "fennec fox", "leopard", "cheetah", "jaguar",  # Elegant cats
+                        "gorilla", "chimpanzee", "orangutan", "mandrill",  # Expressive primates
+                        "wolf", "husky", "german shepherd", "doberman",  # Noble dogs
+                        "eagle", "falcon", "owl", "macaw", "cockatoo",  # Majestic birds
+                        "red panda", "raccoon", "otter", "ferret"  # Cute and charismatic
+                    ])
+                    
+                    # Define background based on contemporary status
+                    background = random.choice([
+                        "professional sports stadium",
+                        "urban street art gallery",
+                        "modern sports arena",
+                        "championship venue",
+                        "street culture backdrop",
+                        "victory celebration scene",
+                        "modern art studio",
+                        "urban landscape",
+                        "contemporary sports complex",
+                        "artistic urban environment",
+                        "championship stadium",
+                        "modern metropolitan setting"
+                    ] if is_contemporary else [
+                        "dramatic studio backdrop",
+                        "elegant formal setting",
+                        "classical interior",
+                        "vintage portrait studio",
+                        "timeless environment",
+                        "sophisticated venue",
+                        "historic location",
+                        "noble chamber",
+                        "distinguished gallery",
+                        "classic portrait setting"
+                    ])
+                    
                     subject_text = (
                         f"{style_prefix} anthropomorphic {animal} as a {character_theme}, "
                         f"{style}, {element}, wearing {costume}"
@@ -1377,9 +1419,6 @@ class IsulionMegaPromptGenerator:
                         subject_text += f", with {urban_element}"
                     if celebration:
                         subject_text += f", during {celebration}"
-                    
-                    # Add specific color or B&W emphasis
-                    subject_text += color_emphasis
                     
                     subject_text += (
                         f", against {background}, "
