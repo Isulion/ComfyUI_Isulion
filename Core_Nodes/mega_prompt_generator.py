@@ -744,9 +744,21 @@ class IsulionMegaPromptGenerator:
             "brass buttons", "leather boots", "mechanical arm", "steam pack"
         ],
         "environments": [
-            "Victorian factory", "clockwork workshop", "steam-powered laboratory",
-            "mechanical library", "brass foundry", "gear-filled chamber",
-            "steam engine room", "mechanical observatory", "copper-plated hall"
+            "Victorian industrial district",
+            "clockwork metropolis",
+            "steam-powered city",
+            "brass and copper cityscape",
+            "mechanical tower complex",
+            "industrial revolution London",
+            "gear-driven urban center",
+            "steam-powered factory district",
+            "mechanical engineering district",
+            "brass-plated urban sprawl",
+            "Victorian mechanical city",
+            "steampunk transportation hub",
+            "industrial age marketplace",
+            "mechanical innovation quarter",
+            "steam-powered residential district"
         ]
     }
 
@@ -1033,7 +1045,7 @@ class IsulionMegaPromptGenerator:
                     "💫 Pixar Animation",
                     "☢️ Post-Apocalyptic Wasteland",
                     "⭐ Star Wars Universe",
-                    "⚙️ Steampunk World",
+                    "⚙️ Steampunk Cities",  # Changed from "Steampunk World"
                     "🌊 Underwater Civilization",
                     "🎩 Vintage Anthropomorphic",
                 ], {"default": "🎲 Dynamic Random"}),
@@ -1106,7 +1118,7 @@ class IsulionMegaPromptGenerator:
             "⭐ Star Wars Universe": "star_wars",
             "🦸‍♂️ Marvel Universe": "marvel",
             "🎲 Dynamic Random": "random",
-            "⚙️ Steampunk World": "steampunk",
+            "⚙️ Steampunk Cities": "steampunk",
             "☢️ Post-Apocalyptic Wasteland": "post_apocalyptic",
             "🌊 Underwater Civilization": "underwater",
             "🔬 Microscopic Universe": "microscopic",
@@ -1683,6 +1695,23 @@ class IsulionMegaPromptGenerator:
                     style_text = "brass and copper details, mechanical complexity, vintage aesthetics, ultra sharp focus, 8k"
                     effects_text = "with steam effects, gear mechanisms, and metallic reflections"
 
+                    # Add all components at once and return early to skip general environment section
+                    components = [subject_text]
+                    if include_environment == "yes":
+                        components.append(environment_text)
+                    if include_style == "yes":
+                        components.append(style_text)
+                    if include_effects == "yes":
+                        components.append(effects_text)
+                    
+                    # Skip the general environment section by handling the prompt construction here
+                    prompt = ", ".join(components)
+                    if enhancement_level in self.enhancements[enhancement_focus]:
+                        enhancement = random.choice(self.enhancements[enhancement_focus][enhancement_level])
+                        prompt = f"{prompt}, {enhancement}"
+                        effects_text = f"{effects_text}, {enhancement}"
+                    
+                    return (prompt, subject_text, action_text, environment_text, style_text, effects_text, seed)
                 elif internal_theme == "post_apocalyptic":
                     environment = random.choice(self.post_apocalyptic_elements["environments"])
                     prop = random.choice(self.post_apocalyptic_elements["props"])
@@ -1693,6 +1722,14 @@ class IsulionMegaPromptGenerator:
                     style_text = "weathered textures, dramatic lighting, gritty atmosphere, ultra sharp focus, 8k"
                     effects_text = "with atmospheric dust, degraded materials, and survival elements"
 
+                    # Add components based on inclusion flags
+                    components = [subject_text]
+                    if include_environment == "yes":
+                        components.append(environment_text)
+                    if include_style == "yes":
+                        components.append(style_text)
+                    if include_effects == "yes":
+                        components.append(effects_text)
                 elif internal_theme == "underwater":
                     structure = random.choice(self.underwater_elements["structures"])
                     life_form = random.choice(self.underwater_elements["life_forms"])
@@ -1703,6 +1740,14 @@ class IsulionMegaPromptGenerator:
                     style_text = "crystalline clarity, underwater lighting, aquatic atmosphere, ultra sharp focus, 8k"
                     effects_text = "with water caustics, bioluminescent glow, and deep-sea particles"
 
+                    # Add components based on inclusion flags
+                    components = [subject_text]
+                    if include_environment == "yes":
+                        components.append(environment_text)
+                    if include_style == "yes":
+                        components.append(style_text)
+                    if include_effects == "yes":
+                        components.append(effects_text)
                 elif internal_theme == "microscopic":
                     structure = random.choice(self.microscopic_elements["structures"])
                     process = random.choice(self.microscopic_elements["processes"])
@@ -1713,6 +1758,14 @@ class IsulionMegaPromptGenerator:
                     style_text = "scientific visualization, precise detail, molecular clarity, ultra sharp focus, 8k"
                     effects_text = "with quantum effects, molecular interactions, and microscopic patterns"
 
+                    # Add components based on inclusion flags
+                    components = [subject_text]
+                    if include_environment == "yes":
+                        components.append(environment_text)
+                    if include_style == "yes":
+                        components.append(style_text)
+                    if include_effects == "yes":
+                        components.append(effects_text)
                 elif internal_theme == "bio_organic":
                     structure = random.choice(self.bio_organic_elements["structures"])
                     process = random.choice(self.bio_organic_elements["processes"])
@@ -1722,6 +1775,15 @@ class IsulionMegaPromptGenerator:
                     environment_text = f"featuring {aesthetic}"
                     style_text = "organic integration, seamless fusion, living technology, ultra sharp focus, 8k"
                     effects_text = "with bioluminescent highlights, organic patterns, and technological elements"
+
+                    # Add components based on inclusion flags
+                    components = [subject_text]
+                    if include_environment == "yes":
+                        components.append(environment_text)
+                    if include_style == "yes":
+                        components.append(style_text)
+                    if include_effects == "yes":
+                        components.append(effects_text)
                 else:  # random theme handling
                     if random.random() < 0.7:  # 70% chance for human subject
                         profession = random.choice(self.professions)
@@ -1731,7 +1793,7 @@ class IsulionMegaPromptGenerator:
                         animal = random.choice(self.animals)
                         behavior = random.choice(self.behaviors)
                         subject_text = f"professional wildlife photograph of {animal} {behavior}"
-                components.append(subject_text)
+                    components.append(subject_text)
 
         # Action and composition
         if include_action == "yes" and internal_theme != "abstract":
