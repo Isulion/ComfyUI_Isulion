@@ -255,11 +255,11 @@ class IsulionMegaPromptGenerator:
 
     # Add new class variables
     influencer_types = [
-        "fashion blogger", "curvy fitness model", "curvy travel influencer", "lifestyle blogger",
+        "deep cleavage fashion blogger", "curvy fitness model", "curvy travel influencer", "lifestyle blogger",
         "food critic", "curvy beauty guru", "tech reviewer", "deep cleavage wellness coach",
-        "busty yoga instructor", "digital nomad", "busty streetwear model", "makeup artist",
+        "busty yoga instructor", "digital nomad", "busty streetwear model", "deep cleavage makeup artist",
         "busty personal trainer", "luxury lifestyle", "sustainable living blogger",
-        "adventure photographer", "home decor expert", "fashion model"
+        "deep cleavage adventure photographer", "home decor expert", "busty fashion model"
     ]
 
     influencer_activities = [
@@ -404,31 +404,45 @@ class IsulionMegaPromptGenerator:
 
     # Update Binet-specific elements
     binet_styles = [
-        "hyper-realistic digital painting", "detailed anthropomorphic portrait",
-        "fantasy animal portrait", "surreal wildlife artwork",
-        "dreamlike animal portrait", "magical creature illustration"
+        "dramatic black and white portrait", "high contrast monochrome portrait",
+        "black and white studio portrait", "monochromatic character portrait",
+        "noir style portrait", "chiaroscuro portrait", "dramatic monochrome portrait"
     ]
 
     binet_elements = [
-        "intricate fur details", "expressive eyes", "vibrant color palette",
-        "dramatic lighting", "ethereal glow", "fantasy elements",
-        "ornate decorative details", "flowing organic patterns",
-        "mystical atmosphere", "rich textures", "delicate brushwork",
-        "luminous highlights"
+        "dramatic lighting", "deep black shadows", "crisp white highlights",
+        "intricate fur details", "photorealistic textures", "selective color accents",
+        "elegant pose", "dignified expression", "aristocratic bearing",
+        "refined character", "extreme contrast", "professional studio lighting",
+        "selective pastel tones", "subtle color highlights", "dramatic shadows"
+    ]
+
+    binet_color_accents = [
+        "selective red accent", "subtle pastel pink highlight", 
+        "gentle pastel blue detail", "soft pastel yellow accent",
+        "muted pastel green element", "striking red element",
+        "delicate pastel purple touch", "bold red accent",
+        "no color accent", "no color accent", "no color accent"  # More weight for B&W
+    ]
+
+    binet_themes = [
+        "dramatic noir", "vintage elegance", "classic portraiture",
+        "period character", "aristocratic style", "vintage glamour",
+        "historical character", "timeless elegance", "dramatic contrast"
     ]
 
     binet_accessories = [
-        "ornate jewelry", "royal attire", "mystical artifacts",
-        "glowing amulets", "floating crystals", "magical orbs",
-        "ethereal crown", "enchanted symbols", "celestial markings",
-        "ancient runes", "shimmering fabric", "golden ornaments"
+        "black top hat", "formal period costume", "antique spectacles",
+        "black bow tie", "formal black suit", "military dress uniform",
+        "elegant black attire", "classic formal wear", "distinguished uniform",
+        "period appropriate clothing", "historical costume", "formal dress wear"
     ]
 
     binet_backgrounds = [
-        "magical forest", "starlit sky", "ethereal mist",
-        "golden clouds", "cosmic nebula", "enchanted garden",
-        "mystical void", "celestial realm", "aurora borealis",
-        "dream dimension", "crystal cave", "fairy grove"
+        "dark dramatic backdrop", "high contrast studio backdrop",
+        "deep shadow background", "moody dark setting",
+        "noir style backdrop", "dramatic vignette", "classic dark studio",
+        "shadowy painted backdrop", "low key studio setting"
     ]
 
     # Add Binet-specific whimsical activities
@@ -502,7 +516,16 @@ class IsulionMegaPromptGenerator:
         "curiosity shop", "perfumery", "botanical laboratory",
         "cartography office", "vintage wine cellar", "art gallery",
         "old world pharmacy", "scientific laboratory", "music conservatory",
-        "historic theater", "luxury ocean liner", "grand hotel lobby"
+        "historic theater", "luxury ocean liner", "grand hotel lobby",
+        "Victorian conservatory", "ornate drawing room", "vintage apothecary",
+        "crystal palace greenhouse", "mahogany-paneled study", "rare book archive",
+        "steampunk workshop", "velvet-draped parlor", "vintage chess club",
+        "antique map room", "gilded ballroom", "vintage printing press",
+        "astronomical dome", "vintage radio station", "collectors' salon",
+        "Victorian orangery", "vintage auction house", "botanical illustration studio",
+        "vintage observatory", "crystal greenhouse", "antique music room",
+        "vintage lecture hall", "mechanical workshop", "vintage botanical society",
+        "old world library", "vintage science lab", "collectors' vault"
     ]
 
     vintage_anthro_props = [
@@ -513,7 +536,28 @@ class IsulionMegaPromptGenerator:
         "crystal decanter", "gramophone", "typewriter",
         "globe", "sextant", "microscope",
         "barometer", "compass", "quill and inkwell",
-        "opera glasses", "calling card case", "leather briefcase"
+        "opera glasses", "calling card case", "leather briefcase",
+        "brass scales", "apothecary jars", "mechanical calculator",
+        "ornate tea set", "antique maps", "specimen collection boxes",
+        "brass microscope", "crystal ink bottles", "wax seal kit",
+        "vintage spectacles", "brass candlesticks", "leather document case",
+        "porcelain teacups", "brass measuring tools", "vintage medical instruments",
+        "antique clock", "brass compass", "leather-bound journal",
+        "crystal perfume bottles", "brass monocle", "vintage writing desk",
+        "botanical illustrations", "brass laboratory equipment", "leather satchel",
+        "vintage photographs", "brass kaleidoscope", "antique violin",
+        "crystal wine glasses", "brass spyglass", "vintage walking stick",
+        "mechanical pocket watch", "brass sundial", "leather map case",
+        "vintage chemistry set", "brass magnifier", "antique books",
+        "crystal paperweight", "brass sextant", "vintage telescope",
+        "mechanical music box", "brass thermometer", "leather portfolio",
+        "vintage botanical prints", "brass hydrometers", "antique fountain pens",
+        "crystal prisms", "brass astrolabe", "vintage scientific instruments",
+        "mechanical chronometer", "brass balance scales", "leather travel case",
+        "vintage astronomical charts", "brass weather instruments", "antique desk set",
+        "crystal magnifying glass", "brass drawing tools", "vintage specimen jars",
+        "mechanical adding machine", "brass surveying equipment", "leather book binding",
+        "vintage laboratory glassware", "brass navigation tools", "antique ink wells"
     ]
 
     vintage_anthro_activities = [
@@ -522,7 +566,30 @@ class IsulionMegaPromptGenerator:
         "reading an ancient book", "painting on an easel", "drinking fine wine",
         "playing chess", "writing with a quill pen", "conducting an orchestra",
         "riding a penny-farthing bicycle", "sailing a wooden ship", "playing polo",
-        "having afternoon tea", "playing croquet", "fencing with elegance"
+        "having afternoon tea", "playing croquet", "fencing with elegance",
+        "examining specimens", "peering through a telescope", "mixing chemicals",
+        "cataloging artifacts", "sketching botanical drawings", "developing photographs",
+        "operating a printing press", "tuning a gramophone", "brewing exotic tea",
+        "polishing brass instruments", "arranging flowers", "collecting butterflies",
+        "studying star charts", "measuring with calipers", "binding leather books",
+        "typing on a vintage typewriter", "developing daguerreotypes", "calibrating instruments",
+        "conducting experiments", "recording observations", "classifying specimens",
+        "archiving documents", "restoring antiques", "curating exhibitions",
+        "navigating with sextant", "studying maps", "writing correspondence",
+        "hosting dinner parties", "attending opera", "giving lectures",
+        "hunting with hounds", "riding in horse-drawn carriages", "attending balls",
+        "playing billiards", "practicing archery", "collecting antiquities",
+        "studying ancient texts", "conducting séances", "brewing potions",
+        "maintaining timepieces", "playing bridge", "attending scientific symposiums",
+        "exploring ruins", "sketching architecture", "conducting archaeological digs",
+        "studying meteorology", "practicing phrenology", "conducting botanical surveys",
+        "organizing expeditions", "maintaining terrariums", "studying entomology",
+        "practicing taxidermy", "conducting astronomical observations", "mixing perfumes",
+        "maintaining aquariums", "studying geology", "conducting anthropological research",
+        "practicing cartography", "studying ornithology", "conducting chemical analysis",
+        "maintaining herbariums", "studying paleontology", "conducting marine research",
+        "using a steampunk AI assistant", "operating a brass quantum computer",
+        "adjusting a mechanical neural network", "calibrating a clockwork VR headset"
     ]
 
     # Add new Star Wars specific variables
@@ -1132,17 +1199,44 @@ class IsulionMegaPromptGenerator:
                         ])
                         subject_text = f"{style} of a charming {object_or_scene} with {character_trait}, made of {material}, ultra detailed 3D model, octane render, soft lighting, subsurface scattering, 8k"
                 elif internal_theme == "binet":
+                    # Select core elements
                     style = random.choice(self.binet_styles)
                     element = random.choice(self.binet_elements)
-                    accessory = random.choice(self.binet_accessories)
-                    background = random.choice(self.binet_backgrounds)
+                    theme = random.choice(self.binet_themes)
                     animal = random.choice(self.animals)
-                    activity = random.choice(self.binet_activities) if random.random() < 0.7 else ""
+                    background = random.choice(self.binet_backgrounds)
+                    accessory = random.choice(self.binet_accessories)
+                    color_accent = random.choice(self.binet_color_accents)
                     
-                    if activity:
-                        subject_text = f"{style} of a noble {animal} {activity}, with {element}, wearing {accessory}, in a {background}, masterful digital painting, vibrant colors, dramatic lighting, ultra detailed, dreamlike atmosphere, expressive brushwork, 8k"
-                    else:
-                        subject_text = f"{style} of a noble {animal} with {element}, wearing {accessory}, in a {background}, masterful digital painting, vibrant colors, dramatic lighting, ultra detailed, dreamlike atmosphere, expressive brushwork, 8k"
+                    # Create detailed subject description
+                    subject_text = (
+                        f"anthropomorphic {animal} portrait in the style of Sylvain Binet, "
+                        f"((dramatic black and white)), {style}, {element}, "
+                        f"wearing {accessory}, against {background}, "
+                        f"((extreme contrast)), ((deep shadows)), ((bright highlights)), "
+                        f"{color_accent}, ((intricate fur detail)), "
+                        f"((professional studio lighting)), ((sharp focus)), "
+                        f"8k resolution"
+                    )
+                    
+                    # Add specific environment elements if enabled
+                    if include_environment == "yes":
+                        environment = random.choice([
+                            "dark studio setting", "dramatic portrait studio",
+                            "noir style studio", "high contrast interior",
+                            "moody photography studio", "shadowy portrait room"
+                        ])
+                        environment_text = f"in a {environment}"
+                    
+                    # Add specific effects if enabled
+                    if include_effects == "yes":
+                        effect = random.choice([
+                            "dramatic studio lighting", "chiaroscuro effect",
+                            "high key lighting", "rim lighting",
+                            "dramatic shadows", "professional contrast",
+                            "moody atmosphere", "noir style lighting"
+                        ])
+                        effects_text = f"with {effect}"
                 elif internal_theme == "vintage_anthro":
                     # Generate base anthropomorphic character
                     animal = random.choice(self.animals)
