@@ -965,6 +965,46 @@ class IsulionMegaPromptGenerator:
         "urban street art colors"
     ]
 
+    # Add new contemporary clothing options for Binet theme
+    binet_clothing = {
+        "luxury": [
+            "designer white fur coat with Chanel brooch",
+            "black silk turtleneck with gold chain",
+            "cream cashmere sweater with designer logo",
+            "tailored Italian suit with pocket square",
+            "luxury leather jacket with gold buttons",
+            "designer blazer with silk scarf",
+            "high-end trench coat with belt",
+            "premium wool coat with fur collar",
+            "silk blouse with pearl buttons",
+            "velvet smoking jacket with satin lapels"
+        ],
+        "sports": [
+            "professional racing suit with team logos",
+            "official team jersey with captain's armband",
+            "premium athletic wear with sponsor patches",
+            "high-tech sports uniform with number",
+            "professional rugby kit with team crest",
+            "custom racing gear with sponsors",
+            "championship team uniform with medals",
+            "elite sports attire with team colors",
+            "professional athlete uniform with patches",
+            "custom sports jersey with name and number"
+        ],
+        "professional": [
+            "white medical coat with stethoscope",
+            "pilot's uniform with golden wings",
+            "chef's whites with professional badges",
+            "business suit with silk tie",
+            "military dress uniform with medals",
+            "police uniform with badges",
+            "firefighter gear with patches",
+            "judge's robes with ceremonial collar",
+            "professor's blazer with elbow patches",
+            "architect's professional attire with tools"
+        ]
+    }
+
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -1426,9 +1466,27 @@ class IsulionMegaPromptGenerator:
                         "classic portrait setting"
                     ])
                     
+                    # Enhanced clothing selection based on theme
+                    if is_contemporary:
+                        if "sports" in character_theme.lower():
+                            base_costume = random.choice(self.binet_clothing["sports"])
+                        elif any(prof in character_theme.lower() for prof in ["doctor", "pilot", "chef", "officer"]):
+                            base_costume = random.choice(self.binet_clothing["professional"])
+                        else:
+                            base_costume = random.choice(self.binet_clothing["luxury"])
+                        
+                        additional_costume = random.choice(self.binet_sports_gear)
+                        costume = f"{base_costume}, {additional_costume}"
+                    else:
+                        base_costume = random.choice(self.binet_clothing["luxury"])
+                        additional_costume = random.choice(self.binet_costume_elements)
+                        costume = f"{base_costume}, {additional_costume}"
+                    
+                    # Update subject_text to emphasize clothing
                     subject_text = (
                         f"{style_prefix} anthropomorphic {animal} as a {character_theme}, "
-                        f"{style}, {element}, wearing {costume}"
+                        f"((wearing {costume})), "  # Double parentheses to emphasize clothing
+                        f"{style}, {element}"
                     )
                     
                     if urban_element:
