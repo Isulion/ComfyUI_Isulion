@@ -298,7 +298,7 @@ class IsulionMegaPromptGenerator:
         "strange_animal": "complex raw photograph of an intricated chimerical fantastical creature with",
         "futuristic_city": "ultra-modern architectural visualization with premium materials of",
         "pixar": "highly detailed Pixar-style 3D render with clean geometry and appealing design of",
-        "binet": "highly detailed anthropomorphic portrait in the style of Sylvain Binet, digital painting of",
+        "binet": "highly detailed anthropomorphic portrait, digital painting of",
         "vintage_anthro": "ultra-realistic vintage photograph with professional studio lighting of",
         "star_wars": "cinematic Star Wars scene with premium details of",
         "marvel": "epic Marvel Universe scene with cinematic composition of",
@@ -404,17 +404,34 @@ class IsulionMegaPromptGenerator:
 
     # Update Binet-specific elements
     binet_styles = [
-        "dramatic black and white portrait", "high contrast monochrome portrait",
-        "black and white studio portrait", "monochromatic character portrait",
-        "noir style portrait", "chiaroscuro portrait", "dramatic monochrome portrait"
+        "dramatic black and white portrait", 
+        "high contrast monochrome portrait",
+        "elegant anthropomorphic portrait",
+        "sophisticated character portrait",
+        "aristocratic animal portrait",
+        "regal black and white portrait",
+        "distinguished monochrome portrait",
+        "formal Victorian portrait",
+        "noble creature portrait",
+        "dramatic studio portrait"
     ]
 
     binet_elements = [
-        "dramatic lighting", "deep black shadows", "crisp white highlights",
-        "intricate fur details", "photorealistic textures", "selective color accents",
-        "elegant pose", "dignified expression", "aristocratic bearing",
-        "refined character", "extreme contrast", "professional studio lighting",
-        "selective pastel tones", "subtle color highlights", "dramatic shadows"
+        "dramatic lighting", 
+        "deep black shadows",
+        "crisp white highlights",
+        "intricate fur details",
+        "photorealistic textures",
+        "elegant pose",
+        "dignified expression",
+        "aristocratic bearing",
+        "refined character",
+        "extreme contrast",
+        "professional studio lighting",
+        "majestic presence",
+        "sophisticated demeanor",
+        "formal posture",
+        "noble countenance"
     ]
 
     binet_color_accents = [
@@ -432,10 +449,21 @@ class IsulionMegaPromptGenerator:
     ]
 
     binet_accessories = [
-        "black top hat", "formal period costume", "antique spectacles",
-        "black bow tie", "formal black suit", "military dress uniform",
-        "elegant black attire", "classic formal wear", "distinguished uniform",
-        "period appropriate clothing", "historical costume", "formal dress wear"
+        "formal black suit with silk lapels",
+        "elegant Victorian waistcoat",
+        "distinguished bow tie",
+        "ornate cravat",
+        "formal dress coat",
+        "military dress uniform",
+        "aristocratic attire",
+        "fine tailored jacket",
+        "formal evening wear",
+        "sophisticated three-piece suit",
+        "elegant pocket square",
+        "formal white gloves",
+        "ceremonial medals",
+        "gold watch chain",
+        "silk top hat"
     ]
 
     binet_backgrounds = [
@@ -807,6 +835,116 @@ class IsulionMegaPromptGenerator:
         'insects': ['butterfly', 'beetle', 'ant', 'bee', 'wasp', 'dragonfly', 'mantis', 'grasshopper', 'cricket', 'ladybug', 'moth', 'cicada', 'firefly', 'scarab', 'caterpillar', 'centipede', 'millipede', 'scorpion', 'spider', 'termite', 'cockroach', 'earwig', 'stick insect', 'leaf insect', 'walking stick', 'praying mantis', 'assassin bug', 'water strider', 'giant water bug', 'jewel beetle', 'stag beetle', 'rhinoceros beetle', 'hercules beetle', 'atlas beetle', 'dung beetle'],
         'ungulates': ['horse', 'deer', 'elephant', 'giraffe', 'zebra', 'rhinoceros', 'hippopotamus', 'moose', 'elk', 'antelope', 'gazelle', 'bison', 'buffalo', 'camel', 'llama', 'alpaca', 'wildebeest', 'impala', 'kudu', 'oryx', 'eland', 'gemsbok', 'nyala', 'okapi', 'tapir', 'wild boar', 'warthog', 'peccary', 'mountain goat', 'bighorn sheep', 'ibex', 'chamois', 'markhor', 'tahr', 'muskox'],
     }
+
+    # Add new character-specific costume and theme lists for Binet
+    binet_character_themes = [
+        "superhero", "pirate captain", "military general", "noir detective",
+        "steampunk explorer", "royal commander", "distinguished admiral",
+        "mysterious vigilante", "elegant aristocrat", "scholarly professor",
+        "master spy", "legendary warrior", "noble diplomat", "master assassin",
+        "distinguished inventor"
+    ]
+
+    binet_costume_elements = [
+        "armored tactical suit with insignia", 
+        "weathered pirate coat with brass buttons",
+        "high-tech combat armor with glowing details",
+        "leather trench coat with metal accents",
+        "military uniform with medals and badges",
+        "steampunk outfit with brass gadgets",
+        "combat suit with battle damage",
+        "formal military dress with gold trim",
+        "tactical gear with utility pouches",
+        "ornate battle armor with royal emblems",
+        "advanced combat suit with power cores",
+        "distinguished uniform with rank insignias",
+        "masked vigilante suit with cape",
+        "battle-worn armor with war medals",
+        "high-tech stealth suit with sensors"
+    ]
+
+    binet_props_and_weapons = [
+        "vibranium shield with battle scars",
+        "ornate cutlass and flintlock pistol",
+        "high-tech energy weapons",
+        "dual katanas with glowing runes",
+        "ceremonial sword and pistol",
+        "advanced combat rifle",
+        "ancient mystical weapons",
+        "tactical combat gear",
+        "experimental energy shield",
+        "legendary blade with inscriptions",
+        "modified sniper rifle",
+        "enchanted battle staff",
+        "custom twin pistols",
+        "advanced targeting system",
+        "mystical combat artifacts"
+    ]
+
+    # Add new contemporary themes for Binet
+    binet_contemporary_themes = [
+        "street artist", "graffiti master", "sports champion", "football player",
+        "basketball star", "rugby athlete", "urban artist", "street performer",
+        "modern athlete", "team captain", "sports legend", "urban warrior",
+        "street style icon", "modern rebel", "contemporary artist"
+    ]
+
+    # Add sports and urban style accessories
+    binet_sports_gear = [
+        "professional sports jersey with team number",
+        "rugby uniform with national emblem",
+        "football kit with captain's armband",
+        "athletic performance wear",
+        "sports team uniform with sponsor logos",
+        "professional athlete gear",
+        "team captain uniform",
+        "championship medal and jersey",
+        "sports competition outfit",
+        "national team colors",
+        "victory celebration gear",
+        "professional league uniform",
+        "team spirit wear",
+        "championship winner outfit",
+        "sports star signature gear"
+    ]
+
+    # Add urban and artistic elements
+    binet_urban_elements = [
+        "street art backdrop",
+        "urban graffiti elements",
+        "spray paint effects",
+        "abstract paint splashes",
+        "dynamic paint strokes",
+        "artistic ink splatters",
+        "contemporary art patterns",
+        "modern street art style",
+        "urban decay textures",
+        "artistic chaos elements",
+        "modern art composition",
+        "street culture symbols",
+        "urban typography",
+        "modern artistic flair",
+        "contemporary design elements"
+    ]
+
+    # Add celebration and victory elements
+    binet_celebration_elements = [
+        "victory confetti shower",
+        "championship celebration",
+        "triumphant moment",
+        "winning atmosphere",
+        "crowd celebration effects",
+        "stadium victory lights",
+        "championship trophy presentation",
+        "victory roar moment",
+        "triumphant stance",
+        "celebration fireworks",
+        "victory lap scene",
+        "champion's spotlight",
+        "winning team celebration",
+        "sports arena triumph",
+        "victory parade atmosphere"
+    ]
 
     @classmethod
     def INPUT_TYPES(s):
@@ -1202,40 +1340,134 @@ class IsulionMegaPromptGenerator:
                     # Select core elements
                     style = random.choice(self.binet_styles)
                     element = random.choice(self.binet_elements)
-                    theme = random.choice(self.binet_themes)
-                    animal = random.choice(self.animals)
-                    background = random.choice(self.binet_backgrounds)
-                    accessory = random.choice(self.binet_accessories)
-                    color_accent = random.choice(self.binet_color_accents)
+                    
+                    # Determine if we're doing traditional or contemporary theme
+                    is_contemporary = random.random() < 0.6  # 60% chance for contemporary themes
+                    
+                    if is_contemporary:
+                        character_theme = random.choice(self.binet_contemporary_themes)
+                        costume = random.choice(self.binet_sports_gear)
+                        urban_element = random.choice(self.binet_urban_elements)
+                        celebration = random.choice(self.binet_celebration_elements)
+                    else:
+                        character_theme = random.choice(self.binet_character_themes)
+                        costume = random.choice(self.binet_costume_elements)
+                        urban_element = ""
+                        celebration = ""
+                    
+                    animal = random.choice([
+                        "gorilla", "chimpanzee", "orangutan", "mandrill",  # Primates for expressive faces
+                        "lion", "tiger", "wolf", "bear",  # Power animals
+                        "eagle", "falcon", "owl", "rooster",  # Birds of character
+                        "rhinoceros", "elephant", "buffalo", "horse"  # Strong presence
+                    ])
+                    
+                    background = random.choice([
+                        "professional sports stadium",
+                        "urban street art gallery",
+                        "modern sports arena",
+                        "championship venue",
+                        "street culture backdrop",
+                        "victory celebration scene",
+                        "modern art studio",
+                        "urban landscape",
+                        "contemporary sports complex",
+                        "artistic urban environment",
+                        "championship stadium",
+                        "modern metropolitan setting"
+                    ] if is_contemporary else [
+                        "dramatic studio backdrop",
+                        "elegant formal setting",
+                        "classical interior",
+                        "vintage portrait studio",
+                        "timeless environment",
+                        "sophisticated venue",
+                        "historic location",
+                        "noble chamber",
+                        "distinguished gallery",
+                        "classic portrait setting"
+                    ])
                     
                     # Create detailed subject description
                     subject_text = (
-                        f"anthropomorphic {animal} portrait in the style of Sylvain Binet, "
+                        f"sophisticated anthropomorphic {animal} as a {character_theme}, "
                         f"((dramatic black and white)), {style}, {element}, "
-                        f"wearing {accessory}, against {background}, "
+                        f"wearing {costume}"
+                    )
+                    
+                    if urban_element:
+                        subject_text += f", with {urban_element}"
+                    if celebration:
+                        subject_text += f", during {celebration}"
+                    
+                    subject_text += (
+                        f", against {background}, "
                         f"((extreme contrast)), ((deep shadows)), ((bright highlights)), "
-                        f"{color_accent}, ((intricate fur detail)), "
+                        f"((intricate fur detail)), ((expressive face)), "
                         f"((professional studio lighting)), ((sharp focus)), "
+                        f"((dynamic composition)), ((dramatic atmosphere)), "
+                        f"((photorealistic detail)), ((cinematic framing)), "
                         f"8k resolution"
                     )
                     
                     # Add specific environment elements if enabled
                     if include_environment == "yes":
-                        environment = random.choice([
-                            "dark studio setting", "dramatic portrait studio",
-                            "noir style studio", "high contrast interior",
-                            "moody photography studio", "shadowy portrait room"
-                        ])
+                        if is_contemporary:
+                            environment = random.choice([
+                                "packed stadium atmosphere",
+                                "urban street scene",
+                                "modern sports facility",
+                                "championship arena",
+                                "street art district",
+                                "victory celebration venue",
+                                "contemporary urban setting",
+                                "modern athletic complex",
+                                "artistic urban space",
+                                "vibrant city backdrop"
+                            ])
+                        else:
+                            environment = random.choice([
+                                "elegant studio setting",
+                                "sophisticated gallery",
+                                "classic portrait room",
+                                "timeless venue",
+                                "distinguished chamber",
+                                "historic interior",
+                                "noble sanctuary",
+                                "vintage studio",
+                                "formal portrait space",
+                                "classical environment"
+                            ])
                         environment_text = f"in a {environment}"
                     
                     # Add specific effects if enabled
                     if include_effects == "yes":
-                        effect = random.choice([
-                            "dramatic studio lighting", "chiaroscuro effect",
-                            "high key lighting", "rim lighting",
-                            "dramatic shadows", "professional contrast",
-                            "moody atmosphere", "noir style lighting"
-                        ])
+                        if is_contemporary:
+                            effect = random.choice([
+                                "dynamic motion effects",
+                                "street art overlays",
+                                "urban lighting",
+                                "celebration atmosphere",
+                                "victory moment highlights",
+                                "crowd energy effects",
+                                "modern artistic flair",
+                                "urban style elements",
+                                "sports action dynamics",
+                                "championship atmosphere"
+                            ])
+                        else:
+                            effect = random.choice([
+                                "dramatic studio lighting",
+                                "classic portrait effects",
+                                "elegant atmosphere",
+                                "timeless mood",
+                                "sophisticated ambiance",
+                                "vintage photography style",
+                                "noble presence",
+                                "distinguished lighting",
+                                "formal portrait mood",
+                                "classical composition"
+                            ])
                         effects_text = f"with {effect}"
                 elif internal_theme == "vintage_anthro":
                     # Generate base anthropomorphic character
