@@ -1356,6 +1356,22 @@ class IsulionMegaPromptGenerator:
                         ])
                         subject_text = f"{style} of a charming {object_or_scene} with {character_trait}, made of {material}, ultra detailed 3D model, octane render, soft lighting, subsurface scattering, 8k"
                 elif internal_theme == "binet":
+                    # Determine if we're doing color or black and white
+                    is_color = random.random() < 0.9  # 90% chance for color
+                    
+                    # Define style_prefix and color_emphasis based on color choice
+                    if is_color:
+                        color_scheme = random.choice(self.binet_color_schemes)
+                        style_prefix = "sophisticated colorful"
+                        color_emphasis = f", {color_scheme}"
+                        
+                        # Add pastel-specific emphasis for softer colors
+                        if "pastel" in color_scheme or "soft" in color_scheme:
+                            color_emphasis += ", ((dreamy atmosphere)), ((ethereal lighting)), ((soft color tones))"
+                    else:
+                        style_prefix = "sophisticated black and white"
+                        color_emphasis = ", ((dramatic black and white)), ((extreme contrast))"
+                    
                     # Define these variables before using them
                     style = random.choice(self.binet_styles)
                     element = random.choice(self.binet_elements)
