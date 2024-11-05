@@ -1409,11 +1409,11 @@ class IsulionMegaPromptGenerator:
                         subject_text = f"{style} of a charming {object_or_scene} with {character_trait}, made of {material}, ultra detailed 3D model, octane render, soft lighting, subsurface scattering, 8k"
                 elif internal_theme == "binet":
                     # Determine if we're doing color or black and white
-                    is_color = random.random() < 0.9  # Changed to 90% chance for color, 10% for B&W
+                    is_color = random.random() < 0.9  # 90% chance for color, 10% for B&W
                     
                     # Define style_prefix and color_emphasis based on color choice
                     if is_color:
-                        color_scheme = random.choice(self.binet_color_schemes)
+                        color_scheme = random.choice(self.binet_color_schemes)  # Now using binet_color_schemes
                         style_prefix = "sophisticated portrait"
                         color_emphasis = f", {color_scheme}"
                     else:
@@ -1422,31 +1422,46 @@ class IsulionMegaPromptGenerator:
                     
                     # Select a distinguished animal
                     animal = random.choice([
-                        "wolf", "fox", "lion", "tiger", "leopard", "panther", "lynx",  # Noble predators
-                        "eagle", "hawk", "falcon", "owl",  # Majestic birds
-                        "deer", "horse", "elk",  # Graceful herbivores
-                        "bear", "gorilla",  # Powerful mammals
-                        "raccoon", "red panda"  # Charismatic small mammals
+                        "wolf", "fox", "lion", "tiger", "leopard", "panther", "lynx",
+                        "eagle", "hawk", "falcon", "owl",
+                        "deer", "horse", "elk",
+                        "bear", "gorilla",
+                        "raccoon", "red panda"
                     ])
                     
-                    # Define formal attire with more emphasis on classic elegance
-                    formal_attire = random.choice([
-                        "((elegant black suit with silk lapels))",
-                        "((distinguished military dress uniform with medals))",
-                        "((formal Victorian waistcoat and pocket watch))",
-                        "((refined tuxedo with bow tie))",
-                        "((aristocratic dress coat with gold buttons))",
-                        "((formal diplomatic attire with decorations))",
-                        "((classic three-piece suit with tie pin))"
-                    ])
+                    # Determine if it's a contemporary or classical theme
+                    is_contemporary = random.random() < 0.3  # 30% chance for contemporary
                     
-                    # Create more formal and distinguished subject description
-                    subject_text = (
-                        f"anthropomorphic portrait of a distinguished {animal}, "
-                        f"((wearing {formal_attire})), "
-                        f"((aristocratic pose)), ((noble expression)), "
-                        f"((intricate fur detail)), ((dramatic studio lighting))"
-                    )
+                    if is_contemporary:
+                        # Use contemporary themes and elements
+                        character_theme = random.choice(self.binet_contemporary_themes)
+                        costume = random.choice(self.binet_sports_gear)
+                        props = random.choice(self.binet_urban_elements)
+                        celebration = random.choice(self.binet_celebration_elements)
+                        
+                        subject_text = (
+                            f"anthropomorphic portrait of a distinguished {animal} as a {character_theme}, "
+                            f"((wearing {costume})), "
+                            f"((with {props})), "
+                            f"((in {celebration})), "
+                            f"((aristocratic pose)), ((noble expression)), "
+                            f"((intricate fur detail)), ((dramatic studio lighting))"
+                        )
+                    else:
+                        # Use classical themes and elements
+                        character_theme = random.choice(self.binet_character_themes)
+                        costume = random.choice(self.binet_costume_elements)
+                        props = random.choice(self.binet_props_and_weapons)
+                        clothing_type = random.choice(["luxury", "professional"])
+                        specific_clothing = random.choice(self.binet_clothing[clothing_type])
+                        
+                        subject_text = (
+                            f"anthropomorphic portrait of a distinguished {animal} as a {character_theme}, "
+                            f"((wearing {costume})), ((with {props})), "
+                            f"((dressed in {specific_clothing})), "
+                            f"((aristocratic pose)), ((noble expression)), "
+                            f"((intricate fur detail)), ((dramatic studio lighting))"
+                        )
                     
                     # Add sophisticated environment elements
                     environment_text = random.choice([
