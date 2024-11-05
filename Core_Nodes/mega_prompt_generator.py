@@ -1494,9 +1494,9 @@ class IsulionMegaPromptGenerator:
                         additional_costume = random.choice(self.binet_costume_elements)
                         costume = f"{base_costume}, {additional_costume}"
                     
-                    # Update subject_text to emphasize clothing
+                    # Update subject_text to include the artist attribution
                     subject_text = (
-                        f"{style_prefix} anthropomorphic {animal} as a {character_theme}, "
+                        f"ARTWORK BY SYLVAIN BINET, {style_prefix} anthropomorphic {animal} as a {character_theme}, "
                         f"((wearing {costume})), "  # Double parentheses to emphasize clothing
                         f"{style}, {element}"
                     )
