@@ -1409,205 +1409,79 @@ class IsulionMegaPromptGenerator:
                         subject_text = f"{style} of a charming {object_or_scene} with {character_trait}, made of {material}, ultra detailed 3D model, octane render, soft lighting, subsurface scattering, 8k"
                 elif internal_theme == "binet":
                     # Determine if we're doing color or black and white
-                    is_color = random.random() < 0.9  # 90% chance for color
+                    is_color = random.random() < 0.3  # Changed to 30% chance for color, 70% for B&W
                     
                     # Define style_prefix and color_emphasis based on color choice
                     if is_color:
                         color_scheme = random.choice(self.binet_color_schemes)
-                        style_prefix = "sophisticated colorful"
+                        style_prefix = "sophisticated portrait"
                         color_emphasis = f", {color_scheme}"
-                        
-                        # Add pastel-specific emphasis for softer colors
-                        if "pastel" in color_scheme or "soft" in color_scheme:
-                            color_emphasis += ", ((dreamy atmosphere)), ((ethereal lighting)), ((soft color tones))"
                     else:
-                        style_prefix = "sophisticated black and white"
+                        style_prefix = "sophisticated black and white portrait"
                         color_emphasis = ", ((dramatic black and white)), ((extreme contrast))"
                     
-                    # Define these variables before using them
-                    style = random.choice(self.binet_styles)
-                    element = random.choice(self.binet_elements)
-                    
-                    # Determine if we're doing traditional or contemporary theme
-                    is_contemporary = random.random() < 0.6  # 60% chance for contemporary themes
-                    
-                    if is_contemporary:
-                        character_theme = random.choice(self.binet_contemporary_themes)
-                        costume = random.choice(self.binet_sports_gear)
-                        urban_element = random.choice(self.binet_urban_elements)
-                        celebration = random.choice(self.binet_celebration_elements)
-                    else:
-                        character_theme = random.choice(self.binet_character_themes)
-                        costume = random.choice(self.binet_costume_elements)
-                        urban_element = ""
-                        celebration = ""
-                    
-                    # Define animal selection
+                    # Select a distinguished animal
                     animal = random.choice([
-                        "meerkat", "fennec fox", "leopard", "cheetah", "jaguar",  # Elegant cats
-                        "gorilla", "chimpanzee", "orangutan", "mandrill",  # Expressive primates
-                        "wolf", "husky", "german shepherd", "doberman",  # Noble dogs
-                        "eagle", "falcon", "owl", "macaw", "cockatoo",  # Majestic birds
-                        "red panda", "raccoon", "otter", "ferret"  # Cute and charismatic
+                        "wolf", "fox", "lion", "tiger", "leopard", "panther", "lynx",  # Noble predators
+                        "eagle", "hawk", "falcon", "owl",  # Majestic birds
+                        "deer", "horse", "elk",  # Graceful herbivores
+                        "bear", "gorilla",  # Powerful mammals
+                        "raccoon", "red panda"  # Charismatic small mammals
                     ])
                     
-                    # Define background based on contemporary status
-                    background = random.choice([
-                        "professional sports stadium",
-                        "urban street art gallery",
-                        "modern sports arena",
-                        "championship venue",
-                        "street culture backdrop",
-                        "victory celebration scene",
-                        "modern art studio",
-                        "urban landscape",
-                        "contemporary sports complex",
-                        "artistic urban environment",
-                        "championship stadium",
-                        "modern metropolitan setting"
-                    ] if is_contemporary else [
-                        "dramatic studio backdrop",
-                        "elegant formal setting",
-                        "classical interior",
-                        "vintage portrait studio",
-                        "timeless environment",
-                        "sophisticated venue",
-                        "historic location",
-                        "noble chamber",
-                        "distinguished gallery",
-                        "classic portrait setting"
+                    # Define formal attire with more emphasis on classic elegance
+                    formal_attire = random.choice([
+                        "((elegant black suit with silk lapels))",
+                        "((distinguished military dress uniform with medals))",
+                        "((formal Victorian waistcoat and pocket watch))",
+                        "((refined tuxedo with bow tie))",
+                        "((aristocratic dress coat with gold buttons))",
+                        "((formal diplomatic attire with decorations))",
+                        "((classic three-piece suit with tie pin))"
                     ])
                     
-                    # Enhanced clothing selection based on theme
-                    if is_contemporary:
-                        if "sports" in character_theme.lower():
-                            base_costume = random.choice(self.binet_clothing["sports"])
-                        elif any(prof in character_theme.lower() for prof in ["doctor", "pilot", "chef", "officer"]):
-                            base_costume = random.choice(self.binet_clothing["professional"])
-                        else:
-                            base_costume = random.choice(self.binet_clothing["luxury"])
-                        
-                        additional_costume = random.choice(self.binet_sports_gear)
-                        costume = f"{base_costume}, {additional_costume}"
-                    else:
-                        base_costume = random.choice(self.binet_clothing["luxury"])
-                        additional_costume = random.choice(self.binet_costume_elements)
-                        costume = f"{base_costume}, {additional_costume}"
-                    
-                    # Update subject_text to include the artist attribution
+                    # Create more formal and distinguished subject description
                     subject_text = (
-                        f"ARTWORK BY SYLVAIN BINET, {style_prefix} anthropomorphic {animal} as a {character_theme}, "
-                        f"((wearing {costume})), "  # Double parentheses to emphasize clothing
-                        f"{style}, {element}"
+                        f"anthropomorphic portrait of a distinguished {animal}, "
+                        f"((wearing {formal_attire})), "
+                        f"((aristocratic pose)), ((noble expression)), "
+                        f"((intricate fur detail)), ((dramatic studio lighting))"
                     )
                     
-                    if urban_element:
-                        subject_text += f", with {urban_element}"
-                    if celebration:
-                        subject_text += f", during {celebration}"
+                    # Add sophisticated environment elements
+                    environment_text = random.choice([
+                        "in an elegant portrait studio setting",
+                        "against a dark dramatic backdrop",
+                        "in a distinguished study with leather-bound books",
+                        "in a classical portrait setting",
+                        "against a sophisticated dark background",
+                        "in a noble chamber with subtle details",
+                        "in a vintage photography studio"
+                    ])
                     
-                    subject_text += (
-                        f", against {background}, "
-                        f"((deep shadows)), ((bright highlights)), "
-                        f"((intricate fur detail)), ((expressive face)), "
-                        f"((professional studio lighting)), ((sharp focus)), "
-                        f"((dynamic composition)), ((dramatic atmosphere)), "
-                        f"((photorealistic detail)), ((cinematic framing)), "
-                        f"8k resolution"
+                    # Enhanced photographic style elements
+                    style_text = (
+                        f"{style_prefix}, ((masterful composition)), "
+                        "((professional studio lighting)), ((sharp focus)), "
+                        "((photorealistic detail)), ((cinematic framing)), "
+                        "8k resolution" + color_emphasis
                     )
-
-                    # Add specific environment elements if enabled
+                    
+                    # Specific effects for the Binet style
+                    effects_text = (
+                        "with ((deep shadows)), ((bright highlights)), "
+                        "((dramatic atmosphere)), ((volumetric lighting)), "
+                        "((perfect exposure)), ((subtle vignette))"
+                    )
+                    
+                    # Construct the components with proper emphasis
+                    components = [subject_text]
                     if include_environment == "yes":
-                        if is_contemporary:
-                            environment = random.choice([
-                                "packed stadium atmosphere",
-                                "urban street scene",
-                                "modern sports facility",
-                                "championship arena",
-                                "street art district",
-                                "victory celebration venue",
-                                "contemporary urban setting",
-                                "modern athletic complex",
-                                "artistic urban space",
-                                "vibrant city backdrop"
-                                "Formula 1 racetrack",
-                                "luxury fashion boutique",
-                                "emergency hospital ward",
-                                "professional photo studio",
-                                "high-end shopping district",
-                                "modern art gallery",
-                                "sports stadium",
-                                "urban fashion street",
-                                "racing paddock",
-                                "designer store"
-                            ])
-                        else:
-                            environment = random.choice([
-                                "elegant studio setting",
-                                "luxury showroom",
-                                "premium venue",
-                                "high-end interior",
-                                "professional workspace",
-                                "sophisticated gallery",
-                                "exclusive club",
-                                "premium hotel lobby",
-                                "luxury restaurant",
-                                "high-fashion runway"
-                                "classic portrait room",
-                                "timeless venue",
-                                "distinguished chamber",
-                                "historic interior",
-                                "noble sanctuary",
-                                "vintage studio",
-                                "formal portrait space",
-                                "classical environment"
-                            ])
-                        environment_text = f"in a {environment}"
-                    
-                    # Add specific effects if enabled
+                        components.append(environment_text)
+                    if include_style == "yes":
+                        components.append(style_text)
                     if include_effects == "yes":
-                        if is_color:
-                            effect = random.choice([
-                                "golden hour lighting",
-                                "neon glow effects",
-                                "premium color grading",
-                                "luxury brand aesthetics",
-                                "racing atmosphere",
-                                "professional lighting",
-                                "fashion photography style",
-                                "commercial advertising look",
-                                "editorial fashion style",
-                                "high-end product photography",
-                                "butterfly accent effects",
-                                "designer brand mood",
-                                "premium automotive finish",
-                                "medical emergency lights",
-                                "sports victory atmosphere"
-                                "dynamic motion effects",
-                                "street art overlays",
-                                "urban lighting",
-                                "celebration atmosphere",
-                                "victory moment highlights",
-                                "crowd energy effects",
-                                "modern artistic flair",
-                                "urban style elements",
-                                "sports action dynamics",
-                                "championship atmosphere"
-                            ])
-                        else:
-                            effect = random.choice([
-                                "dramatic studio lighting",
-                                "classic portrait effects",
-                                "elegant atmosphere",
-                                "timeless mood",
-                                "sophisticated ambiance",
-                                "premium black and white",
-                                "professional contrast",
-                                "artistic shadows",
-                                "refined highlights",
-                                "editorial contrast"
-                            ])
-                        effects_text = f"with {effect}"
+                        components.append(effects_text)
                 elif internal_theme == "vintage_anthro":
                     # Generate base anthropomorphic character
                     animal = random.choice(self.animals)
