@@ -1409,7 +1409,7 @@ class IsulionMegaPromptGenerator:
                         subject_text = f"{style} of a charming {object_or_scene} with {character_trait}, made of {material}, ultra detailed 3D model, octane render, soft lighting, subsurface scattering, 8k"
                 elif internal_theme == "binet":
                     # Determine if we're doing color or black and white
-                    is_color = random.random() < 0.3  # Changed to 30% chance for color, 70% for B&W
+                    is_color = random.random() < 0.9  # Changed to 90% chance for color, 10% for B&W
                     
                     # Define style_prefix and color_emphasis based on color choice
                     if is_color:
