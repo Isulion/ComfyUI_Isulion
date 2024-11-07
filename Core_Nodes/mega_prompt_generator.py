@@ -1415,6 +1415,8 @@ class IsulionMegaPromptGenerator:
                     character = random.choice(self.cartoon_characters)
                     action = random.choice(self.actions)
                     subject_text = f"{character} {action}"
+                    # Add the subject text to components immediately
+                    components = [subject_text]  # Initialize components with subject_text
                 elif internal_theme == "cute chimera":
                     def get_animal_family(animal):
                         animal_lower = animal.lower()
