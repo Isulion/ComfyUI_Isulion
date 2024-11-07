@@ -54,7 +54,7 @@ class IsulionMegaPromptGenerator:
         "donkey", "puss in boots", "harley quinn", "joker", "catwoman", 
         "black panther", "doctor strange", "scarlet witch", "vision",
         "ant-man", "wasp", "thanos", "loki", "captain marvel", "star-lord",
-        "gamora", "groot", "rocket raccoon", "drax", "nebula", "venom",
+        "gamora", "groot", "rocket raccoon", "drax", "nebula",  # Removed duplicate "venom"
         "miles morales", "ghost rider", "blade", "punisher", "daredevil",
         "jessica jones", "luke cage", "iron fist", "green goblin", "doctor octopus",
         "venom", "carnage", "mysterio", "sandman", "vulture", "electro",
@@ -1801,7 +1801,6 @@ class IsulionMegaPromptGenerator:
                     "professional lighting", "studio lighting"
                 ])
                 effects_text = f"with {effect} and lifestyle aesthetic"
-                components.append(effects_text)
             else:  # realistic or mixed
                 if random.choice([True, False]):
                     effect = random.choice(self.magical_effects["nature"])
@@ -1809,20 +1808,7 @@ class IsulionMegaPromptGenerator:
                 else:
                     art = random.choice(self.artifacts["jewelry"])
                     effects_text = f"with {art}"
-            components.append(effects_text)
-
-        # Adjust detail level based on complexity
-        if complexity == "simple":
-            components = components[:3]
-        elif complexity == "complex":
-            if internal_theme == "fantasy":
-                extra_effect = random.choice(self.magical_effects["ice"])
-                effects_text += f", additional {extra_effect}"
-                components.append(f"additional {extra_effect}")
-            elif internal_theme == "sci_fi":
-                extra_tech = random.choice(self.technology["gadgets"])
-                effects_text += f", additional {extra_tech}"
-                components.append(f"additional {extra_tech}")
+            components.append(effects_text)  # Single append for all cases
 
         prompt = ", ".join(components)
 
