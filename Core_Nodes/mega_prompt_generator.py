@@ -1156,7 +1156,7 @@ class IsulionMegaPromptGenerator:
             "🎌 Anime": "anime",
             "🏛️ Architectural": "architecture",
             "🎨 Abstract": "abstract",
-            "🍳 Culinary": "food",  # Add this line
+            "🍳 Culinary/Food": "food",  # Fixed the mapping
             "🏠 Interior Spaces": "interior",
             "💠 Dimension 3D": "3D",
             "👻 Halloween Ethereal": "halloween",
@@ -1416,7 +1416,7 @@ class IsulionMegaPromptGenerator:
                 elif internal_theme == "food":
                     food = random.choice(self.food_types)
                     style = random.choice(self.food_styles)
-                    subject_text = f"professional food photography with elegant plating, studio lighting of, {style} {food}"
+                    subject_text = f"{style} {food}"
                     
                     environment_text = (
                         f"on {random.choice(['rustic wooden table', 'marble counter', 'elegant plate', 'vintage dish', 'modern platter', 'chef table', 'restaurant setting'])}, "
@@ -1424,7 +1424,7 @@ class IsulionMegaPromptGenerator:
                     )
                     
                     style_text = (
-                        f"high-end food photography, ultra sharp focus, "
+                        f"professional food photography, ultra sharp focus, "
                         f"perfect exposure, 8k resolution, commercial quality"
                     )
                     
@@ -1441,6 +1441,16 @@ class IsulionMegaPromptGenerator:
                         components.append(style_text)
                     if include_effects == "yes":
                         components.append(effects_text)
+                    
+                    # Create the prompt
+                    prompt = ", ".join(components)
+                    if enhancement_level in self.enhancements[enhancement_focus]:
+                        enhancement = random.choice(self.enhancements[enhancement_focus][enhancement_level])
+                        prompt = f"{prompt}, {enhancement}"
+                        effects_text = f"{effects_text}, {enhancement}"
+                    
+                    # Return immediately after food theme handling
+                    return (prompt, subject_text, "", environment_text, style_text, effects_text, seed)
                 elif internal_theme == "interior":
                     style = random.choice(self.interior_styles)
                     space = random.choice(self.interior_spaces)
