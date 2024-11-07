@@ -585,7 +585,7 @@ class IsulionMegaPromptGenerator:
         "vintage astronomical charts", "brass weather instruments", "antique desk set",
         "crystal magnifying glass", "brass drawing tools", "vintage specimen jars",
         "mechanical adding machine", "brass surveying equipment", "leather book binding",
-        "vintage laboratory glassware", "brass navigation tools", "antique ink wells"
+        "vintage laboratory glassware", "antique ink wells"
     ]
 
     vintage_anthro_activities = [
