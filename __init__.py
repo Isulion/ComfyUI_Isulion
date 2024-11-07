@@ -1,5 +1,4 @@
 from .Core_Nodes.isulion_prompt_generator import IsulionPromptGenerator
-from .Core_Nodes.isulion_OllamaGenerate import OllamaGenerate
 from .animals_nodes.isulion_animal_generator import Isulion_AnimalRandom
 from .animals_nodes.isulion_cute_animal_generator import IsulionCuteAnimalRandom
 from .animals_nodes.isulion_animal_behavior_generator import Isulion_AnimalBehaviorGenerator
@@ -26,7 +25,6 @@ from .Core_Nodes.mega_prompt_generator import IsulionMegaPromptGenerator
 
 NODE_CLASS_MAPPINGS = {
     "IsulionPromptGenerator": IsulionPromptGenerator,
-    "IsulionOllamaGenerate": OllamaGenerate,
     "IsulionAnimalRandom": Isulion_AnimalRandom,
     "IsulionCuteAnimalRandom": IsulionCuteAnimalRandom,
     "IsulionEmotionGenerator": Isulion_EmotionGenerator,
@@ -54,7 +52,6 @@ NODE_CLASS_MAPPINGS = {
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionPromptGenerator": "Isulion Prompt Generator ✨",
-    "IsulionOllamaGenerate": "Isulion Ollama Generate 🦙",
     "IsulionAnimalRandom": "Isulion Animal Selector 🦁",
     "IsulionCuteAnimalRandom": "Isulion Cute Animal Selector 🐱",
     "IsulionEmotionGenerator": "Isulion Emotion Generator 😊",
