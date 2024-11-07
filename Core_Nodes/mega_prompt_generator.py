@@ -76,12 +76,71 @@ class IsulionMegaPromptGenerator:
         "garfield", "ninja turtles", "winnie the pooh", "tigger", "elsa"
     ]
 
+    anime_styles = [
+        "anime key visual", "manga panel", "anime illustration", "light novel cover",
+        "anime character sheet", "manga page", "anime promotional art",
+        "anime ending card", "manga splash page", "anime concept art"
+    ]
+
     anime_characters = [
-        "schoolgirl", "ninja", "samurai", "mecha pilot", "magical girl", 
-        "shrine maiden", "demon slayer", "alchemist", "spirit", "yokai",
-        "shinobi", "ronin", "sensei", "student", "idol", "witch", "summoner",
-        "warrior", "priestess", "hero", "villain", "anti-hero", "guardian",
-        "assassin", "swordmaster", "dragon rider", "beast tamer"
+        # Character archetypes
+        "tsundere", "kuudere", "yandere", "dandere", "deredere",
+        "genki girl", "ojou-sama", "bishonen", "bishojo", "moe character",
+        
+        # Common roles
+        "magical girl", "isekai protagonist", "student council president",
+        "transfer student", "childhood friend", "shrine maiden", "ninja",
+        "samurai warrior", "demon slayer", "monster hunter", "idol singer",
+        "genius detective", "esper", "mecha pilot", "alchemist",
+        
+        # Fantasy/Special roles
+        "summoned hero", "dragon knight", "spirit medium", "magic academy student",
+        "demon lord", "celestial maiden", "guardian spirit", "beast tamer",
+        "sword saint", "dark magician", "holy priestess", "mystic healer",
+        
+        # Modern roles
+        "high school student", "club president", "sports ace", "genius programmer",
+        "aspiring chef", "art prodigy", "music composer", "fashion designer"
+    ]
+
+    anime_expressions = [
+        "determined expression", "gentle smile", "confident smirk", "cute pout",
+        "tearful eyes", "fierce gaze", "cheerful grin", "elegant composure",
+        "shocked face", "blushing cheeks", "serene look", "intense stare"
+    ]
+
+    anime_emotions = [
+        "burning determination", "overflowing joy", "quiet resolve",
+        "hidden sadness", "righteous anger", "pure innocence",
+        "unwavering courage", "deep melancholy", "boundless enthusiasm",
+        "serene tranquility", "fierce passion", "gentle kindness"
+    ]
+
+    anime_actions = [
+        "charging into battle", "casting magic spell", "striking a pose",
+        "running with toast in mouth", "training montage", "dramatic transformation",
+        "emotional confession", "epic sword clash", "magical girl transformation",
+        "dramatic entrance", "power-up sequence", "slice-of-life moment"
+    ]
+
+    anime_environments = [
+        "cherry blossom avenue", "rooftop at sunset", "traditional japanese garden",
+        "modern tokyo street", "magical academy", "summer festival",
+        "ancient temple grounds", "futuristic city", "peaceful countryside",
+        "mysterious forest", "beach during summer", "snowy mountain shrine"
+    ]
+
+    anime_effects = [
+        "speed lines", "floating cherry blossoms", "magical particles",
+        "glowing aura", "dramatic wind effect", "sparkling stars",
+        "flowing energy", "lens flare", "emotional flowers", "power symbols",
+        "dramatic shadows", "dynamic impact frames"
+    ]
+
+    anime_compositions = [
+        "dynamic camera angle", "dramatic foreshortening", "dutch angle shot",
+        "extreme close-up", "panoramic wide shot", "hero shot",
+        "split-panel layout", "motion blur focus", "fisheye perspective"
     ]
 
     architecture_styles = [
@@ -1397,9 +1456,48 @@ class IsulionMegaPromptGenerator:
                     action = random.choice(self.actions)
                     subject_text = f"{character} {action}"
                 elif internal_theme == "anime":
+                    # Select base elements
+                    style = random.choice(self.anime_styles)
                     character = random.choice(self.anime_characters)
-                    action = random.choice(self.actions)
-                    subject_text = f"{character} {action}"
+                    expression = random.choice(self.anime_expressions)
+                    emotion = random.choice(self.anime_emotions)
+                    
+                    # Create detailed subject description
+                    subject_text = f"((high quality {style})) of {character} with {expression} showing {emotion}"
+                    
+                    # Add action if enabled
+                    if include_action == "yes":
+                        action = random.choice(self.anime_actions)
+                        composition = random.choice(self.anime_compositions)
+                        action_text = f"{action}, {composition}"
+                        components.append(action_text)
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        environment = random.choice(self.anime_environments)
+                        time = random.choice(["sunset", "dawn", "golden hour", "night", "afternoon"])
+                        environment_text = f"in {environment} during {time}"
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    style_text = (
+                        "((masterful anime artwork)), ((detailed line art)), "
+                        "((perfect anime illustration)), ((high quality anime key visual)), "
+                        "vibrant colors, beautiful lighting, expert composition"
+                    )
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        effect = random.choice(self.anime_effects)
+                        effects_text = (
+                            f"with {effect}, ((anime aesthetic)), ((manga style)), "
+                            "detailed shading, clean lines, perfect anatomy"
+                        )
+                        components.append(effects_text)
+                    
+                    components = [subject_text]
+                    if include_style == "yes":
+                        components.append(style_text)
                 elif internal_theme == "architecture":
                     style = random.choice(self.architecture_styles)
                     element = random.choice(self.architecture_elements)
