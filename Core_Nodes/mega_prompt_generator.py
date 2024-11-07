@@ -1049,6 +1049,29 @@ class IsulionMegaPromptGenerator:
         ]
     }
 
+    # First, add these new style elements for Marvel comics
+    marvel_comic_styles = [
+        "classic Marvel comic book art style", "vintage comic book illustration",
+        "Silver Age Marvel comics style", "retro comic book art",
+        "Jack Kirby style comic art", "Steve Ditko art style",
+        "John Romita Sr comic style", "classic comic book panel",
+        "Bronze Age Marvel style", "Golden Age comic art"
+    ]
+
+    marvel_comic_effects = [
+        "Ben-Day dots pattern", "halftone shading effect", "comic ink lines",
+        "bold comic book colors", "dramatic comic shadows", "action lines",
+        "comic book crosshatching", "vintage print texture", "comic book color halftones",
+        "dramatic comic perspective", "bold outline style", "comic book speed lines"
+    ]
+
+    marvel_comic_compositions = [
+        "dynamic comic book pose", "heroic comic book stance",
+        "dramatic comic panel layout", "action-packed comic scene",
+        "classic comic book cover composition", "epic comic splash page",
+        "dramatic comic book angle", "vintage comic framing"
+    ]
+
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -1640,34 +1663,64 @@ class IsulionMegaPromptGenerator:
                         effects_text = f"with {effect}"
                 elif internal_theme == "marvel":
                     character = random.choice(self.marvel_characters)
-                    prop = random.choice(self.marvel_props)
+                    comic_style = random.choice(self.marvel_comic_styles)
+                    comic_effect = random.choice(self.marvel_comic_effects)
+                    comic_composition = random.choice(self.marvel_comic_compositions)
                     
                     if random.random() < 0.7:  # 70% chance for action scene
                         action = random.choice([
-                            "in epic battle", "performing heroic rescue",
-                            "using powers", "defending against attack",
-                            "leading team", "training sequence"
+                            "locked in epic battle", "performing heroic feat",
+                            "unleashing super powers", "defending against villains",
+                            "leading fellow heroes", "in dramatic confrontation"
                         ])
-                        subject_text = f"cinematic action scene of {character} {action}"
-                        if random.random() < 0.5:  # 50% chance to add prop
-                            subject_text += f" with {prop}"
+                        subject_text = (
+                            f"((classic Marvel comic book art)) of {character} {action}, "
+                            f"in {comic_style}, {comic_composition}, "
+                            f"((vintage comic book illustration)), ((comic book art))"
+                        )
                     else:  # 30% chance for character portrait
                         pose = random.choice([
-                            "heroic pose", "dramatic stance",
-                            "power stance", "ready for battle",
-                            "character portrait", "epic reveal"
+                            "heroic comic book pose", "dramatic character moment",
+                            "classic superhero stance", "iconic comic book pose",
+                            "powerful hero shot", "legendary comic cover pose"
                         ])
-                        subject_text = f"epic portrait of {character} in {pose} with {prop}"
+                        subject_text = (
+                            f"((classic Marvel comic book art)) of {character} in {pose}, "
+                            f"in {comic_style}, {comic_composition}, "
+                            f"((vintage comic book illustration)), ((comic book art))"
+                        )
                     
-                    # Marvel-specific environment handling
+                    # Marvel comics-specific environment handling
                     if include_environment == "yes":
                         location = random.choice(self.marvel_locations)
-                        environment_text = f"in {location}"
-                        
-                    # Marvel-specific effects handling
+                        environment_text = (
+                            f"in {location}, with classic comic book background, "
+                            f"dramatic comic perspective"
+                        )
+                    
+                    # Marvel comics-specific style handling
+                    if include_style == "yes":
+                        style_text = (
+                            f"((Silver Age Marvel style)), bold comic colors, "
+                            f"detailed comic book linework, dramatic comic shading, "
+                            f"vintage comic book quality"
+                        )
+                    
+                    # Marvel comics-specific effects handling
                     if include_effects == "yes":
-                        effect = random.choice(self.marvel_effects)
-                        effects_text = f"with {effect}"
+                        effects_text = (
+                            f"with {comic_effect}, bold comic inking, "
+                            f"vintage comic book printing style, classic comic color palette"
+                        )
+
+                    # Add components based on inclusion flags
+                    components = [subject_text]
+                    if include_environment == "yes":
+                        components.append(environment_text)
+                    if include_style == "yes":
+                        components.append(style_text)
+                    if include_effects == "yes":
+                        components.append(effects_text)
                 elif internal_theme == "steampunk":
                     machine = random.choice(self.steampunk_elements["machines"])
                     accessory = random.choice(self.steampunk_elements["accessories"])
