@@ -1272,13 +1272,12 @@ class IsulionMegaPromptGenerator:
                     subject_text = (
                         f"a majestic chimera with ((the head of a {head})) and "
                         f"((the body of a {body})), ultra realistic, "
-                        f"detailed fur and features, anatomically plausible hybrid, "
-                        f"natural pose, perfect composition, "
-                        f"professional wildlife photography, sharp focus, "
-                        f"cinematic lighting, bokeh background, "
-                        f"8k resolution, masterfully detailed"
+                        f"detailed fur and features, anatomically plausible hybrid"
                     )
-
+                    
+                    # Add the subject to components list
+                    components.append(subject_text)
+                    
                 elif internal_theme == "fantasy":
                     # New specific handling for fantasy theme
                     if random.random() < 0.3:  # 30% chance for magical creature
