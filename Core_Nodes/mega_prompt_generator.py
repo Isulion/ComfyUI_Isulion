@@ -1358,9 +1358,9 @@ class IsulionMegaPromptGenerator:
                         head_candidate = random.choice(self.animals)
                         body_candidate = random.choice(self.animals)
                         
-                        # Check if they're from different families
-                        head_family = get_animal_family(head_candidate)
-                        body_family = get_animal_family(body_candidate)
+                        # Check if they're from different families and not the same animal
+                        head_family = get_animal_family(head_candidate.lower())
+                        body_family = get_animal_family(body_candidate.lower())
                         
                         if (head_family != body_family and 
                             head_family is not None and 
@@ -1374,8 +1374,8 @@ class IsulionMegaPromptGenerator:
                     
                     # If we couldn't find a valid combination, use fallback animals
                     if head is None or body is None:
-                        head = "Lion"
-                        body = "Eagle"
+                        head = "Lion"  # From felines family
+                        body = "Eagle"  # From birds family
                     
                     # Create a more detailed and structured prompt
                     subject_text = (
@@ -1387,7 +1387,7 @@ class IsulionMegaPromptGenerator:
                     )
                     
                     # Add the subject to components list
-                    components.append(subject_text)
+                    components = [subject_text]
                     
                 elif internal_theme == "fantasy":
                     # New specific handling for fantasy theme
