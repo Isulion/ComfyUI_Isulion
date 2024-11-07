@@ -1435,7 +1435,7 @@ class IsulionMegaPromptGenerator:
                         head_candidate = random.choice(self.cute_animals)
                         body_candidate = random.choice(self.cute_animals)
                         
-                        # Clean up the animal names - do this before family check
+                        # Clean up the animal names - remove age/size indicators
                         head_clean = head_candidate.lower()
                         body_clean = body_candidate.lower()
                         
@@ -1444,7 +1444,7 @@ class IsulionMegaPromptGenerator:
                             head_clean = head_clean.replace(prefix, '')
                             body_clean = body_clean.replace(prefix, '')
                         
-                        # Check if they're from different families
+                        # Check if they're from different families and not the same animal
                         head_family = get_animal_family(head_clean)
                         body_family = get_animal_family(body_clean)
                         
@@ -1458,10 +1458,10 @@ class IsulionMegaPromptGenerator:
                             
                         max_attempts -= 1
                     
-                    # Fallback to ensure we always have valid animals
+                    # Fallback to ensure we always have valid animals from different families
                     if head is None or body is None:
-                        head = "Red Panda"  # Cute default head
-                        body = "Arctic Fox"  # Cute default body from different family
+                        head = "Baby Red Panda"  # Cute default head from one family
+                        body = "Arctic Fox Kit"  # Cute default body from different family
                     
                     behavior = random.choice(self.behaviors)
                     subject_text = (
