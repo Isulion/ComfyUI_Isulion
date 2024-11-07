@@ -1081,6 +1081,7 @@ class IsulionMegaPromptGenerator:
                     "🎬 Cinema Studio",
                     "🦄 Chimera Animals",
                     "🐰 Chimera Cute Animals",
+                    "🍳 Culinary/Food",
                     "💠 Dimension 3D",
                     "✨ Enchanted Fantasy",
                     "📸 Essential Realistic",
@@ -1094,10 +1095,9 @@ class IsulionMegaPromptGenerator:
                     "💫 Pixar Animation",
                     "☢️ Post-Apocalyptic Wasteland",
                     "⭐ Star Wars Universe",
-                    "⚙️ Steampunk Cities",  # Changed from "Steampunk World"
+                    "⚙️ Steampunk Cities",
                     "🌊 Underwater Civilization",
                     "🎩 Vintage Anthropomorphic",
-                    "🍳 Culinary",  # Add this line
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
