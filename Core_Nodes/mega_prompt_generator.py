@@ -331,13 +331,13 @@ class IsulionMegaPromptGenerator:
         "boutique hotel", "sunset viewpoint", "luxury yacht"
     ]
 
-    # Update theme prefixes with more design-focused language
+    # Update theme prefixes with more cute-focused language for cute chimera
     theme_prefixes = {
         "anime": "minimalist anime artwork with clean lines of",
         "realistic": "professional studio photograph with precise lighting, ultra-sharp focus, minimalist composition of",
         "sci_fi": "sleek and refined futuristic design, premium finish, elegant technological details of",
         "fantasy": "elegant fantasy artwork with refined details of",
-        "cute chimera": "clean and polished digital art with smooth gradients of",
+        "cute chimera": "adorable kawaii-style digital artwork with soft pastel colors and fluffy details of",  # Updated this line
         "cinema": "premium cinematic composition, studio-grade lighting, professional color grading of",
         "cartoon": "refined animation style with smooth gradients and clean lines of",
         "architecture": "architectural visualization with premium materials, clean lines, and precise details of",
@@ -348,7 +348,7 @@ class IsulionMegaPromptGenerator:
         "3D": "high-end 3D visualization with premium materials and precise details of",
         "halloween": "elegantly crafted dark atmosphere with refined details of",
         "instagram": "premium lifestyle photography with professional studio lighting of",
-        "strange_animal": "complex raw photograph of an intricated chimerical fantastical creature with",
+        "strange_animal": "professional wildlife photograph with cinematic lighting of",  # Updated this line
         "futuristic_city": "ultra-modern architectural visualization with premium materials of",
         "pixar": "highly detailed Pixar-style 3D render with clean geometry and appealing design of",
         "binet": "highly detailed anthropomorphic portrait, digital painting of",
@@ -1425,31 +1425,53 @@ class IsulionMegaPromptGenerator:
 
                     # Get animals from different families
                     max_attempts = 20
+                    head = None
+                    body = None
+                    
                     while max_attempts > 0:
-                        # Use cute_animals list for both parts to ensure cuteness
-                        head = random.choice(self.cute_animals)
-                        body = random.choice(self.cute_animals)
+                        # Select from cute_animals list
+                        head_candidate = random.choice(self.cute_animals)
+                        body_candidate = random.choice(self.cute_animals)
                         
-                        # Clean up the animal names
-                        head = head.lower().replace('baby ', '').replace('cub', '').replace('puppy', '').replace('kitten', '').replace('kit', '')
-                        body = body.lower().replace('baby ', '').replace('cub', '').replace('puppy', '').replace('kitten', '').replace('kit', '')
-                        head = head.title()
-                        body = body.title()
+                        # Clean up the animal names - do this before family check
+                        head_clean = head_candidate.lower()
+                        body_clean = body_candidate.lower()
+                        
+                        # Remove age/size indicators and clean up names
+                        for prefix in ['baby ', 'cub', 'puppy', 'kitten', 'kit', 'young ', 'little ']:
+                            head_clean = head_clean.replace(prefix, '')
+                            body_clean = body_clean.replace(prefix, '')
                         
                         # Check if they're from different families
-                        head_family = get_animal_family(head)
-                        body_family = get_animal_family(body)
+                        head_family = get_animal_family(head_clean)
+                        body_family = get_animal_family(body_clean)
                         
                         if (head_family != body_family and 
                             head_family is not None and 
                             body_family is not None and 
-                            head.lower() != body.lower()):
+                            head_clean != body_clean):
+                            head = head_candidate  # Use original cute names
+                            body = body_candidate
                             break
                             
                         max_attempts -= 1
                     
+                    # Fallback to ensure we always have valid animals
+                    if head is None or body is None:
+                        head = "Red Panda"  # Cute default head
+                        body = "Arctic Fox"  # Cute default body from different family
+                    
                     behavior = random.choice(self.behaviors)
-                    subject_text = f"adorable chimerical fantastical creature with ((the body of a {body})) and ((the head of a {head})), {behavior}, kawaii style, soft lighting, pastel colors, cute expression, fluffy texture, chibi proportions, sparkly eyes, ultra detailed, 8k"
+                    subject_text = (
+                        f"adorable chimerical fantastical creature with "
+                        f"((the body of a {body})) and ((the head of a {head})), "
+                        f"{behavior}, ((kawaii style)), ((soft lighting)), "
+                        f"((pastel colors)), ((cute expression)), ((fluffy texture)), "
+                        f"((chibi proportions)), ((sparkly eyes)), ultra detailed, 8k"
+                    )
+                    
+                    # Add the subject text to components immediately after creating it
+                    components = [subject_text]  # Initialize components with subject_text
                 elif internal_theme == "cinema":
                     # Add proper cinema character handling
                     character = random.choice(self.cinema_characters)
