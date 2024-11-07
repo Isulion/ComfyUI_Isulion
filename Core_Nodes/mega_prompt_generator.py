@@ -779,21 +779,34 @@ class IsulionMegaPromptGenerator:
         ]
     }
 
+    # Update the underwater_elements dictionary with more civilization-focused elements
     underwater_elements = {
         "structures": [
-            "crystal dome", "bioluminescent tower", "coral palace",
-            "kelp forest city", "pearl chamber", "abyssal architecture",
-            "pressure sphere", "aqua-glass tunnel", "oceanic temple"
+            "massive crystal dome city", "bioluminescent skyscraper towers", "ancient atlantean palace",
+            "underwater metropolis", "submerged floating city", "coral-integrated architecture",
+            "pressurized glass habitation domes", "kelp forest residential district", "pearl-encrusted temples",
+            "hydrothermal vent power stations", "aqua-glass transit tunnels", "oceanic research facilities",
+            "underwater market squares", "marine cultivation farms", "tidal energy generators",
+            "submerged archaeological ruins", "deep sea mining operations", "bioluminescent street networks"
         ],
         "life_forms": [
-            "luminous fish", "giant squid", "coral beings", "sea serpents",
-            "aquatic humanoids", "jellyfish swarms", "whale guardians",
-            "deep sea creatures", "phosphorescent life"
+            "merfolk citizens", "aquatic humanoid traders", "bioluminescent sea people",
+            "evolved marine colonists", "deep sea civilization dwellers", "underwater society members",
+            "aquatic hybrid inhabitants", "marine-adapted humans", "oceanic cultural groups",
+            "sea-dwelling communities", "underwater tribal societies", "advanced aquatic species"
         ],
         "technology": [
-            "pressure shields", "water filtration", "current generators",
-            "aqua propulsion", "bubble transport", "coral computers",
-            "bioluminescent lights", "sonic communicators"
+            "water pressure shields", "marine filtration systems", "underwater transport pods",
+            "aquatic communication networks", "bubble-tech living spaces", "coral-based computers",
+            "tidal energy collectors", "pressure-resistant infrastructure", "underwater farming systems",
+            "marine waste recyclers", "aqua-plasma lighting", "oceanic defense systems",
+            "underwater transportation grid", "marine oxygen generators", "aquatic food production"
+        ],
+        "cultural_elements": [
+            "underwater market bazaars", "marine cultural centers", "aquatic education hubs",
+            "deep sea entertainment venues", "oceanic art galleries", "submerged sports arenas",
+            "marine religious temples", "underwater musical pavilions", "aquatic gathering spaces",
+            "deep sea gardens", "marine meditation sanctuaries", "underwater theatrical stages"
         ]
     }
 
@@ -1642,11 +1655,25 @@ class IsulionMegaPromptGenerator:
                     structure = random.choice(self.underwater_elements["structures"])
                     life_form = random.choice(self.underwater_elements["life_forms"])
                     tech = random.choice(self.underwater_elements["technology"])
+                    culture = random.choice(self.underwater_elements["cultural_elements"])
                     
-                    subject_text = f"bioluminescent deep-sea scene with {structure} and {life_form}"
-                    environment_text = f"featuring {tech}"
-                    style_text = "crystalline clarity, underwater lighting, aquatic atmosphere, ultra sharp focus, 8k"
-                    effects_text = "with water caustics, bioluminescent glow, and deep-sea particles"
+                    subject_text = (
+                        f"epic wide shot of an advanced underwater civilization with {structure} and "
+                        f"{life_form}, featuring {tech} and {culture}, "
+                        f"ultra detailed oceanic metropolis"
+                    )
+                    environment_text = (
+                        f"in deep ocean waters with bioluminescent lighting, "
+                        f"crystal clear water visibility, schools of exotic fish"
+                    )
+                    style_text = (
+                        f"cinematic underwater photography, perfect clarity, "
+                        f"volumetric god rays, dynamic composition, ultra sharp focus, 8k"
+                    )
+                    effects_text = (
+                        f"with water caustics, bioluminescent glow, floating particles, "
+                        f"underwater atmospheric perspective, gentle water currents"
+                    )
 
                     # Add components based on inclusion flags
                     components = [subject_text]
