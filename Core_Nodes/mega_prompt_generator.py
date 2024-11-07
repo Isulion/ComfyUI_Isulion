@@ -178,33 +178,27 @@ class IsulionMegaPromptGenerator:
     ]
 
     interior_spaces = [
-        "living room", "kitchen", "bedroom", "bathroom", "dining room",
-        "home office", "library", "conservatory", "entrance hall", "loft",
-        "studio apartment", "penthouse", "master suite", "walk-in closet",
-        "game room", "home theater", "sunroom", "reading nook", "wine cellar",
-        "gym", "spa bathroom", "meditation room", "craft room", "music room",
-        "greenhouse", "mudroom", "pantry", "laundry room", "powder room",
-        "breakfast nook", "man cave", "she shed", "nursery", "playroom",
-        "guest room", "attic", "basement", "garage", "pool house", "solarium",
-        "observatory", "billiard room", "drawing room", "great room", "foyer",
-        "gallery", "study", "butler's pantry", "dressing room"
+        "minimalist living room", "modern kitchen", "luxury bathroom", "elegant dining room",
+        "designer home office", "grand library", "glass conservatory", "marble entrance hall",
+        "architectural loft", "high-end studio space", "penthouse interior", "walk-in closet",
+        "gourmet kitchen", "spa bathroom", "meditation space", "reading nook",
+        "wine cellar", "art gallery space", "greenhouse interior", "luxury pantry",
+        "designer laundry room", "grand staircase", "solarium", "drawing room",
+        "gallery space", "atrium", "conservatory", "great room", "foyer",
+        "butler's pantry", "dressing room", "powder room", "music room", "library"
     ]
 
     interior_elements = [
-        "furniture", "lighting", "textiles", "artwork", "plants",
-        "decorative objects", "rugs", "window treatments", "architectural details",
-        "storage solutions", "seating", "tables", "mirrors", "wallpaper",
-        "throw pillows", "curtains", "blinds", "shelving", "cabinets",
-        "countertops", "flooring", "ceiling fixtures", "wall sconces",
-        "pendant lights", "chandeliers", "track lighting", "bookcases",
-        "armchairs", "sofas", "ottomans", "coffee tables", "side tables",
-        "dining tables", "beds", "dressers", "nightstands", "vanities",
-        "console tables", "bar carts", "room dividers", "sculptures",
-        "paintings", "photographs", "tapestries", "vases", "candleholders",
-        "clocks", "fireplaces", "fountains", "area rugs", "carpets",
-        "hardwood floors", "tile work", "crown molding", "wainscoting",
-        "built-ins", "exposed beams", "archways", "columns", "french doors",
-        "skylights", "bay windows", "stained glass", "indoor fountains"
+        "designer furniture", "architectural lighting", "luxury textiles", "statement artwork",
+        "decorative objects", "handwoven rugs", "custom window treatments", "architectural details",
+        "built-in storage", "marble surfaces", "crystal chandeliers", "designer mirrors",
+        "textured wallpaper", "accent pillows", "silk curtains", "motorized blinds",
+        "floating shelves", "custom cabinetry", "stone countertops", "pendant lights",
+        "parquet flooring", "coffered ceiling", "wall sconces", "track lighting",
+        "designer bookcases", "marble fireplace", "brass fixtures", "glass partitions",
+        "wood paneling", "stone accent wall", "designer tiles", "smart home features",
+        "built-in aquarium", "indoor water feature", "designer radiators", "smart glass windows",
+        "hidden storage", "mood lighting", "automated systems", "sound system"
     ]
 
     threed_styles = [
@@ -1426,7 +1420,35 @@ class IsulionMegaPromptGenerator:
                     style = random.choice(self.interior_styles)
                     space = random.choice(self.interior_spaces)
                     element = random.choice(self.interior_elements)
-                    subject_text = f"{style} {space} with {element}"
+                    
+                    subject_text = (
+                        f"architectural interior photograph of a {style} {space} with {element}, "
+                        f"empty space, no people, interior design photography"
+                    )
+                    
+                    environment_text = (
+                        f"featuring natural light, perfect composition, "
+                        f"architectural details, premium materials"
+                    )
+                    
+                    style_text = (
+                        f"professional interior photography, ultra sharp focus, "
+                        f"perfect exposure, 8k resolution, photorealistic"
+                    )
+                    
+                    effects_text = (
+                        f"with volumetric lighting, soft shadows, "
+                        f"depth of field, perfect white balance"
+                    )
+
+                    # Add components based on inclusion flags
+                    components = [subject_text]
+                    if include_environment == "yes":
+                        components.append(environment_text)
+                    if include_style == "yes":
+                        components.append(style_text)
+                    if include_effects == "yes":
+                        components.append(effects_text)
                 elif internal_theme == "3D":
                     style = random.choice(self.threed_styles)
                     if random.random() < 0.5:
