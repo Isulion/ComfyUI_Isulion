@@ -82,7 +82,7 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 - 🎌 **Anime**: Japanese animation inspired artwork
 - 💫 **Pixar Animation**: 3D animation in the style of Pixar
 - 💠 **Dimension 3D**: Three-dimensional digital artwork
-- 🍳 **Culinary**: Professional food and beverage photography
+- 🍳 **Culinary**: Professional food photography with elegant plating and styling
 - 📱 **Lifestyle Instagram**: Professional social media photography
 
 #### Genre Themes

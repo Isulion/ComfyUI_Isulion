@@ -1097,6 +1097,7 @@ class IsulionMegaPromptGenerator:
                     "⚙️ Steampunk Cities",  # Changed from "Steampunk World"
                     "🌊 Underwater Civilization",
                     "🎩 Vintage Anthropomorphic",
+                    "🍳 Culinary",  # Add this line
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
@@ -1150,12 +1151,12 @@ class IsulionMegaPromptGenerator:
             "🎬 Cinema Studio": "cinema",
             "✨ Enchanted Fantasy": "fantasy",
             "🐰 Chimera Cute Animals": "cute chimera",
-            "🦄 Chimera Animals": "strange_animal",  # This is the key mapping that needs to match
+            "🦄 Chimera Animals": "strange_animal",
             "📺 Animation Cartoon": "cartoon",
             "🎌 Anime": "anime",
             "🏛️ Architectural": "architecture",
             "🎨 Abstract": "abstract",
-            "🍳 Culinary": "food",
+            "🍳 Culinary": "food",  # Add this line
             "🏠 Interior Spaces": "interior",
             "💠 Dimension 3D": "3D",
             "👻 Halloween Ethereal": "halloween",
@@ -1415,7 +1416,31 @@ class IsulionMegaPromptGenerator:
                 elif internal_theme == "food":
                     food = random.choice(self.food_types)
                     style = random.choice(self.food_styles)
-                    subject_text = f"{style} {food}"
+                    subject_text = f"professional food photography with elegant plating, studio lighting of, {style} {food}"
+                    
+                    environment_text = (
+                        f"on {random.choice(['rustic wooden table', 'marble counter', 'elegant plate', 'vintage dish', 'modern platter', 'chef table', 'restaurant setting'])}, "
+                        f"with perfect composition and styling"
+                    )
+                    
+                    style_text = (
+                        f"high-end food photography, ultra sharp focus, "
+                        f"perfect exposure, 8k resolution, commercial quality"
+                    )
+                    
+                    effects_text = (
+                        f"with soft depth of field, perfect color balance, "
+                        f"mouth-watering details, professional food styling"
+                    )
+
+                    # Add components based on inclusion flags
+                    components = [subject_text]
+                    if include_environment == "yes":
+                        components.append(environment_text)
+                    if include_style == "yes":
+                        components.append(style_text)
+                    if include_effects == "yes":
+                        components.append(effects_text)
                 elif internal_theme == "interior":
                     style = random.choice(self.interior_styles)
                     space = random.choice(self.interior_spaces)
