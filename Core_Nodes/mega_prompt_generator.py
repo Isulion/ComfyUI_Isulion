@@ -383,23 +383,42 @@ class IsulionMegaPromptGenerator:
 
     # Add Pixar-specific elements
     pixar_styles = [
-        "Pixar-style 3D render", "Pixar animation", "Pixar character design",
-        "Pixar-like CGI", "Pixar digital art", "Pixar concept art"
+        "Pixar-style 3D render", "Pixar animation style", "Pixar character design",
+        "Pixar-like CGI artwork", "Pixar digital art", "Pixar concept art",
+        "cute Pixar-inspired render", "adorable Pixar animation", "charming Pixar scene"
     ]
 
     pixar_characteristics = [
-        "expressive eyes", "squash and stretch animation", "exaggerated features",
-        "clean geometry", "soft lighting", "subsurface scattering",
-        "playful design", "appealing shapes", "rounded forms", "polished surfaces",
-        "vibrant colors", "subtle textures", "dynamic poses", "emotional expression",
-        "charming details", "whimsical elements"
+        "expressive big eyes", "cute round features", "adorable facial expression",
+        "charming smile", "playful pose", "endearing personality",
+        "bouncy animation style", "squash and stretch", "appealing character design",
+        "soft rounded forms", "cheerful demeanor", "heartwarming expression",
+        "lovable character", "whimsical design", "friendly appearance",
+        "cute button nose", "chubby cheeks", "innocent look",
+        "playful attitude", "gentle features", "warm personality"
     ]
 
     pixar_materials = [
-        "glossy plastic", "soft rubber", "brushed metal", "plush fabric",
-        "smooth ceramic", "polished wood", "shiny chrome", "matte finish",
-        "translucent material", "reflective surface", "velvet texture",
-        "metallic sheen", "pearlescent coating"
+        "soft shiny plastic", "smooth rubber", "polished metal",
+        "plush fabric", "velvety texture", "glossy surface",
+        "matte finish", "fuzzy material", "silky smooth surface",
+        "pearlescent sheen", "sparkly details", "metallic accents",
+        "translucent glow", "iridescent highlights", "subtle shimmer"
+    ]
+
+    pixar_environments = [
+        "colorful toy room", "cozy kitchen", "magical bedroom",
+        "charming small town", "whimsical playground", "enchanted garden",
+        "friendly neighborhood", "cute cafe interior", "adorable toy store",
+        "magical school", "cheerful park", "lovely backyard",
+        "charming village", "delightful candy shop", "magical library"
+    ]
+
+    pixar_lighting = [
+        "warm golden lighting", "soft ambient glow", "cheerful sunlight",
+        "magical light rays", "cozy indoor lighting", "playful color bounce",
+        "gentle rim light", "charming practical lights", "dreamy atmosphere",
+        "sparkly highlights", "magical light beams", "gentle volumetric lighting"
     ]
 
     # Update Binet-specific elements
@@ -1428,17 +1447,60 @@ class IsulionMegaPromptGenerator:
                     style = random.choice(self.pixar_styles)
                     character_trait = random.choice(self.pixar_characteristics)
                     material = random.choice(self.pixar_materials)
+                    environment = random.choice(self.pixar_environments)
+                    lighting = random.choice(self.pixar_lighting)
                     
-                    if random.random() < 0.5:  # 50% chance for character
-                        character = random.choice(self.cartoon_characters)
-                        subject_text = f"{style} of {character} with {character_trait}, made of {material}, ultra detailed 3D model, octane render, soft lighting, subsurface scattering, 8k"
-                    else:  # 50% chance for object/scene
-                        object_or_scene = random.choice([
-                            "toy", "lamp", "robot", "vehicle", "household object",
-                            "kitchen appliance", "desk item", "garden tool",
-                            "musical instrument", "sports equipment"
+                    if random.random() < 0.7:  # 70% chance for character
+                        if random.random() < 0.5:  # 50% chance for existing character
+                            character = random.choice(self.cartoon_characters)
+                            subject_text = (
+                                f"{style} of an adorable {character} with {character_trait}, "
+                                f"made of {material}, in a {environment}, "
+                                f"featuring {lighting}, ultra detailed 3D model, "
+                                f"subsurface scattering, perfect composition"
+                            )
+                        else:  # 50% chance for original character
+                            character_type = random.choice([
+                                "cute robot", "adorable toy", "charming creature",
+                                "lovable monster", "friendly animal", "sweet character",
+                                "endearing helper", "magical companion", "delightful friend"
+                            ])
+                            subject_text = (
+                                f"{style} of an original {character_type} with {character_trait}, "
+                                f"made of {material}, in a {environment}, "
+                                f"featuring {lighting}, ultra detailed 3D model, "
+                                f"subsurface scattering, perfect composition"
+                            )
+                    else:  # 30% chance for scene/object
+                        scene_type = random.choice([
+                            "magical toy", "charming household object", "cute robot helper",
+                            "adorable vehicle", "friendly kitchen appliance", "sweet desk lamp",
+                            "lovable musical instrument", "delightful garden tool", "magical book",
+                            "charming clock", "cute mailbox", "friendly umbrella"
                         ])
-                        subject_text = f"{style} of a charming {object_or_scene} with {character_trait}, made of {material}, ultra detailed 3D model, octane render, soft lighting, subsurface scattering, 8k"
+                        subject_text = (
+                            f"{style} of a {scene_type} with {character_trait}, "
+                            f"made of {material}, in a {environment}, "
+                            f"featuring {lighting}, ultra detailed 3D model, "
+                            f"subsurface scattering, perfect composition"
+                        )
+                    
+                    style_text = (
+                        f"octane render quality, perfect lighting, soft shadows, "
+                        f"ambient occlusion, global illumination, 8k resolution"
+                    )
+                    
+                    effects_text = (
+                        f"with subtle depth of field, gentle color grading, "
+                        f"perfect exposure, subtle film grain, gentle vignette"
+                    )
+
+                    # Add components based on inclusion flags
+                    components = [subject_text]
+                    if include_style == "yes":
+                        components.append(style_text)
+                    if include_effects == "yes":
+                        components.append(effects_text)
                 elif internal_theme == "binet":
                     # Determine if we're doing color or black and white
                     is_color = random.random() < 0.9  # 90% chance for color, 10% for B&W
