@@ -1242,24 +1242,42 @@ class IsulionMegaPromptGenerator:
 
                     # Get animals from different families
                     max_attempts = 20
+                    head = None
+                    body = None
+                    
                     while max_attempts > 0:
-                        head = random.choice(self.animals)
-                        body = random.choice(self.animals)
+                        head_candidate = random.choice(self.animals)
+                        body_candidate = random.choice(self.animals)
                         
                         # Check if they're from different families
-                        head_family = get_animal_family(head)
-                        body_family = get_animal_family(body)
+                        head_family = get_animal_family(head_candidate)
+                        body_family = get_animal_family(body_candidate)
                         
                         if (head_family != body_family and 
                             head_family is not None and 
                             body_family is not None and 
-                            head.lower() != body.lower()):
+                            head_candidate.lower() != body_candidate.lower()):
+                            head = head_candidate
+                            body = body_candidate
                             break
                             
                         max_attempts -= 1
                     
-                    # Remove the prefix from here since it's already added by theme_prefixes
-                    subject_text = f"((the body of a {body})) and ((the head of a {head})), bokeh background, cinematic lighting, shallow depth of field, 35mm wide angle lens, sharp focus, cinematic film still, dynamic angle, Photography, 8k, masterfully detailed"
+                    # If we couldn't find a valid combination, use fallback animals
+                    if head is None or body is None:
+                        head = "Lion"
+                        body = "Eagle"
+                    
+                    # Create a more detailed and structured prompt
+                    subject_text = (
+                        f"a majestic chimera with ((the head of a {head})) and "
+                        f"((the body of a {body})), ultra realistic, "
+                        f"detailed fur and features, anatomically plausible hybrid, "
+                        f"natural pose, perfect composition, "
+                        f"professional wildlife photography, sharp focus, "
+                        f"cinematic lighting, bokeh background, "
+                        f"8k resolution, masterfully detailed"
+                    )
 
                 elif internal_theme == "fantasy":
                     # New specific handling for fantasy theme
