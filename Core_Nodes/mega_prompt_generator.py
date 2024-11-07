@@ -1270,9 +1270,11 @@ class IsulionMegaPromptGenerator:
                     
                     # Create a more detailed and structured prompt
                     subject_text = (
-                        f"a majestic chimera with ((the head of a {head})) and "
-                        f"((the body of a {body})), ultra realistic, "
-                        f"detailed fur and features, anatomically plausible hybrid"
+                        f"a complex raw photograph of an intricated chimerical fantastical creature with "
+                        f"((the body of a {body})) and ((the head of a {head})), "
+                        f"bokeh background, cinematic lighting, shallow depth of field, "
+                        f"35mm wide angle lens, sharp focus, cinematic film still, "
+                        f"dynamic angle, Photography, 8k, masterfully detailed, hyper-realistic"
                     )
                     
                     # Add the subject to components list
