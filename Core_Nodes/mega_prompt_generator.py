@@ -2147,7 +2147,7 @@ class IsulionMegaPromptGenerator:
                     subject_text = (
                         f"((Anthropomorphic {animal} in 1920s Peaky Blinders style)), "
                         f"((wearing {outfit})), {accessory}, "
-                        f"((ultra-detailed fur texture)), ((noble expression)), "
+                        f"((ultra-detailed fur texture)), "  # Removed "noble expression"
                         f"((masterful character design))"
                     )
                     
