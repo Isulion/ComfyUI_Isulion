@@ -66,6 +66,7 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 - 🐰 **Fusion Cute Animals**: Adorable hybrid creature combinations
 - 🦄 **Chimera Strange Animals**: Unique hybrid creatures with distinctive head-body combinations
 - 🎩 **Vintage Anthropomorphic**: Photorealistic Victorian-era anthropomorphic characters
+- 🎭 **Peaky Blinders Style**: 1920s gangster-themed anthropomorphic characters in period-accurate settings
 - 🖼️ **Binet Surreal**: Anthropomorphic portraits inspired by Sylvain Binet
 
 #### Environment Themes
