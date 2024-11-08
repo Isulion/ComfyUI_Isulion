@@ -2,8 +2,8 @@ import random
 
 class IsulionMegaPromptGenerator:
     # Reuse all the existing lists/dictionaries from other nodes
-    animals = ['Dog','Cat','Horse','Cow','Chicken','Pig','Sheep','Goat','Lion','Tiger','Elephant','Bear','Wolf','Fox','Deer','Rabbit','Kangaroo','Giraffe','Zebra','Monkey','Chimpanzee','Gorilla','Orangutan','Panda','Koala','Hippopotamus','Rhinoceros','Crocodile','Alligator','Eagle','Hawk','Falcon','Owl','Penguin','Dolphin','Whale','Shark','Octopus','Squid','Jellyfish','Crab','Lobster','Clownfish','Sea Turtle','Frog','Toad','Snake','Lizard','Gecko','Tortoise','Camel','Donkey','Bat','Rat','Mouse','Squirrel','Chipmunk','Porcupine','Hedgehog','Skunk','Raccoon','Otter','Seal','Walrus','Polar Bear','Grizzly Bear','Cheetah','Leopard','Jaguar','Antelope','Buffalo','Bison','Moose','Reindeer','Mole','Platypus','Echidna','Parrot','Peacock','Swan','Duck','Goose','Turkey','Flamingo','Pelican','Seagull','Sparrow','Pigeon','Crow','Magpie','Woodpecker','Hummingbird','Butterfly','Bee','Ant','Spider','Scorpion','Worm','Snail']  # from Animal node
-    cute_animals = ['Red Panda','Koala','Fennec Fox','Pygmy Marmoset','Quokka','Sea Otter','Harp Seal Pup','Panda Cub','Penguin Chick','Hedgehog','Axolotl','Sloth','Rabbit','Kitten','Puppy','Meerkat','Sugar Glider','Chinchilla','Slow Loris','Hamster','Red Fox Kit','Lamb','Piglet','Duckling','Pygmy Hippo','Baby Giraffe','Baby Alpaca','Otter Pup','Corgi Puppy','Golden Retriever Puppy','Seal Pup','Snow Leopard Cub','Tiger Cub','Lion Cub','Baby Gorilla','Baby Orangutan','Pygmy Goat','Fawn (Baby Deer)','Ferret','Platypus','Kangaroo Joey','Wallaby','Serval Kitten','Caracal Kitten','Clouded Leopard Cub','Red Squirrel','Chipmunk','Prairie Dog','Arctic Fox','Polar Bear Cub','Bottlenose Dolphin Calf','Beluga Whale Calf','Manatee Calf','Baby Skunk','Raccoon Kit','Baby Opossum','Baby Echidna (Puggle)','Baby Tapir','GiantPanda Cub','Baby Hippo','Baby Rhino','Baby Zebra','Baby Elephant Seal','Baby Wombat','Baby Emu','Baby Kiwi Bird','Baby Flamingo','Cygnet (Baby Swan)','Baby Tortoise','Baby Alligator','Baby Crocodile','Baby Chameleon','Baby Iguana','Baby Frog','Baby Toad','Baby Gecko','Ring-tailed Lemur','Sifaka Lemur','Mouse Lemur','Bush Baby','PygmyPossum','Baby Mole','Baby Bat','Leveret (Baby Hare)','Baby Mole Rat','Baby Porcupine','Baby Badger','Pygmy Rabbit','Baby Seal','Baby Puffin','Owlet (Baby Owl)','Hoglet(Baby Hedgehog)','Baby Armadillo','Baby Pangolin','Baby Okapi','Baby Cheetah','Baby Ocelot','Baby Lynx','Baby Tasmanian Devil']  # from Cute Animal node
+    animals = ['Dog','Cat','Horse','Cow','Chicken','Pig','Sheep','Goat','Lion','Tiger','Elephant','Bear','Wolf','Fox','Deer','Rabbit','Kangaroo','Giraffe','Zebra','Monkey','Chimpanzee','Gorilla','Orangutan','Panda','Koala','Hippopotamus','Rhinoceros','Crocodile','Alligator','Eagle','Hawk','Falcon','Owl','Penguin','Dolphin','Shark','Octopus','Squid','Jellyfish','Crab','Lobster','Clownfish','Sea Turtle','Frog','Toad','Snake','Lizard','Gecko','Tortoise','Camel','Donkey','Bat','Rat','Mouse','Squirrel','Chipmunk','Porcupine','Hedgehog','Skunk','Raccoon','Otter','Seal','Walrus','Polar Bear','Grizzly Bear','Cheetah','Leopard','Jaguar','Antelope','Buffalo','Bison','Moose','Reindeer','Mole','Platypus','Echidna','Parrot','Peacock','Swan','Duck','Goose','Turkey','Flamingo','Pelican','Seagull','Sparrow','Pigeon','Crow','Magpie','Woodpecker','Hummingbird','Butterfly','Bee','Ant','Spider','Scorpion','Worm','Snail']  # from Animal node
+    cute_animals = ['Red Panda','Koala','Fennec Fox','Pygmy Marmoset','Quokka','Sea Otter','Harp Seal Pup','Panda Cub','Penguin Chick','Hedgehog','Axolotl','Sloth','Rabbit','Kitten','Puppy','Meerkat','Sugar Glider','Chinchilla','Slow Loris','Hamster','Red Fox Kit','Lamb','Piglet','Duckling','Pygmy Hippo','Baby Giraffe','Baby Alpaca','Otter Pup','Corgi Puppy','Golden Retriever Puppy','Seal Pup','Snow Leopard Cub','Tiger Cub','Lion Cub','Baby Gorilla','Baby Orangutan','Pygmy Goat','Fawn (Baby Deer)','Ferret','Platypus','Kangaroo Joey','Wallaby','Serval Kitten','Caracal Kitten','Clouded Leopard Cub','Red Squirrel','Chipmunk','Prairie Dog','Arctic Fox','Polar Bear Cub','Baby Skunk','Raccoon Kit','Baby Opossum','Baby Echidna (Puggle)','Baby Tapir','GiantPanda Cub','Baby Hippo','Baby Rhino','Baby Zebra','Baby Elephant Seal','Baby Wombat','Baby Emu','Baby Kiwi Bird','Baby Flamingo','Cygnet (Baby Swan)','Baby Tortoise','Baby Alligator','Baby Crocodile','Baby Chameleon','Baby Iguana','Baby Frog','Baby Toad','Baby Gecko','Ring-tailed Lemur','Sifaka Lemur','Mouse Lemur','Bush Baby','PygmyPossum','Baby Mole','Baby Bat','Leveret (Baby Hare)','Baby Mole Rat','Baby Porcupine','Baby Badger','Pygmy Rabbit','Baby Seal','Baby Puffin','Owlet (Baby Owl)','Hoglet(Baby Hedgehog)','Baby Armadillo','Baby Pangolin','Baby Okapi','Baby Cheetah','Baby Ocelot','Baby Lynx','Baby Tasmanian Devil']  # from Cute Animal node
     behaviors = ["sleeping", "running", "hunting", "playing", "eating", "drinking", "grooming", "swimming", "flying", "climbing", "jumping", "stalking", "resting", "fighting", "mating", "nursing", "exploring", "hiding", "gathering"]  # from Animal Behavior node
     professions = ["chef", "wizard", "warrior", "merchant", "blacksmith", "healer", "ranger", "bard", "alchemist", "scholar", "knight", "assassin", "monk", "necromancer", "paladin", "druid", "hunter", "mage", "thief", "priest"]  # from Profession node
     races = ["elf", "dwarf", "orc", "halfling", "human", "gnome", "troll", "goblin", "fairy", "centaur", "mermaid", "dragon-kin", "tiefling", "angel", "demon", "giant", "vampire", "werewolf", "nymph", "satyr"]  # from Fantasy Race node
@@ -360,6 +360,7 @@ class IsulionMegaPromptGenerator:
         "underwater": "bioluminescent deep-sea photograph with crystalline clarity of",
         "microscopic": "electron microscope visualization with precise detail of",
         "bio_organic": "hybrid bio-mechanical artwork with organic integration of",
+        "🎭 Peaky Blinders Style": "professional studio photograph with precise lighting, ultra-sharp focus, minimalist composition of",
     }
 
     # Add design-focused enhancement words
@@ -927,7 +928,7 @@ class IsulionMegaPromptGenerator:
         'rodents': ['rat', 'mouse', 'squirrel', 'chipmunk', 'hamster', 'beaver', 'capybara', 'gerbil', 'guinea pig', 'porcupine', 'chinchilla', 'marmot', 'prairie dog', 'dormouse', 'agouti', 'degu', 'jerboa', 'kangaroo rat', 'lemming', 'vole', 'woodchuck', 'groundhog', 'flying squirrel', 'nutria', 'viscacha', 'gopher', 'springhare', 'coypu', 'hutia', 'zokors'],
         'birds': ['eagle', 'hawk', 'owl', 'penguin', 'parrot', 'peacock', 'swan', 'duck', 'goose', 'falcon', 'hummingbird', 'toucan', 'macaw', 'flamingo', 'crane', 'pelican', 'albatross', 'raven', 'crow', 'cardinal', 'blue jay', 'woodpecker', 'kingfisher', 'ostrich', 'emu', 'kiwi', 'condor', 'vulture', 'seagull', 'puffin', 'stork', 'heron', 'ibis', 'sparrow', 'finch', 'canary', 'cockatoo', 'parakeet', 'lorikeet', 'quail'],
         'reptiles': ['crocodile', 'alligator', 'snake', 'lizard', 'gecko', 'tortoise', 'iguana', 'chameleon', 'komodo dragon', 'python', 'cobra', 'viper', 'turtle', 'monitor lizard', 'bearded dragon', 'anaconda', 'boa constrictor', 'rattlesnake', 'mamba', 'skink', 'gila monster', 'tuatara', 'caiman', 'basilisk', 'anole', 'tegu', 'agama', 'worm lizard', 'amphisbaena', 'horned lizard'],
-        'marine': ['dolphin', 'whale', 'shark', 'octopus', 'squid', 'jellyfish', 'crab', 'lobster', 'seal', 'sea lion', 'walrus', 'orca', 'narwhal', 'manatee', 'sea turtle', 'seahorse', 'ray', 'starfish', 'eel', 'anglerfish', 'clownfish', 'barracuda', 'moray eel', 'hammerhead shark', 'great white shark', 'manta ray', 'sea urchin', 'sea cucumber', 'sea anemone', 'coral', 'dugong', 'beluga whale', 'blue whale', 'sperm whale', 'humpback whale', 'sea dragon', 'lionfish', 'pufferfish', 'swordfish', 'marlin'],
+        'marine': ['dolphin', 'shark', 'octopus', 'squid', 'jellyfish', 'crab', 'lobster', 'seal', 'sea lion', 'walrus', 'orca', 'narwhal', 'manatee', 'sea turtle', 'seahorse', 'ray', 'starfish', 'eel', 'anglerfish', 'clownfish', 'barracuda', 'moray eel', 'hammerhead shark', 'great white shark', 'manta ray', 'sea urchin', 'sea cucumber', 'sea anemone', 'coral', 'dugong', 'blue whale', 'sea dragon', 'lionfish', 'pufferfish', 'swordfish'],
         'marsupials': ['kangaroo', 'koala', 'wallaby', 'tasmanian devil', 'wombat', 'quokka', 'opossum', 'numbat', 'bandicoot', 'sugar glider', 'quoll', 'potoroo', 'bettong', 'bilby', 'pademelon', 'tree kangaroo', 'cuscus', 'antechinus', 'dunnart', 'phascogale', 'ringtail possum', 'brushtail possum', 'glider possum', 'rock wallaby', 'swamp wallaby'],
         'insects': ['butterfly', 'beetle', 'ant', 'bee', 'wasp', 'dragonfly', 'mantis', 'grasshopper', 'cricket', 'ladybug', 'moth', 'cicada', 'firefly', 'scarab', 'caterpillar', 'centipede', 'millipede', 'scorpion', 'spider', 'termite', 'cockroach', 'earwig', 'stick insect', 'leaf insect', 'walking stick', 'praying mantis', 'assassin bug', 'water strider', 'giant water bug', 'jewel beetle', 'stag beetle', 'rhinoceros beetle', 'hercules beetle', 'atlas beetle', 'dung beetle'],
         'ungulates': ['horse', 'deer', 'elephant', 'giraffe', 'zebra', 'rhinoceros', 'hippopotamus', 'moose', 'elk', 'antelope', 'gazelle', 'bison', 'buffalo', 'camel', 'llama', 'alpaca', 'wildebeest', 'impala', 'kudu', 'oryx', 'eland', 'gemsbok', 'nyala', 'okapi', 'tapir', 'wild boar', 'warthog', 'peccary', 'mountain goat', 'bighorn sheep', 'ibex', 'chamois', 'markhor', 'tahr', 'muskox'],
@@ -1125,6 +1126,123 @@ class IsulionMegaPromptGenerator:
         "dramatic comic book angle", "vintage comic framing"
     ]
 
+    # Add these new class variables after the vintage_anthro_elements
+
+    peaky_blinders_animals = [
+        "lion", "wolf", "tiger", "bear", "gorilla", "bull", "horse", "stag",
+        "fox", "dog", "goat", "ram", "leopard", "panther", "eagle", "hawk",
+        "owl", "raven", "boar", "elk", "moose", "badger", "otter", "lynx",
+        "wildcat", "hound", "mastiff", "doberman", "german shepherd", "great dane"
+    ]
+
+    peaky_blinders_outfits = [
+        "sharp three-piece tweed suit with newsboy cap",
+        "tailored pinstripe suit with flat cap",
+        "wool herringbone suit with leather gloves",
+        "custom-fitted waistcoat and pocket watch",
+        "dark wool overcoat with matching cap",
+        "tailored suit with suspenders and cap",
+        "formal dress suit with bow tie and cap",
+        "vintage three-piece suit with gold chain",
+        "bespoke suit with silk tie and cap",
+        "leather-trimmed suit with matching hat",
+        "double-breasted suit with pocket square",
+        "formal evening wear with top hat",
+        "hunting tweed with leather boots",
+        "racing suit with driving gloves",
+        "military-inspired suit with medals"
+    ]
+
+    peaky_blinders_accessories = [
+        "holding a large cigar",
+        "with a silver pocket watch",
+        "carrying a wooden cane",
+        "with a glass of whiskey",
+        "holding a vintage pistol",
+        "with a leather briefcase",
+        "smoking a carved pipe",
+        "with brass knuckles",
+        "holding a crystal tumbler",
+        "with a leather holster",
+        "carrying a walking stick",
+        "with a gold cigarette case",
+        "holding a glass of red wine",
+        "with an ornate flask",
+        "carrying a leather document case"
+    ]
+
+    peaky_blinders_settings = [
+        "dimly lit gentleman's club",
+        "smoky Birmingham pub",
+        "vintage car garage",
+        "industrial factory office",
+        "private betting parlor",
+        "luxurious study room",
+        "historic train station",
+        "cobblestone street corner",
+        "underground speakeasy",
+        "private members club",
+        "horse racing track",
+        "vintage wine cellar",
+        "old boxing gym",
+        "historic auction house",
+        "private gambling den"
+    ]
+
+    peaky_blinders_furniture = [
+        "luxurious leather armchair",
+        "vintage wooden desk",
+        "antique poker table",
+        "carved mahogany bar",
+        "velvet chesterfield sofa",
+        "brass-trimmed writing desk",
+        "vintage billiards table",
+        "leather wingback chair",
+        "ornate wooden throne",
+        "antique smoking chair",
+        "carved oak table",
+        "vintage betting counter",
+        "leather office chair",
+        "brass-studded armchair",
+        "antique card table"
+    ]
+
+    peaky_blinders_props = [
+        "vintage car from the early 1920s",
+        "antique pocket watch collection",
+        "crystal whiskey decanters",
+        "vintage firearms display",
+        "old racing newspapers",
+        "betting slips and ledgers",
+        "carved wooden boxes",
+        "vintage radio set",
+        "old telephone",
+        "brass table lamps",
+        "antique cash register",
+        "vintage photographs",
+        "old boxing gloves",
+        "horse racing trophies",
+        "vintage playing cards"
+    ]
+
+    peaky_blinders_atmospheres = [
+        "smoky atmosphere with golden lighting",
+        "dim gaslight with long shadows",
+        "morning fog with streaks of sunlight",
+        "warm lamplight with tobacco haze",
+        "dramatic evening shadows",
+        "moody industrial lighting",
+        "soft vintage lighting",
+        "dramatic window light",
+        "atmospheric street lighting",
+        "candlelit ambiance",
+        "dusty sunbeams",
+        "rainy evening atmosphere",
+        "misty morning light",
+        "dramatic spotlight effect",
+        "industrial steam and smoke"
+    ]
+
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -1157,6 +1275,7 @@ class IsulionMegaPromptGenerator:
                     "⚙️ Steampunk Cities",
                     "🌊 Underwater Civilization",
                     "🎩 Vintage Anthropomorphic",
+                    "🎭 Peaky Blinders Style",  # Add this new theme
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
@@ -1232,6 +1351,7 @@ class IsulionMegaPromptGenerator:
             "🌊 Underwater Civilization": "underwater",
             "🔬 Microscopic Universe": "microscopic",
             "🧬 Bio-Organic Technology": "bio_organic",
+            "🎭 Peaky Blinders Style": "peaky_blinders",
         }
 
         # Convert new theme name to old theme name for internal processing
@@ -2004,6 +2124,52 @@ class IsulionMegaPromptGenerator:
                     environment_text = f"featuring {aesthetic}"
                     style_text = "organic integration, seamless fusion, living technology, ultra sharp focus, 8k"
                     effects_text = "with bioluminescent highlights, organic patterns, and technological elements"
+
+                    # Add components based on inclusion flags
+                    components = [subject_text]
+                    if include_environment == "yes":
+                        components.append(environment_text)
+                    if include_style == "yes":
+                        components.append(style_text)
+                    if include_effects == "yes":
+                        components.append(effects_text)
+                elif internal_theme == "peaky_blinders":
+                    # Select core elements
+                    animal = random.choice(self.peaky_blinders_animals)
+                    outfit = random.choice(self.peaky_blinders_outfits)
+                    accessory = random.choice(self.peaky_blinders_accessories)
+                    setting = random.choice(self.peaky_blinders_settings)
+                    furniture = random.choice(self.peaky_blinders_furniture)
+                    atmosphere = random.choice(self.peaky_blinders_atmospheres)
+                    prop = random.choice(self.peaky_blinders_props)
+                    
+                    # Create the main subject description
+                    subject_text = (
+                        f"((Anthropomorphic {animal} in 1920s Peaky Blinders style)), "
+                        f"((wearing {outfit})), {accessory}, "
+                        f"((ultra-detailed fur texture)), ((noble expression)), "
+                        f"((masterful character design))"
+                    )
+                    
+                    # Environment description
+                    environment_text = (
+                        f"in a {setting} with {furniture}, "
+                        f"surrounded by {prop}, {atmosphere}"
+                    )
+                    
+                    # Style elements
+                    style_text = (
+                        f"((1920s period accurate)), ((cinematic composition)), "
+                        f"((masterful photography)), ((ultra-realistic)), "
+                        f"((detailed textures)), 8k resolution"
+                    )
+                    
+                    # Effects
+                    effects_text = (
+                        f"with ((dramatic lighting)), ((volumetric atmosphere)), "
+                        f"((perfect exposure)), ((cinematic color grading)), "
+                        f"((detailed shadows)), ((period-accurate details))"
+                    )
 
                     # Add components based on inclusion flags
                     components = [subject_text]
