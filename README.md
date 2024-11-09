@@ -126,7 +126,7 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 
 #### 🔧 Enhancement Nodes
 
-- 📝 Prompt Enhancer - Adds detail, mood, composition, lighting, or color enhancements
+- 📝 Prompt Enhancer - More details, mood, composition, lighting, or color enhancements
 - ⛔ Negative Prompt - Creates matching negative prompts with adjustable strictness
 - 🎨 Style Mixer - Combines multiple art styles with adjustable blend modes
 
