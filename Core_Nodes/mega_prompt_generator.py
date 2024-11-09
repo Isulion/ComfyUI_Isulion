@@ -12,7 +12,7 @@ class IsulionMegaPromptGenerator:
         "realistic": ["business suit", "casual wear", "jeans and t-shirt", "dress", "uniform", "sportswear", "formal attire", "streetwear", "hoodie", "leather jacket", "blazer", "sweater", "coat", "shorts", "skirt"],
         "sci_fi": ["space suit", "cybernetic armor", "nanotech suit", "power armor", "environmental suit", "combat exoskeleton", "stealth suit", "hazmat suit", "neural interface suit", "quantum armor", "plasma-resistant gear", "gravity suit", "bio-enhanced armor", "energy shield suit", "phase shift armor"]
     }
-    actions = ["running", "jumping", "fighting", "casting spell", "flying", "swimming", "climbing", "sneaking", "dancing", "meditating", "charging", "defending", "attacking", "healing", "crafting", "exploring", "investigating", "performing ritual", "transforming", "commanding"]
+    actions = ["running", "jumping", "fighting", "casting spell", "flying", "swimming", "climbing", "sneaking", "dancing", "meditating", "charging", "defending", "attacking", "healing", "crafting", "exploring", "investigating", "performing ritual", "commanding"]
     compositions = ["close-up shot", "wide angle", "birds eye view", "low angle", "portrait", "landscape", "panoramic", "macro shot", "aerial view", "profile view", "dutch angle", "over the shoulder", "establishing shot", "tracking shot", "symmetrical composition", "rule of thirds", "centered composition", "dynamic angle", "dramatic perspective", "silhouette"]
     habitats = ["forest", "desert", "mountains", "ocean", "jungle", "tundra", "savanna", "wetlands", "cave", "valley", "canyon", "beach", "volcanic region", "coral reef", "grassland", "rainforest", "arctic", "oasis", "cliff", "underground"]
     weather = ["sunny", "rainy", "stormy", "snowy", "cloudy", "foggy", "windy", "thunderstorm", "hail", "sleet", "hurricane", "tornado", "clear sky", "overcast", "misty", "drizzle", "blizzard", "sandstorm", "heat wave", "lightning storm"]
@@ -618,7 +618,7 @@ class IsulionMegaPromptGenerator:
         "cartography office", "vintage wine cellar", "art gallery",
         "old world pharmacy", "scientific laboratory", "music conservatory",
         "historic theater", "luxury ocean liner", "grand hotel lobby",
-        "Victorian conservatory", "ornate drawing room", "vintage apothecary",
+        "ornate drawing room", "vintage apothecary",
         "crystal palace greenhouse", "mahogany-paneled study", "rare book archive",
         "steampunk workshop", "velvet-draped parlor", "vintage chess club",
         "antique map room", "gilded ballroom", "vintage printing press",
@@ -747,7 +747,7 @@ class IsulionMegaPromptGenerator:
     star_wars_effects = [
         "force lightning", "force push", "lightsaber glow", "blaster fire",
         "force shield", "force healing", "force vision", "hyperspace jump",
-        "ion discharge", "laser blast", "energy shield", "force meditation",
+        "ion discharge", "laser blast", "force meditation",
         "force choke", "force projection", "saber clash", "force storm",
         "force illusion", "force barrier", "force explosion", "force wave"
     ]
@@ -826,7 +826,6 @@ class IsulionMegaPromptGenerator:
             "gear-driven urban center",
             "steam-powered factory district",
             "mechanical engineering district",
-            "brass-plated urban sprawl",
             "Victorian mechanical city",
             "steampunk transportation hub",
             "industrial age marketplace",
@@ -1450,17 +1449,70 @@ class IsulionMegaPromptGenerator:
                 components.append(subject_text)
             else:
                 if internal_theme == "futuristic_city":
-                    # Select main architectural element
-                    architecture = random.choice(self.futuristic_city_elements["architecture"])
-                    # Select infrastructure
-                    infrastructure = random.choice(self.futuristic_city_elements["infrastructure"])
-                    # Select atmosphere
-                    atmosphere = random.choice(self.futuristic_city_elements["atmosphere"])
-                    # Select time
-                    time = random.choice(self.futuristic_city_elements["time"])
+                    # Select base elements
+                    composition = random.choice(self.compositions)
                     
-                    subject_text = f"cinematic wide shot of a {atmosphere} futuristic megacity with {architecture} and {infrastructure}, during {time}, ultra detailed cityscape, shallow depth of field, sharp focus, 8k"
-
+                    # Determine scene type
+                    scene_type = random.random()
+                    if scene_type < 0.4:  # 40% chance for aerial cityscape
+                        architecture = random.choice(self.futuristic_city_elements["architecture"])
+                        infrastructure = random.choice(self.futuristic_city_elements["infrastructure"])
+                        atmosphere = random.choice(self.futuristic_city_elements["atmosphere"])
+                        subject_text = (
+                            f"((epic aerial view)) of a ((massive futuristic megacity)) with "
+                            f"((towering {architecture})) and ((advanced {infrastructure})), "
+                            f"((in {atmosphere} atmosphere)), {composition}"
+                        )
+                    elif scene_type < 0.7:  # 30% chance for street level
+                        architecture = random.choice(self.futuristic_city_elements["architecture"])
+                        infrastructure = random.choice(self.futuristic_city_elements["infrastructure"])
+                        atmosphere = random.choice(self.futuristic_city_elements["atmosphere"])
+                        subject_text = (
+                            f"((immersive street-level view)) of a ((futuristic metropolis)) with "
+                            f"((detailed {architecture})) and ((intricate {infrastructure})), "
+                            f"((in {atmosphere} atmosphere)), {composition}"
+                        )
+                    else:  # 30% chance for establishing shot
+                        architecture = random.choice(self.futuristic_city_elements["architecture"])
+                        infrastructure = random.choice(self.futuristic_city_elements["infrastructure"])
+                        atmosphere = random.choice(self.futuristic_city_elements["atmosphere"])
+                        subject_text = (
+                            f"((epic establishing shot)) of a ((vast futuristic city)) with "
+                            f"((majestic {architecture})) and ((complex {infrastructure})), "
+                            f"((in {atmosphere} atmosphere)), {composition}"
+                        )
+                    
+                    # Initialize components with subject
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        time = random.choice(self.futuristic_city_elements["time"])
+                        atmosphere = random.choice(self.futuristic_city_elements["atmosphere"])
+                        environment_text = (
+                            f"during {time}, ((with {atmosphere} atmosphere)), "
+                            f"((advanced technology)), ((cyberpunk elements)), "
+                            f"((futuristic urban landscape))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((ultra detailed cityscape)), ((sci-fi aesthetic)), "
+                            f"((futuristic architecture)), ((advanced technology)), "
+                            f"((cinematic scale)), ((urban complexity)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        effects_text = (
+                            f"with ((neon lighting)), ((holographic displays)), "
+                            f"((volumetric fog)), ((light rays)), ((energy effects)), "
+                            f"((reflective surfaces)), ((atmospheric perspective))"
+                        )
+                        components.append(effects_text)
                 elif internal_theme == "strange_animal":
                     def get_animal_family(animal):
                         animal_lower = animal.lower()
@@ -1510,18 +1562,74 @@ class IsulionMegaPromptGenerator:
                     components = [subject_text]
                     
                 elif internal_theme == "fantasy":
-                    # New specific handling for fantasy theme
-                    if random.random() < 0.3:  # 30% chance for magical creature
-                        race = random.choice(self.races)
-                        profession = random.choice(self.professions)
-                        clothing = random.choice(self.clothing["fantasy"])
-                        subject_text = f"{race} {profession} wearing {clothing}"
-                    else:  # 70% chance for character
-                        profession = random.choice(self.professions)
-                        race = random.choice(self.races)
-                        artifact = random.choice(self.artifacts["weapon"])
-                        clothing = random.choice(self.clothing["fantasy"])
-                        subject_text = f"{race} {profession} wielding {artifact}, wearing {clothing}"
+                    # Select base elements
+                    race = random.choice(self.races)
+                    profession = random.choice(self.professions)
+                    composition = random.choice(self.compositions)
+                    
+                    # Determine scene type
+                    scene_type = random.random()
+                    if scene_type < 0.4:  # 40% chance for warrior/combat scene
+                        weapon = random.choice(self.artifacts["weapon"])
+                        armor = random.choice(self.artifacts["armor"])
+                        magic = random.choice(self.magical_effects["arcane"])
+                        subject_text = (
+                            f"epic fantasy scene of a {race} {profession} "
+                            f"wielding ((legendary {weapon})), wearing ((enchanted {armor})), "
+                            f"channeling {magic}, {composition}"
+                        )
+                    elif scene_type < 0.7:  # 30% chance for magical/mystical scene
+                        jewelry = random.choice(self.artifacts["jewelry"])
+                        magic_nature = random.choice(self.magical_effects["nature"])
+                        magic_fire = random.choice(self.magical_effects["fire"])
+                        subject_text = (
+                            f"mystical portrait of a {race} {profession} "
+                            f"wearing ((magical {jewelry})), conjuring {magic_nature} "
+                            f"and {magic_fire}, {composition}"
+                        )
+                    else:  # 30% chance for exploration/adventure scene
+                        armor = random.choice(self.artifacts["armor"])
+                        magic_ice = random.choice(self.magical_effects["ice"])
+                        subject_text = (
+                            f"fantasy adventure scene of a {race} {profession} "
+                            f"wearing ((mystical {armor})), surrounded by {magic_ice}, "
+                            f"{composition}"
+                        )
+                    
+                    # Initialize components with subject
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        location = random.choice(self.mythical_locations)
+                        weather = random.choice(self.weather)
+                        time = random.choice(self.times)
+                        magic_lightning = random.choice(self.magical_effects["lightning"])
+                        environment_text = (
+                            f"in a ((magical {location})) during {weather} {time}, "
+                            f"with {magic_lightning} in the sky, "
+                            f"((fantasy atmosphere)), ((mythical realm))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((epic fantasy art)), ((magical atmosphere)), "
+                            f"((detailed fantasy illustration)), ((dramatic lighting)), "
+                            f"((mythical quality)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        magic_arcane = random.choice(self.magical_effects["arcane"])
+                        effects_text = (
+                            f"with {magic_arcane}, ((magical particles)), "
+                            f"((glowing runes)), ((ethereal atmosphere)), "
+                            f"((mystical energy)), ((fantasy effects))"
+                        )
+                        components.append(effects_text)
                 elif internal_theme == "abstract":
                     # More pure abstract elements
                     primary = random.choice([
@@ -1532,11 +1640,65 @@ class IsulionMegaPromptGenerator:
                     style = random.choice(self.abstract_styles)
                     subject_text = f"{style} {primary} composition with {element}"
                 elif internal_theme == "cartoon":
+                    # Select base elements
                     character = random.choice(self.cartoon_characters)
-                    action = random.choice(self.actions)
-                    subject_text = f"{character} {action}"
-                    # Add the subject text to components immediately
-                    components = [subject_text]  # Initialize components with subject_text
+                    composition = random.choice(self.compositions)
+                    
+                    # Create dynamic cartoon action
+                    action = random.choice([
+                        "in a wacky chase scene",
+                        "performing slapstick comedy",
+                        "in a funny situation",
+                        "with exaggerated expression",
+                        "in a comedic moment",
+                        "doing silly antics",
+                        "in classic cartoon style",
+                        "with cartoon physics",
+                        "in animated mayhem",
+                        "with classic cartoon expressions"
+                    ])
+                    
+                    # Create detailed subject description
+                    subject_text = (
+                        f"((classic cartoon animation)) of {character} {action}, "
+                        f"((animated style)), {composition}"
+                    )
+                    
+                    # Initialize components with subject
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        environment = random.choice([
+                            "cartoon world", "animated landscape", "classic cartoon background",
+                            "wacky environment", "cartoon city", "animated forest",
+                            "cartoon household", "silly cartoon setting", "animated playground",
+                            "cartoon wonderland"
+                        ])
+                        environment_text = (
+                            f"in a ((vibrant {environment})), "
+                            f"((cartoon physics)), ((animated atmosphere))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((classic animation style)), ((cartoon art)), "
+                            f"((hand-drawn animation)), ((bold colors)), "
+                            f"((exaggerated features)), ((smooth animation)), "
+                            f"((cartoon shading)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        effects_text = (
+                            f"with ((cartoon effects)), ((animation smears)), "
+                            f"((impact stars)), ((speed lines)), ((cartoon physics)), "
+                            f"((exaggerated motion)), ((animated expressions))"
+                        )
+                        components.append(effects_text)
                 elif internal_theme == "cute chimera":
                     def get_animal_family(animal):
                         animal_lower = animal.lower()
@@ -1595,175 +1757,526 @@ class IsulionMegaPromptGenerator:
                     # Add the subject text to components immediately after creating it
                     components = [subject_text]  # Initialize components with subject_text
                 elif internal_theme == "cinema":
-                    # Add proper cinema character handling
+                    # Select character and base elements
                     character = random.choice(self.cinema_characters)
-                    action = random.choice(self.actions)
-                    subject_text = f"{character} {action}"
+                    composition = random.choice(self.compositions)
+                    
+                    # Create action with more cinematic flair
+                    action = random.choice([
+                        "in an epic action sequence",
+                        "in a dramatic confrontation",
+                        "in a tense standoff",
+                        "performing a signature move",
+                        "making a dramatic entrance",
+                        "in a climactic battle",
+                        "in a stealth mission",
+                        "in pursuit",
+                        "preparing for combat",
+                        "defending against enemies"
+                    ])
+                    
+                    # Create detailed subject description
+                    subject_text = f"cinematic shot of {character} {action}, {composition}"
+                    
+                    # Initialize components with subject first
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        time = random.choice(self.times)
+                        weather = random.choice(self.weather)
+                        habitat = random.choice(self.habitats)
+                        environment_text = f"in {habitat} during {weather} {time}"
+                        components.append(environment_text)
+                    
+                    # Add style elements specific to cinema
+                    if include_style == "yes":
+                        style_text = (
+                            f"((cinematic lighting)), ((movie quality)), "
+                            f"((professional cinematography)), ((dramatic framing)), "
+                            f"((photorealistic)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        effects_text = (
+                            f"with ((lens flare)), ((atmospheric haze)), "
+                            f"((volumetric lighting)), ((dramatic shadows)), "
+                            f"((depth of field)), ((film grain))"
+                        )
+                        components.append(effects_text)
                 elif internal_theme == "anime":
-                    # Select base elements
+                    # Select base elements with better utilization of anime-specific classes
                     style = random.choice(self.anime_styles)
                     character = random.choice(self.anime_characters)
                     expression = random.choice(self.anime_expressions)
                     emotion = random.choice(self.anime_emotions)
+                    action = random.choice(self.anime_actions)
+                    environment = random.choice(self.anime_environments)
+                    effect = random.choice(self.anime_effects)
+                    composition = random.choice(self.anime_compositions)
                     
                     # Create detailed subject description
-                    subject_text = f"((high quality {style})) of {character} with {expression} showing {emotion}"
+                    subject_text = (
+                        f"((high quality {style})) of {character} with {expression} showing {emotion}"
+                    )
+                    
+                    # Initialize components with subject first
+                    components = [subject_text]
                     
                     # Add action if enabled
                     if include_action == "yes":
-                        action = random.choice(self.anime_actions)
-                        composition = random.choice(self.anime_compositions)
                         action_text = f"{action}, {composition}"
                         components.append(action_text)
                     
                     # Add environment if enabled
                     if include_environment == "yes":
-                        environment = random.choice(self.anime_environments)
                         time = random.choice(["sunset", "dawn", "golden hour", "night", "afternoon"])
                         environment_text = f"in {environment} during {time}"
                         components.append(environment_text)
                     
                     # Add style elements
-                    style_text = (
-                        "((masterful anime artwork)), ((detailed line art)), "
-                        "((perfect anime illustration)), ((high quality anime key visual)), "
-                        "vibrant colors, beautiful lighting, expert composition"
-                    )
+                    if include_style == "yes":
+                        style_text = (
+                            f"((masterful anime artwork)), ((detailed line art)), "
+                            f"((perfect anime illustration)), ((high quality anime key visual)), "
+                            f"vibrant colors, beautiful lighting, expert composition"
+                        )
+                        components.append(style_text)
                     
                     # Add effects if enabled
                     if include_effects == "yes":
-                        effect = random.choice(self.anime_effects)
                         effects_text = (
                             f"with {effect}, ((anime aesthetic)), ((manga style)), "
-                            "detailed shading, clean lines, perfect anatomy"
+                            f"detailed shading, clean lines, perfect anatomy"
                         )
                         components.append(effects_text)
-                    
-                    components = [subject_text]
-                    if include_style == "yes":
-                        components.append(style_text)
                 elif internal_theme == "architecture":
+                    # Select base elements
                     style = random.choice(self.architecture_styles)
                     element = random.choice(self.architecture_elements)
-                    subject_text = f"{style} {element}"
+                    composition = random.choice(self.compositions)
+                    
+                    # Create detailed subject description
+                    subject_text = (
+                        f"((architectural photography)) of ((detailed {style} {element})), "
+                        f"((masterful composition)), {composition}"
+                    )
+                    
+                    # Initialize components with subject first
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        time = random.choice(self.times)
+                        weather = random.choice(self.weather)
+                        environment_text = (
+                            f"during {time} with {weather}, "
+                            f"((perfect natural lighting)), ((architectural details)), "
+                            f"((premium materials)), ((dramatic perspective))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((professional architectural photography)), ((ultra sharp focus)), "
+                            f"((perfect exposure)), ((dramatic angles)), "
+                            f"((architectural visualization)), ((premium quality)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        effects_text = (
+                            f"with ((volumetric lighting)), ((perfect shadows)), "
+                            f"((detailed textures)), ((reflective surfaces)), "
+                            f"((architectural materials)), ((precise geometry))"
+                        )
+                        components.append(effects_text)
                 elif internal_theme == "sci_fi":
-                    if random.random() < 0.6:  # 60% chance for character
-                        tech = random.choice(self.technology["augments"])
+                    # Select base elements
+                    composition = random.choice(self.compositions)
+                    
+                    # Determine scene type with expanded probabilities
+                    scene_type = random.random()
+                    if scene_type < 0.4:  # 40% chance for character
+                        # Character-focused scene
+                        tech_augment = random.choice(self.technology["augments"])
+                        tech_gadget = random.choice(self.technology["gadgets"])
                         clothing = random.choice(self.clothing["sci_fi"])
-                        subject_text = f"futuristic character with {tech} wearing {clothing}"
-                    else:  # 40% chance for spacecraft/tech
+                        subject_text = (
+                            f"futuristic character with ((advanced {tech_augment})) and "
+                            f"((high-tech {tech_gadget})), wearing {clothing}, {composition}"
+                        )
+                    elif scene_type < 0.7:  # 30% chance for spacecraft
+                        # Spacecraft scene
                         ship = random.choice(self.spacecraft["military"])
-                        tech = random.choice(self.technology["weapons"])
-                        subject_text = f"advanced {ship} equipped with {tech}"
+                        tech_weapon = random.choice(self.technology["weapons"])
+                        subject_text = (
+                            f"advanced ((sci-fi {ship})) equipped with {tech_weapon}, "
+                            f"((detailed mechanical design)), {composition}"
+                        )
+                    else:  # 30% chance for cityscape
+                        # Cityscape scene
+                        atmosphere = random.choice(self.alien_world_elements["atmospheres"])
+                        terrain = random.choice(self.alien_world_elements["terrains"])
+                        feature = random.choice(self.alien_world_elements["features"])
+                        subject_text = (
+                            f"futuristic cityscape with {atmosphere} atmosphere, "
+                            f"featuring {terrain} and {feature}, {composition}"
+                        )
+                    
+                    # Initialize components with subject
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        # Use alien world elements for environment
+                        color = random.choice(self.alien_world_elements["colors"])
+                        feature = random.choice(self.alien_world_elements["features"])
+                        environment_text = (
+                            f"in a {color} alien world with {feature}, "
+                            f"((advanced technology)), ((futuristic architecture))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((sci-fi aesthetic)), ((futuristic design)), "
+                            f"((high-tech details)), ((advanced technology)), "
+                            f"((cyberpunk elements)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        effects_text = (
+                            f"with ((holographic displays)), ((energy effects)), "
+                            f"((neon lighting)), ((technological glow)), "
+                            f"((volumetric fog)), ((metallic reflections))"
+                        )
+                        components.append(effects_text)
                 elif internal_theme == "food":
+                    # Select base elements
                     food = random.choice(self.food_types)
                     style = random.choice(self.food_styles)
-                    subject_text = f"{style} {food}"
+                    composition = random.choice(self.compositions)
                     
-                    environment_text = (
-                        f"on {random.choice(['rustic wooden table', 'marble counter', 'elegant plate', 'vintage dish', 'modern platter', 'chef table', 'restaurant setting'])}, "
-                        f"with perfect composition and styling"
+                    # Create detailed subject description
+                    subject_text = (
+                        f"professional food photograph of {style} {food}, "
+                        f"((mouth-watering details)), {composition}"
                     )
                     
-                    style_text = (
-                        f"professional food photography, ultra sharp focus, "
-                        f"perfect exposure, 8k resolution, commercial quality"
-                    )
-                    
-                    effects_text = (
-                        f"with soft depth of field, perfect color balance, "
-                        f"mouth-watering details, professional food styling"
-                    )
-
-                    # Add components based on inclusion flags
+                    # Initialize components with subject
                     components = [subject_text]
+                    
+                    # Add environment if enabled
                     if include_environment == "yes":
+                        setting = random.choice([
+                            "rustic wooden table", "marble counter", "elegant plate",
+                            "vintage dish", "modern platter", "chef table", 
+                            "restaurant setting", "professional studio setup",
+                            "minimalist white surface", "artisanal ceramic plate",
+                            "luxury dining table", "gourmet presentation"
+                        ])
+                        environment_text = (
+                            f"on {setting}, ((perfect composition)), "
+                            f"((professional food styling)), ((studio lighting))"
+                        )
                         components.append(environment_text)
+                    
+                    # Add style elements
                     if include_style == "yes":
+                        style_text = (
+                            f"((professional food photography)), ((ultra sharp focus)), "
+                            f"((commercial quality)), ((perfect exposure)), "
+                            f"((culinary photography)), 8k resolution"
+                        )
                         components.append(style_text)
+                    
+                    # Add effects if enabled
                     if include_effects == "yes":
+                        effects_text = (
+                            f"with ((soft depth of field)), ((perfect color balance)), "
+                            f"((steam effects)), ((fresh ingredients)), "
+                            f"((appetizing highlights)), ((natural textures))"
+                        )
                         components.append(effects_text)
-                    
-                    # Create the prompt
-                    prompt = ", ".join(components)
-                    if enhancement_level in self.enhancements[enhancement_focus]:
-                        enhancement = random.choice(self.enhancements[enhancement_focus][enhancement_level])
-                        prompt = f"{prompt}, {enhancement}"
-                        effects_text = f"{effects_text}, {enhancement}"
-                    
-                    # Return immediately after food theme handling
-                    return (prompt, subject_text, "", environment_text, style_text, effects_text, seed)
                 elif internal_theme == "interior":
+                    # Select base elements
                     style = random.choice(self.interior_styles)
                     space = random.choice(self.interior_spaces)
                     element = random.choice(self.interior_elements)
+                    composition = random.choice(self.compositions)
                     
+                    # Create detailed subject description
                     subject_text = (
-                        f"architectural interior photograph of a {style} {space} with {element}, "
-                        f"empty space, no people, interior design photography"
+                        f"professional interior design photograph of a ((luxury {style} {space})) "
+                        f"with ((premium {element})), ((masterful composition)), {composition}"
                     )
                     
-                    environment_text = (
-                        f"featuring natural light, perfect composition, "
-                        f"architectural details, premium materials"
-                    )
-                    
-                    style_text = (
-                        f"professional interior photography, ultra sharp focus, "
-                        f"perfect exposure, 8k resolution, photorealistic"
-                    )
-                    
-                    effects_text = (
-                        f"with volumetric lighting, soft shadows, "
-                        f"depth of field, perfect white balance"
-                    )
-
-                    # Add components based on inclusion flags
+                    # Initialize components with subject
                     components = [subject_text]
+                    
+                    # Add environment if enabled
                     if include_environment == "yes":
+                        time = random.choice([
+                            "morning", "midday", "afternoon", "golden hour",
+                            "blue hour", "evening", "twilight"
+                        ])
+                        lighting = random.choice([
+                            "natural sunlight", "soft diffused light", "dramatic window light",
+                            "ambient lighting", "accent lighting", "architectural lighting",
+                            "indirect lighting", "spotlighting"
+                        ])
+                        environment_text = (
+                            f"during {time} with ((perfect {lighting})), "
+                            f"((architectural details)), ((premium materials)), "
+                            f"((sophisticated atmosphere))"
+                        )
                         components.append(environment_text)
+                    
+                    # Add style elements
                     if include_style == "yes":
+                        style_text = (
+                            f"((professional interior photography)), ((ultra sharp focus)), "
+                            f"((luxury interior design)), ((perfect exposure)), "
+                            f"((architectural visualization)), ((premium quality)), 8k resolution"
+                        )
                         components.append(style_text)
+                    
+                    # Add effects if enabled
                     if include_effects == "yes":
+                        effects_text = (
+                            f"with ((volumetric light rays)), ((soft shadows)), "
+                            f"((perfect reflections)), ((material textures)), "
+                            f"((depth of field)), ((color harmony)), ((interior ambiance))"
+                        )
                         components.append(effects_text)
                 elif internal_theme == "3D":
+                    # Select base elements
                     style = random.choice(self.threed_styles)
-                    if random.random() < 0.5:
+                    composition = random.choice(self.compositions)
+                    
+                    # Determine scene type
+                    scene_type = random.random()
+                    if scene_type < 0.4:  # 40% chance for architectural
                         subject = random.choice(self.architecture_elements)
-                    else:
-                        options = (self.technology["gadgets"] + 
-                                 [f"{race} character" for race in self.races])
-                        subject = random.choice(options)
-                    subject_text = f"{style} {subject}"
+                        subject_text = (
+                            f"{style} of {subject}, ((detailed 3D modeling)), "
+                            f"((architectural visualization)), {composition}"
+                        )
+                    elif scene_type < 0.7:  # 30% chance for character
+                        race = random.choice(self.races)
+                        tech = random.choice(self.technology["gadgets"])
+                        subject_text = (
+                            f"{style} of {race} character with {tech}, "
+                            f"((character modeling)), ((detailed textures)), {composition}"
+                        )
+                    else:  # 30% chance for sci-fi/tech
+                        gadget = random.choice(self.technology["gadgets"])
+                        subject_text = (
+                            f"{style} of futuristic {gadget}, "
+                            f"((product visualization)), ((technical details)), {composition}"
+                        )
+                    
+                    # Initialize components with subject
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        environment_text = (
+                            f"in a ((professionally lit 3D environment)), "
+                            f"((perfect studio lighting)), ((HDRI background)), "
+                            f"((ambient occlusion)), ((global illumination))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((octane render)), ((ultra high poly)), "
+                            f"((physically based rendering)), ((subsurface scattering)), "
+                            f"((ray tracing)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        effects_text = (
+                            f"with ((perfect reflections)), ((realistic materials)), "
+                            f"((depth of field)), ((volumetric lighting)), "
+                            f"((ambient occlusion)), ((perfect shadows))"
+                        )
+                        components.append(effects_text)
                 elif internal_theme == "halloween":
+                    # Select base elements
                     creature = random.choice(self.halloween_elements["creatures"])
                     prop = random.choice(self.halloween_elements["props"])
-                    subject_text = f"{creature} with {prop}"
+                    setting = random.choice(self.halloween_elements["settings"])
+                    composition = random.choice(self.compositions)
+                    
+                    # Create detailed subject description
+                    subject_text = (
+                        f"((spooky {creature})) with ((haunted {prop})), "
+                        f"((eerie atmosphere)), {composition}"
+                    )
+                    
+                    # Initialize components with subject
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        time = random.choice([
+                            "midnight", "witching hour", "full moon night", 
+                            "foggy twilight", "dark evening", "stormy night"
+                        ])
+                        weather = random.choice([
+                            "misty", "stormy", "cloudy", "windy",
+                            "thunderous", "eerily calm"
+                        ])
+                        environment_text = (
+                            f"in a ((haunted {setting})) during {weather} {time}, "
+                            f"((gothic atmosphere)), ((supernatural ambiance))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((dark fantasy)), ((horror atmosphere)), "
+                            f"((dramatic lighting)), ((gothic style)), "
+                            f"((haunting mood)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        effects_text = (
+                            f"with ((ghostly mist)), ((eerie glow)), "
+                            f"((dark shadows)), ((moonlight rays)), "
+                            f"((supernatural effects)), ((ominous atmosphere))"
+                        )
+                        components.append(effects_text)
                 elif internal_theme == "instagram":
+                    # Select base elements
                     influencer = random.choice(self.influencer_types)
                     activity = random.choice(self.influencer_activities)
-                    subject_text = f"beautiful {influencer} {activity}"
-                elif internal_theme == "realistic":  # Changed from else to explicit theme
-                    if random.random() < 0.7:  # 70% chance for human subject
+                    location = random.choice(self.influencer_locations)
+                    composition = random.choice(self.compositions)
+                    
+                    # Create detailed subject description
+                    subject_text = (
+                        f"professional lifestyle photograph of {influencer} {activity}, "
+                        f"((instagram aesthetic)), {composition}"
+                    )
+                    
+                    # Initialize components with subject
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        time = random.choice([
+                            "golden hour", "sunset", "blue hour", "morning light",
+                            "magic hour", "soft daylight", "dusk", "twilight"
+                        ])
+                        environment_text = (
+                            f"at {location} during {time}, "
+                            f"((lifestyle setting)), ((perfect ambiance)), "
+                            f"((instagram worthy location))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((professional lifestyle photography)), ((social media aesthetic)), "
+                            f"((influencer style)), ((perfect exposure)), "
+                            f"((trendy composition)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        effects_text = (
+                            f"with ((natural bokeh)), ((soft skin glow)), "
+                            f"((perfect golden light)), ((lifestyle colors)), "
+                            f"((subtle vignette)), ((instagram filter))"
+                        )
+                        components.append(effects_text)
+                elif internal_theme == "realistic":
+                    # Select base elements
+                    composition = random.choice(self.compositions)
+                    
+                    # Determine scene type
+                    scene_type = random.random()
+                    if scene_type < 0.4:  # 40% chance for professional portrait
                         profession = random.choice(self.professions)
                         clothing = random.choice(self.clothing["realistic"])
                         pose = random.choice([
-                            "portrait", "candid shot", "environmental portrait",
-                            "profile shot", "three-quarter view", "full body shot"
+                            "professional headshot", "environmental portrait",
+                            "candid moment", "dramatic portrait", "profile portrait",
+                            "three-quarter view portrait", "full body portrait"
                         ])
                         lighting = random.choice([
-                            "natural lighting", "studio lighting", "golden hour lighting",
-                            "dramatic lighting", "soft lighting", "window lighting"
+                            "natural window lighting", "professional studio lighting",
+                            "dramatic rim lighting", "soft diffused lighting",
+                            "golden hour sunlight", "dramatic chiaroscuro lighting"
                         ])
-                        subject_text = f"professional {pose} photograph of {profession} wearing {clothing}, {lighting}, shallow depth of field, sharp focus, 8k"
-                    else:  # 30% chance for nature/animal
+                        subject_text = (
+                            f"((professional photograph)) of {profession} wearing {clothing}, "
+                            f"((in {pose})), ((with {lighting})), {composition}"
+                        )
+                    elif scene_type < 0.7:  # 30% chance for wildlife/nature
+                        animal = random.choice(self.animals)
+                        behavior = random.choice(self.behaviors)
+                        habitat = random.choice(self.habitats)
+                        subject_text = (
+                            f"((wildlife photograph)) of {animal} {behavior} in {habitat}, "
+                            f"((national geographic style)), ((telephoto lens)), {composition}"
+                        )
+                    else:  # 30% chance for landscape/architecture
                         subject = random.choice([
-                            f"wildlife photograph of {random.choice(self.animals)} {random.choice(self.behaviors)}",
-                            f"landscape photograph of {random.choice(self.habitats)}",
-                            f"macro photograph of {random.choice(['flowers', 'insects', 'water droplets', 'leaves', 'crystals'])}",
-                            f"architectural photograph of {random.choice(self.architecture_elements)}"
+                            f"((landscape photograph)) of {random.choice(self.habitats)}",
+                            f"((architectural photograph)) of {random.choice(self.architecture_elements)}",
+                            f"((macro photograph)) of {random.choice(['water droplets', 'flower petals', 'butterfly wings', 'crystal formations', 'natural patterns'])}"
                         ])
-                        subject_text = f"professional {subject}, high detail, sharp focus, 8k"
+                        subject_text = f"{subject}, ((professional photography)), {composition}"
+                    
+                    # Initialize components with subject
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        time = random.choice(self.times)
+                        weather = random.choice(self.weather)
+                        environment_text = (
+                            f"during {time} with {weather}, "
+                            f"((natural atmosphere)), ((perfect lighting conditions))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((photorealistic)), ((professional photography)), "
+                            f"((sharp focus)), ((perfect exposure)), ((high detail)), "
+                            f"((color accurate)), ((professional camera)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        effects_text = (
+                            f"with ((shallow depth of field)), ((perfect bokeh)), "
+                            f"((natural lighting)), ((subtle vignette)), "
+                            f"((professional color grading)), ((high dynamic range))"
+                        )
+                        components.append(effects_text)
                 elif internal_theme == "pixar":
                     # Generate Pixar-style subject
                     style = random.choice(self.pixar_styles)
@@ -1940,26 +2453,61 @@ class IsulionMegaPromptGenerator:
                     if include_effects == "yes":
                         components.append(effects_text)
                 elif internal_theme == "star_wars":
+                    # Select base elements
                     character = random.choice(self.star_wars_characters)
                     prop = random.choice(self.star_wars_props)
                     vehicle = random.choice(self.star_wars_vehicles)
+                    location = random.choice(self.star_wars_locations)
+                    composition = random.choice(self.compositions)
                     
-                    if random.random() < 0.7:  # 70% chance for character-focused scene
-                        subject_text = f"cinematic scene of a {character} wielding {prop}"
-                        if random.random() < 0.5:  # 50% chance to add vehicle
-                            subject_text += f" near a {vehicle}"
-                    else:  # 30% chance for vehicle-focused scene
-                        subject_text = f"epic shot of a {vehicle} with {character} in view"
+                    # Determine scene type
+                    scene_type = random.random()
+                    if scene_type < 0.4:  # 40% chance for character-focused scene
+                        subject_text = (
+                            f"epic Star Wars scene of ((detailed {character})) "
+                            f"wielding ((glowing {prop})), {composition}"
+                        )
+                    elif scene_type < 0.7:  # 30% chance for vehicle-focused scene
+                        subject_text = (
+                            f"dramatic Star Wars shot of ((detailed {vehicle})) "
+                            f"with {character} visible, {composition}"
+                        )
+                    else:  # 30% chance for battle/action scene
+                        subject_text = (
+                            f"epic Star Wars battle scene with {character} "
+                            f"using {prop} near a {vehicle}, {composition}"
+                        )
                     
-                    # Add Star Wars-specific environment handling
+                    # Initialize components with subject
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
                     if include_environment == "yes":
-                        location = random.choice(self.star_wars_locations)
-                        environment_text = f"in {location}"
-                        
-                    # Add Star Wars-specific effects handling
+                        environment_text = (
+                            f"in ((detailed {location})), "
+                            f"((Star Wars universe)), ((sci-fi atmosphere)), "
+                            f"((epic scale))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((Star Wars movie quality)), ((cinematic lighting)), "
+                            f"((photorealistic)), ((ILM VFX quality)), "
+                            f"((epic movie scene)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
                     if include_effects == "yes":
                         effect = random.choice(self.star_wars_effects)
-                        effects_text = f"with {effect}"
+                        effects_text = (
+                            f"with {effect}, ((lens flares)), ((volumetric lighting)), "
+                            f"((dramatic shadows)), ((space atmosphere)), "
+                            f"((cinematic color grading))"
+                        )
+                        components.append(effects_text)
                 elif internal_theme == "marvel":
                     character = random.choice(self.marvel_characters)
                     comic_style = random.choice(self.marvel_comic_styles)
@@ -2021,49 +2569,144 @@ class IsulionMegaPromptGenerator:
                     if include_effects == "yes":
                         components.append(effects_text)
                 elif internal_theme == "steampunk":
+                    # Select base elements
                     machine = random.choice(self.steampunk_elements["machines"])
                     accessory = random.choice(self.steampunk_elements["accessories"])
                     environment = random.choice(self.steampunk_elements["environments"])
+                    composition = random.choice(self.compositions)
                     
-                    subject_text = f"Victorian-era steampunk scene with {machine} and {accessory}"
-                    environment_text = f"in a {environment}"
-                    style_text = "brass and copper details, mechanical complexity, vintage aesthetics, ultra sharp focus, 8k"
-                    effects_text = "with steam effects, gear mechanisms, and metallic reflections"
-
-                    # Add all components at once and return early to skip general environment section
+                    # Determine scene type
+                    scene_type = random.random()
+                    if scene_type < 0.4:  # 40% chance for cityscape
+                        subject_text = (
+                            f"((epic steampunk cityscape)) with ((massive {machine})) and "
+                            f"((intricate {accessory})), in a ((detailed {environment})), "
+                            f"((Victorian industrial atmosphere)), {composition}"
+                        )
+                    elif scene_type < 0.7:  # 30% chance for street level
+                        subject_text = (
+                            f"((immersive steampunk street scene)) with ((detailed {machine})) and "
+                            f"((ornate {accessory})), in a ((bustling {environment})), "
+                            f"((Victorian era atmosphere)), {composition}"
+                        )
+                    else:  # 30% chance for industrial interior
+                        subject_text = (
+                            f"((detailed steampunk interior)) with ((complex {machine})) and "
+                            f"((elaborate {accessory})), in a ((grand {environment})), "
+                            f"((industrial Victorian style)), {composition}"
+                        )
+                    
+                    # Initialize components with subject
                     components = [subject_text]
+                    
+                    # Add environment if enabled
                     if include_environment == "yes":
+                        time = random.choice([
+                            "foggy morning", "industrial twilight", "gaslit evening",
+                            "steam-filled dawn", "coal-smoke dusk", "brass-lit night"
+                        ])
+                        weather = random.choice([
+                            "steam clouds", "industrial haze", "coal smoke",
+                            "mechanical fog", "brass-tinted clouds", "copper sunset"
+                        ])
+                        environment_text = (
+                            f"during {time} with {weather}, "
+                            f"((Victorian industrial era)), ((steampunk atmosphere)), "
+                            f"((mechanical complexity))"
+                        )
                         components.append(environment_text)
+                    
+                    # Add style elements
                     if include_style == "yes":
+                        style_text = (
+                            f"((steampunk aesthetic)), ((Victorian industrial)), "
+                            f"((brass and copper details)), ((mechanical intricacy)), "
+                            f"((ornate engineering)), ((vintage technology)), 8k resolution"
+                        )
                         components.append(style_text)
+                    
+                    # Add effects if enabled
                     if include_effects == "yes":
+                        effects_text = (
+                            f"with ((steam effects)), ((mechanical glow)), "
+                            f"((brass reflections)), ((gear mechanisms)), "
+                            f"((industrial smoke)), ((copper highlights)), "
+                            f"((vintage patina))"
+                        )
                         components.append(effects_text)
-                    
-                    # Skip the general environment section by handling the prompt construction here
-                    prompt = ", ".join(components)
-                    if enhancement_level in self.enhancements[enhancement_focus]:
-                        enhancement = random.choice(self.enhancements[enhancement_focus][enhancement_level])
-                        prompt = f"{prompt}, {enhancement}"
-                        effects_text = f"{effects_text}, {enhancement}"
-                    
-                    return (prompt, subject_text, action_text, environment_text, style_text, effects_text, seed)
                 elif internal_theme == "post_apocalyptic":
-                    environment = random.choice(self.post_apocalyptic_elements["environments"])
-                    prop = random.choice(self.post_apocalyptic_elements["props"])
-                    atmosphere = random.choice(self.post_apocalyptic_elements["atmosphere"])
+                    # Select base elements
+                    composition = random.choice(self.compositions)
                     
-                    subject_text = f"dramatic post-apocalyptic scene with {prop}"
-                    environment_text = f"in a {environment} during {atmosphere}"
-                    style_text = "weathered textures, dramatic lighting, gritty atmosphere, ultra sharp focus, 8k"
-                    effects_text = "with atmospheric dust, degraded materials, and survival elements"
-
-                    # Add components based on inclusion flags
+                    # Determine scene type
+                    scene_type = random.random()
+                    if scene_type < 0.4:  # 40% chance for wasteland scene
+                        environment = random.choice(self.post_apocalyptic_elements["environments"])
+                        prop = random.choice(self.post_apocalyptic_elements["props"])
+                        atmosphere = random.choice(self.post_apocalyptic_elements["atmosphere"])
+                        subject_text = (
+                            f"((epic post-apocalyptic vista)) of a ((devastated {environment})) with "
+                            f"((weathered {prop})), ((in {atmosphere} atmosphere)), {composition}"
+                        )
+                    elif scene_type < 0.7:  # 30% chance for survival scene
+                        prop = random.choice([
+                            "makeshift shelter", "salvaged vehicle", "improvised weapons",
+                            "scavenged supplies", "survival gear", "fortified base",
+                            "wasteland camp", "trading outpost", "survivor's hideout"
+                        ])
+                        subject_text = (
+                            f"((post-apocalyptic survival scene)) with ((detailed {prop})), "
+                            f"((wasteland atmosphere)), ((survival elements)), {composition}"
+                        )
+                    else:  # 30% chance for ruins scene
+                        ruins = random.choice([
+                            "abandoned skyscrapers", "collapsed highway", "ruined metropolis",
+                            "decaying shopping mall", "destroyed factory", "fallen monuments",
+                            "overgrown stadium", "derelict train station", "crumbling bridges"
+                        ])
+                        subject_text = (
+                            f"((dramatic post-apocalyptic scene)) of ((decaying {ruins})), "
+                            f"((signs of civilization's fall)), {composition}"
+                        )
+                    
+                    # Initialize components with subject
                     components = [subject_text]
+                    
+                    # Add environment if enabled
                     if include_environment == "yes":
+                        time = random.choice([
+                            "toxic dawn", "nuclear sunset", "perpetual dusk",
+                            "radioactive twilight", "acid rain storm", "dusty noon",
+                            "contaminated evening", "fallout night"
+                        ])
+                        weather = random.choice([
+                            "radioactive storm", "acid rain", "toxic fog",
+                            "nuclear winter", "dust storm", "chemical haze",
+                            "contaminated clouds", "burning sky"
+                        ])
+                        environment_text = (
+                            f"during {time} with {weather}, "
+                            f"((post-apocalyptic atmosphere)), ((devastated landscape)), "
+                            f"((signs of destruction))"
+                        )
                         components.append(environment_text)
+                    
+                    # Add style elements
                     if include_style == "yes":
+                        style_text = (
+                            f"((post-apocalyptic aesthetic)), ((dystopian atmosphere)), "
+                            f"((weathered textures)), ((decay and destruction)), "
+                            f"((survival horror)), ((cinematic scale)), 8k resolution"
+                        )
                         components.append(style_text)
+                    
+                    # Add effects if enabled
                     if include_effects == "yes":
+                        effects_text = (
+                            f"with ((volumetric toxic fog)), ((dust particles)), "
+                            f"((radiation effects)), ((environmental decay)), "
+                            f"((atmospheric contamination)), ((dramatic lighting))"
+                        )
                         components.append(effects_text)
                 elif internal_theme == "underwater":
                     structure = random.choice(self.underwater_elements["structures"])
@@ -2071,67 +2714,118 @@ class IsulionMegaPromptGenerator:
                     tech = random.choice(self.underwater_elements["technology"])
                     culture = random.choice(self.underwater_elements["cultural_elements"])
                     
+                    # Create detailed subject description
                     subject_text = (
-                        f"epic wide shot of an advanced underwater civilization with {structure} and "
+                        f"((epic underwater civilization)) with {structure} and "
                         f"{life_form}, featuring {tech} and {culture}, "
-                        f"ultra detailed oceanic metropolis"
+                        f"((ultra detailed oceanic metropolis))"
                     )
-                    environment_text = (
-                        f"in deep ocean waters with bioluminescent lighting, "
-                        f"crystal clear water visibility, schools of exotic fish"
-                    )
-                    style_text = (
-                        f"cinematic underwater photography, perfect clarity, "
-                        f"volumetric god rays, dynamic composition, ultra sharp focus, 8k"
-                    )
-                    effects_text = (
-                        f"with water caustics, bioluminescent glow, floating particles, "
-                        f"underwater atmospheric perspective, gentle water currents"
-                    )
-
-                    # Add components based on inclusion flags
+                    
+                    # Initialize components with subject first
                     components = [subject_text]
+                    
+                    # Add environment if enabled
                     if include_environment == "yes":
+                        environment_text = (
+                            f"in ((deep ocean waters)) with ((bioluminescent lighting)), "
+                            f"((crystal clear water visibility)), ((schools of exotic fish))"
+                        )
                         components.append(environment_text)
+                    
+                    # Add style elements
                     if include_style == "yes":
+                        style_text = (
+                            f"((cinematic underwater photography)), ((perfect clarity)), "
+                            f"((volumetric god rays)), ((dynamic composition)), "
+                            f"((ultra sharp focus)), 8k resolution"
+                        )
                         components.append(style_text)
+                    
+                    # Add effects if enabled
                     if include_effects == "yes":
+                        effects_text = (
+                            f"with ((water caustics)), ((bioluminescent glow)), "
+                            f"((floating particles)), ((underwater atmospheric perspective)), "
+                            f"((gentle water currents))"
+                        )
                         components.append(effects_text)
                 elif internal_theme == "microscopic":
                     structure = random.choice(self.microscopic_elements["structures"])
                     process = random.choice(self.microscopic_elements["processes"])
                     environment = random.choice(self.microscopic_elements["environments"])
                     
-                    subject_text = f"electron microscope visualization of {structure} during {process}"
-                    environment_text = f"in a {environment}"
-                    style_text = "scientific visualization, precise detail, molecular clarity, ultra sharp focus, 8k"
-                    effects_text = "with quantum effects, molecular interactions, and microscopic patterns"
-
-                    # Add components based on inclusion flags
+                    # Create detailed subject description
+                    subject_text = (
+                        f"((electron microscope visualization)) of {structure} during {process}, "
+                        f"((scientific detail)), ((molecular precision))"
+                    )
+                    
+                    # Initialize components with subject first
                     components = [subject_text]
+                    
+                    # Add environment if enabled
                     if include_environment == "yes":
+                        environment_text = (
+                            f"in a {environment}, ((microscopic scale)), "
+                            f"((cellular detail)), ((quantum effects))"
+                        )
                         components.append(environment_text)
+                    
+                    # Add style elements
                     if include_style == "yes":
+                        style_text = (
+                            f"((scientific visualization)), ((precise detail)), "
+                            f"((molecular clarity)), ((ultra sharp focus)), "
+                            f"((microscopic accuracy)), 8k resolution"
+                        )
                         components.append(style_text)
+                    
+                    # Add effects if enabled
                     if include_effects == "yes":
+                        effects_text = (
+                            f"with ((quantum effects)), ((molecular interactions)), "
+                            f"((microscopic patterns)), ((cellular structures)), "
+                            f"((atomic detail)), ((scientific accuracy))"
+                        )
                         components.append(effects_text)
                 elif internal_theme == "bio_organic":
                     structure = random.choice(self.bio_organic_elements["structures"])
                     process = random.choice(self.bio_organic_elements["processes"])
                     aesthetic = random.choice(self.bio_organic_elements["aesthetics"])
                     
-                    subject_text = f"hybrid bio-mechanical artwork of {structure} performing {process}"
-                    environment_text = f"featuring {aesthetic}"
-                    style_text = "organic integration, seamless fusion, living technology, ultra sharp focus, 8k"
-                    effects_text = "with bioluminescent highlights, organic patterns, and technological elements"
-
-                    # Add components based on inclusion flags
+                    # Create detailed subject description
+                    subject_text = (
+                        f"((hybrid bio-mechanical artwork)) of {structure} performing {process}, "
+                        f"((organic integration)), ((seamless fusion))"
+                    )
+                    
+                    # Initialize components with subject first
                     components = [subject_text]
+                    
+                    # Add environment if enabled
                     if include_environment == "yes":
+                        environment_text = (
+                            f"featuring {aesthetic}, ((living technology)), "
+                            f"((organic machinery)), ((bio-digital fusion))"
+                        )
                         components.append(environment_text)
+                    
+                    # Add style elements
                     if include_style == "yes":
+                        style_text = (
+                            f"((organic integration)), ((seamless fusion)), "
+                            f"((living technology)), ((ultra sharp focus)), "
+                            f"((bio-mechanical detail)), 8k resolution"
+                        )
                         components.append(style_text)
+                    
+                    # Add effects if enabled
                     if include_effects == "yes":
+                        effects_text = (
+                            f"with ((bioluminescent highlights)), ((organic patterns)), "
+                            f"((technological elements)), ((flowing energy)), "
+                            f"((living circuits)), ((pulsing mechanisms))"
+                        )
                         components.append(effects_text)
                 elif internal_theme == "peaky_blinders":
                     # Select core elements
@@ -2147,7 +2841,7 @@ class IsulionMegaPromptGenerator:
                     subject_text = (
                         f"((Anthropomorphic {animal} in 1920s Peaky Blinders style)), "
                         f"((wearing {outfit})), {accessory}, "
-                        f"((ultra-detailed fur texture)), "  # Removed "noble expression"
+                        f"((ultra-detailed fur texture)),  "  # Removed "noble expression"
                         f"((masterful character design))"
                     )
                     
