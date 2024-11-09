@@ -15,7 +15,7 @@ class IsulionMegaPromptGenerator:
     actions = ["running", "jumping", "fighting", "casting spell", "flying", "swimming", "climbing", "sneaking", "dancing", "meditating", "charging", "defending", "attacking", "healing", "crafting", "exploring", "investigating", "performing ritual", "commanding"]
     compositions = ["close-up shot", "wide angle", "birds eye view", "low angle", "portrait", "landscape", "panoramic", "macro shot", "aerial view", "profile view", "dutch angle", "over the shoulder", "establishing shot", "tracking shot", "symmetrical composition", "rule of thirds", "centered composition", "dynamic angle", "dramatic perspective", "silhouette"]
     habitats = ["forest", "desert", "mountains", "ocean", "jungle", "tundra", "savanna", "wetlands", "cave", "valley", "canyon", "beach", "volcanic region", "coral reef", "grassland", "rainforest", "arctic", "oasis", "cliff", "underground"]
-    weather = ["sunny", "rainy", "stormy", "snowy", "cloudy", "foggy", "windy", "thunderstorm", "hail", "sleet", "hurricane", "tornado", "clear sky", "overcast", "misty", "drizzle", "blizzard", "sandstorm", "heat wave", "lightning storm"]
+    weather = ["sunny", "rainy", "stormy", "snowy", "cloudy", "foggy", "windy", "thunderstorm", "hail", "sleet", "hurricane", "tornado", "clear sky", "overcast", "misty", "drizzle", "blizzard", "sandstorm", "heat wave"]
     times = ["dawn", "sunrise", "morning", "noon", "afternoon", "dusk", "sunset", "twilight", "night", "midnight", "golden hour", "blue hour", "early morning", "late evening", "first light", "witching hour", "dead of night", "break of day", "high noon", "starlit night"]
     art_styles = ["oil painting", "digital art", "watercolor", "pencil sketch", "ink drawing", "acrylic", "pastel", "charcoal", "concept art", "illustration", "photorealistic", "impressionist", "abstract", "minimalist", "surrealist", "anime", "comic book", "fantasy art", "sci-fi art", "traditional"]
     emotions = ["happy", "sad", "angry", "peaceful", "excited", "fearful", "determined", "confused", "serene", "anxious", "confident", "melancholic", "joyful", "fierce", "calm", "passionate", "mysterious", "playful", "serious", "contemplative"]
@@ -361,6 +361,7 @@ class IsulionMegaPromptGenerator:
         "microscopic": "electron microscope visualization with precise detail of",
         "bio_organic": "hybrid bio-mechanical artwork with organic integration of",
         "🎭 Peaky Blinders Style": "professional studio photograph with precise lighting, ultra-sharp focus, minimalist composition of",
+        "christmas": "magical christmas artwork with festive details of",
     }
 
     # Add design-focused enhancement words
@@ -794,7 +795,7 @@ class IsulionMegaPromptGenerator:
     ]
 
     marvel_effects = [
-        "repulsor blast", "lightning strike", "magic portal", "quantum energy",
+        "repulsor blast", "magic portal", "quantum energy",
         "vibranium pulse", "web effect", "mystic arts", "infinity stone glow",
         "hulk smash impact", "nano-tech transformation", "spider-sense",
         "time stone effect", "reality warping", "power stone surge",
@@ -1242,6 +1243,81 @@ class IsulionMegaPromptGenerator:
         "industrial steam and smoke"
     ]
 
+    # Add these new Christmas-specific class variables after other theme elements:
+
+    christmas_elements = {
+        "characters": [
+            "Santa Claus", "Mrs Claus", "reindeer", "elf workshop helper", 
+            "snowman", "gingerbread man", "toy soldier", "nutcracker",
+            "polar bear", "arctic fox", "penguin", "christmas angel",
+            "wise men", "shepherd", "frost giant", "ice queen",
+            "christmas fairy", "jack frost", "krampus", "winter spirit"
+        ],
+        "settings": [
+            "Santa's workshop", "magical toy factory", "christmas village",
+            "winter wonderland", "enchanted forest", "gingerbread town",
+            "north pole", "cozy fireplace", "decorated living room",
+            "snowy town square", "christmas market", "ice palace",
+            "reindeer stables", "elves' dormitory", "candy cane forest",
+            "christmas tree farm", "frozen lake", "magical ice cave",
+            "decorated town hall", "festive shopping street"
+        ],
+        "decorations": [
+            "christmas tree", "twinkling lights", "festive garland",
+            "hanging stockings", "candy canes", "christmas wreaths",
+            "glass ornaments", "tinsel", "mistletoe", "holly berries",
+            "poinsettias", "advent calendar", "christmas star",
+            "festive ribbons", "snow globes", "icicle lights",
+            "nutcracker collection", "gingerbread house", "christmas village display",
+            "wrapped presents"
+        ],
+        "magical_effects": [
+            "sparkling snow", "northern lights", "magical stardust",
+            "twinkling fairy lights", "glowing ornaments", "christmas magic",
+            "festive sparkles", "magical gift wrap", "enchanted snowfall",
+            "glowing christmas star", "magical tinsel", "santa's magic",
+            "reindeer flight trails", "frosty window patterns", "candy cane magic",
+            "christmas bell chimes", "magical gift ribbon", "festive glitter"
+        ],
+        "activities": [
+            "opening presents", "decorating tree", "building snowman",
+            "baking cookies", "singing carols", "wrapping gifts",
+            "sledding", "ice skating", "making snow angels",
+            "drinking hot cocoa", "hanging stockings", "reading christmas stories",
+            "writing to santa", "feeding reindeer", "making gingerbread houses",
+            "christmas shopping", "caroling", "attending christmas feast"
+        ],
+        "weather": [
+            "gentle snowfall", "swirling snowflakes", "winter storm",
+            "magical blizzard", "christmas eve snow", "frost patterns",
+            "icy wind", "crystal clear winter night", "misty winter morning",
+            "perfect christmas snow", "sparkling frost", "winter wonderland snow"
+        ],
+        "foods": [
+            "christmas cookies", "gingerbread", "candy canes",
+            "hot cocoa", "christmas pudding", "roast turkey",
+            "fruit cake", "christmas ham", "mince pies",
+            "mulled wine", "eggnog", "christmas chocolates",
+            "roasted chestnuts", "sugar plums", "yule log cake",
+            "christmas dinner", "festive treats", "decorated cupcakes"
+        ]
+    }
+
+    christmas_styles = [
+        "cozy christmas illustration", "vintage christmas card",
+        "magical christmas scene", "festive digital art",
+        "traditional christmas painting", "whimsical christmas art",
+        "classic christmas illustration", "modern christmas design",
+        "nostalgic christmas artwork", "cheerful christmas cartoon",
+        "elegant christmas rendering", "heartwarming christmas scene"
+    ]
+
+    christmas_moods = [
+        "magical", "joyful", "festive", "cozy", "nostalgic",
+        "whimsical", "heartwarming", "cheerful", "peaceful",
+        "enchanting", "merry", "traditional", "jolly", "celebratory"
+    ]
+
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -1249,19 +1325,20 @@ class IsulionMegaPromptGenerator:
                 "theme": ([
                     "🎲 Dynamic Random",  # Keeps Random at top
                     "🎨 Abstract",
-                    "📺 Animation Cartoon",
+                    "📺 Animation Cartoon", 
                     "🎌 Anime",
                     "🏛️ Architectural",
-                    "🖼️ Binet Surreal",
                     "🧬 Bio-Organic Technology",
-                    "🎬 Cinema Studio",
+                    "🖼️ Binet Surreal",
                     "🦄 Chimera Animals",
                     "🐰 Chimera Cute Animals",
+                    "🎅 Christmas",
+                    "🎬 Cinema Studio",
                     "🍳 Culinary/Food",
                     "💠 Dimension 3D",
                     "✨ Enchanted Fantasy",
                     "📸 Essential Realistic",
-                    "🌆 Futuristic City Metropolis",
+                    "🌆 Futuristic City Metropolis", 
                     "🚀 Futuristic Sci-Fi",
                     "👻 Halloween Ethereal",
                     "📱 Instagram Lifestyle",
@@ -1323,34 +1400,35 @@ class IsulionMegaPromptGenerator:
         
         # Create a mapping between new and old theme names
         theme_mapping = {
-            "📸 Essential Realistic": "realistic",
-            "🚀 Futuristic Sci-Fi": "sci_fi",
-            "🎬 Cinema Studio": "cinema",
-            "✨ Enchanted Fantasy": "fantasy",
-            "🐰 Chimera Cute Animals": "cute chimera",
-            "🦄 Chimera Animals": "strange_animal",
-            "📺 Animation Cartoon": "cartoon",
-            "🎌 Anime": "anime",
-            "🏛️ Architectural": "architecture",
             "🎨 Abstract": "abstract",
-            "🍳 Culinary/Food": "food",  # Fixed the mapping
-            "🏠 Interior Spaces": "interior",
-            "💠 Dimension 3D": "3D",
-            "👻 Halloween Ethereal": "halloween",
-            "📱 Instagram Lifestyle": "instagram",
-            "🌆 Futuristic City Metropolis": "futuristic_city",
-            "💫 Pixar Animation": "pixar",
+            "🎌 Anime": "anime",
+            "📺 Animation Cartoon": "cartoon",
+            "🏛️ Architectural": "architecture",
             "🖼️ Binet Surreal": "binet",
-            "🎩 Vintage Anthropomorphic": "vintage_anthro",
-            "⭐ Star Wars Universe": "star_wars",
-            "🦸‍♂️ Marvel Universe": "marvel",
+            "🧬 Bio-Organic Technology": "bio_organic", 
+            "🦄 Chimera Animals": "strange_animal",
+            "🐰 Chimera Cute Animals": "cute chimera",
+            "🎬 Cinema Studio": "cinema",
+            "🎅 Christmas": "christmas",
+            "🍳 Culinary/Food": "food",
+            "💠 Dimension 3D": "3D",
             "🎲 Dynamic Random": "random",
-            "⚙️ Steampunk Cities": "steampunk",
-            "☢️ Post-Apocalyptic Wasteland": "post_apocalyptic",
-            "🌊 Underwater Civilization": "underwater",
+            "📸 Essential Realistic": "realistic",
+            "✨ Enchanted Fantasy": "fantasy",
+            "🚀 Futuristic Sci-Fi": "sci_fi",
+            "🌆 Futuristic City Metropolis": "futuristic_city",
+            "👻 Halloween Ethereal": "halloween",
+            "🏠 Interior Spaces": "interior",
+            "📱 Instagram Lifestyle": "instagram",
+            "🦸‍♂️ Marvel Universe": "marvel",
             "🔬 Microscopic Universe": "microscopic",
-            "🧬 Bio-Organic Technology": "bio_organic",
             "🎭 Peaky Blinders Style": "peaky_blinders",
+            "💫 Pixar Animation": "pixar",
+            "☢️ Post-Apocalyptic Wasteland": "post_apocalyptic",
+            "⭐ Star Wars Universe": "star_wars",
+            "⚙️ Steampunk Cities": "steampunk",
+            "🌊 Underwater Civilization": "underwater",
+            "🎩 Vintage Anthropomorphic": "vintage_anthro",
         }
 
         # Convert new theme name to old theme name for internal processing
@@ -2873,6 +2951,53 @@ class IsulionMegaPromptGenerator:
                         components.append(style_text)
                     if include_effects == "yes":
                         components.append(effects_text)
+                elif internal_theme == "christmas":
+                    # Select base elements
+                    character = random.choice(self.christmas_elements["characters"])
+                    setting = random.choice(self.christmas_elements["settings"])
+                    decoration = random.choice(self.christmas_elements["decorations"])
+                    activity = random.choice(self.christmas_elements["activities"])
+                    style = random.choice(self.christmas_styles)
+                    mood = random.choice(self.christmas_moods)
+                    composition = random.choice(self.compositions)
+                    
+                    # Create detailed subject description
+                    subject_text = (
+                        f"((magical christmas scene)) of {character} {activity} near a ((festive {decoration})), "
+                        f"((christmas magic)), {composition}"
+                    )
+                    
+                    # Initialize components with subject first
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        weather = random.choice(self.christmas_elements["weather"])
+                        magical_effect = random.choice(self.christmas_elements["magical_effects"])
+                        environment_text = (
+                            f"in a ((magical {setting})) during {weather}, "
+                            f"with ((enchanted {magical_effect})), ((festive atmosphere))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((christmas {style})), (({mood} atmosphere)), "
+                            f"((festive lighting)), ((holiday magic)), "
+                            f"((seasonal charm)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        food = random.choice(self.christmas_elements["foods"])
+                        effects_text = (
+                            f"with ((twinkling lights)), ((magical snow effects)), "
+                            f"((warm glow)), ((festive decorations)), "
+                            f"((holiday ambiance)), ((scent of {food})))"
+                        )
+                        components.append(effects_text)
                 else:  # random theme handling
                     if random.random() < 0.7:  # 70% chance for human subject
                         profession = random.choice(self.professions)
@@ -2923,6 +3048,11 @@ class IsulionMegaPromptGenerator:
                 location = random.choice(self.influencer_locations)
                 time = random.choice(["golden hour", "sunset", "blue hour", "morning light"])
                 environment_text = f"at {location} during {time}"
+            elif internal_theme == "christmas":
+                setting = random.choice(self.christmas_elements["settings"])
+                time = random.choice(["Christmas Eve", "Christmas Day", "Boxing Day", "New Year's Eve"])
+                weather = random.choice(self.christmas_elements["weather"])
+                environment_text = f"on {time} in a {setting}, with {random.choice(self.christmas_elements['decorations'])} and {random.choice(self.christmas_elements['activities'])}"
             else:
                 habitat = random.choice(self.habitats)
                 weather_cond = random.choice(self.weather)
@@ -2982,6 +3112,9 @@ class IsulionMegaPromptGenerator:
                     "professional lighting", "studio lighting"
                 ])
                 effects_text = f"with {effect} and lifestyle aesthetic"
+            elif internal_theme == "christmas":
+                effect = random.choice(self.christmas_elements["magical_effects"])
+                effects_text = f"with {effect} and festive {random.choice(self.christmas_elements['decorations'])}"
             else:  # realistic or mixed
                 if random.choice([True, False]):
                     effect = random.choice(self.magical_effects["nature"])
