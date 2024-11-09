@@ -29,8 +29,8 @@ git clone https://github.com/Isulion/ComfyUI_Isulion
 
 ### Core Generators
 
-- ✨ Prompt - Main prompt generation node
-- 🎯 Mega Prompt - Advanced multi-theme prompt generator
+- 💡 **Mega Prompt** - Advanced multi-theme prompt generator
+- 💻 Prompt - Main prompt generation node
 
 ## 🎯 Mega Prompt Generator 🎯
 
@@ -57,101 +57,84 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 
 #### Core Themes
 
+- 🎨 **Abstract**: Pure geometric and non-representational compositions
 - 🎲 **Dynamic Random** (Default): Intelligently combines elements from various themes
 - 📸 **Essential Realistic**: Professional photography with real-world subjects
-- 🎨 **Abstract**: Pure geometric and non-representational compositions
 
 #### Character Themes
 
-- 🐰 **Fusion Cute Animals**: Adorable hybrid creature combinations
-- 🦄 **Chimera Strange Animals**: Unique hybrid creatures with distinctive head-body combinations
-- 🎩 **Vintage Anthropomorphic**: Photorealistic Victorian-era anthropomorphic characters
-- 🎭 **Peaky Blinders Style**: 1920s gangster-themed anthropomorphic characters in period-accurate settings
 - 🖼️ **Binet Surreal**: Anthropomorphic portraits inspired by Sylvain Binet
+- 🦄 **Chimera Strange Animals**: Unique hybrid creatures with distinctive head-body combinations
+- 🐰 **Fusion Cute Animals**: Adorable hybrid creature combinations
+- 🎭 **Peaky Blinders Style**: 1920s gangster-themed anthropomorphic characters in period-accurate settings
+- 🎩 **Vintage Anthropomorphic**: Photorealistic Victorian-era anthropomorphic characters
 
 #### Environment Themes
 
 - 🏛️ **Architectural**: Sophisticated building and structural designs
-- 🏠 **Spaces Interior**: Interior design and architectural spaces
 - 🌆 **Metropolis Futuristic City**: Advanced cityscape and urban environments
-- 🌊 **Underwater Civilization**: Deep sea architecture and bioluminescent environments
 - 🔬 **Microscopic Universe**: Scientific visualizations of cellular and molecular landscapes
+- 🏠 **Spaces Interior**: Interior design and architectural spaces
+- 🌊 **Underwater Civilization**: Deep sea architecture and bioluminescent environments
 
 #### Style Themes
 
 - 📺 **Animation Cartoon**: Classic animated character styles
 - 🎌 **Anime**: Japanese animation inspired artwork
-- 💫 **Pixar Animation**: 3D animation in the style of Pixar
-- 💠 **Dimension 3D**: Three-dimensional digital artwork
+- 🎅 **Christmas**: Magical holiday scenes with festive elements and decorations
 - 🍳 **Culinary**: Professional food photography with elegant plating and styling
+- 💠 **Dimension 3D**: Three-dimensional digital artwork
 - 📱 **Lifestyle Instagram**: Professional social media photography
+- 💫 **Pixar Animation**: 3D animation in the style of Pixar
 
 #### Genre Themes
 
-- 🚀 **Futuristic Sci-Fi**: Advanced technology and space-age scenes
+- 🧬 **Bio-Organic Technology**: Fusion of biological organisms with mechanical systems
 - ✨ **Enchanted Fantasy**: Magical realms and mythical characters
 - 👻 **Ethereal Halloween**: Spooky and atmospheric horror themes
-- ⚙️ **Steampunk World**: Victorian-era technology with brass and copper details
+- 🚀 **Futuristic Sci-Fi**: Advanced technology and space-age scenes
 - ☢️ **Post-Apocalyptic Wasteland**: Dramatic scenes of survival in ruins
-- 🧬 **Bio-Organic Technology**: Fusion of biological organisms with mechanical systems
+- ⚙️ **Steampunk World**: Victorian-era technology with brass and copper details
 
 #### Franchise Themes
 
-- ⭐ **Star Wars Universe**: Scenes and characters from the Star Wars galaxy
 - 🦸‍♂️ **Marvel Universe**: Epic scenes featuring Marvel superheroes and villains
 - 🎬 **Studio Cinema**: Movie and superhero character compositions
+- ⭐ **Star Wars Universe**: Scenes and characters from the Star Wars galaxy
 
 ### Specific Nodes
 
-#### 🦁 Animal Related
-
+- 🦊 Animal Behavior - Animal actions and poses
 - 🦁 Animal - General animal selection
 - 🐱 Cute Animal - Cute and baby animal selection
-- 🦊 Animal Behavior - Animal actions and poses
-
-#### 👤 Character Elements
-
+- 👔 Clothing Style - Outfit and fashion descriptions
 - 👨‍🍳 Character Profession - Occupations and roles
 - 🧝‍♂️ Fantasy Race - Fantasy species and races
-- 👔 Clothing Style - Outfit and fashion descriptions
-
-#### 🎬 Scene Composition
-
 - ⚔️ Action - Dynamic poses and activities
 - 🎥 Scene Composition - Camera angles and shot types
-
-#### 🌍 Environment
-
 - 🌲 Habitat - Natural environments and landscapes
-- ⛅ Weather - Weather conditions
 - 🌅 Time of Day - Time and lighting conditions
-
-#### 🎨 Style and Mood
-
+- ⛅ Weather - Weather conditions
 - 🖌️ Art Style - Artistic styles and techniques
 - 😊 Emotion - Emotional characteristics
-
-#### ✨ Fantasy & Magic
-
+- 🏰 Artifact - Magical items and artifacts
 - 🌟 Magical Effect - Spell effects and magical phenomena
 - 🏰 Mythical Location - Fantasy environments
-- 📿 Artifact - Magical items and artifacts
-
-#### 🚀 Sci-Fi Elements
-
-- 🤖 Tech - Futuristic technology descriptions
 - 🪐 Alien World - Exotic planet environments
 - 🛸 Spacecraft - Space vehicle descriptions
+- 🤖 Tech - Futuristic technology descriptions
 
 #### 🔧 Enhancement Nodes
 
-- 🎨 Style Mixer - Combines multiple art styles with adjustable blend modes
 - 📝 Prompt Enhancer - Adds detail, mood, composition, lighting, or color enhancements
 - ⛔ Negative Prompt - Creates matching negative prompts with adjustable strictness
+- 🎨 Style Mixer - Combines multiple art styles with adjustable blend modes
 
 --------------
 
 ## FLUX Worflow Examples
+
+[More Workflows and Examples](https://civitai.com/articles/8673/discover-the-mega-prompt-generator-for-comfyui)
 
 ### Basic MegaPrompt Workflow
 
