@@ -1479,3 +1479,37 @@ caricature_effects = [
     "comic book shading", "cartoon emphasis", "artistic flourishes",
     "visual humor elements", "satirical details", "creative distortions"
 ]
+
+# Add sculptural caricature elements
+caricature_sculpture_styles = [
+    "bronze sculpture caricature", "marble sculpture caricature", 
+    "polished stone caricature", "classical sculpture caricature",
+    "contemporary sculpture caricature", "metal sculpture caricature",
+    "textured bronze caricature", "patinated sculpture caricature",
+    "modern sculpture caricature", "artistic sculpture caricature",
+    "dimensional sculpture caricature", "relief sculpture caricature",
+    "monumental sculpture caricature", "dynamic sculpture caricature",
+    "expressive sculpture caricature"
+]
+
+caricature_sculpture_finishes = [
+    "matte bronze finish", "polished stone texture", 
+    "patinated metal surface", "weathered bronze patina",
+    "smooth marble finish", "textured bronze surface",
+    "classical stone finish", "aged metal patina",
+    "polished metal surface", "rustic bronze texture",
+    "antiqued bronze finish", "contemporary metal finish",
+    "dimensional stone texture", "sculptural metal patina",
+    "artistic bronze treatment"
+]
+
+caricature_sculpture_poses = [
+    "dignified stance with gesturing hand", "poised position with subtle movement",
+    "dynamic pose with dramatic gesture", "classical contrapposto stance",
+    "commanding posture with raised chin", "contemplative pose with turned head",
+    "expressive stance with animated gesture", "formal pose with subtle twist",
+    "characteristic stance with signature gesture", "powerful pose with deliberate movement",
+    "elegant posture with graceful turn", "dramatic stance with emphatic gesture",
+    "noble bearing with refined movement", "authoritative pose with decisive gesture",
+    "iconic stance with memorable expression"
+]
