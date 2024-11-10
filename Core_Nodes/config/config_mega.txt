@@ -1,0 +1,1433 @@
+# Animals
+animals = ['Dog', 'Cat', 'Horse', 'Cow', 'Chicken', 'Pig', 'Sheep', 'Goat', 'Lion', 'Tiger', 'Elephant', 'Bear', 'Wolf', 'Fox', 'Deer', 'Rabbit', 'Kangaroo', 'Giraffe', 'Zebra', 'Monkey', 'Chimpanzee', 'Gorilla', 'Orangutan', 'Panda', 'Koala', 'Hippopotamus', 'Rhinoceros', 'Crocodile', 'Alligator', 'Eagle', 'Hawk', 'Falcon', 'Owl', 'Penguin', 'Dolphin', 'Shark', 'Octopus', 'Squid', 'Jellyfish', 'Crab', 'Lobster', 'Clownfish', 'Sea Turtle', 'Frog', 'Toad', 'Snake', 'Lizard', 'Gecko', 'Tortoise', 'Camel', 'Donkey', 'Bat', 'Rat', 'Mouse', 'Squirrel', 'Chipmunk', 'Porcupine', 'Hedgehog', 'Skunk', 'Raccoon', 'Otter', 'Seal', 'Walrus', 'Polar Bear', 'Grizzly Bear', 'Cheetah', 'Leopard', 'Jaguar', 'Antelope', 'Buffalo', 'Bison', 'Moose', 'Reindeer', 'Mole', 'Platypus', 'Echidna', 'Parrot', 'Peacock', 'Swan', 'Duck', 'Goose', 'Turkey', 'Flamingo', 'Pelican', 'Seagull', 'Sparrow', 'Pigeon', 'Crow', 'Magpie', 'Woodpecker', 'Hummingbird', 'Butterfly', 'Bee', 'Ant', 'Spider', 'Scorpion', 'Worm', 'Snail']
+
+# Cute Animals
+cute_animals = ['Red Panda', 'Koala', 'Fennec Fox', 'Pygmy Marmoset', 'Quokka', 'Sea Otter', 'Harp Seal Pup', 'Panda Cub', 'Penguin Chick', 'Hedgehog', 'Axolotl', 'Sloth', 'Rabbit', 'Kitten', 'Puppy', 'Meerkat', 'Sugar Glider', 'Chinchilla', 'Slow Loris', 'Hamster', 'Red Fox Kit', 'Lamb', 'Piglet', 'Duckling', 'Pygmy Hippo', 'Baby Giraffe', 'Baby Alpaca', 'Otter Pup', 'Corgi Puppy', 'Golden Retriever Puppy', 'Seal Pup', 'Snow Leopard Cub', 'Tiger Cub', 'Lion Cub', 'Baby Gorilla', 'Baby Orangutan', 'Pygmy Goat', 'Fawn (Baby Deer)', 'Ferret', 'Platypus', 'Kangaroo Joey', 'Wallaby', 'Serval Kitten', 'Caracal Kitten', 'Clouded Leopard Cub', 'Red Squirrel', 'Chipmunk', 'Prairie Dog', 'Arctic Fox', 'Polar Bear Cub', 'Baby Skunk', 'Raccoon Kit', 'Baby Opossum', 'Baby Echidna (Puggle)', 'Baby Tapir', 'Giant Panda Cub', 'Baby Hippo', 'Baby Rhino', 'Baby Zebra', 'Baby Elephant Seal', 'Baby Wombat', 'Baby Emu', 'Baby Kiwi Bird', 'Baby Flamingo', 'Cygnet (Baby Swan)', 'Baby Tortoise', 'Baby Alligator', 'Baby Crocodile', 'Baby Chameleon', 'Baby Iguana', 'Baby Frog', 'Baby Toad', 'Baby Gecko', 'Ring-tailed Lemur', 'Sifaka Lemur', 'Mouse Lemur', 'Bush Baby', 'Pygmy Possum', 'Baby Mole', 'Baby Bat', 'Leveret (Baby Hare)', 'Baby Mole Rat', 'Baby Porcupine', 'Baby Badger', 'Pygmy Rabbit', 'Baby Seal', 'Baby Puffin', 'Owlet (Baby Owl)', 'Hoglet (Baby Hedgehog)', 'Baby Armadillo', 'Baby Pangolin', 'Baby Okapi', 'Baby Cheetah', 'Baby Ocelot', 'Baby Lynx', 'Baby Tasmanian Devil']
+
+# Behaviors
+behaviors = ["sleeping", "running", "hunting", "playing", "eating", "drinking", "grooming", "swimming", "flying", "climbing", "jumping", "stalking", "resting", "fighting", "mating", "nursing", "exploring", "hiding", "gathering"]
+
+# Professions
+professions = ["chef", "wizard", "warrior", "merchant", "blacksmith", "healer", "ranger", "bard", "alchemist", "scholar", "knight", "assassin", "monk", "necromancer", "paladin", "druid", "hunter", "mage", "thief", "priest"]
+
+# Races
+races = ["elf", "dwarf", "orc", "halfling", "human", "gnome", "troll", "goblin", "fairy", "centaur", "mermaid", "dragon-kin", "tiefling", "angel", "demon", "giant", "vampire", "werewolf", "nymph", "satyr"]
+
+# Clothing
+clothing = {
+    "fantasy": ["ornate robes", "leather armor", "chainmail", "plate armor", "mage robes", "ranger cloak", "druid vestments", "royal garments", "battle armor", "mystic robes", "elven silk", "dwarven steel armor", "assassin's garb", "priest's vestments", "tribal attire"],
+    "realistic": ["business suit", "casual wear", "jeans and t-shirt", "dress", "uniform", "sportswear", "formal attire", "streetwear", "hoodie", "leather jacket", "blazer", "sweater", "coat", "shorts", "skirt"],
+    "sci_fi": ["space suit", "cybernetic armor", "nanotech suit", "power armor", "environmental suit", "combat exoskeleton", "stealth suit", "hazmat suit", "neural interface suit", "quantum armor", "plasma-resistant gear", "gravity suit", "bio-enhanced armor", "energy shield suit", "phase shift armor"]
+}
+
+# Actions
+actions = ["running", "jumping", "fighting", "casting spell", "flying", "swimming", "climbing", "sneaking", "dancing", "meditating", "charging", "defending", "attacking", "healing", "crafting", "exploring", "investigating", "performing ritual", "commanding"]
+
+# Compositions
+compositions = ["close-up shot", "wide angle", "birds eye view", "low angle", "portrait", "landscape", "panoramic", "macro shot", "aerial view", "profile view", "dutch angle", "over the shoulder", "establishing shot", "tracking shot", "symmetrical composition", "rule of thirds", "centered composition", "dynamic angle", "dramatic perspective", "silhouette"]
+
+# Habitats
+habitats = ["forest", "desert", "mountains", "ocean", "jungle", "tundra", "savanna", "wetlands", "cave", "valley", "canyon", "beach", "volcanic region", "coral reef", "grassland", "rainforest", "arctic", "oasis", "cliff", "underground"]
+
+# Weather
+weather = ["sunny", "rainy", "stormy", "snowy", "cloudy", "foggy", "windy", "thunderstorm", "hail", "sleet", "hurricane", "tornado", "clear sky", "overcast", "misty", "drizzle", "blizzard", "sandstorm", "heat wave"]
+
+# Times
+times = ["dawn", "sunrise", "morning", "noon", "afternoon", "dusk", "sunset", "twilight", "night", "midnight", "golden hour", "blue hour", "early morning", "late evening", "first light", "witching hour", "dead of night", "break of day", "high noon", "starlit night"]
+
+# Art Styles
+art_styles = ["oil painting", "digital art", "watercolor", "pencil sketch", "ink drawing", "acrylic", "pastel", "charcoal", "concept art", "illustration", "photorealistic", "impressionist", "abstract", "minimalist", "surrealist", "anime", "comic book", "fantasy art", "sci-fi art", "traditional"]
+
+# Emotions
+emotions = ["happy", "sad", "angry", "peaceful", "excited", "fearful", "determined", "confused", "serene", "anxious", "confident", "melancholic", "joyful", "fierce", "calm", "passionate", "mysterious", "playful", "serious", "contemplative"]
+
+# Magical Effects
+magical_effects = {
+    "fire": ["blazing aura", "flame burst", "inferno swirl", "phoenix flames", "fire storm", "burning halo", "ember glow", "magma burst", "flame vortex", "heat wave"],
+    "ice": ["frost crystals", "blizzard swirl", "ice spikes", "frozen aura", "snow storm", "crystal frost", "glacial burst", "arctic wind", "ice shield", "frozen mist"],
+    "lightning": ["thunder strike", "electric arc", "storm bolt", "lightning chain", "static field", "plasma burst", "spark shower", "voltage surge", "thunder cloud", "electric storm"],
+    "nature": ["vine growth", "flower bloom", "leaf storm", "root surge", "pollen cloud", "forest spirits", "natural healing", "earth tremor", "growth burst", "nature's blessing"],
+    "arcane": ["mystic runes", "energy spiral", "magical circles", "arcane symbols", "power flux", "spell matrix", "ethereal glow", "mana burst", "wisdom aura", "mystic barrier"]
+}
+
+# Mythical Locations
+mythical_locations = ["crystal cave", "floating islands", "ancient temple", "enchanted forest", "dragon's lair", "wizard's tower", "fairy grove", "rainbow bridge", "underwater palace", "cloud castle", "phoenix nest", "mystic library", "forgotten ruins", "elemental sanctuary", "starlit grove", "demon realm", "celestial observatory", "ethereal gardens", "astral plane", "shadow realm"]
+
+# Artifacts
+artifacts = {
+    "weapon": ["legendary sword", "mystic staff", "enchanted bow", "divine spear", "cursed blade", "holy mace", "ancient axe", "magical dagger", "sacred hammer", "ethereal blade"],
+    "jewelry": ["power amulet", "magic ring", "mystic crown", "enchanted bracelet", "soul gem", "crystal pendant", "rune necklace", "celestial tiara", "dragon scale ring", "phoenix feather brooch"],
+    "armor": ["divine shield", "mystic gauntlets", "enchanted helm", "sacred breastplate", "magical cloak", "soul armor", "crystal greaves", "celestial shield", "dragon scale mail", "phoenix plate"]
+}
+
+# Technology
+technology = {
+    "weapons": ["plasma rifle", "quantum blade", "laser cannon", "ion blaster", "gravity gun", "antimatter pistol", "fusion sword", "particle beam", "sonic disruptor", "nano blade"],
+    "gadgets": ["holographic display", "neural interface", "quantum computer", "energy shield", "teleporter", "cloaking device", "bio scanner", "force field", "time manipulator", "ai companion"],
+    "augments": ["cybernetic arm", "neural implant", "bionic eye", "exoskeleton", "nano enhancer", "memory chip", "strength augment", "speed booster", "healing module", "stealth system"]
+}
+
+# Alien World Elements
+alien_world_elements = {
+    "atmospheres": ["toxic", "breathable", "dense", "thin", "corrosive", "radioactive", "crystalline", "gaseous", "plasma", "multi-layered"],
+    "terrains": ["crystalline desert", "floating islands", "liquid metal seas", "bio-luminescent forest", "gravity wells", "plasma lakes", "quantum fields", "living crystal", "void chasms", "energy plains"],
+    "colors": ["purple", "emerald", "crimson", "azure", "golden", "silver", "obsidian", "prismatic", "iridescent", "phosphorescent"],
+    "features": ["multiple moons", "binary suns", "ring system", "space anomaly", "wormhole", "asteroid belt", "nebula view", "aurora", "plasma storms", "quantum rifts"]
+}
+
+# Spacecraft
+spacecraft = {
+    "military": ["battlecruiser", "stealth frigate", "carrier", "destroyer", "dreadnought", "gunship", "interceptor", "warship", "assault carrier", "combat shuttle"],
+    "civilian": ["passenger liner", "cargo hauler", "mining vessel", "exploration ship", "colony ship", "research vessel", "transport", "space yacht", "rescue ship", "diplomatic vessel"],
+}
+
+# Cinema Characters
+cinema_characters = [
+    "spiderman", "batman", "hulk", "wonder woman", "superman", "iron man",
+    "captain america", "thor", "black widow", "deadpool", "wolverine",
+    "optimus prime", "megatron", "buzz lightyear", "woody", "shrek",
+    "donkey", "puss in boots", "harley quinn", "joker", "catwoman", 
+    "black panther", "doctor strange", "scarlet witch", "vision",
+    "ant-man", "wasp", "thanos", "loki", "captain marvel", "star-lord",
+    "gamora", "groot", "rocket raccoon", "drax", "nebula",  
+    "miles morales", "ghost rider", "blade", "punisher", "daredevil",
+    "jessica jones", "luke cage", "iron fist", "green goblin", "doctor octopus",
+    "venom", "carnage", "mysterio", "sandman", "vulture", "electro",
+    "terminator", "robocop", "predator", "alien", "indiana jones",
+    "james bond", "ethan hunt", "john wick", "neo", "trinity", "morpheus",
+    "luke skywalker", "darth vader", "yoda", "princess leia", "han solo",
+    "chewbacca", "obi-wan kenobi", "rey", "kylo ren", "mandalorian",
+    "gandalf", "frodo", "aragorn", "legolas", "gimli", "gollum", "saruman",
+    "harry potter", "hermione granger", "ron weasley", "dumbledore", "voldemort",
+    "jack sparrow", "davy jones", "king kong", "godzilla", "jurassic park raptor",
+    "t-rex", "marty mcfly", "doc brown", "ghostbusters", "xenomorph"
+]
+
+# Cartoon Characters
+cartoon_characters = [
+    "mickey mouse", "donald duck", "goofy", "bugs bunny", "spongebob",
+    "homer simpson", "mario", "luigi", "sonic", "pikachu", "sailor moon",
+    "goku", "naruto", "ash ketchum", "doraemon", "hello kitty", "popeye",
+    "fred flintstone", "scooby doo", "shaggy", "tom and jerry", "pink panther",
+    "garfield", "ninja turtles", "winnie the pooh", "tigger", "elsa"
+]
+
+# Anime Styles
+anime_styles = [
+    "anime key visual", "manga panel", "anime illustration", "light novel cover",
+    "anime character sheet", "manga page", "anime promotional art",
+    "anime ending card", "manga splash page", "anime concept art"
+]
+
+# Anime Characters
+anime_characters = [
+    "tsundere", "kuudere", "yandere", "dandere", "deredere",
+    "genki girl", "ojou-sama", "bishonen", "bishojo", "moe character",
+    "magical girl", "isekai protagonist", "student council president",
+    "transfer student", "childhood friend", "shrine maiden", "ninja",
+    "samurai warrior", "demon slayer", "monster hunter", "idol singer",
+    "genius detective", "esper", "mecha pilot", "alchemist",
+    "summoned hero", "dragon knight", "spirit medium", "magic academy student",
+    "demon lord", "celestial maiden", "guardian spirit", "beast tamer",
+    "sword saint", "dark magician", "holy priestess", "mystic healer",
+    "high school student", "club president", "sports ace", "genius programmer",
+    "aspiring chef", "art prodigy", "music composer", "fashion designer"
+]
+
+# Anime Expressions
+anime_expressions = [
+    "determined expression", "gentle smile", "confident smirk", "cute pout",
+    "tearful eyes", "fierce gaze", "cheerful grin", "elegant composure",
+    "shocked face", "blushing cheeks", "serene look", "intense stare"
+]
+
+# Anime Emotions
+anime_emotions = [
+    "burning determination", "overflowing joy", "quiet resolve",
+    "hidden sadness", "righteous anger", "pure innocence",
+    "unwavering courage", "deep melancholy", "boundless enthusiasm",
+    "serene tranquility", "fierce passion", "gentle kindness"
+]
+
+# Anime Actions
+anime_actions = [
+    "charging into battle", "casting magic spell", "striking a pose",
+    "running with toast in mouth", "training montage", "dramatic transformation",
+    "emotional confession", "epic sword clash", "magical girl transformation",
+    "dramatic entrance", "power-up sequence", "slice-of-life moment"
+]
+
+# Anime Environments
+anime_environments = [
+    "cherry blossom avenue", "rooftop at sunset", "traditional japanese garden",
+    "modern tokyo street", "magical academy", "summer festival",
+    "ancient temple grounds", "futuristic city", "peaceful countryside",
+    "mysterious forest", "beach during summer", "snowy mountain shrine"
+]
+
+# Anime Effects
+anime_effects = [
+    "speed lines", "floating cherry blossoms", "magical particles",
+    "glowing aura", "dramatic wind effect", "sparkling stars",
+    "flowing energy", "lens flare", "emotional flowers", "power symbols",
+    "dramatic shadows", "dynamic impact frames"
+]
+
+# Anime Compositions
+anime_compositions = [
+    "dynamic camera angle", "dramatic foreshortening", "dutch angle shot",
+    "extreme close-up", "panoramic wide shot", "hero shot",
+    "split-panel layout", "motion blur focus", "fisheye perspective"
+]
+
+# Architecture Styles
+architecture_styles = [
+    "gothic", "modern", "art deco", "baroque", "minimalist", "brutalist",
+    "victorian", "classical", "renaissance", "contemporary", "futuristic",
+    "industrial", "organic", "high-tech", "postmodern", "deconstructivist",
+    "traditional japanese", "islamic", "greek revival", "romanesque",
+    "neoclassical", "tudor", "colonial", "art nouveau", "beaux-arts",
+    "rococo", "bauhaus", "mid-century modern", "neo-gothic", "byzantine",
+    "modernist", "prairie style", "international style", "spanish colonial",
+    "craftsman", "mediterranean", "georgian", "edwardian", "neo-futuristic",
+    "sustainable", "parametric", "vernacular", "pueblo revival"
+]
+
+# Architecture Elements
+architecture_elements = [
+    "cathedral", "skyscraper", "temple", "palace", "castle", "mansion",
+    "bridge", "tower", "museum", "library", "opera house", "station",
+    "observatory", "pavilion", "monument", "arch", "dome", "spire",
+    "courtyard", "garden", "amphitheater", "aqueduct", "basilica",
+    "belvedere", "citadel", "colonnade", "conservatory", "fortress",
+    "gatehouse", "greenhouse", "lighthouse", "mausoleum", "minaret",
+    "monastery", "obelisk", "pagoda", "pantheon", "pyramid", "rotunda",
+    "sanctuary", "terrace", "vault", "ziggurat", "acropolis", "arcade",
+    "atrium", "balustrade", "buttress", "cloister", "portico"
+]
+
+# Abstract Elements
+abstract_elements = [
+    "geometric shapes", "flowing lines", "color fields", "patterns",
+    "fractals", "curves", "spirals", "dots", "waves", "symmetry",
+    "asymmetry", "gradients", "textures", "layers", "dimensions",
+    "perspective", "depth", "movement", "rhythm", "space",
+    "tessellations", "mosaics", "kaleidoscope", "interference",
+    "diffraction", "refraction", "distortion", "reflection",
+    "transparency", "opacity", "luminosity", "contrast", "harmony",
+    "discord", "balance", "tension", "fluidity", "rigidity",
+    "compression", "expansion", "intersection", "overlay", "repetition",
+    "fragmentation", "convergence", "divergence", "radial patterns",
+    "linear patterns", "organic patterns", "crystalline structures"
+]
+
+# Abstract Styles
+abstract_styles = [
+    "cubist", "expressionist", "constructivist", "suprematist",
+    "de stijl", "abstract expressionist", "color field", "minimalist",
+    "geometric abstraction", "lyrical abstraction", "op art", "kinetic art",
+    "hard-edge painting", "organic abstraction", "biomorphic",
+    "abstract surrealism", "abstract impressionism", "action painting",
+    "tachisme", "art informel", "neo-plasticism", "orphism",
+    "rayonism", "synchronism", "concrete art", "systems art",
+    "process art", "color abstraction", "gestural abstraction",
+    "post-painterly abstraction", "abstract illusionism", "neo-geo",
+    "digital abstraction", "generative art", "glitch art",
+    "abstract photography", "abstract sculpture", "light art",
+    "sound art", "conceptual abstraction", "neo-expressionism"
+]
+
+# Vintage Anthropomorphic Elements
+vintage_anthro_professions = [
+    "detective", "pastry chef", "science professor", "jazz musician", "café waiter",
+    "librarian", "train conductor", "newspaper editor", "watchmaker", "tailor",
+    "botanist", "antiquarian", "theater actor", "poet", "photographer",
+    "cartographer", "archaeologist", "chess master", "violin maker", "astronomer",
+    "apothecary", "bookbinder", "clockmaker", "cobbler", "confectioner",
+    "curator", "diplomat", "etiquette teacher", "fortune teller", "governess",
+    "hat maker", "inventor", "jeweler", "linguist", "naturalist",
+    "opera singer", "perfumer", "philosopher", "portrait painter", "seamstress",
+    "tea merchant", "toymaker", "typographer", "violin tuner", "zoologist"
+]
+
+vintage_anthro_clothing = [
+    "trench coat and fedora", "chef's hat and apron", "lab coat and glasses",
+    "stylish suit and hat", "white shirt and black vest", "tweed jacket with elbow patches",
+    "conductor's uniform", "bow tie and waistcoat", "leather apron and spectacles",
+    "smoking jacket and ascot", "explorer's outfit", "opera cape and top hat",
+    "morning coat and cravat", "tailcoat and white gloves", "frock coat and top hat",
+    "velvet smoking robe", "military dress uniform", "academic gown and hood",
+    "three-piece pinstripe suit", "silk dressing gown", "riding habit and boots",
+    "artist's smock and beret", "formal evening wear", "safari outfit and pith helmet",
+    "double-breasted peacoat", "monocle and pocket square", "high collar and cummerbund",
+    "embroidered waistcoat", "silk cravat and ruffled shirt", "leather riding boots"
+]
+
+vintage_anthro_settings = [
+    "misty street corner", "Parisian bakery", "university classroom",
+    "dimly lit jazz club", "mountain lodge café", "antique bookshop",
+    "steam train station", "Victorian study", "clockmaker's workshop",
+    "botanical garden greenhouse", "museum archive", "vintage photography studio",
+    "grand opera house", "gentleman's club", "antiquarian bookshop",
+    "natural history museum", "astronomical observatory", "private library",
+    "curiosity shop", "perfumery", "botanical laboratory",
+    "cartography office", "vintage wine cellar", "art gallery",
+    "old world pharmacy", "scientific laboratory", "music conservatory",
+    "historic theater", "luxury ocean liner", "grand hotel lobby",
+    "ornate drawing room", "vintage apothecary",
+    "crystal palace greenhouse", "mahogany-paneled study", "rare book archive",
+    "steampunk workshop", "velvet-draped parlor", "vintage chess club",
+    "antique map room", "gilded ballroom", "vintage printing press",
+    "astronomical dome", "vintage radio station", "collectors' salon",
+    "Victorian orangery", "vintage auction house", "botanical illustration studio",
+    "vintage observatory", "crystal greenhouse", "antique music room",
+    "vintage lecture hall", "mechanical workshop", "vintage botanical society",
+    "old world library", "vintage science lab", "collectors' vault"
+]
+
+vintage_anthro_props = [
+    "magnifying glass", "tray of pastries", "scientific beaker",
+    "musical instrument", "coffee service", "leather-bound books",
+    "pocket watch", "fountain pen", "brass telescope",
+    "vintage camera", "chess set", "botanical specimens",
+    "crystal decanter", "gramophone", "typewriter",
+    "globe", "sextant", "microscope",
+    "barometer", "compass", "quill and inkwell",
+    "opera glasses", "calling card case", "leather briefcase",
+    "brass scales", "apothecary jars", "mechanical calculator",
+    "ornate tea set", "antique maps", "specimen collection boxes",
+    "brass microscope", "crystal ink bottles", "wax seal kit",
+    "vintage spectacles", "brass candlesticks", "leather document case",
+    "porcelain teacups", "brass measuring tools", "vintage medical instruments",
+    "antique clock", "brass compass", "leather-bound journal",
+    "crystal perfume bottles", "brass monocle", "vintage writing desk",
+    "botanical illustrations", "brass laboratory equipment", "leather satchel",
+    "vintage photographs", "brass kaleidoscope", "antique violin",
+    "crystal wine glasses", "brass spyglass", "vintage walking stick",
+    "mechanical pocket watch", "brass sundial", "leather map case",
+    "vintage chemistry set", "brass magnifier", "antique books",
+    "crystal paperweight", "brass sextant", "vintage telescope",
+    "mechanical music box", "brass thermometer", "leather portfolio",
+    "vintage botanical prints", "brass hydrometers", "antique fountain pens",
+    "crystal prisms", "brass astrolabe", "vintage scientific instruments",
+    "mechanical chronometer", "brass balance scales", "leather travel case",
+    "vintage astronomical charts", "brass weather instruments", "antique desk set",
+    "crystal magnifying glass", "brass drawing tools", "vintage specimen jars",
+    "mechanical adding machine", "brass surveying equipment", "leather book binding",
+    "vintage laboratory glassware", "antique ink wells"
+]
+
+vintage_anthro_activities = [
+    "smoking an ornate pipe", "smoking a fancy cigar", "driving a vintage car",
+    "piloting an old biplane", "playing a violin", "playing a grand piano",
+    "reading an ancient book", "painting on an easel", "drinking fine wine",
+    "playing chess", "writing with a quill pen", "conducting an orchestra",
+    "riding a penny-farthing bicycle", "sailing a wooden ship", "playing polo",
+    "having afternoon tea", "playing croquet", "fencing with elegance",
+    "examining specimens", "peering through a telescope", "mixing chemicals",
+    "cataloging artifacts", "sketching botanical drawings", "developing photographs",
+    "operating a printing press", "tuning a gramophone", "brewing exotic tea",
+    "polishing brass instruments", "arranging flowers", "collecting butterflies",
+    "studying star charts", "measuring with calipers", "binding leather books",
+    "typing on a vintage typewriter", "developing daguerreotypes", "calibrating instruments",
+    "conducting experiments", "recording observations", "classifying specimens",
+    "archiving documents", "restoring antiques", "curating exhibitions",
+    "navigating with sextant", "studying maps", "writing correspondence",
+    "hosting dinner parties", "attending opera", "giving lectures",
+    "hunting with hounds", "riding in horse-drawn carriages", "attending balls",
+    "playing billiards", "practicing archery", "collecting antiquities",
+    "studying ancient texts", "conducting séances", "brewing potions",
+    "maintaining timepieces", "playing bridge", "attending scientific symposiums",
+    "exploring ruins", "sketching architecture", "conducting archaeological digs",
+    "studying meteorology", "practicing phrenology", "conducting botanical surveys",
+    "organizing expeditions", "maintaining terrariums", "studying entomology",
+    "practicing taxidermy", "conducting astronomical observations", "mixing perfumes",
+    "maintaining aquariums", "studying geology", "conducting anthropological research",
+    "practicing cartography", "studying ornithology", "conducting chemical analysis",
+    "maintaining herbariums", "studying paleontology", "conducting marine research",
+    "using a steampunk AI assistant", "operating a brass quantum computer",
+    "adjusting a mechanical neural network", "calibrating a clockwork VR headset"
+]
+
+# Star Wars specific variables
+star_wars_characters = [
+    "jedi knight", "sith lord", "bounty hunter", "rebel pilot", "imperial officer",
+    "stormtrooper", "mandalorian warrior", "wookiee warrior", "twilek dancer",
+    "republic senator", "smuggler", "droid", "clone trooper", "royal guard",
+    "jedi master", "sith apprentice", "rebel commander", "imperial admiral",
+    "moisture farmer", "pod racer", "jawa trader", "tusken raider", "hutt crime lord",
+    "republic commando", "imperial inquisitor", "force user", "padawan learner",
+    "republic guard", "imperial spy", "rebel spy", "cantina patron", "podracer pilot",
+    "Yoda", "Darth Vader", "Luke Skywalker", "Princess Leia", "Han Solo",
+    "Obi-Wan Kenobi", "Emperor Palpatine", "Chewbacca", "R2-D2", "C-3PO",
+    "Boba Fett", "Darth Maul", "Qui-Gon Jinn", "Mace Windu", "Count Dooku",
+    "Padmé Amidala", "Anakin Skywalker", "General Grievous", "Jabba the Hutt",
+    "Lando Calrissian", "Admiral Ackbar", "Din Djarin", "Grogu", "Ahsoka Tano",
+    "Captain Rex", "Asajj Ventress", "Grand Admiral Thrawn", "Kylo Ren", "Rey",
+    "Finn", "Poe Dameron", "BB-8", "General Hux", "Captain Phasma",
+    "Supreme Leader Snoke", "Moff Gideon", "Cara Dune", "Kuiil", "IG-11",
+    "Fennec Shand", "Cad Bane", "Grand Moff Tarkin", "Admiral Piett"
+]
+
+star_wars_locations = [
+    "tatooine desert", "coruscant cityscape", "death star interior", "rebel base",
+    "imperial star destroyer", "mos eisley cantina", "jedi temple", "sith temple",
+    "endor forest", "cloud city", "naboo palace", "geonosis arena", "kamino facility",
+    "mustafar lava fields", "kashyyyk treetops", "yavin temple", "hoth ice caves",
+    "jabba's palace", "imperial base", "senate chamber", "trade federation ship",
+    "podrace track", "crystal cave", "sarlacc pit", "dune sea", "moisture farm",
+    "imperial academy", "rebel hangar", "spice mines", "smuggler's den"
+]
+
+star_wars_vehicles = [
+    "x-wing fighter", "tie fighter", "millennium falcon", "star destroyer",
+    "lambda shuttle", "speeder bike", "at-at walker", "at-st walker",
+    "republic gunship", "jedi starfighter", "pod racer", "sand crawler",
+    "imperial shuttle", "y-wing bomber", "slave one", "nebulon-b frigate",
+    "imperial transport", "rebel transport", "tie interceptor", "b-wing fighter",
+    "imperial landing craft", "republic cruiser", "trade federation battleship"
+]
+
+star_wars_props = [
+    "lightsaber", "blaster", "force pike", "thermal detonator", "holocron",
+    "comlink", "energy shield", "meditation chamber", "carbonite chamber",
+    "training remote", "imperial probe droid", "protocol droid", "astromech droid",
+    "vibroblade", "energy bow", "force artifact", "jedi robes", "imperial uniform",
+    "rebel flight suit", "stormtrooper armor", "mandalorian armor", "blast door",
+    "control panel", "power generator", "tractor beam", "ion cannon"
+]
+
+star_wars_effects = [
+    "force lightning", "force push", "lightsaber glow", "blaster fire",
+    "force shield", "force healing", "force vision", "hyperspace jump",
+    "ion discharge", "laser blast", "force meditation",
+    "force choke", "force projection", "saber clash", "force storm",
+    "force illusion", "force barrier", "force explosion", "force wave"
+]
+
+# Marvel-specific variables
+marvel_characters = [
+    "Iron Man", "Captain America", "Thor", "Hulk", "Black Widow", "Hawkeye",
+    "Spider-Man", "Doctor Strange", "Black Panther", "Captain Marvel",
+    "Scarlet Witch", "Vision", "Falcon", "Winter Soldier", "War Machine",
+    "Ant-Man", "Wasp", "Star-Lord", "Gamora", "Drax", "Rocket Raccoon",
+    "Groot", "Nebula", "Nick Fury", "Maria Hill",
+    "Thanos", "Loki", "Ultron", "Red Skull", "Doctor Doom",
+    "Green Goblin", "Doctor Octopus", "Venom", "Mysterio", "Killmonger",
+    "Hela", "Ronan", "Vulture", "Taskmaster", "Kang the Conqueror",
+    "Wolverine", "Professor X", "Magneto", "Jean Grey", "Cyclops",
+    "Storm", "Beast", "Rogue", "Gambit", "Deadpool", "Phoenix",
+    "Pepper Potts", "Happy Hogan", "Jane Foster", "MJ Watson", "Ned Leeds",
+    "Wong", "Shuri", "Okoye", "Agent Coulson", "Luis", "Valkyrie"
+]
+
+marvel_locations = [
+    "Avengers Tower", "Stark Industries", "Sanctum Sanctorum", "Wakanda",
+    "Asgard", "SHIELD Helicarrier", "Xavier's School", "Quantum Realm",
+    "New York City streets", "Knowhere", "Titan", "Vormir", "Kamar-Taj",
+    "Dark Dimension", "Mirror Dimension", "Sokovia", "Triskelion",
+    "Latveria", "Asteroid M", "Genosha", "Savage Land", "K'un-Lun",
+    "Hell's Kitchen", "Oscorp Tower", "Daily Bugle", "Midtown High School"
+]
+
+marvel_props = [
+    "Iron Man suit", "Captain America's shield", "Mjolnir", "Infinity Gauntlet",
+    "Eye of Agamotto", "Cloak of Levitation", "Vibranium suit", "Web shooters",
+    "Quantum suit", "Arc reactor", "Pym particles", "Spider suit", "Falcon wings",
+    "Winter Soldier arm", "War Machine armor", "Hawkeye's bow", "Black Widow's batons",
+    "Star-Lord's mask", "Groot's branches", "Rocket's weapons", "Infinity Stones",
+    "Ultron drones", "SHIELD badge", "Quinjet", "Helicarrier", "Milano spaceship"
+]
+
+marvel_effects = [
+    "repulsor blast", "magic portal", "quantum energy",
+    "vibranium pulse", "web effect", "mystic arts", "infinity stone glow",
+    "hulk smash impact", "nano-tech transformation", "spider-sense",
+    "time stone effect", "reality warping", "power stone surge",
+    "space stone portal", "mind stone beam", "soul stone aura",
+    "quantum particles", "arc reactor glow", "magic runes",
+    "cosmic energy", "gamma radiation", "mutant power effect"
+]
+
+# Steampunk Elements
+steampunk_elements = {
+    "machines": [
+        "brass clockwork", "steam engine", "copper boiler", "mechanical gears",
+        "pneumatic tubes", "bronze automaton", "steam-powered robot", "gear train",
+        "pressure gauge", "brass telescope", "mechanical calculator", "steam turbine",
+        "copper pipes", "brass valves", "mechanical wings", "steam-powered armor"
+    ],
+    "accessories": [
+        "top hat", "brass goggles", "leather gloves", "pocket watch",
+        "mechanical monocle", "brass compass", "leather tool belt", "gear brooch",
+        "brass buttons", "leather boots", "mechanical arm", "steam pack"
+    ],
+    "environments": [
+        "Victorian industrial district",
+        "clockwork metropolis",
+        "steam-powered city",
+        "brass and copper cityscape",
+        "mechanical tower complex",
+        "industrial revolution London",
+        "gear-driven urban center",
+        "steam-powered factory district",
+        "mechanical engineering district",
+        "Victorian mechanical city",
+        "steampunk transportation hub",
+        "industrial age marketplace",
+        "mechanical innovation quarter",
+        "steam-powered residential district"
+    ]
+}
+
+# Post-Apocalyptic Elements
+post_apocalyptic_elements = {
+    "environments": [
+        "ruined cityscape", "abandoned highway", "overgrown mall",
+        "destroyed factory", "wasteland settlement", "radiation zone",
+        "underground bunker", "scrapyard city", "desert outpost"
+    ],
+    "props": [
+        "rusty vehicle", "broken machinery", "salvaged weapons",
+        "makeshift shelter", "scavenged supplies", "survival gear",
+        "radiation suit", "gas mask", "improvised tools"
+    ],
+    "atmosphere": [
+        "toxic fog", "nuclear sunset", "acid rain", "dust storm",
+        "radioactive haze", "perpetual twilight", "burning sky"
+    ]
+}
+
+# Underwater Elements
+underwater_elements = {
+    "structures": [
+        "massive crystal dome city", "bioluminescent skyscraper towers", "ancient atlantean palace",
+        "underwater metropolis", "submerged floating city", "coral-integrated architecture",
+        "pressurized glass habitation domes", "kelp forest residential district", "pearl-encrusted temples",
+        "hydrothermal vent power stations", "aqua-glass transit tunnels", "oceanic research facilities",
+        "underwater market squares", "marine cultivation farms", "tidal energy generators",
+        "submerged archaeological ruins", "deep sea mining operations", "bioluminescent street networks"
+    ],
+    "life_forms": [
+        "merfolk citizens", "aquatic humanoid traders", "bioluminescent sea people",
+        "evolved marine colonists", "deep sea civilization dwellers", "underwater society members",
+        "aquatic hybrid inhabitants", "marine-adapted humans", "oceanic cultural groups",
+        "sea-dwelling communities", "underwater tribal societies", "advanced aquatic species"
+    ],
+    "technology": [
+        "water pressure shields", "marine filtration systems", "underwater transport pods",
+        "aquatic communication networks", "bubble-tech living spaces", "coral-based computers",
+        "tidal energy collectors", "pressure-resistant infrastructure", "underwater farming systems",
+        "marine waste recyclers", "aqua-plasma lighting", "oceanic defense systems",
+        "underwater transportation grid", "marine oxygen generators", "aquatic food production"
+    ],
+    "cultural_elements": [
+        "underwater market bazaars", "marine cultural centers", "aquatic education hubs",
+        "deep sea entertainment venues", "oceanic art galleries", "submerged sports arenas",
+        "marine religious temples", "underwater musical pavilions", "aquatic gathering spaces",
+        "deep sea gardens", "marine meditation sanctuaries", "underwater theatrical stages"
+    ]
+}
+
+# Microscopic Elements
+microscopic_elements = {
+    "structures": [
+        "cell membrane", "molecular chain", "protein complex",
+        "DNA helix", "mitochondria", "cellular matrix",
+        "crystal lattice", "atomic structure", "quantum pattern"
+    ],
+    "processes": [
+        "cell division", "protein synthesis", "electron transfer",
+        "molecular binding", "neural firing", "quantum tunneling",
+        "crystallization", "cellular repair", "atomic interaction"
+    ],
+    "environments": [
+        "cellular landscape", "molecular forest", "quantum realm",
+        "crystalline matrix", "neural network", "protein maze",
+        "atomic void", "cellular city", "quantum field"
+    ]
+}
+
+# Bio-Organic Elements
+bio_organic_elements = {
+    "structures": [
+        "living metal", "organic circuitry", "neural interface",
+        "bio-mechanical heart", "synthetic tissue", "living machine",
+        "organic processor", "bio-digital hybrid", "living architecture"
+    ],
+    "processes": [
+        "bio-synthesis", "organic computing", "neural integration",
+        "tissue-metal fusion", "bio-digital transfer", "organic power generation",
+        "synthetic evolution", "bio-mechanical growth"
+    ],
+    "aesthetics": [
+        "bioluminescent circuits", "pulsing veins", "living metal skin",
+        "organic crystal growth", "flowing circuitry", "breathing machinery",
+        "synthetic nervous system", "bio-mechanical symmetry"
+    ]
+}
+
+# Add Christmas Elements
+christmas_elements = {
+    "characters": [
+        "Santa Claus", "Mrs Claus", "reindeer", "elf workshop helper", 
+        "snowman", "gingerbread man", "toy soldier", "nutcracker",
+        "polar bear", "arctic fox", "penguin", "christmas angel",
+        "wise men", "shepherd", "frost giant", "ice queen",
+        "christmas fairy", "jack frost", "krampus", "winter spirit"
+    ],
+    "settings": [
+        "Santa's workshop", "magical toy factory", "christmas village",
+        "winter wonderland", "enchanted forest", "gingerbread town",
+        "north pole", "cozy fireplace", "decorated living room",
+        "snowy town square", "christmas market", "ice palace",
+        "reindeer stables", "elves' dormitory", "candy cane forest",
+        "christmas tree farm", "frozen lake", "magical ice cave",
+        "decorated town hall", "festive shopping street"
+    ],
+    "decorations": [
+        "christmas tree", "twinkling lights", "festive garland",
+        "hanging stockings", "candy canes", "christmas wreaths",
+        "glass ornaments", "tinsel", "mistletoe", "holly berries",
+        "poinsettias", "advent calendar", "christmas star",
+        "festive ribbons", "snow globes", "icicle lights",
+        "nutcracker collection", "gingerbread house", "christmas village display",
+        "wrapped presents"
+    ],
+    "magical_effects": [
+        "sparkling snow", "northern lights", "magical stardust",
+        "twinkling fairy lights", "glowing ornaments", "christmas magic",
+        "festive sparkles", "magical gift wrap", "enchanted snowfall",
+        "glowing christmas star", "magical tinsel", "santa's magic",
+        "reindeer flight trails", "frosty window patterns", "candy cane magic",
+        "christmas bell chimes", "magical gift ribbon", "festive glitter"
+    ],
+    "activities": [
+        "opening presents", "decorating tree", "building snowman",
+        "baking cookies", "singing carols", "wrapping gifts",
+        "sledding", "ice skating", "making snow angels",
+        "drinking hot cocoa", "hanging stockings", "reading christmas stories",
+        "writing to santa", "feeding reindeer", "making gingerbread houses",
+        "christmas shopping", "caroling", "attending christmas feast"
+    ],
+    "weather": [
+        "gentle snowfall", "swirling snowflakes", "winter storm",
+        "magical blizzard", "christmas eve snow", "frost patterns",
+        "icy wind", "crystal clear winter night", "misty winter morning",
+        "perfect christmas snow", "sparkling frost", "winter wonderland snow"
+    ],
+    "foods": [
+        "christmas cookies", "gingerbread", "candy canes",
+        "hot cocoa", "christmas pudding", "roast turkey",
+        "fruit cake", "christmas ham", "mince pies",
+        "mulled wine", "eggnog", "christmas chocolates",
+        "roasted chestnuts", "sugar plums", "yule log cake",
+        "christmas dinner", "festive treats", "decorated cupcakes"
+    ]
+}
+
+christmas_styles = [
+    "cozy christmas illustration", "vintage christmas card",
+    "magical christmas scene", "festive digital art",
+    "traditional christmas painting", "whimsical christmas art",
+    "classic christmas illustration", "modern christmas design",
+    "nostalgic christmas artwork", "cheerful christmas cartoon",
+    "elegant christmas rendering", "heartwarming christmas scene"
+]
+
+christmas_moods = [
+    "magical", "joyful", "festive", "cozy", "nostalgic",
+    "whimsical", "heartwarming", "cheerful", "peaceful",
+    "enchanting", "merry", "traditional", "jolly", "celebratory"
+]
+
+# Add Binet-specific elements
+binet_contemporary_themes = [
+    "street artist", "graffiti master", "sports champion", "football player",
+    "basketball star", "rugby athlete", "urban artist", "street performer",
+    "modern athlete", "team captain", "sports legend", "urban warrior",
+    "street style icon", "modern rebel", "contemporary artist"
+]
+
+binet_sports_gear = [
+    "professional sports jersey with team number",
+    "rugby uniform with national emblem",
+    "football kit with captain's armband",
+    "athletic performance wear",
+    "sports team uniform with sponsor logos",
+    "professional athlete gear",
+    "team captain uniform",
+    "championship medal and jersey",
+    "sports competition outfit",
+    "national team colors",
+    "victory celebration gear",
+    "professional league uniform",
+    "team spirit wear",
+    "championship winner outfit",
+    "sports star signature gear"
+]
+
+binet_urban_elements = [
+    "street art backdrop",
+    "urban graffiti elements",
+    "spray paint effects",
+    "abstract paint splashes",
+    "dynamic paint strokes",
+    "artistic ink splatters",
+    "contemporary art patterns",
+    "modern street art style",
+    "urban decay textures",
+    "artistic chaos elements",
+    "modern art composition",
+    "street culture symbols",
+    "urban typography",
+    "modern artistic flair",
+    "contemporary design elements"
+]
+
+binet_celebration_elements = [
+    "victory confetti shower",
+    "championship celebration",
+    "triumphant moment",
+    "winning atmosphere",
+    "crowd celebration effects",
+    "stadium victory lights",
+    "championship trophy presentation",
+    "victory roar moment",
+    "triumphant stance",
+    "celebration fireworks",
+    "victory lap scene",
+    "champion's spotlight",
+    "winning team celebration",
+    "sports arena triumph",
+    "victory parade atmosphere"
+]
+
+binet_character_themes = [
+    "superhero", "pirate captain", "military general", "noir detective",
+    "steampunk explorer", "royal commander", "distinguished admiral",
+    "mysterious vigilante", "elegant aristocrat", "scholarly professor",
+    "master spy", "legendary warrior", "noble diplomat", "master assassin",
+    "distinguished inventor"
+]
+
+binet_costume_elements = [
+    "armored tactical suit with insignia", 
+    "weathered pirate coat with brass buttons",
+    "high-tech combat armor with glowing details",
+    "leather trench coat with metal accents",
+    "military uniform with medals and badges",
+    "steampunk outfit with brass gadgets",
+    "combat suit with battle damage",
+    "formal military dress with gold trim",
+    "tactical gear with utility pouches",
+    "ornate battle armor with royal emblems",
+    "advanced combat suit with power cores",
+    "distinguished uniform with rank insignias",
+    "masked vigilante suit with cape",
+    "battle-worn armor with war medals",
+    "high-tech stealth suit with sensors"
+]
+
+binet_props_and_weapons = [
+    "vibranium shield with battle scars",
+    "ornate cutlass and flintlock pistol",
+    "high-tech energy weapons",
+    "dual katanas with glowing runes",
+    "ceremonial sword and pistol",
+    "advanced combat rifle",
+    "ancient mystical weapons",
+    "tactical combat gear",
+    "experimental energy shield",
+    "legendary blade with inscriptions",
+    "modified sniper rifle",
+    "enchanted battle staff",
+    "custom twin pistols",
+    "advanced targeting system",
+    "mystical combat artifacts"
+]
+
+binet_clothing = {
+    "luxury": [
+        "designer white fur coat with Chanel brooch",
+        "black silk turtleneck with gold chain",
+        "cream cashmere sweater with designer logo",
+        "tailored Italian suit with pocket square",
+        "luxury leather jacket with gold buttons",
+        "designer blazer with silk scarf",
+        "high-end trench coat with belt",
+        "premium wool coat with fur collar",
+        "silk blouse with pearl buttons",
+        "velvet smoking jacket with satin lapels"
+    ],
+    "professional": [
+        "white medical coat with stethoscope",
+        "pilot's uniform with golden wings",
+        "chef's whites with professional badges",
+        "business suit with silk tie",
+        "military dress uniform with medals",
+        "police uniform with badges",
+        "firefighter gear with patches",
+        "judge's robes with ceremonial collar",
+        "professor's blazer with elbow patches",
+        "architect's professional attire with tools"
+    ]
+}
+
+# Add Pixar-specific elements
+pixar_styles = [
+    "Pixar-style 3D render", "Pixar animation style", "Pixar character design",
+    "Pixar-like CGI artwork", "Pixar digital art", "Pixar concept art",
+    "cute Pixar-inspired render", "adorable Pixar animation", "charming Pixar scene"
+]
+
+pixar_characteristics = [
+    "expressive big eyes", "cute round features", "adorable facial expression",
+    "charming smile", "playful pose", "endearing personality",
+    "bouncy animation style", "squash and stretch", "appealing character design",
+    "soft rounded forms", "cheerful demeanor", "heartwarming expression",
+    "lovable character", "whimsical design", "friendly appearance",
+    "cute button nose", "chubby cheeks", "innocent look",
+    "playful attitude", "gentle features", "warm personality"
+]
+
+pixar_materials = [
+    "soft shiny plastic", "smooth rubber", "polished metal",
+    "plush fabric", "velvety texture", "glossy surface",
+    "matte finish", "fuzzy material", "silky smooth surface",
+    "pearlescent sheen", "sparkly details", "metallic accents",
+    "translucent glow", "iridescent highlights", "subtle shimmer"
+]
+
+pixar_environments = [
+    "colorful toy room", "cozy kitchen", "magical bedroom",
+    "charming small town", "whimsical playground", "enchanted garden",
+    "friendly neighborhood", "cute cafe interior", "adorable toy store",
+    "magical school", "cheerful park", "lovely backyard",
+    "charming village", "delightful candy shop", "magical library"
+]
+
+pixar_lighting = [
+    "warm golden lighting", "soft ambient glow", "cheerful sunlight",
+    "magical light rays", "cozy indoor lighting", "playful color bounce",
+    "gentle rim light", "charming practical lights", "dreamy atmosphere",
+    "sparkly highlights", "magical light beams", "gentle volumetric lighting"
+]
+
+# Add Interior-specific elements
+interior_styles = [
+    "modern", "minimalist", "scandinavian", "industrial", "bohemian",
+    "contemporary", "traditional", "art deco", "mid-century modern",
+    "rustic", "coastal", "farmhouse", "eclectic", "japanese zen",
+    "mediterranean", "victorian", "tropical", "french country", "gothic",
+    "baroque", "renaissance", "neoclassical", "art nouveau", "shabby chic",
+    "hollywood regency", "asian fusion", "moroccan", "southwestern",
+    "colonial", "tudor", "georgian", "retro", "vintage", "steampunk",
+    "urban modern", "transitional", "maximalist", "wabi-sabi", "bauhaus",
+    "brutalist", "chinoiserie", "hamptons style", "lodge", "nautical",
+    "provincial", "rococo", "gothic revival", "modernist", "postmodern"
+]
+
+interior_spaces = [
+    "minimalist living room", "modern kitchen", "luxury bathroom", "elegant dining room",
+    "designer home office", "grand library", "glass conservatory", "marble entrance hall",
+    "architectural loft", "high-end studio space", "penthouse interior", "walk-in closet",
+    "gourmet kitchen", "spa bathroom", "meditation space", "reading nook",
+    "wine cellar", "art gallery space", "greenhouse interior", "luxury pantry",
+    "designer laundry room", "grand staircase", "solarium", "drawing room",
+    "gallery space", "atrium", "conservatory", "great room", "foyer",
+    "butler's pantry", "dressing room", "powder room", "music room", "library"
+]
+
+interior_elements = [
+    "designer furniture", "architectural lighting", "luxury textiles", "statement artwork",
+    "decorative objects", "handwoven rugs", "custom window treatments", "architectural details",
+    "built-in storage", "marble surfaces", "crystal chandeliers", "designer mirrors",
+    "textured wallpaper", "accent pillows", "silk curtains", "motorized blinds",
+    "floating shelves", "custom cabinetry", "stone countertops", "pendant lights",
+    "parquet flooring", "coffered ceiling", "wall sconces", "track lighting",
+    "designer bookcases", "marble fireplace", "brass fixtures", "glass partitions",
+    "wood paneling", "stone accent wall", "designer tiles", "smart home features",
+    "built-in aquarium", "indoor water feature", "designer radiators", "smart glass windows",
+    "hidden storage", "mood lighting", "automated systems", "sound system"
+]
+
+# Add animal families dictionary
+animal_families = {
+    'felines': ['cat', 'lion', 'tiger', 'leopard', 'cheetah', 'jaguar', 'lynx', 'ocelot', 'caracal', 'cougar', 'panther', 'serval', 'bobcat', 'snow leopard', 'clouded leopard', 'margay', 'fishing cat', 'puma', 'sand cat', 'jaguarundi', 'asian golden cat', 'black-footed cat', 'pallas cat', 'rusty-spotted cat', 'oncilla'],
+    
+    'canines': ['dog', 'wolf', 'fox', 'coyote', 'dingo', 'jackal', 'fennec fox', 'arctic fox', 'red wolf', 'african wild dog', 'maned wolf', 'golden retriever', 'puppy', 'german shepherd', 'husky', 'labrador', 'border collie', 'beagle', 'rottweiler', 'doberman', 'great dane', 'bulldog', 'poodle', 'corgi', 'dalmatian', 'swift fox', 'kit fox', 'gray fox', 'bush dog', 'raccoon dog'],
+    
+    'bears': ['bear', 'panda', 'grizzly bear', 'polar bear', 'black bear', 'sun bear', 'spectacled bear', 'sloth bear', 'brown bear', 'asiatic black bear', 'kodiak bear', 'cave bear', 'giant panda', 'red panda', 'moon bear', 'syrian brown bear', 'tibetan blue bear', 'formosan black bear', 'himalayan brown bear', 'gobi bear'],
+    
+    'primates': ['monkey', 'gorilla', 'chimpanzee', 'orangutan', 'baboon', 'gibbon', 'lemur', 'mandrill', 'capuchin', 'marmoset', 'tamarin', 'macaque', 'bonobo', 'siamang', 'proboscis monkey', 'howler monkey', 'spider monkey', 'langur', 'colobus', 'tarsier', 'galago', 'loris', 'indri', 'sifaka', 'aye-aye', 'vervet monkey', 'woolly monkey', 'squirrel monkey', 'mangabey', 'guereza'],
+    
+    'rodents': ['rat', 'mouse', 'squirrel', 'chipmunk', 'hamster', 'beaver', 'capybara', 'gerbil', 'guinea pig', 'porcupine', 'chinchilla', 'marmot', 'prairie dog', 'dormouse', 'agouti', 'degu', 'jerboa', 'kangaroo rat', 'lemming', 'vole', 'woodchuck', 'groundhog', 'flying squirrel', 'nutria', 'viscacha', 'gopher', 'springhare', 'coypu', 'hutia', 'zokors'],
+    
+    'birds': ['eagle', 'hawk', 'owl', 'penguin', 'parrot', 'peacock', 'swan', 'duck', 'goose', 'falcon', 'hummingbird', 'toucan', 'macaw', 'flamingo', 'crane', 'pelican', 'albatross', 'raven', 'crow', 'cardinal', 'blue jay', 'woodpecker', 'kingfisher', 'ostrich', 'emu', 'kiwi', 'condor', 'vulture', 'seagull', 'puffin', 'stork', 'heron', 'ibis', 'sparrow', 'finch', 'canary', 'cockatoo', 'parakeet', 'lorikeet', 'quail'],
+    
+    'reptiles': ['crocodile', 'alligator', 'snake', 'lizard', 'gecko', 'tortoise', 'iguana', 'chameleon', 'komodo dragon', 'python', 'cobra', 'viper', 'turtle', 'monitor lizard', 'bearded dragon', 'anaconda', 'boa constrictor', 'rattlesnake', 'mamba', 'skink', 'gila monster', 'tuatara', 'caiman', 'basilisk', 'anole', 'tegu', 'agama', 'worm lizard', 'amphisbaena', 'horned lizard'],
+    
+    'marine': ['dolphin', 'shark', 'octopus', 'squid', 'jellyfish', 'crab', 'lobster', 'seal', 'sea lion', 'walrus', 'orca', 'narwhal', 'manatee', 'sea turtle', 'seahorse', 'ray', 'starfish', 'eel', 'anglerfish', 'clownfish', 'barracuda', 'moray eel', 'hammerhead shark', 'great white shark', 'manta ray', 'sea urchin', 'sea cucumber', 'sea anemone', 'coral', 'dugong', 'blue whale', 'sea dragon', 'lionfish', 'pufferfish', 'swordfish'],
+    
+    'marsupials': ['kangaroo', 'koala', 'wallaby', 'tasmanian devil', 'wombat', 'quokka', 'opossum', 'numbat', 'bandicoot', 'sugar glider', 'quoll', 'potoroo', 'bettong', 'bilby', 'pademelon', 'tree kangaroo', 'cuscus', 'antechinus', 'dunnart', 'phascogale', 'ringtail possum', 'brushtail possum', 'glider possum', 'rock wallaby', 'swamp wallaby'],
+    
+    'insects': ['butterfly', 'beetle', 'ant', 'bee', 'wasp', 'dragonfly', 'mantis', 'grasshopper', 'cricket', 'ladybug', 'moth', 'cicada', 'firefly', 'scarab', 'caterpillar', 'centipede', 'millipede', 'scorpion', 'spider', 'termite', 'cockroach', 'earwig', 'stick insect', 'leaf insect', 'walking stick', 'praying mantis', 'assassin bug', 'water strider', 'giant water bug', 'jewel beetle', 'stag beetle', 'rhinoceros beetle', 'hercules beetle', 'atlas beetle', 'dung beetle'],
+    
+    'ungulates': ['horse', 'deer', 'elephant', 'giraffe', 'zebra', 'rhinoceros', 'hippopotamus', 'moose', 'elk', 'antelope', 'gazelle', 'bison', 'buffalo', 'camel', 'llama', 'alpaca', 'wildebeest', 'impala', 'kudu', 'oryx', 'eland', 'gemsbok', 'nyala', 'okapi', 'tapir', 'wild boar', 'warthog', 'peccary', 'mountain goat', 'bighorn sheep', 'ibex', 'chamois', 'markhor', 'tahr', 'muskox']
+}
+
+# Add Food-specific elements
+food_types = [
+    "sushi", "pizza", "burger", "pasta", "steak", "salad", "soup", "dessert",
+    "cake", "ice cream", "chocolate", "sandwich", "ramen", "curry", "seafood",
+    "barbecue", "tacos", "pancakes", "waffles", "croissant", "bread", "pastry",
+    "macarons", "cupcakes", "donuts", "fruit platter", "cheese board", "dim sum",
+    "pho", "paella", "risotto", "lasagna", "sashimi", "tempura", "dumplings",
+    "bibimbap", "pad thai", "butter chicken", "falafel", "shawarma", "kebab",
+    "poke bowl", "ceviche", "enchiladas", "tamales", "empanadas", "spring rolls",
+    "samosas", "biryani", "moussaka", "couscous", "gnocchi", "ravioli",
+    "carbonara", "tiramisu", "creme brulee", "gelato", "baklava", "churros",
+    "crepes", "eclairs", "mochi", "truffles", "souffles", "tarts", "pies",
+    "cheesecake", "brownies", "cookies", "biscuits", "scones", "muffins"
+]
+
+food_styles = [
+    "gourmet", "homemade", "street food", "fine dining", "rustic", "modern",
+    "traditional", "fusion", "minimalist", "artisanal", "molecular gastronomy",
+    "comfort food", "haute cuisine", "bistro style", "farm-to-table", "buffet",
+    "tapas", "family style", "al fresco", "prix fixe", "tasting menu",
+    "casual dining", "food truck", "pop-up restaurant", "cafeteria",
+    "brasserie", "trattoria", "izakaya", "gastropub", "deli", "patisserie",
+    "steakhouse", "seafood restaurant", "sushi bar", "pizzeria", "cafe",
+    "bakery", "food hall", "wine pairing", "seasonal menu", "organic",
+    "vegan", "vegetarian", "raw food", "slow food", "fast casual"
+]
+
+# Add Halloween Elements
+halloween_elements = {
+    "creatures": [
+        "ghost", "skeleton", "zombie", "vampire", "werewolf", "witch",
+        "black cat", "demon", "gargoyle", "grim reaper", "mummy",
+        "haunted doll", "possessed puppet", "banshee", "goblin",
+        "headless horseman", "phantom", "wraith", "imp", "living scarecrow",
+        "ghoul", "poltergeist", "wendigo", "hellhound", "shadow creature",
+        "faceless entity", "doppelganger", "changeling", "boogeyman", "revenant",
+        "lich", "necromancer", "dark fairy", "night stalker", "possessed child",
+        "corpse bride", "pumpkin head", "plague doctor", "shadow walker", "sin eater"
+    ],
+    "settings": [
+        "haunted house", "graveyard", "dark forest", "abandoned church",
+        "cursed castle", "foggy cemetery", "witch's cottage", "crypt",
+        "dungeon", "misty moor", "haunted mansion", "dark alley",
+        "abandoned asylum", "cursed village", "spooky carnival",
+        "ancient tomb", "forbidden tower", "ghost town", "dark swamp",
+        "haunted lighthouse", "cursed school", "abandoned hospital",
+        "forgotten catacombs", "haunted theater", "cursed library",
+        "abandoned mine", "witch's grove", "demon's lair", "shadow realm",
+        "haunted circus", "forgotten monastery", "cursed ruins",
+        "abandoned orphanage", "dark carnival", "witch's cave"
+    ],
+    "props": [
+        "jack o'lantern", "cobwebs", "candelabra", "crystal ball",
+        "spell book", "cauldron", "cursed mirror", "haunted painting",
+        "old tombstone", "creepy doll", "raven", "full moon",
+        "twisted trees", "carved pumpkin", "black roses", "skull",
+        "ancient runes", "poison bottles", "tarot cards",
+        "ouija board", "haunted music box", "bone wind chimes",
+        "cursed jewelry", "witch's broom", "black candles", "dead flowers",
+        "rusty chains", "broken mirrors", "ghostly photographs",
+        "possessed teddy bear", "voodoo doll", "pentagram", "blood stains",
+        "ancient artifacts", "cursed diary", "spirit board", "demon mask",
+        "witch's herbs", "sacrificial altar", "evil eye amulet"
+    ]
+}
+
+# Add additional Binet-specific elements
+binet_color_schemes = [
+    "vibrant red and black with glowing effects",
+    "luxury gold and white with soft highlights",
+    "racing yellow with dynamic motion blur",
+    "elegant emerald green with butterfly accents",
+    "royal blue with chrome details",
+    "neon colors with urban glow",
+    "pastel tones with ethereal lighting",
+    "rich burgundy with golden accents",
+    "racing team colors with metallic finish",
+    "designer brand colors with premium finish",
+    "medical white with professional blue accents",
+    "sports team official colors",
+    "luxury fashion brand palette",
+    "racing livery colors",
+    "urban street art colors"
+]
+
+binet_environments = [
+    "elegant portrait studio setting",
+    "dark dramatic backdrop",
+    "distinguished study with leather-bound books",
+    "classical portrait setting",
+    "sophisticated dark background",
+    "noble chamber with subtle details",
+    "vintage photography studio",
+    "luxury penthouse interior",
+    "grand manor library",
+    "aristocratic drawing room",
+    "professional photo studio",
+    "upscale art gallery",
+    "refined gentleman's club",
+    "prestigious office",
+    "luxury hotel suite"
+]
+
+binet_effects = [
+    "deep shadows",
+    "bright highlights",
+    "dramatic atmosphere",
+    "volumetric lighting",
+    "perfect exposure",
+    "subtle vignette",
+    "cinematic color grading",
+    "professional lighting",
+    "studio flash setup",
+    "rim lighting",
+    "soft fill light",
+    "dramatic contrast",
+    "moody shadows",
+    "elegant highlights",
+    "atmospheric haze"
+]
+
+# Add additional Interior-specific elements
+interior_lighting = [
+    "natural sunlight", 
+    "soft diffused light", 
+    "dramatic window light",
+    "ambient lighting", 
+    "accent lighting", 
+    "architectural lighting",
+    "indirect lighting", 
+    "spotlighting",
+    "task lighting",
+    "mood lighting",
+    "cove lighting",
+    "pendant lighting",
+    "chandelier lighting",
+    "wall sconce lighting",
+    "recessed lighting"
+]
+
+interior_times = [
+    "morning", 
+    "midday", 
+    "afternoon", 
+    "golden hour",
+    "blue hour", 
+    "evening", 
+    "twilight",
+    "dusk",
+    "dawn",
+    "sunrise",
+    "sunset",
+    "night"
+]
+
+interior_atmospheres = [
+    "cozy", 
+    "elegant", 
+    "minimalist",
+    "luxurious", 
+    "modern", 
+    "traditional",
+    "rustic", 
+    "industrial",
+    "contemporary",
+    "classic",
+    "bohemian",
+    "scandinavian",
+    "mediterranean",
+    "zen",
+    "eclectic"
+]
+
+# Add 3D-specific elements
+threed_styles = [
+    "low poly", "realistic 3D", "isometric", "voxel art", "clay render",
+    "wireframe", "procedural", "photorealistic 3D", "stylized 3D",
+    "geometric 3D", "architectural visualization", "product visualization",
+    "character modeling", "environment modeling", "hard surface modeling"
+]
+
+threed_environments = [
+    "studio lighting setup", 
+    "environmental lighting", 
+    "dramatic lighting", 
+    "realistic environment", 
+    "abstract space", 
+    "geometric background",
+    "HDRI environment",
+    "virtual studio",
+    "3D scene",
+    "digital space"
+]
+
+threed_effects = [
+    "ambient occlusion",
+    "global illumination",
+    "ray tracing",
+    "subsurface scattering",
+    "volumetric lighting",
+    "reflection",
+    "refraction",
+    "caustics",
+    "depth of field",
+    "motion blur",
+    "particle systems",
+    "soft shadows",
+    "physically based rendering",
+    "emission",
+    "bloom"
+]
+
+threed_materials = [
+    "metallic",
+    "glass",
+    "plastic",
+    "rubber",
+    "wood",
+    "fabric",
+    "leather",
+    "ceramic",
+    "concrete",
+    "marble",
+    "gold",
+    "chrome",
+    "brushed metal",
+    "matte finish",
+    "glossy finish"
+]
+
+# Add Futuristic City Elements
+futuristic_city_elements = {
+    "architecture": [
+        "towering skyscrapers", "floating buildings", "anti-gravity structures",
+        "crystalline towers", "holographic billboards", "neon-lit facades", 
+        "suspended walkways", "transparent domes", "energy spires",
+        "vertical gardens", "quantum architecture", "plasma conduits",
+        "bio-organic buildings", "cybernetic structures", "nano-tech constructs",
+        "self-repairing structures", "modular megastructures", "force field protected buildings",
+        "artificial intelligence hubs", "data processing centers", "environmental purification towers",
+        "solar collection arrays", "hyperloop stations", "quantum computing facilities",
+        "biomimetic architecture", "space elevators", "atmospheric scrubbers",
+        "holographic projection centers", "energy distribution nodes", "climate control towers"
+    ],
+    "infrastructure": [
+        "magnetic levitation trains", "flying vehicles", "teleportation hubs",
+        "energy grid networks", "holographic streets", "sky bridges",
+        "underground megastructures", "atmospheric processors", "fusion reactors",
+        "weather control systems", "orbital elevators", "gravity tubes",
+        "quantum transportation networks", "automated delivery systems", "drone highways",
+        "suborbital transport loops", "matter recycling facilities", "energy harvesting grids",
+        "vertical transportation pods", "antigravity public transit", "neural network hubs",
+        "plasma energy conduits", "waste reclamation systems", "atmospheric filtration networks",
+        "autonomous vehicle lanes", "molecular assembly plants", "smart city grids",
+        "hydroponic farming towers", "quantum communication arrays", "artificial ecosystem regulators"
+    ],
+    "atmosphere": [
+        "neon-lit", "cyberpunk", "clean tech", "eco-futuristic", "dystopian",
+        "utopian", "high-tech", "bio-mechanical", "quantum powered",
+        "holographic", "plasma-driven", "chrome and glass", "crystalline",
+        "bioluminescent", "nano-enhanced", "augmented reality infused", "solar punk",
+        "techno-organic", "hyper-connected", "artificially sustained",
+        "energy saturated", "digitally overlaid", "synthetically optimized",
+        "quantum stabilized", "electromagnetically charged", "fusion powered",
+        "holographically augmented", "climate controlled", "pollution free",
+        "technologically integrated", "AI monitored"
+    ],
+    "time": [
+        "night", "sunset", "dawn", "dusk", "midnight", "golden hour",
+        "blue hour", "neon twilight", "artificial day", "perpetual twilight",
+        "quantum time", "temporal flux", "synthetic daylight", "eternal dusk",
+        "programmed dawn", "digital midnight", "holographic sunset", "artificial aurora",
+        "binary sunrise", "plasma noon", "crystal clear morning", "nebula night",
+        "virtual daytime", "simulated evening", "matrix morning", "cyber sunset",
+        "quantum nightfall", "synthetic starlight", "digital dawn", "techno twilight"
+    ],
+    "lighting": [
+        "neon glow", "holographic illumination", "quantum light", "plasma luminescence",
+        "bioluminescent accents", "crystal refraction", "energy field glow",
+        "artificial sunlight", "synthetic aurora", "digital light patterns",
+        "laser grid lighting", "photonic crystals", "quantum dot illumination",
+        "nano-light particles", "fusion core radiance", "atmospheric light show",
+        "dynamic light sculpture", "reactive lighting systems", "smart illumination",
+        "adaptive ambient lighting"
+    ],
+    "effects": [
+        "holographic overlays", "energy field distortions", "quantum particles",
+        "digital rain", "neon reflections", "plasma streams", "light trails",
+        "data visualization", "augmented reality layers", "force field shimmer",
+        "nano swarms", "energy pulses", "atmospheric distortions", "light pollution",
+        "synthetic weather", "digital artifacts", "quantum interference patterns",
+        "holographic glitches", "energy field fluctuations", "temporal anomalies"
+    ]
+}
+
+# Add Instagram Lifestyle Elements
+influencer_types = [
+    "deep cleavage fashion blogger", "curvy fitness model", "curvy travel influencer", "lifestyle blogger",
+    "food critic", "curvy beauty guru", "tech reviewer", "deep cleavage wellness coach",
+    "busty yoga instructor", "digital nomad", "busty streetwear model", "deep cleavage makeup artist",
+    "busty personal trainer", "luxury lifestyle", "sustainable living blogger",
+    "deep cleavage adventure photographer", "home decor expert", "busty fashion model"
+]
+
+influencer_activities = [
+    "posing", "taking selfie", "vlogging", "doing photoshoot",
+    "showcasing product", "recording story", "doing unboxing",
+    "creating content", "doing tutorial", "reviewing product",
+    "sharing lifestyle tips", "doing workout", "traveling",
+    "doing makeup tutorial", "sharing fashion tips"
+]
+
+influencer_locations = [
+    "luxury hotel", "infinity pool", "beach resort", "rooftop bar",
+    "trendy cafe", "designer store", "yoga studio", "private jet",
+    "exotic beach", "urban rooftop", "luxury apartment",
+    "high-end restaurant", "fashion show", "art gallery",
+    "boutique hotel", "sunset viewpoint", "luxury yacht"
+]
+
+instagram_lighting = [
+    "golden hour", "natural sunlight", "soft diffused light",
+    "backlit glow", "sunset lighting", "studio lighting",
+    "ring light", "window light", "ambient lighting",
+    "professional flash", "beach sunlight", "blue hour",
+    "candlelight", "neon lights", "city lights"
+]
+
+instagram_effects = [
+    "bokeh background", "lens flare", "soft focus",
+    "motion blur", "light leaks", "film grain",
+    "color grading", "vignette", "hdr effect",
+    "dreamy glow", "vintage filter", "pastel tones",
+    "high contrast", "matte finish", "sun flare"
+]
+
+instagram_compositions = [
+    "rule of thirds", "centered composition", "leading lines",
+    "symmetrical layout", "diagonal composition", "framing",
+    "minimalist composition", "layered composition", "geometric patterns",
+    "negative space", "bird's eye view", "low angle shot",
+    "dutch angle", "over-the-shoulder", "point of view"
+]
+
+# Add Marvel comic-specific elements
+marvel_comic_styles = [
+    "classic Marvel comic book art style", 
+    "vintage comic book illustration",
+    "Silver Age Marvel comics style", 
+    "retro comic book art",
+    "Jack Kirby style comic art", 
+    "Steve Ditko art style",
+    "John Romita Sr comic style", 
+    "classic comic book panel",
+    "Bronze Age Marvel style", 
+    "Golden Age comic art"
+]
+
+marvel_comic_effects = [
+    "Ben-Day dots pattern", 
+    "halftone shading effect", 
+    "comic ink lines",
+    "bold comic book colors", 
+    "dramatic comic shadows", 
+    "action lines",
+    "comic book crosshatching", 
+    "vintage print texture", 
+    "comic book color halftones",
+    "dramatic comic perspective", 
+    "bold outline style", 
+    "comic book speed lines"
+]
+
+marvel_comic_compositions = [
+    "dynamic comic book pose", 
+    "heroic comic book stance",
+    "dramatic comic panel layout", 
+    "action-packed comic scene",
+    "classic comic book cover composition", 
+    "epic comic splash page",
+    "dramatic comic book angle", 
+    "vintage comic framing"
+]
+
+# Add Peaky Blinders Elements
+peaky_blinders_animals = [
+    "lion", "wolf", "tiger", "bear", "gorilla", "bull", "horse", "stag",
+    "fox", "dog", "goat", "ram", "leopard", "panther", "eagle", "hawk",
+    "owl", "raven", "boar", "elk", "moose", "badger", "otter", "lynx",
+    "wildcat", "hound", "mastiff", "doberman", "german shepherd", "great dane"
+]
+
+peaky_blinders_outfits = [
+    "sharp three-piece tweed suit with newsboy cap",
+    "tailored pinstripe suit with flat cap",
+    "wool herringbone suit with leather gloves",
+    "custom-fitted waistcoat and pocket watch",
+    "dark wool overcoat with matching cap",
+    "tailored suit with suspenders and cap",
+    "formal dress suit with bow tie and cap",
+    "vintage three-piece suit with gold chain",
+    "bespoke suit with silk tie and cap",
+    "leather-trimmed suit with matching hat",
+    "double-breasted suit with pocket square",
+    "formal evening wear with top hat",
+    "hunting tweed with leather boots",
+    "racing suit with driving gloves",
+    "military-inspired suit with medals"
+]
+
+peaky_blinders_accessories = [
+    "holding a large cigar",
+    "with a silver pocket watch",
+    "carrying a wooden cane",
+    "with a glass of whiskey",
+    "holding a vintage pistol",
+    "with a leather briefcase",
+    "smoking a carved pipe",
+    "with brass knuckles",
+    "holding a crystal tumbler",
+    "with a leather holster",
+    "carrying a walking stick",
+    "with a gold cigarette case",
+    "holding a glass of red wine",
+    "with an ornate flask",
+    "carrying a leather document case"
+]
+
+peaky_blinders_settings = [
+    "dimly lit gentleman's club",
+    "smoky Birmingham pub",
+    "vintage car garage",
+    "industrial factory office",
+    "private betting parlor",
+    "luxurious study room",
+    "historic train station",
+    "cobblestone street corner",
+    "underground speakeasy",
+    "private members club",
+    "horse racing track",
+    "vintage wine cellar",
+    "old boxing gym",
+    "historic auction house",
+    "private gambling den"
+]
+
+peaky_blinders_furniture = [
+    "luxurious leather armchair",
+    "vintage wooden desk",
+    "antique poker table",
+    "carved mahogany bar",
+    "velvet chesterfield sofa",
+    "brass-trimmed writing desk",
+    "vintage billiards table",
+    "leather wingback chair",
+    "ornate wooden throne",
+    "antique smoking chair",
+    "carved oak table",
+    "vintage betting counter",
+    "leather office chair",
+    "brass-studded armchair",
+    "antique card table"
+]
+
+peaky_blinders_props = [
+    "vintage car from the early 1920s",
+    "antique pocket watch collection",
+    "crystal whiskey decanters",
+    "vintage firearms display",
+    "old racing newspapers",
+    "betting slips and ledgers",
+    "carved wooden boxes",
+    "vintage radio set",
+    "old telephone",
+    "brass table lamps",
+    "antique cash register",
+    "vintage photographs",
+    "old boxing gloves",
+    "horse racing trophies",
+    "vintage playing cards"
+]
+
+peaky_blinders_atmospheres = [
+    "smoky atmosphere with golden lighting",
+    "dim gaslight with long shadows",
+    "morning fog with streaks of sunlight",
+    "warm lamplight with tobacco haze",
+    "dramatic evening shadows",
+    "moody industrial lighting",
+    "soft vintage lighting",
+    "dramatic window light",
+    "atmospheric street lighting",
+    "candlelit ambiance",
+    "dusty sunbeams",
+    "rainy evening atmosphere",
+    "misty morning light",
+    "dramatic spotlight effect",
+    "industrial steam and smoke"
+]
+
+# Add additional Futuristic City Elements
+futuristic_city_compositions = [
+    "aerial cityscape", 
+    "street level view",
+    "establishing shot",
+    "architectural detail",
+    "infrastructure closeup",
+    "panoramic vista",
+    "urban canyon",
+    "vertical perspective",
+    "ground-up view",
+    "birds-eye view",
+    "isometric view",
+    "dynamic angle",
+    "dramatic perspective",
+    "immersive viewpoint",
+    "cinematic framing"
+]
+
+futuristic_city_moods = [
+    "utopian",
+    "dystopian",
+    "cyberpunk",
+    "solarpunk",
+    "high-tech",
+    "eco-futuristic",
+    "neo-industrial",
+    "post-human",
+    "techno-organic",
+    "hyper-urban",
+    "digital age",
+    "quantum era",
+    "nano-tech future",
+    "artificial evolution",
+    "synthetic reality"
+]
+
+futuristic_city_styles = [
+    "ultra modern",
+    "neo-brutalist",
+    "bio-architectural",
+    "quantum design",
+    "nano-tech aesthetic",
+    "crystalline structure",
+    "plasma-core design",
+    "holographic integration",
+    "energy flow pattern",
+    "digital organic",
+    "synthetic evolution",
+    "techno-biological",
+    "artificial nature",
+    "cyber-geometric",
+    "quantum-organic fusion"
+]

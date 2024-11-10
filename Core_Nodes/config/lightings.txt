@@ -1,0 +1,82 @@
+Accent Lighting
+Ambient Lighting
+Artificial Lighting
+Backlighting
+Bicolor Lighting
+Bottom Lighting
+Bounce Lighting
+Candlelight
+Chiaroscuro
+Chromatic Lighting
+Colored Lighting
+Cross Lighting
+Diffuse Lighting
+Directional Lighting
+Direct Lighting
+Dramatic Lighting
+Edge Lighting
+Fill Lighting
+Firelight
+Flat Lighting
+Fluorescent Lighting
+Frontal Lighting
+Frosted Lighting
+Gaffer Lighting
+Glamour Lighting
+Golden Hour
+Halo Lighting
+Hard Light
+High Key
+Incandescent Lighting
+Industrial Lighting
+Interior Lighting
+Kicker Lighting
+LED Lighting
+Low Key
+Magic Hour
+Moonlight
+Morning Light
+Motivated Lighting
+Natural Light
+Neon Lighting
+Night Lighting
+Outdoor Lighting
+Overhead Lighting
+Overcast
+Practical Lighting
+Profile Lighting
+Prop Lighting
+Puddle Lighting
+Radiant Lighting
+Reflective Lighting
+Rembrandt Lighting
+Rim Lighting
+Ring Light
+Sidelight
+Side Lighting
+Silhouette Lighting
+Soft Light
+Specular Lighting
+Spotlight
+Starlight
+Strip Lighting
+Studio Lighting
+Strobe Lighting
+Subsurface Scattering
+Sunbeam Lighting
+Sunlight
+Sunrise
+Sunset
+Surface Lighting
+Top Lighting
+Track Lighting
+Tungsten Lighting
+Twilight Lighting
+Underexposed Lighting
+Underwater Lighting
+UV Lighting
+Warm Lighting
+Water Reflected Lighting
+Window Lighting
+Winter Lighting
+Xenon Lighting 
