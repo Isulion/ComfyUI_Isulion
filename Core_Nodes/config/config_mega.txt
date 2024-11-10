@@ -1458,11 +1458,11 @@ caricature_features = [
 caricature_expressions = [
     "cartoon-style grin", "popping cartoon eyes",
     "steaming cartoon ears", "bouncing cartoon heart",
-    "silly cartoon tongue", "spinning cartoon head",
+    "comical smirk", "spinning cartoon head",
     "stretchy cartoon face", "bulging cartoon eyes",
     "wide cartoon smile", "elastic cartoon nose",
     "inflated cartoon head", "squashed cartoon face",
-    "jumping cartoon eyebrows", "chattering cartoon teeth",
+    "jumping cartoon eyebrows", "exaggerated cartoon teeth",
     "goofy cartoon grin"
 ]
 
