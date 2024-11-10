@@ -42,6 +42,7 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
   - 🏛️ Architectural
   - 🧬 Bio-Organic Technology
   - 🖼️ Binet Surreal
+  - ✏️ Caricature
   - 🦄 Chimera Animals
   - 🐰 Chimera Cute Animals
   - 🎅 Christmas
