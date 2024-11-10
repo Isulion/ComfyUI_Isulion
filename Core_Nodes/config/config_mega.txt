@@ -1434,71 +1434,69 @@ futuristic_city_styles = [
 
 # Add Caricature Elements
 caricature_styles = [
-    "extremely exaggerated caricature", "wildly distorted cartoon style",
-    "over-the-top comic exaggeration", "absurdly proportioned cartoon",
-    "grotesquely exaggerated features", "ridiculously distorted manga style",
-    "outrageously warped cartoon style", "comically stretched features",
-    "hyper-exaggerated political cartoon", "absurdly deformed caricature",
-    "ludicrously distorted portrait", "extremely warped cartoon style",
-    "massively overemphasized features", "cartoonishly inflated proportions"
+    "wacky cartoon caricature", "looney tunes style exaggeration",
+    "silly cartoon distortion", "goofy animation style",
+    "zany comic book style", "cartoony rubber hose style",
+    "bouncy cartoon exaggeration", "squash and stretch cartoon",
+    "wacky newspaper comic style", "silly saturday morning cartoon",
+    "playful animation style", "elastic cartoon distortion",
+    "bouncy rubber band style", "springy cartoon physics",
+    "wobbly cartoon animation"
 ]
 
 caricature_features = [
-    "gigantic bulbous nose", "tiny beady eyes with massive eyebrows",
-    "impossibly wide grin with huge teeth", "ridiculously long neck",
-    "comically oversized head", "absurdly small body",
-    "enormously exaggerated chin", "preposterously large ears",
-    "ludicrously puffed cheeks", "impossibly thin neck",
-    "grotesquely enlarged facial features", "absurdly stretched limbs",
-    "cartoonishly tiny eyes", "comically massive forehead",
-    "ridiculously pointed chin", "extremely bulging eyes"
+    "spring-loaded eyebrows", "rubber band stretchy neck",
+    "balloon-inflated head", "accordion-folded limbs",
+    "ping pong ball eyes", "slinky-stretched body",
+    "zigzag smile with piano key teeth", "pool noodle arms",
+    "bubble gum cheeks", "telescope-extending neck",
+    "yo-yo bouncing eyes", "spaghetti-noodle limbs",
+    "jack-in-the-box head", "elastic band mouth",
+    "squeezed toothpaste body", "cartoon heart-shaped eyes"
 ]
 
 caricature_expressions = [
-    "absurdly over-exaggerated smile", "comically extreme frown",
-    "ridiculously shocked expression", "ludicrously angry face",
-    "grotesquely smug grin", "wildly exaggerated laugh",
-    "impossibly wide-eyed stare", "preposterously pouty lips",
-    "cartoonishly raised eyebrows", "absurdly pursed lips",
-    "extremely contorted grimace", "outrageously animated expression",
-    "comically distorted sneer", "hysterically exaggerated surprise"
-]
-
-caricature_settings = [
-    "official office environment", "political backdrop", "formal setting",
-    "press conference scene", "campaign rally background", "diplomatic meeting setup",
-    "government building interior", "public speaking podium", "executive office",
-    "national landmark background", "parliamentary chamber", "ceremonial venue",
-    "media briefing room", "state function setting", "official portrait background"
-]
-
-caricature_elements = [
-    "national symbols", "political insignia", "official documents",
-    "state flags", "government seals", "ceremonial items",
-    "official portraits", "diplomatic accessories", "formal attire",
-    "traditional emblems", "cultural symbols", "historical references",
-    "contemporary context", "relevant props", "meaningful details"
+    "jaw dropping to the floor", "eyes popping out on springs",
+    "steam whistling from ears", "heart-beating out of chest",
+    "tongue rolling out like carpet", "head spinning 360 degrees",
+    "face stretching like silly putty", "eyes bulging like balloons",
+    "mouth expanding like umbrella", "nose stretching like rubber",
+    "head inflating like balloon", "face squashing like accordion",
+    "eyebrows shooting off head", "teeth chattering like wind-up toy",
+    "face melting like ice cream"
 ]
 
 caricature_effects = [
-    "extreme warping effect", "ridiculous proportion distortion",
-    "cartoonish stretching", "absurd feature enlargement",
-    "comical perspective warping", "ludicrous size exaggeration",
-    "grotesque feature twisting", "preposterous shape distortion",
-    "outrageous proportion play", "wild feature manipulation",
-    "extreme cartoon deformation", "massive feature amplification",
-    "absurd anatomical distortion", "radical shape transformation"
+    "cartoon bounce effect", "rubber hose animation",
+    "squash and stretch physics", "spinning star effects",
+    "floating heart symbols", "spiral dizzy eyes",
+    "popping exclamation marks", "cartoon speed lines",
+    "floating musical notes", "twinkling star effects",
+    "cartoon smoke puffs", "floating question marks",
+    "zig-zag motion lines", "cartoon impact stars",
+    "bouncing action lines"
 ]
 
-# Add sculptural caricature elements
+caricature_elements = [
+    "cartoon sound effects", "floating emoji symbols",
+    "comic speech bubbles", "animated thought clouds",
+    "cartoon action words", "animated sparkles",
+    "floating musical notes", "cartoon lightning bolts",
+    "animated heart symbols", "comic book effects",
+    "cartoon sweat drops", "animated star bursts",
+    "floating exclamation points", "cartoon dizzy birds",
+    "animated question marks"
+]
+
 caricature_sculpture_styles = [
-    "grotesquely exaggerated bronze", "absurdly distorted marble",
-    "wildly warped metal sculpture", "ludicrously proportioned stone",
-    "comically deformed bronze bust", "ridiculously stretched sculpture",
-    "preposterously twisted metal", "outrageously warped stone form",
-    "extremely distorted bronze figure", "cartoonishly exaggerated statue",
-    "absurdly proportioned sculpture", "grotesquely warped metal bust",
-    "massively distorted stone carving", "ludicrously deformed bronze"
+    "cartoon balloon sculpture", "rubber toy figure",
+    "bouncy clay animation", "stretchy puppet style",
+    "inflatable cartoon form", "elastic figure sculpture",
+    "squash-and-stretch statue", "springy cartoon figure",
+    "wobbly cartoon sculpture", "bendable cartoon form",
+    "flexible toon statue", "stretchy cartoon bust",
+    "bouncy cartoon figure", "elastic cartoon sculpture",
+    "rubbery toon statue"
 ]
 
 caricature_sculpture_finishes = [
@@ -1513,11 +1511,24 @@ caricature_sculpture_finishes = [
 ]
 
 caricature_sculpture_poses = [
-    "absurdly twisted posture", "ridiculously contorted stance",
-    "grotesquely exaggerated gesture", "preposterously bent pose",
-    "ludicrously stretched position", "comically distorted stance",
-    "wildly twisted body position", "extremely warped posture",
-    "outrageously contorted pose", "absurdly bent stance",
-    "cartoonishly twisted position", "impossibly distorted pose",
-    "grotesquely warped stance", "ridiculously exaggerated position"
+    "cartoon noodle dance", "rubber band bounce",
+    "slinky spiral twist", "accordion fold bend",
+    "balloon animal pose", "spring coil bounce",
+    "elastic band stretch", "jumping jack stance",
+    "pinwheel spin pose", "jack-in-the-box pop",
+    "yo-yo bounce stance", "spaghetti twist pose",
+    "rubber ball bounce", "cartoon physics pose",
+    "silly putty stretch"
+]
+
+# Add back caricature_settings with cartoon-style settings
+caricature_settings = [
+    "cartoon studio backdrop", "animated tv show set",
+    "looney tunes background", "comic strip panel",
+    "cartoon newspaper office", "animated press room",
+    "wacky cartoon podium", "bouncy cartoon stage",
+    "elastic cartoon office", "silly cartoon press conference",
+    "animated political rally", "cartoon parliament scene",
+    "springy cartoon meeting room", "rubber-physics newsroom",
+    "stretchy cartoon backdrop", "wobbly cartoon setting"
 ]
