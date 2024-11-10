@@ -1,13 +1,9 @@
-# Isulion Prompt Generator
+# Mega Prompt Generator Node
 
-Transform your creative workflow with advanced prompt generation technology.
+The Mega Prompt Generator is a sophisticated ComfyUI node that generates detailed, thematic prompts for image generation. It supports multiple themes and styles with extensive customization options.
 
 ![Showcase](https://github.com/user-attachments/assets/56d69f0a-d840-42de-93ef-5378293263ee)
 [Source](https://civitai.com/user/Isulion/images?sort=Newest)
-
-## Overview
-
-Isulion Prompt Generator introduces a new way to create, refine, and enhance your image generation prompts. With its intuitive interface and powerful capabilities, you can craft precise, detailed prompts for any creative vision.
 
 ## Installation
 
@@ -38,6 +34,37 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 
 ### Core Features
 
+- **29 distinct themes including**
+  - 🎲 Dynamic Random (Default)
+  - 🎨 Abstract
+  - 📺 Animation Cartoon
+  - 🎌 Anime
+  - 🏛️ Architectural
+  - 🧬 Bio-Organic Technology
+  - 🖼️ Binet Surreal
+  - 🦄 Chimera Animals
+  - 🐰 Chimera Cute Animals
+  - 🎅 Christmas
+  - 🎬 Cinema Studio
+  - 🍳 Culinary/Food
+  - 💠 Dimension 3D
+  - ✨ Enchanted Fantasy
+  - 📸 Essential Realistic
+  - 🌆 Futuristic City Metropolis
+  - 🚀 Futuristic Sci-Fi
+  - 👻 Halloween Ethereal
+  - 📱 Instagram Lifestyle
+  - 🏠 Interior Spaces
+  - 🦸‍♂️ Marvel Universe
+  - 🔬 Microscopic Universe
+  - 🎭 Peaky Blinders Style
+  - 💫 Pixar Animation
+  - ☢️ Post-Apocalyptic Wasteland
+  - ⭐ Star Wars Universe
+  - ⚙️ Steampunk Cities
+  - 🌊 Underwater Civilization
+  - 🎩 Vintage Anthropomorphic
+
 - **Complexity Levels**:
   - Simple: Basic prompt with minimal elements
   - Detailed: Balanced prompt with key elements (default)
@@ -53,54 +80,15 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
   - Randomization Options
   - Seed Control
 
-### Theme Categories
+- **Configuration File**
 
-#### Core Themes
+  The node uses a configuration file (`config_mega.txt`) that contains all theme-specific elements and common components.
 
-- 🎨 **Abstract**: Pure geometric and non-representational compositions
-- 🎲 **Dynamic Random** (Default): Intelligently combines elements from various themes
-- 📸 **Essential Realistic**: Professional photography with real-world subjects
+  You can modify the file to add elements:
+  - Add new items to existing lists
+  - Customize existing elements to match your needs
 
-#### Character Themes
-
-- 🖼️ **Binet Surreal**: Anthropomorphic portraits inspired by Sylvain Binet
-- 🦄 **Chimera Strange Animals**: Unique hybrid creatures with distinctive head-body combinations
-- 🐰 **Fusion Cute Animals**: Adorable hybrid creature combinations
-- 🎭 **Peaky Blinders Style**: 1920s gangster-themed anthropomorphic characters in period-accurate settings
-- 🎩 **Vintage Anthropomorphic**: Photorealistic Victorian-era anthropomorphic characters
-
-#### Environment Themes
-
-- 🏛️ **Architectural**: Sophisticated building and structural designs
-- 🌆 **Metropolis Futuristic City**: Advanced cityscape and urban environments
-- 🔬 **Microscopic Universe**: Scientific visualizations of cellular and molecular landscapes
-- 🏠 **Spaces Interior**: Interior design and architectural spaces
-- 🌊 **Underwater Civilization**: Deep sea architecture and bioluminescent environments
-
-#### Style Themes
-
-- 📺 **Animation Cartoon**: Classic animated character styles
-- 🎌 **Anime**: Japanese animation inspired artwork
-- 🎅 **Christmas**: Magical holiday scenes with festive elements and decorations
-- 🍳 **Culinary**: Professional food photography with elegant plating and styling
-- 💠 **Dimension 3D**: Three-dimensional digital artwork
-- 📱 **Lifestyle Instagram**: Professional social media photography
-- 💫 **Pixar Animation**: 3D animation in the style of Pixar
-
-#### Genre Themes
-
-- 🧬 **Bio-Organic Technology**: Fusion of biological organisms with mechanical systems
-- ✨ **Enchanted Fantasy**: Magical realms and mythical characters
-- 👻 **Ethereal Halloween**: Spooky and atmospheric horror themes
-- 🚀 **Futuristic Sci-Fi**: Advanced technology and space-age scenes
-- ☢️ **Post-Apocalyptic Wasteland**: Dramatic scenes of survival in ruins
-- ⚙️ **Steampunk World**: Victorian-era technology with brass and copper details
-
-#### Franchise Themes
-
-- 🦸‍♂️ **Marvel Universe**: Epic scenes featuring Marvel superheroes and villains
-- 🎬 **Studio Cinema**: Movie and superhero character compositions
-- ⭐ **Star Wars Universe**: Scenes and characters from the Star Wars galaxy
+  The configuration file uses standard Python syntax for lists and dictionaries, making it easy to edit and maintain.
 
 ### Specific Nodes
 
