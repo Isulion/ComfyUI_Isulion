@@ -1445,25 +1445,25 @@ caricature_styles = [
 ]
 
 caricature_features = [
-    "spring-loaded eyebrows", "rubber band stretchy neck",
-    "balloon-inflated head", "accordion-folded limbs",
-    "ping pong ball eyes", "slinky-stretched body",
-    "zigzag smile with piano key teeth", "pool noodle arms",
-    "bubble gum cheeks", "telescope-extending neck",
-    "yo-yo bouncing eyes", "spaghetti-noodle limbs",
-    "jack-in-the-box head", "elastic band mouth",
-    "squeezed toothpaste body", "cartoon heart-shaped eyes"
+    "exaggerated eyebrows", "stretchy cartoon neck",
+    "balloon-like head", "cartoon-style limbs",
+    "big cartoon eyes", "elastic cartoon body",
+    "wide cartoon smile", "noodle-like arms",
+    "puffy cartoon cheeks", "telescoping neck",
+    "bouncy cartoon eyes", "bendy cartoon limbs",
+    "oversized cartoon head", "expressive cartoon mouth",
+    "squashy cartoon body", "sparkly cartoon eyes"
 ]
 
 caricature_expressions = [
-    "jaw dropping to the floor", "eyes popping out on springs",
-    "steam whistling from ears", "heart-beating out of chest",
-    "tongue rolling out like carpet", "head spinning 360 degrees",
-    "face stretching like silly putty", "eyes bulging like balloons",
-    "mouth expanding like umbrella", "nose stretching like rubber",
-    "head inflating like balloon", "face squashing like accordion",
-    "eyebrows shooting off head", "teeth chattering like wind-up toy",
-    "face melting like ice cream"
+    "cartoon-style grin", "popping cartoon eyes",
+    "steaming cartoon ears", "bouncing cartoon heart",
+    "silly cartoon tongue", "spinning cartoon head",
+    "stretchy cartoon face", "bulging cartoon eyes",
+    "wide cartoon smile", "elastic cartoon nose",
+    "inflated cartoon head", "squashed cartoon face",
+    "jumping cartoon eyebrows", "chattering cartoon teeth",
+    "goofy cartoon grin"
 ]
 
 caricature_effects = [
