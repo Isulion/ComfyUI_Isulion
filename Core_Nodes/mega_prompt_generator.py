@@ -41,6 +41,7 @@ class IsulionMegaPromptGenerator:
             "bio_organic": "hybrid bio-mechanical artwork with organic integration of",
             "🎭 Peaky Blinders Style": "professional studio photograph with precise lighting, ultra-sharp focus, minimalist composition of",
             "christmas": "magical christmas artwork with festive details of",
+            "caricature": "artistic caricature with exaggerated features of",
         }
         
         self.enhancements = {
@@ -91,6 +92,7 @@ class IsulionMegaPromptGenerator:
                     "🏛️ Architectural",
                     "🧬 Bio-Organic Technology",
                     "🖼️ Binet Surreal",
+                    "✏️ Caricature",  
                     "🦄 Chimera Animals",
                     "🐰 Chimera Cute Animals",
                     "🎅 Christmas",
@@ -171,6 +173,7 @@ class IsulionMegaPromptGenerator:
             "🏛️ Architectural": "architecture",
             "🖼️ Binet Surreal": "binet",
             "🧬 Bio-Organic Technology": "bio_organic", 
+            "✏️ Caricature": "caricature",
             "🦄 Chimera Animals": "strange_animal",
             "🐰 Chimera Cute Animals": "cute chimera",
             "🎬 Cinema Studio": "cinema",
@@ -221,7 +224,81 @@ class IsulionMegaPromptGenerator:
         style_text = ""
         effects_text = ""
 
-        if internal_theme == "abstract":
+        if internal_theme == "caricature":
+            # Use custom subject if provided, otherwise default to "Donald Trump"
+            if use_custom_subject == "yes" and custom_subject.strip():
+                subject = custom_subject.strip()
+            else:
+                subject = "Donald Trump"
+            
+            # Select base elements
+            style = random.choice(self.caricature_styles)
+            features = random.choice(self.caricature_features)
+            expression = random.choice(self.caricature_expressions)
+            setting = random.choice(self.caricature_settings)
+            
+            # Create detailed subject description with more emphasis on character details
+            subject_text = (
+                f"((detailed {style})) of {subject}, with ((exaggerated {features})), "
+                f"showing a ((characteristic {expression})), ((artistic caricature)), "
+                f"((expressive portrait)), ((personality capture))"
+            )
+            
+            # Initialize components with subject
+            components = [subject_text]
+            
+            # Add environment if enabled
+            if include_environment == "yes":
+                elements = random.choice(self.caricature_elements)
+                weather = random.choice(self.weather)
+                time = random.choice(self.times)
+                environment_text = (
+                    f"in a ((detailed {setting})) during {weather} {time}, "
+                    f"with ((meaningful {elements})), ((caricature composition)), "
+                    f"((artistic atmosphere)), ((contextual details))"
+                )
+                components.append(environment_text)
+            
+            # Add style elements
+            if include_style == "yes":
+                additional_style = random.choice([
+                    "humorous interpretation", "satirical portrayal",
+                    "playful representation", "artistic exaggeration",
+                    "character study", "personality emphasis"
+                ])
+                style_text = (
+                    f"((professional caricature art)), ((artistic exaggeration)), "
+                    f"((creative interpretation)), ((characteristic style)), "
+                    f"((expressive artwork)), (({additional_style})), "
+                    f"((masterful technique)), 8k resolution"
+                )
+                components.append(style_text)
+            
+            # Add effects if enabled
+            if include_effects == "yes":
+                effect = random.choice(self.caricature_effects)
+                additional_effect = random.choice([
+                    "personality highlighting", "character emphasis",
+                    "mood enhancement", "emotional resonance",
+                    "distinctive portrayal", "unique interpretation"
+                ])
+                effects_text = (
+                    f"with {effect}, ((artistic emphasis)), "
+                    f"((creative details)), ((expressive elements)), "
+                    f"((caricature rendering)), ((artistic flourishes)), "
+                    f"(({additional_effect})), ((distinctive style))"
+                )
+                components.append(effects_text)
+                
+            # Return early for caricature theme to avoid default handling
+            prompt = ", ".join(components)
+            if enhancement_level in self.enhancements[enhancement_focus]:
+                enhancement = random.choice(self.enhancements[enhancement_focus][enhancement_level])
+                prompt = f"{prompt}, {enhancement}"
+                effects_text = f"{effects_text}, {enhancement}"
+            return (prompt, subject_text, action_text, environment_text, style_text, effects_text, seed)
+            
+        elif internal_theme == "abstract":
             # Special handling for abstract theme - completely separate from other themes
             abstract_components = [prefix] if prefix else []
             

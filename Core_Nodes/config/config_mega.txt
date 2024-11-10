@@ -1431,3 +1431,51 @@ futuristic_city_styles = [
     "cyber-geometric",
     "quantum-organic fusion"
 ]
+
+# Add Caricature Elements
+caricature_styles = [
+    "comic book style caricature", "hand-drawn caricature", "manga style caricature",
+    "3D Pixar-style caricature", "digital caricature art", "editorial cartoon style",
+    "political cartoon style", "humorous illustration style", "exaggerated cartoon style",
+    "satirical art style", "animated caricature style", "sculptural caricature style",
+    "pop art caricature", "classic cartoon caricature", "contemporary caricature art"
+]
+
+caricature_features = [
+    "exaggerated facial features", "emphasized distinctive traits",
+    "amplified expressions", "characteristic gestures", "defining physical attributes",
+    "signature mannerisms", "notable personality traits", "iconic features",
+    "memorable quirks", "unique characteristics", "personal style elements",
+    "recognizable poses", "trademark expressions", "distinctive silhouette"
+]
+
+caricature_expressions = [
+    "confident smile", "dramatic grin", "subtle smirk", "jovial expression",
+    "serious demeanor", "playful look", "charismatic gaze", "thoughtful expression",
+    "energetic pose", "determined look", "friendly expression", "powerful stance",
+    "dynamic gesture", "characteristic pose", "signature expression"
+]
+
+caricature_settings = [
+    "official office environment", "political backdrop", "formal setting",
+    "press conference scene", "campaign rally background", "diplomatic meeting setup",
+    "government building interior", "public speaking podium", "executive office",
+    "national landmark background", "parliamentary chamber", "ceremonial venue",
+    "media briefing room", "state function setting", "official portrait background"
+]
+
+caricature_elements = [
+    "national symbols", "political insignia", "official documents",
+    "state flags", "government seals", "ceremonial items",
+    "official portraits", "diplomatic accessories", "formal attire",
+    "traditional emblems", "cultural symbols", "historical references",
+    "contemporary context", "relevant props", "meaningful details"
+]
+
+caricature_effects = [
+    "bold linework", "vibrant colors", "dynamic shading",
+    "expressive highlights", "dramatic shadows", "artistic exaggeration",
+    "stylized details", "characteristic textures", "animated effects",
+    "comic book shading", "cartoon emphasis", "artistic flourishes",
+    "visual humor elements", "satirical details", "creative distortions"
+]
