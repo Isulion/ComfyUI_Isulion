@@ -1432,7 +1432,7 @@ futuristic_city_styles = [
     "quantum-organic fusion"
 ]
 
-# Add Caricature Elements
+# Add Caricature Elements (removed sculpture-related sections)
 caricature_styles = [
     "wacky cartoon caricature", "looney tunes style exaggeration",
     "silly cartoon distortion", "goofy animation style",
@@ -1488,40 +1488,6 @@ caricature_elements = [
     "animated question marks"
 ]
 
-caricature_sculpture_styles = [
-    "cartoon balloon sculpture", "rubber toy figure",
-    "bouncy clay animation", "stretchy puppet style",
-    "inflatable cartoon form", "elastic figure sculpture",
-    "squash-and-stretch statue", "springy cartoon figure",
-    "wobbly cartoon sculpture", "bendable cartoon form",
-    "flexible toon statue", "stretchy cartoon bust",
-    "bouncy cartoon figure", "elastic cartoon sculpture",
-    "rubbery toon statue"
-]
-
-caricature_sculpture_finishes = [
-    "matte bronze finish", "polished stone texture", 
-    "patinated metal surface", "weathered bronze patina",
-    "smooth marble finish", "textured bronze surface",
-    "classical stone finish", "aged metal patina",
-    "polished metal surface", "rustic bronze texture",
-    "antiqued bronze finish", "contemporary metal finish",
-    "dimensional stone texture", "sculptural metal patina",
-    "artistic bronze treatment"
-]
-
-caricature_sculpture_poses = [
-    "cartoon noodle dance", "rubber band bounce",
-    "slinky spiral twist", "accordion fold bend",
-    "balloon animal pose", "spring coil bounce",
-    "elastic band stretch", "jumping jack stance",
-    "pinwheel spin pose", "jack-in-the-box pop",
-    "yo-yo bounce stance", "spaghetti twist pose",
-    "rubber ball bounce", "cartoon physics pose",
-    "silly putty stretch"
-]
-
-# Add back caricature_settings with cartoon-style settings
 caricature_settings = [
     "cartoon studio backdrop", "animated tv show set",
     "looney tunes background", "comic strip panel",

@@ -231,108 +231,62 @@ class IsulionMegaPromptGenerator:
             else:
                 subject = "Donald Trump"
             
-            # Determine if we're doing a sculpture or regular caricature
-            is_sculpture = random.random() < 0.3  # 30% chance for sculpture
+            # Select cartoon elements
+            style = random.choice(self.caricature_styles)
+            features = random.choice(self.caricature_features)
+            expression = random.choice(self.caricature_expressions)
             
-            if is_sculpture:
-                # Select sculpture-specific elements
-                sculpture_style = random.choice(self.caricature_sculpture_styles)
-                finish = random.choice(self.caricature_sculpture_finishes)
-                pose = random.choice(self.caricature_sculpture_poses)
-                features = random.choice(self.caricature_features)
-                expression = random.choice(self.caricature_expressions)
-                
-                # Create detailed subject description for sculpture
-                subject_text = (
-                    f"((detailed {sculpture_style})) of {subject}, with ((exaggerated {features})), "
-                    f"showing a ((characteristic {expression})), in a ((dynamic {pose})), "
-                    f"((sculptural caricature)), ((three-dimensional portrait)), "
-                    f"((artistic interpretation)), with (({finish}))"
-                )
-            else:
-                # Original caricature handling
-                style = random.choice(self.caricature_styles)
-                features = random.choice(self.caricature_features)
-                expression = random.choice(self.caricature_expressions)
-                
-                subject_text = (
-                    f"((detailed {style})) of {subject}, with ((exaggerated {features})), "
-                    f"showing a ((characteristic {expression})), ((artistic caricature)), "
-                    f"((expressive portrait)), ((personality capture))"
-                )
+            subject_text = (
+                f"((detailed {style})) of {subject}, with ((exaggerated {features})), "
+                f"showing a ((characteristic {expression})), ((artistic caricature)), "
+                f"((expressive portrait)), ((personality capture))"
+            )
             
             # Initialize components with subject
             components = [subject_text]
             
             # Add environment if enabled
             if include_environment == "yes":
-                if is_sculpture:
-                    # Sculpture-specific environment
-                    environment_text = (
-                        f"displayed in ((elegant gallery setting)), with ((dramatic lighting)), "
-                        f"((sculptural presentation)), ((artistic atmosphere)), "
-                        f"((dimensional display)), ((perfect viewing angle))"
-                    )
-                else:
-                    # Original environment handling
-                    elements = random.choice(self.caricature_elements)
-                    setting = random.choice(self.caricature_settings)  # Add this line
-                    weather = random.choice(self.weather)
-                    time = random.choice(self.times)
-                    environment_text = (
-                        f"in a ((detailed {setting})) during {weather} {time}, "
-                        f"with ((meaningful {elements})), ((caricature composition)), "
-                        f"((artistic atmosphere)), ((contextual details))"
-                    )
+                elements = random.choice(self.caricature_elements)
+                setting = random.choice(self.caricature_settings)
+                weather = random.choice(self.weather)
+                time = random.choice(self.times)
+                environment_text = (
+                    f"in a ((detailed {setting})) during {weather} {time}, "
+                    f"with ((meaningful {elements})), ((caricature composition)), "
+                    f"((artistic atmosphere)), ((contextual details))"
+                )
                 components.append(environment_text)
             
             # Add style elements
             if include_style == "yes":
-                if is_sculpture:
-                    style_text = (
-                        f"((masterful sculpture technique)), ((dimensional artistry)), "
-                        f"((sculptural excellence)), ((material mastery)), "
-                        f"((expressive form)), ((classical influence)), "
-                        f"((contemporary interpretation)), 8k resolution"
-                    )
-                else:
-                    # Original style handling
-                    additional_style = random.choice([
-                        "humorous interpretation", "satirical portrayal",
-                        "playful representation", "artistic exaggeration",
-                        "character study", "personality emphasis"
-                    ])
-                    style_text = (
-                        f"((professional caricature art)), ((artistic exaggeration)), "
-                        f"((creative interpretation)), ((characteristic style)), "
-                        f"((expressive artwork)), (({additional_style})), "
-                        f"((masterful technique)), 8k resolution"
-                    )
+                additional_style = random.choice([
+                    "humorous interpretation", "satirical portrayal",
+                    "playful representation", "artistic exaggeration",
+                    "character study", "personality emphasis"
+                ])
+                style_text = (
+                    f"((professional caricature art)), ((artistic exaggeration)), "
+                    f"((creative interpretation)), ((characteristic style)), "
+                    f"((expressive artwork)), (({additional_style})), "
+                    f"((masterful technique)), 8k resolution"
+                )
                 components.append(style_text)
             
             # Add effects if enabled
             if include_effects == "yes":
-                if is_sculpture:
-                    effects_text = (
-                        f"with ((sculptural details)), ((material textures)), "
-                        f"((surface treatment)), ((dimensional effects)), "
-                        f"((artistic patina)), ((sculptural highlights)), "
-                        f"((form emphasis)), ((masterful execution))"
-                    )
-                else:
-                    # Original effects handling
-                    effect = random.choice(self.caricature_effects)
-                    additional_effect = random.choice([
-                        "personality highlighting", "character emphasis",
-                        "mood enhancement", "emotional resonance",
-                        "distinctive portrayal", "unique interpretation"
-                    ])
-                    effects_text = (
-                        f"with {effect}, ((artistic emphasis)), "
-                        f"((creative details)), ((expressive elements)), "
-                        f"((caricature rendering)), ((artistic flourishes)), "
-                        f"(({additional_effect})), ((distinctive style))"
-                    )
+                effect = random.choice(self.caricature_effects)
+                additional_effect = random.choice([
+                    "personality highlighting", "character emphasis",
+                    "mood enhancement", "emotional resonance",
+                    "distinctive portrayal", "unique interpretation"
+                ])
+                effects_text = (
+                    f"with {effect}, ((artistic emphasis)), "
+                    f"((creative details)), ((expressive elements)), "
+                    f"((caricature rendering)), ((artistic flourishes)), "
+                    f"(({additional_effect})), ((distinctive style))"
+                )
                 components.append(effects_text)
                 
             # Return early for caricature theme to avoid default handling
