@@ -1434,26 +1434,34 @@ futuristic_city_styles = [
 
 # Add Caricature Elements
 caricature_styles = [
-    "comic book style caricature", "hand-drawn caricature", "manga style caricature",
-    "3D Pixar-style caricature", "digital caricature art", "editorial cartoon style",
-    "political cartoon style", "humorous illustration style", "exaggerated cartoon style",
-    "satirical art style", "animated caricature style", "sculptural caricature style",
-    "pop art caricature", "classic cartoon caricature", "contemporary caricature art"
+    "extremely exaggerated caricature", "wildly distorted cartoon style",
+    "over-the-top comic exaggeration", "absurdly proportioned cartoon",
+    "grotesquely exaggerated features", "ridiculously distorted manga style",
+    "outrageously warped cartoon style", "comically stretched features",
+    "hyper-exaggerated political cartoon", "absurdly deformed caricature",
+    "ludicrously distorted portrait", "extremely warped cartoon style",
+    "massively overemphasized features", "cartoonishly inflated proportions"
 ]
 
 caricature_features = [
-    "exaggerated facial features", "emphasized distinctive traits",
-    "amplified expressions", "characteristic gestures", "defining physical attributes",
-    "signature mannerisms", "notable personality traits", "iconic features",
-    "memorable quirks", "unique characteristics", "personal style elements",
-    "recognizable poses", "trademark expressions", "distinctive silhouette"
+    "gigantic bulbous nose", "tiny beady eyes with massive eyebrows",
+    "impossibly wide grin with huge teeth", "ridiculously long neck",
+    "comically oversized head", "absurdly small body",
+    "enormously exaggerated chin", "preposterously large ears",
+    "ludicrously puffed cheeks", "impossibly thin neck",
+    "grotesquely enlarged facial features", "absurdly stretched limbs",
+    "cartoonishly tiny eyes", "comically massive forehead",
+    "ridiculously pointed chin", "extremely bulging eyes"
 ]
 
 caricature_expressions = [
-    "confident smile", "dramatic grin", "subtle smirk", "jovial expression",
-    "serious demeanor", "playful look", "charismatic gaze", "thoughtful expression",
-    "energetic pose", "determined look", "friendly expression", "powerful stance",
-    "dynamic gesture", "characteristic pose", "signature expression"
+    "absurdly over-exaggerated smile", "comically extreme frown",
+    "ridiculously shocked expression", "ludicrously angry face",
+    "grotesquely smug grin", "wildly exaggerated laugh",
+    "impossibly wide-eyed stare", "preposterously pouty lips",
+    "cartoonishly raised eyebrows", "absurdly pursed lips",
+    "extremely contorted grimace", "outrageously animated expression",
+    "comically distorted sneer", "hysterically exaggerated surprise"
 ]
 
 caricature_settings = [
@@ -1473,23 +1481,24 @@ caricature_elements = [
 ]
 
 caricature_effects = [
-    "bold linework", "vibrant colors", "dynamic shading",
-    "expressive highlights", "dramatic shadows", "artistic exaggeration",
-    "stylized details", "characteristic textures", "animated effects",
-    "comic book shading", "cartoon emphasis", "artistic flourishes",
-    "visual humor elements", "satirical details", "creative distortions"
+    "extreme warping effect", "ridiculous proportion distortion",
+    "cartoonish stretching", "absurd feature enlargement",
+    "comical perspective warping", "ludicrous size exaggeration",
+    "grotesque feature twisting", "preposterous shape distortion",
+    "outrageous proportion play", "wild feature manipulation",
+    "extreme cartoon deformation", "massive feature amplification",
+    "absurd anatomical distortion", "radical shape transformation"
 ]
 
 # Add sculptural caricature elements
 caricature_sculpture_styles = [
-    "bronze sculpture caricature", "marble sculpture caricature", 
-    "polished stone caricature", "classical sculpture caricature",
-    "contemporary sculpture caricature", "metal sculpture caricature",
-    "textured bronze caricature", "patinated sculpture caricature",
-    "modern sculpture caricature", "artistic sculpture caricature",
-    "dimensional sculpture caricature", "relief sculpture caricature",
-    "monumental sculpture caricature", "dynamic sculpture caricature",
-    "expressive sculpture caricature"
+    "grotesquely exaggerated bronze", "absurdly distorted marble",
+    "wildly warped metal sculpture", "ludicrously proportioned stone",
+    "comically deformed bronze bust", "ridiculously stretched sculpture",
+    "preposterously twisted metal", "outrageously warped stone form",
+    "extremely distorted bronze figure", "cartoonishly exaggerated statue",
+    "absurdly proportioned sculpture", "grotesquely warped metal bust",
+    "massively distorted stone carving", "ludicrously deformed bronze"
 ]
 
 caricature_sculpture_finishes = [
@@ -1504,12 +1513,11 @@ caricature_sculpture_finishes = [
 ]
 
 caricature_sculpture_poses = [
-    "dignified stance with gesturing hand", "poised position with subtle movement",
-    "dynamic pose with dramatic gesture", "classical contrapposto stance",
-    "commanding posture with raised chin", "contemplative pose with turned head",
-    "expressive stance with animated gesture", "formal pose with subtle twist",
-    "characteristic stance with signature gesture", "powerful pose with deliberate movement",
-    "elegant posture with graceful turn", "dramatic stance with emphatic gesture",
-    "noble bearing with refined movement", "authoritative pose with decisive gesture",
-    "iconic stance with memorable expression"
+    "absurdly twisted posture", "ridiculously contorted stance",
+    "grotesquely exaggerated gesture", "preposterously bent pose",
+    "ludicrously stretched position", "comically distorted stance",
+    "wildly twisted body position", "extremely warped posture",
+    "outrageously contorted pose", "absurdly bent stance",
+    "cartoonishly twisted position", "impossibly distorted pose",
+    "grotesquely warped stance", "ridiculously exaggerated position"
 ]
