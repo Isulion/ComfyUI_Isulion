@@ -1452,7 +1452,9 @@ caricature_features = [
     "puffy cartoon cheeks", "telescoping neck",
     "bouncy cartoon eyes", "bendy cartoon limbs",
     "oversized cartoon head", "expressive cartoon mouth",
-    "squashy cartoon body", "sparkly cartoon eyes"
+    "squashy cartoon body", "sparkly cartoon eyes",
+    "round cartoon face", "animated facial features",
+    "cartoony cheeks", "playful cartoon expression"
 ]
 
 caricature_expressions = [

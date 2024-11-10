@@ -41,7 +41,7 @@ class IsulionMegaPromptGenerator:
             "bio_organic": "hybrid bio-mechanical artwork with organic integration of",
             "🎭 Peaky Blinders Style": "professional studio photograph with precise lighting, ultra-sharp focus, minimalist composition of",
             "christmas": "magical christmas artwork with festive details of",
-            "caricature": "artistic caricature with exaggerated features of",
+            "caricature": "exaggerated cartoon caricature artwork with strong distortion and comic book style of",
         }
         
         self.enhancements = {
@@ -237,9 +237,12 @@ class IsulionMegaPromptGenerator:
             expression = random.choice(self.caricature_expressions)
             
             subject_text = (
-                f"((detailed {style})) of {subject}, with ((exaggerated {features})), "
-                f"showing a ((characteristic {expression})), ((artistic caricature)), "
-                f"((expressive portrait)), ((personality capture))"
+                f"((highly exaggerated cartoon caricature)) of {subject}, "  # Added 'highly' and 'cartoon'
+                f"with ((extremely {features})), "  # Added 'extremely'
+                f"((showing a {expression})), "
+                f"((cartoon-style exaggeration)), "  # Added this
+                f"((comic book distortion)), "  # Added this
+                f"((animated caricature style))"  # Added this
             )
             
             # Initialize components with subject
@@ -260,16 +263,12 @@ class IsulionMegaPromptGenerator:
             
             # Add style elements
             if include_style == "yes":
-                additional_style = random.choice([
-                    "humorous interpretation", "satirical portrayal",
-                    "playful representation", "artistic exaggeration",
-                    "character study", "personality emphasis"
-                ])
                 style_text = (
-                    f"((professional caricature art)), ((artistic exaggeration)), "
-                    f"((creative interpretation)), ((characteristic style)), "
-                    f"((expressive artwork)), (({additional_style})), "
-                    f"((masterful technique)), 8k resolution"
+                    f"((cartoon caricature style)), ((extreme exaggeration)), "  # Modified
+                    f"((comic book interpretation)), ((animated style)), "  # Modified
+                    f"((cartoon artwork)), ((exaggerated features)), "  # Modified
+                    f"((non-realistic style)), ((cartoon distortion)), "  # Added these
+                    f"8k resolution"
                 )
                 components.append(style_text)
             
@@ -282,9 +281,10 @@ class IsulionMegaPromptGenerator:
                     "distinctive portrayal", "unique interpretation"
                 ])
                 effects_text = (
-                    f"with {effect}, ((artistic emphasis)), "
-                    f"((creative details)), ((expressive elements)), "
-                    f"((caricature rendering)), ((artistic flourishes)), "
+                    f"with {effect}, ((cartoon effects)), "  # Added 'cartoon effects'
+                    f"((animated style)), ((comic book shading)), "  # Added these
+                    f"((exaggerated proportions)), ((cartoon physics)), "  # Added these
+                    f"((non-photorealistic rendering)), ((cartoon coloring)), "  # Added these
                     f"(({additional_effect})), ((distinctive style))"
                 )
                 components.append(effects_text)
