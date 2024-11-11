@@ -34,7 +34,7 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 
 ### Core Features
 
-- **29 distinct themes including**
+- **30 distinct themes including**
   - 🎲 Dynamic Random (Default)
   - 🎨 Abstract
   - 📺 Animation Cartoon
@@ -56,6 +56,7 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
   - 👻 Halloween Ethereal
   - 📱 Instagram Lifestyle
   - 🏠 Interior Spaces
+  - 🏷️ Logo
   - 🦸‍♂️ Marvel Universe
   - 🔬 Microscopic Universe
   - 🎭 Peaky Blinders Style
