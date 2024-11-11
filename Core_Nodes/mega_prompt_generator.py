@@ -42,7 +42,7 @@ class IsulionMegaPromptGenerator:
             "🎭 Peaky Blinders Style": "professional studio photograph with precise lighting, ultra-sharp focus, minimalist composition of",
             "christmas": "magical christmas artwork with festive details of",
             "caricature": "exaggerated cartoon caricature artwork with strong distortion and comic book style of",
-            "logo": "professional logo design with clean lines of"
+            "logo": "professional logo design with clean typography of",
         }
         
         self.enhancements = {
@@ -67,6 +67,42 @@ class IsulionMegaPromptGenerator:
                 "dramatic": ["exceptional color harmony", "masterful palette", "perfect color balance", "flawless tonal range", "supreme chromatic composition"]
             }
         }
+
+        # Add new logo-specific dictionaries
+        self.logo_styles = [
+            "minimalist", "modern", "vintage", "retro", "geometric", "abstract",
+            "corporate", "artistic", "elegant", "bold", "playful", "luxurious",
+            "tech-inspired", "organic", "grunge", "clean", "dynamic"
+        ]
+
+        self.logo_fonts = [
+            "elegant serif", "bold sans-serif", "modern geometric", "classic script",
+            "minimalist sans", "decorative display", "clean monospace", "artistic handwritten",
+            "professional slab serif", "futuristic tech", "vintage letterpress", "luxury script",
+            "bold condensed", "elegant thin", "modern rounded", "sharp angular"
+        ]
+
+        self.logo_elements = [
+            "geometric shapes", "abstract forms", "clean lines", "organic curves",
+            "minimalist icons", "dynamic patterns", "gradient meshes", "textured backgrounds",
+            "symmetrical designs", "flowing elements", "angular components", "circular motifs",
+            "hexagonal patterns", "wave forms", "crystalline structures", "nested shapes"
+        ]
+
+        self.logo_colors = [
+            "professional monochrome", "vibrant duotone", "elegant metallic",
+            "bold gradient", "subtle pastel", "rich jewel tones", "modern neon",
+            "classic earth tones", "minimalist grayscale", "corporate blue",
+            "luxury gold and black", "tech-inspired cyan", "organic green",
+            "energetic red", "sophisticated purple"
+        ]
+
+        self.logo_effects = [
+            "subtle shadow", "clean emboss", "metallic finish", "glass effect",
+            "neon glow", "gradient overlay", "paper texture", "brushed metal",
+            "holographic shine", "matte finish", "glossy surface", "3D extrusion",
+            "light reflection", "depth layers", "geometric pattern"
+        ]
 
     def load_config(self, config_path):
         """Load configurations from the specified file."""
@@ -116,7 +152,7 @@ class IsulionMegaPromptGenerator:
                     "⚙️ Steampunk Cities",
                     "🌊 Underwater Civilization",
                     "🎩 Vintage Anthropomorphic",
-                    "🎨 Logo Design",  # Add this entry to the theme list
+                    "🏷️ Logo",
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
@@ -157,7 +193,7 @@ class IsulionMegaPromptGenerator:
     CATEGORY = "Isulion/Core"
 
     def generate(self, theme, complexity, randomize, seed=0, 
-                custom_subject="", use_custom_subject="no",  # Add these parameters
+                custom_subject="", use_custom_subject="no",
                 include_subject="yes", include_action="yes", 
                 include_environment="yes", include_style="yes",
                 include_effects="yes", enhancement_level="moderate",
@@ -199,7 +235,7 @@ class IsulionMegaPromptGenerator:
             "⚙️ Steampunk Cities": "steampunk",
             "🌊 Underwater Civilization": "underwater",
             "🎩 Vintage Anthropomorphic": "vintage_anthro",
-            "🎨 Logo Design": "logo"
+            "🏷️ Logo": "logo",
         }
 
         # Convert new theme name to old theme name for internal processing
@@ -209,11 +245,67 @@ class IsulionMegaPromptGenerator:
             seed = random.randint(0, 0xffffffffffffffff) if seed == 0 else seed
             random.seed(seed)
 
-        # For random theme, pick a random theme except "random" itself
-        if internal_theme == "random":
-            available_themes = [t for t in self.theme_prefixes.keys() if t != "random"]
-            internal_theme = random.choice(available_themes)
+        # Handle logo theme before other processing
+        if internal_theme == "logo":
+            # Base style selection
+            style = random.choice(self.logo_styles)
+            font = random.choice(self.logo_fonts)
+            element = random.choice(self.logo_elements)
+            color_scheme = random.choice(self.logo_colors)
+            
+            # Create the main subject with custom text
+            if use_custom_subject == "yes" and custom_subject.strip():
+                logo_text = custom_subject.strip()
+            else:
+                logo_text = "BRAND"
+            
+            subject_text = (
+                f"((professional {style} logo design)) with the text \"{logo_text}\", "
+                f"((using {font} typography)), ((perfect letter spacing)), "
+                f"((masterful font design)), ((vector quality))"
+            )
+            
+            # Initialize components with subject
+            components = [subject_text]
+            
+            # Add environment/background if enabled
+            if include_environment == "yes":
+                environment_text = (
+                    f"with ((clean {element})), ((perfect composition)), "
+                    f"((balanced negative space)), ((professional layout))"
+                )
+                components.append(environment_text)
+            
+            # Add style elements
+            if include_style == "yes":
+                style_text = (
+                    f"((premium {color_scheme} palette)), ((vector art)), "
+                    f"((professional design)), ((perfect proportions)), "
+                    f"((commercial quality)), ((scalable graphics)), "
+                    f"((brand identity)), 8k resolution"
+                )
+                components.append(style_text)
+            
+            # Add effects
+            if include_effects == "yes":
+                effect = random.choice(self.logo_effects)
+                effects_text = (
+                    f"with (({effect})), ((clean edges)), "
+                    f"((perfect symmetry)), ((professional finish)), "
+                    f"((brand consistency)), ((timeless design))"
+                )
+                components.append(effects_text)
 
+            # Join components and add enhancement
+            prompt = ", ".join(components)
+            if enhancement_level in self.enhancements[enhancement_focus]:
+                enhancement = random.choice(self.enhancements[enhancement_focus][enhancement_level])
+                prompt = f"{prompt}, {enhancement}"
+                effects_text = f"{effects_text}, {enhancement}"
+
+            return (prompt, subject_text, "", environment_text, style_text, effects_text, seed)
+
+        # For all other themes, continue with existing logic...
         components = []
         
         # Add theme prefix at the start
@@ -267,10 +359,10 @@ class IsulionMegaPromptGenerator:
             # Add style elements
             if include_style == "yes":
                 style_text = (
-                    f"((cartoon caricature style)), ((extreme exaggeration)), "
-                    f"((comic book interpretation)), ((animated style)), "  # Fixed missing quote
-                    f"((cartoon artwork)), ((exaggerated features)), "  # Fixed missing quote
-                    f"((non-realistic style)), ((cartoon distortion)), "  # Fixed missing quote
+                    f"((cartoon caricature style)), ((extreme exaggeration)), "  # Modified
+                    f"((comic book interpretation)), ((animated style)), "  # Modified
+                    f"((cartoon artwork)), ((exaggerated features)), "  # Modified
+                    f"((non-realistic style)), ((cartoon distortion)), "  # Added these
                     f"8k resolution"
                 )
                 components.append(style_text)
@@ -1840,89 +1932,6 @@ class IsulionMegaPromptGenerator:
                             f"with ((twinkling lights)), ((magical snow effects)), "
                             f"((warm glow)), ((festive decorations)), "
                             f"((holiday ambiance)), ((scent of {food})))"
-                        )
-                        components.append(effects_text)
-                elif internal_theme == "logo":
-                    # Determine logo category based on custom subject or random choice
-                    logo_categories = ["gaming", "food", "tech", "vintage"]
-                    
-                    if use_custom_subject == "yes" and custom_subject.strip():
-                        company_name = custom_subject.strip()
-                        # Try to determine category from company name
-                        if any(word in company_name.lower() for word in ["game", "play", "esport", "gaming"]):
-                            category = "gaming"
-                        elif any(word in company_name.lower() for word in ["food", "cafe", "restaurant", "coffee", "burger"]):
-                            category = "food"
-                        elif any(word in company_name.lower() for word in ["tech", "soft", "app", "digital", "cyber"]):
-                            category = "tech"
-                        elif any(word in company_name.lower() for word in ["craft", "classic", "traditional", "est"]):
-                            category = "vintage"
-                        else:
-                            category = random.choice(logo_categories)
-                    else:
-                        category = random.choice(logo_categories)
-                    
-                    # Get style combination for the category
-                    style_combo = self.logo_styles_combinations[category]
-                    
-                    # Select elements based on category
-                    style = random.choice([s for s in self.logo_styles if category in s.lower()] or self.logo_styles)
-                    shape = random.choice(self.logo_elements["shapes"])
-                    typography = random.choice(style_combo["typography"])
-                    decoration = random.choice([d for d in self.logo_elements["decorative"] 
-                                              if any(cat in d.lower() for cat in [category, "geometric", "basic"])])
-                    composition = random.choice(self.logo_compositions)
-                    background = random.choice(self.logo_backgrounds)
-                    
-                    # Select color scheme from category-specific colors
-                    color_scheme = random.choice(style_combo["colors"])
-                    
-                    # Create detailed subject description
-                    if use_custom_subject == "yes" and custom_subject.strip():
-                        subject_text = (
-                            f"((professional {category} style logo design)) for '{company_name}', "
-                            f"incorporating ((premium {shape})) with "
-                            f"(({typography} typography)), featuring {decoration}, "
-                            f"((brand identity design))"
-                        )
-                    else:
-                        subject_text = (
-                            f"((professional {category} style logo design)) with "
-                            f"((premium {shape})) and (({typography} typography)), "
-                            f"featuring {decoration}, ((brand identity design))"
-                        )
-                    
-                    # Initialize components with subject
-                    components = [subject_text]
-                    
-                    # Add composition and background
-                    if include_environment == "yes":
-                        environment_text = (
-                            f"with ((professional {composition} layout)) on {background} background, "
-                            f"((perfect visual balance)), ((expert spacing)), "
-                            f"((commercial quality)), ((professional branding))"
-                        )
-                        components.append(environment_text)
-                    
-                    # Add style elements
-                    if include_style == "yes":
-                        style_text = (
-                            f"((vector quality)), ((scalable design)), "
-                            f"((premium {color_scheme} colors)), "
-                            f"((professional branding)), ((commercial appeal)), "
-                            f"((perfect proportions)), ((brand recognition)), "
-                            f"8k resolution"
-                        )
-                        components.append(style_text)
-                    
-                    # Add effects if enabled
-                    if include_effects == "yes":
-                        effect = random.choice(style_combo["effects"])
-                        effects_text = (
-                            f"with ((premium {effect})), ((refined details)), "
-                            f"((professional finish)), ((modern design)), "
-                            f"((timeless appeal)), ((memorable branding)), "
-                            f"((commercial quality))"
                         )
                         components.append(effects_text)
                 else:  # random theme handling
