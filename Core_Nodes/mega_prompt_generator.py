@@ -104,6 +104,30 @@ class IsulionMegaPromptGenerator:
             "light reflection", "depth layers", "geometric pattern"
         ]
 
+        # Add these new dictionaries after the existing logo dictionaries
+
+        self.logo_3d_styles = [
+            "fluffy 3D", "liquid metal", "balloon-like", "plush toy", "candy-colored",
+            "neon-lit", "crystal glass", "metallic chrome", "soft fabric", "paper craft",
+            "inflated", "bubble", "jelly", "holographic", "gradient mesh"
+        ]
+
+        self.logo_themes = [
+            "playful", "professional", "cute", "artistic", "minimalist", "3D typography",
+            "character-based", "illustrated", "hand-crafted", "digital art"
+        ]
+
+        self.logo_characters = [
+            "cute bird", "friendly sloth", "adorable monster", "happy creature",
+            "kawaii animal", "charming mascot", "sweet character", "lovely creature"
+        ]
+
+        self.logo_decorative_elements = [
+            "floral patterns", "magical sparkles", "cute doodles", "organic swirls",
+            "celestial elements", "nature motifs", "geometric accents", "playful icons",
+            "mystical symbols", "decorative frames"
+        ]
+
     def load_config(self, config_path):
         """Load configurations from the specified file."""
         with open(config_path, 'r', encoding='utf-8') as f:
@@ -247,11 +271,10 @@ class IsulionMegaPromptGenerator:
 
         # Handle logo theme before other processing
         if internal_theme == "logo":
-            # Base style selection
-            style = random.choice(self.logo_styles)
-            font = random.choice(self.logo_fonts)
-            element = random.choice(self.logo_elements)
-            color_scheme = random.choice(self.logo_colors)
+            # Determine logo style approach
+            style_approach = random.choice([
+                "classic", "3D", "character", "artistic"  # Different approaches to logo design
+            ])
             
             # Create the main subject with custom text
             if use_custom_subject == "yes" and custom_subject.strip():
@@ -259,41 +282,131 @@ class IsulionMegaPromptGenerator:
             else:
                 logo_text = "BRAND"
             
-            subject_text = (
-                f"((professional {style} logo design)) with the text \"{logo_text}\", "
-                f"((using {font} typography)), ((perfect letter spacing)), "
-                f"((masterful font design)), ((vector quality))"
-            )
+            if style_approach == "classic":
+                # Original classic logo style
+                style = random.choice(self.logo_styles)
+                font = random.choice(self.logo_fonts)
+                element = random.choice(self.logo_elements)
+                color_scheme = random.choice(self.logo_colors)
+                
+                subject_text = (
+                    f"((professional {style} logo design)) with the text \"{logo_text}\", "
+                    f"((using {font} typography)), ((perfect letter spacing)), "
+                    f"((masterful font design)), ((vector quality))"
+                )
+            
+            elif style_approach == "3D":
+                # 3D typography style
+                style_3d = random.choice(self.logo_3d_styles)
+                color_scheme = random.choice(self.logo_colors)
+                
+                subject_text = (
+                    f"((highly detailed {style_3d} 3D typography)) of the text \"{logo_text}\", "
+                    f"((volumetric letters)), ((dimensional depth)), "
+                    f"((perfect 3D modeling)), ((ultra-detailed materials))"
+                )
+            
+            elif style_approach == "character":
+                # Character-based logo style
+                character = random.choice(self.logo_characters)
+                decorative = random.choice(self.logo_decorative_elements)
+                
+                subject_text = (
+                    f"((adorable {character} mascot logo)) with the text \"{logo_text}\", "
+                    f"((cute character design)), ((playful typography)), "
+                    f"((charming illustration)), ((kawaii style))"
+                )
+            
+            else:  # artistic
+                # Artistic illustrated logo style
+                theme = random.choice(self.logo_themes)
+                decorative = random.choice(self.logo_decorative_elements)
+                
+                subject_text = (
+                    f"((creative {theme} logo artwork)) with the text \"{logo_text}\", "
+                    f"((artistic typography)), ((illustrated elements)), "
+                    f"((unique design)), ((hand-crafted style))"
+                )
             
             # Initialize components with subject
             components = [subject_text]
             
             # Add environment/background if enabled
             if include_environment == "yes":
-                environment_text = (
-                    f"with ((clean {element})), ((perfect composition)), "
-                    f"((balanced negative space)), ((professional layout))"
-                )
+                if style_approach == "3D":
+                    environment_text = (
+                        f"with ((perfect lighting setup)), ((studio environment)), "
+                        f"((professional composition)), ((clean background))"
+                    )
+                elif style_approach == "character":
+                    environment_text = (
+                        f"with ((cute {decorative})), ((playful composition)), "
+                        f"((charming background)), ((balanced layout))"
+                    )
+                else:
+                    element = random.choice(self.logo_elements)
+                    environment_text = (
+                        f"with ((clean {element})), ((perfect composition)), "
+                        f"((balanced negative space)), ((professional layout))"
+                    )
                 components.append(environment_text)
             
             # Add style elements
             if include_style == "yes":
-                style_text = (
-                    f"((premium {color_scheme} palette)), ((vector art)), "
-                    f"((professional design)), ((perfect proportions)), "
-                    f"((commercial quality)), ((scalable graphics)), "
-                    f"((brand identity)), 8k resolution"
-                )
+                if style_approach == "3D":
+                    style_text = (
+                        f"((premium 3D rendering)), ((perfect materials)), "
+                        f"((professional lighting)), ((high-end finish)), "
+                        f"((commercial quality)), ((volumetric effects)), "
+                        f"((brand identity)), 8k resolution"
+                    )
+                elif style_approach == "character":
+                    style_text = (
+                        f"((kawaii aesthetic)), ((cute color palette)), "
+                        f"((playful design)), ((perfect proportions)), "
+                        f"((charming style)), ((mascot branding)), "
+                        f"((brand identity)), 8k resolution"
+                    )
+                else:
+                    color_scheme = random.choice(self.logo_colors)
+                    style_text = (
+                        f"((premium {color_scheme} palette)), ((vector art)), "
+                        f"((professional design)), ((perfect proportions)), "
+                        f"((commercial quality)), ((scalable graphics)), "
+                        f"((brand identity)), 8k resolution"
+                    )
                 components.append(style_text)
             
             # Add effects
             if include_effects == "yes":
-                effect = random.choice(self.logo_effects)
-                effects_text = (
-                    f"with (({effect})), ((clean edges)), "
-                    f"((perfect symmetry)), ((professional finish)), "
-                    f"((brand consistency)), ((timeless design))"
-                )
+                if style_approach == "3D":
+                    effect = random.choice([
+                        "subsurface scattering", "metallic reflections", "glossy finish",
+                        "ambient occlusion", "volumetric lighting", "depth of field",
+                        "material roughness", "displacement mapping"
+                    ])
+                    effects_text = (
+                        f"with (({effect})), ((perfect shadows)), "
+                        f"((realistic materials)), ((professional rendering)), "
+                        f"((3D effects)), ((depth and volume))"
+                    )
+                elif style_approach == "character":
+                    effect = random.choice([
+                        "cute shadows", "playful highlights", "soft glow",
+                        "charming details", "kawaii effects", "adorable accents"
+                    ])
+                    effects_text = (
+                        f"with (({effect})), ((sweet details)), "
+                        f"((playful elements)), ((charming finish)), "
+                        f"((mascot personality)), ((cute aesthetics))"
+                    )
+                else:
+                    effect = random.choice(self.logo_effects)
+                    effects_text = (
+                        f"with (({effect})), ((clean edges)), "
+                        f"((perfect symmetry)), ((professional finish)), "
+                        f"((brand consistency)), ((timeless design))"
+                    )
                 components.append(effects_text)
 
             # Join components and add enhancement
@@ -1202,7 +1315,7 @@ class IsulionMegaPromptGenerator:
                             f"at {location} during {time}, "
                             f"((lifestyle setting)), ((perfect ambiance)), "
                             f"((instagram worthy location))"
-                        )
+                        )  # Add closing parenthesis here
                         components.append(environment_text)
                     
                     # Add style elements
