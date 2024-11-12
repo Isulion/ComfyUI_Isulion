@@ -73,7 +73,9 @@ class IsulionMegaPromptGenerator:
         self.logo_styles = [
             "minimalist", "modern", "vintage", "retro", "geometric", "abstract",
             "corporate", "artistic", "elegant", "bold", "playful", "luxurious",
-            "tech-inspired", "organic", "grunge", "clean", "dynamic"
+            "tech-inspired", "organic", "grunge", "clean", "dynamic",
+            "funny", "professional", "exaggerated", "quirky", "surreal", "whimsical",
+            "outrageous", "eccentric", "absurd", "offbeat", "kooky", "zany"
         ]
 
         self.logo_fonts = [
@@ -87,7 +89,13 @@ class IsulionMegaPromptGenerator:
             "geometric shapes", "abstract forms", "clean lines", "organic curves",
             "minimalist icons", "dynamic patterns", "gradient meshes", "textured backgrounds",
             "symmetrical designs", "flowing elements", "angular components", "circular motifs",
-            "hexagonal patterns", "wave forms", "crystalline structures", "nested shapes"
+            "hexagonal patterns", "wave forms", "crystalline structures", "nested shapes",
+            "whimsical doodles", "futuristic holograms", "retro pixel art", "intricate mandalas",
+            "dramatic splashes", "vibrant explosions", "neon-lit cityscapes", "surreal landscapes",
+            "playful confetti", "dazzling fireworks", "cosmic galaxies", "ancient ruins",
+            "steampunk gears", "cyberpunk circuits", "medieval crests", "futuristic interfaces",
+            "vintage cameras", "retro-futuristic robots", "ancient artifacts", "mythical creatures",
+            "dreamy clouds", "stellar nebulas", "glowing auras", "ethereal mist"
         ]
 
         self.logo_colors = [
@@ -115,7 +123,11 @@ class IsulionMegaPromptGenerator:
 
         self.logo_themes = [
             "playful", "professional", "cute", "artistic", "minimalist", "3D typography",
-            "character-based", "illustrated", "hand-crafted", "digital art"
+            "character-based", "illustrated", "hand-crafted", "digital art",
+            "whimsical", "eccentric", "surreal", "quirky", "funky", "avant-garde",
+            "absurd", "outrageous", "offbeat", "off-the-wall", "kooky", "zany",
+            "madcap", "wacky", "weird", "bizarre", "freaky", "grotesque",
+            "fanciful", "fantastical", "absurd", "absurd", "absurd", "absurd"
         ]
 
         self.logo_characters = [
@@ -124,9 +136,14 @@ class IsulionMegaPromptGenerator:
         ]
 
         self.logo_decorative_elements = [
-            "floral patterns", "magical sparkles", "cute doodles", "organic swirls",
+            "magical sparkles", "cute doodles", "organic swirls",
             "celestial elements", "nature motifs", "geometric accents", "playful icons",
-            "mystical symbols", "decorative frames"
+            "mystical symbols", "decorative frames", "whimsical polka dots", "intricate mandalas",
+            "exaggerated stripes", "fantastical florals", "dazzling diamonds", "ornate filigree",
+            "curvy vines", "twinkling stars", "fanciful foliage", "ornamental ovals", "dainty dots",
+            "frolicking florals", "whimsy waves", "lively leaves", "jubilant jewels", "merry meanders",
+            "joyful jewels", "lively lines", "fanciful feathers", "ornate octagons", "whimsical wings",
+            "curvy crescents", "twinkling triangles", "dainty dashes", "ornamental ovals", "frolicking flowers"
         ]
 
         # Add these new dictionaries after other theme-specific dictionaries
