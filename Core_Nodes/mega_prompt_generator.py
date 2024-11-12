@@ -44,7 +44,8 @@ class IsulionMegaPromptGenerator:
             "caricature": "exaggerated cartoon caricature artwork with strong distortion and comic book style of",
             "logo": "professional logo design with clean typography of",
             "village": "professional photography of a picturesque",
-            "curvy_girl": "professional fashion photography with elegant lighting and tasteful composition of"
+            "curvy_girl": "professional fashion photography with elegant lighting and tasteful composition of",
+            "manga_panel": "professional manga panel artwork with dynamic composition and clean linework of"
         }
         
         self.enhancements = {
@@ -235,6 +236,41 @@ class IsulionMegaPromptGenerator:
             "statement jewelry", "upscale accessories", "sophisticated details"
         ]
 
+        # Add these new dictionaries for manga-specific elements
+        self.manga_panel_styles = [
+            "shounen action", "shoujo romance", "seinen dramatic", "slice of life",
+            "dramatic close-up", "dynamic action scene", "emotional character moment",
+            "atmospheric establishing shot", "comedic reaction", "intense confrontation",
+            "quiet character study", "dramatic reveal", "chase sequence"
+        ]
+
+        self.manga_panel_compositions = [
+            "diagonal dynamic layout", "dramatic overhead view", "intimate close-up",
+            "wide establishing shot", "split panel reaction", "speed line action",
+            "emotional character focus", "environmental detail shot", "dramatic silhouette",
+            "multi-panel sequence", "cinematic widescreen", "dutch angle dramatic"
+        ]
+
+        self.manga_panel_effects = [
+            "speed lines", "impact lines", "emotional sparkles", "dramatic shadows",
+            "screentone patterns", "floating effects", "motion blur lines", "sound effect text",
+            "dramatic lighting", "emotional symbols", "background effects", "mood lines"
+        ]
+
+        self.manga_panel_backgrounds = [
+            "detailed urban street", "school corridor", "traditional japanese room",
+            "futuristic cityscape", "natural landscape", "abstract emotional pattern",
+            "minimalist gradient", "detailed interior", "symbolic motifs",
+            "geometric patterns", "atmospheric clouds", "decorative flowers"
+        ]
+
+        self.manga_panel_expressions = [
+            "intense determination", "gentle smile", "comedic exaggeration",
+            "dramatic shock", "quiet contemplation", "fierce battle cry",
+            "emotional tears", "stoic resolve", "playful laughter",
+            "dramatic surprise", "serene calm", "righteous anger"
+        ]
+
     def load_config(self, config_path):
         """Load configurations from the specified file."""
         with open(config_path, 'r', encoding='utf-8') as f:
@@ -286,6 +322,7 @@ class IsulionMegaPromptGenerator:
                     "🌊 Underwater Civilization",
                     "🏘️ Village Of the World",
                     "🎩 Vintage Anthropomorphic",
+                    "📖 Manga Panel",
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
@@ -339,26 +376,29 @@ class IsulionMegaPromptGenerator:
         # Create a mapping between new and old theme names
         theme_mapping = {
             "🎨 Abstract": "abstract",
+            "📺 Animation Cartoon": "cartoon", 
             "🎌 Anime": "anime",
-            "📺 Animation Cartoon": "cartoon",
             "🏛️ Architectural": "architecture",
             "🖼️ Binet Surreal": "binet",
-            "🧬 Bio-Organic Technology": "bio_organic", 
+            "🧬 Bio-Organic Technology": "bio_organic",
             "✏️ Caricature": "caricature",
-            "🦄 Chimera Animals": "strange_animal",
+            "🦄 Chimera Animals": "strange_animal", 
             "🐰 Chimera Cute Animals": "cute chimera",
             "🎬 Cinema Studio": "cinema",
             "🎅 Christmas": "christmas",
-            "🍳 Culinary/Food": "food",
+            "👗 Curvy Fashion": "curvy_girl",
             "💠 Dimension 3D": "3D",
             "🎲 Dynamic Random": "random",
-            "📸 Essential Realistic": "realistic",
             "✨ Enchanted Fantasy": "fantasy",
-            "🚀 Futuristic Sci-Fi": "sci_fi",
+            "📸 Essential Realistic": "realistic",
+            "🍳 Culinary/Food": "food",
             "🌆 Futuristic City Metropolis": "futuristic_city",
+            "🚀 Futuristic Sci-Fi": "sci_fi",
             "👻 Halloween Ethereal": "halloween",
-            "🏠 Interior Spaces": "interior",
             "📱 Instagram Lifestyle": "instagram",
+            "🏠 Interior Spaces": "interior",
+            "🏷️ Logo": "logo",
+            "📖 Manga Panel": "manga_panel",
             "🦸‍♂️ Marvel Universe": "marvel",
             "🔬 Microscopic Universe": "microscopic",
             "🎭 Peaky Blinders Style": "peaky_blinders",
@@ -367,10 +407,8 @@ class IsulionMegaPromptGenerator:
             "⭐ Star Wars Universe": "star_wars",
             "⚙️ Steampunk Cities": "steampunk",
             "🌊 Underwater Civilization": "underwater",
-            "🎩 Vintage Anthropomorphic": "vintage_anthro",
-            "🏷️ Logo": "logo",
             "🏘️ Village Of the World": "village",
-            "👗 Curvy Fashion": "curvy_girl"
+            "🎩 Vintage Anthropomorphic": "vintage_anthro"
         }
 
         # Convert new theme name to old theme name for internal processing
@@ -2246,6 +2284,49 @@ class IsulionMegaPromptGenerator:
                             f"with ((professional retouching)), ((perfect color grading)), "
                             f"((studio lighting)), ((fashion magazine quality)), "
                             f"((editorial finish)), ((high-end post-processing))"
+                        )
+                        components.append(effects_text)
+                elif internal_theme == "manga_panel":
+                    # Select base elements
+                    style = random.choice(self.manga_panel_styles)
+                    composition = random.choice(self.manga_panel_compositions)
+                    effect = random.choice(self.manga_panel_effects)
+                    background = random.choice(self.manga_panel_backgrounds)
+                    expression = random.choice(self.manga_panel_expressions)
+                    
+                    # Create detailed subject description
+                    subject_text = (
+                        f"((professional manga artwork)) in {style} style, "
+                        f"((featuring {expression})), ((clean linework)), "
+                        f"((manga panel composition)), {composition}"
+                    )
+                    
+                    # Initialize components with subject
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        environment_text = (
+                            f"with ((detailed {background})), ((manga aesthetics)), "
+                            f"((panel layout)), ((dramatic perspective))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((professional manga style)), ((sharp inking)), "
+                            f"((dynamic composition)), ((emotional impact)), "
+                            f"((clean artwork)), ((manga aesthetics)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        effects_text = (
+                            f"with (({effect})), ((manga shading)), "
+                            f"((dramatic contrast)), ((emotional intensity)), "
+                            f"((panel composition)), ((artistic finish))"
                         )
                         components.append(effects_text)
                 else:  # random theme handling
