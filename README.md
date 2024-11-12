@@ -34,7 +34,7 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 
 ### Core Features
 
-- **31 distinct themes including**
+- **32 distinct themes including**
   - 🎲 Dynamic Random (Default)
   - 🎨 Abstract
   - 📺 Animation Cartoon
@@ -63,8 +63,10 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
   - 🎭 Peaky Blinders Style
   - 💫 Pixar Animation
   - ☢️ Post-Apocalyptic Wasteland
+  - 📚 School Manga
   - ⭐ Star Wars Universe
   - ⚙️ Steampunk Cities
+  - 🌊 Underwater Civilization
   - 🏘️ Villages of the World
   - 🎩 Vintage Anthropomorphic
 

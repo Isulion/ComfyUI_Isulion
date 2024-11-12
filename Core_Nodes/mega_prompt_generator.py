@@ -45,7 +45,8 @@ class IsulionMegaPromptGenerator:
             "logo": "professional logo design with clean typography of",
             "village": "professional photography of a picturesque",
             "curvy_girl": "professional fashion photography with elegant lighting and tasteful composition of",
-            "manga_panel": "professional manga panel artwork with dynamic composition and clean linework of"
+            "manga_panel": "professional manga panel artwork with dynamic composition and clean linework of",
+            "school_manga": "detailed manga artwork with clean linework of"
         }
         
         self.enhancements = {
@@ -271,6 +272,52 @@ class IsulionMegaPromptGenerator:
             "dramatic surprise", "serene calm", "righteous anger"
         ]
 
+        # Add these new dictionaries after other theme-specific dictionaries:
+        self.school_manga_characters = [
+            "energetic female student", "cheerful schoolgirl", "determined student",
+            "enthusiastic high school student", "bright-eyed student",
+            "optimistic school character", "lively student council member",
+            "athletic club member", "diligent class representative",
+            "passionate art club member", "dedicated sports team captain"
+        ]
+
+        self.school_manga_uniforms = [
+            "traditional school uniform", "sailor uniform", "gakuran uniform",
+            "summer school uniform", "winter school uniform", "PE uniform",
+            "club activity uniform", "formal school attire",
+            "casual Friday uniform variant", "school festival costume"
+        ]
+
+        self.school_manga_accessories = [
+            "school bag", "wooden sword", "sports equipment", "club materials",
+            "student handbook", "school books", "bento box", "umbrella",
+            "school badge", "club membership pin", "school supplies",
+            "practice gear", "musical instrument", "art supplies"
+        ]
+
+        self.school_manga_locations = [
+            "school hallway", "classroom", "school rooftop", "sports field",
+            "school entrance", "club room", "school library", "gymnasium",
+            "school courtyard", "cherry blossom path", "school garden",
+            "cafeteria", "music room", "art studio", "science lab"
+        ]
+
+        self.school_manga_activities = [
+            "rushing to class", "participating in club activities",
+            "having lunch with friends", "practicing for competitions",
+            "studying in the library", "cleaning duty",
+            "school festival preparation", "sports training",
+            "taking notes in class", "giving a presentation",
+            "participating in ceremonies", "school committee meeting"
+        ]
+
+        self.school_manga_expressions = [
+            "bright smile", "determined look", "cheerful expression",
+            "focused gaze", "enthusiastic grin", "gentle smile",
+            "confident pose", "friendly expression", "energetic stance",
+            "studious concentration", "competitive spirit"
+        ]
+
     def load_config(self, config_path):
         """Load configurations from the specified file."""
         with open(config_path, 'r', encoding='utf-8') as f:
@@ -323,6 +370,7 @@ class IsulionMegaPromptGenerator:
                     "🏘️ Village Of the World",
                     "🎩 Vintage Anthropomorphic",
                     "📖 Manga Panel",
+                    "📚 School Manga",
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
@@ -408,7 +456,8 @@ class IsulionMegaPromptGenerator:
             "⚙️ Steampunk Cities": "steampunk",
             "🌊 Underwater Civilization": "underwater",
             "🏘️ Village Of the World": "village",
-            "🎩 Vintage Anthropomorphic": "vintage_anthro"
+            "🎩 Vintage Anthropomorphic": "vintage_anthro",
+            "📚 School Manga": "school_manga"
         }
 
         # Convert new theme name to old theme name for internal processing
@@ -2327,6 +2376,53 @@ class IsulionMegaPromptGenerator:
                             f"with (({effect})), ((manga shading)), "
                             f"((dramatic contrast)), ((emotional intensity)), "
                             f"((panel composition)), ((artistic finish))"
+                        )
+                        components.append(effects_text)
+                elif internal_theme == "school_manga":
+                    # Select base elements
+                    character = random.choice(self.school_manga_characters)
+                    uniform = random.choice(self.school_manga_uniforms)
+                    accessory = random.choice(self.school_manga_accessories)
+                    location = random.choice(self.school_manga_locations)
+                    activity = random.choice(self.school_manga_activities)
+                    expression = random.choice(self.school_manga_expressions)
+                    composition = random.choice(self.manga_panel_compositions)
+                    
+                    # Create detailed subject description
+                    subject_text = (
+                        f"((detailed manga illustration)) of a {character} with (({expression})), "
+                        f"wearing ((detailed {uniform})), carrying {accessory}, "
+                        f"((manga style)), ((clean linework)), {composition}"
+                    )
+                    
+                    # Initialize components with subject
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        time = random.choice(["morning", "lunch break", "afternoon", "after school", "club hours"])
+                        environment_text = (
+                            f"in a ((detailed {location})) during {time}, "
+                            f"((school atmosphere)), ((manga background)), "
+                            f"((architectural details)), ((student life))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((professional manga artwork)), ((dynamic composition)), "
+                            f"((detailed character design)), ((expressive artwork)), "
+                            f"((clean inking)), ((manga aesthetics)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        effects_text = (
+                            f"with ((speed lines)), ((manga shading)), "
+                            f"((emotional effects)), ((detailed backgrounds)), "
+                            f"((movement dynamics)), ((panel composition))"
                         )
                         components.append(effects_text)
                 else:  # random theme handling
