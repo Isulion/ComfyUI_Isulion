@@ -34,7 +34,7 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 
 ### Core Features
 
-- **31 distinct themes including**
+- **32 distinct themes including**
   - 🎲 Dynamic Random (Default)
   - 🎨 Abstract
   - 📺 Animation Cartoon
@@ -48,6 +48,7 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
   - 🎅 Christmas
   - 🎬 Cinema Studio
   - 🍳 Culinary/Food
+  - 🎨 Design Series
   - 💠 Dimension 3D
   - ✨ Enchanted Fantasy
   - 📸 Essential Realistic

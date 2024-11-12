@@ -43,7 +43,8 @@ class IsulionMegaPromptGenerator:
             "christmas": "magical christmas artwork with festive details of",
             "caricature": "exaggerated cartoon caricature artwork with strong distortion and comic book style of",
             "logo": "professional logo design with clean typography of",
-            "village": "professional photography of a picturesque"
+            "village": "professional photography of a picturesque",
+            "design_series": "premium artistic design series with refined details of",
         }
         
         self.enhancements = {
@@ -131,8 +132,18 @@ class IsulionMegaPromptGenerator:
         ]
 
         self.logo_characters = [
-            "cute bird", "friendly sloth", "adorable monster", "happy creature",
-            "kawaii animal", "charming mascot", "sweet character", "lovely creature"
+            "whimsical woodland creature", "playful puppy", "mischievous raccoon", "curious kitten",
+            "adorable alien", "cuddly robot", "friendly dragon", "lovable llama",
+            "charming cartoon character", "sweet fairy", "happy hippo", "lovely lemur",
+            "kawaii koala", "cute cat", "friendly fox", "adorable aardvark",
+            "whimsical wolf", "playful penguin", "mischievous monkey", "curious cow",
+            "adorable alligator", "cuddly crocodile", "friendly flamingo", "lovable lion",
+            "charming chimpanzee", "sweet snake", "happy horse", "lovely lizard",
+            "kawaii kangaroo", "cute camel", "friendly falcon", "adorable antelope",
+            "whimsical walrus", "playful pig", "mischievous mouse", "curious chicken",
+            "adorable armadillo", "cuddly cow", "friendly deer", "lovable dolphin",
+            "charming chipmunk", "sweet squirrel", "happy hawk", "lovely hedgehog",
+            "kawaii kangaroo", "cute crab", "friendly fish", "adorable ant"
         ]
 
         self.logo_decorative_elements = [
@@ -200,6 +211,37 @@ class IsulionMegaPromptGenerator:
             "winding country road", "serene riverside promenade", "lively village festival"
         ]
 
+        # Add new design-specific dictionaries after the existing class attributes
+        self.design_series_styles = [
+            "minimalist", "geometric", "organic", "typography-based", "illustrative",
+            "gradient-based", "neon", "retro", "psychedelic", "pop art",
+            "watercolor", "graffiti", "abstract", "hand-drawn", "digital art"
+        ]
+
+        self.design_series_subjects = [
+            "brand identity", "character design", "logo variations", "artistic portraits",
+            "animal illustrations", "typography art", "food packaging", "urban scenes",
+            "nature elements", "abstract compositions", "mascot designs", "icon sets"
+        ]
+
+        self.design_series_techniques = [
+            "gradient mesh", "line art", "watercolor effects", "halftone patterns",
+            "double exposure", "glitch effects", "duotone", "geometric patterns",
+            "brush strokes", "pixel sorting", "color overlay", "texture mapping"
+        ]
+
+        self.design_series_colors = [
+            "vibrant neon", "pastel palette", "monochromatic", "complementary colors",
+            "analogous palette", "retro colors", "earth tones", "gradient spectrum",
+            "psychedelic palette", "minimalist tones", "bold primaries", "muted neutrals"
+        ]
+
+        self.design_series_elements = [
+            "flowing lines", "geometric shapes", "organic patterns", "typography",
+            "textural elements", "iconic symbols", "repeated motifs", "abstract forms",
+            "decorative frames", "dynamic compositions", "minimalist icons", "gradient overlays"
+        ]
+
     def load_config(self, config_path):
         """Load configurations from the specified file."""
         with open(config_path, 'r', encoding='utf-8') as f:
@@ -250,6 +292,7 @@ class IsulionMegaPromptGenerator:
                     "🌊 Underwater Civilization",
                     "🏘️ Village Of the World",
                     "🎩 Vintage Anthropomorphic",
+                    "🎩 Design Series",
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
@@ -333,7 +376,8 @@ class IsulionMegaPromptGenerator:
             "🌊 Underwater Civilization": "underwater",
             "🎩 Vintage Anthropomorphic": "vintage_anthro",
             "🏷️ Logo": "logo",
-            "🏘️ Village Of the World": "village"
+            "🏘️ Village Of the World": "village",
+            "🎩 Design Series": "design_series",
         }
 
         # Convert new theme name to old theme name for internal processing
@@ -2164,6 +2208,48 @@ class IsulionMegaPromptGenerator:
                             f"with ((natural lighting)), ((atmospheric depth)), "
                             f"((perfect composition)), ((rich textures)), "
                             f"((cultural details)), ((environmental harmony))"
+                        )
+                        components.append(effects_text)
+                elif internal_theme == "design_series":
+                    # Select base elements
+                    style = random.choice(self.design_series_styles)
+                    subject = random.choice(self.design_series_subjects)
+                    technique = random.choice(self.design_series_techniques)
+                    color_scheme = random.choice(self.design_series_colors)
+                    element = random.choice(self.design_series_elements)
+                    
+                    # Create detailed subject description
+                    subject_text = (
+                        f"((artistic design series)) featuring {subject} in {style} style, "
+                        f"((using {technique})), ((with {element}))"  # Fixed extra brace here
+                    )
+                    
+                    # Initialize components with subject
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        environment_text = (
+                            f"with ((professional composition)), ((perfect layout)), "
+                            f"((design harmony)), ((artistic balance))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((premium design quality)), ((professional artistry)), "
+                            f"(({color_scheme})), ((masterful execution)), "
+                            f"((perfect composition)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        effects_text = (
+                            f"with ((refined details)), ((perfect rendering)), "
+                            f"((artistic flourishes)), ((design elements)), "
+                            f"((professional finish)), ((creative expression))"
                         )
                         components.append(effects_text)
                 else:  # random theme handling
