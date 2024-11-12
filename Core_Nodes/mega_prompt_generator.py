@@ -43,6 +43,7 @@ class IsulionMegaPromptGenerator:
             "christmas": "magical christmas artwork with festive details of",
             "caricature": "exaggerated cartoon caricature artwork with strong distortion and comic book style of",
             "logo": "professional logo design with clean typography of",
+            "village": "professional photography of a picturesque"
         }
         
         self.enhancements = {
@@ -128,6 +129,51 @@ class IsulionMegaPromptGenerator:
             "mystical symbols", "decorative frames"
         ]
 
+        # Add these new dictionaries after other theme-specific dictionaries
+
+        self.village_types = [
+            "mountain village", "coastal fishing village", "desert oasis settlement", 
+            "tropical island village", "medieval European hamlet", "Nordic fjord settlement",
+            "Mediterranean hillside town", "Japanese mountain village", "Alpine ski village",
+            "Moroccan desert village", "Greek island settlement", "Tuscan hilltop town",
+            "Swiss alpine hamlet", "Himalayan mountain settlement", "Vietnamese floating village",
+            "African savanna village", "Peruvian mountain pueblo", "Scottish highland village",
+            "Dutch windmill village", "Turkish coastal town", "Irish countryside settlement"
+        ]
+
+        self.village_architecture = [
+            "traditional stone houses", "thatched-roof cottages", "timber-frame buildings",
+            "whitewashed buildings", "terracotta-roofed homes", "stilt houses",
+            "adobe dwellings", "wooden chalets", "slate-roofed cottages", "clay brick houses",
+            "bamboo structures", "turf-roofed homes", "colorful painted houses",
+            "half-timbered buildings", "red-tile roofed homes", "cobblestone streets",
+            "wooden boardwalks", "stone pathways", "ancient stone walls"
+        ]
+
+        self.village_cultural_elements = [
+            "local market stalls", "traditional fishing boats", "ancient water wells",
+            "community gathering spaces", "religious temples", "village squares",
+            "communal gardens", "historic fountains", "traditional windmills",
+            "cultural monuments", "craft workshops", "village church", "prayer flags",
+            "ceremonial spaces", "traditional decorations", "folk art displays"
+        ]
+
+        self.landscape_features = [
+            "rolling hills", "terraced fields", "flowering meadows", "ancient forests",
+            "dramatic cliffs", "pristine beaches", "mountain peaks", "flowing rivers",
+            "cascading waterfalls", "natural hot springs", "crystal-clear lakes",
+            "volcanic formations", "desert dunes", "coral reefs", "glacial valleys",
+            "autumn forests", "spring cherry blossoms", "lavender fields", "rice paddies",
+            "olive groves", "vineyard slopes", "alpine meadows"
+        ]
+
+        self.landscape_atmospheres = [
+            "misty morning", "golden sunset", "starlit night", "stormy atmosphere",
+            "peaceful dawn", "ethereal fog", "clear mountain air", "tropical breeze",
+            "autumn colors", "spring awakening", "summer warmth", "winter silence",
+            "monsoon rains", "desert winds", "northern lights", "rainbow after rain"
+        ]
+
     def load_config(self, config_path):
         """Load configurations from the specified file."""
         with open(config_path, 'r', encoding='utf-8') as f:
@@ -177,6 +223,7 @@ class IsulionMegaPromptGenerator:
                     "🌊 Underwater Civilization",
                     "🎩 Vintage Anthropomorphic",
                     "🏷️ Logo",
+                    "🏘️ Village Of the World"
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
@@ -260,6 +307,7 @@ class IsulionMegaPromptGenerator:
             "🌊 Underwater Civilization": "underwater",
             "🎩 Vintage Anthropomorphic": "vintage_anthro",
             "🏷️ Logo": "logo",
+            "🏘️ Village Of the World": "village"
         }
 
         # Convert new theme name to old theme name for internal processing
@@ -2045,6 +2093,50 @@ class IsulionMegaPromptGenerator:
                             f"with ((twinkling lights)), ((magical snow effects)), "
                             f"((warm glow)), ((festive decorations)), "
                             f"((holiday ambiance)), ((scent of {food})))"
+                        )
+                        components.append(effects_text)
+                elif internal_theme == "village":
+                    # Select base elements
+                    village = random.choice(self.village_types)
+                    architecture = random.choice(self.village_architecture)
+                    cultural = random.choice(self.village_cultural_elements)
+                    landscape = random.choice(self.landscape_features)
+                    atmosphere = random.choice(self.landscape_atmospheres)
+                    composition = random.choice(self.compositions)
+                    
+                    # Create detailed subject description
+                    subject_text = (
+                        f"((breathtaking {village})) with ((traditional {architecture})) "
+                        f"and ((authentic {cultural})), {composition}"
+                    )
+                    
+                    # Initialize components with subject
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        environment_text = (
+                            f"surrounded by ((majestic {landscape})) during {atmosphere}, "
+                            f"((natural beauty)), ((cultural heritage)), "
+                            f"((traditional lifestyle))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((professional travel photography)), ((perfect exposure)), "
+                            f"((cultural authenticity)), ((architectural details)), "
+                            f"((dramatic landscape)), ((rich colors)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects
+                    if include_effects == "yes":
+                        effects_text = (
+                            f"with ((natural lighting)), ((atmospheric depth)), "
+                            f"((perfect composition)), ((rich textures)), "
+                            f"((cultural details)), ((environmental harmony))"
                         )
                         components.append(effects_text)
                 else:  # random theme handling
