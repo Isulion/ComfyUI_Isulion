@@ -34,7 +34,7 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 
 ### Core Features
 
-- **30 distinct themes including**
+- **31 distinct themes including**
   - 🎲 Dynamic Random (Default)
   - 🎨 Abstract
   - 📺 Animation Cartoon
@@ -64,9 +64,8 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
   - ☢️ Post-Apocalyptic Wasteland
   - ⭐ Star Wars Universe
   - ⚙️ Steampunk Cities
-  - 🌊 Underwater Civilization
-  - 🎩 Vintage Anthropomorphic
   - 🏘️ Villages of the World
+  - 🎩 Vintage Anthropomorphic
 
 - **Complexity Levels**:
   - Simple: Basic prompt with minimal elements
@@ -148,11 +147,3 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
 
 - OLLAMA_KEEP_ALIVE: 0
 - OLLAMA_ORIGINS: *
-
-#### 🏘️ Villages of the World Theme
-Captures the beauty and character of traditional villages and inspiring landscapes worldwide:
-- Diverse village types from mountain settlements to coastal towns
-- Traditional architecture and cultural elements
-- Stunning natural landscapes and atmospheric conditions
-- Cultural authenticity and environmental harmony
-- Professional travel photography style

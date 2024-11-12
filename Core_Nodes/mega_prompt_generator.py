@@ -213,6 +213,7 @@ class IsulionMegaPromptGenerator:
                     "👻 Halloween Ethereal",
                     "📱 Instagram Lifestyle",
                     "🏠 Interior Spaces",
+                    "🏷️ Logo",
                     "🦸‍♂️ Marvel Universe",
                     "🔬 Microscopic Universe",
                     "🎭 Peaky Blinders Style",
@@ -221,9 +222,8 @@ class IsulionMegaPromptGenerator:
                     "⭐ Star Wars Universe",
                     "⚙️ Steampunk Cities",
                     "🌊 Underwater Civilization",
+                    "🏘️ Village Of the World",
                     "🎩 Vintage Anthropomorphic",
-                    "🏷️ Logo",
-                    "🏘️ Village Of the World"
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
