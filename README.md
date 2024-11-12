@@ -48,6 +48,7 @@ The Mega Prompt Generator is an advanced node that combines multiple themes and 
   - 🎅 Christmas
   - 🎬 Cinema Studio
   - 🍳 Culinary/Food
+  - 👗 Curvy Fashion
   - 💠 Dimension 3D
   - ✨ Enchanted Fantasy
   - 📸 Essential Realistic
