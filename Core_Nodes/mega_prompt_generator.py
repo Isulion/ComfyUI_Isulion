@@ -46,7 +46,7 @@ class IsulionMegaPromptGenerator:
             "village": "professional photography of a picturesque",
             "curvy_girl": "professional fashion photography with elegant lighting and tasteful composition of",
             "manga_panel": "professional manga panel artwork with dynamic composition and clean linework of",
-            "school_manga": "detailed manga artwork with clean linework of"
+            "school_manga": "highly detailed black and white manga lineart with precise hatching and clean lines of"
         }
         
         self.enhancements = {
@@ -274,25 +274,68 @@ class IsulionMegaPromptGenerator:
 
         # Add these new dictionaries after other theme-specific dictionaries:
         self.school_manga_characters = [
-            "energetic female student", "cheerful schoolgirl", "determined student",
-            "enthusiastic high school student", "bright-eyed student",
-            "optimistic school character", "lively student council member",
-            "athletic club member", "diligent class representative",
-            "passionate art club member", "dedicated sports team captain"
+            "energetic female student with ((detailed uniform folds))", 
+            "cheerful schoolgirl with ((precise fabric details))",
+            "determined student with ((intricate hair rendering))",
+            "enthusiastic high school student with ((detailed clothing creases))",
+            "bright-eyed student with ((carefully rendered features))",
+            "optimistic school character with ((detailed uniform textures))",
+            "lively student with ((precise anatomical proportions))",
+            "athletic student with ((dynamic pose details))",
+            "diligent student with ((meticulous uniform rendering))",
+            "expressive student with ((detailed facial features))"
         ]
 
         self.school_manga_uniforms = [
-            "traditional school uniform", "sailor uniform", "gakuran uniform",
-            "summer school uniform", "winter school uniform", "PE uniform",
-            "club activity uniform", "formal school attire",
-            "casual Friday uniform variant", "school festival costume"
+            "meticulously detailed sailor uniform with crisp pleats",
+            "perfectly rendered winter uniform with precise collar",
+            "carefully drawn summer uniform with detailed stitching",
+            "intricately detailed school blazer and pleated skirt",
+            "precisely rendered gakuran with fabric texture",
+            "detailed school sweater vest with crisp shirt",
+            "carefully drawn school uniform with precise folds",
+            "meticulously rendered PE uniform with fabric details",
+            "perfectly detailed club activity uniform",
+            "intricate formal school attire with precise detailing"
         ]
 
         self.school_manga_accessories = [
-            "school bag", "wooden sword", "sports equipment", "club materials",
-            "student handbook", "school books", "bento box", "umbrella",
-            "school badge", "club membership pin", "school supplies",
-            "practice gear", "musical instrument", "art supplies"
+            "detailed leather school bag with metal fixtures",
+            "precisely rendered wooden sword with wrapped handle",
+            "meticulously drawn textbooks and notebooks",
+            "carefully detailed club equipment",
+            "intricate bento box with precise details",
+            "perfectly rendered umbrella with fabric texture",
+            "detailed school badge with metallic finish",
+            "precisely drawn writing implements",
+            "carefully rendered sports equipment",
+            "meticulously detailed musical instrument"
+        ]
+
+        self.school_manga_linework = [
+            "precise hatching technique", 
+            "detailed cross-hatching",
+            "clean line weight variation",
+            "meticulous shadow rendering",
+            "careful highlight definition",
+            "precise contour lines",
+            "detailed fabric textures",
+            "intricate background details",
+            "careful perspective rendering",
+            "precise architectural lines"
+        ]
+
+        self.school_manga_shading = [
+            "carefully rendered shadows",
+            "precise gradient effects",
+            "detailed tonal variation",
+            "meticulous light and shadow",
+            "intricate shadow patterns",
+            "careful highlight placement",
+            "detailed ambient occlusion",
+            "precise contrast control",
+            "meticulously balanced values",
+            "carefully defined forms"
         ]
 
         self.school_manga_locations = [
@@ -2383,16 +2426,15 @@ class IsulionMegaPromptGenerator:
                     character = random.choice(self.school_manga_characters)
                     uniform = random.choice(self.school_manga_uniforms)
                     accessory = random.choice(self.school_manga_accessories)
-                    location = random.choice(self.school_manga_locations)
-                    activity = random.choice(self.school_manga_activities)
-                    expression = random.choice(self.school_manga_expressions)
-                    composition = random.choice(self.manga_panel_compositions)
+                    linework = random.choice(self.school_manga_linework)
+                    shading = random.choice(self.school_manga_shading)
                     
                     # Create detailed subject description
                     subject_text = (
-                        f"((detailed manga illustration)) of a {character} with (({expression})), "
-                        f"wearing ((detailed {uniform})), carrying {accessory}, "
-                        f"((manga style)), ((clean linework)), {composition}"
+                        f"((black and white manga illustration)) of a {character}, "
+                        f"wearing ((highly detailed {uniform})), with ((meticulously rendered {accessory})), "
+                        f"((precise manga linework)), ((clean ink technique)), "
+                        f"((detailed black and white rendering))"
                     )
                     
                     # Initialize components with subject
@@ -2400,29 +2442,30 @@ class IsulionMegaPromptGenerator:
                     
                     # Add environment if enabled
                     if include_environment == "yes":
-                        time = random.choice(["morning", "lunch break", "afternoon", "after school", "club hours"])
+                        location = random.choice(self.school_manga_locations)
                         environment_text = (
-                            f"in a ((detailed {location})) during {time}, "
-                            f"((school atmosphere)), ((manga background)), "
-                            f"((architectural details)), ((student life))"
+                            f"in a ((carefully rendered {location})) with ((architectural detail)), "
+                            f"((precise perspective)), ((detailed background elements)), "
+                            f"((clean environmental linework)), ((careful spatial depth))"
                         )
                         components.append(environment_text)
                     
                     # Add style elements
                     if include_style == "yes":
                         style_text = (
-                            f"((professional manga artwork)), ((dynamic composition)), "
-                            f"((detailed character design)), ((expressive artwork)), "
-                            f"((clean inking)), ((manga aesthetics)), 8k resolution"
+                            f"((masterful manga linework)), ((precise ink technique)), "
+                            f"((detailed hatching style)), (({linework})), "
+                            f"(({shading})), ((high contrast black and white)), "
+                            f"((professional manga artwork)), 8k resolution"
                         )
                         components.append(style_text)
                     
                     # Add effects if enabled
                     if include_effects == "yes":
                         effects_text = (
-                            f"with ((speed lines)), ((manga shading)), "
-                            f"((emotional effects)), ((detailed backgrounds)), "
-                            f"((movement dynamics)), ((panel composition))"
+                            f"with ((careful line weight variation)), ((precise shadow placement)), "
+                            f"((detailed cross-hatching)), ((clean edge definition)), "
+                            f"((masterful black and white contrast)), ((technical precision))"
                         )
                         components.append(effects_text)
                 else:  # random theme handling
