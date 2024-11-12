@@ -191,6 +191,15 @@ class IsulionMegaPromptGenerator:
             "monsoon rains", "desert winds", "northern lights", "rainbow after rain"
         ]
 
+        # Add this new list after the existing village-related lists
+        self.village_views = [
+            "panoramic vista", "aerial bird's-eye view", "intimate street scene",
+            "charming town square", "cozy alleyway", "picturesque marketplace",
+            "scenic overlook", "quaint harbor view", "rustic village entrance",
+            "bustling main street", "tranquil village green", "historic village center",
+            "winding country road", "serene riverside promenade", "lively village festival"
+        ]
+
     def load_config(self, config_path):
         """Load configurations from the specified file."""
         with open(config_path, 'r', encoding='utf-8') as f:
@@ -1379,8 +1388,8 @@ class IsulionMegaPromptGenerator:
                         environment_text = (
                             f"at {location} during {time}, "
                             f"((lifestyle setting)), ((perfect ambiance)), "
-                            f"((instagram worthy location))"
-                        )  # Add closing parenthesis here
+                            f"((instagram worthy location))"  # Add closing parenthesis here
+                        )
                         components.append(environment_text)
                     
                     # Add style elements
@@ -2119,11 +2128,12 @@ class IsulionMegaPromptGenerator:
                     cultural = random.choice(self.village_cultural_elements)
                     landscape = random.choice(self.landscape_features)
                     atmosphere = random.choice(self.landscape_atmospheres)
+                    view = random.choice(self.village_views)
                     composition = random.choice(self.compositions)
                     
                     # Create detailed subject description
                     subject_text = (
-                        f"((breathtaking {village})) with ((traditional {architecture})) "
+                        f"((breathtaking {view} of a {village})) with ((traditional {architecture})) "
                         f"and ((authentic {cultural})), {composition}"
                     )
                     
