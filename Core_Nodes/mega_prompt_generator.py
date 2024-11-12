@@ -46,7 +46,7 @@ class IsulionMegaPromptGenerator:
             "village": "professional photography of a picturesque",
             "curvy_girl": "professional fashion photography with elegant lighting and tasteful composition of",
             "manga_panel": "professional manga panel artwork with dynamic composition and clean linework of",
-            "school_manga": "highly detailed black and white manga lineart with precise hatching and clean lines of"
+            "school_manga": "ultra-detailed black and white manga illustration with precise technical pen work, professional hatching techniques, crisp clean lines, and masterful ink contrast of"
         }
         
         self.enhancements = {
@@ -274,68 +274,68 @@ class IsulionMegaPromptGenerator:
 
         # Add these new dictionaries after other theme-specific dictionaries:
         self.school_manga_characters = [
-            "energetic female student with ((detailed uniform folds))", 
-            "cheerful schoolgirl with ((precise fabric details))",
-            "determined student with ((intricate hair rendering))",
-            "enthusiastic high school student with ((detailed clothing creases))",
-            "bright-eyed student with ((carefully rendered features))",
-            "optimistic school character with ((detailed uniform textures))",
-            "lively student with ((precise anatomical proportions))",
-            "athletic student with ((dynamic pose details))",
-            "diligent student with ((meticulous uniform rendering))",
-            "expressive student with ((detailed facial features))"
+            "energetic female student with ((ultra-precise facial features)), ((perfectly rendered manga eyes)), and ((meticulously detailed hair strands))", 
+            "cheerful schoolgirl with ((razor-sharp line definition)), ((perfectly weighted line art)), and ((intricate hair detail with individual strands))",
+            "determined student with ((masterfully defined facial structure)), ((ultra-clean line separation)), and ((precise anatomical detail))",
+            "enthusiastic high school student with ((perfect line weight variation)), ((crisp facial feature definition)), and ((detailed expression lines))",
+            "bright-eyed student with ((technically perfect manga proportions)), ((ultra-precise eye highlights)), and ((masterful hair shading))",
+            "optimistic school character with ((professional technical linework)), ((sharp facial detail)), and ((perfect line confidence))",
+            "lively student with ((flawless ink rendering)), ((pristine line clarity)), and ((detailed eye reflections))",
+            "athletic student with ((precise line control)), ((perfect pose dynamics)), and ((clean form definition))",
+            "diligent student with ((ultra-sharp contrast rendering)), ((perfect facial composition)), and ((detailed expression work))",
+            "expressive student with ((masterful black and white technique)), ((pristine character detail)), and ((perfect line clarity))"
         ]
 
         self.school_manga_uniforms = [
-            "meticulously detailed sailor uniform with crisp pleats",
-            "perfectly rendered winter uniform with precise collar",
-            "carefully drawn summer uniform with detailed stitching",
-            "intricately detailed school blazer and pleated skirt",
-            "precisely rendered gakuran with fabric texture",
-            "detailed school sweater vest with crisp shirt",
-            "carefully drawn school uniform with precise folds",
-            "meticulously rendered PE uniform with fabric details",
-            "perfectly detailed club activity uniform",
-            "intricate formal school attire with precise detailing"
+            "meticulously rendered sailor uniform with ((ultra-precise pleated skirt folds)), ((perfectly defined collar creases)), and ((detailed fabric texture hatching))",
+            "perfectly defined winter uniform with ((razor-sharp fabric folds)), ((masterful seam line definition)), and ((intricate button details))",
+            "technically detailed summer uniform with ((pristine collar rendering)), ((perfect fabric draping lines)), and ((precise wrinkle patterns))",
+            "professionally inked school blazer with ((ultra-sharp lapel definition)), ((detailed fabric weave texture)), and ((perfect fold shadows))",
+            "masterfully drawn gakuran with ((flawless collar detail)), ((precise uniform trim)), and ((perfect button highlights))",
+            "carefully rendered school sweater with ((intricate knit pattern detail)), ((precise fabric texture)), and ((perfect collar definition))",
+            "precisely detailed uniform with ((ultra-clean fold lines)), ((masterful shadow placement)), and ((perfect highlight definition))",
+            "technically accurate PE uniform with ((sharp material definition)), ((perfect fabric stretch lines)), and ((detailed seam work))",
+            "professionally rendered school attire with ((precise trim detail)), ((perfect fabric flow)), and ((masterful shadow gradients))",
+            "expertly drawn formal uniform with ((flawless draping technique)), ((ultra-precise structural lines)), and ((perfect fabric weight representation))"
         ]
 
         self.school_manga_accessories = [
-            "detailed leather school bag with metal fixtures",
-            "precisely rendered wooden sword with wrapped handle",
-            "meticulously drawn textbooks and notebooks",
-            "carefully detailed club equipment",
-            "intricate bento box with precise details",
-            "perfectly rendered umbrella with fabric texture",
-            "detailed school badge with metallic finish",
-            "precisely drawn writing implements",
-            "carefully rendered sports equipment",
-            "meticulously detailed musical instrument"
+            "highly detailed leather school bag with ((ultra-precise strap detail)), ((perfect metal fixture rendering)), and ((intricate leather texture))",
+            "masterfully drawn wooden sword with ((flawless handle wrapping detail)), ((perfect scabbard texture)), and ((precise wood grain patterns))",
+            "technically precise textbooks with ((razor-sharp edge definition)), ((perfect corner detail)), and ((intricate surface texture))",
+            "professionally rendered club equipment with ((ultra-clean material definition)), ((perfect detail separation)), and ((masterful texture work))",
+            "meticulously drawn bento box with ((pristine outline work)), ((perfect surface detail)), and ((precise decorative elements))",
+            "perfectly defined umbrella with ((ultra-sharp fold patterns)), ((detailed handle texture)), and ((precise material rendering))",
+            "expertly rendered school badge with ((flawless metallic detail)), ((perfect edge definition)), and ((intricate design work))",
+            "technically accurate writing implements with ((pristine material separation)), ((perfect detail rendering)), and ((precise highlight placement))",
+            "professionally drawn sports gear with ((ultra-precise proportions)), ((perfect equipment details)), and ((masterful texture definition))",
+            "carefully rendered personal items with ((razor-sharp line separation)), ((perfect accessory details)), and ((intricate decorative elements))"
         ]
 
         self.school_manga_linework = [
-            "precise hatching technique", 
-            "detailed cross-hatching",
-            "clean line weight variation",
-            "meticulous shadow rendering",
-            "careful highlight definition",
-            "precise contour lines",
-            "detailed fabric textures",
-            "intricate background details",
-            "careful perspective rendering",
-            "precise architectural lines"
+            "masterful technical pen work with perfect line weight variation and pristine edge definition", 
+            "professional cross-hatching with ultra-precise density control and perfect pattern consistency",
+            "flawless line variation with razor-sharp edge definition and perfect stroke confidence",
+            "meticulous shadow placement with ultra-sharp contrast and perfect gradient control",
+            "precise highlight rendering with perfect tonal separation and masterful white space usage",
+            "expertly defined contours with ultra-clean line confidence and perfect weight balance",
+            "detailed fabric texture with technical precision and perfect pattern consistency",
+            "intricate background detail with flawless perspective and perfect spatial depth",
+            "careful spatial rendering with ultra-clean line hierarchy and perfect depth control",
+            "precise architectural detail with razor-sharp straight lines and perfect angular precision"
         ]
 
         self.school_manga_shading = [
-            "carefully rendered shadows",
-            "precise gradient effects",
-            "detailed tonal variation",
-            "meticulous light and shadow",
-            "intricate shadow patterns",
-            "careful highlight placement",
-            "detailed ambient occlusion",
-            "precise contrast control",
-            "meticulously balanced values",
-            "carefully defined forms"
+            "professionally rendered shadows with ultra-precise gradient control and perfect tone transition",
+            "precise tonal variation with razor-sharp transition edges and perfect value balance",
+            "masterful light and shadow balance with ultra-high contrast and perfect black point",
+            "technical shadow patterns with perfect density control and precise pattern spacing",
+            "expertly placed highlights with ultra-clean definition and perfect white preservation",
+            "detailed ambient occlusion with precise depth control and perfect shadow integration",
+            "perfect contrast control with ultra-sharp value separation and masterful midtone balance",
+            "meticulously balanced blacks and whites with perfect dot gain control",
+            "carefully defined forms with ultra-sharp shadow edges and perfect highlight retention",
+            "professional ink density with perfect value control and precise halftone simulation"
         ]
 
         self.school_manga_locations = [
@@ -2431,10 +2431,10 @@ class IsulionMegaPromptGenerator:
                     
                     # Create detailed subject description
                     subject_text = (
-                        f"((black and white manga illustration)) of a {character}, "
-                        f"wearing ((highly detailed {uniform})), with ((meticulously rendered {accessory})), "
-                        f"((precise manga linework)), ((clean ink technique)), "
-                        f"((detailed black and white rendering))"
+                        f"((professional black and white manga illustration)) of a {character}, "
+                        f"wearing ((technically detailed {uniform})), with ((masterfully rendered {accessory})), "
+                        f"((perfect manga linework)), ((professional ink technique)), "
+                        f"((high contrast black and white rendering)), ((clean technical execution))"
                     )
                     
                     # Initialize components with subject
@@ -2444,28 +2444,30 @@ class IsulionMegaPromptGenerator:
                     if include_environment == "yes":
                         location = random.choice(self.school_manga_locations)
                         environment_text = (
-                            f"in a ((carefully rendered {location})) with ((architectural detail)), "
-                            f"((precise perspective)), ((detailed background elements)), "
-                            f"((clean environmental linework)), ((careful spatial depth))"
+                            f"in a ((technically rendered {location})) with ((precise architectural linework)), "
+                            f"((perfect perspective control)), ((clean background separation)), "
+                            f"((professional environmental detail)), ((masterful spatial depth)), "
+                            f"((sharp background contrast))"
                         )
                         components.append(environment_text)
                     
                     # Add style elements
                     if include_style == "yes":
                         style_text = (
-                            f"((masterful manga linework)), ((precise ink technique)), "
-                            f"((detailed hatching style)), (({linework})), "
-                            f"(({shading})), ((high contrast black and white)), "
-                            f"((professional manga artwork)), 8k resolution"
+                            f"((professional manga technique)), ((masterful ink application)), "
+                            f"((perfect hatching control)), (({linework})), (({shading})), "
+                            f"((technical black and white mastery)), ((clean line confidence)), "
+                            f"((sharp value contrast)), ((professional manga artwork)), 8k resolution"
                         )
                         components.append(style_text)
                     
                     # Add effects if enabled
                     if include_effects == "yes":
                         effects_text = (
-                            f"with ((careful line weight variation)), ((precise shadow placement)), "
-                            f"((detailed cross-hatching)), ((clean edge definition)), "
-                            f"((masterful black and white contrast)), ((technical precision))"
+                            f"with ((precise line weight control)), ((perfect shadow definition)), "
+                            f"((masterful cross-hatching technique)), ((clean edge separation)), "
+                            f"((professional black and white contrast)), ((technical precision)), "
+                            f"((sharp detail rendering)), ((clear tonal hierarchy))"
                         )
                         components.append(effects_text)
                 else:  # random theme handling
