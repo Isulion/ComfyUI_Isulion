@@ -43,7 +43,8 @@ class IsulionMegaPromptGenerator:
             "christmas": "magical christmas artwork with festive details of",
             "caricature": "exaggerated cartoon caricature artwork with strong distortion and comic book style of",
             "logo": "professional logo design with clean typography of",
-            "village": "professional photography of a picturesque"
+            "village": "professional photography of a picturesque",
+            "curvy_girl": "professional fashion photography with elegant lighting and tasteful composition of"
         }
         
         self.enhancements = {
@@ -200,6 +201,40 @@ class IsulionMegaPromptGenerator:
             "winding country road", "serene riverside promenade", "lively village festival"
         ]
 
+        self.curvy_fashion_styles = [
+            "high fashion editorial", "luxury fashion", "elegant portrait",
+            "professional modeling", "fashion magazine cover", "runway style",
+            "boutique fashion", "designer collection", "contemporary fashion",
+            "glamour portrait", "fashion lifestyle", "couture fashion"
+        ]
+
+        self.curvy_fashion_poses = [
+            "confident pose", "elegant stance", "professional modeling pose",
+            "fashionable posture", "graceful position", "stylish pose",
+            "editorial pose", "magazine cover pose", "runway walk",
+            "sophisticated stance", "fashion-forward pose"
+        ]
+
+        self.curvy_fashion_clothing = [
+            "designer evening gown", "elegant cocktail dress", "professional business attire",
+            "luxury formal wear", "stylish casual outfit", "contemporary fashion ensemble",
+            "haute couture dress", "premium designer outfit", "sophisticated business suit",
+            "fashionable street wear", "upscale casual wear", "premium activewear"
+        ]
+
+        self.curvy_fashion_settings = [
+            "luxury studio", "upscale boutique", "elegant gallery",
+            "fashion runway", "designer showroom", "professional photo studio",
+            "high-end fashion store", "sophisticated venue", "premium location",
+            "contemporary art space", "modern fashion studio"
+        ]
+
+        self.curvy_fashion_accessories = [
+            "designer handbag", "elegant jewelry", "luxury accessories",
+            "premium shoes", "designer sunglasses", "fashion-forward accessories",
+            "statement jewelry", "upscale accessories", "sophisticated details"
+        ]
+
     def load_config(self, config_path):
         """Load configurations from the specified file."""
         with open(config_path, 'r', encoding='utf-8') as f:
@@ -250,6 +285,7 @@ class IsulionMegaPromptGenerator:
                     "🌊 Underwater Civilization",
                     "🏘️ Village Of the World",
                     "🎩 Vintage Anthropomorphic",
+                    "👗 Curvy Fashion",
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
@@ -333,7 +369,8 @@ class IsulionMegaPromptGenerator:
             "🌊 Underwater Civilization": "underwater",
             "🎩 Vintage Anthropomorphic": "vintage_anthro",
             "🏷️ Logo": "logo",
-            "🏘️ Village Of the World": "village"
+            "🏘️ Village Of the World": "village",
+            "👗 Curvy Fashion": "curvy_girl"
         }
 
         # Convert new theme name to old theme name for internal processing
@@ -354,7 +391,7 @@ class IsulionMegaPromptGenerator:
             if use_custom_subject == "yes" and custom_subject.strip():
                 logo_text = custom_subject.strip()
             else:
-                logo_text = "BRAND"
+                logo_text = "ISULION"
             
             if style_approach == "classic":
                 # Original classic logo style
@@ -2164,6 +2201,51 @@ class IsulionMegaPromptGenerator:
                             f"with ((natural lighting)), ((atmospheric depth)), "
                             f"((perfect composition)), ((rich textures)), "
                             f"((cultural details)), ((environmental harmony))"
+                        )
+                        components.append(effects_text)
+                elif internal_theme == "curvy_girl":
+                    # Select base elements
+                    style = random.choice(self.curvy_fashion_styles)
+                    pose = random.choice(self.curvy_fashion_poses)
+                    clothing = random.choice(self.curvy_fashion_clothing)
+                    setting = random.choice(self.curvy_fashion_settings)
+                    accessory = random.choice(self.curvy_fashion_accessories)
+                    composition = random.choice(self.compositions)
+                    
+                    # Create detailed subject description
+                    subject_text = (
+                        f"((professional fashion photograph)) of a ((confident curvy model)) in a "
+                        f"((graceful {pose})), wearing ((elegant {clothing})) and "
+                        f"((stylish {accessory})), ((body positive)), ((fashion editorial)), "
+                        f"{composition}"
+                    )
+                    
+                    # Initialize components with subject
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        environment_text = (
+                            f"in a ((premium {setting})), ((professional studio setup)), "
+                            f"((fashion photography lighting)), ((elegant atmosphere))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((high-end {style})), ((professional fashion photography)), "
+                            f"((magazine quality)), ((editorial style)), ((perfect exposure)), "
+                            f"((fashion lighting)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        effects_text = (
+                            f"with ((professional retouching)), ((perfect color grading)), "
+                            f"((studio lighting)), ((fashion magazine quality)), "
+                            f"((editorial finish)), ((high-end post-processing))"
                         )
                         components.append(effects_text)
                 else:  # random theme handling
