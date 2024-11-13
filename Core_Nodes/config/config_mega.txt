@@ -2048,3 +2048,83 @@ cultural_elements = {
         "mosaic art", "desert sunset", "ancient temple", "desert fortress"
     ]
 }
+
+# Add after the existing binet_clothing section:
+
+specific_clothing = {
+    "sports": [
+        "professional sports jersey with team logo",
+        "athletic performance wear with sponsor patches",
+        "team uniform with captain's armband",
+        "competition gear with national emblem",
+        "training outfit with team colors",
+        "match day kit with player number",
+        "official team tracksuit",
+        "professional sports equipment",
+        "championship uniform with medals",
+        "elite athlete gear"
+    ],
+    "urban": [
+        "designer streetwear with brand logos",
+        "urban fashion ensemble",
+        "trendy street style outfit",
+        "contemporary urban wear",
+        "modern street fashion",
+        "stylish urban attire",
+        "premium streetwear brands",
+        "exclusive urban collection",
+        "limited edition street style",
+        "custom urban fashion"
+    ],
+    "formal": [
+        "tailored business suit with pocket square",
+        "formal evening wear with bow tie",
+        "professional attire with cufflinks",
+        "elegant dress suit with vest",
+        "custom fitted formal wear",
+        "premium business attire",
+        "luxury formal ensemble",
+        "high-end suit with tie",
+        "designer formal wear",
+        "exclusive tailored suit"
+    ]
+}
+
+specific_accessories = {
+    "sports": [
+        "professional sports equipment",
+        "team captain's armband",
+        "championship medals",
+        "sports gear bag",
+        "competition accessories",
+        "training equipment",
+        "team insignia",
+        "performance gear",
+        "sports technology",
+        "protective equipment"
+    ],
+    "urban": [
+        "designer backpack",
+        "premium headphones",
+        "luxury watch",
+        "branded sunglasses",
+        "urban style accessories",
+        "street fashion items",
+        "trendy gadgets",
+        "modern tech devices",
+        "urban jewelry",
+        "lifestyle accessories"
+    ],
+    "formal": [
+        "luxury timepiece",
+        "designer cufflinks",
+        "premium tie clip",
+        "leather briefcase",
+        "formal accessories",
+        "elegant pocket square",
+        "premium pen set",
+        "business accessories",
+        "formal jewelry",
+        "executive items"
+    ]
+}

@@ -1461,7 +1461,7 @@ class IsulionMegaPromptGenerator:
                     
                     # Define style_prefix and color_emphasis based on color choice
                     if is_color:
-                        color_scheme = random.choice(self.binet_color_schemes)  # Now using binet_color_schemes
+                        color_scheme = random.choice(self.binet_color_schemes)
                         style_prefix = "sophisticated portrait"
                         color_emphasis = f", {color_scheme}"
                     else:
@@ -1480,6 +1480,9 @@ class IsulionMegaPromptGenerator:
                     # Determine if it's a contemporary or classical theme
                     is_contemporary = random.random() < 0.3  # 30% chance for contemporary
                     
+                    # Select clothing type
+                    clothing_type = random.choice(["sports", "urban", "formal"])
+                    
                     if is_contemporary:
                         # Use contemporary themes and elements
                         character_theme = random.choice(self.binet_contemporary_themes)
@@ -1490,7 +1493,7 @@ class IsulionMegaPromptGenerator:
                         subject_text = (
                             f"((anthropomorphic portrait)) of a ((distinguished {animal})) as a ((noble {character_theme})), "
                             f"((wearing {costume})), ((with {props})), "
-                            f"((dressed in {specific_clothing})), "
+                            f"((dressed in {random.choice(self.specific_clothing[clothing_type])})), "
                             f"((aristocratic pose)), ((noble expression)), "
                             f"((intricate fur detail)), ((dramatic studio lighting)){color_emphasis}"
                         )
@@ -1499,13 +1502,11 @@ class IsulionMegaPromptGenerator:
                         character_theme = random.choice(self.binet_character_themes)
                         costume = random.choice(self.binet_costume_elements)
                         props = random.choice(self.binet_props_and_weapons)
-                        clothing_type = random.choice(["luxury", "professional"])
-                        specific_clothing = random.choice(self.binet_clothing[clothing_type])
                         
                         subject_text = (
                             f"((anthropomorphic portrait)) of a ((distinguished {animal})) as a ((noble {character_theme})), "
                             f"((wearing {costume})), ((with {props})), "
-                            f"((dressed in {specific_clothing})), "
+                            f"((dressed in {random.choice(self.specific_clothing[clothing_type])})), "
                             f"((aristocratic pose)), ((noble expression)), "
                             f"((intricate fur detail)), ((dramatic studio lighting)){color_emphasis}"
                         )
