@@ -351,58 +351,33 @@ vintage_anthro_activities = [
 
 # Star Wars specific variables
 star_wars_characters = [
-    "jedi knight", "sith lord", "bounty hunter", "rebel pilot", "imperial officer",
-    "stormtrooper", "mandalorian warrior", "wookiee warrior", "twilek dancer",
-    "republic senator", "smuggler", "droid", "clone trooper", "royal guard",
-    "jedi master", "sith apprentice", "rebel commander", "imperial admiral",
-    "moisture farmer", "pod racer", "jawa trader", "tusken raider", "hutt crime lord",
-    "republic commando", "imperial inquisitor", "force user", "padawan learner",
-    "republic guard", "imperial spy", "rebel spy", "cantina patron", "podracer pilot",
-    "Yoda", "Darth Vader", "Luke Skywalker", "Princess Leia", "Han Solo",
-    "Obi-Wan Kenobi", "Emperor Palpatine", "Chewbacca", "R2-D2", "C-3PO",
-    "Boba Fett", "Darth Maul", "Qui-Gon Jinn", "Mace Windu", "Count Dooku",
-    "Padmé Amidala", "Anakin Skywalker", "General Grievous", "Jabba the Hutt",
-    "Lando Calrissian", "Admiral Ackbar", "Din Djarin", "Grogu", "Ahsoka Tano",
-    "Captain Rex", "Asajj Ventress", "Grand Admiral Thrawn", "Kylo Ren", "Rey",
-    "Finn", "Poe Dameron", "BB-8", "General Hux", "Captain Phasma",
-    "Supreme Leader Snoke", "Moff Gideon", "Cara Dune", "Kuiil", "IG-11",
-    "Fennec Shand", "Cad Bane", "Grand Moff Tarkin", "Admiral Piett"
+    "Jedi Knight", "Sith Lord", "Mandalorian warrior", "Imperial Officer",
+    "Rebel pilot", "Storm Trooper", "Bounty Hunter", "Wookiee warrior",
+    "Droid", "Smuggler", "Royal Guard"
 ]
 
 star_wars_locations = [
-    "tatooine desert", "coruscant cityscape", "death star interior", "rebel base",
-    "imperial star destroyer", "mos eisley cantina", "jedi temple", "sith temple",
-    "endor forest", "cloud city", "naboo palace", "geonosis arena", "kamino facility",
-    "mustafar lava fields", "kashyyyk treetops", "yavin temple", "hoth ice caves",
-    "jabba's palace", "imperial base", "senate chamber", "trade federation ship",
-    "podrace track", "crystal cave", "sarlacc pit", "dune sea", "moisture farm",
-    "imperial academy", "rebel hangar", "spice mines", "smuggler's den"
+    "Death Star", "Tatooine desert", "Coruscant cityscape", "Endor forest",
+    "Hoth ice plains", "Mustafar lava fields", "Naboo palace",
+    "Kashyyyk jungle", "Cloud City", "Star Destroyer bridge"
 ]
 
 star_wars_vehicles = [
-    "x-wing fighter", "tie fighter", "millennium falcon", "star destroyer",
-    "lambda shuttle", "speeder bike", "at-at walker", "at-st walker",
-    "republic gunship", "jedi starfighter", "pod racer", "sand crawler",
-    "imperial shuttle", "y-wing bomber", "slave one", "nebulon-b frigate",
-    "imperial transport", "rebel transport", "tie interceptor", "b-wing fighter",
-    "imperial landing craft", "republic cruiser", "trade federation battleship"
+    "Star Destroyer", "X-wing fighter", "TIE Fighter", "Millennium Falcon",
+    "Imperial Shuttle", "AT-AT Walker", "Speeder bike", "Republic Cruiser",
+    "Battle Cruiser", "Pod racer"
 ]
 
 star_wars_props = [
-    "lightsaber", "blaster", "force pike", "thermal detonator", "holocron",
-    "comlink", "energy shield", "meditation chamber", "carbonite chamber",
-    "training remote", "imperial probe droid", "protocol droid", "astromech droid",
-    "vibroblade", "energy bow", "force artifact", "jedi robes", "imperial uniform",
-    "rebel flight suit", "stormtrooper armor", "mandalorian armor", "blast door",
-    "control panel", "power generator", "tractor beam", "ion cannon"
+    "lightsaber", "blaster", "force powers", "energy shield",
+    "holocron", "jetpack", "thermal detonator", "vibroblade",
+    "energy bow", "laser rifle"
 ]
 
 star_wars_effects = [
-    "force lightning", "force push", "lightsaber glow", "blaster fire",
-    "force shield", "force healing", "force vision", "hyperspace jump",
-    "ion discharge", "laser blast", "force meditation",
-    "force choke", "force projection", "saber clash", "force storm",
-    "force illusion", "force barrier", "force explosion", "force wave"
+    "lightsaber glow", "force energy", "blaster fire", "hyperspace effect",
+    "hologram projection", "energy shield", "laser impacts", "force lightning",
+    "explosion", "energy beam"
 ]
 
 # Marvel-specific variables
@@ -1111,7 +1086,7 @@ threed_materials = [
 futuristic_city_elements = {
     "architecture": [
         "towering skyscrapers", "floating buildings", "anti-gravity structures",
-        "crystalline towers", "holographic billboards", "neon-lit facades", 
+        "crystalline towers", "holographic billboards", "neon-lit facades",
         "suspended walkways", "transparent domes", "energy spires",
         "vertical gardens", "quantum architecture", "plasma conduits",
         "bio-organic buildings", "cybernetic structures", "nano-tech constructs",
@@ -1138,11 +1113,9 @@ futuristic_city_elements = {
         "utopian", "high-tech", "bio-mechanical", "quantum powered",
         "holographic", "plasma-driven", "chrome and glass", "crystalline",
         "bioluminescent", "nano-enhanced", "augmented reality infused", "solar punk",
-        "techno-organic", "hyper-connected", "artificially sustained",
-        "energy saturated", "digitally overlaid", "synthetically optimized",
-        "quantum stabilized", "electromagnetically charged", "fusion powered",
-        "holographically augmented", "climate controlled", "pollution free",
-        "technologically integrated", "AI monitored"
+        "techno-organic", "hyper-urban", "digital age",
+        "quantum era", "nano-tech future", "artificial evolution",
+        "synthetic reality", "cyber-geometric", "quantum-organic fusion"
     ],
     "time": [
         "night", "sunset", "dawn", "dusk", "midnight", "golden hour",
@@ -1152,31 +1125,15 @@ futuristic_city_elements = {
         "binary sunrise", "plasma noon", "crystal clear morning", "nebula night",
         "virtual daytime", "simulated evening", "matrix morning", "cyber sunset",
         "quantum nightfall", "synthetic starlight", "digital dawn", "techno twilight"
-    ],
-    "lighting": [
-        "neon glow", "holographic illumination", "quantum light", "plasma luminescence",
-        "bioluminescent accents", "crystal refraction", "energy field glow",
-        "artificial sunlight", "synthetic aurora", "digital light patterns",
-        "laser grid lighting", "photonic crystals", "quantum dot illumination",
-        "nano-light particles", "fusion core radiance", "atmospheric light show",
-        "dynamic light sculpture", "reactive lighting systems", "smart illumination",
-        "adaptive ambient lighting"
-    ],
-    "effects": [
-        "holographic overlays", "energy field distortions", "quantum particles",
-        "digital rain", "neon reflections", "plasma streams", "light trails",
-        "data visualization", "augmented reality layers", "force field shimmer",
-        "nano swarms", "energy pulses", "atmospheric distortions", "light pollution",
-        "synthetic weather", "digital artifacts", "quantum interference patterns",
-        "holographic glitches", "energy field fluctuations", "temporal anomalies"
     ]
 }
 
 # Add Instagram Lifestyle Elements
 influencer_types = [
-    "deep cleavage fashion blogger", "curvy fitness model", "curvy travel influencer", "lifestyle blogger",
-    "food critic", "curvy beauty guru", "tech reviewer", "deep cleavage wellness coach",
-    "busty yoga instructor", "digital nomad", "busty streetwear model", "deep cleavage makeup artist",
+    "deep cleavage fashion blogger", "curvy fitness model", "curvy travel influencer", 
+    "lifestyle blogger", "food critic", "curvy beauty guru", 
+    "tech reviewer", "deep cleavage wellness coach", "busty yoga instructor", 
+    "digital nomad", "busty streetwear model", "deep cleavage makeup artist",
     "busty personal trainer", "luxury lifestyle", "sustainable living blogger",
     "deep cleavage adventure photographer", "home decor expert", "busty fashion model"
 ]
@@ -1198,27 +1155,22 @@ influencer_locations = [
 ]
 
 instagram_lighting = [
-    "golden hour", "natural sunlight", "soft diffused light",
+    "golden lighting", "natural sunlight", "soft diffused light",
     "backlit glow", "sunset lighting", "studio lighting",
     "ring light", "window light", "ambient lighting",
-    "professional flash", "beach sunlight", "blue hour",
-    "candlelight", "neon lights", "city lights"
+    "professional flash", "beach sunlight", "blue hour light"
 ]
 
 instagram_effects = [
-    "bokeh background", "lens flare", "soft focus",
+    "bokeh effect", "lens flare", "soft focus",
     "motion blur", "light leaks", "film grain",
     "color grading", "vignette", "hdr effect",
-    "dreamy glow", "vintage filter", "pastel tones",
-    "high contrast", "matte finish", "sun flare"
+    "dreamy glow", "vintage filter", "pastel tones"
 ]
 
-instagram_compositions = [
-    "rule of thirds", "centered composition", "leading lines",
-    "symmetrical layout", "diagonal composition", "framing",
-    "minimalist composition", "layered composition", "geometric patterns",
-    "negative space", "bird's eye view", "low angle shot",
-    "dutch angle", "over-the-shoulder", "point of view"
+instagram_times = [
+    "golden hour", "sunset", "blue hour", "morning light",
+    "magic hour", "soft daylight", "dusk", "twilight"
 ]
 
 # Add Marvel comic-specific elements
@@ -1499,4 +1451,331 @@ caricature_settings = [
     "animated political rally", "cartoon parliament scene",
     "springy cartoon meeting room", "rubber-physics newsroom",
     "stretchy cartoon backdrop", "wobbly cartoon setting"
+]
+
+# Logo-Related Lists
+logo_styles = [
+    "minimalist", "modern", "vintage", "retro", "geometric", "abstract",
+    "corporate", "artistic", "elegant", "bold", "playful", "luxurious",
+    "tech-inspired", "organic", "grunge", "clean", "dynamic",
+    "funny", "professional", "exaggerated", "quirky", "surreal", "whimsical",
+    "outrageous", "eccentric", "absurd", "offbeat", "kooky", "zany"
+]
+
+logo_fonts = [
+    "elegant serif", "bold sans-serif", "modern geometric", "classic script",
+    "minimalist sans", "decorative display", "clean monospace", "artistic handwritten",
+    "professional slab serif", "futuristic tech", "vintage letterpress", "luxury script",
+    "bold condensed", "elegant thin", "modern rounded", "sharp angular"
+]
+
+logo_elements = [
+    "geometric shapes", "abstract forms", "clean lines", "organic curves",
+    "minimalist icons", "dynamic patterns", "gradient meshes", "textured backgrounds",
+    "symmetrical designs", "flowing elements", "angular components", "circular motifs",
+    "hexagonal patterns", "wave forms", "crystalline structures", "nested shapes",
+    "whimsical doodles", "futuristic holograms", "retro pixel art", "intricate mandalas",
+    "dramatic splashes", "vibrant explosions", "neon-lit cityscapes", "surreal landscapes",
+    "playful confetti", "dazzling fireworks", "cosmic galaxies", "ancient ruins",
+    "steampunk gears", "cyberpunk circuits", "medieval crests", "futuristic interfaces",
+    "vintage cameras", "retro-futuristic robots", "ancient artifacts", "mythical creatures",
+    "dreamy clouds", "stellar nebulas", "glowing auras", "ethereal mist"
+]
+
+logo_colors = [
+    "professional monochrome", "vibrant duotone", "elegant metallic",
+    "bold gradient", "subtle pastel", "rich jewel tones", "modern neon",
+    "classic earth tones", "minimalist grayscale", "corporate blue",
+    "luxury gold and black", "tech-inspired cyan", "organic green",
+    "energetic red", "sophisticated purple"
+]
+
+logo_effects = [
+    "subtle shadow", "clean emboss", "metallic finish", "glass effect",
+    "neon glow", "gradient overlay", "paper texture", "brushed metal",
+    "holographic shine", "matte finish", "glossy surface", "3D extrusion",
+    "light reflection", "depth layers", "geometric pattern"
+]
+
+logo_3d_styles = [
+    "fluffy 3D", "liquid metal", "balloon-like", "plush toy", "candy-colored",
+    "neon-lit", "crystal glass", "metallic chrome", "soft fabric", "paper craft",
+    "inflated", "bubble", "jelly", "holographic", "gradient mesh"
+]
+
+logo_themes = [
+    "playful", "professional", "cute", "artistic", "minimalist", "3D typography",
+    "character-based", "illustrated", "hand-crafted", "digital art",
+    "whimsical", "eccentric", "surreal", "quirky", "funky", "avant-garde",
+    "absurd", "outrageous", "offbeat", "off-the-wall", "kooky", "zany",
+    "madcap", "wacky", "weird", "bizarre", "freaky", "grotesque",
+    "fanciful", "fantastical", "absurd", "absurd", "absurd", "absurd"
+]
+
+logo_characters = [
+    "cute bird", "friendly sloth", "adorable monster", "happy creature",
+    "kawaii animal", "charming mascot", "sweet character", "lovely creature"
+]
+
+logo_decorative_elements = [
+    "magical sparkles", "cute doodles", "organic swirls",
+    "celestial elements", "nature motifs", "geometric accents", "playful icons",
+    "mystical symbols", "decorative frames", "whimsical polka dots", "intricate mandalas",
+    "exaggerated stripes", "fantastical florals", "dazzling diamonds", "ornate filigree",
+    "curvy vines", "twinkling stars", "fanciful foliage", "ornamental ovals", "dainty dots",
+    "frolicking florals", "whimsy waves", "lively leaves", "jubilant jewels", "merry meanders",
+    "joyful jewels", "lively lines", "fanciful feathers", "ornate octagons", "whimsical wings",
+    "curvy crescents", "twinkling triangles", "dainty dashes", "ornamental ovals", "frolicking flowers"
+]
+
+# Village-Related Lists
+village_types = [
+    "mountain village", "coastal fishing village", "desert oasis settlement", 
+    "tropical island village", "medieval European hamlet", "Nordic fjord settlement",
+    "Mediterranean hillside town", "Japanese mountain village", "Alpine ski village",
+    "Moroccan desert village", "Greek island settlement", "Tuscan hilltop town",
+    "Swiss alpine hamlet", "Himalayan mountain settlement", "Vietnamese floating village",
+    "African savanna village", "Peruvian mountain pueblo", "Scottish highland village",
+    "Dutch windmill village", "Turkish coastal town", "Irish countryside settlement"
+]
+
+village_architecture = [
+    "traditional stone houses", "thatched-roof cottages", "timber-frame buildings",
+    "whitewashed buildings", "terracotta-roofed homes", "stilt houses",
+    "adobe dwellings", "wooden chalets", "slate-roofed cottages", "clay brick houses",
+    "bamboo structures", "turf-roofed homes", "colorful painted houses",
+    "half-timbered buildings", "red-tile roofed homes", "cobblestone streets",
+    "wooden boardwalks", "stone pathways", "ancient stone walls"
+]
+
+village_cultural_elements = [
+    "local market stalls", "traditional fishing boats", "ancient water wells",
+    "community gathering spaces", "religious temples", "village squares",
+    "communal gardens", "historic fountains", "traditional windmills",
+    "cultural monuments", "craft workshops", "village church", "prayer flags",
+    "ceremonial spaces", "traditional decorations", "folk art displays"
+]
+
+landscape_features = [
+    "rolling hills", "terraced fields", "flowering meadows", "ancient forests",
+    "dramatic cliffs", "pristine beaches", "mountain peaks", "flowing rivers",
+    "cascading waterfalls", "natural hot springs", "crystal-clear lakes",
+    "volcanic formations", "desert dunes", "coral reefs", "glacial valleys",
+    "autumn forests", "spring cherry blossoms", "lavender fields", "rice paddies",
+    "olive groves", "vineyard slopes", "alpine meadows"
+]
+
+landscape_atmospheres = [
+    "misty morning", "golden sunset", "starlit night", "stormy atmosphere",
+    "peaceful dawn", "ethereal fog", "clear mountain air", "tropical breeze",
+    "autumn colors", "spring awakening", "summer warmth", "winter silence",
+    "monsoon rains", "desert winds", "northern lights", "rainbow after rain"
+]
+
+village_views = [
+    "panoramic vista", "aerial bird's-eye view", "intimate street scene",
+    "charming town square", "cozy alleyway", "picturesque marketplace",
+    "scenic overlook", "quaint harbor view", "rustic village entrance",
+    "bustling main street", "tranquil village green", "historic village center",
+    "winding country road", "serene riverside promenade", "lively village festival"
+]
+
+# Curvy Fashion Lists
+curvy_fashion_styles = [
+    "high fashion editorial", "luxury fashion", "elegant portrait",
+    "professional modeling", "fashion magazine cover", "runway style",
+    "boutique fashion", "designer collection", "contemporary fashion",
+    "glamour portrait", "fashion lifestyle", "couture fashion"
+]
+
+curvy_fashion_poses = [
+    "confident pose", "elegant stance", "professional modeling pose",
+    "fashionable posture", "graceful position", "stylish pose",
+    "editorial pose", "magazine cover pose", "runway walk",
+    "sophisticated stance", "fashion-forward pose"
+]
+
+curvy_fashion_clothing = [
+    "designer evening gown", "elegant cocktail dress", "professional business attire",
+    "luxury formal wear", "stylish casual outfit", "contemporary fashion ensemble",
+    "haute couture dress", "premium designer outfit", "sophisticated business suit",
+    "fashionable street wear", "upscale casual wear", "premium activewear"
+]
+
+curvy_fashion_settings = [
+    "luxury studio", "upscale boutique", "elegant gallery",
+    "fashion runway", "designer showroom", "professional photo studio",
+    "high-end fashion store", "sophisticated venue", "premium location",
+    "contemporary art space", "modern fashion studio"
+]
+
+curvy_fashion_accessories = [
+    "designer handbag", "elegant jewelry", "luxury accessories",
+    "premium shoes", "designer sunglasses", "fashion-forward accessories",
+    "statement jewelry", "upscale accessories", "sophisticated details"
+]
+
+# Manga Panel Lists
+manga_panel_styles = [
+    "shounen action", "shoujo romance", "seinen dramatic", "slice of life",
+    "dramatic close-up", "dynamic action scene", "emotional character moment",
+    "atmospheric establishing shot", "comedic reaction", "intense confrontation",
+    "quiet character study", "dramatic reveal", "chase sequence"
+]
+
+manga_panel_compositions = [
+    "diagonal dynamic layout", "dramatic overhead view", "intimate close-up",
+    "wide establishing shot", "split panel reaction", "speed line action",
+    "emotional character focus", "environmental detail shot", "dramatic silhouette",
+    "multi-panel sequence", "cinematic widescreen", "dutch angle dramatic"
+]
+
+manga_panel_effects = [
+    "speed lines", "impact lines", "emotional sparkles", "dramatic shadows",
+    "screentone patterns", "floating effects", "motion blur lines", "sound effect text",
+    "dramatic lighting", "emotional symbols", "background effects", "mood lines"
+]
+
+manga_panel_backgrounds = [
+    "detailed urban street", "school corridor", "traditional japanese room",
+    "futuristic cityscape", "natural landscape", "abstract emotional pattern",
+    "minimalist gradient", "detailed interior", "symbolic motifs",
+    "geometric patterns", "atmospheric clouds", "decorative flowers"
+]
+
+manga_panel_expressions = [
+    "intense determination", "gentle smile", "comedic exaggeration",
+    "dramatic shock", "quiet contemplation", "fierce battle cry",
+    "emotional tears", "stoic resolve", "playful laughter",
+    "dramatic surprise", "serene calm", "righteous anger"
+]
+
+# School Manga Lists
+school_manga_characters = [
+    "energetic female student with ((ultra-precise facial features)), ((perfectly rendered manga eyes)), and ((meticulously detailed hair strands))", 
+    "cheerful schoolgirl with ((razor-sharp line definition)), ((perfectly weighted line art)), and ((intricate hair detail with individual strands))",
+    "determined student with ((masterfully defined facial structure)), ((ultra-clean line separation)), and ((precise anatomical detail))",
+    "enthusiastic high school student with ((perfect line weight variation)), ((crisp facial feature definition)), and ((detailed expression lines))",
+    "bright-eyed student with ((technically perfect manga proportions)), ((ultra-precise eye highlights)), and ((masterful hair shading))",
+    "optimistic school character with ((professional technical linework)), ((sharp facial detail)), and ((perfect line confidence))",
+    "lively student with ((flawless ink rendering)), ((pristine line clarity)), and ((detailed eye reflections))",
+    "athletic student with ((precise line control)), ((perfect pose dynamics)), and ((clean form definition))",
+    "diligent student with ((ultra-sharp contrast rendering)), ((perfect facial composition)), and ((detailed expression work))",
+    "expressive student with ((masterful black and white technique)), ((pristine character detail)), and ((perfect line clarity))"
+]
+
+school_manga_uniforms = [
+    "meticulously rendered sailor uniform with ((ultra-precise pleated skirt folds)), ((perfectly defined collar creases)), and ((detailed fabric texture hatching))",
+    "perfectly defined winter uniform with ((razor-sharp fabric folds)), ((masterful seam line definition)), and ((intricate button details))",
+    "technically detailed summer uniform with ((pristine collar rendering)), ((perfect fabric draping lines)), and ((precise wrinkle patterns))",
+    "professionally inked school blazer with ((ultra-sharp lapel definition)), ((detailed fabric weave texture)), and ((perfect fold shadows))",
+    "masterfully drawn gakuran with ((flawless collar detail)), ((precise uniform trim)), and ((perfect button highlights))",
+    "carefully rendered school sweater with ((intricate knit pattern detail)), ((precise fabric texture)), and ((perfect collar definition))",
+    "precisely detailed uniform with ((ultra-clean fold lines)), ((masterful shadow placement)), and ((perfect highlight definition))",
+    "technically accurate PE uniform with ((sharp material definition)), ((perfect fabric stretch lines)), and ((detailed seam work))",
+    "professionally rendered school attire with ((precise trim detail)), ((perfect fabric flow)), and ((masterful shadow gradients))",
+    "expertly drawn formal uniform with ((flawless draping technique)), ((ultra-precise structural lines)), and ((perfect fabric weight representation))"
+]
+
+school_manga_accessories = [
+    "highly detailed leather school bag with ((ultra-precise strap detail)), ((perfect metal fixture rendering)), and ((intricate leather texture))",
+    "masterfully drawn wooden sword with ((flawless handle wrapping detail)), ((perfect scabbard texture)), and ((precise wood grain patterns))",
+    "technically precise textbooks with ((razor-sharp edge definition)), ((perfect corner detail)), and ((intricate surface texture))",
+    "professionally rendered club equipment with ((ultra-clean material definition)), ((perfect detail separation)), and ((masterful texture work))",
+    "meticulously drawn bento box with ((pristine outline work)), ((perfect surface detail)), and ((precise decorative elements))",
+    "perfectly defined umbrella with ((ultra-sharp fold patterns)), ((detailed handle texture)), and ((precise material rendering))",
+    "expertly rendered school badge with ((flawless metallic detail)), ((perfect edge definition)), and ((intricate design work))",
+    "technically accurate writing implements with ((pristine material separation)), ((perfect detail rendering)), and ((precise highlight placement))",
+    "professionally drawn sports gear with ((ultra-precise proportions)), ((perfect equipment details)), and ((masterful texture definition))",
+    "carefully rendered personal items with ((razor-sharp line separation)), ((perfect accessory details)), and ((intricate decorative elements))"
+]
+
+school_manga_linework = [
+    "masterful technical pen work with perfect line weight variation and pristine edge definition", 
+    "professional cross-hatching with ultra-precise density control and perfect pattern consistency",
+    "flawless line variation with razor-sharp edge definition and perfect stroke confidence",
+    "meticulous shadow placement with ultra-sharp contrast and perfect gradient control",
+    "precise highlight rendering with perfect tonal separation and masterful white space usage",
+    "expertly defined contours with ultra-clean line confidence and perfect weight balance",
+    "detailed fabric texture with technical precision and perfect pattern consistency",
+    "intricate background detail with flawless perspective and perfect spatial depth",
+    "careful spatial rendering with ultra-clean line hierarchy and perfect depth control",
+    "precise architectural detail with razor-sharp straight lines and perfect angular precision"
+]
+
+school_manga_shading = [
+    "professionally rendered shadows with ultra-precise gradient control and perfect tone transition",
+    "precise tonal variation with razor-sharp transition edges and perfect value balance",
+    "masterful light and shadow balance with ultra-high contrast and perfect black point",
+    "technical shadow patterns with perfect density control and precise pattern spacing",
+    "expertly placed highlights with ultra-clean definition and perfect white preservation",
+    "detailed ambient occlusion with precise depth control and perfect shadow integration",
+    "perfect contrast control with ultra-sharp value separation and masterful midtone balance",
+    "meticulously balanced blacks and whites with perfect dot gain control",
+    "carefully defined forms with ultra-sharp shadow edges and perfect highlight retention",
+    "professional ink density with perfect value control and precise halftone simulation"
+]
+
+school_manga_locations = [
+    "school hallway", "classroom", "school rooftop", "sports field",
+    "school entrance", "club room", "school library", "gymnasium",
+    "school courtyard", "cherry blossom path", "school garden",
+    "cafeteria", "music room", "art studio", "science lab"
+]
+
+school_manga_activities = [
+    "rushing to class", "participating in club activities",
+    "having lunch with friends", "practicing for competitions",
+    "studying in the library", "cleaning duty",
+    "school festival preparation", "sports training",
+    "taking notes in class", "giving a presentation",
+    "participating in ceremonies", "school committee meeting"
+]
+
+school_manga_expressions = [
+    "bright smile", "determined look", "cheerful expression",
+    "focused gaze", "enthusiastic grin", "gentle smile",
+    "confident pose", "friendly expression", "energetic stance",
+    "studious concentration", "competitive spirit"
+]
+
+# Caricature Effects Lists
+cartoon_effects = [
+    "cartoon effects",
+    "exaggerated motion lines",
+    "impact stars and sparkles",
+    "animated sweat drops",
+    "speed blur effects",
+    "floating heart symbols",
+    "popping veins",
+    "cartoon smoke clouds",
+    "spiral dizzy effects",
+    "comic book action lines",
+    "cartoon bubble effects",
+    "animated sparkle trails",
+    "cartoon lightning bolts",
+    "floating musical notes",
+    "cartoon dust clouds"
+]
+
+personality_emphasis = [
+    "personality highlighting",
+    "character emphasis",
+    "mood enhancement",
+    "emotional resonance",
+    "distinctive portrayal",
+    "unique interpretation"
+]
+
+# Added effect1_options and effect2_options lists
+effect1_options = [
+    "intersecting", "overlapping", "radiating", "repeating",
+    "dissolving", "merging", "fragmenting", "tessellating",
+    "undulating", "oscillating", "bifurcating", "converging"
+]
+
+effect2_options = [
+    "forms", "shapes", "patterns", "structures",
+    "compositions", "arrangements", "configurations",
+    "constructions", "formations", "geometries"
 ]

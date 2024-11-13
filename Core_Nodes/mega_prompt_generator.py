@@ -21,7 +21,6 @@ class IsulionMegaPromptGenerator:
             "cartoon": "refined animation style with smooth gradients and clean lines of",
             "architecture": "architectural visualization with premium materials, clean lines, and precise details of",
             "abstract": "minimalist abstract artwork featuring clean geometric forms of",
-            "random": "premium quality digital artwork with refined details of",
             "food": "professional food photography with elegant plating, studio lighting of",
             "interior": "premium interior design photography with architectural precision of",
             "3D": "high-end 3D visualization with premium materials and precise details of",
@@ -39,7 +38,7 @@ class IsulionMegaPromptGenerator:
             "underwater": "bioluminescent deep-sea photograph with crystalline clarity of",
             "microscopic": "electron microscope visualization with precise detail of",
             "bio_organic": "hybrid bio-mechanical artwork with organic integration of",
-            "🎭 Peaky Blinders Style": "professional studio photograph with precise lighting, ultra-sharp focus, minimalist composition of",
+            "Peaky Blinders Style": "professional studio photograph with precise lighting, ultra-sharp focus, minimalist composition of",
             "christmas": "magical christmas artwork with festive details of",
             "caricature": "exaggerated cartoon caricature artwork with strong distortion and comic book style of",
             "logo": "professional logo design with clean typography of",
@@ -71,295 +70,6 @@ class IsulionMegaPromptGenerator:
                 "dramatic": ["exceptional color harmony", "masterful palette", "perfect color balance", "flawless tonal range", "supreme chromatic composition"]
             }
         }
-
-        # Add new logo-specific dictionaries
-        self.logo_styles = [
-            "minimalist", "modern", "vintage", "retro", "geometric", "abstract",
-            "corporate", "artistic", "elegant", "bold", "playful", "luxurious",
-            "tech-inspired", "organic", "grunge", "clean", "dynamic",
-            "funny", "professional", "exaggerated", "quirky", "surreal", "whimsical",
-            "outrageous", "eccentric", "absurd", "offbeat", "kooky", "zany"
-        ]
-
-        self.logo_fonts = [
-            "elegant serif", "bold sans-serif", "modern geometric", "classic script",
-            "minimalist sans", "decorative display", "clean monospace", "artistic handwritten",
-            "professional slab serif", "futuristic tech", "vintage letterpress", "luxury script",
-            "bold condensed", "elegant thin", "modern rounded", "sharp angular"
-        ]
-
-        self.logo_elements = [
-            "geometric shapes", "abstract forms", "clean lines", "organic curves",
-            "minimalist icons", "dynamic patterns", "gradient meshes", "textured backgrounds",
-            "symmetrical designs", "flowing elements", "angular components", "circular motifs",
-            "hexagonal patterns", "wave forms", "crystalline structures", "nested shapes",
-            "whimsical doodles", "futuristic holograms", "retro pixel art", "intricate mandalas",
-            "dramatic splashes", "vibrant explosions", "neon-lit cityscapes", "surreal landscapes",
-            "playful confetti", "dazzling fireworks", "cosmic galaxies", "ancient ruins",
-            "steampunk gears", "cyberpunk circuits", "medieval crests", "futuristic interfaces",
-            "vintage cameras", "retro-futuristic robots", "ancient artifacts", "mythical creatures",
-            "dreamy clouds", "stellar nebulas", "glowing auras", "ethereal mist"
-        ]
-
-        self.logo_colors = [
-            "professional monochrome", "vibrant duotone", "elegant metallic",
-            "bold gradient", "subtle pastel", "rich jewel tones", "modern neon",
-            "classic earth tones", "minimalist grayscale", "corporate blue",
-            "luxury gold and black", "tech-inspired cyan", "organic green",
-            "energetic red", "sophisticated purple"
-        ]
-
-        self.logo_effects = [
-            "subtle shadow", "clean emboss", "metallic finish", "glass effect",
-            "neon glow", "gradient overlay", "paper texture", "brushed metal",
-            "holographic shine", "matte finish", "glossy surface", "3D extrusion",
-            "light reflection", "depth layers", "geometric pattern"
-        ]
-
-        # Add these new dictionaries after the existing logo dictionaries
-
-        self.logo_3d_styles = [
-            "fluffy 3D", "liquid metal", "balloon-like", "plush toy", "candy-colored",
-            "neon-lit", "crystal glass", "metallic chrome", "soft fabric", "paper craft",
-            "inflated", "bubble", "jelly", "holographic", "gradient mesh"
-        ]
-
-        self.logo_themes = [
-            "playful", "professional", "cute", "artistic", "minimalist", "3D typography",
-            "character-based", "illustrated", "hand-crafted", "digital art",
-            "whimsical", "eccentric", "surreal", "quirky", "funky", "avant-garde",
-            "absurd", "outrageous", "offbeat", "off-the-wall", "kooky", "zany",
-            "madcap", "wacky", "weird", "bizarre", "freaky", "grotesque",
-            "fanciful", "fantastical", "absurd", "absurd", "absurd", "absurd"
-        ]
-
-        self.logo_characters = [
-            "cute bird", "friendly sloth", "adorable monster", "happy creature",
-            "kawaii animal", "charming mascot", "sweet character", "lovely creature"
-        ]
-
-        self.logo_decorative_elements = [
-            "magical sparkles", "cute doodles", "organic swirls",
-            "celestial elements", "nature motifs", "geometric accents", "playful icons",
-            "mystical symbols", "decorative frames", "whimsical polka dots", "intricate mandalas",
-            "exaggerated stripes", "fantastical florals", "dazzling diamonds", "ornate filigree",
-            "curvy vines", "twinkling stars", "fanciful foliage", "ornamental ovals", "dainty dots",
-            "frolicking florals", "whimsy waves", "lively leaves", "jubilant jewels", "merry meanders",
-            "joyful jewels", "lively lines", "fanciful feathers", "ornate octagons", "whimsical wings",
-            "curvy crescents", "twinkling triangles", "dainty dashes", "ornamental ovals", "frolicking flowers"
-        ]
-
-        # Add these new dictionaries after other theme-specific dictionaries
-
-        self.village_types = [
-            "mountain village", "coastal fishing village", "desert oasis settlement", 
-            "tropical island village", "medieval European hamlet", "Nordic fjord settlement",
-            "Mediterranean hillside town", "Japanese mountain village", "Alpine ski village",
-            "Moroccan desert village", "Greek island settlement", "Tuscan hilltop town",
-            "Swiss alpine hamlet", "Himalayan mountain settlement", "Vietnamese floating village",
-            "African savanna village", "Peruvian mountain pueblo", "Scottish highland village",
-            "Dutch windmill village", "Turkish coastal town", "Irish countryside settlement"
-        ]
-
-        self.village_architecture = [
-            "traditional stone houses", "thatched-roof cottages", "timber-frame buildings",
-            "whitewashed buildings", "terracotta-roofed homes", "stilt houses",
-            "adobe dwellings", "wooden chalets", "slate-roofed cottages", "clay brick houses",
-            "bamboo structures", "turf-roofed homes", "colorful painted houses",
-            "half-timbered buildings", "red-tile roofed homes", "cobblestone streets",
-            "wooden boardwalks", "stone pathways", "ancient stone walls"
-        ]
-
-        self.village_cultural_elements = [
-            "local market stalls", "traditional fishing boats", "ancient water wells",
-            "community gathering spaces", "religious temples", "village squares",
-            "communal gardens", "historic fountains", "traditional windmills",
-            "cultural monuments", "craft workshops", "village church", "prayer flags",
-            "ceremonial spaces", "traditional decorations", "folk art displays"
-        ]
-
-        self.landscape_features = [
-            "rolling hills", "terraced fields", "flowering meadows", "ancient forests",
-            "dramatic cliffs", "pristine beaches", "mountain peaks", "flowing rivers",
-            "cascading waterfalls", "natural hot springs", "crystal-clear lakes",
-            "volcanic formations", "desert dunes", "coral reefs", "glacial valleys",
-            "autumn forests", "spring cherry blossoms", "lavender fields", "rice paddies",
-            "olive groves", "vineyard slopes", "alpine meadows"
-        ]
-
-        self.landscape_atmospheres = [
-            "misty morning", "golden sunset", "starlit night", "stormy atmosphere",
-            "peaceful dawn", "ethereal fog", "clear mountain air", "tropical breeze",
-            "autumn colors", "spring awakening", "summer warmth", "winter silence",
-            "monsoon rains", "desert winds", "northern lights", "rainbow after rain"
-        ]
-
-        # Add this new list after the existing village-related lists
-        self.village_views = [
-            "panoramic vista", "aerial bird's-eye view", "intimate street scene",
-            "charming town square", "cozy alleyway", "picturesque marketplace",
-            "scenic overlook", "quaint harbor view", "rustic village entrance",
-            "bustling main street", "tranquil village green", "historic village center",
-            "winding country road", "serene riverside promenade", "lively village festival"
-        ]
-
-        self.curvy_fashion_styles = [
-            "high fashion editorial", "luxury fashion", "elegant portrait",
-            "professional modeling", "fashion magazine cover", "runway style",
-            "boutique fashion", "designer collection", "contemporary fashion",
-            "glamour portrait", "fashion lifestyle", "couture fashion"
-        ]
-
-        self.curvy_fashion_poses = [
-            "confident pose", "elegant stance", "professional modeling pose",
-            "fashionable posture", "graceful position", "stylish pose",
-            "editorial pose", "magazine cover pose", "runway walk",
-            "sophisticated stance", "fashion-forward pose"
-        ]
-
-        self.curvy_fashion_clothing = [
-            "designer evening gown", "elegant cocktail dress", "professional business attire",
-            "luxury formal wear", "stylish casual outfit", "contemporary fashion ensemble",
-            "haute couture dress", "premium designer outfit", "sophisticated business suit",
-            "fashionable street wear", "upscale casual wear", "premium activewear"
-        ]
-
-        self.curvy_fashion_settings = [
-            "luxury studio", "upscale boutique", "elegant gallery",
-            "fashion runway", "designer showroom", "professional photo studio",
-            "high-end fashion store", "sophisticated venue", "premium location",
-            "contemporary art space", "modern fashion studio"
-        ]
-
-        self.curvy_fashion_accessories = [
-            "designer handbag", "elegant jewelry", "luxury accessories",
-            "premium shoes", "designer sunglasses", "fashion-forward accessories",
-            "statement jewelry", "upscale accessories", "sophisticated details"
-        ]
-
-        # Add these new dictionaries for manga-specific elements
-        self.manga_panel_styles = [
-            "shounen action", "shoujo romance", "seinen dramatic", "slice of life",
-            "dramatic close-up", "dynamic action scene", "emotional character moment",
-            "atmospheric establishing shot", "comedic reaction", "intense confrontation",
-            "quiet character study", "dramatic reveal", "chase sequence"
-        ]
-
-        self.manga_panel_compositions = [
-            "diagonal dynamic layout", "dramatic overhead view", "intimate close-up",
-            "wide establishing shot", "split panel reaction", "speed line action",
-            "emotional character focus", "environmental detail shot", "dramatic silhouette",
-            "multi-panel sequence", "cinematic widescreen", "dutch angle dramatic"
-        ]
-
-        self.manga_panel_effects = [
-            "speed lines", "impact lines", "emotional sparkles", "dramatic shadows",
-            "screentone patterns", "floating effects", "motion blur lines", "sound effect text",
-            "dramatic lighting", "emotional symbols", "background effects", "mood lines"
-        ]
-
-        self.manga_panel_backgrounds = [
-            "detailed urban street", "school corridor", "traditional japanese room",
-            "futuristic cityscape", "natural landscape", "abstract emotional pattern",
-            "minimalist gradient", "detailed interior", "symbolic motifs",
-            "geometric patterns", "atmospheric clouds", "decorative flowers"
-        ]
-
-        self.manga_panel_expressions = [
-            "intense determination", "gentle smile", "comedic exaggeration",
-            "dramatic shock", "quiet contemplation", "fierce battle cry",
-            "emotional tears", "stoic resolve", "playful laughter",
-            "dramatic surprise", "serene calm", "righteous anger"
-        ]
-
-        # Add these new dictionaries after other theme-specific dictionaries:
-        self.school_manga_characters = [
-            "energetic female student with ((ultra-precise facial features)), ((perfectly rendered manga eyes)), and ((meticulously detailed hair strands))", 
-            "cheerful schoolgirl with ((razor-sharp line definition)), ((perfectly weighted line art)), and ((intricate hair detail with individual strands))",
-            "determined student with ((masterfully defined facial structure)), ((ultra-clean line separation)), and ((precise anatomical detail))",
-            "enthusiastic high school student with ((perfect line weight variation)), ((crisp facial feature definition)), and ((detailed expression lines))",
-            "bright-eyed student with ((technically perfect manga proportions)), ((ultra-precise eye highlights)), and ((masterful hair shading))",
-            "optimistic school character with ((professional technical linework)), ((sharp facial detail)), and ((perfect line confidence))",
-            "lively student with ((flawless ink rendering)), ((pristine line clarity)), and ((detailed eye reflections))",
-            "athletic student with ((precise line control)), ((perfect pose dynamics)), and ((clean form definition))",
-            "diligent student with ((ultra-sharp contrast rendering)), ((perfect facial composition)), and ((detailed expression work))",
-            "expressive student with ((masterful black and white technique)), ((pristine character detail)), and ((perfect line clarity))"
-        ]
-
-        self.school_manga_uniforms = [
-            "meticulously rendered sailor uniform with ((ultra-precise pleated skirt folds)), ((perfectly defined collar creases)), and ((detailed fabric texture hatching))",
-            "perfectly defined winter uniform with ((razor-sharp fabric folds)), ((masterful seam line definition)), and ((intricate button details))",
-            "technically detailed summer uniform with ((pristine collar rendering)), ((perfect fabric draping lines)), and ((precise wrinkle patterns))",
-            "professionally inked school blazer with ((ultra-sharp lapel definition)), ((detailed fabric weave texture)), and ((perfect fold shadows))",
-            "masterfully drawn gakuran with ((flawless collar detail)), ((precise uniform trim)), and ((perfect button highlights))",
-            "carefully rendered school sweater with ((intricate knit pattern detail)), ((precise fabric texture)), and ((perfect collar definition))",
-            "precisely detailed uniform with ((ultra-clean fold lines)), ((masterful shadow placement)), and ((perfect highlight definition))",
-            "technically accurate PE uniform with ((sharp material definition)), ((perfect fabric stretch lines)), and ((detailed seam work))",
-            "professionally rendered school attire with ((precise trim detail)), ((perfect fabric flow)), and ((masterful shadow gradients))",
-            "expertly drawn formal uniform with ((flawless draping technique)), ((ultra-precise structural lines)), and ((perfect fabric weight representation))"
-        ]
-
-        self.school_manga_accessories = [
-            "highly detailed leather school bag with ((ultra-precise strap detail)), ((perfect metal fixture rendering)), and ((intricate leather texture))",
-            "masterfully drawn wooden sword with ((flawless handle wrapping detail)), ((perfect scabbard texture)), and ((precise wood grain patterns))",
-            "technically precise textbooks with ((razor-sharp edge definition)), ((perfect corner detail)), and ((intricate surface texture))",
-            "professionally rendered club equipment with ((ultra-clean material definition)), ((perfect detail separation)), and ((masterful texture work))",
-            "meticulously drawn bento box with ((pristine outline work)), ((perfect surface detail)), and ((precise decorative elements))",
-            "perfectly defined umbrella with ((ultra-sharp fold patterns)), ((detailed handle texture)), and ((precise material rendering))",
-            "expertly rendered school badge with ((flawless metallic detail)), ((perfect edge definition)), and ((intricate design work))",
-            "technically accurate writing implements with ((pristine material separation)), ((perfect detail rendering)), and ((precise highlight placement))",
-            "professionally drawn sports gear with ((ultra-precise proportions)), ((perfect equipment details)), and ((masterful texture definition))",
-            "carefully rendered personal items with ((razor-sharp line separation)), ((perfect accessory details)), and ((intricate decorative elements))"
-        ]
-
-        self.school_manga_linework = [
-            "masterful technical pen work with perfect line weight variation and pristine edge definition", 
-            "professional cross-hatching with ultra-precise density control and perfect pattern consistency",
-            "flawless line variation with razor-sharp edge definition and perfect stroke confidence",
-            "meticulous shadow placement with ultra-sharp contrast and perfect gradient control",
-            "precise highlight rendering with perfect tonal separation and masterful white space usage",
-            "expertly defined contours with ultra-clean line confidence and perfect weight balance",
-            "detailed fabric texture with technical precision and perfect pattern consistency",
-            "intricate background detail with flawless perspective and perfect spatial depth",
-            "careful spatial rendering with ultra-clean line hierarchy and perfect depth control",
-            "precise architectural detail with razor-sharp straight lines and perfect angular precision"
-        ]
-
-        self.school_manga_shading = [
-            "professionally rendered shadows with ultra-precise gradient control and perfect tone transition",
-            "precise tonal variation with razor-sharp transition edges and perfect value balance",
-            "masterful light and shadow balance with ultra-high contrast and perfect black point",
-            "technical shadow patterns with perfect density control and precise pattern spacing",
-            "expertly placed highlights with ultra-clean definition and perfect white preservation",
-            "detailed ambient occlusion with precise depth control and perfect shadow integration",
-            "perfect contrast control with ultra-sharp value separation and masterful midtone balance",
-            "meticulously balanced blacks and whites with perfect dot gain control",
-            "carefully defined forms with ultra-sharp shadow edges and perfect highlight retention",
-            "professional ink density with perfect value control and precise halftone simulation"
-        ]
-
-        self.school_manga_locations = [
-            "school hallway", "classroom", "school rooftop", "sports field",
-            "school entrance", "club room", "school library", "gymnasium",
-            "school courtyard", "cherry blossom path", "school garden",
-            "cafeteria", "music room", "art studio", "science lab"
-        ]
-
-        self.school_manga_activities = [
-            "rushing to class", "participating in club activities",
-            "having lunch with friends", "practicing for competitions",
-            "studying in the library", "cleaning duty",
-            "school festival preparation", "sports training",
-            "taking notes in class", "giving a presentation",
-            "participating in ceremonies", "school committee meeting"
-        ]
-
-        self.school_manga_expressions = [
-            "bright smile", "determined look", "cheerful expression",
-            "focused gaze", "enthusiastic grin", "gentle smile",
-            "confident pose", "friendly expression", "energetic stance",
-            "studious concentration", "competitive spirit"
-        ]
 
     def load_config(self, config_path):
         """Load configurations from the specified file."""
@@ -399,21 +109,21 @@ class IsulionMegaPromptGenerator:
                     "🌆 Futuristic City Metropolis", 
                     "🚀 Futuristic Sci-Fi",
                     "👻 Halloween Ethereal",
-                    "📱 Instagram Lifestyle",   
+                    "👙 Instagram Lifestyle",   
                     "🏠 Interior Spaces",
                     "🏷️ Logo",
+                    "📖 Manga Panel",
                     "🦸‍♂️ Marvel Universe",
                     "🔬 Microscopic Universe",
                     "🎭 Peaky Blinders Style",
                     "💫 Pixar Animation",
                     "☢️ Post-Apocalyptic Wasteland",
-                    "⭐ Star Wars Universe",
+                    "🏫 School Manga",
+                    "🖤 Star Wars Universe",
                     "⚙️ Steampunk Cities",
                     "🌊 Underwater Civilization",
                     "🏘️ Village Of the World",
-                    "🎩 Vintage Anthropomorphic",
-                    "📖 Manga Panel",
-                    "📚 School Manga",
+                    "🧸 Vintage Anthropomorphic",
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
@@ -460,33 +170,29 @@ class IsulionMegaPromptGenerator:
                 include_effects="yes", enhancement_level="moderate",
                 enhancement_focus="detail"):
         
-        # Move theme_prefixes and enhancements from class attributes to instance attributes
-        if not hasattr(self, 'theme_prefixes'):
-            self.__init__()
-
-        # Create a mapping between new and old theme names
+        # Create a mapping between new and old theme names first
         theme_mapping = {
+            "🎲 Dynamic Random": "random",
             "🎨 Abstract": "abstract",
             "📺 Animation Cartoon": "cartoon", 
             "🎌 Anime": "anime",
             "🏛️ Architectural": "architecture",
-            "🖼️ Binet Surreal": "binet",
             "🧬 Bio-Organic Technology": "bio_organic",
+            "🖼️ Binet Surreal": "binet",
             "✏️ Caricature": "caricature",
             "🦄 Chimera Animals": "strange_animal", 
             "🐰 Chimera Cute Animals": "cute chimera",
-            "🎬 Cinema Studio": "cinema",
             "🎅 Christmas": "christmas",
+            "🎬 Cinema Studio": "cinema",
+            "🍳 Culinary/Food": "food",
             "👗 Curvy Fashion": "curvy_girl",
             "💠 Dimension 3D": "3D",
-            "🎲 Dynamic Random": "random",
             "✨ Enchanted Fantasy": "fantasy",
             "📸 Essential Realistic": "realistic",
-            "🍳 Culinary/Food": "food",
             "🌆 Futuristic City Metropolis": "futuristic_city",
             "🚀 Futuristic Sci-Fi": "sci_fi",
             "👻 Halloween Ethereal": "halloween",
-            "📱 Instagram Lifestyle": "instagram",
+            "👙 Instagram Lifestyle": "instagram",
             "🏠 Interior Spaces": "interior",
             "🏷️ Logo": "logo",
             "📖 Manga Panel": "manga_panel",
@@ -495,17 +201,16 @@ class IsulionMegaPromptGenerator:
             "🎭 Peaky Blinders Style": "peaky_blinders",
             "💫 Pixar Animation": "pixar",
             "☢️ Post-Apocalyptic Wasteland": "post_apocalyptic",
-            "⭐ Star Wars Universe": "star_wars",
+            "🏫 School Manga": "school_manga",
+            "🖤 Star Wars Universe": "star_wars",
             "⚙️ Steampunk Cities": "steampunk",
             "🌊 Underwater Civilization": "underwater",
             "🏘️ Village Of the World": "village",
-            "🎩 Vintage Anthropomorphic": "vintage_anthro",
-            "📚 School Manga": "school_manga"
+            "🧸 Vintage Anthropomorphic": "vintage_anthro"
         }
 
-        # Convert new theme name to old theme name for internal processing
         internal_theme = theme_mapping.get(theme, theme)
-
+        
         if randomize == "enable":
             seed = random.randint(0, 0xffffffffffffffff) if seed == 0 else seed
             random.seed(seed)
@@ -616,8 +321,7 @@ class IsulionMegaPromptGenerator:
                         f"((commercial quality)), ((scalable graphics)), "
                         f"((brand identity)), 8k resolution"
                     )
-                components.append(style_text)
-            
+                    components.append(style_text)
             # Add effects
             if include_effects == "yes":
                 if style_approach == "3D":
@@ -674,24 +378,25 @@ class IsulionMegaPromptGenerator:
         effects_text = ""
 
         if internal_theme == "caricature":
-            # Use custom subject if provided, otherwise default to "Donald Trump"
             if use_custom_subject == "yes" and custom_subject.strip():
                 subject = custom_subject.strip()
             else:
                 subject = "Donald Trump"
             
-            # Select cartoon elements
+            # Select cartoon elements from centralized config
             style = random.choice(self.caricature_styles)
             features = random.choice(self.caricature_features)
             expression = random.choice(self.caricature_expressions)
+            elements = random.choice(self.caricature_elements)
+            setting = random.choice(self.caricature_settings)
             
             subject_text = (
-                f"((highly exaggerated cartoon caricature)) of {subject}, "  # Added 'highly' and 'cartoon'
-                f"with ((extremely {features})), "  # Added 'extremely'
+                f"((highly exaggerated cartoon caricature)) of {subject}, "
+                f"with ((extremely {features})), "
                 f"((showing a {expression})), "
-                f"((cartoon-style exaggeration)), "  # Added this
-                f"((comic book distortion)), "  # Added this
-                f"((animated caricature style))"  # Added this
+                f"((cartoon-style exaggeration)), "
+                f"((comic book distortion)), "
+                f"((animated caricature style)))"
             )
             
             # Initialize components with subject
@@ -706,35 +411,29 @@ class IsulionMegaPromptGenerator:
                 environment_text = (
                     f"in a ((detailed {setting})) during {weather} {time}, "
                     f"with ((meaningful {elements})), ((caricature composition)), "
-                    f"((artistic atmosphere)), ((contextual details))"
+                    f"((artistic atmosphere)), ((contextual details)))"
                 )
                 components.append(environment_text)
             
             # Add style elements
             if include_style == "yes":
                 style_text = (
-                    f"((cartoon caricature style)), ((extreme exaggeration)), "  # Modified
-                    f"((comic book interpretation)), ((animated style)), "  # Modified
-                    f"((cartoon artwork)), ((exaggerated features)), "  # Modified
-                    f"((non-realistic style)), ((cartoon distortion)), "  # Added these
+                    f"((cartoon caricature style)), ((extreme exaggeration)), "
+                    f"((comic book interpretation)), ((animated style)), "
+                    f"((cartoon artwork)), ((exaggerated features)), "
+                    f"((non-realistic style)), ((cartoon distortion)), "
                     f"8k resolution"
                 )
                 components.append(style_text)
             
             # Add effects if enabled
             if include_effects == "yes":
-                effect = random.choice(self.caricature_effects)
-                additional_effect = random.choice([
-                    "personality highlighting", "character emphasis",
-                    "mood enhancement", "emotional resonance",
-                    "distinctive portrayal", "unique interpretation"
-                ])
                 effects_text = (
-                    f"with {effect}, ((cartoon effects)), "  # Added 'cartoon effects'
-                    f"((animated style)), ((comic book shading)), "  # Added these
-                    f"((exaggerated proportions)), ((cartoon physics)), "  # Added these
-                    f"((non-photorealistic rendering)), ((cartoon coloring)), "  # Added these
-                    f"(({additional_effect})), ((distinctive style))"
+                    f"with {random.choice(self.cartoon_effects)}, ((cartoon effects)), "
+                    f"((animated style)), ((comic book shading)), "
+                    f"((exaggerated proportions)), ((cartoon physics)), "
+                    f"((non-photorealistic rendering)), ((cartoon coloring)), "
+                    f"(({random.choice(self.personality_emphasis)})), ((distinctive style))"
                 )
                 components.append(effects_text)
                 
@@ -744,8 +443,83 @@ class IsulionMegaPromptGenerator:
                 enhancement = random.choice(self.enhancements[enhancement_focus][enhancement_level])
                 prompt = f"{prompt}, {enhancement}"
                 effects_text = f"{effects_text}, {enhancement}"
-            return (prompt, subject_text, action_text, environment_text, style_text, effects_text, seed)
+            return (prompt, subject_text, "", environment_text, style_text, effects_text, seed)
+        
+        elif internal_theme == "futuristic_city":
+            # Select base elements from centralized config
+            composition = random.choice(self.compositions)
             
+            # Determine scene type with expanded probabilities
+            scene_type = random.random()
+            if scene_type < 0.4:  # 40% chance for aerial cityscape
+                architecture = random.choice(self.futuristic_city_elements["architecture"])
+                infrastructure = random.choice(self.futuristic_city_elements["infrastructure"])
+                atmosphere = random.choice(self.futuristic_city_elements["atmosphere"])
+                subject_text = (
+                    f"((epic aerial view)) of a ((futuristic metropolis)) with "
+                    f"((towering {architecture})) and ((advanced {infrastructure})), "
+                    f"((in {atmosphere} atmosphere)), {composition}"
+                )
+            elif scene_type < 0.7:  # 30% chance for street level
+                architecture = random.choice(self.futuristic_city_elements["architecture"])
+                infrastructure = random.choice(self.futuristic_city_elements["infrastructure"])
+                atmosphere = random.choice(self.futuristic_city_elements["atmosphere"])
+                subject_text = (
+                    f"((immersive street-level view)) of a ((futuristic metropolis)) with "
+                    f"((detailed {architecture})) and ((intricate {infrastructure})), "
+                    f"((in {atmosphere} atmosphere)), {composition}"
+                )
+            else:  # 30% chance for establishing shot
+                architecture = random.choice(self.futuristic_city_elements["architecture"])
+                infrastructure = random.choice(self.futuristic_city_elements["infrastructure"])
+                atmosphere = random.choice(self.futuristic_city_elements["atmosphere"])
+                subject_text = (
+                    f"((epic establishing shot)) of a ((vast futuristic city)) with "
+                    f"((majestic {architecture})) and ((complex {infrastructure})), "
+                    f"((in {atmosphere} atmosphere)), {composition}"  # Ensure closing parenthesis
+                )
+            
+            # Initialize components with subject
+            components = [subject_text]
+            
+            # Add environment if enabled
+            if include_environment == "yes":
+                time = random.choice(self.futuristic_city_elements["time"])
+                atmosphere = random.choice(self.futuristic_city_elements["atmosphere"])
+                environment_text = (
+                    f"during {time}, ((with {atmosphere} atmosphere)), "
+                    f"((advanced technology)), ((cyberpunk elements)), "
+                    f"((futuristic urban landscape))"
+                )
+                components.append(environment_text)
+            
+            # Add style elements
+            if include_style == "yes":
+                style_text = (
+                    f"((ultra detailed cityscape)), ((sci-fi aesthetic)), "
+                    f"((futuristic architecture)), ((advanced technology)), "
+                    f"((cinematic scale)), ((urban complexity)), 8k resolution"
+                )
+                components.append(style_text)
+            
+            # Add effects if enabled
+            if include_effects == "yes":
+                effects_text = (
+                    f"with ((neon lighting)), ((holographic displays)), "
+                    f"((volumetric fog)), ((light rays)), ((energy effects)), "
+                    f"((reflective surfaces)), ((atmospheric perspective))"
+                )
+                components.append(effects_text)
+            
+            # Join components and add enhancement
+            prompt = ", ".join(components)
+            if enhancement_level in self.enhancements[enhancement_focus]:
+                enhancement = random.choice(self.enhancements[enhancement_focus][enhancement_level])
+                prompt = f"{prompt}, {enhancement}"
+                effects_text = f"{effects_text}, {enhancement}"
+            
+            return (prompt, subject_text, action_text, environment_text, style_text, effects_text, seed)
+        
         elif internal_theme == "abstract":
             # Special handling for abstract theme - completely separate from other themes
             abstract_components = [prefix] if prefix else []
@@ -760,17 +534,9 @@ class IsulionMegaPromptGenerator:
             
             abstract_components.append(f"{style} {primary} composition with {element}")
             
-            # Abstract-specific effects
-            effect1 = random.choice([
-                "intersecting", "overlapping", "radiating", "repeating",
-                "dissolving", "merging", "fragmenting", "tessellating",
-                "undulating", "oscillating", "bifurcating", "converging"
-            ])
-            effect2 = random.choice([
-                "forms", "shapes", "patterns", "structures",
-                "compositions", "arrangements", "configurations",
-                "constructions", "formations", "geometries"
-            ])
+            # Add references to centralized config lists
+            effect1 = random.choice(self.effect1_options)
+            effect2 = random.choice(self.effect2_options)
             
             abstract_components.append(f"with {effect1} {effect2}")
             
@@ -847,7 +613,7 @@ class IsulionMegaPromptGenerator:
                         subject_text = (
                             f"((epic establishing shot)) of a ((vast futuristic city)) with "
                             f"((majestic {architecture})) and ((complex {infrastructure})), "
-                            f"((in {atmosphere} atmosphere)), {composition}"
+                            f"((in {atmosphere} atmosphere)), {composition}"  # Added missing closing parenthesis
                         )
                     
                     # Initialize components with subject
@@ -1085,11 +851,11 @@ class IsulionMegaPromptGenerator:
                         head_candidate = random.choice(self.cute_animals)
                         body_candidate = random.choice(self.cute_animals)
                         
-                        # Clean up the animal names - remove age/size indicators
+                        # Clean up the animal names
                         head_clean = head_candidate.lower()
                         body_clean = body_candidate.lower()
                         
-                        # Remove age/size indicators and clean up names
+                        # Remove age/size indicators
                         for prefix in ['baby ', 'cub', 'puppy', 'kitten', 'kit', 'young ', 'little ']:
                             head_clean = head_clean.replace(prefix, '')
                             body_clean = body_clean.replace(prefix, '')
@@ -1108,22 +874,52 @@ class IsulionMegaPromptGenerator:
                             
                         max_attempts -= 1
                     
-                    # Fallback to ensure we always have valid animals from different families
+                    # Fallback to ensure we always have valid animals
                     if head is None or body is None:
-                        head = "Baby Red Panda"  # Cute default head from one family
-                        body = "Arctic Fox Kit"  # Cute default body from different family
+                        head = "Baby Red Panda"
+                        body = "Arctic Fox Kit"
                     
-                    behavior = random.choice(self.behaviors)
+                    # Create detailed subject description
                     subject_text = (
-                        f"adorable chimerical fantastical creature with "
+                        f"((adorable chimerical creature)) with "
                         f"((the body of a {body})) and ((the head of a {head})), "
-                        f"{behavior}, ((kawaii style)), ((soft lighting)), "
-                        f"((pastel colors)), ((cute expression)), ((fluffy texture)), "
-                        f"((chibi proportions)), ((sparkly eyes)), ultra detailed, 8k"
+                        f"((kawaii style)), ((soft pastel colors)), "
+                        f"((ultra fluffy texture)), ((cute expression)), "
+                        f"((chibi proportions)), ((sparkly eyes))"
                     )
                     
-                    # Add the subject text to components immediately after creating it
-                    components = [subject_text]  # Initialize components with subject_text
+                    # Initialize components with subject
+                    components = [subject_text]
+                    
+                    # Add environment if enabled
+                    if include_environment == "yes":
+                        environment_text = (
+                            f"in a ((magical cute environment)), "
+                            f"((pastel color palette)), ((soft lighting)), "
+                            f"((dreamy atmosphere)), ((kawaii background)), "
+                            f"((fluffy clouds)), ((sparkly effects))"
+                        )
+                        components.append(environment_text)
+                    
+                    # Add style elements
+                    if include_style == "yes":
+                        style_text = (
+                            f"((kawaii art style)), ((soft shading)), "
+                            f"((adorable design)), ((chibi aesthetics)), "
+                            f"((cute details)), ((pastel colors)), "
+                            f"((magical atmosphere)), 8k resolution"
+                        )
+                        components.append(style_text)
+                    
+                    # Add effects if enabled
+                    if include_effects == "yes":
+                        effects_text = (
+                            f"with ((magical sparkles)), ((soft glow)), "
+                            f"((pastel lighting)), ((cute particles)), "
+                            f"((fluffy highlights)), ((kawaii effects)), "
+                            f"((dreamy atmosphere)), ((adorable finish))"
+                        )
+                        components.append(effects_text)
                 elif internal_theme == "cinema":
                     # Select character and base elements
                     character = random.choice(self.cinema_characters)
@@ -1531,16 +1327,17 @@ class IsulionMegaPromptGenerator:
                         )
                         components.append(effects_text)
                 elif internal_theme == "instagram":
-                    # Select base elements
+                    print("Debug: Entering Instagram theme handling")  # Debug line
+                    # Select base elements from centralized lists
                     influencer = random.choice(self.influencer_types)
                     activity = random.choice(self.influencer_activities)
                     location = random.choice(self.influencer_locations)
                     composition = random.choice(self.compositions)
                     
-                    # Create detailed subject description
+                    # Create detailed subject description with enhanced aesthetics
                     subject_text = (
                         f"professional lifestyle photograph of {influencer} {activity}, "
-                        f"((instagram aesthetic)), {composition}"
+                        f"((instagram aesthetic)), ((social media style)), {composition}"
                     )
                     
                     # Initialize components with subject
@@ -1548,14 +1345,12 @@ class IsulionMegaPromptGenerator:
                     
                     # Add environment if enabled
                     if include_environment == "yes":
-                        time = random.choice([
-                            "golden hour", "sunset", "blue hour", "morning light",
-                            "magic hour", "soft daylight", "dusk", "twilight"
-                        ])
+                        time = random.choice(self.instagram_times)
                         environment_text = (
                             f"at {location} during {time}, "
                             f"((lifestyle setting)), ((perfect ambiance)), "
-                            f"((instagram worthy location))"  # Add closing parenthesis here
+                            f"((instagram worthy location)), ((premium environment)), "
+                            f"((social media backdrop)), ((influencer location))"
                         )
                         components.append(environment_text)
                     
@@ -1563,17 +1358,22 @@ class IsulionMegaPromptGenerator:
                     if include_style == "yes":
                         style_text = (
                             f"((professional lifestyle photography)), ((social media aesthetic)), "
-                            f"((influencer style)), ((perfect exposure)), "
-                            f"((trendy composition)), 8k resolution"
+                            f"((influencer style)), ((perfect exposure)), ((trendy composition)), "
+                            f"((premium quality)), ((fashion forward)), ((lifestyle brand)), "
+                            f"((editorial quality)), ((commercial grade)), 8k resolution"
                         )
                         components.append(style_text)
                     
                     # Add effects if enabled
                     if include_effects == "yes":
+                        lighting = random.choice(self.instagram_lighting)
+                        effect = random.choice(self.instagram_effects)
                         effects_text = (
                             f"with ((natural bokeh)), ((soft skin glow)), "
-                            f"((perfect golden light)), ((lifestyle colors)), "
-                            f"((subtle vignette)), ((instagram filter))"
+                            f"((perfect {lighting})), ((lifestyle colors)), "
+                            f"((subtle {effect})), ((instagram filter)), "
+                            f"((professional retouching)), ((perfect color grading)), "
+                            f"((social media finish)), ((influencer aesthetic))"
                         )
                         components.append(effects_text)
                 elif internal_theme == "realistic":
@@ -1737,12 +1537,11 @@ class IsulionMegaPromptGenerator:
                         celebration = random.choice(self.binet_celebration_elements)
                         
                         subject_text = (
-                            f"anthropomorphic portrait of a distinguished {animal} as a {character_theme}, "
-                            f"((wearing {costume})), "
-                            f"((with {props})), "
-                            f"((in {celebration})), "
+                            f"((anthropomorphic portrait)) of a ((distinguished {animal})) as a ((noble {character_theme})), "
+                            f"((wearing {costume})), ((with {props})), "
+                            f"((dressed in {specific_clothing})), "
                             f"((aristocratic pose)), ((noble expression)), "
-                            f"((intricate fur detail)), ((dramatic studio lighting))"
+                            f"((intricate fur detail)), ((dramatic studio lighting)){color_emphasis}"
                         )
                     else:
                         # Use classical themes and elements
@@ -1753,11 +1552,11 @@ class IsulionMegaPromptGenerator:
                         specific_clothing = random.choice(self.binet_clothing[clothing_type])
                         
                         subject_text = (
-                            f"anthropomorphic portrait of a distinguished {animal} as a {character_theme}, "
+                            f"((anthropomorphic portrait)) of a ((distinguished {animal})) as a ((noble {character_theme})), "
                             f"((wearing {costume})), ((with {props})), "
                             f"((dressed in {specific_clothing})), "
                             f"((aristocratic pose)), ((noble expression)), "
-                            f"((intricate fur detail)), ((dramatic studio lighting))"
+                            f"((intricate fur detail)), ((dramatic studio lighting)){color_emphasis}"
                         )
                     
                     # Add sophisticated environment elements
@@ -1828,42 +1627,54 @@ class IsulionMegaPromptGenerator:
                     location = random.choice(self.star_wars_locations)
                     composition = random.choice(self.compositions)
                     
+                    # Initialize components with theme prefix
+                    components = []  # Don't initialize with prefix here - it's handled at the start of generate()
+                    
                     # Determine scene type
                     scene_type = random.random()
                     if scene_type < 0.4:  # 40% chance for character-focused scene
                         subject_text = (
-                            f"epic Star Wars scene of ((detailed {character})) "
-                            f"wielding ((glowing {prop})), {composition}"
+                            f"((epic Star Wars cinematic scene)) of ((highly detailed {character})) "
+                            f"wielding ((glowing {prop})), ((dramatic pose)), ((epic scale)), "
+                            f"((Star Wars universe)), ((movie quality)), ((professional lighting)), "
+                            f"((cinematic composition)), ((dramatic atmosphere)), {composition}"
                         )
                     elif scene_type < 0.7:  # 30% chance for vehicle-focused scene
                         subject_text = (
-                            f"dramatic Star Wars shot of ((detailed {vehicle})) "
-                            f"with {character} visible, {composition}"
+                            f"((dramatic Star Wars shot)) of ((highly detailed {vehicle})) "
+                            f"with ((detailed {character})) visible, ((epic space battle scene)), "
+                            f"((Star Wars universe)), ((cinematic quality)), ((massive scale)), "
+                            f"((dynamic composition)), ((intense action)), {composition}"
                         )
                     else:  # 30% chance for battle/action scene
                         subject_text = (
-                            f"epic Star Wars battle scene with {character} "
-                            f"using {prop} near a {vehicle}, {composition}"
+                            f"((epic Star Wars battle scene)) with ((detailed {character})) "
+                            f"using ((powerful {prop})) near ((massive {vehicle})), "
+                            f"((intense action)), ((Star Wars universe)), ((epic scale)), "
+                            f"((cinematic drama)), ((dynamic composition)), {composition}"
                         )
                     
-                    # Initialize components with subject
-                    components = [subject_text]
+                    # Add subject to components
+                    components.append(subject_text)
                     
                     # Add environment if enabled
                     if include_environment == "yes":
                         environment_text = (
-                            f"in ((detailed {location})), "
-                            f"((Star Wars universe)), ((sci-fi atmosphere)), "
-                            f"((epic scale))"
+                            f"in ((detailed {location})), ((Star Wars atmosphere)), "
+                            f"((epic sci-fi environment)), ((massive scale)), "
+                            f"((otherworldly vista)), ((space fantasy setting)), "
+                            f"((dramatic lighting)), ((cinematic environment))"
                         )
                         components.append(environment_text)
                     
                     # Add style elements
                     if include_style == "yes":
                         style_text = (
-                            f"((Star Wars movie quality)), ((cinematic lighting)), "
-                            f"((photorealistic)), ((ILM VFX quality)), "
-                            f"((epic movie scene)), 8k resolution"
+                            f"((Star Wars movie quality)), ((ILM VFX style)), "
+                            f"((cinematic lighting)), ((photorealistic detail)), "
+                            f"((professional cinematography)), ((epic movie scene)), "
+                            f"((high production value)), ((dramatic composition)), "
+                            f"((professional color grading)), 8k resolution"
                         )
                         components.append(style_text)
                     
@@ -1871,9 +1682,11 @@ class IsulionMegaPromptGenerator:
                     if include_effects == "yes":
                         effect = random.choice(self.star_wars_effects)
                         effects_text = (
-                            f"with {effect}, ((lens flares)), ((volumetric lighting)), "
-                            f"((dramatic shadows)), ((space atmosphere)), "
-                            f"((cinematic color grading))"
+                            f"with ((dramatic {effect})), ((lens flares)), "
+                            f"((volumetric lighting)), ((dynamic shadows)), "
+                            f"((space atmosphere)), ((energy effects)), "
+                            f"((cinematic color grading)), ((epic scale)), "
+                            f"((professional VFX)), ((movie quality effects))"
                         )
                         components.append(effects_text)
                 elif internal_theme == "marvel":
@@ -2208,8 +2021,8 @@ class IsulionMegaPromptGenerator:
                     # Create the main subject description
                     subject_text = (
                         f"((Anthropomorphic {animal} in 1920s Peaky Blinders style)), "
-                        f"((wearing {outfit})), {accessory}, "
-                        f"((ultra-detailed fur texture)),  "  # Removed "noble expression"
+                        f"((wearing {outfit})), ((stylish {accessory})), "
+                        f"((ultra-detailed fur texture)), "
                         f"((masterful character design))"
                     )
                     
@@ -2543,16 +2356,8 @@ class IsulionMegaPromptGenerator:
         if include_effects == "yes":
             if internal_theme == "abstract":
                 # More abstract-specific effects
-                effect1 = random.choice([
-                    "intersecting", "overlapping", "radiating", "repeating",
-                    "dissolving", "merging", "fragmenting", "tessellating",
-                    "undulating", "oscillating", "bifurcating", "converging"
-                ])
-                effect2 = random.choice([
-                    "forms", "shapes", "patterns", "structures",
-                    "compositions", "arrangements", "configurations",
-                    "constructions", "formations", "geometries"
-                ])
+                effect1 = random.choice(self.effect1_options)
+                effect2 = random.choice(self.effect2_options)
                 effects_text = f"with {effect1} {effect2}"
                 components.append(effects_text)
             elif internal_theme == "strange_animal":
