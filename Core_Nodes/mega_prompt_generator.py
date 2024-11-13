@@ -325,21 +325,14 @@ class IsulionMegaPromptGenerator:
             # Add effects
             if include_effects == "yes":
                 if style_approach == "3D":
-                    effect = random.choice([
-                        "subsurface scattering", "metallic reflections", "glossy finish",
-                        "ambient occlusion", "volumetric lighting", "depth of field",
-                        "material roughness", "displacement mapping"
-                    ])
+                    effect = random.choice(self.logo_3d_effects)
                     effects_text = (
                         f"with (({effect})), ((perfect shadows)), "
                         f"((realistic materials)), ((professional rendering)), "
                         f"((3D effects)), ((depth and volume))"
                     )
                 elif style_approach == "character":
-                    effect = random.choice([
-                        "cute shadows", "playful highlights", "soft glow",
-                        "charming details", "kawaii effects", "adorable accents"
-                    ])
+                    effect = random.choice(self.logo_character_effects)
                     effects_text = (
                         f"with (({effect})), ((sweet details)), "
                         f"((playful elements)), ((charming finish)), "
@@ -525,10 +518,7 @@ class IsulionMegaPromptGenerator:
             abstract_components = [prefix] if prefix else []
             
             # Core abstract elements
-            primary = random.choice([
-                "geometric", "organic", "linear", "circular", "angular",
-                "fluid", "crystalline", "prismatic", "recursive", "fractal"
-            ])
+            primary = random.choice(self.abstract_primary_elements)
             element = random.choice(self.abstract_elements)
             style = random.choice(self.abstract_styles)
             
@@ -766,10 +756,7 @@ class IsulionMegaPromptGenerator:
                         components.append(effects_text)
                 elif internal_theme == "abstract":
                     # More pure abstract elements
-                    primary = random.choice([
-                        "geometric", "organic", "linear", "circular", "angular",
-                        "fluid", "crystalline", "prismatic", "recursive", "fractal"
-                    ])
+                    primary = random.choice(self.abstract_primary_elements)
                     element = random.choice(self.abstract_elements)
                     style = random.choice(self.abstract_styles)
                     subject_text = f"{style} {primary} composition with {element}"
@@ -803,12 +790,7 @@ class IsulionMegaPromptGenerator:
                     
                     # Add environment if enabled
                     if include_environment == "yes":
-                        environment = random.choice([
-                            "cartoon world", "animated landscape", "classic cartoon background",
-                            "wacky environment", "cartoon city", "animated forest",
-                            "cartoon household", "silly cartoon setting", "animated playground",
-                            "cartoon wonderland"
-                        ])
+                        environment = random.choice(self.cartoon_environments)
                         environment_text = (
                             f"in a ((vibrant {environment})), "
                             f"((cartoon physics)), ((animated atmosphere))"
@@ -917,7 +899,7 @@ class IsulionMegaPromptGenerator:
                             f"with ((magical sparkles)), ((soft glow)), "
                             f"((pastel lighting)), ((cute particles)), "
                             f"((fluffy highlights)), ((kawaii effects)), "
-                            f"((dreamy atmosphere)), ((adorable finish))"
+                            f"((dreamy atmosphere)), ((adorable finish)))"
                         )
                         components.append(effects_text)
                 elif internal_theme == "cinema":
@@ -926,18 +908,7 @@ class IsulionMegaPromptGenerator:
                     composition = random.choice(self.compositions)
                     
                     # Create action with more cinematic flair
-                    action = random.choice([
-                        "in an epic action sequence",
-                        "in a dramatic confrontation",
-                        "in a tense standoff",
-                        "performing a signature move",
-                        "making a dramatic entrance",
-                        "in a climactic battle",
-                        "in a stealth mission",
-                        "in pursuit",
-                        "preparing for combat",
-                        "defending against enemies"
-                    ])
+                    action = random.choice(self.cinema_actions)
                     
                     # Create detailed subject description
                     subject_text = f"cinematic shot of {character} {action}, {composition}"
@@ -1140,13 +1111,7 @@ class IsulionMegaPromptGenerator:
                     
                     # Add environment if enabled
                     if include_environment == "yes":
-                        setting = random.choice([
-                            "rustic wooden table", "marble counter", "elegant plate",
-                            "vintage dish", "modern platter", "chef table", 
-                            "restaurant setting", "professional studio setup",
-                            "minimalist white surface", "artisanal ceramic plate",
-                            "luxury dining table", "gourmet presentation"
-                        ])
+                        setting = random.choice(self.food_settings)
                         environment_text = (
                             f"on {setting}, ((perfect composition)), "
                             f"((professional food styling)), ((studio lighting))"
@@ -1188,19 +1153,12 @@ class IsulionMegaPromptGenerator:
                     
                     # Add environment if enabled
                     if include_environment == "yes":
-                        time = random.choice([
-                            "morning", "midday", "afternoon", "golden hour",
-                            "blue hour", "evening", "twilight"
-                        ])
-                        lighting = random.choice([
-                            "natural sunlight", "soft diffused light", "dramatic window light",
-                            "ambient lighting", "accent lighting", "architectural lighting",
-                            "indirect lighting", "spotlighting"
-                        ])
+                        time = random.choice(self.interior_times)
+                        lighting = random.choice(self.interior_lighting)
                         environment_text = (
-                            f"during {time} with ((perfect {lighting})), "
-                            f"((architectural details)), ((premium materials)), "
-                            f"((sophisticated atmosphere))"
+                            f"during {time} with {lighting}, "
+                            f"((luxury interior design)), ((perfect exposure)), "
+                            f"((architectural visualization)), ((premium quality)), 8k resolution"
                         )
                         components.append(environment_text)
                     
@@ -1295,14 +1253,8 @@ class IsulionMegaPromptGenerator:
                     
                     # Add environment if enabled
                     if include_environment == "yes":
-                        time = random.choice([
-                            "midnight", "witching hour", "full moon night", 
-                            "foggy twilight", "dark evening", "stormy night"
-                        ])
-                        weather = random.choice([
-                            "misty", "stormy", "cloudy", "windy",
-                            "thunderous", "eerily calm"
-                        ])
+                        time = random.choice(self.halloween_times)
+                        weather = random.choice(self.halloween_weather)
                         environment_text = (
                             f"in a ((haunted {setting})) during {weather} {time}, "
                             f"((gothic atmosphere)), ((supernatural ambiance))"
@@ -1366,11 +1318,10 @@ class IsulionMegaPromptGenerator:
                     
                     # Add effects if enabled
                     if include_effects == "yes":
-                        lighting = random.choice(self.instagram_lighting)
-                        effect = random.choice(self.instagram_effects)
+                        effect = random.choice(self.instagram_lighting_effects)
                         effects_text = (
                             f"with ((natural bokeh)), ((soft skin glow)), "
-                            f"((perfect {lighting})), ((lifestyle colors)), "
+                            f"((perfect {effect})), ((lifestyle colors)), "
                             f"((subtle {effect})), ((instagram filter)), "
                             f"((professional retouching)), ((perfect color grading)), "
                             f"((social media finish)), ((influencer aesthetic))"
@@ -1560,15 +1511,7 @@ class IsulionMegaPromptGenerator:
                         )
                     
                     # Add sophisticated environment elements
-                    environment_text = random.choice([
-                        "in an elegant portrait studio setting",
-                        "against a dark dramatic backdrop",
-                        "in a distinguished study with leather-bound books",
-                        "in a classical portrait setting",
-                        "against a sophisticated dark background",
-                        "in a noble chamber with subtle details",
-                        "in a vintage photography studio"
-                    ])
+                    environment_text = random.choice(self.binet_environments)
                     
                     # Enhanced photographic style elements
                     style_text = (
@@ -1584,7 +1527,7 @@ class IsulionMegaPromptGenerator:
                         "((dramatic atmosphere)), ((volumetric lighting)), "
                         "((perfect exposure)), ((subtle vignette))"
                     )
-                    
+
                     # Construct the components with proper emphasis
                     components = [subject_text]
                     if include_environment == "yes":
@@ -1653,7 +1596,6 @@ class IsulionMegaPromptGenerator:
                             f"((intense action)), ((Star Wars universe)), ((epic scale)), "
                             f"((cinematic drama)), ((dynamic composition)), {composition}"
                         )
-                    
                     # Add subject to components
                     components.append(subject_text)
                     
@@ -1696,22 +1638,14 @@ class IsulionMegaPromptGenerator:
                     comic_composition = random.choice(self.marvel_comic_compositions)
                     
                     if random.random() < 0.7:  # 70% chance for action scene
-                        action = random.choice([
-                            "locked in epic battle", "performing heroic feat",
-                            "unleashing super powers", "defending against villains",
-                            "leading fellow heroes", "in dramatic confrontation"
-                        ])
+                        action = random.choice(self.marvel_action_scenes)
                         subject_text = (
                             f"((classic Marvel comic book art)) of {character} {action}, "
                             f"in {comic_style}, {comic_composition}, "
                             f"((vintage comic book illustration)), ((comic book art))"
                         )
                     else:  # 30% chance for character portrait
-                        pose = random.choice([
-                            "heroic comic book pose", "dramatic character moment",
-                            "classic superhero stance", "iconic comic book pose",
-                            "powerful hero shot", "legendary comic cover pose"
-                        ])
+                        pose = random.choice(self.marvel_poses)
                         subject_text = (
                             f"((classic Marvel comic book art)) of {character} in {pose}, "
                             f"in {comic_style}, {comic_composition}, "
@@ -1782,14 +1716,8 @@ class IsulionMegaPromptGenerator:
                     
                     # Add environment if enabled
                     if include_environment == "yes":
-                        time = random.choice([
-                            "foggy morning", "industrial twilight", "gaslit evening",
-                            "steam-filled dawn", "coal-smoke dusk", "brass-lit night"
-                        ])
-                        weather = random.choice([
-                            "steam clouds", "industrial haze", "coal smoke",
-                            "mechanical fog", "brass-tinted clouds", "copper sunset"
-                        ])
+                        time = random.choice(self.steampunk_times)
+                        weather = random.choice(self.steampunk_weather)
                         environment_text = (
                             f"during {time} with {weather}, "
                             f"((Victorian industrial era)), ((steampunk atmosphere)), "
@@ -1823,28 +1751,20 @@ class IsulionMegaPromptGenerator:
                     scene_type = random.random()
                     if scene_type < 0.4:  # 40% chance for wasteland scene
                         environment = random.choice(self.post_apocalyptic_elements["environments"])
-                        prop = random.choice(self.post_apocalyptic_elements["props"])
+                        prop = random.choice(self.post_apocalyptic_props)
                         atmosphere = random.choice(self.post_apocalyptic_elements["atmosphere"])
                         subject_text = (
                             f"((epic post-apocalyptic vista)) of a ((devastated {environment})) with "
                             f"((weathered {prop})), ((in {atmosphere} atmosphere)), {composition}"
                         )
                     elif scene_type < 0.7:  # 30% chance for survival scene
-                        prop = random.choice([
-                            "makeshift shelter", "salvaged vehicle", "improvised weapons",
-                            "scavenged supplies", "survival gear", "fortified base",
-                            "wasteland camp", "trading outpost", "survivor's hideout"
-                        ])
+                        prop = random.choice(self.post_apocalyptic_props)
                         subject_text = (
                             f"((post-apocalyptic survival scene)) with ((detailed {prop})), "
                             f"((wasteland atmosphere)), ((survival elements)), {composition}"
                         )
                     else:  # 30% chance for ruins scene
-                        ruins = random.choice([
-                            "abandoned skyscrapers", "collapsed highway", "ruined metropolis",
-                            "decaying shopping mall", "destroyed factory", "fallen monuments",
-                            "overgrown stadium", "derelict train station", "crumbling bridges"
-                        ])
+                        ruins = random.choice(self.post_apocalyptic_ruins)
                         subject_text = (
                             f"((dramatic post-apocalyptic scene)) of ((decaying {ruins})), "
                             f"((signs of civilization's fall)), {composition}"
@@ -1855,16 +1775,8 @@ class IsulionMegaPromptGenerator:
                     
                     # Add environment if enabled
                     if include_environment == "yes":
-                        time = random.choice([
-                            "toxic dawn", "nuclear sunset", "perpetual dusk",
-                            "radioactive twilight", "acid rain storm", "dusty noon",
-                            "contaminated evening", "fallout night"
-                        ])
-                        weather = random.choice([
-                            "radioactive storm", "acid rain", "toxic fog",
-                            "nuclear winter", "dust storm", "chemical haze",
-                            "contaminated clouds", "burning sky"
-                        ])
+                        time = random.choice(self.post_apocalyptic_times)
+                        weather = random.choice(self.post_apocalyptic_weather)
                         environment_text = (
                             f"during {time} with {weather}, "
                             f"((post-apocalyptic atmosphere)), ((devastated landscape)), "
@@ -2320,14 +2232,15 @@ class IsulionMegaPromptGenerator:
             elif internal_theme == "food":
                 environment_text = f"on {random.choice(['rustic wooden table', 'marble counter', 'elegant plate', 'vintage dish', 'modern platter', 'chef table', 'restaurant setting'])}"
             elif internal_theme == "interior":
-                time = random.choice(self.times)
-                environment_text = f"during {time} with {random.choice(['natural lighting', 'ambient lighting', 'mood lighting', 'spot lighting', 'indirect lighting'])}"
+                time = random.choice(self.interior_times)
+                lighting = random.choice(self.interior_lighting)
+                environment_text = f"during {time} with {lighting}"
             elif internal_theme == "3D":
-                environment_text = f"in {random.choice(['studio lighting setup', 'environmental lighting', 'dramatic lighting', 'realistic environment', 'abstract space', 'geometric background'])}"
+                environment_text = f"in {random.choice(self.threed_environments)}"
             elif internal_theme == "halloween":
                 setting = random.choice(self.halloween_elements["settings"])
-                time = random.choice(["midnight", "witching hour", "full moon night", "foggy twilight"])
-                weather = random.choice(["misty", "stormy", "cloudy", "windy"])
+                time = random.choice(self.halloween_times)
+                weather = random.choice(self.halloween_weather)
                 environment_text = f"in a {setting} during {weather} {time}"
             elif internal_theme == "instagram":
                 location = random.choice(self.influencer_locations)
@@ -2375,19 +2288,11 @@ class IsulionMegaPromptGenerator:
                 ship = random.choice(self.spacecraft["military"])
                 effects_text = f"with {tech} and {ship} in background"
             elif internal_theme == "halloween":
-                effect1 = random.choice([
-                    "eerie glow", "ghostly mist", "dark shadows", "moonlight rays",
-                    "spectral aura", "mysterious fog", "sinister atmosphere",
-                    "supernatural lighting", "ominous clouds", "creepy ambiance"
-                ])
+                effect1 = random.choice(self.halloween_effects)
                 effect2 = random.choice(self.halloween_elements["props"])
                 effects_text = f"with {effect1} and {effect2}"
             elif internal_theme == "instagram":
-                effect = random.choice([
-                    "perfect lighting", "bokeh effect", "lens flare", "natural glow",
-                    "soft focus", "golden light", "backlit", "rim lighting",
-                    "professional lighting", "studio lighting"
-                ])
+                effect = random.choice(self.instagram_lighting_effects)
                 effects_text = f"with {effect} and lifestyle aesthetic"
             elif internal_theme == "christmas":
                 effect = random.choice(self.christmas_elements["magical_effects"])

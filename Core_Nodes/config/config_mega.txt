@@ -937,22 +937,18 @@ binet_color_schemes = [
     "urban street art colors"
 ]
 
+# Binet Portrait Environments
 binet_environments = [
-    "elegant portrait studio setting",
-    "dark dramatic backdrop",
-    "distinguished study with leather-bound books",
-    "classical portrait setting",
-    "sophisticated dark background",
-    "noble chamber with subtle details",
-    "vintage photography studio",
-    "luxury penthouse interior",
-    "grand manor library",
-    "aristocratic drawing room",
-    "professional photo studio",
-    "upscale art gallery",
-    "refined gentleman's club",
-    "prestigious office",
-    "luxury hotel suite"
+    "in an elegant portrait studio setting",
+    "against a dark dramatic backdrop",
+    "in a distinguished study with leather-bound books",
+    "in a classical portrait setting",
+    "against a sophisticated dark background",
+    "in a noble chamber with subtle details",
+    "in a vintage photography studio",
+    "in a luxury penthouse interior",
+    "in a grand manor library",
+    "in an aristocratic drawing room"
 ]
 
 binet_effects = [
@@ -1033,6 +1029,7 @@ threed_styles = [
     "character modeling", "environment modeling", "hard surface modeling"
 ]
 
+# 3D Environments
 threed_environments = [
     "studio lighting setup", 
     "environmental lighting", 
@@ -1779,3 +1776,275 @@ effect2_options = [
     "compositions", "arrangements", "configurations",
     "constructions", "formations", "geometries"
 ]
+
+# Logo 3D Effects
+logo_3d_effects = [
+    "subsurface scattering", "metallic reflections", "glossy finish",
+    "ambient occlusion", "volumetric lighting", "depth of field",
+    "material roughness", "displacement mapping"
+]
+
+# Cartoon Environments
+cartoon_environments = [
+    "cartoon world", "animated landscape", "classic cartoon background",
+    "wacky environment", "cartoon city", "animated forest",
+    "cartoon household", "silly cartoon setting", "animated playground",
+    "cartoon wonderland"
+]
+
+# Cinema Actions
+cinema_actions = [
+    "in an epic action sequence",
+    "in a dramatic confrontation",
+    "in a tense standoff",
+    "performing a signature move",
+    "making a dramatic entrance",
+    "in a climactic battle",
+    "in a stealth mission",
+    "in pursuit",
+    "preparing for combat",
+    "defending against enemies"
+]
+
+# Food Settings
+food_settings = [
+    "rustic wooden table", "marble counter", "elegant plate",
+    "vintage dish", "modern platter", "chef table", 
+    "restaurant setting", "professional studio setup",
+    "minimalist white surface", "artisanal ceramic plate",
+    "luxury dining table", "gourmet presentation"
+]
+
+# Abstract Primary Elements
+abstract_primary_elements = [
+    "geometric", "organic", "linear", "circular", "angular",
+    "fluid", "crystalline", "prismatic", "recursive", "fractal"
+]
+
+# Interior Times
+interior_times = [
+    "morning", "midday", "afternoon", "golden hour",
+    "blue hour", "evening", "twilight"
+]
+
+# Interior Lighting
+interior_lighting = [
+    "natural sunlight", "soft diffused light", "dramatic window light",
+    "ambient lighting", "accent lighting", "architectural lighting",
+    "indirect lighting", "spotlighting"
+]
+
+# Halloween Times
+halloween_times = [
+    "midnight", "witching hour", "full moon night", 
+    "foggy twilight", "dark evening", "stormy night"
+]
+
+# Halloween Weather
+halloween_weather = [
+    "misty", "stormy", "cloudy", "windy",
+    "thunderous", "eerily calm"
+]
+
+# Marvel Action Scenes
+marvel_action_scenes = [
+    "locked in epic battle",
+    "performing heroic feat",
+    "unleashing super powers", 
+    "defending against villains",
+    "leading fellow heroes", 
+    "in dramatic confrontation",
+    "battling supervillains",
+    "saving civilians",
+    "using signature powers",
+    "teaming up with allies",
+    "stopping evil plans",
+    "protecting the city",
+    "fighting alien invasion",
+    "demonstrating heroic abilities",
+    "engaging in epic showdown"
+]
+
+# Marvel Character Poses
+marvel_poses = [
+    "heroic comic book pose",
+    "dramatic character moment",
+    "classic superhero stance", 
+    "iconic comic book pose",
+    "powerful hero shot", 
+    "legendary comic cover pose",
+    "dynamic action stance",
+    "epic battle pose",
+    "dramatic entrance pose",
+    "signature hero pose",
+    "triumphant victory stance",
+    "dramatic power-up pose",
+    "classic team-up formation",
+    "dramatic confrontation stance",
+    "iconic cover shot pose"
+]
+
+# Steampunk Times
+steampunk_times = [
+    "foggy morning", "industrial twilight", "gaslit evening",
+    "steam-filled dawn", "coal-smoke dusk", "brass-lit night",
+    "mechanical daybreak", "copper twilight", "gear-driven noon",
+    "industrial dusk", "clockwork dawn", "steam-powered night"
+]
+
+# Steampunk Weather
+steampunk_weather = [
+    "steam clouds", "industrial haze", "coal smoke",
+    "mechanical fog", "brass-tinted clouds", "copper sunset",
+    "gear-driven storm", "clockwork rain", "steam vents",
+    "industrial mist", "brass dust", "mechanical haze"
+]
+
+# Post Apocalyptic Props
+post_apocalyptic_props = [
+    "makeshift shelter", "salvaged vehicle", "improvised weapons",
+    "scavenged supplies", "survival gear", "fortified base",
+    "wasteland camp", "trading outpost", "survivor's hideout",
+    "armored bunker", "survival cache", "defensive barricade",
+    "scrap metal fortress", "underground shelter", "wasteland vehicle"
+]
+
+# Post Apocalyptic Ruins
+post_apocalyptic_ruins = [
+    "abandoned skyscrapers", "collapsed highway", "ruined metropolis",
+    "decaying shopping mall", "destroyed factory", "fallen monuments",
+    "overgrown stadium", "derelict train station", "crumbling bridges",
+    "devastated city center", "destroyed power plant", "abandoned military base",
+    "ruined government buildings", "collapsed subway system", "destroyed airport",
+    "abandoned research facility", "fallen skyscrapers", "destroyed residential district"
+]
+
+# Post Apocalyptic Times
+post_apocalyptic_times = [
+    "toxic dawn", "nuclear sunset", "perpetual dusk",
+    "radioactive twilight", "acid rain storm", "dusty noon",
+    "contaminated evening", "fallout night",
+    "atomic twilight", "wasteland dawn", "mutant dusk",
+    "apocalyptic noon", "radiation storm night", "toxic sunset",
+    "nuclear midnight", "contaminated morning"
+]
+
+# Post Apocalyptic Weather
+post_apocalyptic_weather = [
+    "radioactive storm", "acid rain", "toxic fog",
+    "nuclear winter", "dust storm", "chemical haze",
+    "contaminated clouds", "burning sky"
+]
+
+# Logo Character Effects
+logo_character_effects = [
+    "cute shadows", "playful highlights", "soft glow",
+    "charming details", "kawaii effects", "adorable accents",
+    "chibi lighting", "sparkly details", "pastel shading",
+    "cute reflections", "magical highlights", "sweet accents",
+    "adorable glow", "kawaii sparkles", "playful shine"
+]
+
+# Halloween Effects
+halloween_effects = [
+    "eerie glow", "ghostly mist", "dark shadows", "moonlight rays",
+    "spectral aura", "mysterious fog", "sinister atmosphere",
+    "supernatural lighting", "ominous clouds", "creepy ambiance",
+    "haunting glow", "ethereal mist", "eldritch shadows",
+    "cursed aura", "phantom lights", "demonic presence",
+    "ghostly apparitions", "spectral manifestations", "unholy radiance",
+    "necromantic energy"
+]
+
+# Instagram Lighting Effects
+instagram_lighting_effects = [
+    "perfect lighting", "bokeh effect", "lens flare", "natural glow",
+    "soft focus", "golden light", "backlit", "rim lighting",
+    "professional lighting", "studio lighting",
+    "dramatic rim light", "cinematic lighting", "beauty lighting",
+    "fashion lighting", "glamour lighting", "lifestyle lighting",
+    "natural sunlight", "golden hour glow", "soft beauty light",
+    "editorial lighting"
+]
+
+# Photography Elements
+photography_styles = [
+    "portrait photography", "fashion photography", "street photography",
+    "landscape photography", "architectural photography", "macro photography",
+    "black and white photography", "documentary photography", "fine art photography",
+    "wildlife photography", "night photography", "aerial photography",
+    "minimalist photography", "abstract photography", "long exposure photography"
+]
+
+photography_techniques = [
+    "shallow depth of field", "motion blur", "high key lighting",
+    "low key lighting", "silhouette", "bokeh effect", "panning shot",
+    "HDR technique", "double exposure", "light painting", "slow sync flash",
+    "golden ratio composition", "leading lines", "rule of thirds",
+    "symmetrical composition"
+]
+
+photography_lighting = [
+    "natural light", "studio lighting", "golden hour light",
+    "blue hour light", "backlight", "rim light", "split lighting",
+    "butterfly lighting", "Rembrandt lighting", "loop lighting",
+    "broad lighting", "short lighting", "dramatic lighting"
+]
+
+# Digital Art Elements
+digital_art_techniques = [
+    "digital painting", "vector art", "pixel art", "3D rendering",
+    "photo manipulation", "mixed media", "digital collage", "glitch art",
+    "vaporwave", "cyberpunk", "low poly", "isometric", "retro digital",
+    "generative art", "fractal art"
+]
+
+digital_art_effects = [
+    "gradient mesh", "particle effects", "light bloom", "color aberration",
+    "noise texture", "grain effect", "glitch effect", "pixelation",
+    "halftone pattern", "duotone", "rgb split", "wave distortion",
+    "digital brush strokes", "vector patterns", "digital texture"
+]
+
+# Seasonal Elements
+seasonal_elements = {
+    "spring": [
+        "cherry blossoms", "fresh grass", "blooming flowers", "new leaves",
+        "spring rain", "baby animals", "butterflies", "spring breeze",
+        "budding trees", "spring garden", "morning dew", "spring festival"
+    ],
+    "summer": [
+        "beach scenes", "tropical paradise", "summer festival", "fireworks",
+        "ocean waves", "summer sunset", "palm trees", "summer sports",
+        "ice cream", "summer fruits", "swimming pool", "summer vacation"
+    ],
+    "autumn": [
+        "falling leaves", "autumn colors", "harvest festival", "pumpkin patch",
+        "maple trees", "autumn fog", "cozy sweater", "autumn rain",
+        "autumn forest", "harvest moon", "autumn picnic", "autumn wind"
+    ],
+    "winter": [
+        "snow scenes", "winter forest", "northern lights", "ice crystals",
+        "winter sports", "cozy fireplace", "winter festival", "snowflakes",
+        "winter night", "frozen lake", "winter sunrise", "winter storm"
+    ]
+}
+
+# Cultural Elements
+cultural_elements = {
+    "asian": [
+        "traditional architecture", "zen garden", "paper lanterns", "calligraphy",
+        "tea ceremony", "martial arts", "dragon motifs", "cherry blossoms",
+        "temple grounds", "bamboo forest", "stone pagoda", "koi pond"
+    ],
+    "european": [
+        "gothic cathedral", "renaissance art", "medieval castle", "cobblestone streets",
+        "baroque palace", "village square", "ancient ruins", "vineyard",
+        "alpine village", "mediterranean coast", "northern fjords", "tuscan countryside"
+    ],
+    "middle_eastern": [
+        "desert palace", "ancient bazaar", "geometric patterns", "desert oasis",
+        "islamic architecture", "ancient city", "spice market", "desert caravan",
+        "mosaic art", "desert sunset", "ancient temple", "desert fortress"
+    ]
+}
