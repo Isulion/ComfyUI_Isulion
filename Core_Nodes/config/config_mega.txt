@@ -1511,7 +1511,13 @@ logo_themes = [
 
 logo_characters = [
     "cute bird", "friendly sloth", "adorable monster", "happy creature",
-    "kawaii animal", "charming mascot", "sweet character", "lovely creature"
+    "kawaii animal", "charming mascot", "sweet character", "lovely creature",
+    "playful panda", "cheerful penguin", "smiling fox", "jolly dragon",
+    "gentle unicorn", "merry monkey", "delightful dolphin", "joyful bunny",
+    "cuddly koala", "friendly lion", "happy hamster", "whimsical whale",
+    "charming cat", "lovable puppy", "sweet squirrel", "adorable alpaca",
+    "cute dinosaur", "magical phoenix", "cheerful chick", "merry mouse",
+    "playful platypus", "gentle giraffe", "delightful deer", "jolly jellyfish"
 ]
 
 logo_decorative_elements = [
@@ -2088,134 +2094,42 @@ specific_clothing = {
         "designer formal wear",
         "exclusive tailored suit"
     ]
-}
-
-specific_accessories = {
-    "sports": [
-        "professional sports equipment",
-        "team captain's armband",
-        "championship medals",
-        "sports gear bag",
-        "competition accessories",
-        "training equipment",
-        "team insignia",
-        "performance gear",
-        "sports technology",
-        "protective equipment"
-    ],
-    "urban": [
-        "designer backpack",
-        "premium headphones",
-        "luxury watch",
-        "branded sunglasses",
-        "urban style accessories",
-        "street fashion items",
-        "trendy gadgets",
-        "modern tech devices",
-        "urban jewelry",
-        "lifestyle accessories"
-    ],
-    "formal": [
-        "luxury timepiece",
-        "designer cufflinks",
-        "premium tie clip",
-        "leather briefcase",
-        "formal accessories",
-        "elegant pocket square",
-        "premium pen set",
-        "business accessories",
-        "formal jewelry",
-        "executive items"
-    ]
-
-# Cyber Logo Theme Elements
-cyber_logo_elements = [
-    "futuristic computer",
-    "advanced robot",
-    "abstract network patterns",
-    "digital circuitry",
-    "glowing holograms",
-    "binary code background",
-    "neon lights",
-    "data streams",
-    "cyberpunk cityscape",
-    "quantum cores",
-    "cybernetic enhancements",
-    "synthetic neural connections",
-    "future tech interfaces",
-    "holographic projections",
-    "virtual reality environments"
-]
-
-cyber_logo_colors = [
-    "neon blue",
-    "neon green",
-    "neon pink",
-    "electric purple",
-    "cyan",
-    "magenta",
-    "glowing white",
-    "digital glow",
-    "futuristic gray",
-    "matrix style code colors",
-    "silver metallic",
-    "gold metallic",
-    "dark blue cyber",
-    "dark green neon",
-    "cyberpunk black"
-]
-
-cyber_logo_effects = [
-    "circuit board texture",
-    "binary data stream",
-    "glowing neon effects",
-    "holographic reflections",
-    "matrix code background",
-    "digital noise",
-    "futuristic glow",
-    "synthetic sheen",
-    "data flow patterns",
-    "cybernetic glows",
-    "quantum core effects",
-    "neon light trails",
-    "glowing circuitry",
-    "binary code animation",
-    "holographic lines"
-]
-
-cyber_logo_fonts = [
-    "digital font",
-    "cyberpunk font",
-    "matrix style font",
-    "future tech font",
-    "holographic font",
-    "neon font",
-    "synthetic font",
-    "quantum font",
-    "data font",
-    "glitch font",
-    "futuristic sans-serif",
-    "neon display font",
-    "cybernetic font",
-    "binary code font",
-    "hologram font"
-]
-
-cyber_logo_backgrounds = [
-    "digital grid background",
-    "cyberpunk cityscape background",
-    "neon light tunnel background",
-    "matrix code background",
-    "futuristic circuit board background",
-    "black cyber background",
-    "glowing neon background",
-    "data stream background",
-    "holographic projection background",
-    "synthetic sheen background",
-    "quantum core background",
-    "digital noise background",
-    "binary code background",
-    "neon light trails background",
-    "futuristic glow background"
-]
+    specific_accessories = {
+        "sports": [
+            "professional sports equipment",
+            "team captain's armband",
+            "championship medals",
+            "sports gear bag",
+            "competition accessories",
+            "training equipment",
+            "team insignia",
+            "performance gear",
+            "sports technology",
+            "protective equipment"
+        ],
+        "urban": [
+            "designer backpack",
+            "premium headphones",
+            "luxury watch",
+            "branded sunglasses",
+            "urban style accessories",
+            "street fashion items",
+            "trendy gadgets",
+            "modern tech devices",
+            "urban jewelry",
+            "lifestyle accessories"
+        ],
+        "formal": [
+            "luxury timepiece",
+            "designer cufflinks",
+            "premium tie clip",
+            "leather briefcase",
+            "formal accessories",
+            "elegant pocket square",
+            "premium pen set",
+            "business accessories",
+            "formal jewelry",
+            "executive items"
+        ]
+    }
 }
