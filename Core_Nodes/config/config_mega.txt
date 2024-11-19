@@ -2127,4 +2127,95 @@ specific_accessories = {
         "formal jewelry",
         "executive items"
     ]
+
+# Cyber Logo Theme Elements
+cyber_logo_elements = [
+    "futuristic computer",
+    "advanced robot",
+    "abstract network patterns",
+    "digital circuitry",
+    "glowing holograms",
+    "binary code background",
+    "neon lights",
+    "data streams",
+    "cyberpunk cityscape",
+    "quantum cores",
+    "cybernetic enhancements",
+    "synthetic neural connections",
+    "future tech interfaces",
+    "holographic projections",
+    "virtual reality environments"
+]
+
+cyber_logo_colors = [
+    "neon blue",
+    "neon green",
+    "neon pink",
+    "electric purple",
+    "cyan",
+    "magenta",
+    "glowing white",
+    "digital glow",
+    "futuristic gray",
+    "matrix style code colors",
+    "silver metallic",
+    "gold metallic",
+    "dark blue cyber",
+    "dark green neon",
+    "cyberpunk black"
+]
+
+cyber_logo_effects = [
+    "circuit board texture",
+    "binary data stream",
+    "glowing neon effects",
+    "holographic reflections",
+    "matrix code background",
+    "digital noise",
+    "futuristic glow",
+    "synthetic sheen",
+    "data flow patterns",
+    "cybernetic glows",
+    "quantum core effects",
+    "neon light trails",
+    "glowing circuitry",
+    "binary code animation",
+    "holographic lines"
+]
+
+cyber_logo_fonts = [
+    "digital font",
+    "cyberpunk font",
+    "matrix style font",
+    "future tech font",
+    "holographic font",
+    "neon font",
+    "synthetic font",
+    "quantum font",
+    "data font",
+    "glitch font",
+    "futuristic sans-serif",
+    "neon display font",
+    "cybernetic font",
+    "binary code font",
+    "hologram font"
+]
+
+cyber_logo_backgrounds = [
+    "digital grid background",
+    "cyberpunk cityscape background",
+    "neon light tunnel background",
+    "matrix code background",
+    "futuristic circuit board background",
+    "black cyber background",
+    "glowing neon background",
+    "data stream background",
+    "holographic projection background",
+    "synthetic sheen background",
+    "quantum core background",
+    "digital noise background",
+    "binary code background",
+    "neon light trails background",
+    "futuristic glow background"
+]
 }
