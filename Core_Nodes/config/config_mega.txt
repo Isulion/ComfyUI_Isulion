@@ -1511,13 +1511,7 @@ logo_themes = [
 
 logo_characters = [
     "cute bird", "friendly sloth", "adorable monster", "happy creature",
-    "kawaii animal", "charming mascot", "sweet character", "lovely creature",
-    "playful panda", "cheerful penguin", "smiling fox", "jolly dragon",
-    "gentle unicorn", "merry monkey", "delightful dolphin", "joyful bunny",
-    "cuddly koala", "friendly lion", "happy hamster", "whimsical whale",
-    "charming cat", "lovable puppy", "sweet squirrel", "adorable alpaca",
-    "cute dinosaur", "magical phoenix", "cheerful chick", "merry mouse",
-    "playful platypus", "gentle giraffe", "delightful deer", "jolly jellyfish"
+    "kawaii animal", "charming mascot", "sweet character", "lovely creature"
 ]
 
 logo_decorative_elements = [
@@ -2094,42 +2088,43 @@ specific_clothing = {
         "designer formal wear",
         "exclusive tailored suit"
     ]
-    specific_accessories = {
-        "sports": [
-            "professional sports equipment",
-            "team captain's armband",
-            "championship medals",
-            "sports gear bag",
-            "competition accessories",
-            "training equipment",
-            "team insignia",
-            "performance gear",
-            "sports technology",
-            "protective equipment"
-        ],
-        "urban": [
-            "designer backpack",
-            "premium headphones",
-            "luxury watch",
-            "branded sunglasses",
-            "urban style accessories",
-            "street fashion items",
-            "trendy gadgets",
-            "modern tech devices",
-            "urban jewelry",
-            "lifestyle accessories"
-        ],
-        "formal": [
-            "luxury timepiece",
-            "designer cufflinks",
-            "premium tie clip",
-            "leather briefcase",
-            "formal accessories",
-            "elegant pocket square",
-            "premium pen set",
-            "business accessories",
-            "formal jewelry",
-            "executive items"
-        ]
-    }
+}
+
+specific_accessories = {
+    "sports": [
+        "professional sports equipment",
+        "team captain's armband",
+        "championship medals",
+        "sports gear bag",
+        "competition accessories",
+        "training equipment",
+        "team insignia",
+        "performance gear",
+        "sports technology",
+        "protective equipment"
+    ],
+    "urban": [
+        "designer backpack",
+        "premium headphones",
+        "luxury watch",
+        "branded sunglasses",
+        "urban style accessories",
+        "street fashion items",
+        "trendy gadgets",
+        "modern tech devices",
+        "urban jewelry",
+        "lifestyle accessories"
+    ],
+    "formal": [
+        "luxury timepiece",
+        "designer cufflinks",
+        "premium tie clip",
+        "leather briefcase",
+        "formal accessories",
+        "elegant pocket square",
+        "premium pen set",
+        "business accessories",
+        "formal jewelry",
+        "executive items"
+    ]
 }
