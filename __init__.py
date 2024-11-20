@@ -77,5 +77,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionPromptEnhancer": "Isulion Prompt Enhancer 📝",
     "IsulionNegativePromptGenerator": "Isulion Negative Prompt Generator ⛔",
     "IsulionMegaPromptGenerator": "Isulion Mega Prompt Generator 🎯",
-    "MegaPromptV2": "Mega Prompt V2 🚀",
+    "MegaPromptV2": "Isulion Mega Prompt Generator V2 🚀",
 }
