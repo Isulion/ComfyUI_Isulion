@@ -119,15 +119,14 @@ class MegaPromptV2:
             "optional": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
                 "custom_subject": ("STRING", {"default": "", "multiline": True}),
-                "include_action": (["yes", "no"], {"default": "yes"}),
                 "include_environment": (["yes", "no"], {"default": "yes"}),
                 "include_style": (["yes", "no"], {"default": "yes"}),
                 "include_effects": (["yes", "no"], {"default": "yes"}),
             }
         }
 
-    RETURN_TYPES = ("STRING", "STRING", "STRING", "STRING", "STRING", "STRING", "INT")
-    RETURN_NAMES = ("prompt", "subject", "action", "environment", "style", "effects", "seed")
+    RETURN_TYPES = ("STRING", "STRING", "STRING", "STRING", "STRING", "INT")
+    RETURN_NAMES = ("prompt", "subject", "environment", "style", "effects", "seed")
     FUNCTION = "generate"
     CATEGORY = "Isulion/Core"
 
@@ -138,9 +137,8 @@ class MegaPromptV2:
         return getattr(self, handler_name, self._handle_default_theme)
 
     def generate(self, theme: str, complexity: str, randomize: str, seed: int = 0, 
-                custom_subject: str = "", include_action: str = "yes", 
-                include_environment: str = "yes", include_style: str = "yes", 
-                include_effects: str = "yes") -> Tuple[str, str, str, str, str, str, int]:
+                custom_subject: str = "", include_environment: str = "yes", 
+                include_style: str = "yes", include_effects: str = "yes") -> Tuple[str, str, str, str, str, int]:
         """
         Generate a prompt based on the given parameters.
         """
@@ -161,8 +159,7 @@ class MegaPromptV2:
         # Get theme handler and generate components
         handler = self.get_theme_handler(internal_theme)
         components = handler(
-            custom_subject=custom_subject.strip(),  # Pass stripped custom_subject
-            include_action=include_action,
+            custom_subject=custom_subject.strip(),
             include_environment=include_environment,
             include_style=include_style,
             include_effects=include_effects
@@ -170,7 +167,6 @@ class MegaPromptV2:
 
         # Extract components
         subject_text = components.get("subject", "")
-        action_text = components.get("action", "")
         environment_text = components.get("environment", "")
         style_text = components.get("style", "")
         effects_text = components.get("effects", "")
@@ -179,8 +175,6 @@ class MegaPromptV2:
         prompt_parts = []
         if subject_text:  # Always include subject if it exists
             prompt_parts.append(subject_text)
-        if action_text and include_action == "yes":
-            prompt_parts.append(action_text)
         if environment_text and include_environment == "yes":
             prompt_parts.append(environment_text)
         if style_text and include_style == "yes":
@@ -200,13 +194,17 @@ class MegaPromptV2:
         prompt = f"{prompt}, {detail_enhancement}, {composition_enhancement}, {lighting_enhancement}, {color_enhancement}"
         effects_text = f"{effects_text}, {detail_enhancement}, {composition_enhancement}, {lighting_enhancement}, {color_enhancement}"
 
-        return (prompt, subject_text, action_text, environment_text, style_text, effects_text, seed)
+        return (prompt, subject_text, environment_text, style_text, effects_text, seed)
 
     def _handle_default_theme(self, **kwargs) -> Dict[str, str]:
         """Default theme handler for undefined themes."""
-        components = {}
+        components = {}  # Initialize empty dictionary
         
-        if kwargs.get("include_subject") == "yes":
+        # Use custom subject if provided
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        if custom_subject:
+            components["subject"] = f"professional photograph of {custom_subject}"
+        else:
             if random.random() < 0.7:  # 70% chance for human subject
                 profession = random.choice(self.professions)
                 clothing = random.choice(self.clothing["realistic"])
@@ -215,11 +213,6 @@ class MegaPromptV2:
                 animal = random.choice(self.animals)
                 behavior = random.choice(self.behaviors)
                 components["subject"] = f"professional wildlife photograph of {animal} {behavior}"
-
-        if kwargs.get("include_action") == "yes":
-            action = random.choice(self.actions)
-            composition = random.choice(self.compositions)
-            components["action"] = f"{action}, {composition}"
 
         if kwargs.get("include_environment") == "yes":
             habitat = random.choice(self.habitats)
@@ -236,7 +229,7 @@ class MegaPromptV2:
             effect = random.choice(self.magical_effects["nature"])
             components["effects"] = f"with {effect}"
 
-        return components
+        return components  # Always return the dictionary
 
     def _handle_abstract_theme(self, **kwargs) -> Dict[str, str]:
         """Abstract theme handler with enhanced geometric and color elements."""
@@ -1027,8 +1020,6 @@ class MegaPromptV2:
             style = random.choice(self.interior_styles)
             space = random.choice(self.interior_spaces)
             element = random.choice(self.interior_elements)
-            lighting = random.choice(self.interior_lighting)
-            time = random.choice(self.interior_times)
             
             components["subject"] = (
                 f"professional interior design photograph of a ((luxury {style} {space})) "
@@ -1036,6 +1027,9 @@ class MegaPromptV2:
             )
         
         if kwargs.get("include_environment") == "yes":
+            # Define time and lighting before using them
+            time = random.choice(self.interior_times)
+            lighting = random.choice(self.interior_lighting)
             components["environment"] = (
                 f"during {time} with ((perfect {lighting})), "
                 f"((luxury interior design)), ((perfect exposure)), "
@@ -1230,38 +1224,46 @@ class MegaPromptV2:
 
     def _handle_microscopic_theme(self, **kwargs) -> Dict[str, str]:
         """Microscopic theme handler."""
-        components = {}
+        components = {}  # Initialize empty dictionary
         
-        structure = random.choice(self.microscopic_elements["structures"])
-        process = random.choice(self.microscopic_elements["processes"])
-        environment = random.choice(self.microscopic_elements["environments"])
-        
-        components["subject"] = (
-            f"((electron microscope visualization)) of {structure} during {process}, "
-            f"((scientific detail)), ((molecular precision))"
-        )
-        
+        # Use custom subject if provided
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        if custom_subject:
+            components["subject"] = (
+                f"((electron microscope visualization)) of {custom_subject}, "
+                f"((scientific detail)), ((molecular precision))"
+            )
+        else:
+            structure = random.choice(self.microscopic_elements["structures"])
+            process = random.choice(self.microscopic_elements["processes"])
+            components["subject"] = (
+                f"((electron microscope visualization)) of {structure} during {process}, "
+                f"((scientific detail)), ((molecular precision))"
+            )
+
         if kwargs.get("include_environment") == "yes":
+            # Select environment separately for environment section
+            microscopic_environment = random.choice(self.microscopic_elements["environments"])
             components["environment"] = (
-                f"in a {environment}, ((microscopic scale)), "
+                f"in a {microscopic_environment}, ((microscopic scale)), "
                 f"((cellular detail)), ((quantum effects))"
             )
-        
+
         if kwargs.get("include_style") == "yes":
             components["style"] = (
                 f"((scientific visualization)), ((precise detail)), "
                 f"((molecular clarity)), ((ultra sharp focus)), "
                 f"((microscopic accuracy)), 8k resolution"
             )
-        
+
         if kwargs.get("include_effects") == "yes":
             components["effects"] = (
                 f"with ((quantum effects)), ((molecular interactions)), "
                 f"((microscopic patterns)), ((cellular structures)), "
                 f"((atomic detail)), ((scientific accuracy))"
             )
-        
-        return components
+
+        return components  # Always return the dictionary
 
     def _handle_peaky_blinders_theme(self, **kwargs) -> Dict[str, str]:
         """Peaky Blinders theme handler."""
@@ -1708,6 +1710,7 @@ class MegaPromptV2:
             is_color = random.random() < 0.9  # 90% chance for color
             portrait_style = random.choice(self.binet_portrait_styles)
             
+            # Initialize style_prefix and color_emphasis
             if is_color:
                 color_scheme = random.choice(self.binet_color_schemes)
                 style_prefix = f"sophisticated {portrait_style}"
@@ -1716,7 +1719,6 @@ class MegaPromptV2:
                 style_prefix = f"sophisticated black and white {portrait_style}"
                 color_emphasis = ", ((dramatic black and white)), ((extreme contrast))"
             
-            # Rest of the existing logic...
             # Select a distinguished animal
             animal = random.choice([
                 "wolf", "fox", "lion", "tiger", "leopard", "panther", "lynx",
@@ -1738,7 +1740,7 @@ class MegaPromptV2:
                 celebration = random.choice(self.binet_celebration_elements)
                 
                 components["subject"] = (
-                    f"((anthropomorphic {portrait_style} portrait)) of a ((distinguished {animal})) "  # Added portrait style
+                    f"((anthropomorphic {portrait_style} portrait)) of a ((distinguished {animal})) "
                     f"as a ((noble {character_theme})), "
                     f"((wearing {costume})), ((with {props})), "
                     f"((dressed in {random.choice(self.specific_clothing[clothing_type])})), "
@@ -1752,7 +1754,7 @@ class MegaPromptV2:
                 props = random.choice(self.binet_props_and_weapons)
                 
                 components["subject"] = (
-                    f"((anthropomorphic {portrait_style} portrait)) of a ((distinguished {animal})) "  # Added portrait style
+                    f"((anthropomorphic {portrait_style} portrait)) of a ((distinguished {animal})) "
                     f"as a ((noble {character_theme})), "
                     f"((wearing {costume})), ((with {props})), "
                     f"((dressed in {random.choice(self.specific_clothing[clothing_type])})), "
@@ -1765,12 +1767,20 @@ class MegaPromptV2:
             components["environment"] = environment
         
         if kwargs.get("include_style") == "yes":
-            components["style"] = (
-                f"{style_prefix}, ((masterful composition)), "
-                f"((professional studio lighting)), ((sharp focus)), "
-                f"((photorealistic detail)), ((cinematic framing)), "
-                f"8k resolution{color_emphasis}"
-            )
+            # Only use style_prefix if it was defined (i.e., if custom_subject wasn't used)
+            if custom_subject:
+                components["style"] = (
+                    f"((masterful composition)), ((professional studio lighting)), "
+                    f"((sharp focus)), ((photorealistic detail)), "
+                    f"((cinematic framing)), 8k resolution"
+                )
+            else:
+                components["style"] = (
+                    f"{style_prefix}, ((masterful composition)), "
+                    f"((professional studio lighting)), ((sharp focus)), "
+                    f"((photorealistic detail)), ((cinematic framing)), "
+                    f"8k resolution{color_emphasis}"
+                )
         
         if kwargs.get("include_effects") == "yes":
             components["effects"] = (
