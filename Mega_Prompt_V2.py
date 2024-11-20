@@ -976,10 +976,12 @@ class MegaPromptV2:
         """Food theme handler with enhanced settings."""
         components = {}
         
-        # Select base elements
-        food = random.choice(self.food_types)
+        # Use custom subject if provided, otherwise select random food type
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        food = custom_subject if custom_subject else random.choice(self.food_types)
+        
         style = random.choice(self.food_styles)
-        setting = random.choice(self.food_settings)  # Using new food_settings list
+        setting = random.choice(self.food_settings)
         
         components["subject"] = (
             f"professional food photograph of {style} {food}, "
