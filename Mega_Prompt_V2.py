@@ -121,6 +121,7 @@ class MegaPromptV2:
             "optional": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
                 "custom_subject": ("STRING", {"default": "", "multiline": True}),
+                "custom_location": ("STRING", {"default": "", "multiline": True}),  # Added this line
                 "include_environment": (["yes", "no"], {"default": "yes"}),
                 "include_style": (["yes", "no"], {"default": "yes"}),
                 "include_effects": (["yes", "no"], {"default": "yes"}),
@@ -139,8 +140,10 @@ class MegaPromptV2:
         return getattr(self, handler_name, self._handle_default_theme)
 
     def generate(self, theme: str, complexity: str, randomize: str, seed: int = 0, 
-                custom_subject: str = "", include_environment: str = "yes", 
-                include_style: str = "yes", include_effects: str = "yes") -> Tuple[str, str, str, str, str, int]:
+                custom_subject: str = "", custom_location: str = "",  # Added custom_location parameter
+                include_environment: str = "yes", 
+                include_style: str = "yes", 
+                include_effects: str = "yes") -> Tuple[str, str, str, str, str, int]:
         """
         Generate a prompt based on the given parameters.
         """
@@ -162,6 +165,7 @@ class MegaPromptV2:
         handler = self.get_theme_handler(internal_theme)
         components = handler(
             custom_subject=custom_subject.strip(),
+            custom_location=custom_location.strip(),  # Added custom_location
             include_environment=include_environment,
             include_style=include_style,
             include_effects=include_effects
@@ -689,7 +693,7 @@ class MegaPromptV2:
             components["style"] = (
                 f"((photorealistic)), ((professional photography)), "
                 f"((sharp focus)), ((perfect exposure)), ((high detail)), "
-                f"((color accurate)), ((professional camera)), 8k resolution"
+                f"((color accurate)), ((professional camera)), 8k resolution)"
             )
         
         if kwargs.get("include_effects") == "yes":
@@ -2206,22 +2210,37 @@ class MegaPromptV2:
             "park": ["casual outdoor wear", "picnic outfit", "relaxed ensemble"]
         }
         
-        # Select location and appropriate outfit
-        location = random.choice(list(location_outfits.keys()))
-        outfit = random.choice(location_outfits[location])
-        
-        # Use custom subject if provided
+        # Get custom location and subject
+        custom_location = kwargs.get("custom_location", "").strip()
         custom_subject = kwargs.get("custom_subject", "").strip()
+        
+        # Determine location and outfit
+        if custom_location:
+            # Use the custom location directly if provided
+            location = custom_location
+            # Try to find matching outfits or use generic outfit options
+            matching_locations = [loc for loc in location_outfits.keys() 
+                                if loc.lower() in custom_location.lower()]
+            if matching_locations:
+                outfit = random.choice(location_outfits[matching_locations[0]])
+            else:
+                # Use casual outfit if no specific location match
+                outfit = "stylish casual wear"
+        else:
+            location = random.choice(list(location_outfits.keys()))
+            outfit = random.choice(location_outfits[location])
+        
+        # Build subject component
         if custom_subject:
             components["subject"] = (
-                f"((professional selfie photograph)) of {custom_subject}, "
+                f"((professional selfie photograph)) of {custom_subject} at a ((beautiful {location})), "
                 f"((wearing {outfit})), ((perfect selfie angle)), "
                 f"((flattering pose)), ((authentic expression)), "
                 f"((high-quality smartphone photography))"
             )
         else:
             components["subject"] = (
-                f"((professional selfie photograph)) of ((attractive person)), "
+                f"((professional selfie photograph)) of ((attractive person)) at a ((beautiful {location})), "
                 f"((wearing {outfit})), ((perfect selfie angle)), "
                 f"((flattering pose)), ((authentic expression)), "
                 f"((high-quality smartphone photography))"
@@ -2230,8 +2249,8 @@ class MegaPromptV2:
         if kwargs.get("include_environment") == "yes":
             time = random.choice(["golden hour", "sunset", "bright daylight", "blue hour", "evening"])
             components["environment"] = (
-                f"at a ((beautiful {location})) during {time}, "
-                f"((perfect lighting)), ((instagram-worthy background)), "
+                f"during {time}, ((perfect lighting)), "
+                f"((instagram-worthy {location} background)), "
                 f"((social media aesthetic)), ((lifestyle photography))"
             )
         
