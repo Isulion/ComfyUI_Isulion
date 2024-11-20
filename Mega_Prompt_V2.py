@@ -51,7 +51,8 @@ class MegaPromptV2:
             "⚙️ Steampunk Cities": "steampunk",
             "🌊 Underwater Civilization": "underwater",
             "🏘️ Village Of the World": "village",
-            "🧸 Vintage Anthropomorphic": "vintage_anthro"
+            "🧸 Vintage Anthropomorphic": "vintage_anthro",
+            "📱 Selfie": "selfie",  # Add this line
         }
 
     def load_config(self, config_path: str) -> None:
@@ -78,6 +79,7 @@ class MegaPromptV2:
             "required": {
                 "theme": ([
                     "🎲 Dynamic Random",  # Keeps Random at top
+                    "📱 Selfie",  # Add this line
                     "🎨 Abstract",
                     "📺 Animation Cartoon", 
                     "🎌 Anime",
@@ -2182,6 +2184,71 @@ class MegaPromptV2:
                 f"with ((magical {magical_effect})), ((twinkling lights)), "
                 f"((soft snowfall)), ((warm glow)), ((festive sparkle)), "
                 f"((holiday magic)), ((Christmas wonder))"
+            )
+        
+        return components
+
+    def _handle_selfie_theme(self, **kwargs) -> Dict[str, str]:
+        """Selfie theme handler with location-appropriate styling."""
+        components = {}
+        
+        # Define location-based clothing styles
+        location_outfits = {
+            "beach": ["swimsuit", "beach cover-up", "summer dress", "board shorts", "resort wear"],
+            "gym": ["workout outfit", "athletic wear", "sports bra and leggings", "gym shorts and tank top"],
+            "cafe": ["casual chic outfit", "trendy streetwear", "fashionable ensemble", "smart casual attire"],
+            "restaurant": ["elegant dress", "formal suit", "cocktail attire", "upscale outfit"],
+            "hiking trail": ["hiking gear", "outdoor activewear", "trail outfit", "adventure wear"],
+            "tourist spot": ["comfortable tourist outfit", "casual travel wear", "sightseeing attire"],
+            "shopping mall": ["trendy casual wear", "shopping outfit", "fashion-forward ensemble"],
+            "party": ["party dress", "club wear", "evening attire", "festive outfit"],
+            "office": ["business attire", "professional suit", "corporate wear", "business casual"],
+            "park": ["casual outdoor wear", "picnic outfit", "relaxed ensemble"]
+        }
+        
+        # Select location and appropriate outfit
+        location = random.choice(list(location_outfits.keys()))
+        outfit = random.choice(location_outfits[location])
+        
+        # Use custom subject if provided
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        if custom_subject:
+            components["subject"] = (
+                f"((professional selfie photograph)) of {custom_subject}, "
+                f"((wearing {outfit})), ((perfect selfie angle)), "
+                f"((flattering pose)), ((authentic expression)), "
+                f"((high-quality smartphone photography))"
+            )
+        else:
+            components["subject"] = (
+                f"((professional selfie photograph)) of ((attractive person)), "
+                f"((wearing {outfit})), ((perfect selfie angle)), "
+                f"((flattering pose)), ((authentic expression)), "
+                f"((high-quality smartphone photography))"
+            )
+        
+        if kwargs.get("include_environment") == "yes":
+            time = random.choice(["golden hour", "sunset", "bright daylight", "blue hour", "evening"])
+            components["environment"] = (
+                f"at a ((beautiful {location})) during {time}, "
+                f"((perfect lighting)), ((instagram-worthy background)), "
+                f"((social media aesthetic)), ((lifestyle photography))"
+            )
+        
+        if kwargs.get("include_style") == "yes":
+            components["style"] = (
+                f"((social media photography)), ((smartphone aesthetic)), "
+                f"((perfect exposure)), ((authentic lifestyle)), "
+                f"((trendy composition)), ((influencer style)), "
+                f"((natural looking)), ((candid moment)), 8k resolution"
+            )
+        
+        if kwargs.get("include_effects") == "yes":
+            components["effects"] = (
+                f"with ((natural bokeh)), ((soft skin glow)), "
+                f"((perfect lighting)), ((subtle vignette)), "
+                f"((instagram filter)), ((social media finish)), "
+                f"((lifestyle colors)), ((authentic atmosphere))"
             )
         
         return components
