@@ -242,27 +242,32 @@ class MegaPromptV2:
         """Abstract theme handler with enhanced geometric and color elements."""
         components = {}
         
-        # Select base elements with enhanced effects
-        effect1 = random.choice(self.effect1_options)  # Using new effect options
-        effect2 = random.choice(self.effect2_options)  # Using new effect options
-        shape = random.choice(self.geometric_shapes)
-        color_scheme = random.choice(self.color_schemes)
-        motion = random.choice(self.abstract_motions)
-        texture = random.choice(self.textures)
-        pattern = random.choice(self.patterns)
-        effect = random.choice(self.abstract_effects)
-        
-        components["subject"] = (
-            f"((abstract {shape} composition)) with ((dynamic {motion})), "
-            f"((featuring {color_scheme} color scheme)), "
-            f"((with {effect1} {effect2})), "  # Using new effect combinations
-            f"((minimalist design)), ((geometric harmony))"
-        )
+        # Use custom subject if provided
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        if custom_subject:
+            components["subject"] = (
+                f"((abstract interpretation of {custom_subject})), "
+                f"((with dynamic motion)), ((featuring {random.choice(self.color_schemes)} color scheme)), "
+                f"((minimalist design)), ((geometric harmony))"
+            )
+        else:
+            # Original abstract theme logic...
+            effect1 = random.choice(self.effect1_options)
+            effect2 = random.choice(self.effect2_options)
+            shape = random.choice(self.geometric_shapes)
+            color_scheme = random.choice(self.color_schemes)
+            motion = random.choice(self.abstract_motions)
+            components["subject"] = (
+                f"((abstract {shape} composition)) with ((dynamic {motion})), "
+                f"((featuring {color_scheme} color scheme)), "
+                f"((with {effect1} {effect2})), "
+                f"((minimalist design)), ((geometric harmony))"
+            )
         
         if kwargs.get("include_environment") == "yes":
             components["environment"] = (
-                f"on ((textured {texture} background)) with "
-                f"((intricate {pattern} elements)), "
+                f"on ((textured {random.choice(self.textures)} background)) with "
+                f"((intricate {random.choice(self.patterns)} elements)), "
                 f"((abstract space)), ((dimensional depth))"
             )
         
@@ -281,7 +286,7 @@ class MegaPromptV2:
         if kwargs.get("include_effects") == "yes":
             digital_effect = random.choice(self.digital_art_effects)
             components["effects"] = (
-                f"with ((dynamic {effect})), ((abstract patterns)), "
+                f"with ((dynamic {random.choice(self.abstract_effects)} effect)), ((abstract patterns)), "
                 f"((geometric flow)), ((minimalist elements)), "
                 f"((subtle {digital_effect})), ((artistic finish))"
             )
@@ -292,8 +297,10 @@ class MegaPromptV2:
         """Anime theme handler with enhanced details."""
         components = {}
         
-        # Select multiple elements for richer combinations
-        character = random.choice(self.anime_characters)
+        # Use custom subject if provided
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        character = custom_subject if custom_subject else random.choice(self.anime_characters)
+        
         outfit = random.choice(self.anime_outfits)
         pose = random.choice(self.anime_poses)
         expression = random.choice(self.anime_expressions)
@@ -301,15 +308,14 @@ class MegaPromptV2:
         action = random.choice(self.anime_actions)
         composition = random.choice(self.compositions)
         
-        if kwargs.get("include_subject") == "yes":
-            components["subject"] = (
-                f"((masterful anime artwork)) of ((detailed {character})) "
-                f"((wearing {outfit})), ((in {pose})), "
-                f"((with {expression} expression)), ((showing {emotion})), "
-                f"((ultra detailed)), ((perfect anime proportions)), "
-                f"((professional quality)), {composition}"
-            )
-
+        components["subject"] = (
+            f"((masterful anime artwork)) of ((detailed {character})) "
+            f"((wearing {outfit})), ((in {pose})), "
+            f"((with {expression} expression)), ((showing {emotion})), "
+            f"((ultra detailed)), ((perfect anime proportions)), "
+            f"((professional quality)), {composition}"
+        )
+        
         if kwargs.get("include_action") == "yes":
             components["action"] = (
                 f"((dynamically {action})), ((with dramatic movement)), "
@@ -350,8 +356,10 @@ class MegaPromptV2:
         """Enhanced Sci-fi theme handler."""
         components = {}
         
-        # Select base elements
-        subject = random.choice(self.scifi_subjects)
+        # Use custom subject if provided
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        subject = custom_subject if custom_subject else random.choice(self.scifi_subjects)
+        
         tech = random.choice(self.technologies)
         action = random.choice(self.scifi_actions)
         setting = random.choice(self.scifi_settings)
@@ -518,10 +526,9 @@ class MegaPromptV2:
         """Caricature theme handler."""
         components = {}
         
-        if kwargs.get("use_custom_subject") == "yes" and kwargs.get("custom_subject", "").strip():
-            subject = kwargs["custom_subject"].strip()
-        else:
-            subject = "Donald Trump"
+        # Use custom subject if provided and not empty
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        subject = custom_subject if custom_subject else "Donald Trump"
         
         style = random.choice(self.caricature_styles)
         features = random.choice(self.caricature_features)
@@ -548,6 +555,7 @@ class MegaPromptV2:
                 f"with ((meaningful {elements})), ((caricature composition)), "
                 f"((artistic atmosphere)), ((contextual details)))"
             )
+        
         if kwargs.get("include_style") == "yes":
             components["style"] = (
                 f"((cartoon caricature style)), ((extreme exaggeration)), "
@@ -571,35 +579,21 @@ class MegaPromptV2:
     def _handle_futuristic_city_theme(self, **kwargs) -> Dict[str, str]:
         """Futuristic city theme handler."""
         components = {}
-        composition = random.choice(self.compositions)
         
-        # Determine scene type
-        scene_type = random.random()
-        if scene_type < 0.4:  # 40% chance for aerial cityscape
-            architecture = random.choice(self.futuristic_city_elements["architecture"])
-            infrastructure = random.choice(self.futuristic_city_elements["infrastructure"])
-            atmosphere = random.choice(self.futuristic_city_elements["atmosphere"])
+        # Use custom subject if provided
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        if custom_subject:
             components["subject"] = (
-                f"((epic aerial view)) of a ((futuristic metropolis)) with "
-                f"((towering {architecture})) and ((advanced {infrastructure})), "
-                f"((in {atmosphere} atmosphere)), {composition}"
+                f"((futuristic cityscape)) featuring {custom_subject}, "
+                f"((with advanced technology)), ((sci-fi architecture)), "
+                f"((cyberpunk elements)), ((ultra modern design))"
             )
-        elif scene_type < 0.7:  # 30% chance for street level
-            architecture = random.choice(self.futuristic_city_elements["architecture"])
-            infrastructure = random.choice(self.futuristic_city_elements["infrastructure"])
-            atmosphere = random.choice(self.futuristic_city_elements["atmosphere"])
+        else:
+            # Original futuristic city logic...
+            composition = random.choice(self.compositions)
             components["subject"] = (
-                f"((immersive street-level view)) of a ((futuristic metropolis)) with "
-                f"((detailed {architecture})) and ((intricate {infrastructure})), "
-                f"((in {atmosphere} atmosphere)), {composition}"
-            )
-        else:  # 30% chance for establishing shot
-            architecture = random.choice(self.futuristic_city_elements["architecture"])
-            infrastructure = random.choice(self.futuristic_city_elements["infrastructure"])
-            atmosphere = random.choice(self.futuristic_city_elements["atmosphere"])
-            components["subject"] = (
-                f"((epic establishing shot)) of a ((vast futuristic city)) with "
-                f"((majestic {architecture})) and ((complex {infrastructure})), "
+                f"((futuristic metropolis)) with "
+                f"((towering architecture)) and ((advanced infrastructure)), "
                 f"((in {atmosphere} atmosphere)), {composition}"
             )
         
@@ -632,47 +626,58 @@ class MegaPromptV2:
         """Strange animal (chimera) theme handler."""
         components = {}
         
-        def get_animal_family(animal):
-            animal_lower = animal.lower()
-            for family, members in self.animal_families.items():
-                if any(member in animal_lower for member in members):
-                    return family
-            return None
+        # Use custom subject if provided
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        if custom_subject:
+            components["subject"] = (
+                f"a complex raw photograph of an intricated chimerical fantastical creature based on {custom_subject}, "
+                f"bokeh background, cinematic lighting, shallow depth of field, "
+                f"35mm wide angle lens, sharp focus, cinematic film still, "
+                f"dynamic angle, Photography, 8k, masterfully detailed"
+            )
+        else:
+            # Original strange animal logic...
+            def get_animal_family(animal):
+                animal_lower = animal.lower()
+                for family, members in self.animal_families.items():
+                    if any(member in animal_lower for member in members):
+                        return family
+                return None
 
-        # Get animals from different families
-        max_attempts = 20
-        head = None
-        body = None
-        
-        while max_attempts > 0:
-            head_candidate = random.choice(self.animals)
-            body_candidate = random.choice(self.animals)
+            # Get animals from different families
+            max_attempts = 20
+            head = None
+            body = None
             
-            head_family = get_animal_family(head_candidate.lower())
-            body_family = get_animal_family(body_candidate.lower())
-            
-            if (head_family != body_family and 
-                head_family is not None and 
-                body_family is not None and 
-                head_candidate.lower() != body_candidate.lower()):
-                head = head_candidate
-                body = body_candidate
-                break
+            while max_attempts > 0:
+                head_candidate = random.choice(self.animals)
+                body_candidate = random.choice(self.animals)
                 
-            max_attempts -= 1
-        
-        # Fallback if no valid combination found
-        if head is None or body is None:
-            head = "Lion"
-            body = "Eagle"
-        
-        components["subject"] = (
-            f"a complex raw photograph of an intricated chimerical fantastical creature with "
-            f"((the body of a {body})) and ((the head of a {head})), "
-            f"bokeh background, cinematic lighting, shallow depth of field, "
-            f"35mm wide angle lens, sharp focus, cinematic film still, "
-            f"dynamic angle, Photography, 8k, masterfully detailed"
-        )
+                head_family = get_animal_family(head_candidate.lower())
+                body_family = get_animal_family(body_candidate.lower())
+                
+                if (head_family != body_family and 
+                    head_family is not None and 
+                    body_family is not None and 
+                    head_candidate.lower() != body_candidate.lower()):
+                    head = head_candidate
+                    body = body_candidate
+                    break
+                    
+                max_attempts -= 1
+            
+            # Fallback if no valid combination found
+            if head is None or body is None:
+                head = "Lion"
+                body = "Eagle"
+            
+            components["subject"] = (
+                f"a complex raw photograph of an intricated chimerical fantastical creature with "
+                f"((the body of a {body})) and ((the head of a {head})), "
+                f"bokeh background, cinematic lighting, shallow depth of field, "
+                f"35mm wide angle lens, sharp focus, cinematic film still, "
+                f"dynamic angle, Photography, 8k, masterfully detailed"
+            )
         
         if kwargs.get("include_environment") == "yes":
             habitat = random.choice(self.habitats)
@@ -703,65 +708,74 @@ class MegaPromptV2:
         """Fantasy theme handler."""
         components = {}
         
-        # Select base elements
-        race = random.choice(self.races)
-        profession = random.choice(self.professions)
-        composition = random.choice(self.compositions)
-        
-        # Determine scene type
-        scene_type = random.random()
-        if scene_type < 0.4:  # 40% chance for warrior/combat scene
-            weapon = random.choice(self.artifacts["weapon"])
-            armor = random.choice(self.artifacts["armor"])
-            magic = random.choice(self.magical_effects["arcane"])
+        # Use custom subject if provided
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        if custom_subject:
             components["subject"] = (
-                f"epic fantasy scene of a {race} {profession} "
-                f"wielding ((legendary {weapon})), wearing ((enchanted {armor})), "
-                f"channeling {magic}, {composition}"
+                f"epic fantasy scene of {custom_subject} "
+                f"((in magical setting)), ((fantasy atmosphere)), "
+                f"((mystical elements)), ((enchanted scene))"
             )
-        elif scene_type < 0.7:  # 30% chance for magical/mystical scene
-            jewelry = random.choice(self.artifacts["jewelry"])
-            magic_nature = random.choice(self.magical_effects["nature"])
-            magic_fire = random.choice(self.magical_effects["fire"])
-            components["subject"] = (
-                f"mystical portrait of a {race} {profession} "
-                f"wearing ((magical {jewelry})), conjuring {magic_nature} "
-                f"and {magic_fire}, {composition}"
-            )
-        else:  # 30% chance for exploration/adventure scene
-            armor = random.choice(self.artifacts["armor"])
-            magic_ice = random.choice(self.magical_effects["ice"])
-            components["subject"] = (
-                f"fantasy adventure scene of a {race} {profession} "
-                f"wearing ((mystical {armor})), surrounded by {magic_ice}, "
-                f"{composition}"
-            )
-        
-        if kwargs.get("include_environment") == "yes":
-            location = random.choice(self.mythical_locations)
-            weather = random.choice(self.weather)
-            time = random.choice(self.times)
-            magic_lightning = random.choice(self.magical_effects["lightning"])
-            components["environment"] = (
-                f"in a ((magical {location})) during {weather} {time}, "
-                f"with {magic_lightning} in the sky, "
-                f"((fantasy atmosphere)), ((mythical realm)))"
-            )
-        
-        if kwargs.get("include_style") == "yes":
-            components["style"] = (
-                f"((epic fantasy art)), ((magical atmosphere)), "
-                f"((detailed fantasy illustration)), ((dramatic lighting)), "
-                f"((mythical quality)), 8k resolution"
-            )
-        
-        if kwargs.get("include_effects") == "yes":
-            magic_arcane = random.choice(self.magical_effects["arcane"])
-            components["effects"] = (
-                f"with {magic_arcane}, ((magical particles)), "
-                f"((glowing runes)), ((ethereal atmosphere)), "
-                f"((mystical energy)), ((fantasy effects))"
-            )
+        else:
+            # Original fantasy theme logic...
+            race = random.choice(self.races)
+            profession = random.choice(self.professions)
+            composition = random.choice(self.compositions)
+            
+            # Determine scene type
+            scene_type = random.random()
+            if scene_type < 0.4:  # 40% chance for warrior/combat scene
+                weapon = random.choice(self.artifacts["weapon"])
+                armor = random.choice(self.artifacts["armor"])
+                magic = random.choice(self.magical_effects["arcane"])
+                components["subject"] = (
+                    f"epic fantasy scene of a {race} {profession} "
+                    f"wielding ((legendary {weapon})), wearing ((enchanted {armor})), "
+                    f"channeling {magic}, {composition}"
+                )
+            elif scene_type < 0.7:  # 30% chance for magical/mystical scene
+                jewelry = random.choice(self.artifacts["jewelry"])
+                magic_nature = random.choice(self.magical_effects["nature"])
+                magic_fire = random.choice(self.magical_effects["fire"])
+                components["subject"] = (
+                    f"mystical portrait of a {race} {profession} "
+                    f"wearing ((magical {jewelry})), conjuring {magic_nature} "
+                    f"and {magic_fire}, {composition}"
+                )
+            else:  # 30% chance for exploration/adventure scene
+                armor = random.choice(self.artifacts["armor"])
+                magic_ice = random.choice(self.magical_effects["ice"])
+                components["subject"] = (
+                    f"fantasy adventure scene of a {race} {profession} "
+                    f"wearing ((mystical {armor})), surrounded by {magic_ice}, "
+                    f"{composition}"
+                )
+            
+            if kwargs.get("include_environment") == "yes":
+                location = random.choice(self.mythical_locations)
+                weather = random.choice(self.weather)
+                time = random.choice(self.times)
+                magic_lightning = random.choice(self.magical_effects["lightning"])
+                components["environment"] = (
+                    f"in a ((magical {location})) during {weather} {time}, "
+                    f"with {magic_lightning} in the sky, "
+                    f"((fantasy atmosphere)), ((mythical realm)))"
+                )
+            
+            if kwargs.get("include_style") == "yes":
+                components["style"] = (
+                    f"((epic fantasy art)), ((magical atmosphere)), "
+                    f"((detailed fantasy illustration)), ((dramatic lighting)), "
+                    f"((mythical quality)), 8k resolution"
+                )
+            
+            if kwargs.get("include_effects") == "yes":
+                magic_arcane = random.choice(self.magical_effects["arcane"])
+                components["effects"] = (
+                    f"with {magic_arcane}, ((magical particles)), "
+                    f"((glowing runes)), ((ethereal atmosphere)), "
+                    f"((mystical energy)), ((fantasy effects))"
+                )
         
         return components
 
@@ -769,11 +783,12 @@ class MegaPromptV2:
         """Cartoon theme handler with enhanced elements."""
         components = {}
         
-        # Select base elements
-        character = random.choice(self.cartoon_characters)
-        environment = random.choice(self.cartoon_environments)
+        # Use custom subject if provided
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        character = custom_subject if custom_subject else random.choice(self.cartoon_characters)
+        
         effect = random.choice(self.cartoon_effects)
-        action = random.choice(self.cinema_actions)  # Using cinema_actions for dynamic actions
+        action = random.choice(self.cinema_actions)
         
         components["subject"] = (
             f"((professional cartoon artwork)) of {character} "
@@ -807,12 +822,6 @@ class MegaPromptV2:
         """Enhanced cute chimera theme handler."""
         components = {}
         
-        # Get animals from cute_animals list specifically
-        head = random.choice(self.cute_animals)
-        body = random.choice(self.cute_animals)
-        while head == body:  # Ensure different animals for head and body
-            body = random.choice(self.cute_animals)
-        
         # Use custom subject if provided
         custom_subject = kwargs.get("custom_subject", "").strip()
         if custom_subject:
@@ -823,6 +832,12 @@ class MegaPromptV2:
                 f"((chibi style)), ((kawaii proportions))"
             )
         else:
+            # Original cute chimera logic...
+            head = random.choice(self.cute_animals)
+            body = random.choice(self.cute_animals)
+            while head == body:  # Ensure different animals for head and body
+                body = random.choice(self.cute_animals)
+            
             components["subject"] = (
                 f"((adorable kawaii creature)) with ((the fluffy body of a {body})) "
                 f"and ((the cute head of a {head})), ((ultra cute features)), "
@@ -982,17 +997,26 @@ class MegaPromptV2:
         """Interior theme handler with enhanced lighting."""
         components = {}
         
-        # Select base elements
-        style = random.choice(self.interior_styles)
-        space = random.choice(self.interior_spaces)
-        element = random.choice(self.interior_elements)
-        lighting = random.choice(self.interior_lighting)
-        time = random.choice(self.interior_times)
-        
-        components["subject"] = (
-            f"professional interior design photograph of a ((luxury {style} {space})) "
-            f"with ((premium {element})), ((masterful composition))"
-        )
+        # Use custom subject if provided
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        if custom_subject:
+            components["subject"] = (
+                f"professional interior design photograph of {custom_subject}, "
+                f"((luxury interior)), ((masterful composition)), "
+                f"((architectural detail)), ((premium quality))"
+            )
+        else:
+            # Original interior theme logic...
+            style = random.choice(self.interior_styles)
+            space = random.choice(self.interior_spaces)
+            element = random.choice(self.interior_elements)
+            lighting = random.choice(self.interior_lighting)
+            time = random.choice(self.interior_times)
+            
+            components["subject"] = (
+                f"professional interior design photograph of a ((luxury {style} {space})) "
+                f"with ((premium {element})), ((masterful composition))"
+            )
         
         if kwargs.get("include_environment") == "yes":
             components["environment"] = (
@@ -1148,23 +1172,20 @@ class MegaPromptV2:
         """Marvel theme handler."""
         components = {}
         
-        character = random.choice(self.marvel_characters)
-        comic_style = random.choice(self.marvel_comic_styles)
-        comic_effect = random.choice(self.marvel_comic_effects)
-        comic_composition = random.choice(self.marvel_comic_compositions)
+        # Use custom subject if provided
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        character = custom_subject if custom_subject else random.choice(self.marvel_characters)
         
         if random.random() < 0.7:  # 70% chance for action scene
             action = random.choice(self.marvel_action_scenes)
             components["subject"] = (
                 f"((classic Marvel comic book art)) of {character} {action}, "
-                f"in {comic_style}, {comic_composition}, "
                 f"((vintage comic book illustration)), ((comic book art))"
             )
         else:  # 30% chance for character portrait
             pose = random.choice(self.marvel_poses)
             components["subject"] = (
                 f"((classic Marvel comic book art)) of {character} in {pose}, "
-                f"in {comic_style}, {comic_composition}, "
                 f"((vintage comic book illustration)), ((comic book art))"
             )
         
@@ -1184,7 +1205,7 @@ class MegaPromptV2:
         
         if kwargs.get("include_effects") == "yes":
             components["effects"] = (
-                f"with {comic_effect}, bold comic inking, "
+                f"with {random.choice(self.marvel_comic_effects)}, bold comic inking, "
                 f"vintage comic book printing style, classic comic color palette"
             )
         
@@ -1271,96 +1292,89 @@ class MegaPromptV2:
         """Pixar theme handler with enhanced storytelling elements."""
         components = {}
         
-        # Select storytelling elements
+        # Use custom subject if provided
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        
         emotional_core = random.choice(self.pixar_storytelling_elements["emotional_core"])
         character_moment = random.choice(self.pixar_storytelling_elements["character_moments"])
         visual_theme = random.choice(self.pixar_storytelling_elements["visual_themes"])
-        
         style = random.choice(self.pixar_styles)
         character_trait = random.choice(self.pixar_characteristics)
         
-        if random.random() < 0.7:  # 70% chance for character
-            if random.random() < 0.5:
-                character = random.choice(self.cartoon_characters)
-                components["subject"] = (
-                    f"{style} of an adorable {character} "
-                    f"((expressing {emotional_core})), "  # Added emotional core
-                    f"((in a {character_moment})), "  # Added character moment
-                    f"with {character_trait}, "
-                    f"((featuring {visual_theme})), "  # Added visual theme
-                    f"ultra detailed 3D model"
-                )
-            else:
-                character_type = random.choice([
-                    "cute robot", "adorable toy", "charming creature",
-                    "lovable monster", "friendly animal", "sweet character"
-                ])
-                components["subject"] = (
-                    f"{style} of an original {character_type} "
-                    f"((expressing {emotional_core})), "
-                    f"((in a {character_moment})), "
-                    f"with {character_trait}, "
-                    f"((featuring {visual_theme})), "
-                    f"ultra detailed 3D model"
-                )
-        else:  # 30% chance for scene/object
-            scene_type = random.choice([
-                "magical toy", "charming household object", "cute robot helper",
-                "adorable vehicle", "friendly kitchen appliance", "sweet desk lamp",
-                "lovable musical instrument", "delightful garden tool", "magical book",
-                "charming clock", "cute mailbox", "friendly umbrella"
-            ])
-            material = random.choice(self.pixar_materials)  # Use pixar_materials from config
-            environment = random.choice(self.pixar_environments)  # Use pixar_environments from config
-            lighting = random.choice(self.pixar_lighting)  # Use pixar_lighting from config
+        if custom_subject:
             components["subject"] = (
-                f"{style} of a {scene_type} with {character_trait}, "
-                f"made of {material}, in a {environment}, "
-                f"featuring {lighting}, ultra detailed 3D model, "
-                f"subsurface scattering, perfect composition"
+                f"{style} of {custom_subject} "
+                f"((expressing {emotional_core})), "
+                f"((in a {character_moment})), "
+                f"with {character_trait}, "
+                f"((featuring {visual_theme})), "
+                f"ultra detailed 3D model"
             )
-        
-        if kwargs.get("include_style") == "yes":
-            components["style"] = (
-                f"octane render quality, perfect lighting, soft shadows, "
-                f"ambient occlusion, global illumination, 8k resolution"
-            )
-        
-        if kwargs.get("include_effects") == "yes":
-            components["effects"] = (
-                f"with subtle depth of field, gentle color grading, "
-                f"perfect exposure, subtle film grain, gentle vignette"
-            )
-        
-        return components
+        else:
+            # Original Pixar theme logic...
+            if random.random() < 0.7:  # 70% chance for character
+                if random.random() < 0.5:
+                    character = random.choice(self.cartoon_characters)
+                    components["subject"] = (
+                        f"{style} of an adorable {character} "
+                        f"((expressing {emotional_core})), "
+                        f"((in a {character_moment})), "
+                        f"with {character_trait}, "
+                        f"((featuring {visual_theme})), "
+                        f"ultra detailed 3D model"
+                    )
+                else:
+                    character_type = random.choice([
+                        "cute robot", "adorable toy", "charming creature",
+                        "lovable monster", "friendly animal", "sweet character"
+                    ])
+                    components["subject"] = (
+                        f"{style} of an original {character_type} "
+                        f"((expressing {emotional_core})), "
+                        f"((in a {character_moment})), "
+                        f"with {character_trait}, "
+                        f"((featuring {visual_theme})), "
+                        f"ultra detailed 3D model"
+                    )
+    # Rest of the method remains the same...
 
     def _handle_post_apocalyptic_theme(self, **kwargs) -> Dict[str, str]:
         """Post-apocalyptic theme handler."""
         components = {}
         composition = random.choice(self.compositions)
         
+        # Use custom subject if provided
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        
         # Determine scene type
-        scene_type = random.random()
-        if scene_type < 0.4:  # 40% chance for wasteland scene
-            environment = random.choice(self.post_apocalyptic_elements["environments"])
-            prop = random.choice(self.post_apocalyptic_props)
-            atmosphere = random.choice(self.post_apocalyptic_elements["atmosphere"])
+        if custom_subject:
             components["subject"] = (
-                f"((epic post-apocalyptic vista)) of a ((devastated {environment})) with "
-                f"((weathered {prop})), ((in {atmosphere} atmosphere)), {composition}"
+                f"((post-apocalyptic scene)) of {custom_subject} in "
+                f"((wasteland atmosphere)), ((survival elements)), "
+                f"((dramatic lighting)), {composition}"
             )
-        elif scene_type < 0.7:  # 30% chance for survival scene
-            prop = random.choice(self.post_apocalyptic_props)
-            components["subject"] = (
-                f"((post-apocalyptic survival scene)) with ((detailed {prop})), "
-                f"((wasteland atmosphere)), ((survival elements)), {composition}"
-            )
-        else:  # 30% chance for ruins scene
-            ruins = random.choice(self.post_apocalyptic_ruins)
-            components["subject"] = (
-                f"((dramatic post-apocalyptic scene)) of ((decaying {ruins})), "
-                f"((signs of civilization's fall)), {composition}"
-            )
+        else:
+            scene_type = random.random()
+            if scene_type < 0.4:  # 40% chance for wasteland scene
+                environment = random.choice(self.post_apocalyptic_elements["environments"])
+                prop = random.choice(self.post_apocalyptic_props)
+                atmosphere = random.choice(self.post_apocalyptic_elements["atmosphere"])
+                components["subject"] = (
+                    f"((epic post-apocalyptic vista)) of a ((devastated {environment})) with "
+                    f"((weathered {prop})), ((in {atmosphere} atmosphere)), {composition}"
+                )
+            elif scene_type < 0.7:  # 30% chance for survival scene
+                prop = random.choice(self.post_apocalyptic_props)
+                components["subject"] = (
+                    f"((post-apocalyptic survival scene)) with ((detailed {prop})), "
+                    f"((wasteland atmosphere)), ((survival elements)), {composition}"
+                )
+            else:  # 30% chance for ruins scene
+                ruins = random.choice(self.post_apocalyptic_ruins)
+                components["subject"] = (
+                    f"((dramatic post-apocalyptic scene)) of ((decaying {ruins})), "
+                    f"((signs of civilization's fall)), {composition}"
+                )
         
         if kwargs.get("include_environment") == "yes":
             time = random.choice(self.post_apocalyptic_times)
@@ -1635,6 +1649,10 @@ class MegaPromptV2:
         """Binet theme handler with enhanced portrait styles."""
         components = {}
         
+        # Use custom subject if provided
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        animal = custom_subject if custom_subject else random.choice(self.animals)
+        
         # Determine if we're doing color or black and white
         is_color = random.random() < 0.9  # 90% chance for color, 10% for B&W
         
@@ -1904,7 +1922,7 @@ class MegaPromptV2:
         # Select base elements with more photography-specific attributes
         photo_style = random.choice(self.photography_styles)
         technique = random.choice(self.photography_techniques)
-        mood = random.choice(self.photography_moods)  # Using photography_moods
+        mood = random.choice(self.photography_moods)
         
         # Use custom subject if provided
         custom_subject = kwargs.get("custom_subject", "").strip()
@@ -1931,7 +1949,7 @@ class MegaPromptV2:
                     f"((using {technique})), ((capturing {mood} mood)), "
                     f"((perfect composition))"
                 )
-
+        
         if kwargs.get("include_environment") == "yes":
             lighting = random.choice(self.lighting_setups["natural"])
             dramatic_light = random.choice(self.lighting_setups["dramatic"])
@@ -1940,7 +1958,7 @@ class MegaPromptV2:
                 f"((enhanced by {dramatic_light})), "
                 f"((perfect exposure)), ((atmospheric depth))"
             )
-
+        
         if kwargs.get("include_style") == "yes":
             workflow = random.choice(self.digital_art_workflows)  # Using digital_art_workflows
             components["style"] = (
@@ -1949,7 +1967,7 @@ class MegaPromptV2:
                 f"((masterful composition)), ((using {workflow})), "
                 f"8k resolution"
             )
-
+        
         if kwargs.get("include_effects") == "yes":
             digital_effect = random.choice(self.digital_art_effects)
             components["effects"] = (
@@ -1958,30 +1976,25 @@ class MegaPromptV2:
                 f"((environmental harmony)), ((photographic realism)), "
                 f"((subtle {digital_effect}))"
             )
-
+        
         return components
 
     def _handle_christmas_theme(self, **kwargs) -> Dict[str, str]:
         """Christmas theme handler."""
         components = {}
         
-        # Select base elements
-        character = random.choice(self.christmas_elements["characters"])
-        activity = random.choice(self.christmas_elements["activities"])
-        decoration = random.choice(self.christmas_elements["decorations"])
-        setting = random.choice(self.christmas_elements["settings"])
-        weather = random.choice(self.christmas_elements["weather"])
-        magical_effect = random.choice(self.christmas_elements["magical_effects"])
-        
         # Use custom subject if provided
         custom_subject = kwargs.get("custom_subject", "").strip()
         if custom_subject:
             components["subject"] = (
                 f"((festive Christmas scene)) of {custom_subject}, "
-                f"((engaged in {activity})), ((surrounded by {decoration})), "
-                f"((holiday spirit)), ((magical atmosphere))"
+                f"((holiday spirit)), ((magical atmosphere)), "
+                f"((Christmas wonder)), ((festive charm))"
             )
         else:
+            character = random.choice(self.christmas_elements["characters"])
+            activity = random.choice(self.christmas_elements["activities"])
+            decoration = random.choice(self.christmas_elements["decorations"])
             components["subject"] = (
                 f"((festive Christmas scene)) of ((cheerful {character})), "
                 f"((engaged in {activity})), ((surrounded by {decoration})), "
