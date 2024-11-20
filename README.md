@@ -9,7 +9,7 @@ The Mega Prompt Generator is a sophisticated ComfyUI node that generates detaile
 
 ### Quick Start
 
-Use [ComfyUI Manager](https://github.com/ltdrdata/ComfyUI-Manager), got to "Custome Nodes Manager" and search  "Isulion" !
+Use [ComfyUI Manager](https://github.com/ltdrdata/ComfyUI-Manager), got to "<span style="color: #00ff00">Custome Nodes Manager</span>" and search  "<span style="color: #00ff00">Isulion</span>" !
 
 ### Old install
 
@@ -25,75 +25,106 @@ git clone https://github.com/Isulion/ComfyUI_Isulion
 
 ### Core Generators
 
+- 💡 **Mega Prompt V2** - Latest version with enhanced features and organization
 - 💡 **Mega Prompt** - Advanced multi-theme prompt generator
 - 💻 Prompt - Main prompt generation node
 
-## 🎯 Mega Prompt Generator 🎯
+## 🎯 Mega Prompt V2 🎯
 
-The Mega Prompt Generator is an advanced node that combines multiple themes and generation capabilities. It provides both combined prompts and individual components for maximum flexibility in your workflows.
+The Mega Prompt V2 is an enhanced version of the original generator with improved organization and additional features. It provides more granular control over prompt generation and better theme handling.
 
-### Core Features
+### New Features in V2
 
-- **32 distinct themes including**
-  - 🎲 Dynamic Random (Default)
-  - 🎨 Abstract
-  - 📺 Animation Cartoon
-  - 🎌 Anime
-  - 🏛️ Architectural
-  - 🧬 Bio-Organic Technology
-  - 🖼️ Binet Surreal
-  - ✏️ Caricature
-  - 🦄 Chimera Animals
-  - 🐰 Chimera Cute Animals
-  - 🎅 Christmas
-  - 🎬 Cinema Studio
-  - 🍳 Culinary/Food
-  - 👗 Curvy Fashion
-  - 💠 Dimension 3D
-  - ✨ Enchanted Fantasy
-  - 📸 Essential Realistic
-  - 🌆 Futuristic City Metropolis
-  - 🚀 Futuristic Sci-Fi
-  - 👻 Halloween Ethereal
-  - 📱 Instagram Lifestyle
-  - 🏠 Interior Spaces
-  - 🏷️ Logo
-  - 🦸‍♂️ Marvel Universe
-  - 🔬 Microscopic Universe
-  - 🎭 Peaky Blinders Style
-  - 💫 Pixar Animation
-  - ☢️ Post-Apocalyptic Wasteland
-  - 📚 School Manga
-  - ⭐ Star Wars Universe
-  - ⚙️ Steampunk Cities
-  - 🌊 Underwater Civilization
-  - 🏘️ Villages of the World
-  - 🎩 Vintage Anthropomorphic
+- **Enhanced Theme Organization**: Better structured theme handling with dedicated handlers for each theme
+- **Improved Component Control**: Separate toggles for environment, style, and effects
+- **Custom Location Support**: Added ability to specify custom locations for more precise scene setting
+- **Expanded Theme Support**: Now includes 35+ distinct themes
+- **Improved Configuration System**: Better organized config file with expanded options
 
-- **Complexity Levels**:
-  - Simple: Basic prompt with minimal elements
-  - Detailed: Balanced prompt with key elements (default)
-  - Complex: Rich prompt with additional details and effects
+### Supported Themes in V2
 
-- **Enhancement System**:
-  - Levels: Subtle, Moderate (default), Dramatic
-  - Focus Areas: Detail, Composition, Lighting, Color
+- 🎲 Dynamic Random (Default)
+- 🎨 Abstract
+- 📺 Animation Cartoon
+- 🎌 Anime
+- 🏛️ Architectural
+- 🧬 Bio-Organic Technology
+- 🖼️ Binet Surreal
+- ✏️ Caricature
+- 🦄 Chimera Animals
+- 🐰 Chimera Cute Animals
+- 🎅 Christmas
+- 🎬 Cinema Studio
+- 🍳 Culinary/Food
+- 👗 Curvy Fashion
+- 💠 Dimension 3D
+- ✨ Enchanted Fantasy
+- 📸 Essential Realistic
+- 🌆 Futuristic City Metropolis
+- 🚀 Futuristic Sci-Fi
+- 👻 Halloween Ethereal
+- 👙 Instagram Lifestyle
+- 🏠 Interior Spaces
+- 🏷️ Logo
+- 📖 Manga Panel
+- 🦸‍♂️ Marvel Universe
+- 🔬 Microscopic Universe
+- 🎭 Peaky Blinders Style
+- 💫 Pixar Animation
+- ☢️ Post-Apocalyptic Wasteland
+- 🏫 School Manga
+- 📱 Selfie
+- 🖤 Star Wars Universe
+- ⚙️ Steampunk Cities
+- 🌊 Underwater Civilization
+- 🏘️ Village Of the World
+- 🧸 Vintage Anthropomorphic
 
-- **Customization**:
-  - Custom Subject Input
-  - Component Toggle (Subject, Action, Environment, Style, Effects)
-  - Randomization Options
-  - Seed Control
+### Input Parameters
 
-- **Configuration File**
+- **Theme**: Select from 35+ themed generators
+- **Complexity**: Choose between simple, detailed, or complex outputs
+- **Randomization**: Enable/disable random generation
+- **Custom Inputs**:
+  - Custom Subject: Define specific subjects
+  - Custom Location: Specify scene locations
+  - Include Environment: Toggle environment descriptions
+  - Include Style: Toggle style elements
+  - Include Effects: Toggle special effects
+- **Seed**: Control randomization with specific seeds
 
-  The node uses a configuration file (`config_mega.txt`) that contains all theme-specific elements and common components.
+### Outputs
 
-  You can modify the file to add elements:
-  - Add new items to existing lists
-  - Customize existing elements to match your needs
+- **Complete Prompt**: The full generated prompt
+- **Individual Components**:
+  - Subject: Main focus of the image
+  - Environment: Scene and location details
+  - Style: Artistic style and rendering approach
+  - Effects: Special effects and enhancements
+- **Seed**: The seed used for generation
 
-  The configuration file uses standard Python syntax for lists and dictionaries, making it easy to edit and maintain.
+### Theme-Specific Features
+
+Each theme in V2 comes with dedicated handlers that provide:
+
+- Theme-specific vocabulary and terminology
+- Specialized composition elements
+- Custom effect combinations
+- Appropriate style modifiers
+- Theme-relevant environmental details
+
+### Enhanced Configuration
+
+The V2 configuration system includes
+
+- Expanded vocabulary lists
+- Theme-specific element collections
+- Detailed style variations
+- Enhanced effect combinations
+- Improved color palettes
+- Specialized lighting setups
+- Cultural variations
+- Mood and atmosphere options
 
 ### Specific Nodes
 
