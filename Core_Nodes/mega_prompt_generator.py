@@ -209,6 +209,16 @@ class IsulionMegaPromptGenerator:
             "🧸 Vintage Anthropomorphic": "vintage_anthro"
         }
 
+        # Add this block near the start of the generate method, after the theme_mapping section
+        if theme == "🎲 Dynamic Random":
+            # Get all available themes except 'random' itself
+            available_themes = [
+                theme for theme in theme_mapping.values() 
+                if theme != "random"
+            ]
+            # Randomly select a theme
+            theme = random.choice(available_themes)
+
         internal_theme = theme_mapping.get(theme, theme)
         
         if randomize == "enable":
@@ -2011,7 +2021,7 @@ class IsulionMegaPromptGenerator:
                         effects_text = (
                             f"with ((twinkling lights)), ((magical snow effects)), "
                             f"((warm glow)), ((festive decorations)), "
-                            f"((holiday ambiance)), ((scent of {food})))"
+                            f"((holiday ambiance)), ((christmas atmosphere))"
                         )
                         components.append(effects_text)
                 elif internal_theme == "village":
@@ -2297,7 +2307,12 @@ class IsulionMegaPromptGenerator:
                 effects_text = f"with {effect} and lifestyle aesthetic"
             elif internal_theme == "christmas":
                 effect = random.choice(self.christmas_elements["magical_effects"])
-                effects_text = f"with {effect} and festive {random.choice(self.christmas_elements['decorations'])}"
+                effects_text = (
+                    f"with ((twinkling lights)), ((magical snow effects)), "
+                    f"((warm glow)), ((festive decorations)), "
+                    f"((holiday ambiance)), ((christmas atmosphere))"
+                )
+                components.append(effects_text)
             else:  # realistic or mixed
                 if random.choice([True, False]):
                     effect = random.choice(self.magical_effects["nature"])

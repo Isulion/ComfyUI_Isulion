@@ -438,20 +438,11 @@ steampunk_elements = {
         "brass buttons", "leather boots", "mechanical arm", "steam pack"
     ],
     "environments": [
-        "Victorian industrial district",
-        "clockwork metropolis",
-        "steam-powered city",
-        "brass and copper cityscape",
-        "mechanical tower complex",
-        "industrial revolution London",
-        "gear-driven urban center",
-        "steam-powered factory district",
-        "mechanical engineering district",
-        "Victorian mechanical city",
-        "steampunk transportation hub",
-        "industrial age marketplace",
-        "mechanical innovation quarter",
-        "steam-powered residential district"
+        "Victorian industrial district", "clockwork metropolis", "steam-powered city",
+        "brass and copper cityscape", "mechanical tower complex", "industrial revolution London",
+        "gear-driven urban center", "steam-powered factory district", "mechanical engineering district",
+        "Victorian mechanical city", "steampunk transportation hub", "industrial age marketplace",
+        "mechanical innovation quarter", "steam-powered residential district"
     ]
 }
 
@@ -479,28 +470,22 @@ underwater_elements = {
         "massive crystal dome city", "bioluminescent skyscraper towers", "ancient atlantean palace",
         "underwater metropolis", "submerged floating city", "coral-integrated architecture",
         "pressurized glass habitation domes", "kelp forest residential district", "pearl-encrusted temples",
-        "hydrothermal vent power stations", "aqua-glass transit tunnels", "oceanic research facilities",
-        "underwater market squares", "marine cultivation farms", "tidal energy generators",
-        "submerged archaeological ruins", "deep sea mining operations", "bioluminescent street networks"
+        "hydrothermal vent power stations", "aqua-glass transit tunnels", "oceanic research facilities"
     ],
     "life_forms": [
         "merfolk citizens", "aquatic humanoid traders", "bioluminescent sea people",
         "evolved marine colonists", "deep sea civilization dwellers", "underwater society members",
-        "aquatic hybrid inhabitants", "marine-adapted humans", "oceanic cultural groups",
-        "sea-dwelling communities", "underwater tribal societies", "advanced aquatic species"
+        "aquatic hybrid inhabitants", "marine-adapted humans", "oceanic cultural groups"
     ],
     "technology": [
         "water pressure shields", "marine filtration systems", "underwater transport pods",
         "aquatic communication networks", "bubble-tech living spaces", "coral-based computers",
-        "tidal energy collectors", "pressure-resistant infrastructure", "underwater farming systems",
-        "marine waste recyclers", "aqua-plasma lighting", "oceanic defense systems",
-        "underwater transportation grid", "marine oxygen generators", "aquatic food production"
+        "tidal energy collectors", "pressure-resistant infrastructure", "underwater farming systems"
     ],
     "cultural_elements": [
         "underwater market bazaars", "marine cultural centers", "aquatic education hubs",
         "deep sea entertainment venues", "oceanic art galleries", "submerged sports arenas",
-        "marine religious temples", "underwater musical pavilions", "aquatic gathering spaces",
-        "deep sea gardens", "marine meditation sanctuaries", "underwater theatrical stages"
+        "marine religious temples", "underwater musical pavilions", "aquatic gathering spaces"
     ]
 }
 
@@ -545,59 +530,33 @@ bio_organic_elements = {
 # Add Christmas Elements
 christmas_elements = {
     "characters": [
-        "Santa Claus", "Mrs Claus", "reindeer", "elf workshop helper", 
-        "snowman", "gingerbread man", "toy soldier", "nutcracker",
-        "polar bear", "arctic fox", "penguin", "christmas angel",
-        "wise men", "shepherd", "frost giant", "ice queen",
-        "christmas fairy", "jack frost", "krampus", "winter spirit"
+        "Santa Claus", "reindeer", "elf", "snowman", "angel",
+        "caroler", "child opening presents", "Mrs. Claus",
+        "nutcracker", "gingerbread man", "polar bear", "penguin"
     ],
-    "settings": [
-        "Santa's workshop", "magical toy factory", "christmas village",
-        "winter wonderland", "enchanted forest", "gingerbread town",
-        "north pole", "cozy fireplace", "decorated living room",
-        "snowy town square", "christmas market", "ice palace",
-        "reindeer stables", "elves' dormitory", "candy cane forest",
-        "christmas tree farm", "frozen lake", "magical ice cave",
-        "decorated town hall", "festive shopping street"
+    "activities": [
+        "decorating the tree", "opening presents", "caroling",
+        "building a snowman", "baking cookies", "wrapping gifts",
+        "hanging stockings", "sledding", "ice skating", "drinking hot cocoa"
     ],
     "decorations": [
-        "christmas tree", "twinkling lights", "festive garland",
-        "hanging stockings", "candy canes", "christmas wreaths",
-        "glass ornaments", "tinsel", "mistletoe", "holly berries",
-        "poinsettias", "advent calendar", "christmas star",
-        "festive ribbons", "snow globes", "icicle lights",
-        "nutcracker collection", "gingerbread house", "christmas village display",
-        "wrapped presents"
+        "Christmas tree", "twinkling lights", "ornaments",
+        "wreaths", "garlands", "stockings", "candy canes",
+        "ribbons", "tinsel", "mistletoe", "poinsettias"
+    ],
+    "settings": [
+        "cozy living room", "snowy village", "North Pole workshop",
+        "festive town square", "decorated mall", "winter wonderland",
+        "gingerbread house", "Christmas market", "ice palace"
+    ],
+    "weather": [
+        "gentle snowfall", "winter storm", "crisp winter night",
+        "frosty morning", "snowy evening", "crystal clear winter day"
     ],
     "magical_effects": [
         "sparkling snow", "northern lights", "magical stardust",
-        "twinkling fairy lights", "glowing ornaments", "christmas magic",
-        "festive sparkles", "magical gift wrap", "enchanted snowfall",
-        "glowing christmas star", "magical tinsel", "santa's magic",
-        "reindeer flight trails", "frosty window patterns", "candy cane magic",
-        "christmas bell chimes", "magical gift ribbon", "festive glitter"
-    ],
-    "activities": [
-        "opening presents", "decorating tree", "building snowman",
-        "baking cookies", "singing carols", "wrapping gifts",
-        "sledding", "ice skating", "making snow angels",
-        "drinking hot cocoa", "hanging stockings", "reading christmas stories",
-        "writing to santa", "feeding reindeer", "making gingerbread houses",
-        "christmas shopping", "caroling", "attending christmas feast"
-    ],
-    "weather": [
-        "gentle snowfall", "swirling snowflakes", "winter storm",
-        "magical blizzard", "christmas eve snow", "frost patterns",
-        "icy wind", "crystal clear winter night", "misty winter morning",
-        "perfect christmas snow", "sparkling frost", "winter wonderland snow"
-    ],
-    "foods": [
-        "christmas cookies", "gingerbread", "candy canes",
-        "hot cocoa", "christmas pudding", "roast turkey",
-        "fruit cake", "christmas ham", "mince pies",
-        "mulled wine", "eggnog", "christmas chocolates",
-        "roasted chestnuts", "sugar plums", "yule log cake",
-        "christmas dinner", "festive treats", "decorated cupcakes"
+        "glowing ornaments", "twinkling fairy lights", "festive sparkles",
+        "magical Christmas glow", "enchanted snowflakes"
     ]
 }
 
@@ -2126,5 +2085,653 @@ specific_accessories = {
         "business accessories",
         "formal jewelry",
         "executive items"
+    ]
+}
+
+# Enhancements
+enhancements = {
+    "detail": {
+        "subtle": ["precisely detailed", "refined", "elegantly crafted", "clean", "polished"],
+        "moderate": ["meticulously detailed", "premium quality", "professionally crafted", "architectural precision", "studio grade"],
+        "dramatic": ["ultra-premium quality", "masterfully engineered", "exceptional craftsmanship", "flawless detail", "perfect precision"]
+    },
+    "composition": {
+        "subtle": ["balanced", "harmonious", "precise", "clean layout", "minimalist"],
+        "moderate": ["professionally composed", "elegant arrangement", "refined composition", "premium layout", "architectural balance"],
+        "dramatic": ["perfect symmetry", "masterful composition", "ultra-premium arrangement", "flawless balance", "exceptional design"]
+    },
+    "lighting": {
+        "subtle": ["clean lighting", "soft illumination", "precise shadows", "refined highlights", "elegant glow"],
+        "moderate": ["professional studio lighting", "premium illumination", "architectural lighting", "controlled shadows", "refined atmosphere"],
+        "dramatic": ["ultra-premium lighting", "perfect illumination", "exceptional atmosphere", "masterful light control", "flawless shadows"]
+    },
+    "color": {
+        "subtle": ["refined palette", "harmonious colors", "elegant tones", "clean color scheme", "polished hues"],
+        "moderate": ["premium colors", "professional palette", "sophisticated tones", "refined chromatic balance", "controlled saturation"],
+        "dramatic": ["exceptional color harmony", "masterful palette", "perfect color balance", "flawless tonal range", "supreme chromatic composition"]
+    }
+}
+
+# Add these missing attributes:
+
+# Abstract theme additional elements
+geometric_shapes = [
+    "circle", "square", "triangle", "rectangle", "hexagon", "octagon",
+    "sphere", "cube", "pyramid", "cylinder", "cone", "torus",
+    "spiral", "polygon", "star", "diamond", "ellipse", "arc"
+]
+
+color_schemes = [
+    "monochromatic", "complementary", "analogous", "triadic",
+    "split-complementary", "tetradic", "neutral", "pastel",
+    "vibrant", "muted", "warm", "cool", "earth tones", "jewel tones"
+]
+
+abstract_motions = [
+    "flowing", "swirling", "pulsing", "rippling", "drifting",
+    "floating", "expanding", "contracting", "merging", "splitting",
+    "rotating", "oscillating", "vibrating", "radiating", "spiraling"
+]
+
+textures = [
+    "smooth", "rough", "grainy", "metallic", "glossy",
+    "matte", "textured", "crystalline", "liquid", "vaporous",
+    "fibrous", "woven", "organic", "geometric", "layered"
+]
+
+patterns = [
+    "geometric", "organic", "fractal", "radial", "linear",
+    "concentric", "tessellated", "recursive", "modular", "random",
+    "symmetrical", "asymmetrical", "flowing", "structured", "chaotic"
+]
+
+abstract_effects = [
+    "glowing", "refracting", "diffracting", "reflecting", "distorting",
+    "blending", "dissolving", "fragmenting", "morphing", "warping",
+    "phasing", "resonating", "interfering", "scattering", "dispersing"
+]
+
+# Anime theme additional elements
+anime_outfits = [
+    "school uniform", "battle armor", "magical girl costume", "casual wear",
+    "traditional kimono", "sports uniform", "formal attire", "fantasy robes",
+    "futuristic suit", "summer yukata", "maid outfit", "butler uniform",
+    "idol costume", "ninja gear", "shrine maiden attire"
+]
+
+anime_poses = [
+    "dynamic action pose", "cute standing pose", "dramatic battle stance",
+    "elegant sitting pose", "running pose", "jumping pose", "flying pose",
+    "magical transformation pose", "heroic pose", "relaxed casual pose",
+    "determined fighting stance", "graceful dancing pose", "power-up pose",
+    "dramatic entrance pose", "victory pose"
+]
+
+anime_locations = [
+    "high school rooftop", "cherry blossom avenue", "traditional temple",
+    "modern city street", "magical academy", "fantasy castle", "beach scene",
+    "summer festival", "train station", "classroom", "secret garden",
+    "futuristic city", "mystical forest", "ancient ruins", "space colony"
+]
+
+# Sci-fi theme additional elements
+scifi_subjects = [
+    "cyborg", "android", "space explorer", "alien being", "hologram",
+    "quantum warrior", "tech mage", "space marine", "cosmic entity",
+    "synthetic life", "bio-mechanical hybrid", "energy being",
+    "dimensional traveler", "nano-enhanced human", "AI construct"
+]
+
+technologies = [
+    "quantum computer", "fusion reactor", "teleporter", "force field",
+    "neural interface", "plasma weapon", "gravity manipulator",
+    "time dilation device", "holographic projector", "nanotech assembler",
+    "antimatter engine", "consciousness transfer", "energy converter",
+    "dimensional gate", "bio-enhancement pod"
+]
+
+scifi_actions = [
+    "engaging in space battle", "exploring alien world", "activating tech",
+    "piloting spacecraft", "interfacing with AI", "manipulating energy",
+    "conducting experiments", "defending base", "hacking systems",
+    "terraforming planet", "navigating asteroid field", "quantum jumping",
+    "deploying drones", "scanning anomalies", "assembling tech"
+]
+
+scifi_settings = [
+    "space station", "alien planet", "quantum realm", "cyberpunk city",
+    "research facility", "orbital platform", "deep space", "tech hub",
+    "bio-dome", "virtual reality", "nanotech lab", "fusion plant",
+    "asteroid base", "dimensional nexus", "artificial world"
+]
+
+scifi_atmospheres = [
+    "high-tech", "futuristic", "cybernetic", "quantum", "synthetic",
+    "holographic", "digital", "virtual", "bio-mechanical", "nano-enhanced",
+    "plasma-infused", "energy-rich", "artificial", "augmented", "crystalline"
+]
+
+scifi_styles = [
+    "cyberpunk", "biopunk", "nanopunk", "quantum tech", "space opera",
+    "hard sci-fi", "retrofuturism", "tech noir", "cosmic horror",
+    "space western", "military sci-fi", "transhumanism", "dystopian",
+    "utopian", "post-singularity"
+]
+
+scifi_effects = [
+    "holographic interface", "energy field", "quantum particles",
+    "plasma discharge", "nano swarm", "force shield", "time distortion",
+    "gravity wave", "dimensional rift", "neural network", "data stream",
+    "bio-luminescence", "tech aura", "energy pulse", "space-time ripple"
+]
+
+# Photography-specific attributes
+photography_compositions = [
+    "rule of thirds", "golden ratio", "symmetrical", "leading lines",
+    "framing", "diagonal", "centered", "pattern", "depth", "minimalist",
+    "fill the frame", "negative space", "layered", "juxtaposition", "balance"
+]
+
+photography_styles = [
+    "portrait photography", "fashion photography", "street photography",
+    "landscape photography", "architectural photography", "macro photography",
+    "black and white photography", "documentary photography", "fine art photography",
+    "wildlife photography", "night photography", "aerial photography",
+    "minimalist photography", "abstract photography", "long exposure photography"
+]
+
+photography_techniques = [
+    "shallow depth of field", "motion blur", "high key lighting",
+    "low key lighting", "silhouette", "bokeh effect", "panning shot",
+    "HDR technique", "double exposure", "light painting", "slow sync flash",
+    "golden ratio composition", "leading lines", "rule of thirds",
+    "symmetrical composition"
+]
+
+photography_lighting = [
+    "natural light", "studio lighting", "golden hour light",
+    "blue hour light", "backlight", "rim light", "split lighting",
+    "butterfly lighting", "Rembrandt lighting", "loop lighting",
+    "broad lighting", "short lighting", "dramatic lighting"
+]
+
+# Lighting variations
+lighting_setups = {
+    "studio": [
+        "rembrandt", "butterfly", "loop", "split", "broad",
+        "short", "rim", "silhouette", "high key", "low key"
+    ],
+    "natural": [
+        "golden hour", "blue hour", "midday sun", "overcast",
+        "backlit", "window light", "reflected", "dappled"
+    ],
+    "dramatic": [
+        "chiaroscuro", "noir", "cinematic", "moody", "atmospheric",
+        "contrasty", "spotlit", "shadowy", "ethereal"
+    ]
+}
+
+# Cultural style variations
+cultural_styles = {
+    "asian": [
+        "ink wash painting", "ukiyo-e", "sumi-e", "manga", "anime",
+        "chinese painting", "korean art", "japanese minimalism"
+    ],
+    "european": [
+        "renaissance", "baroque", "impressionism", "art nouveau",
+        "surrealism", "expressionism", "gothic", "romantic"
+    ],
+    "middle_eastern": [
+        "islamic geometric", "persian miniature", "arabesque",
+        "ottoman art", "islamic calligraphy", "moorish design"
+    ]
+}
+
+# Digital art-specific attributes
+digital_art_styles = [
+    "concept art", "digital painting", "photo manipulation", "vector art",
+    "3D rendering", "pixel art", "vaporwave", "glitch art", "low poly",
+    "isometric", "flat design", "digital collage", "cyberpunk", "retro digital"
+]
+
+digital_art_techniques = [
+    "digital painting", "vector art", "pixel art", "3D rendering",
+    "photo manipulation", "mixed media", "digital collage", "glitch art",
+    "vaporwave", "cyberpunk", "low poly", "isometric", "retro digital",
+    "generative art", "fractal art"
+]
+
+digital_art_effects = [
+    "gradient mesh", "particle effects", "light bloom", "color aberration",
+    "noise texture", "grain effect", "glitch effect", "pixelation",
+    "halftone pattern", "duotone", "rgb split", "wave distortion",
+    "digital brush strokes", "vector patterns", "digital texture"
+]
+
+# Photography-specific moods
+photography_moods = [
+    "dramatic", "serene", "mysterious", "joyful", "melancholic",
+    "ethereal", "intimate", "powerful", "peaceful", "energetic",
+    "contemplative", "nostalgic", "romantic", "adventurous", "minimalist"
+]
+
+# Cultural-specific atmospheres
+cultural_atmospheres = {
+    "asian": [
+        "zen tranquility", "mystical serenity", "ancient wisdom",
+        "spiritual harmony", "traditional elegance", "imperial grandeur",
+        "meditative calm", "cultural reverence", "timeless beauty"
+    ],
+    "european": [
+        "old world charm", "classical grandeur", "romantic nostalgia",
+        "medieval mystery", "renaissance splendor", "baroque opulence",
+        "gothic drama", "pastoral serenity", "alpine majesty"
+    ],
+    "middle_eastern": [
+        "desert mystique", "ancient majesty", "bazaar vibrancy",
+        "oasis tranquility", "sacred solemnity", "royal luxury",
+        "timeless tradition", "desert romance", "cultural richness"
+    ]
+}
+
+# Digital art workflows
+digital_art_workflows = [
+    "concept sketching", "digital inking", "color blocking",
+    "texture painting", "lighting refinement", "detail rendering",
+    "post-processing", "compositing", "effect layering",
+    "color grading", "final polish", "style enhancement"
+]
+
+# Manga storytelling elements
+manga_storytelling_elements = {
+    "emotions": [
+        "dramatic revelation", "inner conflict", "passionate determination",
+        "quiet contemplation", "joyful celebration", "tragic moment",
+        "comedic timing", "romantic tension", "heroic resolve"
+    ],
+    "transitions": [
+        "action to action", "subject to subject", "scene to scene",
+        "aspect to aspect", "moment to moment", "non-sequitur",
+        "parallel action", "flashback sequence", "dream sequence"
+    ],
+    "layouts": [
+        "dynamic spread", "focus panel", "montage sequence",
+        "establishing shot", "action sequence", "emotional close-up",
+        "environmental detail", "character interaction", "symbolic imagery"
+    ]
+}
+
+# Steampunk color palettes
+steampunk_color_palettes = {
+    "metals": [
+        "aged brass", "polished copper", "tarnished bronze",
+        "antique gold", "weathered steel", "burnished silver",
+        "rusty iron", "patinated copper", "oxidized bronze"
+    ],
+    "woods": [
+        "rich mahogany", "dark walnut", "aged oak",
+        "polished teak", "vintage cherry", "weathered pine",
+        "stained maple", "exotic rosewood", "distressed cedar"
+    ],
+    "accents": [
+        "deep burgundy", "forest green", "royal purple",
+        "midnight blue", "rich brown", "deep crimson",
+        "emerald green", "sapphire blue", "amber gold"
+    ]
+}
+
+# Underwater color schemes
+underwater_color_schemes = {
+    "depths": [
+        "abyssal blue", "deep sea indigo", "midnight marine",
+        "oceanic turquoise", "deep aquamarine", "twilight blue",
+        "phosphorescent blue", "bioluminescent cyan", "dark azure"
+    ],
+    "shallows": [
+        "coral pink", "reef turquoise", "tropical aqua",
+        "lagoon blue", "sandy beige", "kelp green",
+        "pearl white", "shell pink", "seafoam green"
+    ],
+    "bioluminescence": [
+        "glowing cyan", "electric blue", "neon aqua",
+        "luminous green", "phosphorescent white", "radiant azure",
+        "pulsing blue", "ethereal turquoise", "ghostly green"
+    ]
+}
+
+# Cute Chimera Theme Elements
+cute_chimera_actions = [
+    "playfully bouncing", "sweetly napping", "gently exploring",
+    "happily playing", "adorably dancing", "cutely prancing",
+    "cheerfully hopping", "softly purring", "merrily skipping",
+    "gracefully twirling", "joyfully frolicking", "tenderly cuddling",
+    "delightfully rolling", "lovingly snuggling", "peacefully resting"
+]
+
+cute_chimera_habitats = [
+    "magical garden", "enchanted forest", "fairy meadow",
+    "rainbow valley", "crystal cave", "flower field",
+    "candy kingdom", "pastel wonderland", "starlit grove",
+    "cloud paradise", "cherry blossom park", "magical playground",
+    "cotton candy clouds", "bubble tea café", "kawaii pet shop"
+]
+
+cute_chimera_weather = [
+    "gentle rainbow", "sparkling sunshine", "magical starlight",
+    "soft snowfall", "glittering mist", "pastel sunset",
+    "twinkling twilight", "fairy lights", "magical moonbeams",
+    "floating bubbles", "drifting flower petals", "sparkly stardust"
+]
+
+cute_chimera_art_styles = [
+    "kawaii art", "chibi style", "cute anime", 
+    "adorable illustration", "sweet cartoon",
+    "magical drawing", "pastel artwork", "fluffy rendering",
+    "sugar sweet art", "cotton candy style"
+]
+
+cute_chimera_emotions = [
+    "happy", "joyful", "playful", "cheerful", "peaceful",
+    "gentle", "sweet", "loving", "friendly", "merry",
+    "delightful", "blissful", "content", "gleeful"
+]
+
+# Cinema Theme Elements
+cinema_specific_actions = [
+    "in an epic action sequence",
+    "in a dramatic confrontation",
+    "in a tense standoff",
+    "performing a signature move",
+    "making a dramatic entrance",
+    "in a climactic battle",
+    "in a stealth mission",
+    "in pursuit",
+    "preparing for combat",
+    "defending against enemies"
+]
+
+cinema_styles = [
+    "cinematic lighting", "movie quality",
+    "professional cinematography", "dramatic framing",
+    "photorealistic", "film aesthetic",
+    "hollywood production", "blockbuster quality",
+    "professional film grade", "theatrical presentation"
+]
+
+cinema_effects = [
+    "lens flare", "atmospheric haze",
+    "volumetric lighting", "dramatic shadows",
+    "depth of field", "film grain",
+    "cinematic color grading", "anamorphic flare",
+    "motion blur", "dynamic lighting"
+]
+
+# Village Theme Elements
+village_types = [
+    "mountain village", "coastal fishing village", "desert oasis settlement", 
+    "tropical island village", "medieval European hamlet", "Nordic fjord settlement",
+    "Mediterranean hillside town", "Japanese mountain village", "Alpine ski village",
+    "Moroccan desert village", "Greek island settlement", "Tuscan hilltop town",
+    "Swiss alpine hamlet", "Himalayan mountain settlement", "Vietnamese floating village",
+    "African savanna village", "Peruvian mountain pueblo", "Scottish highland village",
+    "Dutch windmill village", "Turkish coastal town", "Irish countryside settlement"
+]
+
+village_architecture = [
+    "traditional stone houses", "thatched-roof cottages", "timber-frame buildings",
+    "whitewashed buildings", "terracotta-roofed homes", "stilt houses",
+    "adobe dwellings", "wooden chalets", "slate-roofed cottages", "clay brick houses",
+    "bamboo structures", "turf-roofed homes", "colorful painted houses",
+    "half-timbered buildings", "red-tile roofed homes", "cobblestone streets",
+    "wooden boardwalks", "stone pathways", "ancient stone walls"
+]
+
+village_cultural_elements = [
+    "local market stalls", "traditional fishing boats", "ancient water wells",
+    "community gathering spaces", "religious temples", "village squares",
+    "communal gardens", "historic fountains", "traditional windmills",
+    "cultural monuments", "craft workshops", "village church", "prayer flags",
+    "ceremonial spaces", "traditional decorations", "folk art displays"
+]
+
+village_views = [
+    "panoramic vista", "aerial bird's-eye view", "intimate street scene",
+    "charming town square", "cozy alleyway", "picturesque marketplace",
+    "scenic overlook", "quaint harbor view", "rustic village entrance",
+    "bustling main street", "tranquil village green", "historic village center",
+    "winding country road", "serene riverside promenade", "lively village festival"
+]
+
+# Christmas Theme Elements
+christmas_elements = {
+    "characters": [
+        "Santa Claus", "reindeer", "elf", "snowman", "angel",
+        "caroler", "child opening presents", "Mrs. Claus",
+        "nutcracker", "gingerbread man", "polar bear", "penguin"
+    ],
+    "activities": [
+        "decorating the tree", "opening presents", "caroling",
+        "building a snowman", "baking cookies", "wrapping gifts",
+        "hanging stockings", "sledding", "ice skating", "drinking hot cocoa"
+    ],
+    "decorations": [
+        "Christmas tree", "twinkling lights", "ornaments",
+        "wreaths", "garlands", "stockings", "candy canes",
+        "ribbons", "tinsel", "mistletoe", "poinsettias"
+    ],
+    "settings": [
+        "cozy living room", "snowy village", "North Pole workshop",
+        "festive town square", "decorated mall", "winter wonderland",
+        "gingerbread house", "Christmas market", "ice palace"
+    ],
+    "weather": [
+        "gentle snowfall", "winter storm", "crisp winter night",
+        "frosty morning", "snowy evening", "crystal clear winter day"
+    ],
+    "magical_effects": [
+        "sparkling snow", "northern lights", "magical stardust",
+        "glowing ornaments", "twinkling fairy lights", "festive sparkles",
+        "magical Christmas glow", "enchanted snowflakes"
+    ]
+}
+
+christmas_styles = [
+    "cozy christmas illustration", "vintage christmas card",
+    "magical christmas scene", "festive digital art",
+    "traditional christmas painting", "whimsical christmas art",
+    "classic christmas illustration", "modern christmas design",
+    "nostalgic christmas artwork", "cheerful christmas cartoon",
+    "elegant christmas rendering", "heartwarming christmas scene"
+]
+
+christmas_moods = [
+    "magical", "joyful", "festive", "cozy", "nostalgic",
+    "whimsical", "heartwarming", "cheerful", "peaceful",
+    "enchanting", "merry", "traditional", "jolly", "celebratory"
+]
+
+# Add these configurations for the Binet theme
+binet_portrait_styles = [
+    "aristocratic portrait",
+    "noble portrait",
+    "distinguished portrait",
+    "elegant portrait",
+    "refined portrait",
+    "sophisticated portrait",
+    "regal portrait",
+    "dignified portrait",
+    "majestic portrait",
+    "stately portrait"
+]
+
+binet_color_schemes = [
+    "rich jewel tones",
+    "deep royal colors",
+    "sophisticated earth tones",
+    "elegant muted palette",
+    "classic renaissance colors",
+    "rich baroque palette",
+    "noble color scheme",
+    "refined color harmony",
+    "aristocratic color palette",
+    "dignified color selection"
+]
+
+binet_contemporary_themes = [
+    "business executive",
+    "modern aristocrat",
+    "tech entrepreneur",
+    "fashion icon",
+    "cultural ambassador",
+    "philanthropist",
+    "art collector",
+    "luxury lifestyle",
+    "modern royalty",
+    "social influencer"
+]
+
+binet_sports_gear = [
+    "designer sportswear",
+    "luxury athletic wear",
+    "premium sports equipment",
+    "high-end fitness gear",
+    "exclusive sports accessories",
+    "premium athletic attire",
+    "designer training gear",
+    "luxury sports collection",
+    "elite athletic wear",
+    "premium sports fashion"
+]
+
+binet_urban_elements = [
+    "luxury car",
+    "private jet",
+    "yacht",
+    "penthouse view",
+    "exclusive club",
+    "high-end restaurant",
+    "luxury hotel",
+    "private gallery",
+    "designer boutique",
+    "premium office"
+]
+
+binet_celebration_elements = [
+    "champagne toast",
+    "award ceremony",
+    "gala dinner",
+    "charity event",
+    "red carpet moment",
+    "private concert",
+    "exclusive party",
+    "VIP reception",
+    "luxury celebration",
+    "prestigious ceremony"
+]
+
+binet_character_themes = [
+    "aristocrat",
+    "noble",
+    "diplomat",
+    "royal advisor",
+    "court official",
+    "distinguished scholar",
+    "refined gentleman",
+    "elegant lady",
+    "sophisticated patron",
+    "dignified leader"
+]
+
+binet_costume_elements = [
+    "tailored suit",
+    "evening gown",
+    "military dress uniform",
+    "ceremonial robes",
+    "formal attire",
+    "diplomatic uniform",
+    "court dress",
+    "noble garments",
+    "aristocratic fashion",
+    "refined clothing"
+]
+
+binet_props_and_weapons = [
+    "ceremonial sword",
+    "family crest",
+    "antique pocket watch",
+    "signet ring",
+    "walking cane",
+    "leather-bound book",
+    "fountain pen",
+    "monocle",
+    "decorative medal",
+    "vintage accessories"
+]
+
+binet_environments = [
+    "grand library",
+    "elegant study",
+    "luxurious parlor",
+    "formal garden",
+    "private gallery",
+    "sophisticated salon",
+    "refined drawing room",
+    "noble estate",
+    "aristocratic manor",
+    "distinguished office"
+]
+
+# Pixar Storytelling Elements
+pixar_storytelling_elements = {
+    "emotional_core": [
+        "finding friendship",
+        "overcoming fear",
+        "discovering self-worth",
+        "learning to let go",
+        "accepting change",
+        "finding courage",
+        "understanding love",
+        "dealing with loss",
+        "growing up",
+        "family bonds",
+        "following dreams",
+        "finding belonging",
+        "learning empathy",
+        "discovering purpose",
+        "accepting differences"
+    ],
+    "character_moments": [
+        "heartwarming smile",
+        "tearful realization",
+        "joyful discovery",
+        "determined stance",
+        "playful interaction",
+        "emotional embrace",
+        "quiet contemplation",
+        "brave decision",
+        "triumphant achievement",
+        "caring gesture",
+        "shared laughter",
+        "meaningful glance",
+        "supportive moment",
+        "proud accomplishment",
+        "tender connection"
+    ],
+    "visual_themes": [
+        "warm lighting",
+        "colorful environment",
+        "dynamic movement",
+        "expressive animation",
+        "detailed textures",
+        "appealing design",
+        "emotional atmosphere",
+        "charming setting",
+        "playful elements",
+        "magical moments",
+        "heartfelt scenes",
+        "whimsical details",
+        "comforting colors",
+        "engaging composition",
+        "memorable visuals"
     ]
 }

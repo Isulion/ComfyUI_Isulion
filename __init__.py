@@ -22,6 +22,7 @@ from .enhancement_nodes.isulion_style_mixer import IsulionStyleMixer
 from .enhancement_nodes.isulion_prompt_enhancer import IsulionPromptEnhancer
 from .enhancement_nodes.isulion_negative_prompt_generator import IsulionNegativePromptGenerator
 from .Core_Nodes.mega_prompt_generator import IsulionMegaPromptGenerator
+from .Mega_Prompt_V2 import MegaPromptV2
 
 NODE_CLASS_MAPPINGS = {
     "IsulionPromptGenerator": IsulionPromptGenerator,
@@ -48,6 +49,7 @@ NODE_CLASS_MAPPINGS = {
     "IsulionPromptEnhancer": IsulionPromptEnhancer,
     "IsulionNegativePromptGenerator": IsulionNegativePromptGenerator,
     "IsulionMegaPromptGenerator": IsulionMegaPromptGenerator,
+    "MegaPromptV2": MegaPromptV2,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -75,4 +77,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionPromptEnhancer": "Isulion Prompt Enhancer 📝",
     "IsulionNegativePromptGenerator": "Isulion Negative Prompt Generator ⛔",
     "IsulionMegaPromptGenerator": "Isulion Mega Prompt Generator 🎯",
+    "MegaPromptV2": "Mega Prompt V2 🚀",
 }
