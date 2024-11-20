@@ -79,7 +79,6 @@ class MegaPromptV2:
             "required": {
                 "theme": ([
                     "🎲 Dynamic Random",  # Keeps Random at top
-                    "📱 Selfie",  # Add this line
                     "🎨 Abstract",
                     "📺 Animation Cartoon", 
                     "🎌 Anime",
@@ -109,6 +108,7 @@ class MegaPromptV2:
                     "💫 Pixar Animation",
                     "☢️ Post-Apocalyptic Wasteland",
                     "🏫 School Manga",
+                    "📱 Selfie",  # Add this line
                     "🖤 Star Wars Universe",
                     "⚙️ Steampunk Cities",
                     "🌊 Underwater Civilization",
