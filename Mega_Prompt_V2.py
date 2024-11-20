@@ -780,25 +780,37 @@ class MegaPromptV2:
         return components
 
     def _handle_cartoon_theme(self, **kwargs) -> Dict[str, str]:
-        """Cartoon theme handler with enhanced elements."""
+        """Cartoon theme handler."""
         components = {}
         
         # Use custom subject if provided
         custom_subject = kwargs.get("custom_subject", "").strip()
-        character = custom_subject if custom_subject else random.choice(self.cartoon_characters)
-        
-        effect = random.choice(self.cartoon_effects)
-        action = random.choice(self.cinema_actions)
-        
-        components["subject"] = (
-            f"((professional cartoon artwork)) of {character} "
-            f"((in dynamic action)), ((animated style)), "
-            f"((cartoon character design)), ((expressive animation)))"
-        )
+        if custom_subject:
+            components["subject"] = (
+                f"((professional cartoon artwork)) of {custom_subject}, "
+                f"((animated style)), ((cartoon character design)), "
+                f"((expressive animation))"
+            )
+        else:
+            character = random.choice(self.cartoon_characters)
+            effect = random.choice(self.cartoon_effects)
+            action = random.choice(self.cinema_actions)
+            
+            components["subject"] = (
+                f"((professional cartoon artwork)) of {character}, "
+                f"((animated style)), ((cartoon character design)), "
+                f"((expressive animation))"
+            )
         
         if kwargs.get("include_environment") == "yes":
+            cartoon_environment = random.choice([
+                "cartoon world", "animated landscape", "classic cartoon background",
+                "wacky environment", "cartoon city", "animated forest",
+                "cartoon household", "silly cartoon setting", "animated playground",
+                "cartoon wonderland"
+            ])
             components["environment"] = (
-                f"in a ((detailed {environment})), "
+                f"in a ((detailed {cartoon_environment})), "
                 f"((cartoon world)), ((animated atmosphere))"
             )
         
@@ -810,6 +822,7 @@ class MegaPromptV2:
             )
         
         if kwargs.get("include_effects") == "yes":
+            effect = random.choice(self.cartoon_effects)
             components["effects"] = (
                 f"with (({effect})), ((animation effects)), "
                 f"((cartoon physics)), ((dynamic movement)), "
