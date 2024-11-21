@@ -1777,9 +1777,8 @@ class MegaPromptV2:
             mood = random.choice(self.christmas_moods)
             components["style"] = (
                 f"((holiday {style})), ((festive style)), "
-                f"((Christmas colors)), ((warm lighting)), "
-                f"({mood} atmosphere)), ((seasonal charm)), "
-                f"((perfect composition)), 8k resolution"
+                f"((Christmas colors)), ((warm lighting)), ({mood} atmosphere)), "
+                f"((seasonal charm)), ((perfect composition)), 8k resolution"
             )
         
         if kwargs.get("include_effects") == "yes":
@@ -1917,6 +1916,60 @@ class MegaPromptV2:
                 f"with ((luxury lighting)), ((high-end finishes)), "
                 f"((customized design)), ((exclusive materials)), "
                 f"((high-quality craftsmanship)), ((interior design harmony))"
+            )
+        
+        return components
+
+    def _handle_cute_chimera_theme(self, **kwargs) -> Dict[str, str]:
+        """Cute Chimera theme handler."""
+        components = {}
+        
+        # Get custom inputs
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        
+        # Select base elements
+        base_animal = random.choice(self.cute_animals)  # Changed from cute_animals to self.cute_animals
+        action = random.choice(self.cute_chimera_actions)
+        habitat = random.choice(self.cute_chimera_habitats) 
+        weather = random.choice(self.cute_chimera_weather)
+        emotion = random.choice(self.cute_chimera_emotions)
+        art_style = random.choice(self.cute_chimera_art_styles)
+        
+        if custom_subject:
+            components["subject"] = (
+                f"((adorable chimera creature)) of {custom_subject}, "
+                f"((showing {emotion} expression)), ((ultra cute design)), "
+                f"((kawaii style)), ((fluffy texture)), ((charming features))"
+            )
+        else:
+            components["subject"] = (
+                f"((adorable chimera creature)) based on {base_animal}, "
+                f"((showing {emotion} expression)), {action}, "
+                f"((ultra cute design)), ((kawaii style)), "
+                f"((fluffy texture)), ((charming features))"
+            )
+        
+        if kwargs.get("include_environment") == "yes":
+            components["environment"] = (
+                f"in a ((magical {habitat})) during {weather}, "
+                f"((enchanted atmosphere)), ((dreamy setting)), "
+                f"((whimsical environment)), ((fairy tale mood))"
+            )
+        
+        if kwargs.get("include_style") == "yes":
+            components["style"] = (
+                f"(({art_style})), ((soft lighting)), "
+                f"((pastel colors)), ((gentle shading)), "
+                f"((adorable aesthetic)), ((sweet atmosphere)), "
+                f"((magical mood)), 8k resolution"
+            )
+        
+        if kwargs.get("include_effects") == "yes":
+            components["effects"] = (
+                f"with ((sparkly effects)), ((magical glow)), "
+                f"((soft bokeh)), ((dreamy atmosphere)), "
+                f"((gentle light rays)), ((fairy dust)), "
+                f"((enchanted particles)), ((kawaii elements))"
             )
         
         return components
