@@ -1495,8 +1495,8 @@ class MegaPromptV2:
         if kwargs.get("include_style") == "yes":
             components["style"] = (
                 f"((high-end {style})), ((professional fashion photography)), "
-                f"((magazine quality)), ((editorial style)), ((perfect exposure)), "
-                f"((fashion lighting)), 8k resolution"
+                f"((magazine quality)), ((editorial style)), "
+                f"((perfect exposure)), ((fashion lighting)), 8k resolution"
             )
         
         if kwargs.get("include_effects") == "yes":
@@ -2030,6 +2030,327 @@ class MegaPromptV2:
                 f"((animated motion)), ((dynamic lighting)), "
                 f"((cartoon shading)), ((animated effects)), "
                 f"((expressive animation))"
+            )
+        
+        return components
+
+    def _handle_architecture_theme(self, **kwargs) -> Dict[str, str]:
+        """Architecture theme handler."""
+        components = {}
+        
+        # Get custom inputs
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        custom_location = kwargs.get("custom_location", "").strip()
+        
+        # Select base elements
+        style = random.choice(self.architecture_styles)
+        element = random.choice(self.architecture_elements)
+        
+        if custom_subject:
+            components["subject"] = (
+                f"((architectural masterpiece)) of {custom_subject}, "
+                f"((in {style} style)), ((architectural photography)), "
+                f"((professional composition)), ((structural elegance))"
+            )
+        else:
+            components["subject"] = (
+                f"((architectural masterpiece)) of ((magnificent {element})), "
+                f"((in {style} style)), ((architectural photography)), "
+                f"((professional composition)), ((structural elegance))"
+            )
+        
+        if kwargs.get("include_environment") == "yes":
+            if custom_location:
+                components["environment"] = (
+                    f"in ((dramatic {custom_location})), "
+                    f"((perfect lighting)), ((architectural context)), "
+                    f"((professional environment)), ((structural harmony))"
+                )
+            else:
+                lighting = random.choice(self.lighting_setups["dramatic"])
+                components["environment"] = (
+                    f"with ((dramatic {lighting})), ((architectural atmosphere)), "
+                    f"((perfect perspective)), ((structural context)), "
+                    f"((professional environment))"
+                )
+        
+        if kwargs.get("include_style") == "yes":
+            components["style"] = (
+                f"((architectural photography)), ((professional composition)), "
+                f"((structural detail)), ((perfect lighting)), "
+                f"((dramatic perspective)), ((technical precision)), "
+                f"8k resolution"
+            )
+        
+        if kwargs.get("include_effects") == "yes":
+            components["effects"] = (
+                f"with ((dramatic lighting)), ((perfect shadows)), "
+                f"((architectural atmosphere)), ((structural emphasis)), "
+                f"((professional post-processing)), ((technical excellence))"
+            )
+        
+        return components
+
+    def _handle_strange_animal_theme(self, **kwargs) -> Dict[str, str]:
+        """Chimera Animals theme handler."""
+        components = {}
+        
+        # Get custom inputs
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        
+        # Select base animals
+        animal_family = random.choice(list(self.animal_families.keys()))
+        base_animal = random.choice(self.animal_families[animal_family])
+        second_animal = random.choice(self.animals)  # Different animal for hybrid
+        
+        if custom_subject:
+            components["subject"] = (
+                f"((mythical chimera creature)) of {custom_subject}, "
+                f"((hybrid anatomy)), ((fantastic beast)), "
+                f"((magical creature)), ((mythological hybrid))"
+            )
+        else:
+            components["subject"] = (
+                f"((mythical chimera creature)) combining {base_animal} and {second_animal}, "
+                f"((hybrid anatomy)), ((fantastic beast)), "
+                f"((magical creature)), ((mythological hybrid))"
+            )
+        
+        if kwargs.get("include_environment") == "yes":
+            habitat = random.choice(self.mythical_locations)
+            weather = random.choice(self.weather)
+            components["environment"] = (
+                f"in ((mystical {habitat})) during {weather}, "
+                f"((magical atmosphere)), ((mythical realm)), "
+                f"((fantastic setting))"
+            )
+        
+        if kwargs.get("include_style") == "yes":
+            style = random.choice(self.art_styles)
+            components["style"] = (
+                f"((fantasy art style)), ((mythical aesthetic)), "
+                f"((creature design)), ((hybrid anatomy)), "
+                f"((magical atmosphere)), ((professional quality)), "
+                f"8k resolution"
+            )
+        
+        if kwargs.get("include_effects") == "yes":
+            effect = random.choice(self.magical_effects["nature"])
+            components["effects"] = (
+                f"with ((magical {effect})), ((mystical aura)), "
+                f"((fantastic atmosphere)), ((mythical elements)), "
+                f"((hybrid features)), ((creature details))"
+            )
+        
+        return components
+
+    def _handle_food_theme(self, **kwargs) -> Dict[str, str]:
+        """Food/Culinary theme handler."""
+        components = {}
+        
+        # Get custom inputs
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        
+        # Select base elements
+        food_type = random.choice(self.food_types)
+        style = random.choice(self.food_styles)
+        setting = random.choice(self.food_settings)
+        
+        if custom_subject:
+            components["subject"] = (
+                f"((professional food photography)) of {custom_subject}, "
+                f"((culinary art)), ((gourmet presentation)), "
+                f"((food styling)), ((appetizing composition))"
+            )
+        else:
+            components["subject"] = (
+                f"((professional food photography)) of ((delicious {food_type})), "
+                f"((culinary art)), ((gourmet presentation)), "
+                f"((food styling)), ((appetizing composition))"
+            )
+        
+        if kwargs.get("include_environment") == "yes":
+            components["environment"] = (
+                f"on ((beautiful {setting})), ((professional food styling)), "
+                f"((culinary setting)), ((gourmet atmosphere)), "
+                f"((restaurant quality))"
+            )
+        
+        if kwargs.get("include_style") == "yes":
+            components["style"] = (
+                f"(({style})), ((professional food photography)), "
+                f"((culinary excellence)), ((perfect lighting)), "
+                f"((gourmet quality)), 8k resolution"
+            )
+        
+        if kwargs.get("include_effects") == "yes":
+            components["effects"] = (
+                f"with ((perfect depth of field)), ((soft lighting)), "
+                f"((appetizing colors)), ((food texture details)), "
+                f"((professional styling)), ((culinary aesthetics))"
+            )
+        
+        return components
+
+    def _handle_3d_theme(self, **kwargs) -> Dict[str, str]:
+        """3D theme handler."""
+        components = {}
+        
+        # Get custom inputs
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        
+        # Select base elements
+        style = random.choice(self.threed_styles)
+        material = random.choice(self.threed_materials)
+        effect = random.choice(self.threed_effects)
+        
+        if custom_subject:
+            components["subject"] = (
+                f"((professional 3D render)) of {custom_subject}, "
+                f"((in {style})), ((with {material} materials)), "
+                f"((3D modeling)), ((perfect geometry))"
+            )
+        else:
+            components["subject"] = (
+                f"((professional 3D render)) in {style}, "
+                f"((with {material} materials)), ((3D modeling)), "
+                f"((perfect geometry)), ((detailed textures))"
+            )
+        
+        if kwargs.get("include_environment") == "yes":
+            environment = random.choice(self.threed_environments)
+            components["environment"] = (
+                f"in ((professional {environment})), "
+                f"((perfect lighting setup)), ((3D space)), "
+                f"((detailed environment)), ((studio quality))"
+            )
+        
+        if kwargs.get("include_style") == "yes":
+            components["style"] = (
+                f"((professional 3D rendering)), ((perfect materials)), "
+                f"((high-end finish)), ((technical excellence)), "
+                f"((3D mastery)), 8k resolution"
+            )
+        
+        if kwargs.get("include_effects") == "yes":
+            components["effects"] = (
+                f"with (({effect})), ((perfect reflections)), "
+                f"((professional rendering)), ((3D effects)), "
+                f"((technical precision)), ((render quality))"
+            )
+        
+        return components
+
+    def _handle_fantasy_theme(self, **kwargs) -> Dict[str, str]:
+        """Fantasy theme handler."""
+        components = {}
+        
+        # Get custom inputs
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        
+        # Select base elements
+        race = random.choice(self.races)
+        profession = random.choice(self.professions)
+        artifact = random.choice(self.artifacts["weapon"])
+        location = random.choice(self.mythical_locations)
+        
+        if custom_subject:
+            components["subject"] = (
+                f"((fantasy artwork)) of {custom_subject}, "
+                f"((magical character)), ((fantasy design)), "
+                f"((mythical being)), ((enchanted presence))"
+            )
+        else:
+            components["subject"] = (
+                f"((fantasy artwork)) of ((magical {race} {profession})), "
+                f"((wielding {artifact})), ((fantasy character)), "
+                f"((mythical being)), ((enchanted presence))"
+            )
+        
+        if kwargs.get("include_environment") == "yes":
+            components["environment"] = (
+                f"in ((magical {location})), ((fantasy realm)), "
+                f"((mystical atmosphere)), ((enchanted setting)), "
+                f"((mythical world))"
+            )
+        
+        if kwargs.get("include_style") == "yes":
+            style = random.choice(self.art_styles)
+            components["style"] = (
+                f"((fantasy art style)), ((magical aesthetic)), "
+                f"((mythical quality)), ((enchanted atmosphere)), "
+                f"((professional artwork)), 8k resolution"
+            )
+        
+        if kwargs.get("include_effects") == "yes":
+            effect = random.choice(self.magical_effects["arcane"])
+            components["effects"] = (
+                f"with ((magical {effect})), ((mystical aura)), "
+                f"((fantasy elements)), ((enchanted effects)), "
+                f"((mythical atmosphere))"
+            )
+        
+        return components
+
+    def _handle_cinema_theme(self, **kwargs) -> Dict[str, str]:
+        """Cinema theme handler."""
+        components = {}
+        
+        # Get custom inputs
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        custom_location = kwargs.get("custom_location", "").strip()
+        
+        # Select base elements
+        location = random.choice(self.cinema_locations)
+        prop = random.choice(self.cinema_props)
+        atmosphere = random.choice(self.cinema_atmospheres)
+        style = random.choice(self.cinema_styles)
+        effect = random.choice(self.cinema_effects)
+        action = random.choice(self.cinema_specific_actions)
+        
+        if custom_subject:
+            components["subject"] = (
+                f"((professional movie scene)) of {custom_subject}, "
+                f"((with {prop})), ((cinematic quality)), "
+                f"((movie production)), ((professional filming)), "
+                f"{action}"
+            )
+        else:
+            character = random.choice(self.cinema_characters)  # Using predefined cinema characters
+            components["subject"] = (
+                f"((professional movie scene)) of {character}, "
+                f"((with {prop})), ((cinematic quality)), "
+                f"((movie production)), ((professional filming)), "
+                f"{action}"
+            )
+        
+        if kwargs.get("include_environment") == "yes":
+            if custom_location:
+                components["environment"] = (
+                    f"in ((cinematic {custom_location})), "
+                    f"((with {atmosphere})), ((professional set design)), "
+                    f"((movie set quality)), ((production value))"
+                )
+            else:
+                components["environment"] = (
+                    f"in ((professional {location})), "
+                    f"((with {atmosphere})), ((professional set design)), "
+                    f"((movie set quality)), ((production value))"
+                )
+        
+        if kwargs.get("include_style") == "yes":
+            components["style"] = (
+                f"(({style})), ((professional cinematography)), "
+                f"((movie production quality)), ((cinematic framing)), "
+                f"((theatrical presentation)), ((film production)), "
+                f"8k resolution"
+            )
+        
+        if kwargs.get("include_effects") == "yes":
+            components["effects"] = (
+                f"with (({effect})), ((professional post-processing)), "
+                f"((cinematic color grading)), ((movie effects)), "
+                f"((production quality)), ((theatrical finish))"
             )
         
         return components

@@ -990,52 +990,23 @@ threed_styles = [
 
 # 3D Environments
 threed_environments = [
-    "studio lighting setup", 
-    "environmental lighting", 
-    "dramatic lighting", 
-    "realistic environment", 
-    "abstract space", 
-    "geometric background",
-    "HDRI environment",
-    "virtual studio",
-    "3D scene",
-    "digital space"
+    "studio lighting setup", "environmental lighting", "dramatic lighting",
+    "realistic environment", "abstract space", "geometric background",
+    "HDRI environment", "virtual studio", "3D scene", "digital space"
 ]
 
 threed_effects = [
-    "ambient occlusion",
-    "global illumination",
-    "ray tracing",
-    "subsurface scattering",
-    "volumetric lighting",
-    "reflection",
-    "refraction",
-    "caustics",
-    "depth of field",
-    "motion blur",
-    "particle systems",
-    "soft shadows",
-    "physically based rendering",
-    "emission",
-    "bloom"
+    "ambient occlusion", "global illumination", "ray tracing",
+    "subsurface scattering", "volumetric lighting", "reflection",
+    "refraction", "caustics", "depth of field", "motion blur",
+    "particle systems", "soft shadows", "physically based rendering",
+    "emission", "bloom"
 ]
 
 threed_materials = [
-    "metallic",
-    "glass",
-    "plastic",
-    "rubber",
-    "wood",
-    "fabric",
-    "leather",
-    "ceramic",
-    "concrete",
-    "marble",
-    "gold",
-    "chrome",
-    "brushed metal",
-    "matte finish",
-    "glossy finish"
+    "metallic", "glass", "plastic", "rubber", "wood",
+    "fabric", "leather", "ceramic", "concrete", "marble",
+    "gold", "chrome", "brushed metal", "matte finish", "glossy finish"
 ]
 
 # Add Futuristic City Elements
@@ -2836,4 +2807,26 @@ cartoon_environments = [
     "cartoon jungle", "animated desert",
     "cartoon castle", "animated amusement park",
     "cartoon fantasy realm"
+]
+
+# Cinema Theme Elements
+cinema_locations = [
+    "movie set", "film studio", "sound stage", "green screen stage",
+    "production studio", "backlot", "location shoot", "film set",
+    "movie theater", "screening room", "post-production suite",
+    "special effects studio", "motion capture stage"
+]
+
+cinema_props = [
+    "movie camera", "lighting rig", "boom microphone", "film equipment",
+    "director's chair", "clapperboard", "film reel", "movie poster",
+    "special effects props", "costume rack", "makeup station",
+    "stunt equipment", "camera dolly"
+]
+
+cinema_atmospheres = [
+    "dramatic lighting", "cinematic ambiance", "movie magic",
+    "professional studio", "film noir mood", "hollywood glamour",
+    "theatrical atmosphere", "behind the scenes", "production value",
+    "silver screen quality"
 ]
