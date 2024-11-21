@@ -419,8 +419,12 @@ class MegaPromptV2:
         """Logo theme handler."""
         components = {}
         
-        # Determine logo style approach
-        style_approach = random.choice(["classic", "3D", "character", "artistic"])
+        # Determine logo style approach with adjusted weights
+        # Reduce weight of character style (which includes animals) from 0.15 to 0.05
+        style_approach = random.choices(
+            ["classic", "3D", "character", "artistic"],
+            weights=[0.6, 0.2, 0.05, 0.15]  # Classic logos are most common, character logos (which may include animals) are rarer
+        )[0]
         
         # Use custom subject if provided and not empty
         custom_subject = kwargs.get("custom_subject", "").strip()
@@ -449,13 +453,19 @@ class MegaPromptV2:
             )
             
         elif style_approach == "character":
-            character = random.choice(self.logo_characters)
+            # Reduced list of mascot options, focusing more on abstract/cute characters rather than specific animals
+            mascot_options = [
+                "cute mascot", "friendly character", "abstract character",
+                "geometric character", "playful mascot", "simple character",
+                "minimalist mascot", "modern character", "unique mascot"
+            ]
+            character = random.choice(mascot_options)
             decorative = random.choice(self.logo_decorative_elements)
             
             components["subject"] = (
-                f"((adorable {character} mascot logo)) with the text \"{logo_text}\", "
+                f"((professional {character} logo)) with the text \"{logo_text}\", "
                 f"((cute character design)), ((playful typography)), "
-                f"((charming illustration)), ((kawaii style))"
+                f"((charming illustration)), ((logo style))"
             )
             
         else:  # artistic
