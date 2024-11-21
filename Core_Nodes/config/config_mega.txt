@@ -2432,8 +2432,7 @@ cute_chimera_art_styles = [
 
 cute_chimera_emotions = [
     "happy", "joyful", "playful", "cheerful", "peaceful",
-    "gentle", "sweet", "loving", "friendly", "merry",
-    "delightful", "blissful", "content", "gleeful"
+    "gentle", "sweet", "loving", "friendly", "merry"
 ]
 
 # Cinema Theme Elements
@@ -2503,26 +2502,40 @@ village_views = [
 ]
 
 # Christmas Theme Elements
+christmas_styles = [
+    "cozy christmas illustration", "vintage christmas card",
+    "magical christmas scene", "festive digital art",
+    "traditional christmas painting", "whimsical christmas art",
+    "classic christmas illustration", "modern christmas design",
+    "nostalgic christmas artwork", "cheerful christmas cartoon"
+]
+
+christmas_moods = [
+    "magical", "joyful", "festive", "cozy", "nostalgic",
+    "whimsical", "heartwarming", "cheerful", "peaceful",
+    "enchanting", "merry", "traditional"
+]
+
 christmas_elements = {
     "characters": [
         "Santa Claus", "reindeer", "elf", "snowman", "angel",
         "caroler", "child opening presents", "Mrs. Claus",
-        "nutcracker", "gingerbread man", "polar bear", "penguin"
+        "nutcracker", "gingerbread man"
     ],
     "activities": [
         "decorating the tree", "opening presents", "caroling",
         "building a snowman", "baking cookies", "wrapping gifts",
-        "hanging stockings", "sledding", "ice skating", "drinking hot cocoa"
+        "hanging stockings", "sledding", "ice skating"
     ],
     "decorations": [
         "Christmas tree", "twinkling lights", "ornaments",
         "wreaths", "garlands", "stockings", "candy canes",
-        "ribbons", "tinsel", "mistletoe", "poinsettias"
+        "ribbons", "tinsel", "mistletoe"
     ],
     "settings": [
         "cozy living room", "snowy village", "North Pole workshop",
         "festive town square", "decorated mall", "winter wonderland",
-        "gingerbread house", "Christmas market", "ice palace"
+        "gingerbread house", "Christmas market"
     ],
     "weather": [
         "gentle snowfall", "winter storm", "crisp winter night",
@@ -2530,24 +2543,68 @@ christmas_elements = {
     ],
     "magical_effects": [
         "sparkling snow", "northern lights", "magical stardust",
-        "glowing ornaments", "twinkling fairy lights", "festive sparkles",
-        "magical Christmas glow", "enchanted snowflakes"
+        "glowing ornaments", "twinkling fairy lights", "festive sparkles"
     ]
 }
 
-christmas_styles = [
-    "cozy christmas illustration", "vintage christmas card",
-    "magical christmas scene", "festive digital art",
-    "traditional christmas painting", "whimsical christmas art",
-    "classic christmas illustration", "modern christmas design",
-    "nostalgic christmas artwork", "cheerful christmas cartoon",
-    "elegant christmas rendering", "heartwarming christmas scene"
+# Interior Theme Elements
+interior_styles = [
+    "modern", "minimalist", "scandinavian", "industrial", "bohemian",
+    "contemporary", "traditional", "art deco", "mid-century modern",
+    "rustic", "coastal", "farmhouse", "eclectic", "japanese zen"
 ]
 
-christmas_moods = [
-    "magical", "joyful", "festive", "cozy", "nostalgic",
-    "whimsical", "heartwarming", "cheerful", "peaceful",
-    "enchanting", "merry", "traditional", "jolly", "celebratory"
+interior_spaces = [
+    "living room", "kitchen", "bathroom", "bedroom", "dining room",
+    "home office", "library", "conservatory", "entrance hall",
+    "loft space", "studio apartment", "penthouse"
+]
+
+interior_elements = [
+    "designer furniture", "architectural lighting", "luxury textiles",
+    "statement artwork", "decorative objects", "handwoven rugs",
+    "custom window treatments", "architectural details", "built-in storage"
+]
+
+interior_times = [
+    "morning", "midday", "afternoon", "golden hour",
+    "blue hour", "evening", "twilight"
+]
+
+interior_lighting = [
+    "natural sunlight", "soft diffused light", "dramatic window light",
+    "ambient lighting", "accent lighting", "architectural lighting",
+    "indirect lighting", "spotlighting"
+]
+
+# Cute Chimera Theme Elements
+cute_chimera_actions = [
+    "playfully bouncing", "sweetly napping", "gently exploring",
+    "happily playing", "adorably dancing", "cutely prancing",
+    "cheerfully hopping", "softly purring", "merrily skipping"
+]
+
+cute_chimera_habitats = [
+    "magical garden", "enchanted forest", "fairy meadow",
+    "rainbow valley", "crystal cave", "flower field",
+    "candy kingdom", "pastel wonderland", "starlit grove"
+]
+
+cute_chimera_weather = [
+    "gentle rainbow", "sparkling sunshine", "magical starlight",
+    "soft snowfall", "glittering mist", "pastel sunset",
+    "twinkling twilight", "fairy lights", "magical moonbeams"
+]
+
+cute_chimera_emotions = [
+    "happy", "joyful", "playful", "cheerful", "peaceful",
+    "gentle", "sweet", "loving", "friendly", "merry"
+]
+
+cute_chimera_art_styles = [
+    "kawaii art", "chibi style", "cute anime", 
+    "adorable illustration", "sweet cartoon",
+    "magical drawing", "pastel artwork", "fluffy rendering"
 ]
 
 # Add these configurations for the Binet theme
@@ -2735,3 +2792,48 @@ pixar_storytelling_elements = {
         "memorable visuals"
     ]
 }
+
+# Animation Cartoon Theme Elements
+cartoon_styles = [
+    "classic cartoon animation", "modern cartoon style",
+    "retro cartoon art", "saturday morning cartoon",
+    "disney-inspired animation", "looney tunes style",
+    "pixar-like rendering", "dreamworks animation style",
+    "cartoon network aesthetic", "nickelodeon style",
+    "anime-influenced cartoon", "comic book animation",
+    "hand-drawn animation style", "3D cartoon rendering",
+    "cel-shaded animation"
+]
+
+cartoon_expressions = [
+    "big cheerful smile", "exaggerated surprise",
+    "comical confusion", "silly grin",
+    "animated laughter", "goofy expression",
+    "playful wink", "cartoon pout",
+    "wacky face", "animated joy",
+    "funny grimace", "cartoon wonderment",
+    "exaggerated emotions", "animated excitement",
+    "cartoon mischief"
+]
+
+cartoon_effects = [
+    "squash and stretch", "exaggerated motion lines",
+    "impact stars", "cartoon smoke clouds",
+    "animated sparkles", "speed lines",
+    "cartoon physics", "floating hearts",
+    "animated sweat drops", "cartoon dust clouds",
+    "popping effects", "animated bubbles",
+    "cartoon explosions", "magical sparkles",
+    "animated transformations"
+]
+
+cartoon_environments = [
+    "whimsical cartoon world", "animated cityscape",
+    "cartoon forest", "magical cartoon kingdom",
+    "animated playground", "cartoon school",
+    "wacky laboratory", "animated candy land",
+    "cartoon underwater world", "animated space station",
+    "cartoon jungle", "animated desert",
+    "cartoon castle", "animated amusement park",
+    "cartoon fantasy realm"
+]

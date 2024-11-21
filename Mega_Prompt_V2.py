@@ -1973,3 +1973,63 @@ class MegaPromptV2:
             )
         
         return components
+
+    def _handle_cartoon_theme(self, **kwargs) -> Dict[str, str]:
+        """Animation Cartoon theme handler."""
+        components = {}
+        
+        # Get custom inputs
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        custom_location = kwargs.get("custom_location", "").strip()
+        
+        # Select base elements
+        character = random.choice(self.cartoon_characters)
+        style = random.choice(self.cartoon_styles)
+        expression = random.choice(self.cartoon_expressions)
+        effect = random.choice(self.cartoon_effects)
+        
+        if custom_subject:
+            components["subject"] = (
+                f"((professional cartoon animation)) of {custom_subject}, "
+                f"((with {expression})), ((animated character design)), "
+                f"((cartoon style)), ((dynamic pose)), ((expressive features))"
+            )
+        else:
+            components["subject"] = (
+                f"((professional cartoon animation)) of {character}, "
+                f"((with {expression})), ((animated character design)), "
+                f"((cartoon style)), ((dynamic pose)), ((expressive features))"
+            )
+        
+        if kwargs.get("include_environment") == "yes":
+            if custom_location:
+                components["environment"] = (
+                    f"in ((animated {custom_location})), "
+                    f"((cartoon world)), ((vibrant colors)), "
+                    f"((dynamic background)), ((animated scenery))"
+                )
+            else:
+                environment = random.choice(self.cartoon_environments)
+                components["environment"] = (
+                    f"in ((animated {environment})), "
+                    f"((cartoon world)), ((vibrant colors)), "
+                    f"((dynamic background)), ((animated scenery))"
+                )
+        
+        if kwargs.get("include_style") == "yes":
+            components["style"] = (
+                f"(({style})), ((professional animation)), "
+                f"((cartoon rendering)), ((vibrant palette)), "
+                f"((dynamic composition)), ((animated style)), "
+                f"((expressive design)), 8k resolution"
+            )
+        
+        if kwargs.get("include_effects") == "yes":
+            components["effects"] = (
+                f"with (({effect})), ((cartoon physics)), "
+                f"((animated motion)), ((dynamic lighting)), "
+                f"((cartoon shading)), ((animated effects)), "
+                f"((expressive animation))"
+            )
+        
+        return components
