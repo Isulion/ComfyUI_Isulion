@@ -33,6 +33,7 @@ Exemples de comportements à éviter comme la peste :
 * **Partager ses Connaissances** : Contribuer au partage des connaissances et à l'apprentissage collectif. Non, garder tes secrets pour toi ne te rend pas plus mystérieux.
 * **Remercier et Apprécier** : Exprimer sa gratitude pour le travail et les contributions des autres membres. Oui, ça va, tu peux le dire, "Merci".
 * **Collaborer avec Bienveillance** : Travailler ensemble de manière coopérative et respectueuse pour atteindre des objectifs communs. C'est comme une mission secrète, mais sans le risque d'explosion.
+* Se Moquer des Idées, Pas des Gens ... Il est tout à fait acceptable de se moquer des idées ridicules ou farfelues (après tout, qui n'aime pas une bonne blague sur des théories complotistes délirantes ?), tant que cela reste respectueux et constructif. Cependant, il est strictement interdit de se moquer des personnes elles-mêmes. Rappelons-nous que derrière chaque idée bizarre, il y a une personne avec des sentiments. Alors, gardons nos sarcasmes et nos piques pour les concepts absurdes et non pour ceux qui les partagent. Parce que, vraiment, dire que les pizzas à l'ananas sont une abomination est une chose, mais attaquer quelqu'un pour ses goûts culinaires est simplement cruel.
 
 ## Nos Super-Pouvoirs et Responsabilités
 
@@ -72,6 +73,7 @@ Examples of behavior to avoid like the plague:
 * **Sharing Knowledge**: Contributing to knowledge sharing and collective learning. No, keeping your secrets to yourself doesn't make you more mysterious.
 * **Thanking and Appreciating**: Expressing gratitude for the work and contributions of others. Yes, it's okay to say "Thank you."
 * **Collaborating Kindly**: Working together cooperatively and respectfully to achieve common goals. It's like a secret mission, but without the risk of explosions.
+* Mock the Ideas, Not the People ... It's perfectly acceptable to poke fun at ridiculous or wacky ideas (after all, who doesn't enjoy a good laugh at wild conspiracy theories?), as long as it remains respectful and constructive. However, it is strictly forbidden to mock the people themselves. Let's remember that behind every bizarre idea is a person with feelings. So, let's keep our sarcasm and jabs for the absurd concepts and not for those who share them. Because, really, saying that pineapple on pizza is an abomination is one thing, but attacking someone for their culinary tastes is just cruel.
 
 ## Our Superpowers and Responsibilities
 
