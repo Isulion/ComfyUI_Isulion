@@ -2370,7 +2370,7 @@ class MegaPromptV2:
         return components
 
     def _handle_futuristic_battlefield_theme(self, **kwargs) -> Dict[str, str]:
-        """Futuristic battlefield theme handler focused on weapons and military technology."""
+        """Futuristic battlefield theme handler focused on alien quantum weapons."""
         components = {}
         
         # Get custom inputs
@@ -2383,51 +2383,51 @@ class MegaPromptV2:
         
         if custom_subject:
             components["subject"] = (
-                f"((advanced military hardware)) of {custom_subject}, "
-                f"((weapons system)), ((military technology)), "
-                f"((combat equipment)), ((future warfare)), "
-                f"((tactical systems)), ((battlefield technology))"
+                f"((otherworldly quantum weapon)) {custom_subject}, "
+                f"((alien technology)), ((interdimensional armament)), "
+                f"((advanced weaponry)), ((void-tech warfare)), "
+                f"((cosmic-scale firepower)), ((quantum-organic systems))"
             )
         else:
             components["subject"] = (
-                f"((advanced military hardware)) featuring ((advanced {element})), "
-                f"((weapons platform)), ((military innovation)), "
-                f"((combat technology)), ((future warfare)), "
-                f"((tactical systems)), ((battlefield advancement))"
+                f"((advanced alien armament)) featuring ((massive {element})), "
+                f"((quantum weapon platform)), ((void-tech innovation)), "
+                f"((cosmic warfare technology)), ((dimensional arsenal)), "
+                f"((bio-synthetic systems)), ((quantum advancement))"
             )
         
         if kwargs.get("include_environment") == "yes":
             if custom_location:
                 components["environment"] = (
-                    f"on ((war-torn {custom_location})), "
-                    f"((with {atmosphere})), ((active combat zone)), "
-                    f"((open battlefield)), ((future war scenario)), "
-                    f"((outdoor combat area))"
+                    f"on ((quantum-warped {custom_location})), "
+                    f"((with {atmosphere})), ((dimensional breach zone)), "
+                    f"((void-torn battlefield)), ((cosmic war theater)), "
+                    f"((quantum distortion field))"
                 )
             else:
                 setting = random.choice(self.battlefield_environments)
                 components["environment"] = (
-                    f"on ((massive {setting})), ((with {atmosphere})), "
-                    f"((active battlefield)), ((combat terrain)), "
-                    f"((war zone)), ((open combat field))"
+                    f"on ((vast {setting})), ((with {atmosphere})), "
+                    f"((quantum battlefield)), ((void-scarred terrain)), "
+                    f"((cosmic war zone)), ((dimensional rift field))"
                 )
 
         if kwargs.get("include_style") == "yes":
             style = random.choice(self.battlefield_styles)
             components["style"] = (
-                f"(({style})), ((military technology)), "
-                f"((tactical visualization)), ((weapons design)), "
-                f"((technical precision)), ((combat systems)), "
-                f"((military hardware)), 8k resolution"
+                f"(({style})), ((quantum technology)), "
+                f"((void-tech visualization)), ((alien weapon design)), "
+                f"((dimensional precision)), ((cosmic systems)), "
+                f"((otherworldly hardware)), 8k resolution"
             )
 
         if kwargs.get("include_effects") == "yes":
             effect = random.choice(self.battlefield_effects)
             components["effects"] = (
-                f"with ((dramatic {effect})), ((weapons discharge)), "
-                f"((combat atmosphere)), ((battlefield lighting)), "
-                f"((tactical effects)), ((system readouts)), "
-                f"((weapons visuals)), ((war zone ambiance))"
+                f"with ((dramatic {effect})), ((quantum discharge)), "
+                f"((void energy)), ((dimensional rifts)), "
+                f"((cosmic distortions)), ((quantum readouts)), "
+                f"((alien tech visuals)), ((interdimensional ambiance))"
             )
         
         return components
