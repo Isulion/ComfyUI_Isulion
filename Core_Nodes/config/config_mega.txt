@@ -2835,61 +2835,62 @@ cinema_atmospheres = [
 
 # Futuristic Battlefield Elements
 battlefield_elements = [
-    # Advanced Alien Weapons
-    "crystalline plasma cannon", "void energy projector", "dimensional rift generator",
-    "quantum singularity launcher", "dark matter disruptor array", "hyperdimensional beam emitter",
-    "stellar core artillery", "graviton collapse inducer", "temporal vortex cannon",
-    "cosmic ray accelerator", "neutron star compressor", "antimatter cascade emitter",
-    # Biomechanical Weapons
-    "hive-mind weapon cluster", "synapse cannon array", "neural plague disperser",
-    "organic plasma spitter", "psychic resonance amplifier", "bio-crystal artillery",
-    "morphic resonance cannon", "spore matrix launcher",
-    "synaptic pulse cannon", "bio-plasma hive node", "organic void projector",
-    # Hybrid Tech Weapons
-    "techno-organic engine", "bio-digital weapon matrix", "quantum-organic laser",
-    "cyber-biological cannon", "nano-organic weapon swarm", "bio-synthetic death ray",
-    "techno-symbiotic launcher", "cyber-organic pulse beam", "bio-digital devastator"
+    # Bio-Quantum Weapons
+    "living crystal cannon", "neural quantum projector", "organic void generator",
+    "bio-quantum singularity", "synaptic matter disruptor", "living energy beam",
+    "organic core artillery", "neural collapse inducer", "bio-vortex cannon",
+    "living ray accelerator", "organic star compressor", "synaptic cascade emitter",
+    # Advanced Organic Weapons
+    "hive-mind crystal cluster", "neural cannon array", "organic plague disperser",
+    "living plasma spitter", "bio-resonance amplifier", "organic crystal artillery",
+    "morphic flesh cannon", "chitinous siege engine", "living matrix launcher",
+    "neural pulse emitter", "organic plasma node", "living void projector",
+    # Hybrid Bio-Weapons
+    "bio-quantum engine", "neural weapon matrix", "organic-quantum artillery",
+    "living weapon cluster", "neural swarm projector", "bio-quantum ray",
+    "organic siege platform", "neural pulse array", "living devastator"
 ]
 
 battlefield_environments = [
-    # Alien Battlefields
-    "crystalline war zone", "void-scarred battlefield", "plasma crystal field",
-    "quantum disruption zone", "dimensional tear battlefield", "dark matter wasteland",
-    "temporal anomaly field", "graviton distortion ground", "cosmic ray basin",
-    # Biomechanical Terrains
-    "organic hive battlefield", "synaptic war field", "bio-plasma crater zone",
-    "living metal terrain", "neural network ground", "spore field wasteland",
-    "chitinous battleground", "bio-crystal war zone", "morphic resonance field",
-    # Hybrid Combat Zones
-    "techno-organic battlefield", "bio-digital war zone", "quantum-organic field",
-    "cyber-biological ground", "nano-organic combat zone", "synthetic-organic wasteland"
+    # Bio-Quantum Fields
+    "living crystal field", "neural void zone", "organic plasma terrain",
+    "bio-quantum disruption", "synaptic tear field", "living energy wasteland",
+    "neural anomaly ground", "organic distortion plain", "bio-quantum basin",
+    # Living Battlefields
+    "hive mind war zone", "neural network field", "organic crater zone",
+    "living flesh terrain", "synaptic ground mass", "spore field expanse",
+    "chitinous battle plain", "bio-crystal field", "morphic flesh zone",
+    # Hybrid Zones
+    "bio-quantum field", "neural war zone", "organic-quantum plain",
+    "living battle ground", "neural combat zone", "bio-synthetic wasteland"
 ]
 
 battlefield_effects = [
-    # Alien Effects
-    "void energy discharge", "dimensional rift cascade", "quantum singularity pulse",
-    "dark matter eruption", "temporal distortion wave", "graviton collapse field",
-    "cosmic ray storm", "crystalline plasma burst", "stellar core meltdown",
-    # Biomechanical Effects
-    "neural plague cloud", "synaptic overload pulse", "bio-plasma eruption",
-    "spore matrix burst", "psychic resonance wave", "organic void tear",
-    "morphic energy surge", "chitinous barrier field", "hive-mind surge",
+    # Bio-Quantum Effects
+    "living void discharge", "neural rift cascade", "organic singularity",
+    "bio-matter eruption", "synaptic distortion", "living collapse field",
+    "neural ray storm", "organic plasma burst", "bio-core meltdown",
+    # Living Effects
+    "neural plague cloud", "synaptic surge", "organic plasma burst",
+    "spore matrix wave", "bio-resonance pulse", "living void tear",
+    "morphic energy field", "chitinous barrier", "hive-mind pulse",
     # Hybrid Effects
-    "techno-organic fusion", "bio-digital disruption", "nano-organic storm",
-    "cyber-biological pulse", "synthetic-organic burst", "quantum-bio discharge"
+    "bio-quantum fusion", "neural disruption", "organic energy storm",
+    "living weapon pulse", "bio-synthetic surge", "quantum flesh discharge"
 ]
 
 battlefield_atmospheres = [
-    "void-corrupted air", "plasma crystal storm", "dimensional tear distortion",
-    "bio-plasma fog", "neural energy field", "quantum-organic haze",
-    "spore matrix cloud", "techno-organic mist", "dark matter tempest",
-    "crystalline energy storm", "synthetic-organic atmosphere", "temporal flux field"
+    "bio-corrupted void", "living crystal storm", "neural tear distortion",
+    "organic plasma fog", "synaptic field", "bio-quantum haze",
+    "living matrix cloud", "neural energy mist", "organic void tempest",
+    "bio-crystal storm", "living flesh atmosphere", "synaptic flux field"
 ]
 
 battlefield_styles = [
-    "alien weapon aesthetic", "biomechanical artillery design",
-    "void technology", "quantum-organic hardware", "neural engine",
-    "dimensional machine", "hive-mind weapon system",
-    "techno-organic armament", "synthetic-alien technology",
-    "bio-digital weaponry", "cosmic war apparatus"
+    "bio-quantum aesthetic", "living weapon design",
+    "organic void tech", "neural quantum hardware",
+    "living crystal platform", "synaptic engine",
+    "bio-dimensional machine", "hive-mind system",
+    "organic armament", "living alien tech",
+    "neural weaponry", "bio-cosmic apparatus"
 ]
