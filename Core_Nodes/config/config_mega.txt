@@ -2894,3 +2894,99 @@ battlefield_styles = [
     "organic armament", "living alien tech",
     "neural weaponry", "bio-cosmic apparatus"
 ]
+
+# Add Impressionist Elements
+impressionist_elements = {
+    "techniques": [
+        "loose brushstrokes", "visible brush marks", "broken color",
+        "impasto technique", "wet-on-wet painting", "optical mixing",
+        "spontaneous brushwork", "textured paint application",
+        "quick gestural strokes", "painterly approach",
+        "light capturing technique", "atmospheric effects",
+        "color vibration", "plein air style", "sketchy finish"
+    ],
+    
+    "subjects": [
+        "sunlit landscape", "garden scene", "water reflections",
+        "urban street life", "cafe terrace", "cathedral facade",
+        "haystack in sunlight", "blooming flowers", "river scene",
+        "seaside view", "pastoral landscape", "city boulevard",
+        "train station", "park scene", "countryside vista",
+        "water lilies", "poppy field", "sailing boats",
+        "beach scene", "garden party", "ballet dancers",
+        "outdoor gathering", "bridge over water", "sunset view"
+    ],
+    
+    "lighting": [
+        "natural sunlight", "dappled light", "atmospheric haze",
+        "golden hour glow", "diffused daylight", "morning light",
+        "afternoon sun", "sunset colors", "misty atmosphere",
+        "scattered light", "filtered sunlight", "luminous sky",
+        "reflected light", "shadow patterns", "atmospheric glow"
+    ],
+    
+    "colors": [
+        "vibrant pastels", "pure unmixed hues", "complementary colors",
+        "atmospheric blues", "warm sunlit tones", "cool shadows",
+        "prismatic light effects", "natural color palette",
+        "bright highlights", "subtle color variations",
+        "luminous whites", "rich earth tones", "vivid greens",
+        "shimmering water tones", "sky blue variations"
+    ],
+    
+    "moods": [
+        "serene atmosphere", "joyful lightness", "peaceful tranquility",
+        "vibrant energy", "casual elegance", "natural harmony",
+        "fleeting moment", "atmospheric calm", "lively movement",
+        "quiet contemplation", "outdoor freshness", "gentle warmth"
+    ],
+    
+    "effects": [
+        "light diffusion", "atmospheric perspective", "color reflection",
+        "shadow play", "light scattering", "air movement",
+        "water shimmer", "foliage movement", "cloud patterns",
+        "sunlight filtering", "mist effects", "heat distortion"
+    ],
+    
+    "compositions": [
+        "asymmetrical balance", "informal arrangement", "natural framing",
+        "dynamic viewpoint", "cropped perspective", "casual grouping",
+        "spontaneous layout", "atmospheric depth", "balanced elements",
+        "natural flow", "organic composition", "rhythmic arrangement"
+    ],
+    
+    "textures": [
+        "thick paint texture", "canvas weave showing", "rough brushwork",
+        "layered paint", "textural variation", "surface interest",
+        "paint buildup", "gestural marks", "broken surface",
+        "varied brushstrokes", "paint texture", "surface movement"
+    ]
+}
+
+impressionist_styles = [
+    "classic impressionism", "plein air painting", "atmospheric style",
+    "light-focused technique", "naturalistic approach", "spontaneous manner",
+    "painterly expression", "loose brushwork style", "color-vibrant method",
+    "light-capturing approach", "momentary impression", "natural observation"
+]
+
+impressionist_artists_influence = [
+    "Monet-inspired", "Renoir-style", "Pissarro-like",
+    "Sisley approach", "Degas manner", "Morisot technique",
+    "Cézanne method", "Manet influence", "Caillebotte style",
+    "Bazille approach", "Guillaumin technique", "Boudin manner"
+]
+
+impressionist_time_periods = [
+    "morning light", "midday sun", "afternoon glow",
+    "sunset hour", "dusk atmosphere", "dawn breaking",
+    "golden hour", "blue hour", "bright daylight",
+    "overcast moment", "rainy day", "misty morning"
+]
+
+impressionist_weather_effects = [
+    "sunlit atmosphere", "misty conditions", "rainy weather",
+    "cloudy sky", "clear day", "stormy mood",
+    "foggy scene", "humid air", "windy moment",
+    "snow effect", "autumn atmosphere", "spring light"
+]

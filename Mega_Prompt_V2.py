@@ -54,7 +54,8 @@ class MegaPromptV2:
             "🧸 Vintage Anthropomorphic": "vintage_anthro",
             "📱 Selfie": "selfie", 
             "💥 Futuristic Battlefield": "futuristic_battlefield",  
-            "🌌 Quantum Weapons": "futuristic_battlefield",  # Changed from 💥 or 🎯
+            "🌌 Quantum Weapons": "futuristic_battlefield",
+            "🎨 Impressionist": "impressionist",
         }
 
     def load_config(self, config_path: str) -> None:
@@ -103,6 +104,7 @@ class MegaPromptV2:
                     "👻 Halloween Ethereal",
                     "👙 Instagram Lifestyle",   
                     "🏠 Interior Spaces",
+                    "🎨 Impressionist",
                     "🏷️ Logo",
                     "📖 Manga Panel",
                     "🦸‍♂️ Marvel Universe",
@@ -110,6 +112,7 @@ class MegaPromptV2:
                     "🎭 Peaky Blinders Style",
                     "💫 Pixar Animation",
                     "☢️ Post-Apocalyptic Wasteland",
+                    "🌌 Quantum Weapons",
                     "🏫 School Manga",
                     "📱 Selfie", 
                     "🖤 Star Wars Universe",
@@ -117,7 +120,6 @@ class MegaPromptV2:
                     "🌊 Underwater Civilization",
                     "🏘️ Village Of the World",
                     "🧸 Vintage Anthropomorphic",
-                    "🌌 Quantum Weapons",
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
@@ -2428,6 +2430,76 @@ class MegaPromptV2:
                 f"((void energy)), ((dimensional rifts)), "
                 f"((cosmic distortions)), ((quantum readouts)), "
                 f"((alien tech visuals)), ((interdimensional ambiance))"
+            )
+        
+        return components
+
+    def _handle_impressionist_theme(self, **kwargs) -> Dict[str, str]:
+        """Impressionist painting theme handler."""
+        components = {}
+        
+        # Get custom inputs
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        custom_location = kwargs.get("custom_location", "").strip()
+        
+        # Select base elements
+        technique = random.choice(self.impressionist_elements["techniques"])
+        color_scheme = random.choice(self.impressionist_elements["colors"])
+        mood = random.choice(self.impressionist_elements["moods"])
+        texture = random.choice(self.impressionist_elements["textures"])
+        artist_influence = random.choice(self.impressionist_artists_influence)
+        
+        if custom_subject:
+            components["subject"] = (
+                f"((impressionist painting)) of {custom_subject}, "
+                f"((with {technique})), ((using {color_scheme})), "
+                f"(({artist_influence})), ((capturing {mood})), "
+                f"((featuring {texture}))"
+            )
+        else:
+            subject = random.choice(self.impressionist_elements["subjects"])
+            components["subject"] = (
+                f"((impressionist painting)) of ((a {subject})), "
+                f"((with {technique})), ((using {color_scheme})), "
+                f"(({artist_influence})), ((capturing {mood})), "
+                f"((featuring {texture}))"
+            )
+        
+        if kwargs.get("include_environment") == "yes":
+            if custom_location:
+                components["environment"] = (
+                    f"in ((impressionist {custom_location})), "
+                    f"((with {random.choice(self.impressionist_elements['lighting'])})), "
+                    f"((during {random.choice(self.impressionist_time_periods)})), "
+                    f"((in {random.choice(self.impressionist_weather_effects)}))"
+                )
+            else:
+                lighting = random.choice(self.impressionist_elements["lighting"])
+                time_period = random.choice(self.impressionist_time_periods)
+                weather = random.choice(self.impressionist_weather_effects)
+                components["environment"] = (
+                    f"((with {lighting})), ((during {time_period})), "
+                    f"((in {weather})), ((atmospheric scene)), "
+                    f"((natural setting))"
+                )
+        
+        if kwargs.get("include_style") == "yes":
+            style = random.choice(self.impressionist_styles)
+            composition = random.choice(self.impressionist_elements["compositions"])
+            components["style"] = (
+                f"((masterful {style})), ((impressionist technique)), "
+                f"((with {composition})), ((painterly style)), "
+                f"((artistic mastery)), ((oil painting)), "
+                f"((fine art)), 8k resolution"
+        )
+        
+        if kwargs.get("include_effects") == "yes":
+            effect = random.choice(self.impressionist_elements["effects"])
+            components["effects"] = (
+                f"with ((masterful {effect})), ((impressionist light)), "
+                f"((atmospheric depth)), ((natural color harmony)), "
+                f"((artistic brushwork)), ((painterly effects)), "
+                f"((light and shadow interplay))"
             )
         
         return components
