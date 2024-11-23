@@ -2390,7 +2390,7 @@ class MegaPromptV2:
             )
         else:
             components["subject"] = (
-                f"((advanced alien armament)) featuring ((massive {element})), "
+                f"((advanced alien armament)) featuring (({element})), "
                 f"((quantum weapon platform)), ((void-tech innovation)), "
                 f"((cosmic warfare technology)), ((dimensional arsenal)), "
                 f"((bio-synthetic systems)), ((quantum advancement))"
