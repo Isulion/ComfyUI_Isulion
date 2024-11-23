@@ -2478,35 +2478,36 @@ christmas_styles = [
     "magical christmas scene", "festive digital art",
     "traditional christmas painting", "whimsical christmas art",
     "classic christmas illustration", "modern christmas design",
-    "nostalgic christmas artwork", "cheerful christmas cartoon"
+    "nostalgic christmas artwork", "cheerful christmas cartoon",
+    "elegant christmas rendering", "heartwarming christmas scene"
 ]
 
 christmas_moods = [
     "magical", "joyful", "festive", "cozy", "nostalgic",
     "whimsical", "heartwarming", "cheerful", "peaceful",
-    "enchanting", "merry", "traditional"
+    "enchanting", "merry", "traditional", "jolly", "celebratory"
 ]
 
 christmas_elements = {
     "characters": [
         "Santa Claus", "reindeer", "elf", "snowman", "angel",
         "caroler", "child opening presents", "Mrs. Claus",
-        "nutcracker", "gingerbread man"
+        "nutcracker", "gingerbread man", "polar bear", "penguin"
     ],
     "activities": [
         "decorating the tree", "opening presents", "caroling",
         "building a snowman", "baking cookies", "wrapping gifts",
-        "hanging stockings", "sledding", "ice skating"
+        "hanging stockings", "sledding", "ice skating", "drinking hot cocoa"
     ],
     "decorations": [
         "Christmas tree", "twinkling lights", "ornaments",
         "wreaths", "garlands", "stockings", "candy canes",
-        "ribbons", "tinsel", "mistletoe"
+        "ribbons", "tinsel", "mistletoe", "poinsettias"
     ],
     "settings": [
         "cozy living room", "snowy village", "North Pole workshop",
         "festive town square", "decorated mall", "winter wonderland",
-        "gingerbread house", "Christmas market"
+        "gingerbread house", "Christmas market", "ice palace"
     ],
     "weather": [
         "gentle snowfall", "winter storm", "crisp winter night",
@@ -2514,7 +2515,8 @@ christmas_elements = {
     ],
     "magical_effects": [
         "sparkling snow", "northern lights", "magical stardust",
-        "glowing ornaments", "twinkling fairy lights", "festive sparkles"
+        "glowing ornaments", "twinkling fairy lights", "festive sparkles",
+        "magical Christmas glow", "enchanted snowflakes"
     ]
 }
 
@@ -2833,65 +2835,62 @@ cinema_atmospheres = [
 
 # Futuristic Battlefield Elements
 battlefield_elements = [
-    # Weapon Systems
-    "plasma artillery cannon", "quantum beam projector", "energy shield array",
-    "orbital strike satellite", "fusion-powered railgun", "particle accelerator cannon",
-    "antimatter torpedo launcher", "gravity manipulation weapon", "temporal disruption device",
-    "plasma field generator", "quantum entanglement disruptor", "dark matter cannon",
-    # Bio-tech Weapons
-    "bio-plasma launcher", "organic-metal fusion cannon", "neural-linked targeting system",
-    "living metal artillery", "bio-synthetic weapon platform", "symbiotic defense turret",
-    "organic energy projector", "bio-mechanical missile system", "neural pulse emitter",
-    "living fortress defense grid", "bio-enhanced shield generator", "organic stealth system",
-    # Advanced Military Tech
-    "tactical holographic array", "quantum radar installation", "nano-swarm defense grid",
-    "force field matrix", "AI battlefield control system", "neural network command center",
-    "advanced sensor network", "tactical combat supercomputer", "automated defense matrix"
+    # Advanced Alien Weapons
+    "crystalline plasma cannon", "void energy projector", "dimensional rift generator",
+    "quantum singularity launcher", "dark matter disruptor array", "hyperdimensional beam emitter",
+    "stellar core artillery", "graviton collapse inducer", "temporal vortex cannon",
+    "cosmic ray accelerator", "neutron star compressor", "antimatter cascade emitter",
+    # Biomechanical Weapons
+    "hive-mind weapon cluster", "synapse cannon array", "neural plague disperser",
+    "organic plasma spitter", "psychic resonance amplifier", "bio-crystal artillery",
+    "morphic resonance cannon", "chitinous siege platform", "spore matrix launcher",
+    "synaptic pulse cannon", "bio-plasma hive node", "organic void projector",
+    # Hybrid Tech Weapons
+    "techno-organic siege engine", "bio-digital weapon matrix", "quantum-organic artillery",
+    "cyber-biological cannon", "nano-organic weapon swarm", "bio-synthetic death ray",
+    "techno-symbiotic launcher", "cyber-organic pulse beam", "bio-digital devastator"
 ]
 
 battlefield_environments = [
-    # Outdoor Combat Zones
-    "scorched battlefield wasteland", "war-torn urban ruins", "devastated combat zone",
-    "artillery-scarred terrain", "strategic mountain pass", "contested valley",
-    "fortified defensive line", "frontline trenches", "crater-filled no-man's land",
-    "besieged city outskirts", "coastal defense position", "desert combat zone",
-    # Advanced Combat Fields
-    "plasma-scorched battlefield", "energy shield perimeter", "orbital strike zone",
-    "nano-weapon testing grounds", "quantum battlefield distortion", "anti-gravity war zone",
-    "electromagnetic combat field", "fusion blast crater field", "particle cannon range",
-    # Bio-tech Combat Areas
-    "bio-mechanical battlefield", "living metal war zone", "organic defense line",
-    "symbiotic combat terrain", "bio-synthetic war field", "neural-linked battle zone",
-    "organic fortification field", "living weapon testing ground", "bio-enhanced combat area"
+    # Alien Battlefields
+    "crystalline war zone", "void-scarred battlefield", "plasma crystal field",
+    "quantum disruption zone", "dimensional tear battlefield", "dark matter wasteland",
+    "temporal anomaly field", "graviton distortion ground", "cosmic ray basin",
+    # Biomechanical Terrains
+    "organic hive battlefield", "synaptic war field", "bio-plasma crater zone",
+    "living metal terrain", "neural network ground", "spore field wasteland",
+    "chitinous battleground", "bio-crystal war zone", "morphic resonance field",
+    # Hybrid Combat Zones
+    "techno-organic battlefield", "bio-digital war zone", "quantum-organic field",
+    "cyber-biological ground", "nano-organic combat zone", "synthetic-organic wasteland"
 ]
 
 battlefield_effects = [
-    # Weapon Effects
-    "plasma discharge", "energy weapon fire", "quantum distortion field",
-    "particle beam impact", "antimatter explosion", "temporal anomaly",
-    "gravity distortion", "force field pulse", "laser barrage",
-    # Bio-tech Effects
-    "bio-plasma eruption", "organic energy surge", "neural shock wave",
-    "living metal transformation", "symbiotic field generation", "bio-mechanical fusion",
-    "organic shield pulse", "bio-energy discharge", "neural disruption wave",
-    # Environmental Effects
-    "tactical overlay display", "holographic targeting grid", "quantum sensor reading",
-    "nano-swarm formation", "combat telemetry feed", "battlefield analysis data",
-    "strategic position marker", "weapons system diagnostic", "tactical assessment display"
-]
-
-battlefield_styles = [
-    "military hardware aesthetic", "advanced weapons technology",
-    "tactical equipment design", "future combat systems",
-    "experimental weapons platform", "military-grade technology",
-    "advanced combat hardware", "bio-mechanical weaponry",
-    "organic-synthetic armaments", "quantum warfare technology",
-    "next-generation military tech", "advanced defense systems"
+    # Alien Effects
+    "void energy discharge", "dimensional rift cascade", "quantum singularity pulse",
+    "dark matter eruption", "temporal distortion wave", "graviton collapse field",
+    "cosmic ray storm", "crystalline plasma burst", "stellar core meltdown",
+    # Biomechanical Effects
+    "neural plague cloud", "synaptic overload pulse", "bio-plasma eruption",
+    "spore matrix burst", "psychic resonance wave", "organic void tear",
+    "morphic energy surge", "chitinous barrier field", "hive-mind surge",
+    # Hybrid Effects
+    "techno-organic fusion", "bio-digital disruption", "nano-organic storm",
+    "cyber-biological pulse", "synthetic-organic burst", "quantum-bio discharge"
 ]
 
 battlefield_atmospheres = [
-    "smoke-filled battlefield", "plasma-charged atmosphere", "energy-distorted air",
-    "radioactive combat zone", "quantum-disrupted space", "nano-particle storm",
-    "electromagnetic disturbance", "bio-organic fog", "tactical sensor field",
-    "combat data overlay", "battle-scarred sky", "war-torn horizon"
+    "void-corrupted air", "plasma crystal storm", "dimensional tear distortion",
+    "bio-plasma fog", "neural energy field", "quantum-organic haze",
+    "spore matrix cloud", "techno-organic mist", "dark matter tempest",
+    "crystalline energy storm", "synthetic-organic atmosphere", "temporal flux field"
+]
+
+battlefield_styles = [
+    "alien weapon aesthetic", "biomechanical artillery design",
+    "void technology", "quantum-organic hardware",
+    "crystalline weapon platform", "neural siege engine",
+    "dimensional war machine", "hive-mind weapon system",
+    "techno-organic armament", "synthetic-alien technology",
+    "bio-digital weaponry", "cosmic war apparatus"
 ]
