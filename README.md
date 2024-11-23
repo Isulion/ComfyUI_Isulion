@@ -86,22 +86,9 @@ The Mega Prompt V2 is an enhanced version of the original generator with improve
 - **Complexity**: Choose between simple, detailed, or complex outputs
 - **Randomization**: Enable/disable random generation
 - **Custom Inputs**:
+- ![Custom Subject and location example](https://github.com/user-attachments/assets/10e6a34d-b509-48e7-bac5-7a8c78615371)
   - Custom Subject: Define specific subjects
   - Custom Location: Specify scene locations
-  - Include Environment: Toggle environment descriptions
-  - Include Style: Toggle style elements
-  - Include Effects: Toggle special effects
-- **Seed**: Control randomization with specific seeds
-
-### Outputs
-
-- **Complete Prompt**: The full generated prompt
-- **Individual Components**:
-  - Subject: Main focus of the image
-  - Environment: Scene and location details
-  - Style: Artistic style and rendering approach
-  - Effects: Special effects and enhancements
-- **Seed**: The seed used for generation
 
 ### Specific Nodes
 
