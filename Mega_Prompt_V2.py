@@ -53,6 +53,7 @@ class MegaPromptV2:
             "🏘️ Village Of the World": "village",
             "🧸 Vintage Anthropomorphic": "vintage_anthro",
             "📱 Selfie": "selfie",  # Add this line
+            "🎯 Futuristic Battlefield": "futuristic_battlefield",  # Add this new mapping
         }
 
     def load_config(self, config_path: str) -> None:
@@ -114,6 +115,7 @@ class MegaPromptV2:
                     "🌊 Underwater Civilization",
                     "🏘️ Village Of the World",
                     "🧸 Vintage Anthropomorphic",
+                    "🎯 Futuristic Battlefield",  # Add this new option
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
@@ -2361,6 +2363,71 @@ class MegaPromptV2:
                 f"with (({effect})), ((professional post-processing)), "
                 f"((cinematic color grading)), ((movie effects)), "
                 f"((production quality)), ((theatrical finish))"
+            )
+        
+        return components
+
+    def _handle_futuristic_battlefield_theme(self, **kwargs) -> Dict[str, str]:
+        """Futuristic battlefield theme handler with bio-tech integration."""
+        components = {}
+        
+        # Get custom inputs
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        custom_location = kwargs.get("custom_location", "").strip()
+        
+        # Select base elements
+        tech = random.choice(self.technologies)
+        action = random.choice(self.scifi_actions)
+        atmosphere = random.choice(self.battlefield_atmospheres)
+        
+        if custom_subject:
+            components["subject"] = (
+                f"((futuristic battlefield element)) of {custom_subject}, "
+                f"((advanced {tech})), ((bio-integrated military technology)), "
+                f"((organic-synthetic fusion)), ((future warfare)), "
+                f"((bio-enhanced tactical equipment)), ((battlefield bio-tech))"
+            )
+        else:
+            element = random.choice(self.battlefield_elements)
+            components["subject"] = (
+                f"((futuristic battlefield element)) featuring ((advanced {element})), "
+                f"((with bio-{tech} integration)), ((organic military innovation)), "
+                f"((bio-synthetic combat technology)), ((future warfare)), "
+                f"((bio-enhanced tactical systems)), ((battlefield advancement))"
+            )
+        
+        if kwargs.get("include_environment") == "yes":
+            if custom_location:
+                components["environment"] = (
+                    f"in ((bio-enhanced {custom_location})), "
+                    f"((with {atmosphere})), ((organic-synthetic combat zone)), "
+                    f"((bio-integrated battlefield)), ((future war scenario)), "
+                    f"((living military complex))"
+                )
+            else:
+                setting = random.choice(self.battlefield_environments)
+                components["environment"] = (
+                    f"in ((advanced {setting})), ((with bio-{atmosphere})), "
+                    f"((organic combat environment)), ((bio-synthetic tactical zone)), "
+                    f"((future battlefield)), ((living military complex))"
+                )
+
+        if kwargs.get("include_style") == "yes":
+            style = random.choice(self.battlefield_styles)
+            components["style"] = (
+                f"(({style})), ((advanced technology)), "
+                f"((tactical visualization)), ((future combat design)), "
+                f"((bio-technical precision)), ((battlefield bio-integration)), "
+                f"((organic combat perspective)), 8k resolution"
+            )
+
+        if kwargs.get("include_effects") == "yes":
+            effect = random.choice(self.battlefield_effects)
+            components["effects"] = (
+                f"with ((dramatic {effect})), ((bio-synthetic tech glow)), "
+                f"((organic combat atmosphere)), ((bio-enhanced battlefield lighting)), "
+                f"((bio-integrated military effects)), ((living tactical readouts)), "
+                f"((future combat visuals)), ((organic war zone ambiance))"
             )
         
         return components

@@ -2830,3 +2830,67 @@ cinema_atmospheres = [
     "theatrical atmosphere", "behind the scenes", "production value",
     "silver screen quality"
 ]
+
+# Futuristic Battlefield Elements
+battlefield_elements = [
+    # Original tech elements
+    "advanced combat drone", "plasma artillery", "energy shield generator",
+    "quantum radar system", "holographic command center", "nano-enhanced armor",
+    "AI battlefield coordinator", "orbital strike beacon", "combat mech unit",
+    "neural-linked weapon system", "force field barrier", "tactical nanobots",
+    # Bio-tech elements
+    "organic-synthetic hybrid armor", "bio-enhanced combat suit",
+    "neural symbiote targeting system", "living metal fortification",
+    "bio-mechanical war beast", "organic sensor array",
+    "symbiotic combat enhancement", "bio-engineered defense system",
+    "organic-tech fusion weapon", "living fortress",
+    "bio-synthetic combat drone", "neural-organic battlefield network",
+    "bio-plasma artillery", "organic stealth system",
+    "living metal combat vehicle", "bio-enhanced soldier unit"
+]
+
+battlefield_environments = [
+    # Original environments
+    "urban combat zone", "orbital defense platform", "quantum battlefield",
+    "nano-enhanced fortification", "energy shield perimeter",
+    "holographic command center", "advanced military base",
+    "tactical operations center", "future war zone",
+    # Bio-tech environments
+    "bio-synthetic fortress", "living metal stronghold",
+    "organic-tech command center", "bio-engineered defense perimeter",
+    "symbiotic combat arena", "neural-linked war room",
+    "bio-mechanical battlefield", "organic-synthetic compound",
+    "living fortress complex", "bio-enhanced combat zone"
+]
+
+battlefield_effects = [
+    # Original effects
+    "energy weapon discharge", "holographic displays",
+    "plasma field effects", "quantum distortion",
+    "nano-particle swarms", "force field ripples",
+    "tactical overlay", "combat telemetry",
+    # Bio-tech effects
+    "bio-luminescent targeting", "organic energy pulse",
+    "living metal transformation", "neural network visualization",
+    "bio-plasma discharge", "symbiotic field generation",
+    "organic-synthetic fusion", "bio-mechanical morphing",
+    "living weapon discharge", "neural combat interface",
+    "bio-energy field", "organic stealth camouflage"
+]
+
+battlefield_styles = [
+    "military sci-fi aesthetic", "advanced technology",
+    "tactical visualization", "future combat design",
+    "technical precision", "battlefield realism",
+    "combat perspective", "bio-mechanical military aesthetic",
+    "organic-synthetic technology", "bio-tactical visualization",
+    "bio-technical precision", "battlefield bio-integration"
+]
+
+battlefield_atmospheres = [
+    "combat atmosphere", "battlefield lighting",
+    "military grade effects", "tactical readouts",
+    "future combat visuals", "war zone ambiance",
+    "organic combat atmosphere", "bio-enhanced battlefield lighting",
+    "bio-integrated military effects", "living tactical readouts"
+]
