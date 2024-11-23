@@ -52,8 +52,8 @@ class MegaPromptV2:
             "🌊 Underwater Civilization": "underwater",
             "🏘️ Village Of the World": "village",
             "🧸 Vintage Anthropomorphic": "vintage_anthro",
-            "📱 Selfie": "selfie",  # Add this line
-            "🎯 Futuristic Battlefield": "futuristic_battlefield",  # Add this new mapping
+            "📱 Selfie": "selfie", 
+            "🎯 Futuristic Battlefield": "futuristic_battlefield",  
         }
 
     def load_config(self, config_path: str) -> None:
@@ -96,6 +96,7 @@ class MegaPromptV2:
                     "💠 Dimension 3D",
                     "✨ Enchanted Fantasy",
                     "📸 Essential Realistic",
+                    "🎯 Futuristic Battlefield", 
                     "🌆 Futuristic City Metropolis", 
                     "🚀 Futuristic Sci-Fi",
                     "👻 Halloween Ethereal",
@@ -109,13 +110,12 @@ class MegaPromptV2:
                     "💫 Pixar Animation",
                     "☢️ Post-Apocalyptic Wasteland",
                     "🏫 School Manga",
-                    "📱 Selfie",  # Add this line
+                    "📱 Selfie", 
                     "🖤 Star Wars Universe",
                     "⚙️ Steampunk Cities",
                     "🌊 Underwater Civilization",
                     "🏘️ Village Of the World",
                     "🧸 Vintage Anthropomorphic",
-                    "🎯 Futuristic Battlefield",  # Add this new option
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
@@ -2397,17 +2397,17 @@ class MegaPromptV2:
         if kwargs.get("include_environment") == "yes":
             if custom_location:
                 components["environment"] = (
-                    f"in ((military installation {custom_location})), "
-                    f"((with {atmosphere})), ((weapons testing zone)), "
-                    f"((military facility)), ((future war scenario)), "
-                    f"((combat testing complex))"
+                    f"on ((war-torn {custom_location})), "
+                    f"((with {atmosphere})), ((active combat zone)), "
+                    f"((open battlefield)), ((future war scenario)), "
+                    f"((outdoor combat area))"
                 )
             else:
                 setting = random.choice(self.battlefield_environments)
                 components["environment"] = (
-                    f"in ((advanced {setting})), ((with {atmosphere})), "
-                    f"((weapons facility)), ((tactical zone)), "
-                    f"((military complex)), ((combat installation))"
+                    f"on ((massive {setting})), ((with {atmosphere})), "
+                    f"((active battlefield)), ((combat terrain)), "
+                    f"((war zone)), ((open combat field))"
                 )
 
         if kwargs.get("include_style") == "yes":
@@ -2423,9 +2423,9 @@ class MegaPromptV2:
             effect = random.choice(self.battlefield_effects)
             components["effects"] = (
                 f"with ((dramatic {effect})), ((weapons discharge)), "
-                f"((combat atmosphere)), ((military lighting)), "
+                f"((combat atmosphere)), ((battlefield lighting)), "
                 f"((tactical effects)), ((system readouts)), "
-                f"((weapons visuals)), ((combat zone ambiance))"
+                f"((weapons visuals)), ((war zone ambiance))"
             )
         
         return components

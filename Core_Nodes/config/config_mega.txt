@@ -2850,18 +2850,19 @@ battlefield_elements = [
 ]
 
 battlefield_environments = [
-    # Military Installations
-    "advanced weapons facility", "quantum research complex", "orbital defense platform",
-    "underground military bunker", "advanced artillery position", "strategic command center",
-    "weapons testing ground", "military research facility", "tactical operations base",
-    # Bio-tech Facilities
-    "bio-synthetic weapons lab", "organic-tech research facility", "living metal forge",
-    "bio-mechanical assembly plant", "neural network control center", "symbiotic weapons factory",
-    "organic defense installation", "bio-enhanced fortification", "living weapons vault",
-    # Combat Zones
-    "active war zone", "contested battlefield", "strategic choke point",
-    "fortified position", "tactical high ground", "defensive perimeter",
-    "weapons proving ground", "military exclusion zone", "combat testing range"
+    # Outdoor Combat Zones
+    "scorched battlefield wasteland", "war-torn urban ruins", "devastated combat zone",
+    "artillery-scarred terrain", "strategic mountain pass", "contested valley",
+    "fortified defensive line", "frontline trenches", "crater-filled no-man's land",
+    "besieged city outskirts", "coastal defense position", "desert combat zone",
+    # Advanced Combat Fields
+    "plasma-scorched battlefield", "energy shield perimeter", "orbital strike zone",
+    "nano-weapon testing grounds", "quantum battlefield distortion", "anti-gravity war zone",
+    "electromagnetic combat field", "fusion blast crater field", "particle cannon range",
+    # Bio-tech Combat Areas
+    "bio-mechanical battlefield", "living metal war zone", "organic defense line",
+    "symbiotic combat terrain", "bio-synthetic war field", "neural-linked battle zone",
+    "organic fortification field", "living weapon testing ground", "bio-enhanced combat area"
 ]
 
 battlefield_effects = [
@@ -2889,9 +2890,8 @@ battlefield_styles = [
 ]
 
 battlefield_atmospheres = [
-    "combat zone atmosphere", "weapons facility lighting",
-    "military installation ambiance", "tactical operations environment",
-    "weapons testing atmosphere", "strategic command ambiance",
-    "combat systems environment", "military research lighting",
-    "weapons development atmosphere", "advanced warfare environment"
+    "smoke-filled battlefield", "plasma-charged atmosphere", "energy-distorted air",
+    "radioactive combat zone", "quantum-disrupted space", "nano-particle storm",
+    "electromagnetic disturbance", "bio-organic fog", "tactical sensor field",
+    "combat data overlay", "battle-scarred sky", "war-torn horizon"
 ]
