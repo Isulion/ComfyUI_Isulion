@@ -2833,64 +2833,65 @@ cinema_atmospheres = [
 
 # Futuristic Battlefield Elements
 battlefield_elements = [
-    # Original tech elements
-    "advanced combat drone", "plasma artillery", "energy shield generator",
-    "quantum radar system", "holographic command center", "nano-enhanced armor",
-    "AI battlefield coordinator", "orbital strike beacon", "combat mech unit",
-    "neural-linked weapon system", "force field barrier", "tactical nanobots",
-    # Bio-tech elements
-    "organic-synthetic hybrid armor", "bio-enhanced combat suit",
-    "neural symbiote targeting system", "living metal fortification",
-    "bio-mechanical war beast", "organic sensor array",
-    "symbiotic combat enhancement", "bio-engineered defense system",
-    "organic-tech fusion weapon", "living fortress",
-    "bio-synthetic combat drone", "neural-organic battlefield network",
-    "bio-plasma artillery", "organic stealth system",
-    "living metal combat vehicle", "bio-enhanced soldier unit"
+    # Weapon Systems
+    "plasma artillery cannon", "quantum beam projector", "energy shield array",
+    "orbital strike satellite", "fusion-powered railgun", "particle accelerator cannon",
+    "antimatter torpedo launcher", "gravity manipulation weapon", "temporal disruption device",
+    "plasma field generator", "quantum entanglement disruptor", "dark matter cannon",
+    # Bio-tech Weapons
+    "bio-plasma launcher", "organic-metal fusion cannon", "neural-linked targeting system",
+    "living metal artillery", "bio-synthetic weapon platform", "symbiotic defense turret",
+    "organic energy projector", "bio-mechanical missile system", "neural pulse emitter",
+    "living fortress defense grid", "bio-enhanced shield generator", "organic stealth system",
+    # Advanced Military Tech
+    "tactical holographic array", "quantum radar installation", "nano-swarm defense grid",
+    "force field matrix", "AI battlefield control system", "neural network command center",
+    "advanced sensor network", "tactical combat supercomputer", "automated defense matrix"
 ]
 
 battlefield_environments = [
-    # Original environments
-    "urban combat zone", "orbital defense platform", "quantum battlefield",
-    "nano-enhanced fortification", "energy shield perimeter",
-    "holographic command center", "advanced military base",
-    "tactical operations center", "future war zone",
-    # Bio-tech environments
-    "bio-synthetic fortress", "living metal stronghold",
-    "organic-tech command center", "bio-engineered defense perimeter",
-    "symbiotic combat arena", "neural-linked war room",
-    "bio-mechanical battlefield", "organic-synthetic compound",
-    "living fortress complex", "bio-enhanced combat zone"
+    # Military Installations
+    "advanced weapons facility", "quantum research complex", "orbital defense platform",
+    "underground military bunker", "advanced artillery position", "strategic command center",
+    "weapons testing ground", "military research facility", "tactical operations base",
+    # Bio-tech Facilities
+    "bio-synthetic weapons lab", "organic-tech research facility", "living metal forge",
+    "bio-mechanical assembly plant", "neural network control center", "symbiotic weapons factory",
+    "organic defense installation", "bio-enhanced fortification", "living weapons vault",
+    # Combat Zones
+    "active war zone", "contested battlefield", "strategic choke point",
+    "fortified position", "tactical high ground", "defensive perimeter",
+    "weapons proving ground", "military exclusion zone", "combat testing range"
 ]
 
 battlefield_effects = [
-    # Original effects
-    "energy weapon discharge", "holographic displays",
-    "plasma field effects", "quantum distortion",
-    "nano-particle swarms", "force field ripples",
-    "tactical overlay", "combat telemetry",
-    # Bio-tech effects
-    "bio-luminescent targeting", "organic energy pulse",
-    "living metal transformation", "neural network visualization",
-    "bio-plasma discharge", "symbiotic field generation",
-    "organic-synthetic fusion", "bio-mechanical morphing",
-    "living weapon discharge", "neural combat interface",
-    "bio-energy field", "organic stealth camouflage"
+    # Weapon Effects
+    "plasma discharge", "energy weapon fire", "quantum distortion field",
+    "particle beam impact", "antimatter explosion", "temporal anomaly",
+    "gravity distortion", "force field pulse", "laser barrage",
+    # Bio-tech Effects
+    "bio-plasma eruption", "organic energy surge", "neural shock wave",
+    "living metal transformation", "symbiotic field generation", "bio-mechanical fusion",
+    "organic shield pulse", "bio-energy discharge", "neural disruption wave",
+    # Environmental Effects
+    "tactical overlay display", "holographic targeting grid", "quantum sensor reading",
+    "nano-swarm formation", "combat telemetry feed", "battlefield analysis data",
+    "strategic position marker", "weapons system diagnostic", "tactical assessment display"
 ]
 
 battlefield_styles = [
-    "military sci-fi aesthetic", "advanced technology",
-    "tactical visualization", "future combat design",
-    "technical precision", "battlefield realism",
-    "combat perspective", "bio-mechanical military aesthetic",
-    "organic-synthetic technology", "bio-tactical visualization",
-    "bio-technical precision", "battlefield bio-integration"
+    "military hardware aesthetic", "advanced weapons technology",
+    "tactical equipment design", "future combat systems",
+    "experimental weapons platform", "military-grade technology",
+    "advanced combat hardware", "bio-mechanical weaponry",
+    "organic-synthetic armaments", "quantum warfare technology",
+    "next-generation military tech", "advanced defense systems"
 ]
 
 battlefield_atmospheres = [
-    "combat atmosphere", "battlefield lighting",
-    "military grade effects", "tactical readouts",
-    "future combat visuals", "war zone ambiance",
-    "organic combat atmosphere", "bio-enhanced battlefield lighting",
-    "bio-integrated military effects", "living tactical readouts"
+    "combat zone atmosphere", "weapons facility lighting",
+    "military installation ambiance", "tactical operations environment",
+    "weapons testing atmosphere", "strategic command ambiance",
+    "combat systems environment", "military research lighting",
+    "weapons development atmosphere", "advanced warfare environment"
 ]

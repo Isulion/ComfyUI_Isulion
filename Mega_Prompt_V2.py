@@ -2368,7 +2368,7 @@ class MegaPromptV2:
         return components
 
     def _handle_futuristic_battlefield_theme(self, **kwargs) -> Dict[str, str]:
-        """Futuristic battlefield theme handler with bio-tech integration."""
+        """Futuristic battlefield theme handler focused on weapons and military technology."""
         components = {}
         
         # Get custom inputs
@@ -2376,58 +2376,56 @@ class MegaPromptV2:
         custom_location = kwargs.get("custom_location", "").strip()
         
         # Select base elements
-        tech = random.choice(self.technologies)
-        action = random.choice(self.scifi_actions)
+        element = random.choice(self.battlefield_elements)
         atmosphere = random.choice(self.battlefield_atmospheres)
         
         if custom_subject:
             components["subject"] = (
-                f"((futuristic battlefield element)) of {custom_subject}, "
-                f"((advanced {tech})), ((bio-integrated military technology)), "
-                f"((organic-synthetic fusion)), ((future warfare)), "
-                f"((bio-enhanced tactical equipment)), ((battlefield bio-tech))"
+                f"((advanced military hardware)) of {custom_subject}, "
+                f"((weapons system)), ((military technology)), "
+                f"((combat equipment)), ((future warfare)), "
+                f"((tactical systems)), ((battlefield technology))"
             )
         else:
-            element = random.choice(self.battlefield_elements)
             components["subject"] = (
-                f"((futuristic battlefield element)) featuring ((advanced {element})), "
-                f"((with bio-{tech} integration)), ((organic military innovation)), "
-                f"((bio-synthetic combat technology)), ((future warfare)), "
-                f"((bio-enhanced tactical systems)), ((battlefield advancement))"
+                f"((advanced military hardware)) featuring ((advanced {element})), "
+                f"((weapons platform)), ((military innovation)), "
+                f"((combat technology)), ((future warfare)), "
+                f"((tactical systems)), ((battlefield advancement))"
             )
         
         if kwargs.get("include_environment") == "yes":
             if custom_location:
                 components["environment"] = (
-                    f"in ((bio-enhanced {custom_location})), "
-                    f"((with {atmosphere})), ((organic-synthetic combat zone)), "
-                    f"((bio-integrated battlefield)), ((future war scenario)), "
-                    f"((living military complex))"
+                    f"in ((military installation {custom_location})), "
+                    f"((with {atmosphere})), ((weapons testing zone)), "
+                    f"((military facility)), ((future war scenario)), "
+                    f"((combat testing complex))"
                 )
             else:
                 setting = random.choice(self.battlefield_environments)
                 components["environment"] = (
-                    f"in ((advanced {setting})), ((with bio-{atmosphere})), "
-                    f"((organic combat environment)), ((bio-synthetic tactical zone)), "
-                    f"((future battlefield)), ((living military complex))"
+                    f"in ((advanced {setting})), ((with {atmosphere})), "
+                    f"((weapons facility)), ((tactical zone)), "
+                    f"((military complex)), ((combat installation))"
                 )
 
         if kwargs.get("include_style") == "yes":
             style = random.choice(self.battlefield_styles)
             components["style"] = (
-                f"(({style})), ((advanced technology)), "
-                f"((tactical visualization)), ((future combat design)), "
-                f"((bio-technical precision)), ((battlefield bio-integration)), "
-                f"((organic combat perspective)), 8k resolution"
+                f"(({style})), ((military technology)), "
+                f"((tactical visualization)), ((weapons design)), "
+                f"((technical precision)), ((combat systems)), "
+                f"((military hardware)), 8k resolution"
             )
 
         if kwargs.get("include_effects") == "yes":
             effect = random.choice(self.battlefield_effects)
             components["effects"] = (
-                f"with ((dramatic {effect})), ((bio-synthetic tech glow)), "
-                f"((organic combat atmosphere)), ((bio-enhanced battlefield lighting)), "
-                f"((bio-integrated military effects)), ((living tactical readouts)), "
-                f"((future combat visuals)), ((organic war zone ambiance))"
+                f"with ((dramatic {effect})), ((weapons discharge)), "
+                f"((combat atmosphere)), ((military lighting)), "
+                f"((tactical effects)), ((system readouts)), "
+                f"((weapons visuals)), ((combat zone ambiance))"
             )
         
         return components
