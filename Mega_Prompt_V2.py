@@ -54,6 +54,7 @@ class MegaPromptV2:
             "🧸 Vintage Anthropomorphic": "vintage_anthro",
             "📱 Selfie": "selfie", 
             "💥 Futuristic Battlefield": "futuristic_battlefield",  
+            "🌌 Quantum Weapons": "futuristic_battlefield",  # Changed from 💥 or 🎯
         }
 
     def load_config(self, config_path: str) -> None:
@@ -116,6 +117,7 @@ class MegaPromptV2:
                     "🌊 Underwater Civilization",
                     "🏘️ Village Of the World",
                     "🧸 Vintage Anthropomorphic",
+                    "🌌 Quantum Weapons",
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
