@@ -103,29 +103,6 @@ The Mega Prompt V2 is an enhanced version of the original generator with improve
   - Effects: Special effects and enhancements
 - **Seed**: The seed used for generation
 
-### Theme-Specific Features
-
-Each theme in V2 comes with dedicated handlers that provide:
-
-- Theme-specific vocabulary and terminology
-- Specialized composition elements
-- Custom effect combinations
-- Appropriate style modifiers
-- Theme-relevant environmental details
-
-### Enhanced Configuration
-
-The V2 configuration system includes
-
-- Expanded vocabulary lists
-- Theme-specific element collections
-- Detailed style variations
-- Enhanced effect combinations
-- Improved color palettes
-- Specialized lighting setups
-- Cultural variations
-- Mood and atmosphere options
-
 ### Specific Nodes
 
 - 🦊 Animal Behavior - Animal actions and poses
