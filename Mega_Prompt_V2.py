@@ -2111,51 +2111,94 @@ class MegaPromptV2:
         """Chimera Animals theme handler."""
         components = {}
         
+        def get_animal_family(animal):
+            animal_lower = animal.lower()
+            for family, members in self.animal_families.items():
+                if any(member in animal_lower for member in members):
+                    return family
+            return None
+
         # Get custom inputs
         custom_subject = kwargs.get("custom_subject", "").strip()
         
-        # Select base animals
-        animal_family = random.choice(list(self.animal_families.keys()))
-        base_animal = random.choice(self.animal_families[animal_family])
-        second_animal = random.choice(self.animals)  # Different animal for hybrid
+        # Initialize variables
+        max_attempts = 20
+        head = None
+        body = None
         
         if custom_subject:
-            components["subject"] = (
-                f"((mythical chimera creature)) of {custom_subject}, "
-                f"((hybrid anatomy)), ((fantastic beast)), "
-                f"((magical creature)), ((mythological hybrid))"
-            )
+            head = custom_subject
+            head_family = get_animal_family(head.lower())
+            
+            # Find complementary body animal
+            while max_attempts > 0:
+                body_candidate = random.choice(self.animals)
+                body_family = get_animal_family(body_candidate.lower())
+                
+                if (body_family != head_family and 
+                    body_family is not None and 
+                    head_family is not None and 
+                    body_candidate.lower() != head.lower()):
+                    body = body_candidate
+                    break
+                    
+                max_attempts -= 1
         else:
-            components["subject"] = (
-                f"((mythical chimera creature)) combining {base_animal} and {second_animal}, "
-                f"((hybrid anatomy)), ((fantastic beast)), "
-                f"((magical creature)), ((mythological hybrid))"
-            )
+            # Random selection of both animals
+            while max_attempts > 0:
+                head_candidate = random.choice(self.animals)
+                body_candidate = random.choice(self.animals)
+                
+                head_family = get_animal_family(head_candidate.lower())
+                body_family = get_animal_family(body_candidate.lower())
+                
+                if (head_family != body_family and 
+                    head_family is not None and 
+                    body_family is not None and 
+                    head_candidate.lower() != body_candidate.lower()):
+                    head = head_candidate
+                    body = body_candidate
+                    break
+                    
+                max_attempts -= 1
+        
+        # Fallback to ensure valid animals
+        if head is None or body is None:
+            head = "Lion"  # From felines family
+            body = "Eagle"  # From birds family
+        
+        # Create detailed subject description
+        components["subject"] = (
+            f"a complex raw photograph of an intricated chimerical fantastical creature with "
+            f"((the body of a {body})) and ((the head of a {head})), "
+            f"bokeh background, cinematic lighting, shallow depth of field, "
+            f"35mm wide angle lens, sharp focus, cinematic film still, "
+            f"dynamic angle, Photography, 8k, masterfully detailed, hyper-realistic"
+        )
         
         if kwargs.get("include_environment") == "yes":
-            habitat = random.choice(self.mythical_locations)
+            habitat = random.choice(self.habitats)
             weather = random.choice(self.weather)
+            time = random.choice(self.times)
             components["environment"] = (
-                f"in ((mystical {habitat})) during {weather}, "
-                f"((magical atmosphere)), ((mythical realm)), "
-                f"((fantastic setting))"
+                f"in a ((dramatic {habitat})) during {weather} {time}, "
+                f"((natural environment)), ((atmospheric depth)), "
+                f"((perfect composition))"
             )
         
         if kwargs.get("include_style") == "yes":
-            style = random.choice(self.art_styles)
             components["style"] = (
-                f"((fantasy art style)), ((mythical aesthetic)), "
-                f"((creature design)), ((hybrid anatomy)), "
-                f"((magical atmosphere)), ((professional quality)), "
+                f"((professional wildlife photography)), ((ultra sharp focus)), "
+                f"((perfect exposure)), ((dramatic composition)), "
+                f"((photorealistic quality)), ((natural detail)), "
                 f"8k resolution"
             )
         
         if kwargs.get("include_effects") == "yes":
-            effect = random.choice(self.magical_effects["nature"])
             components["effects"] = (
-                f"with ((magical {effect})), ((mystical aura)), "
-                f"((fantastic atmosphere)), ((mythical elements)), "
-                f"((hybrid features)), ((creature details))"
+                f"with ((natural lighting)), ((atmospheric depth)), "
+                f"((perfect shadows)), ((volumetric lighting)), "
+                f"((cinematic atmosphere)), ((photographic realism))"
             )
         
         return components
