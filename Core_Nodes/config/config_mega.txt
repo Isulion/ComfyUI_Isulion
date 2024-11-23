@@ -2843,10 +2843,10 @@ battlefield_elements = [
     # Biomechanical Weapons
     "hive-mind weapon cluster", "synapse cannon array", "neural plague disperser",
     "organic plasma spitter", "psychic resonance amplifier", "bio-crystal artillery",
-    "morphic resonance cannon", "chitinous siege platform", "spore matrix launcher",
+    "morphic resonance cannon", "spore matrix launcher",
     "synaptic pulse cannon", "bio-plasma hive node", "organic void projector",
     # Hybrid Tech Weapons
-    "techno-organic siege engine", "bio-digital weapon matrix", "quantum-organic artillery",
+    "techno-organic engine", "bio-digital weapon matrix", "quantum-organic laser",
     "cyber-biological cannon", "nano-organic weapon swarm", "bio-synthetic death ray",
     "techno-symbiotic launcher", "cyber-organic pulse beam", "bio-digital devastator"
 ]
@@ -2888,9 +2888,8 @@ battlefield_atmospheres = [
 
 battlefield_styles = [
     "alien weapon aesthetic", "biomechanical artillery design",
-    "void technology", "quantum-organic hardware",
-    "crystalline weapon platform", "neural siege engine",
-    "dimensional war machine", "hive-mind weapon system",
+    "void technology", "quantum-organic hardware", "neural engine",
+    "dimensional machine", "hive-mind weapon system",
     "techno-organic armament", "synthetic-alien technology",
     "bio-digital weaponry", "cosmic war apparatus"
 ]

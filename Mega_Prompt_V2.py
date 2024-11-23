@@ -53,7 +53,7 @@ class MegaPromptV2:
             "🏘️ Village Of the World": "village",
             "🧸 Vintage Anthropomorphic": "vintage_anthro",
             "📱 Selfie": "selfie", 
-            "🎯 Futuristic Battlefield": "futuristic_battlefield",  
+            "💥 Futuristic Battlefield": "futuristic_battlefield",  
         }
 
     def load_config(self, config_path: str) -> None:
@@ -96,7 +96,7 @@ class MegaPromptV2:
                     "💠 Dimension 3D",
                     "✨ Enchanted Fantasy",
                     "📸 Essential Realistic",
-                    "🎯 Futuristic Battlefield", 
+                    "💥 Futuristic Battlefield", 
                     "🌆 Futuristic City Metropolis", 
                     "🚀 Futuristic Sci-Fi",
                     "👻 Halloween Ethereal",
