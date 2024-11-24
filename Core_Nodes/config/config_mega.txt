@@ -2993,8 +2993,7 @@ impressionist_weather_effects = [
 
 # Urban Tag Theme Elements
 urban_tag_styles = [
-    "wild style graffiti", "bubble letters", "block letters",
-    "3D letters", "throw-up style", "piece style",
+    "wild style graffiti", "throw-up style", "piece style",
     "abstract graffiti", "calligraffiti", "street tag",
     "chrome style", "neon style", "urban contemporary",
     "street bombing", "geometric style", "urban calligraphy"
