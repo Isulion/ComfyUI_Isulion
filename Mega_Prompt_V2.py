@@ -56,6 +56,7 @@ class MegaPromptV2:
             "💥 Futuristic Battlefield": "futuristic_battlefield",  
             "🌌 Quantum Weapons": "futuristic_battlefield",
             "🎨 Impressionist": "impressionist",
+            "🎨 Urban Tag": "urban_tag",
         }
 
     def load_config(self, config_path: str) -> None:
@@ -118,6 +119,7 @@ class MegaPromptV2:
                     "🖤 Star Wars Universe",
                     "⚙️ Steampunk Cities",
                     "🌊 Underwater Civilization",
+                    "🎨 Urban Tag",
                     "🏘️ Village Of the World",
                     "🧸 Vintage Anthropomorphic",
                 ], {"default": "🎲 Dynamic Random"}),
@@ -2543,6 +2545,70 @@ class MegaPromptV2:
                 f"((atmospheric depth)), ((natural color harmony)), "
                 f"((artistic brushwork)), ((painterly effects)), "
                 f"((light and shadow interplay))"
+            )
+        
+        return components
+
+    def _handle_urban_tag_theme(self, **kwargs) -> Dict[str, str]:
+        """Urban tag/graffiti theme handler."""
+        components = {}
+        
+        # Get custom inputs
+        custom_subject = kwargs.get("custom_subject", "").strip()
+        custom_location = kwargs.get("custom_location", "").strip()
+        
+        # Select base elements
+        style = random.choice(self.urban_tag_styles)
+        effect = random.choice(self.urban_tag_effects)
+        texture = random.choice(self.urban_tag_textures)
+        color_scheme = random.choice(self.urban_tag_colors)
+        
+        if custom_subject:
+            components["subject"] = (
+                f"((urban street tag artwork)) of {custom_subject}, "
+                f"((in {style})), ((street art aesthetic)), "
+                f"((graffiti lettering)), ((urban culture)), "
+                f"((with {color_scheme} color scheme)), "
+                f"((dynamic typography))"
+            )
+        else:
+            text = random.choice(["STYLE", "URBAN", "STREET", "ART", "GRAFFITI"])
+            components["subject"] = (
+                f"((urban street tag artwork)) of {text}, "
+                f"((in {style})), ((street art aesthetic)), "
+                f"((graffiti lettering)), ((urban culture)), "
+                f"((with {color_scheme} color scheme)), "
+                f"((dynamic typography))"
+            )
+        
+        if kwargs.get("include_environment") == "yes":
+            if custom_location:
+                components["environment"] = (
+                    f"on ((urban {custom_location})), ((with {texture})), "
+                    f"((city atmosphere)), ((street culture)), "
+                    f"((urban decay)), ((metropolitan setting))"
+                )
+            else:
+                surface = random.choice(self.urban_tag_surfaces)
+                components["environment"] = (
+                    f"on ((urban {surface})), ((with {texture})), "
+                    f"((city atmosphere)), ((street culture)), "
+                    f"((urban decay)), ((metropolitan setting))"
+                )
+        
+        if kwargs.get("include_style") == "yes":
+            components["style"] = (
+                f"((street art style)), ((graffiti aesthetic)), "
+                f"((urban art)), ((spray paint technique)), "
+                f"((professional street art)), ((urban culture)), "
+                f"((dynamic composition)), 8k resolution"
+            )
+        
+        if kwargs.get("include_effects") == "yes":
+            components["effects"] = (
+                f"with (({effect})), ((urban textures)), "
+                f"((street art finish)), ((graffiti effects)), "
+                f"((spray paint details)), ((metropolitan atmosphere))"
             )
         
         return components

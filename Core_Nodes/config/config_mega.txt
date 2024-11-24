@@ -2990,3 +2990,41 @@ impressionist_weather_effects = [
     "foggy scene", "humid air", "windy moment",
     "snow effect", "autumn atmosphere", "spring light"
 ]
+
+# Urban Tag Theme Elements
+urban_tag_styles = [
+    "wild style graffiti", "bubble letters", "block letters",
+    "3D letters", "throw-up style", "piece style",
+    "abstract graffiti", "calligraffiti", "street tag",
+    "chrome style", "neon style", "urban contemporary",
+    "street bombing", "geometric style", "urban calligraphy"
+]
+
+urban_tag_effects = [
+    "dripping paint", "spray paint texture", "chrome effect",
+    "metallic shine", "neon glow", "urban decay",
+    "concrete texture", "brick wall backdrop", "street wear aesthetic",
+    "paint splatter", "paint runs", "faded effect",
+    "weathered look", "urban patina", "street wear"
+]
+
+urban_tag_textures = [
+    "rough concrete", "worn brick", "metal surface",
+    "painted wall", "urban decay", "weathered wood",
+    "rusty metal", "industrial surface", "street texture",
+    "graffiti layering", "urban wear", "metropolitan grime"
+]
+
+urban_tag_colors = [
+    "vibrant street art", "neon urban", "chrome and metallic",
+    "bold graffiti", "urban contrast", "street culture",
+    "metropolitan palette", "urban night", "city lights",
+    "street wear", "urban decay", "industrial tone"
+]
+
+urban_tag_surfaces = [
+    "concrete wall", "brick wall", "metal door",
+    "abandoned building", "urban structure", "subway wall",
+    "train car", "highway underpass", "street barrier",
+    "industrial facade", "city infrastructure", "metropolitan surface"
+]
