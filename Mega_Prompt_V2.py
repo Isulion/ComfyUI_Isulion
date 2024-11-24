@@ -2567,7 +2567,7 @@ class MegaPromptV2:
             components["subject"] = (
                 f"((urban street tag artwork)) of {custom_subject}, "
                 f"((in {style})), ((street art aesthetic)), "
-                f"((graffiti lettering)), ((urban culture)), "
+                f"((urban culture)), "
                 f"((with {color_scheme} color scheme)), "
                 f"((dynamic typography))"
             )
