@@ -2565,7 +2565,8 @@ class MegaPromptV2:
         
         if custom_subject:
             components["subject"] = (
-                f"((graffiti style artwork)) of {custom_subject}, "
+                f"((multicolored hip hop graffiti complex fresco)) of {custom_subject}, "
+                f"((with various details spray-painted)), "
                 f"((urban art interpretation)), ((street art character)), "
                 f"((in {style})), ((street art aesthetic)), "
                 f"((urban culture)), ((graffiti art style)), "
@@ -2576,7 +2577,8 @@ class MegaPromptV2:
         else:
             text = random.choice(["STYLE", "URBAN", "STREET", "ART", "GRAFFITI"])
             components["subject"] = (
-                f"((urban street tag artwork)) of {text}, "
+                f"((multicolored hip hop graffiti complex fresco)) of {text}, "
+                f"((with various details spray-painted)), "
                 f"((in {style})), ((street art aesthetic)), "
                 f"((graffiti lettering)), ((urban culture)), "
                 f"((with {color_scheme} color scheme)), "
@@ -2605,6 +2607,7 @@ class MegaPromptV2:
                 f"((professional street art)), ((urban culture)), "
                 f"((stylized urban art)), ((graffiti character design)), "
                 f"((street art interpretation)), ((not photorealistic)), "
+                f"((complex fresco style)), ((hip hop culture)), "
                 f"8k resolution"
             )
         
@@ -2613,7 +2616,8 @@ class MegaPromptV2:
                 f"with (({effect})), ((urban textures)), "
                 f"((street art finish)), ((graffiti effects)), "
                 f"((spray paint details)), ((metropolitan atmosphere)), "
-                f"((stylized urban artwork)), ((street art character))"
+                f"((stylized urban artwork)), ((street art character)), "
+                f"((multicolored spray paint)), ((detailed fresco))"
             )
         
         return components
