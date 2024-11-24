@@ -2565,11 +2565,13 @@ class MegaPromptV2:
         
         if custom_subject:
             components["subject"] = (
-                f"((urban street tag artwork)) of {custom_subject}, "
+                f"((graffiti style artwork)) of {custom_subject}, "
+                f"((urban art interpretation)), ((street art character)), "
                 f"((in {style})), ((street art aesthetic)), "
-                f"((urban culture)), "
+                f"((urban culture)), ((graffiti art style)), "
                 f"((with {color_scheme} color scheme)), "
-                f"((dynamic typography))"
+                f"((stylized urban character)), ((not realistic)), "
+                f"((street art portrait))"
             )
         else:
             text = random.choice(["STYLE", "URBAN", "STREET", "ART", "GRAFFITI"])
@@ -2601,14 +2603,17 @@ class MegaPromptV2:
                 f"((street art style)), ((graffiti aesthetic)), "
                 f"((urban art)), ((spray paint technique)), "
                 f"((professional street art)), ((urban culture)), "
-                f"((dynamic composition)), 8k resolution"
+                f"((stylized urban art)), ((graffiti character design)), "
+                f"((street art interpretation)), ((not photorealistic)), "
+                f"8k resolution"
             )
         
         if kwargs.get("include_effects") == "yes":
             components["effects"] = (
                 f"with (({effect})), ((urban textures)), "
                 f"((street art finish)), ((graffiti effects)), "
-                f"((spray paint details)), ((metropolitan atmosphere))"
+                f"((spray paint details)), ((metropolitan atmosphere)), "
+                f"((stylized urban artwork)), ((street art character))"
             )
         
         return components
