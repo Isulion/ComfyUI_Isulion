@@ -2588,7 +2588,7 @@ class MegaPromptV2:
         if kwargs.get("include_environment") == "yes":
             if custom_location:
                 components["environment"] = (
-                    f"on ((urban {custom_location})), ((with {texture})), "
+                    f"in (({custom_location})), ((with {texture})), "
                     f"((city atmosphere)), ((street culture)), "
                     f"((urban decay)), ((metropolitan setting))"
                 )

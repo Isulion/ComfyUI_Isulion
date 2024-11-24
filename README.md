@@ -38,7 +38,7 @@ The Mega Prompt V2 is an enhanced version of the original generator with improve
 - **Enhanced Theme Organization**: Better structured theme handling with dedicated handlers for each theme
 - **Improved Component Control**: Separate toggles for environment, style, and effects
 - **Custom Location Support**: Added ability to specify custom locations for more precise scene setting
-- **Expanded Theme Support**: Now includes 35+ distinct themes
+- **Expanded Theme Support**: Now includes 40+ distinct themes
 - **Improved Configuration System**: Better organized config file with expanded options
 
 ### Supported Themes in V2
@@ -60,9 +60,11 @@ The Mega Prompt V2 is an enhanced version of the original generator with improve
 - 💠 Dimension 3D
 - ✨ Enchanted Fantasy
 - 📸 Essential Realistic
+- 💥 Futuristic Battlefield
 - 🌆 Futuristic City Metropolis
 - 🚀 Futuristic Sci-Fi
 - 👻 Halloween Ethereal
+- 🎨 Impressionist
 - 👙 Instagram Lifestyle
 - 🏠 Interior Spaces
 - 🏷️ Logo
@@ -72,17 +74,19 @@ The Mega Prompt V2 is an enhanced version of the original generator with improve
 - 🎭 Peaky Blinders Style
 - 💫 Pixar Animation
 - ☢️ Post-Apocalyptic Wasteland
+- 🌌 Quantum Weapons
 - 🏫 School Manga
 - 📱 Selfie
 - 🖤 Star Wars Universe
 - ⚙️ Steampunk Cities
 - 🌊 Underwater Civilization
+- 🎨 Urban Tag
 - 🏘️ Village Of the World
 - 🧸 Vintage Anthropomorphic
 
 ### Input Parameters
 
-- **Theme**: Select from 35+ themed generators
+- **Theme**: Select from 40+ themed generators
 - **Complexity**: Choose between simple, detailed, or complex outputs
 - **Randomization**: Enable/disable random generation
 - **Custom Inputs**:
