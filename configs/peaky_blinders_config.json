@@ -10,7 +10,11 @@
             "bookmaker",
             "police constable",
             "factory foreman",
-            "street vendor"
+            "street vendor",
+            "coal miner",
+            "chimney sweep",
+            "market trader",
+            "blacksmith"
         ],
         "clothing": [
             "newsboy cap with razor blades",
@@ -22,19 +26,33 @@
             "starched collar shirt",
             "silk tie with pin",
             "herringbone wool coat",
-            "leather driving gloves"
+            "leather driving gloves",
+            "work boots with hobnails",
+            "cotton work shirt",
+            "wool flat cap",
+            "braces (suspenders)"
         ],
         "period_settings": [
-            "industrial Birmingham streets",
-            "coal-dusted factory",
+            "Victorian brick factory",
+            "cobblestone back alley",
+            "coal-dusted street",
             "horse-drawn cart filled street",
-            "Victorian brick buildings",
-            "cobblestone alleyway",
             "gas-lit pub interior",
             "smoky betting parlor",
             "steam-filled factory floor",
             "coal-fired power station",
-            "railway goods yard"
+            "railway goods yard",
+            "canal wharf",
+            "Victorian terraced houses",
+            "coal merchant yard",
+            "horse stables",
+            "iron foundry",
+            "textile mill",
+            "brass works factory",
+            "soot-covered warehouse",
+            "market square with horse carts",
+            "dock workers' pub",
+            "blacksmith's workshop"
         ],
         "period_props": [
             "straight razor",
@@ -46,10 +64,20 @@
             "morning newspaper",
             "paper betting slip",
             "brass knuckle dusters",
-            "Model T Ford"
+            "Model T Ford",
+            "oil lantern",
+            "coal shovel",
+            "leather work apron",
+            "brass spittoon",
+            "mechanical cash register",
+            "wooden beer barrel",
+            "iron tools",
+            "horse reins",
+            "pocket compass",
+            "mechanical typewriter"
         ],
         "period_elements": [
-            "coal smoke",
+            "coal smoke stacks",
             "gas street lamps",
             "horse-drawn carts",
             "steam trains",
@@ -58,19 +86,34 @@
             "wooden barrels",
             "telegraph poles",
             "cobblestone streets",
-            "brick warehouses"
+            "brick warehouses",
+            "iron railings",
+            "coal barges",
+            "steam-powered machinery",
+            "horse troughs",
+            "coal chutes",
+            "washing lines between houses",
+            "factory water towers",
+            "steam whistles",
+            "iron gates",
+            "coal dust covered windows"
         ],
         "lighting": [
             "gas lamp glow",
             "factory furnace light",
-            "foggy street lighting",
-            "candlelit interior",
-            "smoky pub lighting",
-            "early electric bulbs",
             "coal fire glow",
+            "oil lamp illumination",
+            "early electric bulbs",
+            "candlelight",
+            "foggy street lighting",
+            "steam-obscured daylight",
+            "coal fire shadows",
             "morning industrial haze",
             "sunset through smoke",
-            "oil lamp illumination"
+            "gas mantle lighting",
+            "lantern light",
+            "fireplace glow",
+            "foundry fire light"
         ],
         "period_styles": [
             "1920s Birmingham",
@@ -106,7 +149,12 @@
             "weathered stone",
             "aged copper green",
             "coal black",
-            "morning fog grey"
+            "morning fog grey",
+            "iron rust brown",
+            "chimney soot black",
+            "brass patina",
+            "oil-stained wood",
+            "foundry fire orange"
         ],
         "negative_prompts": [
             "modern technology",
@@ -120,7 +168,19 @@
             "contemporary fashion",
             "LED lighting",
             "modern streets",
-            "current day elements"
+            "current day elements",
+            "modern windows",
+            "contemporary architecture",
+            "modern street signs",
+            "contemporary lighting",
+            "modern infrastructure",
+            "current fashion",
+            "modern storefronts",
+            "contemporary urban elements",
+            "modern road markings",
+            "current day vehicles",
+            "modern street furniture",
+            "contemporary building materials"
         ]
     }
 }
