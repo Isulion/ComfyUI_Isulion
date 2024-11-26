@@ -10,7 +10,17 @@
             "latin american pueblo",
             "pacific island community",
             "indigenous settlement",
-            "mountain village"
+            "mountain village",
+            "desert oasis",
+            "tropical village",
+            "arctic outpost",
+            "coastal fishing village",
+            "riverine settlement",
+            "steppes encampment",
+            "forest village",
+            "swampy village",
+            "cave dwelling community",
+            "underground village"
         ],
         "buildings": [
             "traditional house",
@@ -22,19 +32,21 @@
             "elder's home",
             "storage barn",
             "gathering hall",
-            "sacred shrine"
-        ],
-        "activities": [
-            "farming",
-            "fishing",
-            "crafting",
-            "trading",
-            "celebrating",
-            "harvesting",
-            "weaving",
-            "cooking",
-            "storytelling",
-            "ritual ceremony"
+            "sacred shrine",
+            "blacksmith forge",
+            "weaver's loom",
+            "carpenter's shed",
+            "herbalist's hut",
+            "fisherman's wharf",
+            "town hall",
+            "inn",
+            "bakery",
+            "butcher's shop",
+            "village gate",
+            "watchtower",
+            "windmill",
+            "water well",
+            "stone bridge"
         ],
         "people": [
             "village elder",

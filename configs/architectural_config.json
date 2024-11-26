@@ -10,7 +10,17 @@
             "tower",
             "monument",
             "palace",
-            "temple"
+            "temple",
+            "arena",
+            "amphitheater",
+            "aquarium",
+            "library",
+            "theater",
+            "observatory",
+            "cultural center",
+            "shopping mall",
+            "stadium",
+            "community center"
         ],
         "styles": [
             "modern",

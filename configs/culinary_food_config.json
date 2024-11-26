@@ -1,6 +1,14 @@
 {
     "culinary_food": {
         "dishes": [
+            "Burger",
+            "Pizza",
+            "Pasta",
+            "Steak",
+            "Sushi",
+            "Tacos",
+            "Risotto",
+            "Baked goods",
             "main course",
             "appetizer",
             "dessert",
@@ -11,7 +19,9 @@
             "steak",
             "pastry",
             "Kebab sandwich",
-            "sushi"
+            "sandwich",
+            "sandwiches",
+            "salad"
         ],
         "cuisines": [
             "Italian",

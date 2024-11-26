@@ -46,7 +46,17 @@
             "forest",
             "room",
             "street",
-            "field"
+            "field",
+            "backyard",
+            "classroom",
+            "treehouse",
+            "campsite",
+            "zoo",
+            "farm",
+            "amusement park",
+            "library",
+            "space station",
+            "underwater world"
         ],
         "elements": [
             "trees",

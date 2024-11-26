@@ -10,7 +10,17 @@
             "object",
             "ornament",
             "statue",
-            "mask"
+            "mask",
+            "bust",
+            "totem",
+            "relief",
+            "plaque",
+            "tile",
+            "vase",
+            "bowl",
+            "urn",
+            "figurine",
+            "pendant"
         ],
         "textures": [
             "smooth",

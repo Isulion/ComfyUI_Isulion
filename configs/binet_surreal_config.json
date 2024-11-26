@@ -14,7 +14,20 @@
             "stag",
             "leopard",
             "panther",
-            "falcon"
+            "falcon",
+            "lynx",
+            "coyote",
+            "bison",
+            "moose",
+            "cougar",
+            "cheetah",
+            "platypus",
+            "raccoon",
+            "otter",
+            "swan",
+            "pelican",
+            "woodpecker",
+            "tarantula"
         ],
         "portrait_styles": [
             "renaissance portrait",

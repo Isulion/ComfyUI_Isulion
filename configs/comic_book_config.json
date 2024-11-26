@@ -10,7 +10,17 @@
             "detective",
             "warrior",
             "mutant",
-            "robot"
+            "robot",
+            "alien",
+            "cyborg",
+            "ninja",
+            "sorcerer",
+            "time traveler",
+            "shapeshifter",
+            "super soldier",
+            "cosmic entity",
+            "artificial intelligence",
+            "mythological being"
         ],
         "poses": [
             "action",
