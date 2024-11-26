@@ -9,7 +9,6 @@ __description__ = "Advanced prompt generation nodes for ComfyUI with multiple th
 
 # Import all node classes
 from .Core_Nodes.isulion_prompt_generator import IsulionPromptGenerator
-from .Mega_Prompt_V2 import MegaPromptV2
 from .mega_prompt_V3 import MegaPromptV3
 from .animals_nodes.isulion_animal_generator import Isulion_AnimalRandom
 from .animals_nodes.isulion_cute_animal_generator import IsulionCuteAnimalRandom
@@ -61,14 +60,12 @@ NODE_CLASS_MAPPINGS = {
     "IsulionPromptEnhancer": IsulionPromptEnhancer,
     "IsulionNegativePromptGenerator": IsulionNegativePromptGenerator,
     "IsulionMegaPromptGenerator": IsulionMegaPromptGenerator,
-    "MegaPromptV2": MegaPromptV2,
     "MegaPromptV3": MegaPromptV3
 }
 
 # Display name mappings
 NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionPromptGenerator": "Isulion Prompt Generator ✨",
-    "MegaPromptV2": "Isulion Mega Prompt V2 🌟",
     "MegaPromptV3": "Isulion Mega Prompt V3 🌠",
     "IsulionAnimalRandom": "Isulion Animal Selector 🦁",
     "IsulionCuteAnimalRandom": "Isulion Cute Animal Selector 🐱",

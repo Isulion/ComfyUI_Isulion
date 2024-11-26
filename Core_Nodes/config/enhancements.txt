@@ -1,0 +1,23 @@
+# Enhancement configurations
+enhancements = {
+    "detail": {
+        "subtle": ["precisely detailed", "refined", "elegantly crafted", "clean", "polished"],
+        "moderate": ["meticulously detailed", "premium quality", "professionally crafted", "architectural precision", "studio grade"],
+        "dramatic": ["ultra-premium quality", "masterfully engineered", "exceptional craftsmanship", "flawless detail", "perfect precision"]
+    },
+    "composition": {
+        "subtle": ["balanced", "harmonious", "precise", "clean layout", "minimalist"],
+        "moderate": ["professionally composed", "elegant arrangement", "refined composition", "premium layout", "architectural balance"],
+        "dramatic": ["perfect symmetry", "masterful composition", "ultra-premium arrangement", "flawless balance", "exceptional design"]
+    },
+    "lighting": {
+        "subtle": ["clean lighting", "soft illumination", "precise shadows", "refined highlights", "elegant glow"],
+        "moderate": ["professional studio lighting", "premium illumination", "architectural lighting", "controlled shadows", "refined atmosphere"],
+        "dramatic": ["ultra-premium lighting", "perfect illumination", "exceptional atmosphere", "masterful light control", "flawless shadows"]
+    },
+    "color": {
+        "subtle": ["refined palette", "harmonious colors", "elegant tones", "clean color scheme", "polished hues"],
+        "moderate": ["premium colors", "professional palette", "sophisticated tones", "refined chromatic balance", "controlled saturation"],
+        "dramatic": ["exceptional color harmony", "masterful palette", "perfect color balance", "flawless tonal range", "supreme chromatic composition"]
+    }
+}

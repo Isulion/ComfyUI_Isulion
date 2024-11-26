@@ -1,5 +1,6 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+import random
 
 class ChristmasThemeHandler(BaseThemeHandler):
     """Handler for Christmas-themed prompt generation."""
@@ -9,62 +10,54 @@ class ChristmasThemeHandler(BaseThemeHandler):
                 include_environment: str = "yes",
                 include_style: str = "yes",
                 include_effects: str = "yes") -> Dict[str, str]:
-        """Generate Christmas-themed components."""
+        """Generate Christmas theme components."""
         components = {}
         
-        # Generate subject
-        if custom_subject:
-            components["subject"] = (
-                f"((Christmas {custom_subject})), "
-                f"((festive design)), ((holiday spirit)), "
-                f"((seasonal character))"
-            )
-        else:
-            character = self._get_random_choice("christmas.characters")
-            attire = self._get_random_choice("christmas.attire")
-            prop = self._get_random_choice("christmas.props")
-            components["subject"] = (
-                f"((Christmas {character} wearing {attire})), "
-                f"((holding {prop})), ((festive character)), "
-                f"((holiday spirit)), ((seasonal design))"
-            )
+        # Get custom inputs
+        custom_subject = custom_subject.strip()
+        custom_location = custom_location.strip()
         
-        # Generate environment if requested
+        # Select random elements
+        character = random.choice(self.christmas_elements["characters"])
+        food = random.choice(self.christmas_elements["foods"])
+        decoration = random.choice(self.christmas_elements["decorations"])
+        
+        components["subject"] = (
+            f"((festive Christmas scene)) of {custom_subject if custom_subject else f'((cheerful {character}))'}, "
+            f"((enjoying {food})), ((surrounded by {decoration})), "
+            f"((holiday spirit)), ((magical atmosphere))"
+        )
+        
         if include_environment == "yes":
             if custom_location:
                 components["environment"] = (
-                    f"in ((Christmas {custom_location})) with "
-                    f"((festive setting)), ((holiday atmosphere))"
+                    f"in ((magical {custom_location})) with ((festive atmosphere)), "
+                    f"((Christmas magic)), ((holiday warmth))"
                 )
             else:
-                setting = self._get_random_choice("christmas.settings")
-                decoration = self._get_random_choice("christmas.decorations")
+                setting = random.choice(self.christmas_elements["settings"])
+                weather = random.choice(self.christmas_elements["weather"])
                 components["environment"] = (
-                    f"in ((Christmas {setting})) with "
-                    f"((festive {decoration})), "
-                    f"((holiday atmosphere)), ((seasonal surroundings)), "
-                    f"((winter wonderland))"
+                    f"in a ((magical {setting})) during {weather}, "
+                    f"((holiday atmosphere)), ((winter wonderland))"
                 )
         
-        # Generate style if requested
         if include_style == "yes":
-            style = self._get_random_choice("christmas.styles")
-            aesthetic = self._get_random_choice("christmas.aesthetics")
+            style = random.choice(self.christmas_styles)
             components["style"] = (
-                f"((rendered in {style} style)), "
-                f"((with {aesthetic} aesthetic)), "
-                f"((festive design)), ((holiday artistry)), "
-                f"((seasonal quality))"
+                f"((Christmas themed {style})), ((festive mood)), "
+                f"((holiday colors)), ((seasonal charm)), "
+                f"((traditional Christmas)), ((winter magic)), "
+                f"((perfect composition)), 8k resolution"
             )
         
-        # Generate effects if requested
         if include_effects == "yes":
-            effect = self._get_random_choice("christmas.effects")
-            mood = self._get_random_choice("christmas.moods")
+            mood = random.choice(self.christmas_moods)
             components["effects"] = (
-                f"with ((Christmas {effect} effects)), "
-                f"((festive {mood} mood)), "
-                f"((holiday magic)), ((seasonal glow))"
+                f"with ((soft winter glow)), ((magical sparkles)), "
+                f"((holiday lighting)), ((warm atmosphere)), "
+                f"(({mood} mood)), ((seasonal effects)), "
+                f"((Christmas spirit)), ((festive ambiance))"
             )
         
         return components

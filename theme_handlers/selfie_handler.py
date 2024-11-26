@@ -5,8 +5,12 @@ import random
 class SelfieThemeHandler(BaseThemeHandler):
     """Handler for selfie theme with location-appropriate styling."""
 
-    def handle(self, **kwargs) -> Dict[str, str]:
-        """Handle selfie theme generation with location-based styling."""
+    def generate(self, custom_subject: str = "",
+                custom_location: str = "",
+                include_environment: str = "yes",
+                include_style: str = "yes",
+                include_effects: str = "yes") -> Dict[str, str]:
+        """Generate selfie theme components with location-based styling."""
         components = {}
         
         # Define location-based clothing styles
@@ -24,8 +28,8 @@ class SelfieThemeHandler(BaseThemeHandler):
         }
         
         # Get custom location and subject
-        custom_location = kwargs.get("custom_location", "").strip()
-        custom_subject = kwargs.get("custom_subject", "").strip()
+        custom_subject = custom_subject.strip()
+        custom_location = custom_location.strip()
         
         # Determine location and outfit
         if custom_location:
@@ -59,7 +63,7 @@ class SelfieThemeHandler(BaseThemeHandler):
                 f"((high-quality smartphone photography))"
             )
         
-        if kwargs.get("include_environment") == "yes":
+        if include_environment == "yes":
             time = random.choice(["golden hour", "sunset", "bright daylight", "blue hour", "evening"])
             components["environment"] = (
                 f"during {time}, ((perfect lighting)), "
@@ -67,7 +71,7 @@ class SelfieThemeHandler(BaseThemeHandler):
                 f"((social media aesthetic)), ((lifestyle photography))"
             )
         
-        if kwargs.get("include_style") == "yes":
+        if include_style == "yes":
             components["style"] = (
                 f"((social media photography)), ((smartphone aesthetic)), "
                 f"((perfect exposure)), ((authentic lifestyle)), "
@@ -75,7 +79,7 @@ class SelfieThemeHandler(BaseThemeHandler):
                 f"((natural looking)), ((candid moment)), 8k resolution"
             )
         
-        if kwargs.get("include_effects") == "yes":
+        if include_effects == "yes":
             components["effects"] = (
                 f"with ((natural bokeh)), ((soft skin glow)), "
                 f"((perfect lighting)), ((subtle vignette)), "
