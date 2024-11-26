@@ -1,0 +1,100 @@
+{
+    "instagram_lifestyle": {
+        "subjects": [
+            "influencer",
+            "model",
+            "traveler",
+            "fashionista",
+            "foodie",
+            "fitness enthusiast",
+            "lifestyle blogger",
+            "digital nomad",
+            "creative",
+            "entrepreneur"
+        ],
+        "activities": [
+            "posing",
+            "exploring",
+            "dining",
+            "working out",
+            "shopping",
+            "creating content",
+            "traveling",
+            "relaxing",
+            "adventuring",
+            "socializing"
+        ],
+        "locations": [
+            "luxury resort",
+            "trendy cafe",
+            "rooftop bar",
+            "beach club",
+            "boutique hotel",
+            "urban street",
+            "infinity pool",
+            "yoga studio",
+            "art gallery",
+            "designer store"
+        ],
+        "aesthetics": [
+            "minimalist",
+            "luxurious",
+            "bohemian",
+            "modern",
+            "tropical",
+            "urban chic",
+            "cozy",
+            "elegant",
+            "artistic",
+            "natural"
+        ],
+        "props": [
+            "designer bag",
+            "sunglasses",
+            "smartphone",
+            "coffee cup",
+            "yoga mat",
+            "laptop",
+            "camera",
+            "fashion accessories",
+            "healthy food",
+            "lifestyle products"
+        ],
+        "moods": [
+            "aspirational",
+            "carefree",
+            "sophisticated",
+            "energetic",
+            "peaceful",
+            "adventurous",
+            "inspired",
+            "confident",
+            "relaxed",
+            "glamorous"
+        ],
+        "styles": [
+            "lifestyle photography",
+            "fashion editorial",
+            "travel photography",
+            "food styling",
+            "fitness aesthetic",
+            "urban style",
+            "beach vibes",
+            "cafe culture",
+            "wellness lifestyle",
+            "luxury living"
+        ],
+        "effects": [
+            "golden hour",
+            "natural light",
+            "soft focus",
+            "bokeh effect",
+            "lens flare",
+            "film grain",
+            "color pop",
+            "matte finish",
+            "dreamy glow",
+            "vintage filter"
+        ]
+    }
+}

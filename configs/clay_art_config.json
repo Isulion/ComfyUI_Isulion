@@ -1,0 +1,112 @@
+{
+    "clay_art": {
+        "figures": [
+            "character",
+            "animal",
+            "creature",
+            "vessel",
+            "sculpture",
+            "figure",
+            "object",
+            "ornament",
+            "statue",
+            "mask"
+        ],
+        "textures": [
+            "smooth",
+            "rough",
+            "textured",
+            "ridged",
+            "patterned",
+            "carved",
+            "etched",
+            "grooved",
+            "stippled",
+            "scored"
+        ],
+        "details": [
+            "surface patterns",
+            "carved designs",
+            "relief work",
+            "incised lines",
+            "raised elements",
+            "impressed marks",
+            "textural details",
+            "decorative motifs",
+            "sculptural forms",
+            "organic shapes"
+        ],
+        "settings": [
+            "studio",
+            "workshop",
+            "gallery",
+            "pottery",
+            "kiln room",
+            "art space",
+            "display shelf",
+            "ceramic shop",
+            "craft room",
+            "exhibition"
+        ],
+        "elements": [
+            "tools",
+            "shelves",
+            "wheels",
+            "kilns",
+            "workbenches",
+            "displays",
+            "storage",
+            "materials",
+            "equipment",
+            "supplies"
+        ],
+        "styles": [
+            "ceramic",
+            "sculptural",
+            "pottery",
+            "artisanal",
+            "handcrafted",
+            "artistic",
+            "traditional",
+            "contemporary",
+            "rustic",
+            "modern"
+        ],
+        "techniques": [
+            "hand-building",
+            "wheel-throwing",
+            "coiling",
+            "slab-building",
+            "pinching",
+            "sculpting",
+            "modeling",
+            "carving",
+            "texturing",
+            "glazing"
+        ],
+        "effects": [
+            "glazed",
+            "matte",
+            "textured",
+            "polished",
+            "carved",
+            "painted",
+            "decorated",
+            "fired",
+            "finished",
+            "treated"
+        ],
+        "finishes": [
+            "gloss",
+            "matte",
+            "satin",
+            "textured",
+            "smooth",
+            "rustic",
+            "polished",
+            "natural",
+            "decorated",
+            "glazed"
+        ]
+    }
+}

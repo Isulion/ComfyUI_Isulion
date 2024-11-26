@@ -1,0 +1,112 @@
+{
+    "logo": {
+        "styles": [
+            "geometric",
+            "minimalist",
+            "modern",
+            "abstract",
+            "corporate",
+            "elegant",
+            "dynamic",
+            "organic",
+            "tech",
+            "luxury"
+        ],
+        "elements": [
+            "letter mark",
+            "symbol",
+            "wordmark",
+            "emblem",
+            "mascot",
+            "combination mark",
+            "abstract mark",
+            "pictorial mark",
+            "monogram",
+            "badge"
+        ],
+        "color_schemes": [
+            "monochromatic",
+            "complementary",
+            "analogous",
+            "triadic",
+            "gradient",
+            "corporate blue",
+            "earth tones",
+            "vibrant",
+            "pastel",
+            "metallic"
+        ],
+        "backgrounds": [
+            "white",
+            "black",
+            "gradient",
+            "textured",
+            "transparent",
+            "light",
+            "dark",
+            "colored",
+            "patterned",
+            "minimal"
+        ],
+        "layouts": [
+            "centered",
+            "asymmetric",
+            "grid-based",
+            "horizontal",
+            "vertical",
+            "circular",
+            "diagonal",
+            "radial",
+            "modular",
+            "dynamic"
+        ],
+        "typography": [
+            "sans-serif",
+            "serif",
+            "modern",
+            "custom",
+            "handwritten",
+            "geometric",
+            "classic",
+            "decorative",
+            "minimalist",
+            "bold"
+        ],
+        "techniques": [
+            "negative space",
+            "line art",
+            "flat design",
+            "3D effect",
+            "gradient mesh",
+            "double exposure",
+            "letterform",
+            "geometric shapes",
+            "hand-drawn",
+            "digital art"
+        ],
+        "effects": [
+            "shadow",
+            "glow",
+            "reflection",
+            "emboss",
+            "texture",
+            "overlay",
+            "transparency",
+            "gradient",
+            "pattern",
+            "noise"
+        ],
+        "finishes": [
+            "matte",
+            "glossy",
+            "metallic",
+            "textured",
+            "gradient",
+            "flat",
+            "embossed",
+            "debossed",
+            "holographic",
+            "satin"
+        ]
+    }
+}

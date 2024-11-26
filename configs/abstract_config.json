@@ -1,0 +1,100 @@
+{
+    "abstract": {
+        "shapes": [
+            "geometric",
+            "organic",
+            "fluid",
+            "crystalline",
+            "fractal",
+            "spiral",
+            "cubic",
+            "spherical",
+            "prismatic",
+            "amorphous"
+        ],
+        "motions": [
+            "flowing",
+            "swirling",
+            "pulsating",
+            "rippling",
+            "oscillating",
+            "floating",
+            "drifting",
+            "expanding",
+            "contracting",
+            "morphing"
+        ],
+        "color_schemes": [
+            "monochromatic",
+            "complementary",
+            "analogous",
+            "triadic",
+            "split-complementary",
+            "neon",
+            "pastel",
+            "earth tones",
+            "jewel tones",
+            "gradient"
+        ],
+        "textures": [
+            "smooth",
+            "rough",
+            "metallic",
+            "glass",
+            "liquid",
+            "vapor",
+            "crystalline",
+            "fabric",
+            "paper",
+            "digital"
+        ],
+        "patterns": [
+            "geometric",
+            "organic",
+            "wave",
+            "grid",
+            "honeycomb",
+            "maze",
+            "cellular",
+            "fractal",
+            "radial",
+            "recursive"
+        ],
+        "styles": [
+            "minimalist",
+            "geometric",
+            "fluid",
+            "digital",
+            "cubist",
+            "constructivist",
+            "suprematist",
+            "de stijl",
+            "bauhaus",
+            "contemporary"
+        ],
+        "techniques": [
+            "digital painting",
+            "vector art",
+            "generative art",
+            "3D rendering",
+            "mixed media",
+            "collage",
+            "glitch art",
+            "procedural generation",
+            "algorithmic art",
+            "fractal art"
+        ],
+        "effects": [
+            "light refraction",
+            "particle system",
+            "wave distortion",
+            "chromatic aberration",
+            "glitch",
+            "holographic",
+            "iridescent",
+            "gradient mesh",
+            "noise pattern",
+            "fractal pattern"
+        ]
+    }
+}

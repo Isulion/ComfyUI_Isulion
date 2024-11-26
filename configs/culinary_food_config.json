@@ -1,0 +1,112 @@
+{
+    "culinary_food": {
+        "dishes": [
+            "main course",
+            "appetizer",
+            "dessert",
+            "salad",
+            "soup",
+            "pasta",
+            "seafood",
+            "steak",
+            "pastry",
+            "sushi"
+        ],
+        "cuisines": [
+            "Italian",
+            "French",
+            "Japanese",
+            "Chinese",
+            "Mediterranean",
+            "Mexican",
+            "Indian",
+            "Thai",
+            "American",
+            "Spanish"
+        ],
+        "features": [
+            "plating design",
+            "garnishes",
+            "sauce presentation",
+            "color composition",
+            "texture contrast",
+            "ingredient arrangement",
+            "portion size",
+            "decorative elements",
+            "height variation",
+            "negative space"
+        ],
+        "settings": [
+            "restaurant",
+            "kitchen",
+            "dining room",
+            "cafe",
+            "bistro",
+            "food studio",
+            "outdoor dining",
+            "banquet hall",
+            "chef's table",
+            "food market"
+        ],
+        "props": [
+            "tableware",
+            "cutlery",
+            "linens",
+            "glassware",
+            "serving dishes",
+            "garnishes",
+            "decorations",
+            "backgrounds",
+            "surfaces",
+            "accessories"
+        ],
+        "styles": [
+            "minimalist",
+            "rustic",
+            "elegant",
+            "modern",
+            "traditional",
+            "fusion",
+            "artistic",
+            "casual",
+            "fine dining",
+            "street food"
+        ],
+        "techniques": [
+            "plating",
+            "garnishing",
+            "sauce work",
+            "food styling",
+            "composition",
+            "color balancing",
+            "texture layering",
+            "height building",
+            "negative space",
+            "focal point"
+        ],
+        "effects": [
+            "steam",
+            "smoke",
+            "drizzle",
+            "pour",
+            "splash",
+            "mist",
+            "frost",
+            "glaze",
+            "caramelization",
+            "char"
+        ],
+        "lighting": [
+            "natural",
+            "studio",
+            "soft",
+            "dramatic",
+            "backlit",
+            "overhead",
+            "side",
+            "diffused",
+            "directional",
+            "ambient"
+        ]
+    }
+}

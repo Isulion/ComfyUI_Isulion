@@ -186,11 +186,10 @@ architecture_styles = [
     "victorian", "classical", "renaissance", "contemporary", "futuristic",
     "industrial", "organic", "high-tech", "postmodern", "deconstructivist",
     "traditional japanese", "islamic", "greek revival", "romanesque",
-    "neoclassical", "tudor", "colonial", "art nouveau", "beaux-arts",
-    "rococo", "bauhaus", "mid-century modern", "neo-gothic", "byzantine",
-    "modernist", "prairie style", "international style", "spanish colonial",
-    "craftsman", "mediterranean", "georgian", "edwardian", "neo-futuristic",
-    "sustainable", "parametric", "vernacular", "pueblo revival"
+    "neoclassical", "tudor", "georgian", "retro", "vintage", "steampunk",
+    "urban modern", "transitional", "maximalist", "wabi-sabi", "bauhaus",
+    "brutalist", "chinoiserie", "hamptons style", "lodge", "nautical",
+    "provincial", "rococo", "gothic revival", "modernist", "postmodern"
 ]
 
 # Architecture Elements
@@ -529,34 +528,29 @@ bio_organic_elements = {
 
 # Add Christmas Elements
 christmas_elements = {
-    "characters": [
-        "Santa Claus", "reindeer", "elf", "snowman", "angel",
-        "caroler", "child opening presents", "Mrs. Claus",
-        "nutcracker", "gingerbread man", "polar bear", "penguin"
-    ],
-    "activities": [
-        "decorating the tree", "opening presents", "caroling",
-        "building a snowman", "baking cookies", "wrapping gifts",
-        "hanging stockings", "sledding", "ice skating", "drinking hot cocoa"
+    "foods": [
+        "gingerbread cookies", "christmas pudding", "candy canes", 
+        "roast turkey", "mince pies", "christmas cake",
+        "hot chocolate", "mulled wine", "eggnog", 
+        "christmas cookies", "fruit cake", "yule log",
+        "roasted chestnuts", "christmas ham", "cranberry sauce"
     ],
     "decorations": [
-        "Christmas tree", "twinkling lights", "ornaments",
-        "wreaths", "garlands", "stockings", "candy canes",
-        "ribbons", "tinsel", "mistletoe", "poinsettias"
+        "christmas tree", "twinkling lights", "ornaments",
+        "wreaths", "tinsel", "garlands", "stockings",
+        "mistletoe", "holly", "poinsettias", "baubles",
+        "star topper", "candy canes", "ribbons", "bells"
+    ],
+    "characters": [
+        "santa claus", "mrs claus", "reindeer", "elves",
+        "snowman", "gingerbread man", "nutcracker",
+        "christmas angel", "polar bear", "penguin"
     ],
     "settings": [
-        "cozy living room", "snowy village", "North Pole workshop",
-        "festive town square", "decorated mall", "winter wonderland",
-        "gingerbread house", "Christmas market", "ice palace"
-    ],
-    "weather": [
-        "gentle snowfall", "winter storm", "crisp winter night",
-        "frosty morning", "snowy evening", "crystal clear winter day"
-    ],
-    "magical_effects": [
-        "sparkling snow", "northern lights", "magical stardust",
-        "glowing ornaments", "twinkling fairy lights", "festive sparkles",
-        "magical Christmas glow", "enchanted snowflakes"
+        "snowy village", "santa's workshop", "cozy fireplace",
+        "winter wonderland", "christmas market", "decorated home",
+        "north pole", "snow-covered forest", "festive street",
+        "christmas tree farm", "ice skating rink"
     ]
 }
 
@@ -784,200 +778,6 @@ interior_elements = [
     "wood paneling", "stone accent wall", "designer tiles", "smart home features",
     "built-in aquarium", "indoor water feature", "designer radiators", "smart glass windows",
     "hidden storage", "mood lighting", "automated systems", "sound system"
-]
-
-# Add animal families dictionary
-animal_families = {
-    'felines': ['cat', 'lion', 'tiger', 'leopard', 'cheetah', 'jaguar', 'lynx', 'ocelot', 'caracal', 'cougar', 'panther', 'serval', 'bobcat', 'snow leopard', 'clouded leopard', 'margay', 'fishing cat', 'puma', 'sand cat', 'jaguarundi', 'asian golden cat', 'black-footed cat', 'pallas cat', 'rusty-spotted cat', 'oncilla'],
-    
-    'canines': ['dog', 'wolf', 'fox', 'coyote', 'dingo', 'jackal', 'fennec fox', 'arctic fox', 'red wolf', 'african wild dog', 'maned wolf', 'golden retriever', 'puppy', 'german shepherd', 'husky', 'labrador', 'border collie', 'beagle', 'rottweiler', 'doberman', 'great dane', 'bulldog', 'poodle', 'corgi', 'dalmatian', 'swift fox', 'kit fox', 'gray fox', 'bush dog', 'raccoon dog'],
-    
-    'bears': ['bear', 'panda', 'grizzly bear', 'polar bear', 'black bear', 'sun bear', 'spectacled bear', 'sloth bear', 'brown bear', 'asiatic black bear', 'kodiak bear', 'cave bear', 'giant panda', 'red panda', 'moon bear', 'syrian brown bear', 'tibetan blue bear', 'formosan black bear', 'himalayan brown bear', 'gobi bear'],
-    
-    'primates': ['monkey', 'gorilla', 'chimpanzee', 'orangutan', 'baboon', 'gibbon', 'lemur', 'mandrill', 'capuchin', 'marmoset', 'tamarin', 'macaque', 'bonobo', 'siamang', 'proboscis monkey', 'howler monkey', 'spider monkey', 'langur', 'colobus', 'tarsier', 'galago', 'loris', 'indri', 'sifaka', 'aye-aye', 'vervet monkey', 'woolly monkey', 'squirrel monkey', 'mangabey', 'guereza'],
-    
-    'rodents': ['rat', 'mouse', 'squirrel', 'chipmunk', 'hamster', 'beaver', 'capybara', 'gerbil', 'guinea pig', 'porcupine', 'chinchilla', 'marmot', 'prairie dog', 'dormouse', 'agouti', 'degu', 'jerboa', 'kangaroo rat', 'lemming', 'vole', 'woodchuck', 'groundhog', 'flying squirrel', 'nutria', 'viscacha', 'gopher', 'springhare', 'coypu', 'hutia', 'zokors'],
-    
-    'birds': ['eagle', 'hawk', 'owl', 'penguin', 'parrot', 'peacock', 'swan', 'duck', 'goose', 'falcon', 'hummingbird', 'toucan', 'macaw', 'flamingo', 'crane', 'pelican', 'albatross', 'raven', 'crow', 'cardinal', 'blue jay', 'woodpecker', 'kingfisher', 'ostrich', 'emu', 'kiwi', 'condor', 'vulture', 'seagull', 'puffin', 'stork', 'heron', 'ibis', 'sparrow', 'finch', 'canary', 'cockatoo', 'parakeet', 'lorikeet', 'quail'],
-    
-    'reptiles': ['crocodile', 'alligator', 'snake', 'lizard', 'gecko', 'tortoise', 'iguana', 'chameleon', 'komodo dragon', 'python', 'cobra', 'viper', 'turtle', 'monitor lizard', 'bearded dragon', 'anaconda', 'boa constrictor', 'rattlesnake', 'mamba', 'skink', 'gila monster', 'tuatara', 'caiman', 'basilisk', 'anole', 'tegu', 'agama', 'worm lizard', 'amphisbaena', 'horned lizard'],
-    
-    'marine': ['dolphin', 'shark', 'octopus', 'squid', 'jellyfish', 'crab', 'lobster', 'seal', 'sea lion', 'walrus', 'orca', 'narwhal', 'manatee', 'sea turtle', 'seahorse', 'ray', 'starfish', 'eel', 'anglerfish', 'clownfish', 'barracuda', 'moray eel', 'hammerhead shark', 'great white shark', 'manta ray', 'sea urchin', 'sea cucumber', 'sea anemone', 'coral', 'dugong', 'blue whale', 'sea dragon', 'lionfish', 'pufferfish', 'swordfish'],
-    
-    'marsupials': ['kangaroo', 'koala', 'wallaby', 'tasmanian devil', 'wombat', 'quokka', 'opossum', 'numbat', 'bandicoot', 'sugar glider', 'quoll', 'potoroo', 'bettong', 'bilby', 'pademelon', 'tree kangaroo', 'cuscus', 'antechinus', 'dunnart', 'phascogale', 'ringtail possum', 'brushtail possum', 'glider possum', 'rock wallaby', 'swamp wallaby'],
-    
-    'insects': ['butterfly', 'beetle', 'ant', 'bee', 'wasp', 'dragonfly', 'mantis', 'grasshopper', 'cricket', 'ladybug', 'moth', 'cicada', 'firefly', 'scarab', 'caterpillar', 'centipede', 'millipede', 'scorpion', 'spider', 'termite', 'cockroach', 'earwig', 'stick insect', 'leaf insect', 'walking stick', 'praying mantis', 'assassin bug', 'water strider', 'giant water bug', 'jewel beetle', 'stag beetle', 'rhinoceros beetle', 'hercules beetle', 'atlas beetle', 'dung beetle'],
-    
-    'ungulates': ['horse', 'deer', 'elephant', 'giraffe', 'zebra', 'rhinoceros', 'hippopotamus', 'moose', 'elk', 'antelope', 'gazelle', 'bison', 'buffalo', 'camel', 'llama', 'alpaca', 'wildebeest', 'impala', 'kudu', 'oryx', 'eland', 'gemsbok', 'nyala', 'okapi', 'tapir', 'wild boar', 'warthog', 'peccary', 'mountain goat', 'bighorn sheep', 'ibex', 'chamois', 'markhor', 'tahr', 'muskox']
-}
-
-# Add Food-specific elements
-food_types = [
-    "sushi", "pizza", "burger", "pasta", "steak", "salad", "soup", "dessert",
-    "cake", "ice cream", "chocolate", "sandwich", "ramen", "curry", "seafood",
-    "barbecue", "tacos", "pancakes", "waffles", "croissant", "bread", "pastry",
-    "macarons", "cupcakes", "donuts", "fruit platter", "cheese board", "dim sum",
-    "pho", "paella", "risotto", "lasagna", "sashimi", "tempura", "dumplings",
-    "bibimbap", "pad thai", "butter chicken", "falafel", "shawarma", "kebab",
-    "poke bowl", "ceviche", "enchiladas", "tamales", "empanadas", "spring rolls",
-    "samosas", "biryani", "moussaka", "couscous", "gnocchi", "ravioli",
-    "carbonara", "tiramisu", "creme brulee", "gelato", "baklava", "churros",
-    "crepes", "eclairs", "mochi", "truffles", "souffles", "tarts", "pies",
-    "cheesecake", "brownies", "cookies", "biscuits", "scones", "muffins"
-]
-
-food_styles = [
-    "gourmet", "homemade", "street food", "fine dining", "rustic", "modern",
-    "traditional", "fusion", "minimalist", "artisanal", "molecular gastronomy",
-    "comfort food", "haute cuisine", "bistro style", "farm-to-table", "buffet",
-    "tapas", "family style", "al fresco", "prix fixe", "tasting menu",
-    "casual dining", "food truck", "pop-up restaurant", "cafeteria",
-    "brasserie", "trattoria", "izakaya", "gastropub", "deli", "patisserie",
-    "steakhouse", "seafood restaurant", "sushi bar", "pizzeria", "cafe",
-    "bakery", "food hall", "wine pairing", "seasonal menu", "organic",
-    "vegan", "vegetarian", "raw food", "slow food", "fast casual"
-]
-
-# Add Halloween Elements
-halloween_elements = {
-    "creatures": [
-        "ghost", "skeleton", "zombie", "vampire", "werewolf", "witch",
-        "black cat", "demon", "gargoyle", "grim reaper", "mummy",
-        "haunted doll", "possessed puppet", "banshee", "goblin",
-        "headless horseman", "phantom", "wraith", "imp", "living scarecrow",
-        "ghoul", "poltergeist", "wendigo", "hellhound", "shadow creature",
-        "faceless entity", "doppelganger", "changeling", "boogeyman", "revenant",
-        "lich", "necromancer", "dark fairy", "night stalker", "possessed child",
-        "corpse bride", "pumpkin head", "plague doctor", "shadow walker", "sin eater"
-    ],
-    "settings": [
-        "haunted house", "graveyard", "dark forest", "abandoned church",
-        "cursed castle", "foggy cemetery", "witch's cottage", "crypt",
-        "dungeon", "misty moor", "haunted mansion", "dark alley",
-        "abandoned asylum", "cursed village", "spooky carnival",
-        "ancient tomb", "forbidden tower", "ghost town", "dark swamp",
-        "haunted lighthouse", "cursed school", "abandoned hospital",
-        "forgotten catacombs", "haunted theater", "cursed library",
-        "abandoned mine", "witch's grove", "demon's lair", "shadow realm",
-        "haunted circus", "forgotten monastery", "cursed ruins",
-        "abandoned orphanage", "dark carnival", "witch's cave"
-    ],
-    "props": [
-        "jack o'lantern", "cobwebs", "candelabra", "crystal ball",
-        "spell book", "cauldron", "cursed mirror", "haunted painting",
-        "old tombstone", "creepy doll", "raven", "full moon",
-        "twisted trees", "carved pumpkin", "black roses", "skull",
-        "ancient runes", "poison bottles", "tarot cards",
-        "ouija board", "haunted music box", "bone wind chimes",
-        "cursed jewelry", "witch's broom", "black candles", "dead flowers",
-        "rusty chains", "broken mirrors", "ghostly photographs",
-        "possessed teddy bear", "voodoo doll", "pentagram", "blood stains",
-        "ancient artifacts", "cursed diary", "spirit board", "demon mask",
-        "witch's herbs", "sacrificial altar", "evil eye amulet"
-    ]
-}
-
-# Add additional Binet-specific elements
-binet_color_schemes = [
-    "vibrant red and black with glowing effects",
-    "luxury gold and white with soft highlights",
-    "racing yellow with dynamic motion blur",
-    "elegant emerald green with butterfly accents",
-    "royal blue with chrome details",
-    "neon colors with urban glow",
-    "pastel tones with ethereal lighting",
-    "rich burgundy with golden accents",
-    "racing team colors with metallic finish",
-    "designer brand colors with premium finish",
-    "medical white with professional blue accents",
-    "sports team official colors",
-    "luxury fashion brand palette",
-    "racing livery colors",
-    "urban street art colors"
-]
-
-# Binet Portrait Environments
-binet_environments = [
-    "in an elegant portrait studio setting",
-    "against a dark dramatic backdrop",
-    "in a distinguished study with leather-bound books",
-    "in a classical portrait setting",
-    "against a sophisticated dark background",
-    "in a noble chamber with subtle details",
-    "in a vintage photography studio",
-    "in a luxury penthouse interior",
-    "in a grand manor library",
-    "in an aristocratic drawing room"
-]
-
-binet_effects = [
-    "deep shadows",
-    "bright highlights",
-    "dramatic atmosphere",
-    "volumetric lighting",
-    "perfect exposure",
-    "subtle vignette",
-    "cinematic color grading",
-    "professional lighting",
-    "studio flash setup",
-    "rim lighting",
-    "soft fill light",
-    "dramatic contrast",
-    "moody shadows",
-    "elegant highlights",
-    "atmospheric haze"
-]
-
-# Add additional Interior-specific elements
-interior_lighting = [
-    "natural sunlight", 
-    "soft diffused light", 
-    "dramatic window light",
-    "ambient lighting", 
-    "accent lighting", 
-    "architectural lighting",
-    "indirect lighting", 
-    "spotlighting",
-    "task lighting",
-    "mood lighting",
-    "cove lighting",
-    "pendant lighting",
-    "chandelier lighting",
-    "wall sconce lighting",
-    "recessed lighting"
-]
-
-interior_times = [
-    "morning", 
-    "midday", 
-    "afternoon", 
-    "golden hour",
-    "blue hour", 
-    "evening", 
-    "twilight",
-    "dusk",
-    "dawn",
-    "sunrise",
-    "sunset",
-    "night"
-]
-
-interior_atmospheres = [
-    "cozy", 
-    "elegant", 
-    "minimalist",
-    "luxurious", 
-    "modern", 
-    "traditional",
-    "rustic", 
-    "industrial",
-    "contemporary",
-    "classic",
-    "bohemian",
-    "scandinavian",
-    "mediterranean",
-    "zen",
-    "eclectic"
 ]
 
 # Add 3D-specific elements
@@ -1621,9 +1421,8 @@ school_manga_linework = [
     "masterful technical pen work with perfect line weight variation and pristine edge definition", 
     "professional cross-hatching with ultra-precise density control and perfect pattern consistency",
     "flawless line variation with razor-sharp edge definition and perfect stroke confidence",
-    "meticulous shadow placement with ultra-sharp contrast and perfect gradient control",
     "precise highlight rendering with perfect tonal separation and masterful white space usage",
-    "expertly defined contours with ultra-clean line confidence and perfect weight balance",
+    "expertly defined contours with ultra-sharp contrast and perfect weight balance",
     "detailed fabric texture with technical precision and perfect pattern consistency",
     "intricate background detail with flawless perspective and perfect spatial depth",
     "careful spatial rendering with ultra-clean line hierarchy and perfect depth control",
@@ -2317,8 +2116,10 @@ digital_art_workflows = [
 manga_storytelling_elements = {
     "emotions": [
         "dramatic revelation", "inner conflict", "passionate determination",
-        "quiet contemplation", "joyful celebration", "tragic moment",
-        "comedic timing", "romantic tension", "heroic resolve"
+        "learning to let go", "accepting change", "finding courage",
+        "understanding love", "dealing with loss", "growing up",
+        "family bonds", "following dreams", "finding belonging",
+        "learning empathy", "discovering purpose", "accepting differences"
     ],
     "transitions": [
         "action to action", "subject to subject", "scene to scene",
@@ -2489,34 +2290,29 @@ christmas_moods = [
 ]
 
 christmas_elements = {
-    "characters": [
-        "Santa Claus", "reindeer", "elf", "snowman", "angel",
-        "caroler", "child opening presents", "Mrs. Claus",
-        "nutcracker", "gingerbread man", "polar bear", "penguin"
-    ],
-    "activities": [
-        "decorating the tree", "opening presents", "caroling",
-        "building a snowman", "baking cookies", "wrapping gifts",
-        "hanging stockings", "sledding", "ice skating", "drinking hot cocoa"
+    "foods": [
+        "gingerbread cookies", "christmas pudding", "candy canes", 
+        "roast turkey", "mince pies", "christmas cake",
+        "hot chocolate", "mulled wine", "eggnog", 
+        "christmas cookies", "fruit cake", "yule log",
+        "roasted chestnuts", "christmas ham", "cranberry sauce"
     ],
     "decorations": [
-        "Christmas tree", "twinkling lights", "ornaments",
-        "wreaths", "garlands", "stockings", "candy canes",
-        "ribbons", "tinsel", "mistletoe", "poinsettias"
+        "christmas tree", "twinkling lights", "ornaments",
+        "wreaths", "tinsel", "garlands", "stockings",
+        "mistletoe", "holly", "poinsettias", "baubles",
+        "star topper", "candy canes", "ribbons", "bells"
+    ],
+    "characters": [
+        "santa claus", "mrs claus", "reindeer", "elves",
+        "snowman", "gingerbread man", "nutcracker",
+        "christmas angel", "polar bear", "penguin"
     ],
     "settings": [
-        "cozy living room", "snowy village", "North Pole workshop",
-        "festive town square", "decorated mall", "winter wonderland",
-        "gingerbread house", "Christmas market", "ice palace"
-    ],
-    "weather": [
-        "gentle snowfall", "winter storm", "crisp winter night",
-        "frosty morning", "snowy evening", "crystal clear winter day"
-    ],
-    "magical_effects": [
-        "sparkling snow", "northern lights", "magical stardust",
-        "glowing ornaments", "twinkling fairy lights", "festive sparkles",
-        "magical Christmas glow", "enchanted snowflakes"
+        "snowy village", "santa's workshop", "cozy fireplace",
+        "winter wonderland", "christmas market", "decorated home",
+        "north pole", "snow-covered forest", "festive street",
+        "christmas tree farm", "ice skating rink"
     ]
 }
 

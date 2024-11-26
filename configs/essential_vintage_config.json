@@ -1,0 +1,112 @@
+{
+    "essential_vintage": {
+        "subjects": [
+            "photograph",
+            "portrait",
+            "scene",
+            "object",
+            "fashion",
+            "vehicle",
+            "advertisement",
+            "lifestyle",
+            "technology",
+            "decor"
+        ],
+        "eras": [
+            "1920s",
+            "1930s",
+            "1940s",
+            "1950s",
+            "1960s",
+            "1970s",
+            "art deco",
+            "victorian",
+            "edwardian",
+            "mid-century"
+        ],
+        "features": [
+            "period details",
+            "classic style",
+            "retro elements",
+            "vintage aesthetics",
+            "nostalgic charm",
+            "antique finish",
+            "period accuracy",
+            "historical authenticity",
+            "classic design",
+            "timeless appeal"
+        ],
+        "settings": [
+            "parlor",
+            "diner",
+            "cinema",
+            "street",
+            "home",
+            "store",
+            "studio",
+            "automobile",
+            "train station",
+            "ballroom"
+        ],
+        "elements": [
+            "furniture",
+            "decor",
+            "lighting",
+            "fashion",
+            "technology",
+            "architecture",
+            "transportation",
+            "signage",
+            "accessories",
+            "artifacts"
+        ],
+        "styles": [
+            "art deco",
+            "victorian",
+            "mid-century",
+            "retro",
+            "classic",
+            "nostalgic",
+            "antique",
+            "period",
+            "traditional",
+            "historical"
+        ],
+        "techniques": [
+            "film grain",
+            "sepia tone",
+            "color fading",
+            "vignetting",
+            "soft focus",
+            "light leaks",
+            "chromatic",
+            "monochrome",
+            "hand-tinted",
+            "aged effect"
+        ],
+        "effects": [
+            "patina",
+            "weathering",
+            "aging",
+            "fading",
+            "distressing",
+            "grain",
+            "texture",
+            "wear",
+            "discoloration",
+            "oxidation"
+        ],
+        "tones": [
+            "sepia",
+            "monochrome",
+            "faded color",
+            "muted",
+            "warm",
+            "cool",
+            "desaturated",
+            "aged",
+            "antique",
+            "classic"
+        ]
+    }
+}

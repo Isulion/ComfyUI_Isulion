@@ -1,0 +1,112 @@
+{
+    "marvel": {
+        "characters": [
+            "superhero",
+            "cosmic being",
+            "mutant",
+            "super soldier",
+            "mystic warrior",
+            "tech genius",
+            "alien warrior",
+            "enhanced human",
+            "vigilante",
+            "super spy"
+        ],
+        "costumes": [
+            "high-tech suit",
+            "armored costume",
+            "mystic robes",
+            "tactical gear",
+            "symbiote suit",
+            "nano-tech armor",
+            "combat uniform",
+            "quantum suit",
+            "cosmic armor",
+            "stealth suit"
+        ],
+        "poses": [
+            "heroic stance",
+            "battle pose",
+            "flying position",
+            "action shot",
+            "power pose",
+            "combat stance",
+            "dramatic landing",
+            "energy charging",
+            "shield block",
+            "epic leap"
+        ],
+        "locations": [
+            "New York skyline",
+            "alien planet",
+            "high-tech facility",
+            "quantum realm",
+            "mystical sanctuary",
+            "cosmic space",
+            "secret base",
+            "futuristic city",
+            "battle arena",
+            "alternate dimension"
+        ],
+        "props": [
+            "infinity stones",
+            "mystical artifacts",
+            "high-tech weapons",
+            "cosmic devices",
+            "shield tech",
+            "quantum devices",
+            "alien technology",
+            "energy weapons",
+            "power artifacts",
+            "combat gear"
+        ],
+        "styles": [
+            "modern Marvel",
+            "classic comic",
+            "cinematic",
+            "cosmic",
+            "gritty realism",
+            "animated",
+            "epic action",
+            "dramatic",
+            "dynamic",
+            "heroic"
+        ],
+        "artists": [
+            "Jack Kirby",
+            "Steve Ditko",
+            "John Romita Sr",
+            "Alex Ross",
+            "Jim Lee",
+            "John Byrne",
+            "Todd McFarlane",
+            "Stuart Immonen",
+            "Steve McNiven",
+            "Bryan Hitch"
+        ],
+        "effects": [
+            "energy blast",
+            "mystic portal",
+            "quantum field",
+            "cosmic rays",
+            "force field",
+            "power surge",
+            "time vortex",
+            "lightning strike",
+            "explosion",
+            "shield impact"
+        ],
+        "powers": [
+            "super strength",
+            "energy projection",
+            "mystic arts",
+            "flight",
+            "telekinesis",
+            "cosmic power",
+            "quantum manipulation",
+            "elemental control",
+            "time manipulation",
+            "reality warping"
+        ]
+    }
+}

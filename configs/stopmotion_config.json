@@ -1,0 +1,124 @@
+{
+    "stopmotion": {
+        "styles": [
+            "claymation style",
+            "stop-motion animation",
+            "puppet animation",
+            "handcrafted animation",
+            "plasticine style",
+            "model animation",
+            "tactile animation",
+            "dimensional animation"
+        ],
+        "material_textures": [
+            "clay texture",
+            "plasticine surface",
+            "fabric details",
+            "puppet materials",
+            "handcrafted feel",
+            "tactile surfaces",
+            "model textures",
+            "dimensional materials"
+        ],
+        "character_features": [
+            "exaggerated expressions",
+            "clay-like features",
+            "handcrafted details",
+            "puppet-like joints",
+            "dimensional form",
+            "tactile appearance",
+            "sculpted features",
+            "articulated poses"
+        ],
+        "environments": [
+            "miniature set",
+            "handcrafted world",
+            "model landscape",
+            "diorama scene",
+            "crafted environment",
+            "puppet stage",
+            "dimensional setting",
+            "sculpted scenery"
+        ],
+        "architectural_elements": [
+            "miniature buildings",
+            "handcrafted structures",
+            "model architecture",
+            "sculpted details",
+            "crafted props",
+            "dimensional designs",
+            "puppet-scale buildings",
+            "clay-formed structures"
+        ],
+        "lighting": [
+            "studio lighting",
+            "dramatic shadows",
+            "miniature spotlights",
+            "practical effects",
+            "dimensional lighting",
+            "crafted atmosphere",
+            "model illumination",
+            "tactile shadows"
+        ],
+        "color_schemes": [
+            "clay tones",
+            "puppet colors",
+            "handcrafted palette",
+            "model paint scheme",
+            "dimensional hues",
+            "tactile pigments",
+            "sculpted colors",
+            "practical tints"
+        ],
+        "atmospheres": [
+            "whimsical mood",
+            "handcrafted feel",
+            "puppet theater",
+            "miniature world",
+            "crafted ambiance",
+            "dimensional space",
+            "tactile environment",
+            "model atmosphere"
+        ],
+        "props": [
+            "miniature props",
+            "handcrafted items",
+            "puppet accessories",
+            "clay objects",
+            "model furniture",
+            "dimensional items",
+            "sculpted tools",
+            "crafted elements"
+        ],
+        "emotional_tones": [
+            "quirky",
+            "charming",
+            "whimsical",
+            "playful",
+            "endearing",
+            "heartwarming",
+            "humorous",
+            "delightful"
+        ],
+        "animation_effects": [
+            "stop-motion movement",
+            "puppet animation",
+            "clay transformation",
+            "handcrafted motion",
+            "dimensional action",
+            "tactile animation",
+            "model movement",
+            "practical effects"
+        ],
+        "character_types": [
+            "clay figure",
+            "puppet character",
+            "sculpted hero",
+            "model person",
+            "dimensional being",
+            "crafted creature",
+            "tactile character",
+            "handmade figure"
+        ]
+    }
+}

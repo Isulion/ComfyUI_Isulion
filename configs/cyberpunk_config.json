@@ -1,0 +1,124 @@
+{
+    "cyberpunk": {
+        "styles": [
+            "neo-noir cyberpunk",
+            "tech noir",
+            "digital dystopia",
+            "neon futurism",
+            "high-tech low-life",
+            "cyber aesthetic",
+            "digital punk",
+            "synthetic future"
+        ],
+        "tech_elements": [
+            "holographic displays",
+            "neural implants",
+            "cybernetic augmentations",
+            "digital interfaces",
+            "neon circuits",
+            "quantum processors",
+            "bio-mechanical ports",
+            "augmented reality overlays"
+        ],
+        "clothing": [
+            "neo-urban streetwear",
+            "tech-enhanced jacket",
+            "cyber-punk fashion",
+            "neon-lit clothing",
+            "holographic accessories",
+            "digital combat gear",
+            "synthetic leather",
+            "augmented apparel"
+        ],
+        "accessories": [
+            "neural headset",
+            "cyber goggles",
+            "digital wristband",
+            "holographic visor",
+            "tech-enhanced gloves",
+            "augmented reality lens",
+            "neon-lit jewelry",
+            "digital interface mask"
+        ],
+        "environments": [
+            "neon-lit metropolis",
+            "digital slums",
+            "cyber marketplace",
+            "tech-noir streets",
+            "virtual reality hub",
+            "augmented cityscape",
+            "synthetic nature zone",
+            "digital underground"
+        ],
+        "lighting": [
+            "neon glow",
+            "holographic illumination",
+            "digital light streams",
+            "synthetic sunlight",
+            "cyber-tech lighting",
+            "quantum particle effects",
+            "augmented reality glow",
+            "virtual light rays"
+        ],
+        "atmosphere": [
+            "digital rain",
+            "neon haze",
+            "synthetic fog",
+            "holographic mist",
+            "tech-noir ambiance",
+            "cyber smog",
+            "virtual particles",
+            "quantum atmosphere"
+        ],
+        "tech_devices": [
+            "holographic computer",
+            "neural interface",
+            "cyber implant",
+            "digital weapon",
+            "quantum device",
+            "synthetic drone",
+            "augmented reality device",
+            "virtual reality pod"
+        ],
+        "architectural_elements": [
+            "neon-lit skyscrapers",
+            "holographic billboards",
+            "digital infrastructure",
+            "cyber-tech towers",
+            "synthetic habitats",
+            "augmented buildings",
+            "virtual reality hubs",
+            "quantum architecture"
+        ],
+        "color_schemes": [
+            "neon pink and cyan",
+            "electric blue and purple",
+            "synthetic green and yellow",
+            "digital red and black",
+            "holographic rainbow",
+            "cyber-tech chrome",
+            "quantum iridescence",
+            "virtual reality spectrum"
+        ],
+        "weather_effects": [
+            "digital storm",
+            "neon rain",
+            "synthetic snow",
+            "holographic thunder",
+            "cyber fog",
+            "quantum weather",
+            "virtual lightning",
+            "augmented climate"
+        ],
+        "time_periods": [
+            "neo-future",
+            "digital twilight",
+            "synthetic dawn",
+            "cyber night",
+            "quantum midnight",
+            "virtual daytime",
+            "augmented dusk",
+            "holographic morning"
+        ]
+    }
+}

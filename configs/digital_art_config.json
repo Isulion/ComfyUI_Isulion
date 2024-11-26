@@ -1,0 +1,112 @@
+{
+    "digital_art": {
+        "subjects": [
+            "character",
+            "landscape",
+            "portrait",
+            "creature",
+            "object",
+            "scene",
+            "concept",
+            "illustration",
+            "design",
+            "composition"
+        ],
+        "styles": [
+            "modern",
+            "contemporary",
+            "abstract",
+            "realistic",
+            "stylized",
+            "minimalist",
+            "geometric",
+            "vector",
+            "pixel",
+            "3D"
+        ],
+        "features": [
+            "digital brushwork",
+            "clean lines",
+            "smooth gradients",
+            "precise details",
+            "vector shapes",
+            "digital textures",
+            "layered elements",
+            "dynamic composition",
+            "digital effects",
+            "color harmony"
+        ],
+        "settings": [
+            "virtual space",
+            "digital realm",
+            "cyber world",
+            "abstract environment",
+            "geometric space",
+            "digital landscape",
+            "tech environment",
+            "virtual reality",
+            "digital dimension",
+            "computer world"
+        ],
+        "elements": [
+            "shapes",
+            "patterns",
+            "textures",
+            "gradients",
+            "layers",
+            "effects",
+            "lighting",
+            "composition",
+            "details",
+            "elements"
+        ],
+        "techniques": [
+            "digital painting",
+            "vector art",
+            "3D modeling",
+            "pixel art",
+            "photo manipulation",
+            "digital collage",
+            "digital sculpting",
+            "digital sketching",
+            "digital illustration",
+            "digital design"
+        ],
+        "tools": [
+            "digital brushes",
+            "vector tools",
+            "3D software",
+            "pixel editor",
+            "photo editor",
+            "digital canvas",
+            "digital pen",
+            "graphics tablet",
+            "digital workspace",
+            "digital studio"
+        ],
+        "effects": [
+            "glow",
+            "blur",
+            "gradient",
+            "overlay",
+            "particle",
+            "distortion",
+            "noise",
+            "glitch",
+            "bloom",
+            "chromatic"
+        ],
+        "filters": [
+            "color correction",
+            "sharpening",
+            "smoothing",
+            "contrast",
+            "saturation",
+            "hue adjustment",
+            "exposure",
+            "levels",
+            "curves",
+            "balance"
+        ]
+    }
+}

@@ -1,0 +1,114 @@
+{
+    "enchanted_fantasy": {
+        "styles": [
+            "fantasy illustration",
+            "magical artwork",
+            "enchanted painting",
+            "mythical scene",
+            "fairytale art",
+            "ethereal fantasy",
+            "mystical rendering",
+            "legendary artwork"
+        ],
+        "magical_elements": [
+            "glowing crystals",
+            "floating orbs",
+            "magical runes",
+            "enchanted symbols",
+            "mystical portals",
+            "arcane circles",
+            "ethereal wisps",
+            "magical auras"
+        ],
+        "environments": [
+            "enchanted forest",
+            "crystal cave",
+            "floating islands",
+            "magical castle",
+            "mystical grove",
+            "ancient ruins",
+            "ethereal sanctuary",
+            "fairy realm"
+        ],
+        "creatures": [
+            "majestic dragons",
+            "unicorns",
+            "phoenixes",
+            "magical beasts",
+            "mythical beings",
+            "fairy folk",
+            "elemental spirits",
+            "enchanted guardians"
+        ],
+        "architectural_elements": [
+            "crystal spires",
+            "floating towers",
+            "magical bridges",
+            "enchanted gates",
+            "mystical shrines",
+            "ancient temples",
+            "ethereal palaces",
+            "arcane structures"
+        ],
+        "lighting_effects": [
+            "magical glow",
+            "ethereal light",
+            "mystical radiance",
+            "enchanted illumination",
+            "arcane energy",
+            "divine light",
+            "fairy lights",
+            "crystal reflections"
+        ],
+        "atmosphere": [
+            "mystical fog",
+            "magical mist",
+            "ethereal haze",
+            "enchanted air",
+            "arcane atmosphere",
+            "fairy dust",
+            "magical particles",
+            "mystical ambiance"
+        ],
+        "time_of_day": [
+            "eternal twilight",
+            "magical dawn",
+            "enchanted dusk",
+            "mystical midnight",
+            "ethereal morning",
+            "arcane hour",
+            "fairy night",
+            "timeless moment"
+        ],
+        "weather_effects": [
+            "magical storm",
+            "ethereal rain",
+            "crystal snow",
+            "enchanted wind",
+            "mystical clouds",
+            "arcane lightning",
+            "fairy frost",
+            "magical rainbow"
+        ],
+        "artifacts": [
+            "magical staff",
+            "enchanted sword",
+            "mystical orb",
+            "ancient tome",
+            "crystal crown",
+            "ethereal jewelry",
+            "arcane relics",
+            "fairy treasures"
+        ],
+        "color_schemes": [
+            "ethereal pastels",
+            "mystical jewel tones",
+            "magical iridescence",
+            "enchanted metallics",
+            "arcane gradients",
+            "fairy lights palette",
+            "crystal prisms",
+            "magical aurora colors"
+        ]
+    }
+}

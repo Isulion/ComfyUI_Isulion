@@ -1,0 +1,306 @@
+{
+    "pixar": {
+        "characters": [
+            "cute anthropomorphic toy",
+            "lovable robot",
+            "adventurous child",
+            "friendly monster",
+            "expressive animal",
+            "charming vehicle",
+            "magical creature",
+            "whimsical object",
+            "endearing alien",
+            "playful superhero"
+        ],
+        "emotions": [
+            "heartwarming joy",
+            "innocent wonder",
+            "playful excitement",
+            "gentle kindness",
+            "determined courage",
+            "sincere friendship",
+            "pure happiness",
+            "curious amazement",
+            "loving care",
+            "brave adventure"
+        ],
+        "actions": [
+            "exploring their world",
+            "making new friends",
+            "overcoming challenges",
+            "sharing laughter",
+            "discovering magic",
+            "helping others",
+            "learning life lessons",
+            "embarking on adventures",
+            "playing with friends",
+            "spreading happiness"
+        ],
+        "settings": [
+            "magical toy room",
+            "colorful city street",
+            "whimsical bedroom",
+            "enchanted kitchen",
+            "fantastic playground",
+            "charming small town",
+            "imaginative workspace",
+            "magical school",
+            "friendly neighborhood",
+            "adventurous backyard"
+        ],
+        "times": [
+            "bright morning",
+            "sunny afternoon",
+            "magical sunset",
+            "starlit evening",
+            "golden hour",
+            "playful daytime",
+            "dreamy dusk",
+            "enchanted night",
+            "cheerful dawn",
+            "colorful twilight"
+        ],
+        "weather": [
+            "perfect sunny",
+            "gentle breeze",
+            "light drizzle",
+            "rainbow after rain",
+            "fluffy clouds",
+            "sparkling snow",
+            "autumn leaves",
+            "spring bloom",
+            "summer warmth",
+            "magical fog"
+        ],
+        "styles": [
+            "Pixar animation style",
+            "3D computer animation",
+            "stylized realism",
+            "cartoony exaggeration",
+            "whimsical design",
+            "playful aesthetic",
+            "heartwarming animation",
+            "emotional storytelling"
+        ],
+        "character_features": [
+            "expressive eyes",
+            "bouncy movement",
+            "squash and stretch",
+            "exaggerated proportions",
+            "appealing design",
+            "charming personality",
+            "dynamic poses",
+            "emotional expressions"
+        ],
+        "textures": [
+            "soft surfaces",
+            "detailed fur",
+            "smooth plastic",
+            "metallic sheen",
+            "fabric details",
+            "rubber bounce",
+            "glossy finish",
+            "matte materials"
+        ],
+        "environments": [
+            "toy room",
+            "monster world",
+            "underwater city",
+            "futuristic metropolis",
+            "kitchen interior",
+            "suburban home",
+            "fantasy realm",
+            "space station"
+        ],
+        "architectural_elements": [
+            "curved shapes",
+            "playful structures",
+            "geometric forms",
+            "rounded corners",
+            "stylized buildings",
+            "whimsical designs",
+            "colorful architecture",
+            "exaggerated scale"
+        ],
+        "lighting": [
+            "warm glow",
+            "soft shadows",
+            "rim lighting",
+            "ambient occlusion",
+            "volumetric light",
+            "bounce lighting",
+            "color contrast",
+            "atmospheric depth"
+        ],
+        "color_schemes": [
+            "vibrant primaries",
+            "pastel palette",
+            "bold contrasts",
+            "warm tones",
+            "cool highlights",
+            "saturated colors",
+            "complementary pairs",
+            "harmonious blend"
+        ],
+        "atmospheres": [
+            "playful mood",
+            "magical ambiance",
+            "cozy feeling",
+            "adventurous spirit",
+            "emotional depth",
+            "whimsical atmosphere",
+            "heartwarming scene",
+            "joyful energy"
+        ],
+        "props": [
+            "animated toys",
+            "magical objects",
+            "household items",
+            "futuristic gadgets",
+            "playful tools",
+            "everyday objects",
+            "fantasy items",
+            "mechanical devices"
+        ],
+        "emotional_tones": [
+            "heartwarming",
+            "humorous",
+            "adventurous",
+            "touching",
+            "playful",
+            "inspiring",
+            "whimsical",
+            "uplifting"
+        ],
+        "animation_effects": [
+            "squash and stretch",
+            "follow through",
+            "anticipation",
+            "secondary motion",
+            "exaggeration",
+            "slow in slow out",
+            "arcs",
+            "timing"
+        ],
+        "characteristics": [
+            "charming personality",
+            "expressive features",
+            "lovable design",
+            "endearing qualities",
+            "playful attitude",
+            "heartwarming presence",
+            "whimsical nature",
+            "adorable appearance"
+        ],
+        "character_types": [
+            "cute robot",
+            "adorable toy",
+            "charming creature",
+            "lovable monster",
+            "friendly animal",
+            "sweet character",
+            "magical companion",
+            "whimsical friend"
+        ],
+        "scene_types": [
+            "magical toy store",
+            "whimsical bedroom",
+            "colorful playground",
+            "charming kitchen",
+            "cozy living room",
+            "enchanted workshop",
+            "friendly neighborhood",
+            "bustling city street",
+            "peaceful park",
+            "adventurous backyard",
+            "mysterious attic",
+            "magical school"
+        ],
+        "lighting_effects": [
+            "perfect volumetric lighting",
+            "soft ambient occlusion",
+            "beautiful subsurface scattering",
+            "detailed ray tracing",
+            "dynamic light bounces",
+            "cinematic illumination",
+            "studio quality lighting",
+            "professional 3D lighting"
+        ],
+        "materials": [
+            "ultra detailed textures",
+            "realistic materials",
+            "perfect shaders",
+            "high quality surfaces",
+            "professional materials",
+            "detailed normal maps",
+            "perfect specular maps",
+            "studio quality textures"
+        ],
+        "render_effects": [
+            "depth of field",
+            "motion blur",
+            "ambient occlusion",
+            "global illumination",
+            "ray traced shadows",
+            "volumetric effects",
+            "particle systems",
+            "atmospheric scattering"
+        ],
+        "base_descriptions": [
+            "ultra detailed 3D model",
+            "Pixar animation style",
+            "charming character design",
+            "appealing features",
+            "professional 3D rendering",
+            "cinematic quality animation",
+            "studio quality artwork",
+            "perfect character modeling"
+        ],
+        "post_effects": [
+            "color grading",
+            "cinematic effects",
+            "perfect compositing",
+            "professional post-processing",
+            "studio quality finish",
+            "detailed render passes",
+            "perfect tone mapping",
+            "high dynamic range"
+        ],
+        "techniques": [
+            "advanced 3D rendering",
+            "character rigging",
+            "facial animation",
+            "dynamic simulation",
+            "cloth physics",
+            "hair dynamics",
+            "environmental effects",
+            "particle systems",
+            "motion blur",
+            "depth of field"
+        ],
+        "effects": [
+            "volumetric lighting",
+            "ambient occlusion",
+            "global illumination",
+            "subsurface scattering",
+            "reflection mapping",
+            "atmospheric effects",
+            "dynamic shadows",
+            "color grading",
+            "motion effects",
+            "environmental interaction"
+        ],
+        "details": [
+            "micro surface details",
+            "subtle textures",
+            "realistic materials",
+            "natural movement",
+            "emotional expressions",
+            "environmental storytelling",
+            "character personality",
+            "lighting atmosphere",
+            "scene composition",
+            "visual harmony"
+        ]
+    }
+}

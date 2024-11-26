@@ -1,0 +1,200 @@
+{
+    "vintage_anthropomorphic": {
+        "characters": [
+            "dapper animal",
+            "dressed creature",
+            "gentleman beast",
+            "lady animal",
+            "anthropomorphic being",
+            "vintage creature",
+            "animal aristocrat",
+            "retro beast",
+            "classic character",
+            "period animal"
+        ],
+        "species": [
+            "fox",
+            "rabbit",
+            "bear",
+            "owl",
+            "cat",
+            "dog",
+            "mouse",
+            "deer",
+            "wolf",
+            "raccoon"
+        ],
+        "clothing": [
+            "top hat",
+            "monocle",
+            "waistcoat",
+            "dress",
+            "suit",
+            "bow tie",
+            "pocket watch",
+            "parasol",
+            "gloves",
+            "cane"
+        ],
+        "settings": [
+            "victorian parlor",
+            "vintage garden",
+            "antique shop",
+            "classic library",
+            "period cafe",
+            "retro street",
+            "old manor",
+            "vintage train",
+            "classic ballroom",
+            "period park"
+        ],
+        "activities": [
+            "tea party",
+            "reading",
+            "strolling",
+            "dancing",
+            "painting",
+            "playing cards",
+            "writing letters",
+            "garden party",
+            "social gathering",
+            "afternoon tea"
+        ],
+        "props": [
+            "vintage book",
+            "antique furniture",
+            "classic tea set",
+            "old photographs",
+            "period decorations",
+            "vintage accessories",
+            "classic instruments",
+            "retro items",
+            "period toys",
+            "vintage tools"
+        ],
+        "atmospheres": [
+            "elegant",
+            "whimsical",
+            "nostalgic",
+            "charming",
+            "sophisticated",
+            "classic",
+            "refined",
+            "vintage",
+            "dignified",
+            "graceful"
+        ],
+        "effects": [
+            "sepia tones",
+            "vintage filter",
+            "aged texture",
+            "classic lighting",
+            "period style",
+            "retro mood",
+            "antique finish",
+            "nostalgic glow",
+            "vintage grain",
+            "period atmosphere"
+        ],
+        "styles": [
+            "vintage illustration",
+            "retro storybook art",
+            "classic children's book style",
+            "mid-century illustration",
+            "traditional hand-drawn art",
+            "nostalgic book illustration",
+            "whimsical vintage artwork",
+            "classic fairytale style"
+        ],
+        "characteristics": [
+            "charming personality",
+            "gentle expression",
+            "friendly demeanor",
+            "whimsical nature",
+            "playful attitude",
+            "endearing qualities",
+            "proper manners",
+            "dignified bearing"
+        ],
+        "clothing_styles": [
+            "dapper suit",
+            "Victorian dress",
+            "proper waistcoat",
+            "elegant gown",
+            "vintage hat",
+            "fancy bowtie",
+            "classic accessories",
+            "period-appropriate attire"
+        ],
+        "scene_settings": [
+            "quaint cottage",
+            "English garden",
+            "vintage tea shop",
+            "antique bookstore",
+            "Victorian parlor",
+            "countryside manor",
+            "vintage train station",
+            "classic toy shop"
+        ],
+        "time_periods": [
+            "Victorian era",
+            "Edwardian period",
+            "1920s style",
+            "1930s aesthetic",
+            "1940s charm",
+            "1950s nostalgia",
+            "classic golden age",
+            "vintage time period"
+        ],
+        "art_techniques": [
+            "watercolor texture",
+            "pen and ink details",
+            "soft color palette",
+            "delicate linework",
+            "gentle shading",
+            "traditional illustration",
+            "hand-painted look",
+            "classic art style"
+        ],
+        "environments": [
+            "pastoral setting",
+            "vintage atmosphere",
+            "nostalgic scene",
+            "classic backdrop",
+            "period-appropriate environment",
+            "traditional setting",
+            "historical ambiance",
+            "timeless location"
+        ],
+        "props": [
+            "vintage umbrella",
+            "antique pocket watch",
+            "classic teacup",
+            "old leather briefcase",
+            "traditional walking stick",
+            "vintage spectacles",
+            "classic book",
+            "antique furniture"
+        ],
+        "moods": [
+            "gentle warmth",
+            "nostalgic charm",
+            "whimsical delight",
+            "classic elegance",
+            "timeless appeal",
+            "vintage comfort",
+            "traditional grace",
+            "storybook magic"
+        ],
+        "color_palettes": [
+            "soft muted tones",
+            "vintage pastels",
+            "classic earth colors",
+            "antique color scheme",
+            "traditional palette",
+            "gentle color harmony",
+            "period-appropriate colors",
+            "nostalgic hues"
+        ]
+    }
+}

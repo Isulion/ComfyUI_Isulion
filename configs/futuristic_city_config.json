@@ -1,0 +1,112 @@
+{
+    "futuristic_city": {
+        "structures": [
+            "skyscraper",
+            "floating platform",
+            "transit hub",
+            "arcology",
+            "sky bridge",
+            "vertical garden",
+            "energy tower",
+            "space elevator",
+            "quantum dome",
+            "holo-theater"
+        ],
+        "materials": [
+            "smart glass",
+            "nano-materials",
+            "photovoltaic panels",
+            "bio-luminescent surfaces",
+            "self-healing metals",
+            "carbon nanotubes",
+            "transparent aluminum",
+            "quantum crystals",
+            "plasma shields",
+            "holographic surfaces"
+        ],
+        "features": [
+            "anti-gravity platforms",
+            "energy fields",
+            "holographic displays",
+            "quantum computers",
+            "bio-neural networks",
+            "fusion reactors",
+            "teleportation pads",
+            "force fields",
+            "AI interfaces",
+            "nanotech fabricators"
+        ],
+        "cityscapes": [
+            "megacity",
+            "sky city",
+            "floating metropolis",
+            "eco-utopia",
+            "tech haven",
+            "cyber district",
+            "quantum metropolis",
+            "space port",
+            "digital nexus",
+            "neon paradise"
+        ],
+        "technology": [
+            "flying vehicles",
+            "holograms",
+            "energy grids",
+            "AI systems",
+            "quantum networks",
+            "nano-bots",
+            "fusion power",
+            "teleporters",
+            "force shields",
+            "bio-tech"
+        ],
+        "styles": [
+            "neo-futuristic",
+            "cyber-tech",
+            "quantum punk",
+            "bio-digital",
+            "chrome-neon",
+            "plasma-core",
+            "holo-tech",
+            "nano-punk",
+            "fusion-art",
+            "quantum-wave"
+        ],
+        "aesthetics": [
+            "sleek chrome",
+            "neon glow",
+            "holographic sheen",
+            "quantum shimmer",
+            "plasma pulse",
+            "cyber-grid",
+            "bio-luminescent",
+            "nano-texture",
+            "energy flow",
+            "light-wave"
+        ],
+        "lighting": [
+            "holographic",
+            "quantum",
+            "plasma",
+            "neon",
+            "bio-luminescent",
+            "fusion",
+            "crystal",
+            "energy",
+            "laser",
+            "photonic"
+        ],
+        "atmosphere": [
+            "energy fields",
+            "quantum particles",
+            "plasma streams",
+            "neon halos",
+            "holographic mist",
+            "cyber clouds",
+            "light beams",
+            "digital rain",
+            "nano swarms",
+            "force ripples"
+        ]
+    }
+}

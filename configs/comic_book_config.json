@@ -1,0 +1,112 @@
+{
+    "comic_book": {
+        "characters": [
+            "superhero",
+            "villain",
+            "sidekick",
+            "civilian",
+            "antihero",
+            "vigilante",
+            "detective",
+            "warrior",
+            "mutant",
+            "robot"
+        ],
+        "poses": [
+            "action",
+            "dramatic",
+            "heroic",
+            "battle",
+            "flying",
+            "running",
+            "standing",
+            "fighting",
+            "dynamic",
+            "power"
+        ],
+        "features": [
+            "cape",
+            "mask",
+            "costume",
+            "emblem",
+            "weapon",
+            "gadget",
+            "armor",
+            "powers",
+            "insignia",
+            "utility belt"
+        ],
+        "settings": [
+            "city",
+            "rooftop",
+            "alley",
+            "laboratory",
+            "headquarters",
+            "battlefield",
+            "street",
+            "skyline",
+            "hideout",
+            "base"
+        ],
+        "elements": [
+            "panels",
+            "speech bubbles",
+            "sound effects",
+            "motion lines",
+            "backgrounds",
+            "borders",
+            "gutters",
+            "captions",
+            "layouts",
+            "frames"
+        ],
+        "styles": [
+            "superhero",
+            "noir",
+            "manga",
+            "classic",
+            "modern",
+            "indie",
+            "underground",
+            "alternative",
+            "mainstream",
+            "experimental"
+        ],
+        "techniques": [
+            "inking",
+            "coloring",
+            "hatching",
+            "crosshatching",
+            "stippling",
+            "halftone",
+            "linework",
+            "shading",
+            "blocking",
+            "rendering"
+        ],
+        "effects": [
+            "speed lines",
+            "impact",
+            "explosion",
+            "energy",
+            "glow",
+            "shadow",
+            "highlight",
+            "particle",
+            "blur",
+            "shine"
+        ],
+        "textures": [
+            "halftone",
+            "dot",
+            "line",
+            "gradient",
+            "pattern",
+            "screen tone",
+            "crosshatch",
+            "stipple",
+            "grain",
+            "noise"
+        ]
+    }
+}

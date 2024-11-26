@@ -1,0 +1,112 @@
+{
+    "bio_organic_tech": {
+        "entities": [
+            "creature",
+            "machine",
+            "hybrid",
+            "construct",
+            "organism",
+            "symbiote",
+            "cyborg",
+            "being",
+            "lifeform",
+            "entity"
+        ],
+        "forms": [
+            "structure",
+            "tissue",
+            "circuitry",
+            "membrane",
+            "skeleton",
+            "network",
+            "matrix",
+            "framework",
+            "system",
+            "core"
+        ],
+        "features": [
+            "neural interface",
+            "organic circuits",
+            "living metal",
+            "bio-luminescence",
+            "symbiotic systems",
+            "organic processors",
+            "living wires",
+            "bio-mechanical joints",
+            "organic sensors",
+            "living displays"
+        ],
+        "environments": [
+            "laboratory",
+            "hive",
+            "nexus",
+            "chamber",
+            "habitat",
+            "sanctuary",
+            "complex",
+            "facility",
+            "ecosystem",
+            "hub"
+        ],
+        "elements": [
+            "growth",
+            "integration",
+            "symbiosis",
+            "adaptation",
+            "evolution",
+            "transformation",
+            "fusion",
+            "synthesis",
+            "harmony",
+            "balance"
+        ],
+        "styles": [
+            "biomechanical",
+            "organic tech",
+            "bionic",
+            "cybernetic",
+            "bio-digital",
+            "techno-organic",
+            "synthetic biology",
+            "bio-industrial",
+            "organic future",
+            "living machine"
+        ],
+        "aesthetics": [
+            "bioluminescent",
+            "symbiotic",
+            "organic flow",
+            "living metal",
+            "bio-mechanical",
+            "techno-natural",
+            "synthetic life",
+            "organic tech",
+            "living circuit",
+            "bio-digital"
+        ],
+        "effects": [
+            "pulse",
+            "growth",
+            "transformation",
+            "adaptation",
+            "integration",
+            "synthesis",
+            "evolution",
+            "mutation",
+            "fusion",
+            "symbiosis"
+        ],
+        "energies": [
+            "bioluminescent",
+            "neural",
+            "biotic",
+            "symbiotic",
+            "vital",
+            "synthetic",
+            "organic",
+            "living",
+            "bio-electric",
+            "techno-organic"
+        ]
+    }
+}

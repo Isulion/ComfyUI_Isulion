@@ -1,0 +1,112 @@
+{
+    "architectural": {
+        "structures": [
+            "building",
+            "skyscraper",
+            "bridge",
+            "museum",
+            "cathedral",
+            "pavilion",
+            "tower",
+            "monument",
+            "palace",
+            "temple"
+        ],
+        "styles": [
+            "modern",
+            "classical",
+            "gothic",
+            "baroque",
+            "art deco",
+            "minimalist",
+            "brutalist",
+            "renaissance",
+            "neoclassical",
+            "contemporary"
+        ],
+        "elements": [
+            "columns",
+            "arches",
+            "domes",
+            "facades",
+            "windows",
+            "staircases",
+            "balconies",
+            "cornices",
+            "pillars",
+            "spires"
+        ],
+        "settings": [
+            "cityscape",
+            "urban plaza",
+            "historic district",
+            "cultural center",
+            "business district",
+            "waterfront",
+            "campus",
+            "garden",
+            "courtyard",
+            "skyline"
+        ],
+        "features": [
+            "landscaping",
+            "water features",
+            "public spaces",
+            "green spaces",
+            "pathways",
+            "terraces",
+            "fountains",
+            "plazas",
+            "gardens",
+            "courtyards"
+        ],
+        "periods": [
+            "modern",
+            "classical",
+            "medieval",
+            "renaissance",
+            "baroque",
+            "victorian",
+            "art nouveau",
+            "art deco",
+            "contemporary",
+            "postmodern"
+        ],
+        "techniques": [
+            "perspective drawing",
+            "3D modeling",
+            "architectural rendering",
+            "technical drawing",
+            "blueprint style",
+            "elevation drawing",
+            "isometric view",
+            "sectional view",
+            "axonometric projection",
+            "parametric design"
+        ],
+        "effects": [
+            "reflection",
+            "shadow",
+            "transparency",
+            "texture",
+            "pattern",
+            "symmetry",
+            "proportion",
+            "scale",
+            "depth",
+            "perspective"
+        ],
+        "lighting": [
+            "natural",
+            "artificial",
+            "ambient",
+            "dramatic",
+            "diffused",
+            "directional",
+            "spotlit",
+            "atmospheric",
+            "daylight",
+            "evening"
+        ]
+    }
+}

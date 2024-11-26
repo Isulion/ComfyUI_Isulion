@@ -1,0 +1,112 @@
+{
+    "animation_cartoon": {
+        "characters": [
+            "protagonist",
+            "sidekick",
+            "animal companion",
+            "hero",
+            "villain",
+            "mascot",
+            "funny character",
+            "adventurer",
+            "magical being",
+            "friendly monster"
+        ],
+        "expressions": [
+            "smile",
+            "laughter",
+            "surprise",
+            "excitement",
+            "determination",
+            "joy",
+            "wonder",
+            "curiosity",
+            "mischief",
+            "enthusiasm"
+        ],
+        "poses": [
+            "action pose",
+            "dynamic stance",
+            "jumping",
+            "running",
+            "flying",
+            "dancing",
+            "heroic pose",
+            "playful stance",
+            "energetic movement",
+            "dramatic gesture"
+        ],
+        "locations": [
+            "magical world",
+            "fantasy land",
+            "whimsical town",
+            "enchanted forest",
+            "cartoon city",
+            "fun park",
+            "colorful kingdom",
+            "animated village",
+            "fantasy castle",
+            "adventure zone"
+        ],
+        "props": [
+            "magical items",
+            "fun gadgets",
+            "cartoon vehicles",
+            "whimsical objects",
+            "animated tools",
+            "fantasy weapons",
+            "cute accessories",
+            "magical artifacts",
+            "funny devices",
+            "cartoon treasures"
+        ],
+        "styles": [
+            "classic cartoon",
+            "modern animation",
+            "retro cartoon",
+            "chibi",
+            "cartoon comedy",
+            "adventure cartoon",
+            "fantasy animation",
+            "whimsical style",
+            "cute cartoon",
+            "dynamic animation"
+        ],
+        "techniques": [
+            "cel shading",
+            "squash and stretch",
+            "exaggeration",
+            "cartoon physics",
+            "dynamic movement",
+            "animated effects",
+            "cartoon perspective",
+            "expressive animation",
+            "fluid motion",
+            "cartoon timing"
+        ],
+        "effects": [
+            "motion lines",
+            "impact stars",
+            "sparkle",
+            "swirl",
+            "pop",
+            "bounce",
+            "zoom",
+            "whoosh",
+            "glow",
+            "cartoon physics"
+        ],
+        "moods": [
+            "cheerful",
+            "energetic",
+            "playful",
+            "whimsical",
+            "adventurous",
+            "fun",
+            "exciting",
+            "dynamic",
+            "lively",
+            "joyful"
+        ]
+    }
+}

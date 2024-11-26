@@ -1,0 +1,124 @@
+{
+    "dreamworks": {
+        "styles": [
+            "DreamWorks 3D animation",
+            "modern CGI style",
+            "stylized realism",
+            "contemporary animation",
+            "dynamic 3D rendering",
+            "action-packed animation",
+            "epic animated style",
+            "comedic animation"
+        ],
+        "character_features": [
+            "expressive eyebrows",
+            "dynamic poses",
+            "exaggerated expressions",
+            "heroic stance",
+            "comedic gestures",
+            "dramatic movements",
+            "confident posture",
+            "animated personality"
+        ],
+        "visual_effects": [
+            "particle effects",
+            "dynamic lighting",
+            "motion blur",
+            "environmental fx",
+            "action effects",
+            "magical swirls",
+            "energy bursts",
+            "dramatic flares"
+        ],
+        "environments": [
+            "epic landscape",
+            "fantasy kingdom",
+            "mythical realm",
+            "modern city",
+            "ancient civilization",
+            "magical world",
+            "action arena",
+            "dramatic setting"
+        ],
+        "architectural_elements": [
+            "epic structures",
+            "fantasy buildings",
+            "mythical architecture",
+            "dramatic towers",
+            "ancient temples",
+            "magical castles",
+            "modern landmarks",
+            "stylized designs"
+        ],
+        "lighting": [
+            "dramatic lighting",
+            "epic sunsets",
+            "magical illumination",
+            "action highlights",
+            "dynamic shadows",
+            "volumetric rays",
+            "ambient glow",
+            "atmospheric light"
+        ],
+        "color_schemes": [
+            "bold contrasts",
+            "vibrant palette",
+            "epic color range",
+            "dramatic tones",
+            "action colors",
+            "rich saturation",
+            "dynamic hues",
+            "striking combinations"
+        ],
+        "atmospheres": [
+            "epic atmosphere",
+            "dramatic mood",
+            "action ambiance",
+            "magical environment",
+            "heroic setting",
+            "adventurous feel",
+            "comedic tone",
+            "dynamic energy"
+        ],
+        "props": [
+            "magical weapons",
+            "epic artifacts",
+            "mythical items",
+            "action gear",
+            "fantasy tools",
+            "heroic equipment",
+            "comedic objects",
+            "dramatic accessories"
+        ],
+        "emotional_tones": [
+            "heroic",
+            "comedic",
+            "dramatic",
+            "adventurous",
+            "epic",
+            "playful",
+            "determined",
+            "triumphant"
+        ],
+        "animation_effects": [
+            "dynamic movement",
+            "action sequences",
+            "dramatic timing",
+            "comedic timing",
+            "epic transitions",
+            "fluid motion",
+            "expressive animation",
+            "energetic flow"
+        ],
+        "character_types": [
+            "unlikely hero",
+            "comedic sidekick",
+            "epic warrior",
+            "magical creature",
+            "modern protagonist",
+            "mythical being",
+            "action hero",
+            "dramatic character"
+        ]
+    }
+}

@@ -1,0 +1,124 @@
+{
+    "disney": {
+        "styles": [
+            "classic Disney animation",
+            "hand-drawn animation",
+            "fairy tale style",
+            "magical realism",
+            "storybook illustration",
+            "Disney Renaissance",
+            "golden age animation",
+            "traditional cel animation"
+        ],
+        "character_features": [
+            "expressive face",
+            "flowing movement",
+            "graceful poses",
+            "appealing design",
+            "rounded features",
+            "dynamic gestures",
+            "emotive eyes",
+            "charming smile"
+        ],
+        "magical_elements": [
+            "fairy dust",
+            "magical sparkles",
+            "enchanted objects",
+            "transformation effects",
+            "magical aura",
+            "glowing magic",
+            "mystical energy",
+            "magical swirls"
+        ],
+        "environments": [
+            "enchanted castle",
+            "magical forest",
+            "fairy tale village",
+            "royal palace",
+            "underwater kingdom",
+            "mystical garden",
+            "charming cottage",
+            "fantasy realm"
+        ],
+        "architectural_elements": [
+            "fairy tale towers",
+            "ornate archways",
+            "magical bridges",
+            "storybook buildings",
+            "whimsical structures",
+            "royal architecture",
+            "enchanted doorways",
+            "fantasy spires"
+        ],
+        "lighting": [
+            "magical glow",
+            "soft highlights",
+            "enchanted lighting",
+            "golden hour",
+            "fairy light",
+            "moonlit scene",
+            "dream-like illumination",
+            "storybook lighting"
+        ],
+        "color_schemes": [
+            "fairy tale pastels",
+            "royal jewel tones",
+            "enchanted forest colors",
+            "magical rainbow",
+            "golden highlights",
+            "dreamy pastels",
+            "storybook palette",
+            "romantic hues"
+        ],
+        "atmospheres": [
+            "magical ambiance",
+            "romantic mood",
+            "fairy tale atmosphere",
+            "enchanted feeling",
+            "dreamy environment",
+            "whimsical setting",
+            "storybook charm",
+            "magical wonder"
+        ],
+        "props": [
+            "magic wand",
+            "enchanted mirror",
+            "magical book",
+            "royal crown",
+            "magical rose",
+            "storybook",
+            "fairy tale artifacts",
+            "magical items"
+        ],
+        "emotional_tones": [
+            "romantic",
+            "magical",
+            "heartwarming",
+            "enchanting",
+            "joyful",
+            "dreamy",
+            "whimsical",
+            "inspiring"
+        ],
+        "animation_effects": [
+            "flowing movement",
+            "graceful motion",
+            "magical transformation",
+            "enchanted animation",
+            "fairy tale effects",
+            "dynamic action",
+            "fluid animation",
+            "magical transitions"
+        ],
+        "character_types": [
+            "princess",
+            "prince",
+            "magical creature",
+            "fairy godmother",
+            "woodland creature",
+            "royal character",
+            "magical being",
+            "storybook hero"
+        ]
+    }
+}

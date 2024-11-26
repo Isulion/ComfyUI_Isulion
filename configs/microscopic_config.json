@@ -1,0 +1,112 @@
+{
+    "microscopic": {
+        "specimens": [
+            "cell",
+            "bacteria",
+            "virus",
+            "DNA strand",
+            "protein structure",
+            "crystal formation",
+            "microorganism",
+            "tissue sample",
+            "blood cell",
+            "enzyme"
+        ],
+        "structures": [
+            "cell membrane",
+            "nucleus",
+            "mitochondria",
+            "ribosomes",
+            "cytoplasm",
+            "DNA helix",
+            "protein fold",
+            "cellular matrix",
+            "molecular bonds",
+            "crystal lattice"
+        ],
+        "details": [
+            "organelles",
+            "membrane proteins",
+            "vesicles",
+            "flagella",
+            "cell wall",
+            "chromosomes",
+            "molecular chains",
+            "cellular junctions",
+            "enzyme active sites",
+            "receptor proteins"
+        ],
+        "environments": [
+            "tissue matrix",
+            "cellular fluid",
+            "blood stream",
+            "cytoplasmic space",
+            "extracellular matrix",
+            "synaptic cleft",
+            "cell culture",
+            "bacterial colony",
+            "crystal solution",
+            "protein environment"
+        ],
+        "features": [
+            "molecular interactions",
+            "cellular processes",
+            "protein dynamics",
+            "membrane transport",
+            "enzyme catalysis",
+            "signal cascades",
+            "ion channels",
+            "cellular division",
+            "protein synthesis",
+            "crystal growth"
+        ],
+        "styles": [
+            "electron microscope",
+            "fluorescence",
+            "phase contrast",
+            "confocal",
+            "atomic force",
+            "cryo-EM",
+            "light microscopy",
+            "X-ray crystallography",
+            "super-resolution",
+            "molecular visualization"
+        ],
+        "techniques": [
+            "staining",
+            "fluorescent labeling",
+            "phase contrast",
+            "differential interference",
+            "dark field",
+            "bright field",
+            "polarized light",
+            "TIRF microscopy",
+            "STORM imaging",
+            "PALM microscopy"
+        ],
+        "effects": [
+            "diffraction",
+            "interference",
+            "fluorescence",
+            "polarization",
+            "phase shift",
+            "scattering",
+            "absorption",
+            "refraction",
+            "emission",
+            "resonance"
+        ],
+        "coloring": [
+            "fluorescent",
+            "differential staining",
+            "phase contrast",
+            "false color",
+            "molecular dye",
+            "immunofluorescent",
+            "histological stain",
+            "vital dye",
+            "FISH probe",
+            "quantum dot"
+        ]
+    }
+}

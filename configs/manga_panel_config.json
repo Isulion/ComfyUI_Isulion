@@ -1,0 +1,100 @@
+{
+    "manga_panel": {
+        "panel_types": [
+            "action scene",
+            "dramatic moment",
+            "character close-up",
+            "establishing shot",
+            "emotional scene",
+            "dialogue scene",
+            "fight sequence",
+            "reaction shot",
+            "montage panel",
+            "splash page"
+        ],
+        "compositions": [
+            "dynamic angle",
+            "bird's eye view",
+            "worm's eye view",
+            "dutch angle",
+            "extreme close-up",
+            "wide shot",
+            "over-the-shoulder",
+            "profile view",
+            "three-quarter view",
+            "straight-on"
+        ],
+        "effects": [
+            "speed lines",
+            "impact lines",
+            "screentones",
+            "emotion symbols",
+            "sound effects",
+            "dramatic shading",
+            "motion blur",
+            "background effects",
+            "sparkle effects",
+            "energy effects"
+        ],
+        "emotions": [
+            "intense",
+            "dramatic",
+            "comedic",
+            "serious",
+            "romantic",
+            "mysterious",
+            "excited",
+            "angry",
+            "sad",
+            "determined"
+        ],
+        "styles": [
+            "shounen",
+            "shoujo",
+            "seinen",
+            "josei",
+            "action manga",
+            "romance manga",
+            "horror manga",
+            "comedy manga",
+            "slice of life",
+            "fantasy manga"
+        ],
+        "techniques": [
+            "hatching",
+            "cross-hatching",
+            "stippling",
+            "screentone",
+            "brush work",
+            "ink wash",
+            "line art",
+            "detailed backgrounds",
+            "minimal backgrounds",
+            "dynamic perspective"
+        ],
+        "elements": [
+            "character",
+            "background",
+            "props",
+            "effects",
+            "text bubbles",
+            "sound effects",
+            "panel borders",
+            "motion lines",
+            "impact frames",
+            "tone patterns"
+        ],
+        "atmospheres": [
+            "dramatic",
+            "action-packed",
+            "emotional",
+            "mysterious",
+            "romantic",
+            "comedic",
+            "tense",
+            "peaceful",
+            "energetic",
+            "melancholic"
+        ]
+    }
+}

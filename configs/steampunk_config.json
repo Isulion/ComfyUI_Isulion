@@ -1,0 +1,114 @@
+{
+    "steampunk": {
+        "styles": [
+            "Victorian steampunk",
+            "industrial fantasy",
+            "retro-futuristic",
+            "mechanical baroque",
+            "clockwork aesthetic",
+            "industrial gothic",
+            "brass and copper art",
+            "vintage sci-fi style"
+        ],
+        "materials": [
+            "polished brass",
+            "aged copper",
+            "dark leather",
+            "weathered steel",
+            "tarnished bronze",
+            "rich mahogany",
+            "frosted glass",
+            "burnished gold"
+        ],
+        "mechanical_elements": [
+            "intricate gears",
+            "steam pipes",
+            "brass clockwork",
+            "mechanical wings",
+            "copper coils",
+            "pressure gauges",
+            "steam valves",
+            "bronze mechanisms"
+        ],
+        "clothing": [
+            "Victorian dress",
+            "leather corset",
+            "top hat and goggles",
+            "brass-adorned coat",
+            "mechanical armor",
+            "leather boots",
+            "gear-decorated vest",
+            "copper-trimmed suit"
+        ],
+        "accessories": [
+            "brass goggles",
+            "mechanical pocket watch",
+            "gear-decorated hat",
+            "steam-powered gadgets",
+            "copper compass",
+            "leather tool belt",
+            "brass monocle",
+            "mechanical prosthetics"
+        ],
+        "environments": [
+            "clockwork factory",
+            "steam-powered city",
+            "Victorian workshop",
+            "mechanical laboratory",
+            "brass-filled airship",
+            "gear-laden tower",
+            "industrial cathedral",
+            "steam engine room"
+        ],
+        "lighting": [
+            "gas lamp glow",
+            "steam vent light",
+            "brass lantern shine",
+            "copper reflection",
+            "mechanical sparkle",
+            "industrial haze",
+            "gear-filtered light",
+            "Victorian ambiance"
+        ],
+        "atmosphere": [
+            "steam-filled air",
+            "mechanical ambiance",
+            "industrial haze",
+            "brass-tinted atmosphere",
+            "gear-laden environment",
+            "Victorian mood",
+            "copper-tinged setting",
+            "clockwork surroundings"
+        ],
+        "machines": [
+            "steam engine",
+            "brass automaton",
+            "mechanical calculator",
+            "copper airship",
+            "gear-driven robot",
+            "steam-powered vehicle",
+            "clockwork mechanism",
+            "industrial apparatus"
+        ],
+        "decorative_elements": [
+            "ornate gears",
+            "brass filigree",
+            "copper scrollwork",
+            "mechanical patterns",
+            "Victorian ornaments",
+            "steam pipe designs",
+            "clockwork details",
+            "industrial motifs"
+        ],
+        "color_schemes": [
+            "brass and copper",
+            "aged bronze tones",
+            "rich leather browns",
+            "metallic highlights",
+            "steam-aged patina",
+            "Victorian dark wood",
+            "industrial metals",
+            "vintage gold accents"
+        ]
+    }
+}

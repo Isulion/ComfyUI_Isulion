@@ -1,0 +1,100 @@
+{
+    "school_manga": {
+        "characters": [
+            "student",
+            "teacher",
+            "class president",
+            "transfer student",
+            "club member",
+            "delinquent",
+            "sports team captain",
+            "best friend",
+            "rival student",
+            "school idol"
+        ],
+        "locations": [
+            "classroom",
+            "school rooftop",
+            "cafeteria",
+            "gym",
+            "school yard",
+            "club room",
+            "library",
+            "hallway",
+            "sports field",
+            "school gate"
+        ],
+        "activities": [
+            "studying",
+            "club activities",
+            "sports practice",
+            "school festival",
+            "lunch break",
+            "cleaning duty",
+            "class meeting",
+            "exam time",
+            "after school",
+            "morning assembly"
+        ],
+        "props": [
+            "school bag",
+            "textbook",
+            "school uniform",
+            "bento box",
+            "club equipment",
+            "love letter",
+            "classroom supplies",
+            "school shoes",
+            "notebook",
+            "sports gear"
+        ],
+        "emotions": [
+            "excited",
+            "determined",
+            "embarrassed",
+            "cheerful",
+            "nervous",
+            "romantic",
+            "competitive",
+            "friendly",
+            "serious",
+            "energetic"
+        ],
+        "events": [
+            "cultural festival",
+            "sports day",
+            "field trip",
+            "entrance ceremony",
+            "graduation",
+            "club competition",
+            "school play",
+            "exam week",
+            "summer break",
+            "school dance"
+        ],
+        "styles": [
+            "shoujo manga",
+            "slice of life",
+            "school romance",
+            "sports manga",
+            "comedy manga",
+            "school drama",
+            "coming of age",
+            "school life",
+            "friendship story",
+            "school adventure"
+        ],
+        "effects": [
+            "sparkles",
+            "flower petals",
+            "speed lines",
+            "emotion symbols",
+            "background patterns",
+            "school atmosphere",
+            "manga shading",
+            "dramatic lighting",
+            "seasonal effects",
+            "school ambiance"
+        ]
+    }
+}

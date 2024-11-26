@@ -1,0 +1,148 @@
+{
+    "culinary": {
+        "styles": [
+            "food photography",
+            "culinary art",
+            "gourmet presentation",
+            "rustic cooking",
+            "modern gastronomy",
+            "fine dining",
+            "casual dining",
+            "street food",
+            "home cooking",
+            "professional kitchen"
+        ],
+        "plating_techniques": [
+            "artistic plating",
+            "minimalist presentation",
+            "layered composition",
+            "deconstructed arrangement",
+            "geometric placement",
+            "rustic display",
+            "color-coordinated presentation",
+            "height-varied plating",
+            "sauce artistry",
+            "garnish design"
+        ],
+        "food_types": [
+            "appetizer",
+            "main course",
+            "dessert",
+            "breakfast",
+            "lunch",
+            "dinner",
+            "snack",
+            "beverage",
+            "pastry",
+            "street food"
+        ],
+        "cuisines": [
+            "French",
+            "Italian",
+            "Japanese",
+            "Chinese",
+            "Indian",
+            "Mexican",
+            "Mediterranean",
+            "Thai",
+            "American",
+            "Fusion"
+        ],
+        "cooking_techniques": [
+            "grilling",
+            "baking",
+            "sautéing",
+            "braising",
+            "roasting",
+            "steaming",
+            "smoking",
+            "sous vide",
+            "frying",
+            "poaching"
+        ],
+        "environments": [
+            "professional kitchen",
+            "rustic kitchen",
+            "outdoor grill",
+            "fine dining restaurant",
+            "cafe",
+            "bakery",
+            "street food stall",
+            "home kitchen",
+            "garden dining",
+            "beach dining"
+        ],
+        "lighting": [
+            "natural light",
+            "soft diffused light",
+            "dramatic spotlight",
+            "backlight",
+            "side lighting",
+            "overhead lighting",
+            "window light",
+            "golden hour",
+            "studio lighting",
+            "candlelight"
+        ],
+        "props": [
+            "vintage cutlery",
+            "ceramic plates",
+            "wooden boards",
+            "glass containers",
+            "linen napkins",
+            "cooking utensils",
+            "fresh ingredients",
+            "garnishes",
+            "wine glasses",
+            "decorative elements"
+        ],
+        "atmospheres": [
+            "cozy",
+            "elegant",
+            "rustic",
+            "modern",
+            "romantic",
+            "professional",
+            "casual",
+            "festive",
+            "intimate",
+            "vibrant"
+        ],
+        "color_schemes": [
+            "vibrant fresh",
+            "earthy tones",
+            "monochromatic",
+            "complementary colors",
+            "warm palette",
+            "cool tones",
+            "pastel shades",
+            "rich contrasts",
+            "natural hues",
+            "bold accents"
+        ],
+        "garnishes": [
+            "fresh herbs",
+            "edible flowers",
+            "microgreens",
+            "sauce drizzles",
+            "spice dusting",
+            "citrus zest",
+            "vegetable curls",
+            "nut crumbles",
+            "berry compote",
+            "chocolate shavings"
+        ],
+        "textures": [
+            "crispy",
+            "smooth",
+            "creamy",
+            "crunchy",
+            "tender",
+            "flaky",
+            "juicy",
+            "velvety",
+            "glazed",
+            "caramelized"
+        ]
+    }
+}

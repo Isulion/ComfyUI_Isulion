@@ -1,0 +1,100 @@
+{
+    "star_wars": {
+        "characters": [
+            "jedi knight",
+            "sith lord",
+            "bounty hunter",
+            "stormtrooper",
+            "rebel pilot",
+            "smuggler",
+            "imperial officer",
+            "alien species",
+            "droid",
+            "force user"
+        ],
+        "locations": [
+            "space station",
+            "desert planet",
+            "ice world",
+            "jungle moon",
+            "cantina",
+            "star destroyer",
+            "jedi temple",
+            "imperial base",
+            "rebel hideout",
+            "alien city"
+        ],
+        "vehicles": [
+            "x-wing fighter",
+            "tie fighter",
+            "millennium falcon",
+            "star destroyer",
+            "speeder bike",
+            "at-at walker",
+            "podracer",
+            "republic cruiser",
+            "imperial shuttle",
+            "landspeeder"
+        ],
+        "equipment": [
+            "lightsaber",
+            "blaster",
+            "force powers",
+            "droid companion",
+            "space armor",
+            "energy shield",
+            "holocron",
+            "jetpack",
+            "comlink",
+            "thermal detonator"
+        ],
+        "environments": [
+            "space battle",
+            "hyperspace",
+            "asteroid field",
+            "twin suns",
+            "gas giant",
+            "nebula",
+            "galactic core",
+            "trade route",
+            "spaceport",
+            "crystal cave"
+        ],
+        "structures": [
+            "death star",
+            "shield generator",
+            "moisture farm",
+            "imperial palace",
+            "rebel base",
+            "trade federation ship",
+            "clone facility",
+            "senate building",
+            "sith temple",
+            "space station"
+        ],
+        "atmospheres": [
+            "epic",
+            "mysterious",
+            "futuristic",
+            "alien",
+            "ancient",
+            "technological",
+            "mystical",
+            "dangerous",
+            "exotic",
+            "imperial"
+        ],
+        "effects": [
+            "force aura",
+            "laser fire",
+            "lightsaber glow",
+            "space effects",
+            "hologram",
+            "energy shield",
+            "hyperspace jump",
+            "force lightning",
+            "blaster bolts",
+            "explosion"
+        ]
+    }
+}

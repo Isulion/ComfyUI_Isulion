@@ -1,0 +1,112 @@
+{
+    "futuristic_city_metropolis": {
+        "subjects": [
+            "skyscraper",
+            "tower",
+            "building",
+            "cityscape",
+            "megastructure",
+            "aerial transport",
+            "hover vehicle",
+            "citizen",
+            "android",
+            "hologram"
+        ],
+        "architecture": [
+            "neo-futuristic",
+            "hypermodern",
+            "crystalline",
+            "biomechanical",
+            "quantum architecture",
+            "nano-engineered",
+            "anti-gravity",
+            "plasma-core",
+            "eco-fusion",
+            "techno-organic"
+        ],
+        "infrastructure": [
+            "sky bridges",
+            "magnetic levitation rails",
+            "quantum highways",
+            "vertical gardens",
+            "energy conduits",
+            "holographic billboards",
+            "drone ports",
+            "anti-gravity platforms",
+            "teleportation hubs",
+            "energy grid"
+        ],
+        "technology": [
+            "AI systems",
+            "holographic displays",
+            "quantum computing",
+            "clean energy",
+            "neural network",
+            "biotechnology",
+            "smart materials",
+            "nano-tech",
+            "fusion power",
+            "virtual reality"
+        ],
+        "atmospheres": [
+            "neon-lit",
+            "cyberpunk",
+            "clean tech",
+            "utopian",
+            "bustling",
+            "advanced",
+            "harmonious",
+            "dynamic",
+            "innovative",
+            "prosperous"
+        ],
+        "time_of_day": [
+            "neon night",
+            "cyber dawn",
+            "digital dusk",
+            "quantum morning",
+            "eternal twilight",
+            "synthetic daylight",
+            "artificial sunset",
+            "holographic noon",
+            "virtual midnight",
+            "binary sunrise"
+        ],
+        "styles": [
+            "neo-tokyo",
+            "cyber-minimalist",
+            "tech-organic",
+            "quantum-punk",
+            "clean-future",
+            "digital-baroque",
+            "nano-deco",
+            "plasma-modern",
+            "holo-brutalist",
+            "eco-futurism"
+        ],
+        "effects": [
+            "holographic",
+            "neon glow",
+            "energy field",
+            "quantum particles",
+            "light streams",
+            "digital rain",
+            "plasma aurora",
+            "cyber mist",
+            "data flow",
+            "tech aura"
+        ],
+        "details": [
+            "floating",
+            "gleaming",
+            "pristine",
+            "advanced",
+            "streamlined",
+            "geometric",
+            "dynamic",
+            "innovative",
+            "harmonious",
+            "integrated"
+        ]
+    }
+}

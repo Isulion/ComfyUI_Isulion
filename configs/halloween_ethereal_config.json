@@ -1,0 +1,100 @@
+{
+    "halloween_ethereal": {
+        "subjects": [
+            "ghost",
+            "spirit",
+            "witch",
+            "phantom",
+            "specter",
+            "wraith",
+            "apparition",
+            "haunted doll",
+            "ethereal being",
+            "mystical creature"
+        ],
+        "creatures": [
+            "black cat",
+            "raven",
+            "owl",
+            "bat",
+            "spider",
+            "wolf",
+            "crow",
+            "familiar",
+            "shadow beast",
+            "spectral animal"
+        ],
+        "environments": [
+            "haunted mansion",
+            "misty graveyard",
+            "enchanted forest",
+            "witch's cottage",
+            "abandoned church",
+            "ghostly ruins",
+            "ethereal realm",
+            "spirit world",
+            "cursed castle",
+            "magical garden"
+        ],
+        "objects": [
+            "crystal ball",
+            "magic wand",
+            "spellbook",
+            "potion bottle",
+            "enchanted mirror",
+            "cursed artifact",
+            "haunted lantern",
+            "mystical orb",
+            "spirit vessel",
+            "ethereal charm"
+        ],
+        "atmospheres": [
+            "misty",
+            "ethereal",
+            "mystical",
+            "haunting",
+            "enchanted",
+            "spectral",
+            "magical",
+            "otherworldly",
+            "mysterious",
+            "supernatural"
+        ],
+        "time": [
+            "witching hour",
+            "midnight",
+            "full moon",
+            "twilight",
+            "eternal night",
+            "ghostly dawn",
+            "spectral dusk",
+            "haunted evening",
+            "mystic hour",
+            "ethereal night"
+        ],
+        "effects": [
+            "ghostly glow",
+            "spirit mist",
+            "magical sparkles",
+            "ethereal light",
+            "spectral aura",
+            "mystic fog",
+            "enchanted particles",
+            "haunting shadows",
+            "supernatural energy",
+            "otherworldly shimmer"
+        ],
+        "styles": [
+            "gothic ethereal",
+            "mystical dark",
+            "haunted elegant",
+            "spectral fantasy",
+            "enchanted horror",
+            "ethereal gothic",
+            "magical spooky",
+            "supernatural dreamy",
+            "ghostly romantic",
+            "witchy aesthetic"
+        ]
+    }
+}

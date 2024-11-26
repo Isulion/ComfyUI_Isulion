@@ -1,0 +1,112 @@
+{
+    "concept_art": {
+        "subjects": [
+            "character",
+            "creature",
+            "vehicle",
+            "environment",
+            "prop",
+            "building",
+            "weapon",
+            "costume",
+            "machine",
+            "artifact"
+        ],
+        "designs": [
+            "futuristic",
+            "organic",
+            "mechanical",
+            "fantasy",
+            "sci-fi",
+            "industrial",
+            "biomechanical",
+            "ancient",
+            "modern",
+            "hybrid"
+        ],
+        "features": [
+            "intricate details",
+            "unique silhouette",
+            "dynamic form",
+            "innovative design",
+            "functional elements",
+            "aesthetic appeal",
+            "structural integrity",
+            "visual interest",
+            "design language",
+            "creative solutions"
+        ],
+        "settings": [
+            "world",
+            "landscape",
+            "interior",
+            "city",
+            "space",
+            "facility",
+            "realm",
+            "station",
+            "habitat",
+            "dimension"
+        ],
+        "elements": [
+            "architecture",
+            "technology",
+            "nature",
+            "machinery",
+            "structures",
+            "lighting",
+            "atmosphere",
+            "details",
+            "props",
+            "features"
+        ],
+        "styles": [
+            "realistic",
+            "stylized",
+            "painterly",
+            "technical",
+            "atmospheric",
+            "detailed",
+            "minimalist",
+            "dynamic",
+            "experimental",
+            "innovative"
+        ],
+        "techniques": [
+            "digital painting",
+            "3D rendering",
+            "sketching",
+            "photobashing",
+            "matte painting",
+            "illustration",
+            "modeling",
+            "texturing",
+            "compositing",
+            "lighting"
+        ],
+        "effects": [
+            "lighting",
+            "atmosphere",
+            "texture",
+            "detail",
+            "composition",
+            "perspective",
+            "depth",
+            "scale",
+            "contrast",
+            "harmony"
+        ],
+        "moods": [
+            "dramatic",
+            "mysterious",
+            "epic",
+            "serene",
+            "dynamic",
+            "intense",
+            "peaceful",
+            "energetic",
+            "atmospheric",
+            "immersive"
+        ]
+    }
+}

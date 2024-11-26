@@ -1,0 +1,112 @@
+{
+    "chimera_animals": {
+        "base_creatures": [
+            "lion",
+            "eagle",
+            "dragon",
+            "wolf",
+            "serpent",
+            "tiger",
+            "phoenix",
+            "unicorn",
+            "griffin",
+            "manticore"
+        ],
+        "fusion_parts": [
+            "dragon wings",
+            "serpent tail",
+            "eagle talons",
+            "lion mane",
+            "wolf fangs",
+            "scorpion stinger",
+            "peacock feathers",
+            "antelope horns",
+            "fish scales",
+            "butterfly wings"
+        ],
+        "features": [
+            "glowing eyes",
+            "iridescent scales",
+            "ethereal mane",
+            "mystical markings",
+            "elemental patterns",
+            "crystalline horns",
+            "spectral fur",
+            "prismatic feathers",
+            "luminous spots",
+            "magical runes"
+        ],
+        "habitats": [
+            "enchanted forest",
+            "celestial realm",
+            "mystic mountains",
+            "ethereal plains",
+            "crystal caverns",
+            "floating islands",
+            "sacred grove",
+            "astral dimension",
+            "mythical valley",
+            "magical sanctuary"
+        ],
+        "elements": [
+            "floating crystals",
+            "magical flora",
+            "ethereal mist",
+            "glowing fungi",
+            "levitating rocks",
+            "spirit wisps",
+            "mystical pools",
+            "energy vortexes",
+            "ancient ruins",
+            "sacred symbols"
+        ],
+        "styles": [
+            "mythical",
+            "fantastical",
+            "ethereal",
+            "majestic",
+            "mystical",
+            "legendary",
+            "magical",
+            "otherworldly",
+            "divine",
+            "celestial"
+        ],
+        "aesthetics": [
+            "ethereal",
+            "mystical",
+            "magical",
+            "fantastical",
+            "celestial",
+            "otherworldly",
+            "divine",
+            "legendary",
+            "mythical",
+            "enchanted"
+        ],
+        "effects": [
+            "sparkle",
+            "glow",
+            "shimmer",
+            "radiance",
+            "aura",
+            "luminescence",
+            "iridescence",
+            "ethereal light",
+            "mystical energy",
+            "magical essence"
+        ],
+        "auras": [
+            "ethereal",
+            "mystical",
+            "divine",
+            "celestial",
+            "magical",
+            "spectral",
+            "prismatic",
+            "radiant",
+            "luminous",
+            "otherworldly"
+        ]
+    }
+}

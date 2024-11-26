@@ -1,0 +1,76 @@
+{
+    "anime": {
+        "characters": [
+            "young anime girl",
+            "anime boy",
+            "anime warrior",
+            "magical girl",
+            "anime protagonist"
+        ],
+        "outfits": [
+            "school uniform",
+            "battle outfit",
+            "casual clothes",
+            "magical costume",
+            "traditional Japanese clothing"
+        ],
+        "poses": [
+            "dynamic action pose",
+            "casual standing pose",
+            "running pose",
+            "dramatic battle stance",
+            "slice of life pose"
+        ],
+        "expressions": [
+            "cheerful",
+            "determined",
+            "surprised",
+            "peaceful",
+            "energetic"
+        ],
+        "emotions": [
+            "joy",
+            "determination",
+            "excitement",
+            "tranquility",
+            "enthusiasm"
+        ],
+        "locations": [
+            "Japanese high school",
+            "cherry blossom garden",
+            "futuristic city",
+            "magical realm",
+            "peaceful countryside"
+        ],
+        "styles": [
+            "anime art style",
+            "manga style",
+            "Studio Ghibli style",
+            "modern anime style",
+            "classic anime style"
+        ],
+        "effects": [
+            "speed lines",
+            "magical particles",
+            "glowing aura",
+            "cherry blossoms",
+            "dramatic lighting"
+        ]
+    },
+    "common": {
+        "times": [
+            "sunrise",
+            "noon",
+            "sunset",
+            "night",
+            "golden hour"
+        ],
+        "weather": [
+            "clear sky",
+            "light rain",
+            "cloudy",
+            "starry night",
+            "misty"
+        ]
+    }
+}

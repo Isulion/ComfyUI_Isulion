@@ -1,0 +1,112 @@
+{
+    "dimension_3d": {
+        "subjects": [
+            "character",
+            "object",
+            "scene",
+            "creature",
+            "vehicle",
+            "building",
+            "landscape",
+            "machine",
+            "robot",
+            "prop"
+        ],
+        "styles": [
+            "realistic",
+            "stylized",
+            "cartoon",
+            "photorealistic",
+            "abstract",
+            "geometric",
+            "organic",
+            "futuristic",
+            "minimalist",
+            "detailed"
+        ],
+        "features": [
+            "textures",
+            "materials",
+            "geometry",
+            "topology",
+            "rigging",
+            "animation",
+            "shading",
+            "modeling",
+            "sculpting",
+            "rendering"
+        ],
+        "settings": [
+            "environment",
+            "interior",
+            "exterior",
+            "landscape",
+            "cityscape",
+            "space",
+            "fantasy realm",
+            "studio",
+            "abstract space",
+            "virtual world"
+        ],
+        "elements": [
+            "props",
+            "scenery",
+            "lighting",
+            "effects",
+            "particles",
+            "atmosphere",
+            "background",
+            "foreground",
+            "details",
+            "decorations"
+        ],
+        "render_styles": [
+            "physically based",
+            "non-photorealistic",
+            "cel-shaded",
+            "realistic",
+            "stylized",
+            "cartoon",
+            "cinematic",
+            "architectural",
+            "product",
+            "character"
+        ],
+        "techniques": [
+            "subdivision modeling",
+            "sculpting",
+            "hard surface modeling",
+            "procedural modeling",
+            "parametric design",
+            "box modeling",
+            "retopology",
+            "UV mapping",
+            "texturing",
+            "rigging"
+        ],
+        "effects": [
+            "ambient occlusion",
+            "global illumination",
+            "subsurface scattering",
+            "reflection",
+            "refraction",
+            "caustics",
+            "volumetrics",
+            "particles",
+            "motion blur",
+            "depth of field"
+        ],
+        "lighting": [
+            "studio",
+            "natural",
+            "artificial",
+            "dramatic",
+            "soft",
+            "hard",
+            "rim",
+            "fill",
+            "key",
+            "ambient"
+        ]
+    }
+}

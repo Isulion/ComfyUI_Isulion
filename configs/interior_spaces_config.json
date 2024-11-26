@@ -1,0 +1,100 @@
+{
+    "interior_spaces": {
+        "room_types": [
+            "living room",
+            "bedroom",
+            "kitchen",
+            "bathroom",
+            "dining room",
+            "study",
+            "library",
+            "home office",
+            "conservatory",
+            "attic"
+        ],
+        "styles": [
+            "modern minimalist",
+            "scandinavian",
+            "mid-century modern",
+            "industrial",
+            "bohemian",
+            "contemporary",
+            "traditional",
+            "art deco",
+            "japanese zen",
+            "french country"
+        ],
+        "furniture": [
+            "sofa",
+            "armchair",
+            "coffee table",
+            "dining table",
+            "bed",
+            "bookshelf",
+            "desk",
+            "cabinet",
+            "ottoman",
+            "sideboard"
+        ],
+        "decor": [
+            "houseplants",
+            "artwork",
+            "mirrors",
+            "throw pillows",
+            "rugs",
+            "curtains",
+            "vases",
+            "sculptures",
+            "wall hangings",
+            "decorative objects"
+        ],
+        "lighting": [
+            "pendant light",
+            "chandelier",
+            "floor lamp",
+            "table lamp",
+            "wall sconce",
+            "recessed lighting",
+            "track lighting",
+            "natural light",
+            "task lighting",
+            "ambient lighting"
+        ],
+        "materials": [
+            "wood",
+            "marble",
+            "glass",
+            "metal",
+            "leather",
+            "velvet",
+            "linen",
+            "concrete",
+            "brass",
+            "ceramic"
+        ],
+        "colors": [
+            "neutral",
+            "warm",
+            "cool",
+            "monochromatic",
+            "pastel",
+            "bold",
+            "earthy",
+            "jewel tones",
+            "muted",
+            "contrasting"
+        ],
+        "atmospheres": [
+            "cozy",
+            "elegant",
+            "relaxing",
+            "sophisticated",
+            "inviting",
+            "serene",
+            "luxurious",
+            "minimalist",
+            "eclectic",
+            "harmonious"
+        ]
+    }
+}

@@ -1,0 +1,114 @@
+{
+    "ghibli": {
+        "styles": [
+            "Studio Ghibli style",
+            "Miyazaki inspired",
+            "anime watercolor",
+            "hand-drawn animation",
+            "Japanese animation art",
+            "traditional cel animation",
+            "painterly anime",
+            "whimsical animation"
+        ],
+        "character_traits": [
+            "innocent wonder",
+            "determined spirit",
+            "gentle strength",
+            "magical presence",
+            "youthful energy",
+            "wise elder",
+            "mystical being",
+            "kind heart"
+        ],
+        "environments": [
+            "magical forest",
+            "floating castle",
+            "rural Japanese village",
+            "enchanted garden",
+            "seaside town",
+            "mountain sanctuary",
+            "flying airship",
+            "spirit realm"
+        ],
+        "natural_elements": [
+            "wind-swept grass",
+            "ancient trees",
+            "flowing water",
+            "floating petals",
+            "glowing fireflies",
+            "rolling clouds",
+            "morning dew",
+            "autumn leaves"
+        ],
+        "magical_elements": [
+            "spirit creatures",
+            "floating lights",
+            "magical dust",
+            "enchanted objects",
+            "forest spirits",
+            "mystical portals",
+            "spirit flames",
+            "magical transformations"
+        ],
+        "architectural_elements": [
+            "traditional Japanese house",
+            "mystical castle",
+            "flying fortress",
+            "spirit bathhouse",
+            "rural cottage",
+            "ancient temple",
+            "magical workshop",
+            "floating city"
+        ],
+        "lighting": [
+            "soft sunlight",
+            "magical glow",
+            "twilight ambiance",
+            "morning rays",
+            "lantern light",
+            "spirit illumination",
+            "sunset warmth",
+            "moonlit night"
+        ],
+        "color_palettes": [
+            "pastel watercolors",
+            "natural earth tones",
+            "vibrant spring colors",
+            "soft sunset hues",
+            "forest greens",
+            "ocean blues",
+            "magical purples",
+            "warm autumn shades"
+        ],
+        "weather_effects": [
+            "gentle rain",
+            "swirling wind",
+            "floating clouds",
+            "morning mist",
+            "summer storm",
+            "cherry blossoms",
+            "autumn breeze",
+            "magical snow"
+        ],
+        "time_periods": [
+            "timeless fantasy",
+            "magical present",
+            "nostalgic past",
+            "eternal summer",
+            "mystical age",
+            "dream time",
+            "spirit hour",
+            "enchanted moment"
+        ],
+        "emotional_tones": [
+            "wonder and awe",
+            "peaceful serenity",
+            "gentle melancholy",
+            "joyful adventure",
+            "quiet courage",
+            "magical discovery",
+            "heartfelt connection",
+            "innocent love"
+        ]
+    }
+}

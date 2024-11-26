@@ -73,16 +73,87 @@ class IsulionMegaPromptGenerator:
 
     def load_config(self, config_path):
         """Load configurations from the specified file."""
-        with open(config_path, 'r', encoding='utf-8') as f:
-            config_text = f.read()
+        try:
+            with open(config_path, 'r', encoding='utf-8') as f:
+                config_content = f.read()
+                
+            # Create a local dictionary to store variables
+            local_vars = {}
             
-        # Execute the config file content in a safe local namespace
-        namespace = {}
-        exec(config_text, {}, namespace)
-        
-        # Transfer all variables to class attributes
-        for key, value in namespace.items():
-            setattr(self, key, value)
+            # Execute the configuration content in the local scope
+            exec(config_content, {}, local_vars)
+            
+            # Store all configuration variables as instance attributes
+            for var_name, var_value in local_vars.items():
+                setattr(self, var_name, var_value)
+
+            # Initialize halloween elements if not present
+            if not hasattr(self, 'halloween_elements'):
+                self.halloween_elements = {
+                    "creatures": [
+                        "ghost", "skeleton", "zombie", "vampire", "werewolf", "witch",
+                        "black cat", "demon", "gargoyle", "grim reaper", "mummy",
+                        "haunted doll", "possessed puppet", "banshee", "goblin"
+                    ],
+                    "settings": [
+                        "haunted house", "graveyard", "dark forest", "abandoned church",
+                        "cursed castle", "foggy cemetery", "witch's cottage", "crypt",
+                        "dungeon", "misty moor", "haunted mansion", "dark alley"
+                    ],
+                    "props": [
+                        "jack o'lantern", "cobwebs", "candelabra", "crystal ball",
+                        "spell book", "cauldron", "cursed mirror", "haunted painting",
+                        "old tombstone", "creepy doll", "raven", "full moon"
+                    ]
+                }
+                self.halloween_times = [
+                    "midnight", "witching hour", "dusk", "twilight",
+                    "full moon", "blood moon", "foggy night", "stormy night"
+                ]
+                self.halloween_weather = [
+                    "misty", "foggy", "stormy", "thunderous",
+                    "moonlit", "cloudy", "dark", "gloomy"
+                ]
+
+        except FileNotFoundError:
+            print(f"Warning: Config file not found at {config_path}")
+            # Initialize with default values
+            self.initialize_defaults()
+        except Exception as e:
+            print(f"Error loading config: {str(e)}")
+            # Initialize with default values
+            self.initialize_defaults()
+
+    def initialize_defaults(self):
+        """Initialize default values for configuration."""
+        # Default halloween elements
+        self.halloween_elements = {
+            "creatures": [
+                "ghost", "skeleton", "zombie", "vampire", "werewolf", "witch",
+                "black cat", "demon", "gargoyle", "grim reaper", "mummy",
+                "haunted doll", "possessed puppet", "banshee", "goblin"
+            ],
+            "settings": [
+                "haunted house", "graveyard", "dark forest", "abandoned church",
+                "cursed castle", "foggy cemetery", "witch's cottage", "crypt",
+                "dungeon", "misty moor", "haunted mansion", "dark alley"
+            ],
+            "props": [
+                "jack o'lantern", "cobwebs", "candelabra", "crystal ball",
+                "spell book", "cauldron", "cursed mirror", "haunted painting",
+                "old tombstone", "creepy doll", "raven", "full moon"
+            ]
+        }
+        self.halloween_times = [
+            "midnight", "witching hour", "dusk", "twilight",
+            "full moon", "blood moon", "foggy night", "stormy night"
+        ]
+        self.halloween_weather = [
+            "misty", "foggy", "stormy", "thunderous",
+            "moonlit", "cloudy", "dark", "gloomy"
+        ]
+
+        # Add other default configurations as needed
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -140,7 +211,7 @@ class IsulionMegaPromptGenerator:
                 "enhancement_level": (["subtle", "moderate", "dramatic"], {"default": "moderate"}),
                 "enhancement_focus": (["detail", "composition", "lighting", "color"], {"default": "detail"}),
             }
-        }
+        }  # Added the missing closing brace here
     
     RETURN_TYPES = (
         "STRING",  # combined prompt
@@ -413,7 +484,7 @@ class IsulionMegaPromptGenerator:
                 time = random.choice(self.times)
                 environment_text = (
                     f"in a ((detailed {setting})) during {weather} {time}, "
-                    f"with ((meaningful {elements})), ((caricature composition)), "
+                    f"((meaningful {elements})), ((caricature composition)), "
                     f"((artistic atmosphere)), ((contextual details)))"
                 )
                 components.append(environment_text)
@@ -764,12 +835,6 @@ class IsulionMegaPromptGenerator:
                             f"((mystical energy)), ((fantasy effects))"
                         )
                         components.append(effects_text)
-                elif internal_theme == "abstract":
-                    # More pure abstract elements
-                    primary = random.choice(self.abstract_primary_elements)
-                    element = random.choice(self.abstract_elements)
-                    style = random.choice(self.abstract_styles)
-                    subject_text = f"{style} {primary} composition with {element}"
                 elif internal_theme == "cartoon":
                     # Select base elements
                     character = random.choice(self.cartoon_characters)
@@ -2017,7 +2082,7 @@ class IsulionMegaPromptGenerator:
                     
                     # Add effects if enabled
                     if include_effects == "yes":
-                        food = random.choice(self.christmas_elements["foods"])
+                        food = random.choice(self.christmas_elements["foods"]) if "foods" in self.christmas_elements else "christmas treats"
                         effects_text = (
                             f"with ((twinkling lights)), ((magical snow effects)), "
                             f"((warm glow)), ((festive decorations)), "

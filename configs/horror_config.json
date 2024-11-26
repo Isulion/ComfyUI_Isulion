@@ -1,0 +1,114 @@
+{
+    "horror": {
+        "styles": [
+            "gothic horror",
+            "psychological horror",
+            "cosmic horror",
+            "body horror",
+            "dark surrealism",
+            "supernatural horror",
+            "Victorian horror",
+            "folk horror"
+        ],
+        "atmospheres": [
+            "oppressive darkness",
+            "eerie silence",
+            "unsettling calm",
+            "creeping dread",
+            "supernatural presence",
+            "malevolent aura",
+            "haunting stillness",
+            "sinister ambiance"
+        ],
+        "lighting": [
+            "dim candlelight",
+            "moonlit shadows",
+            "flickering lantern",
+            "ghostly glow",
+            "ominous darkness",
+            "blood-red light",
+            "spectral illumination",
+            "creeping shadows"
+        ],
+        "environments": [
+            "abandoned mansion",
+            "haunted asylum",
+            "cursed cemetery",
+            "dark forest",
+            "ancient crypt",
+            "forgotten church",
+            "derelict hospital",
+            "occult ritual chamber"
+        ],
+        "architectural_elements": [
+            "gothic arches",
+            "decaying walls",
+            "broken windows",
+            "twisted corridors",
+            "crumbling statues",
+            "rusted gates",
+            "rotting wood",
+            "ancient stonework"
+        ],
+        "weather_effects": [
+            "rolling fog",
+            "blood rain",
+            "unnatural storm",
+            "perpetual darkness",
+            "ghostly mist",
+            "cold wind",
+            "black clouds",
+            "ethereal frost"
+        ],
+        "supernatural_elements": [
+            "ghostly apparitions",
+            "demonic presence",
+            "cursed artifacts",
+            "dark rituals",
+            "eldritch horrors",
+            "spectral manifestations",
+            "occult symbols",
+            "paranormal activity"
+        ],
+        "color_schemes": [
+            "deep shadows",
+            "blood reds",
+            "sickly greens",
+            "cold blues",
+            "murky browns",
+            "ghostly whites",
+            "void blacks",
+            "decay yellows"
+        ],
+        "textures": [
+            "rotting flesh",
+            "decaying wood",
+            "rusted metal",
+            "moldy surfaces",
+            "cracked stone",
+            "dried blood",
+            "spider webs",
+            "bone fragments"
+        ],
+        "time_periods": [
+            "witching hour",
+            "eternal night",
+            "cursed twilight",
+            "dark dawn",
+            "midnight hour",
+            "haunted dusk",
+            "blood moon",
+            "endless darkness"
+        ],
+        "emotional_tones": [
+            "paralyzing fear",
+            "creeping dread",
+            "unspeakable horror",
+            "mounting tension",
+            "primal terror",
+            "psychological torment",
+            "existential dread",
+            "supernatural fear"
+        ]
+    }
+}

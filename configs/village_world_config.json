@@ -1,0 +1,200 @@
+{
+    "village_world": {
+        "cultures": [
+            "asian village",
+            "european hamlet",
+            "african settlement",
+            "middle eastern town",
+            "nordic village",
+            "mediterranean town",
+            "latin american pueblo",
+            "pacific island community",
+            "indigenous settlement",
+            "mountain village"
+        ],
+        "buildings": [
+            "traditional house",
+            "local temple",
+            "community center",
+            "marketplace",
+            "craftsman workshop",
+            "village square",
+            "elder's home",
+            "storage barn",
+            "gathering hall",
+            "sacred shrine"
+        ],
+        "activities": [
+            "farming",
+            "fishing",
+            "crafting",
+            "trading",
+            "celebrating",
+            "harvesting",
+            "weaving",
+            "cooking",
+            "storytelling",
+            "ritual ceremony"
+        ],
+        "people": [
+            "village elder",
+            "local artisan",
+            "farmer",
+            "merchant",
+            "storyteller",
+            "healer",
+            "fisherman",
+            "weaver",
+            "village chief",
+            "community member"
+        ],
+        "environments": [
+            "rice terraces",
+            "coastal shore",
+            "mountain slope",
+            "forest clearing",
+            "river valley",
+            "desert oasis",
+            "tropical grove",
+            "grassland plain",
+            "hillside",
+            "lakeside"
+        ],
+        "elements": [
+            "traditional decorations",
+            "local crafts",
+            "cultural symbols",
+            "village tools",
+            "ceremonial items",
+            "traditional clothing",
+            "local produce",
+            "sacred objects",
+            "cultural artifacts",
+            "village goods"
+        ],
+        "atmospheres": [
+            "peaceful",
+            "traditional",
+            "communal",
+            "cultural",
+            "rustic",
+            "spiritual",
+            "harmonious",
+            "authentic",
+            "vibrant",
+            "serene"
+        ],
+        "effects": [
+            "natural lighting",
+            "morning mist",
+            "evening glow",
+            "seasonal atmosphere",
+            "cultural ambiance",
+            "traditional mood",
+            "village life",
+            "local character",
+            "cultural essence",
+            "community spirit"
+        ],
+        "styles": [
+            "fantasy village art",
+            "storybook illustration",
+            "magical town scene",
+            "enchanted village style",
+            "fairytale artwork",
+            "whimsical village painting",
+            "dreamy landscape art",
+            "magical realism style"
+        ],
+        "architecture": [
+            "thatched roof cottages",
+            "cobblestone buildings",
+            "timber-frame houses",
+            "fairy-tale towers",
+            "windmills",
+            "stone bridges",
+            "village marketplace",
+            "cozy inns"
+        ],
+        "natural_elements": [
+            "flowering gardens",
+            "ancient trees",
+            "babbling brooks",
+            "rolling hills",
+            "misty meadows",
+            "enchanted forests",
+            "magical groves",
+            "crystal-clear ponds"
+        ],
+        "village_features": [
+            "village square",
+            "market stalls",
+            "town fountain",
+            "cobblestone streets",
+            "village green",
+            "community garden",
+            "town hall",
+            "local tavern"
+        ],
+        "magical_elements": [
+            "glowing lanterns",
+            "floating lights",
+            "magical crystals",
+            "enchanted signs",
+            "mystical portals",
+            "fairy lights",
+            "magical plants",
+            "enchanted objects"
+        ],
+        "time_of_day": [
+            "golden sunrise",
+            "magical twilight",
+            "starlit evening",
+            "misty morning",
+            "enchanted dusk",
+            "moonlit night",
+            "sunny afternoon",
+            "magical midnight"
+        ],
+        "weather_effects": [
+            "gentle rain",
+            "magical snow",
+            "rainbow mist",
+            "golden sunbeams",
+            "sparkling frost",
+            "mystical fog",
+            "magical breeze",
+            "enchanted clouds"
+        ],
+        "inhabitants": [
+            "friendly villagers",
+            "magical creatures",
+            "village artisans",
+            "mystical beings",
+            "woodland creatures",
+            "fairy folk",
+            "magical animals",
+            "village merchants"
+        ],
+        "activities": [
+            "market day",
+            "village festival",
+            "magical gathering",
+            "harvest celebration",
+            "enchanted fair",
+            "village feast",
+            "magical performance",
+            "community celebration"
+        ],
+        "atmosphere": [
+            "peaceful ambiance",
+            "magical charm",
+            "cozy warmth",
+            "whimsical mood",
+            "enchanted atmosphere",
+            "village harmony",
+            "mystical aura",
+            "fairytale feeling"
+        ]
+    }
+}

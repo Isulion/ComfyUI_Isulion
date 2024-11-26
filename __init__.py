@@ -1,4 +1,16 @@
+"""
+Isulion ComfyUI Custom Nodes
+A collection of powerful prompt generation nodes for ComfyUI
+"""
+
+__version__ = "2.0.0"
+__author__ = "Isulion"
+__description__ = "Advanced prompt generation nodes for ComfyUI with multiple themes and styles"
+
+# Import all node classes
 from .Core_Nodes.isulion_prompt_generator import IsulionPromptGenerator
+from .Mega_Prompt_V2 import MegaPromptV2
+from .mega_prompt_V3 import MegaPromptV3
 from .animals_nodes.isulion_animal_generator import Isulion_AnimalRandom
 from .animals_nodes.isulion_cute_animal_generator import IsulionCuteAnimalRandom
 from .animals_nodes.isulion_animal_behavior_generator import Isulion_AnimalBehaviorGenerator
@@ -22,60 +34,67 @@ from .enhancement_nodes.isulion_style_mixer import IsulionStyleMixer
 from .enhancement_nodes.isulion_prompt_enhancer import IsulionPromptEnhancer
 from .enhancement_nodes.isulion_negative_prompt_generator import IsulionNegativePromptGenerator
 from .Core_Nodes.mega_prompt_generator import IsulionMegaPromptGenerator
-from .Mega_Prompt_V2 import MegaPromptV2
 
+# Node mappings
 NODE_CLASS_MAPPINGS = {
     "IsulionPromptGenerator": IsulionPromptGenerator,
     "IsulionAnimalRandom": Isulion_AnimalRandom,
     "IsulionCuteAnimalRandom": IsulionCuteAnimalRandom,
-    "IsulionEmotionGenerator": Isulion_EmotionGenerator,
+    "IsulionAnimalBehaviorGenerator": Isulion_AnimalBehaviorGenerator,
     "IsulionHabitatGenerator": Isulion_HabitatGenerator,
     "IsulionWeatherGenerator": Isulion_WeatherGenerator,
     "IsulionTimeOfDayGenerator": Isulion_TimeOfDayGenerator,
     "IsulionArtStyleGenerator": Isulion_ArtStyleGenerator,
-    "IsulionAnimalBehaviorGenerator": Isulion_AnimalBehaviorGenerator,
+    "IsulionActionGenerator": IsulionActionGenerator,
+    "IsulionSceneComposition": IsulionSceneComposition,
     "IsulionProfessionGenerator": IsulionProfessionGenerator,
     "IsulionFantasyRaceGenerator": IsulionFantasyRaceGenerator,
     "IsulionClothingGenerator": IsulionClothingGenerator,
-    "IsulionActionGenerator": IsulionActionGenerator,
-    "IsulionSceneComposition": IsulionSceneComposition,
     "IsulionMagicalEffectGenerator": IsulionMagicalEffectGenerator,
     "IsulionMythicalLocationGenerator": IsulionMythicalLocationGenerator,
     "IsulionArtifactGenerator": IsulionArtifactGenerator,
     "IsulionTechGenerator": IsulionTechGenerator,
     "IsulionAlienWorldGenerator": IsulionAlienWorldGenerator,
     "IsulionSpacecraftGenerator": IsulionSpacecraftGenerator,
+    "IsulionEmotionGenerator": Isulion_EmotionGenerator,
     "IsulionStyleMixer": IsulionStyleMixer,
     "IsulionPromptEnhancer": IsulionPromptEnhancer,
     "IsulionNegativePromptGenerator": IsulionNegativePromptGenerator,
     "IsulionMegaPromptGenerator": IsulionMegaPromptGenerator,
     "MegaPromptV2": MegaPromptV2,
+    "MegaPromptV3": MegaPromptV3
 }
 
+# Display name mappings
 NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionPromptGenerator": "Isulion Prompt Generator ✨",
+    "MegaPromptV2": "Isulion Mega Prompt V2 🌟",
+    "MegaPromptV3": "Isulion Mega Prompt V3 🌠",
     "IsulionAnimalRandom": "Isulion Animal Selector 🦁",
     "IsulionCuteAnimalRandom": "Isulion Cute Animal Selector 🐱",
-    "IsulionEmotionGenerator": "Isulion Emotion Generator 😊",
-    "IsulionHabitatGenerator": "Isulion Habitat Generator 🌲",
+    "IsulionAnimalBehaviorGenerator": "Isulion Animal Behavior Generator 🦒",
+    "IsulionHabitatGenerator": "Isulion Habitat Generator 🌳",
     "IsulionWeatherGenerator": "Isulion Weather Generator ⛅",
     "IsulionTimeOfDayGenerator": "Isulion Time of Day Generator 🌅",
     "IsulionArtStyleGenerator": "Isulion Art Style Generator 🎨",
-    "IsulionAnimalBehaviorGenerator": "Isulion Animal Behavior Generator 🦊",
-    "IsulionProfessionGenerator": "Isulion Character Profession 👨‍🍳",
-    "IsulionFantasyRaceGenerator": "Isulion Fantasy Race Generator 🧝‍♂️",
-    "IsulionClothingGenerator": "Isulion Clothing Style Generator 👔",
-    "IsulionActionGenerator": "Isulion Action Generator ⚔️",
-    "IsulionSceneComposition": "Isulion Scene Composition 🎬",
+    "IsulionActionGenerator": "Isulion Action Generator 🏃",
+    "IsulionSceneComposition": "Isulion Scene Composition 🖼️",
+    "IsulionProfessionGenerator": "Isulion Profession Generator 👨‍💼",
+    "IsulionFantasyRaceGenerator": "Isulion Fantasy Race Generator 🧝",
+    "IsulionClothingGenerator": "Isulion Clothing Generator 👕",
     "IsulionMagicalEffectGenerator": "Isulion Magical Effect Generator ✨",
     "IsulionMythicalLocationGenerator": "Isulion Mythical Location Generator 🏰",
-    "IsulionArtifactGenerator": "Isulion Artifact Generator 📿",
+    "IsulionArtifactGenerator": "Isulion Artifact Generator 🗡️",
     "IsulionTechGenerator": "Isulion Tech Generator 🤖",
-    "IsulionAlienWorldGenerator": "Isulion Alien World Generator 🪐",
-    "IsulionSpacecraftGenerator": "Isulion Spacecraft Designer 🚀",
-    "IsulionStyleMixer": "Isulion Style Mixer 🎨",
-    "IsulionPromptEnhancer": "Isulion Prompt Enhancer 📝",
-    "IsulionNegativePromptGenerator": "Isulion Negative Prompt Generator ⛔",
-    "IsulionMegaPromptGenerator": "Isulion Mega Prompt Generator 🎯",
-    "MegaPromptV2": "Isulion Mega Prompt Generator V2 🚀",
+    "IsulionAlienWorldGenerator": "Isulion Alien World Generator 🌌",
+    "IsulionSpacecraftGenerator": "Isulion Spacecraft Generator 🚀",
+    "IsulionEmotionGenerator": "Isulion Emotion Generator 😊",
+    "IsulionStyleMixer": "Isulion Style Mixer 🎭",
+    "IsulionPromptEnhancer": "Isulion Prompt Enhancer 🌟",
+    "IsulionNegativePromptGenerator": "Isulion Negative Prompt Generator ❌",
+    "IsulionMegaPromptGenerator": "Isulion Mega Prompt Generator 🎯"
 }
+
+# Web directory for UI elements
+WEB_DIRECTORY = "./js"
+__version__ = "2.0.0"  

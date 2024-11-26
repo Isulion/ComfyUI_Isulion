@@ -1,0 +1,112 @@
+{
+    "chimera_cute_animals": {
+        "base_creatures": [
+            "kitten",
+            "puppy",
+            "bunny",
+            "hamster",
+            "panda",
+            "duckling",
+            "penguin",
+            "fox cub",
+            "baby seal",
+            "baby owl"
+        ],
+        "fusion_parts": [
+            "butterfly wings",
+            "unicorn horn",
+            "rainbow tail",
+            "angel wings",
+            "star antennae",
+            "cloud paws",
+            "crystal ears",
+            "flower petals",
+            "heart spots",
+            "candy stripes"
+        ],
+        "features": [
+            "sparkly eyes",
+            "fluffy fur",
+            "pastel colors",
+            "heart patterns",
+            "star markings",
+            "rainbow aura",
+            "crystal accents",
+            "flower crown",
+            "candy decorations",
+            "glitter spots"
+        ],
+        "habitats": [
+            "candy land",
+            "rainbow meadow",
+            "cloud kingdom",
+            "crystal garden",
+            "flower valley",
+            "star field",
+            "bubble world",
+            "heart forest",
+            "pastel paradise",
+            "magical playground"
+        ],
+        "elements": [
+            "floating hearts",
+            "rainbow bubbles",
+            "glitter dust",
+            "candy clouds",
+            "crystal flowers",
+            "star sparkles",
+            "pastel lights",
+            "magic ribbons",
+            "fluffy clouds",
+            "butterfly swarms"
+        ],
+        "styles": [
+            "kawaii",
+            "chibi",
+            "pastel",
+            "cute",
+            "adorable",
+            "sweet",
+            "charming",
+            "magical",
+            "whimsical",
+            "dreamy"
+        ],
+        "aesthetics": [
+            "kawaii",
+            "pastel",
+            "cute",
+            "adorable",
+            "sweet",
+            "magical",
+            "dreamy",
+            "charming",
+            "whimsical",
+            "lovely"
+        ],
+        "effects": [
+            "sparkle",
+            "twinkle",
+            "glitter",
+            "rainbow",
+            "bubble",
+            "heart",
+            "star",
+            "crystal",
+            "flower",
+            "candy"
+        ],
+        "auras": [
+            "sparkly",
+            "rainbow",
+            "pastel",
+            "glittery",
+            "starry",
+            "heart-filled",
+            "magical",
+            "crystal",
+            "flowery",
+            "sweet"
+        ]
+    }
+}

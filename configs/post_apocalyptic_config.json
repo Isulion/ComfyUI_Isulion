@@ -1,0 +1,100 @@
+{
+    "post_apocalyptic": {
+        "survivors": [
+            "wasteland warrior",
+            "scavenger",
+            "tribal leader",
+            "mutant",
+            "resistance fighter",
+            "nomad",
+            "raider",
+            "survivor",
+            "wasteland trader",
+            "mechanic"
+        ],
+        "environments": [
+            "ruined city",
+            "nuclear wasteland",
+            "abandoned highway",
+            "underground bunker",
+            "toxic desert",
+            "destroyed metropolis",
+            "radioactive zone",
+            "scrapyard city",
+            "survivor settlement",
+            "desolate wilderness"
+        ],
+        "vehicles": [
+            "armored car",
+            "modified motorcycle",
+            "war rig",
+            "scrap vehicle",
+            "battle tank",
+            "wasteland buggy",
+            "salvaged truck",
+            "post-apocalyptic bike",
+            "armored bus",
+            "battle wagon"
+        ],
+        "equipment": [
+            "gas mask",
+            "makeshift weapon",
+            "scavenged armor",
+            "radiation suit",
+            "survival gear",
+            "scrap shield",
+            "improvised tools",
+            "wasteland outfit",
+            "battle harness",
+            "survival pack"
+        ],
+        "weather": [
+            "acid rain",
+            "nuclear storm",
+            "toxic fog",
+            "dust storm",
+            "radioactive wind",
+            "scorching sun",
+            "chemical haze",
+            "nuclear winter",
+            "burning sky",
+            "contaminated clouds"
+        ],
+        "structures": [
+            "ruined skyscraper",
+            "makeshift shelter",
+            "fortified bunker",
+            "scrap fortress",
+            "abandoned factory",
+            "survivor camp",
+            "wasteland outpost",
+            "destroyed bridge",
+            "toxic dump",
+            "radiation zone"
+        ],
+        "atmospheres": [
+            "desolate",
+            "hostile",
+            "toxic",
+            "savage",
+            "desperate",
+            "dangerous",
+            "radioactive",
+            "lawless",
+            "brutal",
+            "survivalist"
+        ],
+        "effects": [
+            "radiation glow",
+            "toxic mist",
+            "dust particles",
+            "heat distortion",
+            "nuclear fallout",
+            "atmospheric haze",
+            "contamination",
+            "wasteland filter",
+            "decay",
+            "destruction"
+        ]
+    }
+}

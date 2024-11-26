@@ -1,0 +1,112 @@
+{
+    "halloween": {
+        "characters": [
+            "witch",
+            "ghost",
+            "vampire",
+            "zombie",
+            "skeleton",
+            "werewolf",
+            "demon",
+            "black cat",
+            "grim reaper",
+            "monster"
+        ],
+        "costumes": [
+            "tattered robes",
+            "Victorian dress",
+            "gothic attire",
+            "cursed armor",
+            "ragged clothes",
+            "witch's cloak",
+            "vampire cape",
+            "ghostly shroud",
+            "monster suit",
+            "skeletal outfit"
+        ],
+        "poses": [
+            "lurking stance",
+            "haunting pose",
+            "creepy walk",
+            "floating position",
+            "menacing stance",
+            "spooky dance",
+            "eerie stillness",
+            "creeping motion",
+            "ghostly float",
+            "sinister pose"
+        ],
+        "locations": [
+            "graveyard",
+            "haunted mansion",
+            "dark forest",
+            "abandoned church",
+            "cursed castle",
+            "spooky cemetery",
+            "witch's cottage",
+            "foggy moor",
+            "ancient crypt",
+            "haunted village"
+        ],
+        "decorations": [
+            "jack-o'-lanterns",
+            "cobwebs",
+            "black candles",
+            "carved pumpkins",
+            "ghostly apparitions",
+            "hanging bats",
+            "creepy dolls",
+            "dead trees",
+            "gravestones",
+            "cursed artifacts"
+        ],
+        "styles": [
+            "gothic horror",
+            "dark fantasy",
+            "vintage Halloween",
+            "spooky cartoon",
+            "creepy realistic",
+            "haunted illustration",
+            "eerie artwork",
+            "horror comic",
+            "Victorian gothic",
+            "supernatural art"
+        ],
+        "moods": [
+            "mysterious",
+            "haunting",
+            "spooky",
+            "eerie",
+            "sinister",
+            "creepy",
+            "supernatural",
+            "gothic",
+            "dark",
+            "macabre"
+        ],
+        "effects": [
+            "mist",
+            "ghostly glow",
+            "shadow play",
+            "spectral aura",
+            "fog",
+            "ethereal",
+            "supernatural",
+            "haunting",
+            "eerie glow",
+            "spooky particles"
+        ],
+        "lighting": [
+            "moonlit",
+            "candlelight",
+            "jack-o'-lantern",
+            "ghostly",
+            "spectral",
+            "eerie",
+            "haunting",
+            "supernatural",
+            "mysterious",
+            "sinister"
+        ]
+    }
+}

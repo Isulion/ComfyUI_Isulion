@@ -1,0 +1,100 @@
+{
+    "underwater_civilization": {
+        "inhabitants": [
+            "merfolk",
+            "aquatic humanoid",
+            "sea creature",
+            "ocean dweller",
+            "deep sea being",
+            "water spirit",
+            "coral person",
+            "aquatic hybrid",
+            "sea guardian",
+            "ocean mystic"
+        ],
+        "structures": [
+            "coral palace",
+            "underwater dome",
+            "sunken temple",
+            "aquatic city",
+            "oceanic fortress",
+            "kelp garden",
+            "crystal cavern",
+            "bubble habitat",
+            "sea tower",
+            "abyss settlement"
+        ],
+        "environment": [
+            "coral reef",
+            "deep ocean",
+            "kelp forest",
+            "underwater volcano",
+            "bioluminescent zone",
+            "ocean trench",
+            "crystal cave",
+            "thermal vent",
+            "sea mountain",
+            "underwater canyon"
+        ],
+        "creatures": [
+            "giant sea turtle",
+            "luminous fish",
+            "sea serpent",
+            "whale guardian",
+            "deep sea monster",
+            "coral dragon",
+            "aquatic mount",
+            "jellyfish swarm",
+            "sea dragon",
+            "ocean leviathan"
+        ],
+        "technology": [
+            "water manipulation",
+            "bubble tech",
+            "coral crafting",
+            "aqua energy",
+            "ocean current control",
+            "sea crystal power",
+            "bioluminescent tech",
+            "pressure shield",
+            "water vehicle",
+            "aquatic communication"
+        ],
+        "atmospheres": [
+            "mysterious",
+            "ethereal",
+            "bioluminescent",
+            "ancient",
+            "magical",
+            "peaceful",
+            "exotic",
+            "deep sea",
+            "crystalline",
+            "otherworldly"
+        ],
+        "elements": [
+            "water currents",
+            "sea crystals",
+            "coral formations",
+            "ocean plants",
+            "sea life",
+            "bubbles",
+            "bioluminescence",
+            "underwater mist",
+            "sea foam",
+            "ocean depths"
+        ],
+        "effects": [
+            "water caustics",
+            "bioluminescent glow",
+            "bubble streams",
+            "underwater haze",
+            "light rays",
+            "floating particles",
+            "current flows",
+            "crystal reflections",
+            "sea mist",
+            "depth blur"
+        ]
+    }
+}

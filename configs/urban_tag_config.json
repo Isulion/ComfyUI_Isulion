@@ -1,0 +1,123 @@
+{
+    "urban_tag": {
+        "artists": [
+            "street artist",
+            "graffiti writer",
+            "urban painter",
+            "tag master",
+            "mural artist",
+            "spray painter",
+            "stencil artist",
+            "urban calligrapher",
+            "street bomber",
+            "urban creative"
+        ],
+        "styles": [
+            "wildstyle",
+            "bubble letters",
+            "throw-up",
+            "stencil art",
+            "3d graffiti",
+            "abstract urban",
+            "street calligraphy",
+            "urban mural",
+            "tag style",
+            "street piece"
+        ],
+        "locations": [
+            "urban wall",
+            "abandoned building",
+            "train yard",
+            "subway tunnel",
+            "street corner",
+            "back alley",
+            "rooftop",
+            "underpass",
+            "industrial zone",
+            "city street"
+        ],
+        "elements": [
+            "spray paint",
+            "drips",
+            "outlines",
+            "shadows",
+            "highlights",
+            "arrows",
+            "stars",
+            "urban symbols",
+            "street icons",
+            "urban patterns"
+        ],
+        "techniques": [
+            "freehand",
+            "stenciling",
+            "layering",
+            "fading",
+            "blending",
+            "tagging",
+            "bombing",
+            "piecing",
+            "filling",
+            "outlining"
+        ],
+        "colors": [
+            "neon",
+            "chrome",
+            "metallic",
+            "vibrant",
+            "contrasting",
+            "urban palette",
+            "street colors",
+            "bold hues",
+            "graffiti tones",
+            "urban shades"
+        ],
+        "atmospheres": [
+            "urban",
+            "street",
+            "gritty",
+            "underground",
+            "rebellious",
+            "artistic",
+            "dynamic",
+            "expressive",
+            "raw",
+            "authentic"
+        ],
+        "effects": [
+            "spray texture",
+            "paint drips",
+            "urban glow",
+            "street lighting",
+            "neon effect",
+            "grunge overlay",
+            "urban decay",
+            "street atmosphere",
+            "city ambiance",
+            "urban grain"
+        ],
+        "base_descriptions": [
+            "multicolored hip hop graffiti complex fresco",
+            "urban art interpretation",
+            "street art character",
+            "street art aesthetic",
+            "urban culture",
+            "graffiti art style",
+            "stylized urban character"
+        ],
+        "text_options": [
+            "STYLE",
+            "URBAN",
+            "STREET",
+            "ART",
+            "GRAFFITI"
+        ],
+        "surfaces": [
+            "concrete wall",
+            "brick surface",
+            "metal panel",
+            "industrial facade",
+            "urban structure"
+        ]
+    }
+}

@@ -1,0 +1,112 @@
+{
+    "crayon_art": {
+        "subjects": [
+            "drawing",
+            "doodle",
+            "sketch",
+            "figure",
+            "picture",
+            "illustration",
+            "artwork",
+            "creation",
+            "character",
+            "scene"
+        ],
+        "colors": [
+            "bright",
+            "primary",
+            "rainbow",
+            "vibrant",
+            "colorful",
+            "bold",
+            "pastel",
+            "mixed",
+            "warm",
+            "cool"
+        ],
+        "features": [
+            "simple shapes",
+            "basic forms",
+            "stick figures",
+            "scribbles",
+            "squiggles",
+            "lines",
+            "circles",
+            "patterns",
+            "marks",
+            "strokes"
+        ],
+        "settings": [
+            "playground",
+            "garden",
+            "house",
+            "school",
+            "park",
+            "beach",
+            "forest",
+            "room",
+            "street",
+            "field"
+        ],
+        "elements": [
+            "trees",
+            "clouds",
+            "sun",
+            "flowers",
+            "grass",
+            "buildings",
+            "animals",
+            "people",
+            "objects",
+            "shapes"
+        ],
+        "styles": [
+            "childlike",
+            "naive",
+            "simple",
+            "playful",
+            "innocent",
+            "carefree",
+            "spontaneous",
+            "imaginative",
+            "expressive",
+            "free"
+        ],
+        "techniques": [
+            "scribbling",
+            "coloring",
+            "sketching",
+            "drawing",
+            "doodling",
+            "outlining",
+            "shading",
+            "blending",
+            "layering",
+            "marking"
+        ],
+        "effects": [
+            "rough",
+            "uneven",
+            "textured",
+            "waxy",
+            "layered",
+            "blended",
+            "sketchy",
+            "scribbled",
+            "smudged",
+            "streaked"
+        ],
+        "textures": [
+            "waxy",
+            "rough",
+            "uneven",
+            "layered",
+            "grainy",
+            "scratchy",
+            "patchy",
+            "streaky",
+            "scribbled",
+            "smudged"
+        ]
+    }
+}

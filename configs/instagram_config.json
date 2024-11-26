@@ -1,0 +1,112 @@
+{
+    "instagram": {
+        "subjects": [
+            "influencer",
+            "model",
+            "food plate",
+            "coffee setup",
+            "lifestyle scene",
+            "fashion outfit",
+            "travel moment",
+            "fitness pose",
+            "beauty product",
+            "artistic flatlay"
+        ],
+        "poses": [
+            "candid smile",
+            "lifestyle pose",
+            "fashion stance",
+            "casual look",
+            "artistic pose",
+            "natural expression",
+            "trendy posture",
+            "relaxed position",
+            "aesthetic stance",
+            "influencer pose"
+        ],
+        "outfits": [
+            "streetwear",
+            "boho chic",
+            "minimalist fashion",
+            "vintage style",
+            "athleisure",
+            "casual elegance",
+            "trendy ensemble",
+            "designer look",
+            "aesthetic outfit",
+            "instagram fashion"
+        ],
+        "locations": [
+            "cafe",
+            "beach sunset",
+            "urban rooftop",
+            "luxury hotel",
+            "trendy restaurant",
+            "botanical garden",
+            "art gallery",
+            "aesthetic street",
+            "modern loft",
+            "infinity pool"
+        ],
+        "props": [
+            "latte art",
+            "fresh flowers",
+            "vintage camera",
+            "designer bag",
+            "aesthetic books",
+            "fairy lights",
+            "marble surface",
+            "neon sign",
+            "polaroid photos",
+            "trendy accessories"
+        ],
+        "styles": [
+            "lifestyle",
+            "fashion editorial",
+            "minimalist",
+            "vintage film",
+            "moody",
+            "bright and airy",
+            "urban",
+            "artistic",
+            "aesthetic",
+            "contemporary"
+        ],
+        "filters": [
+            "VSCO",
+            "film grain",
+            "matte effect",
+            "soft glow",
+            "high contrast",
+            "warm tones",
+            "cool tones",
+            "faded look",
+            "vintage fade",
+            "aesthetic preset"
+        ],
+        "effects": [
+            "bokeh",
+            "lens flare",
+            "golden hour",
+            "soft focus",
+            "light leak",
+            "film grain",
+            "color grading",
+            "dreamy blur",
+            "vintage wash",
+            "aesthetic glow"
+        ],
+        "moods": [
+            "dreamy",
+            "cozy",
+            "vibrant",
+            "minimalist",
+            "luxurious",
+            "nostalgic",
+            "artistic",
+            "trendy",
+            "romantic",
+            "lifestyle"
+        ]
+    }
+}

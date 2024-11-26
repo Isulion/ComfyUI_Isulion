@@ -1,0 +1,114 @@
+{
+    "scifi": {
+        "styles": [
+            "hard science fiction",
+            "space opera",
+            "retro futurism",
+            "bio-mechanical",
+            "quantum punk",
+            "alien technology",
+            "space exploration",
+            "technological singularity"
+        ],
+        "tech_elements": [
+            "holographic displays",
+            "quantum computers",
+            "plasma technology",
+            "neural interfaces",
+            "energy shields",
+            "gravity manipulators",
+            "nanotech systems",
+            "fusion reactors"
+        ],
+        "vehicles": [
+            "starship",
+            "hover vehicle",
+            "space fighter",
+            "orbital station",
+            "quantum transport",
+            "plasma cruiser",
+            "nano-ship",
+            "warp vessel"
+        ],
+        "environments": [
+            "space station",
+            "alien planet",
+            "quantum realm",
+            "orbital city",
+            "research facility",
+            "terraformed world",
+            "deep space",
+            "artificial habitat"
+        ],
+        "architectural_elements": [
+            "space elevators",
+            "quantum towers",
+            "plasma conduits",
+            "bio-domes",
+            "gravity rings",
+            "nano-structures",
+            "energy pylons",
+            "orbital platforms"
+        ],
+        "equipment": [
+            "plasma rifle",
+            "quantum scanner",
+            "neural implant",
+            "energy shield",
+            "gravity boots",
+            "nanotech suit",
+            "holo-projector",
+            "fusion pack"
+        ],
+        "lighting": [
+            "plasma glow",
+            "quantum particles",
+            "holographic light",
+            "energy fields",
+            "neon emissions",
+            "bio-luminescence",
+            "artificial sun",
+            "space aurora"
+        ],
+        "atmospheres": [
+            "zero gravity",
+            "alien atmosphere",
+            "quantum field",
+            "energy matrix",
+            "nano cloud",
+            "plasma storm",
+            "space void",
+            "artificial climate"
+        ],
+        "color_schemes": [
+            "neon and black",
+            "plasma blues",
+            "quantum greens",
+            "energy whites",
+            "space purples",
+            "tech silvers",
+            "alien spectrum",
+            "artificial hues"
+        ],
+        "time_periods": [
+            "far future",
+            "post-singularity",
+            "space age",
+            "quantum era",
+            "nano revolution",
+            "stellar expansion",
+            "alien contact",
+            "technological ascension"
+        ],
+        "weather_effects": [
+            "plasma storm",
+            "quantum distortion",
+            "energy tempest",
+            "nano swarm",
+            "gravity wave",
+            "space anomaly",
+            "artificial weather",
+            "stellar wind"
+        ]
+    }
+}

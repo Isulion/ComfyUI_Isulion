@@ -1,0 +1,112 @@
+{
+    "essential_realistic": {
+        "subjects": [
+            "person",
+            "portrait",
+            "landscape",
+            "still life",
+            "architecture",
+            "animal",
+            "object",
+            "scene",
+            "nature",
+            "cityscape"
+        ],
+        "details": [
+            "natural texture",
+            "fine details",
+            "accurate proportions",
+            "realistic features",
+            "true colors",
+            "natural shadows",
+            "authentic materials",
+            "lifelike qualities",
+            "accurate reflections",
+            "natural wear"
+        ],
+        "features": [
+            "surface detail",
+            "material properties",
+            "natural lighting",
+            "accurate shadows",
+            "realistic textures",
+            "true proportions",
+            "authentic colors",
+            "natural aging",
+            "environmental effects",
+            "realistic scale"
+        ],
+        "settings": [
+            "natural environment",
+            "urban setting",
+            "indoor space",
+            "outdoor location",
+            "studio setup",
+            "real world scene",
+            "authentic place",
+            "actual location",
+            "genuine environment",
+            "true setting"
+        ],
+        "elements": [
+            "lighting",
+            "atmosphere",
+            "weather",
+            "materials",
+            "textures",
+            "details",
+            "surroundings",
+            "context",
+            "scale",
+            "perspective"
+        ],
+        "styles": [
+            "photorealistic",
+            "documentary",
+            "naturalistic",
+            "authentic",
+            "journalistic",
+            "observational",
+            "true to life",
+            "genuine",
+            "unfiltered",
+            "candid"
+        ],
+        "techniques": [
+            "natural lighting",
+            "accurate exposure",
+            "true color",
+            "proper perspective",
+            "correct scale",
+            "authentic detail",
+            "realistic rendering",
+            "proper composition",
+            "accurate focus",
+            "natural depth"
+        ],
+        "effects": [
+            "natural",
+            "atmospheric",
+            "environmental",
+            "physical",
+            "material",
+            "optical",
+            "textural",
+            "surface",
+            "ambient",
+            "authentic"
+        ],
+        "lighting": [
+            "natural",
+            "ambient",
+            "directional",
+            "diffused",
+            "environmental",
+            "practical",
+            "available",
+            "authentic",
+            "true",
+            "realistic"
+        ]
+    }
+}

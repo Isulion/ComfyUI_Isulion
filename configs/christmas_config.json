@@ -1,0 +1,112 @@
+{
+    "christmas": {
+        "characters": [
+            "Santa Claus",
+            "elf",
+            "reindeer",
+            "snowman",
+            "angel",
+            "nutcracker",
+            "gingerbread man",
+            "polar bear",
+            "penguin",
+            "Mrs. Claus"
+        ],
+        "attire": [
+            "red coat",
+            "winter scarf",
+            "festive sweater",
+            "holiday hat",
+            "mittens",
+            "boots",
+            "warm jacket",
+            "earmuffs",
+            "striped socks",
+            "bell collar"
+        ],
+        "props": [
+            "gift box",
+            "candy cane",
+            "Christmas tree",
+            "sleigh",
+            "wreath",
+            "ornament",
+            "bell",
+            "present sack",
+            "lantern",
+            "mistletoe"
+        ],
+        "settings": [
+            "North Pole",
+            "winter village",
+            "toy workshop",
+            "snowy forest",
+            "cozy home",
+            "Christmas market",
+            "ice palace",
+            "gingerbread house",
+            "Santa's workshop",
+            "winter town"
+        ],
+        "decorations": [
+            "twinkling lights",
+            "ornaments",
+            "garlands",
+            "ribbons",
+            "wreaths",
+            "stockings",
+            "tinsel",
+            "baubles",
+            "holly",
+            "snowflakes"
+        ],
+        "styles": [
+            "traditional",
+            "vintage",
+            "whimsical",
+            "cozy",
+            "magical",
+            "festive",
+            "rustic",
+            "elegant",
+            "cheerful",
+            "nostalgic"
+        ],
+        "aesthetics": [
+            "festive",
+            "winter",
+            "holiday",
+            "magical",
+            "cozy",
+            "traditional",
+            "cheerful",
+            "nostalgic",
+            "enchanted",
+            "seasonal"
+        ],
+        "effects": [
+            "snow",
+            "sparkle",
+            "twinkle",
+            "glow",
+            "frost",
+            "shimmer",
+            "magic",
+            "starlight",
+            "candlelight",
+            "aurora"
+        ],
+        "moods": [
+            "joyful",
+            "merry",
+            "festive",
+            "cheerful",
+            "cozy",
+            "magical",
+            "warm",
+            "enchanting",
+            "nostalgic",
+            "peaceful"
+        ]
+    }
+}

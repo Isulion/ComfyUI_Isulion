@@ -1,0 +1,112 @@
+{
+    "curvy_fashion": {
+        "models": [
+            "model",
+            "fashion model",
+            "plus size model",
+            "curvy model",
+            "fashion icon",
+            "style influencer",
+            "fashion blogger",
+            "runway model",
+            "brand ambassador",
+            "fashion muse"
+        ],
+        "outfits": [
+            "evening gown",
+            "cocktail dress",
+            "casual wear",
+            "business attire",
+            "swimwear",
+            "activewear",
+            "formal wear",
+            "street style",
+            "designer outfit",
+            "couture dress"
+        ],
+        "features": [
+            "confidence",
+            "elegance",
+            "style",
+            "grace",
+            "beauty",
+            "poise",
+            "glamour",
+            "sophistication",
+            "charm",
+            "charisma"
+        ],
+        "settings": [
+            "studio",
+            "runway",
+            "fashion show",
+            "red carpet",
+            "photo shoot",
+            "urban location",
+            "luxury venue",
+            "fashion week",
+            "boutique",
+            "designer showroom"
+        ],
+        "elements": [
+            "backdrop",
+            "props",
+            "accessories",
+            "lighting setup",
+            "decor",
+            "furniture",
+            "scenery",
+            "set design",
+            "ambiance",
+            "atmosphere"
+        ],
+        "styles": [
+            "contemporary",
+            "glamorous",
+            "elegant",
+            "chic",
+            "sophisticated",
+            "edgy",
+            "classic",
+            "trendy",
+            "avant-garde",
+            "haute couture"
+        ],
+        "techniques": [
+            "professional lighting",
+            "fashion posing",
+            "editorial style",
+            "commercial look",
+            "high fashion",
+            "lifestyle shoot",
+            "beauty photography",
+            "portrait style",
+            "runway capture",
+            "fashion editorial"
+        ],
+        "effects": [
+            "glamour",
+            "beauty",
+            "editorial",
+            "fashion",
+            "commercial",
+            "high-end",
+            "luxury",
+            "professional",
+            "magazine",
+            "runway"
+        ],
+        "lighting": [
+            "beauty",
+            "fashion",
+            "glamour",
+            "editorial",
+            "soft",
+            "dramatic",
+            "professional",
+            "studio",
+            "natural",
+            "ambient"
+        ]
+    }
+}

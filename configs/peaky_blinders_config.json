@@ -1,0 +1,100 @@
+{
+    "peaky_blinders": {
+        "characters": [
+            "gangster",
+            "mobster",
+            "crime boss",
+            "enforcer",
+            "street tough",
+            "businessman",
+            "family member",
+            "police officer",
+            "politician",
+            "working class hero"
+        ],
+        "clothing": [
+            "flat cap",
+            "three-piece suit",
+            "overcoat",
+            "pocket watch",
+            "leather shoes",
+            "waistcoat",
+            "dress shirt",
+            "tie pin",
+            "wool coat",
+            "leather gloves"
+        ],
+        "settings": [
+            "industrial city",
+            "smoky street",
+            "betting shop",
+            "pub interior",
+            "factory floor",
+            "warehouse",
+            "office",
+            "family home",
+            "back alley",
+            "gentleman's club"
+        ],
+        "props": [
+            "razor blade",
+            "pocket watch",
+            "whiskey glass",
+            "cigarette",
+            "pistol",
+            "walking stick",
+            "newspaper",
+            "betting slip",
+            "brass knuckles",
+            "car"
+        ],
+        "atmospheres": [
+            "gritty",
+            "dark",
+            "moody",
+            "tense",
+            "dramatic",
+            "industrial",
+            "smoky",
+            "dangerous",
+            "mysterious",
+            "period authentic"
+        ],
+        "lighting": [
+            "low key",
+            "dramatic",
+            "moody",
+            "film noir",
+            "industrial",
+            "natural",
+            "foggy",
+            "backlit",
+            "cinematic",
+            "atmospheric"
+        ],
+        "styles": [
+            "1920s period",
+            "british gangster",
+            "film noir",
+            "industrial era",
+            "vintage criminal",
+            "historical drama",
+            "gritty realism",
+            "period piece",
+            "dark drama",
+            "cinematic"
+        ],
+        "effects": [
+            "film grain",
+            "smoke",
+            "fog",
+            "dramatic shadows",
+            "muted colors",
+            "vintage look",
+            "cinematic lighting",
+            "atmospheric haze",
+            "period filter",
+            "moody contrast"
+        ]
+    }
+}

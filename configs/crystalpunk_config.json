@@ -1,0 +1,112 @@
+{
+    "crystalpunk": {
+        "characters": [
+            "warrior",
+            "mage",
+            "technomancer",
+            "crystal-smith",
+            "gem-weaver",
+            "mineral-knight",
+            "crystal-hunter",
+            "geomancer",
+            "crystal-punk",
+            "mineral-sage"
+        ],
+        "crystals": [
+            "quartz",
+            "amethyst",
+            "diamond",
+            "emerald",
+            "sapphire",
+            "ruby",
+            "topaz",
+            "opal",
+            "crystal",
+            "geode"
+        ],
+        "features": [
+            "crystal growths",
+            "gemstone implants",
+            "mineral armor",
+            "crystal weapons",
+            "gem-tech",
+            "crystal circuits",
+            "mineral augments",
+            "crystal cores",
+            "gem interfaces",
+            "crystal nodes"
+        ],
+        "settings": [
+            "crystal city",
+            "gem mines",
+            "mineral labs",
+            "crystal caves",
+            "gem towers",
+            "crystal forests",
+            "mineral temples",
+            "crystal nexus",
+            "gem sanctum",
+            "crystal hub"
+        ],
+        "elements": [
+            "formations",
+            "structures",
+            "machinery",
+            "technology",
+            "architecture",
+            "devices",
+            "constructs",
+            "artifacts",
+            "mechanisms",
+            "installations"
+        ],
+        "styles": [
+            "crystalline",
+            "mineral-tech",
+            "gem-fusion",
+            "crystal-punk",
+            "mineral-wave",
+            "crystal-core",
+            "gem-tech",
+            "mineral-fusion",
+            "crystal-modern",
+            "gem-industrial"
+        ],
+        "techniques": [
+            "crystal-forging",
+            "gem-crafting",
+            "mineral-fusion",
+            "crystal-weaving",
+            "gem-tech synthesis",
+            "mineral-smithing",
+            "crystal-binding",
+            "gem-engineering",
+            "crystal-sculpting",
+            "mineral-crafting"
+        ],
+        "effects": [
+            "crystal-glow",
+            "gem-shine",
+            "mineral-pulse",
+            "crystal-aura",
+            "gem-radiance",
+            "mineral-gleam",
+            "crystal-shimmer",
+            "gem-sparkle",
+            "mineral-flare",
+            "crystal-luminescence"
+        ],
+        "lighting": [
+            "prismatic",
+            "refractive",
+            "iridescent",
+            "crystalline",
+            "gem-like",
+            "mineral",
+            "faceted",
+            "luminous",
+            "radiant",
+            "gleaming"
+        ]
+    }
+}

@@ -1,0 +1,112 @@
+{
+    "cinema_studio": {
+        "subjects": [
+            "actor",
+            "actress",
+            "character",
+            "scene",
+            "performance",
+            "action",
+            "drama",
+            "moment",
+            "sequence",
+            "talent"
+        ],
+        "shots": [
+            "close-up",
+            "medium",
+            "wide",
+            "establishing",
+            "tracking",
+            "aerial",
+            "dolly",
+            "crane",
+            "handheld",
+            "steadicam"
+        ],
+        "features": [
+            "dramatic lighting",
+            "professional makeup",
+            "costume design",
+            "set decoration",
+            "camera movement",
+            "film grain",
+            "color grading",
+            "composition",
+            "framing",
+            "depth of field"
+        ],
+        "settings": [
+            "film studio",
+            "sound stage",
+            "backlot",
+            "location set",
+            "production facility",
+            "green screen",
+            "blue screen",
+            "practical set",
+            "constructed set",
+            "virtual set"
+        ],
+        "elements": [
+            "lighting",
+            "cameras",
+            "equipment",
+            "props",
+            "scenery",
+            "backdrops",
+            "rigging",
+            "effects",
+            "monitors",
+            "crew"
+        ],
+        "styles": [
+            "hollywood",
+            "indie",
+            "documentary",
+            "blockbuster",
+            "art house",
+            "commercial",
+            "music video",
+            "short film",
+            "feature film",
+            "television"
+        ],
+        "techniques": [
+            "cinematography",
+            "lighting setup",
+            "camera work",
+            "color grading",
+            "practical effects",
+            "visual effects",
+            "sound design",
+            "editing",
+            "composition",
+            "framing"
+        ],
+        "effects": [
+            "practical",
+            "visual",
+            "special",
+            "digital",
+            "atmospheric",
+            "environmental",
+            "lighting",
+            "camera",
+            "post-production",
+            "color"
+        ],
+        "lighting": [
+            "three-point",
+            "key",
+            "fill",
+            "backlight",
+            "practical",
+            "natural",
+            "artificial",
+            "studio",
+            "ambient",
+            "dramatic"
+        ]
+    }
+}

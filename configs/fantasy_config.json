@@ -1,0 +1,124 @@
+{
+    "fantasy": {
+        "styles": [
+            "high fantasy",
+            "dark fantasy",
+            "mythical fantasy",
+            "fairy tale",
+            "heroic fantasy",
+            "epic fantasy",
+            "magical realism",
+            "sword and sorcery"
+        ],
+        "magical_elements": [
+            "ancient spells",
+            "mystical runes",
+            "magical crystals",
+            "enchanted artifacts",
+            "arcane symbols",
+            "magical auras",
+            "ethereal energy",
+            "mystical portals"
+        ],
+        "creatures": [
+            "majestic dragon",
+            "mythical phoenix",
+            "wise unicorn",
+            "ancient griffin",
+            "magical familiar",
+            "forest spirit",
+            "elemental being",
+            "mystical beast"
+        ],
+        "character_classes": [
+            "wise wizard",
+            "noble knight",
+            "mystical druid",
+            "skilled ranger",
+            "ancient sorcerer",
+            "brave paladin",
+            "cunning rogue",
+            "powerful mage"
+        ],
+        "environments": [
+            "enchanted forest",
+            "crystal cave",
+            "floating islands",
+            "magical castle",
+            "ancient ruins",
+            "mystical grove",
+            "ethereal realm",
+            "dragon's lair"
+        ],
+        "architectural_elements": [
+            "magical towers",
+            "ancient archways",
+            "crystal spires",
+            "enchanted gates",
+            "mystical bridges",
+            "magical fountains",
+            "ancient temples",
+            "ethereal palaces"
+        ],
+        "artifacts": [
+            "magical sword",
+            "ancient grimoire",
+            "enchanted staff",
+            "mystical orb",
+            "power crystal",
+            "magical amulet",
+            "ancient relic",
+            "ethereal crown"
+        ],
+        "lighting": [
+            "magical glow",
+            "ethereal light",
+            "crystal radiance",
+            "mystical aurora",
+            "enchanted sparkles",
+            "ancient luminescence",
+            "magical flames",
+            "spectral illumination"
+        ],
+        "weather_effects": [
+            "magical storm",
+            "enchanted rain",
+            "mystical fog",
+            "ethereal snow",
+            "arcane winds",
+            "crystal frost",
+            "magical mist",
+            "spectral clouds"
+        ],
+        "color_schemes": [
+            "magical rainbow",
+            "ethereal pastels",
+            "mystical jewel tones",
+            "enchanted gold",
+            "ancient bronze",
+            "crystal blues",
+            "magical purples",
+            "ethereal greens"
+        ],
+        "time_periods": [
+            "age of magic",
+            "mythical era",
+            "ancient times",
+            "eternal twilight",
+            "enchanted dawn",
+            "magical dusk",
+            "timeless moment",
+            "legendary epoch"
+        ],
+        "atmospheres": [
+            "magical ambiance",
+            "mystical presence",
+            "enchanted aura",
+            "ethereal atmosphere",
+            "ancient power",
+            "magical energy",
+            "spectral essence",
+            "mythical wonder"
+        ]
+    }
+}

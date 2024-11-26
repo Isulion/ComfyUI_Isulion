@@ -1,0 +1,112 @@
+{
+    "binet_surreal": {
+        "subjects": [
+            "figure",
+            "portrait",
+            "object",
+            "creature",
+            "landscape",
+            "abstraction",
+            "metamorphosis",
+            "illusion",
+            "transformation",
+            "vision"
+        ],
+        "elements": [
+            "distortion",
+            "juxtaposition",
+            "fragmentation",
+            "melting",
+            "floating",
+            "morphing",
+            "reflection",
+            "dissolution",
+            "fusion",
+            "transformation"
+        ],
+        "symbols": [
+            "clock",
+            "mirror",
+            "eye",
+            "door",
+            "staircase",
+            "cloud",
+            "tree",
+            "bird",
+            "shadow",
+            "key"
+        ],
+        "settings": [
+            "dreamscape",
+            "void",
+            "labyrinth",
+            "infinity",
+            "dimension",
+            "realm",
+            "space",
+            "plane",
+            "reality",
+            "universe"
+        ],
+        "features": [
+            "perspective",
+            "gravity",
+            "time",
+            "space",
+            "reality",
+            "dimension",
+            "physics",
+            "logic",
+            "existence",
+            "consciousness"
+        ],
+        "styles": [
+            "surrealist",
+            "dreamlike",
+            "symbolic",
+            "metaphysical",
+            "psychological",
+            "abstract",
+            "ethereal",
+            "mystical",
+            "transcendent",
+            "visionary"
+        ],
+        "techniques": [
+            "metamorphosis",
+            "juxtaposition",
+            "displacement",
+            "symbolism",
+            "abstraction",
+            "distortion",
+            "fusion",
+            "fragmentation",
+            "transformation",
+            "dissolution"
+        ],
+        "effects": [
+            "distortion",
+            "melting",
+            "floating",
+            "morphing",
+            "dissolving",
+            "fragmenting",
+            "transforming",
+            "reflecting",
+            "bending",
+            "warping"
+        ],
+        "moods": [
+            "mysterious",
+            "enigmatic",
+            "ethereal",
+            "transcendent",
+            "surreal",
+            "dreamlike",
+            "metaphysical",
+            "symbolic",
+            "mystical",
+            "visionary"
+        ]
+    }
+}

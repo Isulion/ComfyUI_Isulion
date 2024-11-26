@@ -1,0 +1,104 @@
+{
+    "impressionist": {
+        "styles": [
+            "impressionist painting",
+            "plein air artwork",
+            "light-filled scene",
+            "loose brushwork style",
+            "atmospheric painting",
+            "vibrant impressionism",
+            "naturalistic scene",
+            "expressive brushstrokes"
+        ],
+        "artists": [
+            "Monet-inspired",
+            "Renoir style",
+            "Degas technique",
+            "Pissarro manner",
+            "Sisley approach",
+            "Morisot influence",
+            "Cézanne method",
+            "Manet aesthetic"
+        ],
+        "techniques": [
+            "broken color",
+            "visible brushstrokes",
+            "light color patches",
+            "loose brushwork",
+            "spontaneous painting",
+            "textured surface",
+            "impasto technique",
+            "wet-on-wet method"
+        ],
+        "subjects": [
+            "garden scene",
+            "water lilies",
+            "landscape view",
+            "city street",
+            "rural setting",
+            "figure in nature",
+            "seaside scene",
+            "domestic scene"
+        ],
+        "lighting": [
+            "natural sunlight",
+            "dappled shadows",
+            "atmospheric glow",
+            "golden hour light",
+            "diffused illumination",
+            "morning light",
+            "afternoon sun",
+            "evening shadows"
+        ],
+        "color_palettes": [
+            "vibrant pastels",
+            "natural earth tones",
+            "light-filled colors",
+            "atmospheric hues",
+            "complementary colors",
+            "subtle gradations",
+            "warm sunlit tones",
+            "cool shadow colors"
+        ],
+        "atmospheres": [
+            "misty morning",
+            "sunny afternoon",
+            "hazy atmosphere",
+            "rainy day",
+            "foggy scene",
+            "bright daylight",
+            "overcast sky",
+            "sunset glow"
+        ],
+        "locations": [
+            "French countryside",
+            "Parisian street",
+            "flower garden",
+            "riverside scene",
+            "coastal view",
+            "urban park",
+            "rural landscape",
+            "private garden"
+        ],
+        "weather_effects": [
+            "gentle breeze",
+            "light rain",
+            "morning mist",
+            "summer haze",
+            "spring sunshine",
+            "autumn light",
+            "winter atmosphere",
+            "cloudy sky"
+        ],
+        "time_periods": [
+            "late 19th century",
+            "belle époque",
+            "1870s Paris",
+            "Victorian era",
+            "fin de siècle",
+            "French Third Republic",
+            "1880s countryside",
+            "turn of the century"
+        ]
+    }
+}

@@ -1,0 +1,124 @@
+{
+    "watercolor": {
+        "subjects": [
+            "flower bouquet",
+            "mountain landscape",
+            "ocean waves",
+            "autumn trees",
+            "misty forest",
+            "garden scene",
+            "birds in flight",
+            "quiet village",
+            "flowing river",
+            "sunset sky"
+        ],
+        "techniques": [
+            "wet on wet",
+            "dry brush",
+            "layered wash",
+            "splatter technique",
+            "salt texture",
+            "glazing method",
+            "lifting technique",
+            "negative painting",
+            "color blending",
+            "gradient wash"
+        ],
+        "styles": [
+            "impressionistic",
+            "loose and fluid",
+            "detailed botanical",
+            "abstract wash",
+            "minimalist",
+            "expressive",
+            "nature sketch",
+            "atmospheric",
+            "gestural",
+            "traditional oriental"
+        ],
+        "locations": [
+            "misty mountains",
+            "flowering meadow",
+            "coastal shore",
+            "quiet garden",
+            "forest path",
+            "rural village",
+            "city park",
+            "tranquil lake",
+            "autumn woods",
+            "spring orchard"
+        ],
+        "times": [
+            "misty morning",
+            "golden sunset",
+            "soft twilight",
+            "early dawn",
+            "rainy afternoon",
+            "quiet evening",
+            "bright noon",
+            "dusky hour",
+            "moonlit night",
+            "spring daybreak"
+        ],
+        "moods": [
+            "serene",
+            "dreamy",
+            "peaceful",
+            "nostalgic",
+            "contemplative",
+            "ethereal",
+            "tranquil",
+            "romantic",
+            "melancholic",
+            "whimsical"
+        ],
+        "painting_styles": [
+            "loose wash",
+            "controlled detail",
+            "spontaneous splash",
+            "layered transparency",
+            "fluid movement",
+            "soft edges",
+            "bold contrast",
+            "delicate touch",
+            "expressive strokes",
+            "subtle gradients"
+        ],
+        "details": [
+            "color bleeds",
+            "granulation",
+            "soft edges",
+            "textural effects",
+            "transparent layers",
+            "organic patterns",
+            "fluid transitions",
+            "subtle shadows",
+            "luminous highlights",
+            "natural flow"
+        ],
+        "effects": [
+            "color blooms",
+            "paint diffusion",
+            "water marks",
+            "pigment granulation",
+            "edge feathering",
+            "color separation",
+            "texture pooling",
+            "wash variation",
+            "salt effects",
+            "backruns"
+        ],
+        "textures": [
+            "paper grain",
+            "brush texture",
+            "water droplets",
+            "salt crystals",
+            "paint pooling",
+            "dry brush marks",
+            "organic patterns",
+            "natural flow",
+            "granulation",
+            "color separation"
+        ]
+    }
+}

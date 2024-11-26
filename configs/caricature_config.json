@@ -1,0 +1,112 @@
+{
+    "caricature": {
+        "characters": [
+            "politician",
+            "celebrity",
+            "sports star",
+            "musician",
+            "businessman",
+            "artist",
+            "scientist",
+            "superhero",
+            "movie star",
+            "cartoon character"
+        ],
+        "expressions": [
+            "exaggerated smile",
+            "comical frown",
+            "silly grin",
+            "dramatic pout",
+            "goofy laugh",
+            "surprised look",
+            "mischievous smirk",
+            "over-the-top shock",
+            "playful wink",
+            "theatrical gasp"
+        ],
+        "poses": [
+            "dynamic action",
+            "silly stance",
+            "exaggerated gesture",
+            "comical pose",
+            "dramatic posture",
+            "goofy dance",
+            "theatrical stance",
+            "playful position",
+            "humorous action",
+            "funny movement"
+        ],
+        "settings": [
+            "comedy club",
+            "circus tent",
+            "carnival",
+            "theme park",
+            "cartoon world",
+            "comic strip",
+            "funny office",
+            "whimsical street",
+            "playful park",
+            "humorous stage"
+        ],
+        "props": [
+            "oversized objects",
+            "funny gadgets",
+            "comical accessories",
+            "silly toys",
+            "wacky instruments",
+            "goofy costumes",
+            "humorous signs",
+            "playful decorations",
+            "cartoon props",
+            "exaggerated tools"
+        ],
+        "styles": [
+            "comic book",
+            "cartoon",
+            "newspaper comic",
+            "editorial cartoon",
+            "animated",
+            "manga caricature",
+            "political cartoon",
+            "funny sketch",
+            "humorous illustration",
+            "playful doodle"
+        ],
+        "techniques": [
+            "exaggerated features",
+            "distorted proportions",
+            "comical simplification",
+            "humorous linework",
+            "playful shading",
+            "cartoon rendering",
+            "expressive strokes",
+            "dynamic sketching",
+            "whimsical coloring",
+            "comic inking"
+        ],
+        "effects": [
+            "motion lines",
+            "comic sparkles",
+            "cartoon clouds",
+            "funny symbols",
+            "expression marks",
+            "speed lines",
+            "impact stars",
+            "thought bubbles",
+            "sound effects",
+            "emotion indicators"
+        ],
+        "details": [
+            "facial features",
+            "body proportions",
+            "clothing wrinkles",
+            "hair styles",
+            "accessories",
+            "expressions",
+            "gestures",
+            "poses",
+            "shadows",
+            "highlights"
+        ]
+    }
+}

@@ -1,0 +1,112 @@
+{
+    "futuristic_battlefield": {
+        "subjects": [
+            "soldier",
+            "mech",
+            "warrior",
+            "commander",
+            "cyborg",
+            "drone",
+            "unit",
+            "squad",
+            "operative",
+            "sentinel"
+        ],
+        "weapons": [
+            "plasma rifle",
+            "laser cannon",
+            "ion blaster",
+            "quantum weapon",
+            "fusion blade",
+            "particle beam",
+            "railgun",
+            "energy sword",
+            "pulse rifle",
+            "antimatter cannon"
+        ],
+        "tech": [
+            "power armor",
+            "energy shield",
+            "stealth system",
+            "targeting AI",
+            "combat interface",
+            "nano-enhancement",
+            "quantum radar",
+            "neural link",
+            "battle computer",
+            "force field"
+        ],
+        "settings": [
+            "war zone",
+            "battlefield",
+            "military base",
+            "combat arena",
+            "defense complex",
+            "command center",
+            "frontline",
+            "outpost",
+            "stronghold",
+            "fortress"
+        ],
+        "elements": [
+            "defenses",
+            "fortifications",
+            "weaponry",
+            "vehicles",
+            "equipment",
+            "machinery",
+            "technology",
+            "installations",
+            "infrastructure",
+            "systems"
+        ],
+        "styles": [
+            "military",
+            "tactical",
+            "combat",
+            "advanced",
+            "high-tech",
+            "futuristic",
+            "cybernetic",
+            "mechanized",
+            "armored",
+            "warfare"
+        ],
+        "aesthetics": [
+            "military-tech",
+            "advanced combat",
+            "futuristic warfare",
+            "cybernetic battle",
+            "high-tech military",
+            "mechanized combat",
+            "quantum warfare",
+            "advanced tactical",
+            "future combat",
+            "tech warfare"
+        ],
+        "effects": [
+            "energy",
+            "plasma",
+            "laser",
+            "quantum",
+            "particle",
+            "holographic",
+            "shield",
+            "stealth",
+            "explosion",
+            "combat"
+        ],
+        "atmospheres": [
+            "intense",
+            "chaotic",
+            "dynamic",
+            "tactical",
+            "strategic",
+            "high-stakes",
+            "advanced",
+            "futuristic",
+            "technological",
+            "warfare"
+        ]
+    }
+}
