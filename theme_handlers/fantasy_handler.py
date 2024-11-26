@@ -21,16 +21,16 @@ class FantasyThemeHandler(BaseThemeHandler):
         if custom_subject:
             components["subject"] = (
                 f"((masterful fantasy art)) of {custom_subject}, "
-                f"((perfect fantasy design)), ((magical excellence)), "
+                f"((legendary fantasy design)), ((magical excellence)), "
                 f"((mythical quality)), ((enchanted presence)), "
                 f"((fantasy mastery)), ((ethereal beauty))"
             )
         else:
-            character = random.choice(self.theme_config.get("characters", []))
-            class_type = random.choice(self.theme_config.get("character_classes", []))
-            creature = random.choice(self.theme_config.get("creatures", []))
+            character = random.choice(self.theme_config.get("characters", ["mystical hero", "ancient wizard", "elven warrior"]))
+            class_type = random.choice(self.theme_config.get("character_classes", ["mage", "warrior", "druid"]))
+            creature = random.choice(self.theme_config.get("creatures", ["dragon", "phoenix", "unicorn"]))
             components["subject"] = (
-                f"((masterful fantasy art)) of ((legendary {character})), "
+                f"((epic fantasy art)) of ((legendary {character})), "
                 f"((as a powerful {class_type})), ((with mystical {creature})), "
                 f"((perfect character design)), ((fantasy excellence)), "
                 f"((magical presence)), ((mythical mastery))"
@@ -46,11 +46,11 @@ class FantasyThemeHandler(BaseThemeHandler):
                     f"((magical world building)), ((fantasy excellence))"
                 )
             else:
-                environment = random.choice(self.theme_config.get("environments", []))
-                architecture = random.choice(self.theme_config.get("architectural_elements", []))
-                weather = random.choice(self.theme_config.get("weather_effects", []))
+                environment = random.choice(self.theme_config.get("environments", ["crystal castle", "enchanted forest", "floating islands"]))
+                architecture = random.choice(self.theme_config.get("architectural_elements", ["magical towers", "ancient temples", "crystal spires"]))
+                weather = random.choice(self.theme_config.get("weather_effects", ["mystical fog", "magical aurora", "ethereal storm"]))
                 components["environment"] = (
-                    f"in ((enchanted {environment})) with "
+                    f"in ((magical {environment})) with "
                     f"((majestic {architecture})) during ((mystical {weather})), "
                     f"((perfect fantasy atmosphere)), ((magical realm)), "
                     f"((ethereal surroundings)), ((fantasy excellence))"
@@ -58,27 +58,26 @@ class FantasyThemeHandler(BaseThemeHandler):
         
         # Generate style with enhanced fantasy techniques
         if include_style == "yes":
-            style = random.choice(self.theme_config.get("styles", []))
-            detail = random.choice(self.theme_config.get("details", []))
-            color_scheme = random.choice(self.theme_config.get("color_schemes", []))
+            style = random.choice(self.theme_config.get("styles", ["epic fantasy", "high fantasy", "magical realism"]))
+            lighting = random.choice(self.theme_config.get("lighting", ["ethereal glow", "magical radiance", "mystical light"]))
+            color_scheme = random.choice(self.theme_config.get("color_schemes", ["magical rainbow", "ethereal pastels", "mystical jewel tones"]))
             components["style"] = (
                 f"((masterfully rendered in {style} style)), "
-                f"((with perfect {detail})), ((magical realism)), "
-                f"((enchanted {color_scheme} palette)), ((fantasy artistry)), "
-                f"((perfect composition)), ((ethereal lighting)), "
-                f"((mystical atmosphere)), ((artistic excellence)), "
-                f"8k resolution"
+                f"((with {lighting})), ((magical realism)), "
+                f"((enchanted {color_scheme})), ((fantasy artistry)), "
+                f"((perfect composition)), ((ethereal atmosphere)), "
+                f"((mystical quality)), ((artistic excellence)), "
+                f"8k resolution, RAW photo"
             )
         
         # Generate effects with enhanced magical elements
         if include_effects == "yes":
-            effect = random.choice(self.theme_config.get("effects", []))
-            magic = random.choice(self.theme_config.get("magic", []))
-            artifact = random.choice(self.theme_config.get("artifacts", []))
+            magic = random.choice(self.theme_config.get("magical_elements", ["ancient spells", "mystical runes", "magical crystals"]))
+            artifact = random.choice(self.theme_config.get("artifacts", ["enchanted staff", "magical sword", "mystical orb"]))
             components["effects"] = (
-                f"with ((perfect magical {effect})), ((powerful {magic})), "
-                f"((mystical {artifact})), ((ethereal glow)), "
-                f"((enchanted elements)), ((magical excellence)), "
+                f"with ((powerful {magic})), ((mystical energy)), "
+                f"((legendary {artifact})), ((ethereal glow)), "
+                f"((enchanted particles)), ((magical excellence)), "
                 f"((fantasy perfection)), ((mystical mastery))"
             )
         

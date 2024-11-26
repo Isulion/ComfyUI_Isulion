@@ -136,9 +136,9 @@ class MegaPromptV3:
     def _init_theme_handlers(self):
         """Initialize all theme handlers."""
         self.handlers = {
+            "abstract": AbstractThemeHandler(self.config_manager),
             "animation_cartoon": AnimationCartoonThemeHandler(self.config_manager),
             "anime": AnimeThemeHandler(self.config_manager),
-            "abstract": AbstractThemeHandler(self.config_manager),
             "architectural": ArchitecturalThemeHandler(self.config_manager),
             "bio_organic_tech": BioOrganicTechThemeHandler(self.config_manager),
             "binet_surreal": BinetSurrealThemeHandler(self.config_manager),
@@ -184,14 +184,14 @@ class MegaPromptV3:
             "post_apocalyptic": PostApocalypticThemeHandler(self.config_manager),
             "scifi": SciFiThemeHandler(self.config_manager),
             "school_manga": SchoolMangaThemeHandler(self.config_manager),
+            "selfie": SelfieThemeHandler(self.config_manager),
             "star_wars": StarWarsThemeHandler(self.config_manager),
             "steampunk": SteampunkThemeHandler(self.config_manager),
             "underwater_civilization": UnderwaterCivilizationThemeHandler(self.config_manager),
             "urban_tag": UrbanTagThemeHandler(self.config_manager),
             "village_world": VillageWorldThemeHandler(self.config_manager),
             "vintage_anthropomorphic": VintageAnthropomorphicThemeHandler(self.config_manager),
-            "watercolor": WatercolorThemeHandler(self.config_manager),
-            "selfie": SelfieThemeHandler(self.config_manager)
+            "watercolor": WatercolorThemeHandler(self.config_manager)
         }
     
     @classmethod

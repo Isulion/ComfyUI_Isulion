@@ -3,7 +3,7 @@ from typing import Dict
 from .base_handler import BaseThemeHandler
 
 class SciFiThemeHandler(BaseThemeHandler):
-    """Handler for sci-fi themed prompt generation."""
+    """Handler for science fiction themed prompt generation."""
     
     def __init__(self, config):
         super().__init__(config)
@@ -17,138 +17,97 @@ class SciFiThemeHandler(BaseThemeHandler):
         """Generate sci-fi themed components."""
         components = {}
         
-        # Generate subject
+        # Generate subject with sci-fi characteristics
         if custom_subject:
-            tech = random.choice(self.theme_config.get("tech_elements", []))
             components["subject"] = (
-                f"((futuristic {custom_subject})) with ((advanced {tech})), "
-                f"((sci-fi aesthetic)), ((high-tech details)), "
-                f"((cybernetic elements))"
+                f"((masterful sci-fi art)) of {custom_subject}, "
+                f"((futuristic design)), ((technological excellence)), "
+                f"((advanced engineering)), ((sci-fi aesthetics)), "
+                f"((future tech)), ((cybernetic details))"
             )
         else:
-            subject = random.choice(self.theme_config.get("subjects", []))
-            tech = random.choice(self.theme_config.get("tech_elements", []))
-            action = random.choice(self.theme_config.get("actions", []))
+            subjects = ["advanced robot", "cyborg warrior", "space explorer", "alien being", "tech augmented human", "holographic entity", "quantum being", "cybernetic creature"]
+            tech_elements = ["plasma core", "quantum enhancements", "holographic displays", "neural interfaces", "energy fields", "nanotech augmentations"]
+            materials = ["chrome", "energy crystal", "nano-alloy", "plasma", "quantum metal", "holographic material"]
+            
+            subject = random.choice(subjects)
+            tech = random.choice(tech_elements)
+            material = random.choice(materials)
+            
             components["subject"] = (
-                f"((ultra detailed {subject})) with ((advanced {tech})), "
-                f"((dynamically {action})), ((futuristic design)), "
-                f"((sci-fi aesthetic)), ((high-tech details))"
+                f"((masterful sci-fi art)) of ((a {subject})), "
+                f"((with {tech})), ((made of {material})), "
+                f"((futuristic design)), ((technological excellence)), "
+                f"((advanced engineering)), ((sci-fi aesthetics))"
             )
         
-        # Generate environment if requested
+        # Generate environment with sci-fi atmosphere
         if include_environment == "yes":
             if custom_location:
                 components["environment"] = (
-                    f"in ((futuristic {custom_location})) with "
-                    f"((advanced technology)), ((sci-fi atmosphere))"
+                    f"in ((futuristic {custom_location})), "
+                    f"((advanced technology)), ((sci-fi atmosphere)), "
+                    f"((future world)), ((technological marvels)), "
+                    f"((high-tech environment))"
                 )
             else:
-                setting = random.choice(self.theme_config.get("environments", []))
-                atmosphere = random.choice(self.theme_config.get("atmospheres", []))
-                lighting = random.choice(self.theme_config.get("lighting", []))
+                environments = ["space station", "cybercity", "quantum realm", "alien world", "tech metropolis", "orbital platform", "research facility", "neon city"]
+                tech_features = ["holographic displays", "energy fields", "quantum processors", "plasma reactors", "gravity manipulators", "neural networks"]
+                atmospheres = ["neon-lit", "high-tech", "futuristic", "cybernetic", "quantum", "plasma-charged"]
+                
+                environment = random.choice(environments)
+                feature = random.choice(tech_features)
+                atmosphere = random.choice(atmospheres)
+                
                 components["environment"] = (
-                    f"in ((detailed {setting})) with ((advanced technology)), "
-                    f"((featuring {atmosphere} atmosphere)), "
-                    f"((dramatic {lighting} lighting))"
+                    f"in ((a {atmosphere} {environment})) with ((advanced {feature})), "
+                    f"((sci-fi technology)), ((futuristic architecture)), "
+                    f"((technological marvels)), ((future world building)), "
+                    f"((high-tech atmosphere))"
                 )
         
-        # Generate style if requested
+        # Generate style with sci-fi techniques
         if include_style == "yes":
-            style = random.choice(self.theme_config.get("styles", []))
-            tech_detail = random.choice(self.theme_config.get("tech_details", []))
+            styles = ["cyberpunk", "hard sci-fi", "space opera", "biopunk", "quantum punk", "tech noir"]
+            tech_aspects = ["holographic", "quantum", "cybernetic", "plasma-based", "nano-tech", "neural-linked"]
+            color_schemes = ["neon-chrome", "quantum plasma", "cyber-tech", "holographic spectrum", "energy pulse", "neural grid"]
+            
+            style = random.choice(styles)
+            aspect = random.choice(tech_aspects)
+            colors = random.choice(color_schemes)
+            
             components["style"] = (
-                f"((professional {style})), ((sci-fi art)), "
-                f"((featuring {tech_detail})), "
-                f"((ultra detailed)), ((cinematic quality)), "
-                f"((perfect composition)), 8k resolution"
+                f"((rendered in {style} style)), "
+                f"((with {aspect} aesthetics)), (({colors} color scheme)), "
+                f"((technological precision)), ((futuristic design)), "
+                f"((sci-fi excellence)), ((advanced rendering)), "
+                f"((future tech details)), ((masterful execution)), "
+                f"8k resolution, ultra detailed"
             )
         
-        # Generate effects if requested
+        # Generate effects with sci-fi elements
         if include_effects == "yes":
-            effect = random.choice(self.theme_config.get("effects", []))
-            tech_effect = random.choice(self.theme_config.get("tech_effects", []))
+            effects = ["energy fields", "holographic overlays", "quantum particles", "plasma emissions", "neural patterns", "tech auras"]
+            tech_details = ["circuitry patterns", "data streams", "energy flows", "quantum effects", "neural networks", "cyber enhancements"]
+            
+            effect = random.choice(effects)
+            detail = random.choice(tech_details)
+            
             components["effects"] = (
-                f"with ((advanced {effect})), ((high-tech {tech_effect})), "
-                f"((futuristic glow)), ((technological precision)), "
-                f"((sci-fi finish))"
+                f"with ((advanced {effect})), ((intricate {detail})), "
+                f"((technological brilliance)), ((futuristic atmosphere)), "
+                f"((sci-fi elements)), ((high-tech details)), "
+                f"((future tech mastery))"
             )
         
         return components
 
-    def generate_theme_prompt(self, subject=None, location=None):
-        # Base style and tech elements
-        style = random.choice(self.theme_config.get("styles", []))
-        tech = random.choice(self.theme_config.get("tech_elements", []))
-        
-        # Vehicle and equipment
-        vehicle = random.choice(self.theme_config.get("vehicles", []))
-        equipment = random.choice(self.theme_config.get("equipment", []))
-        
-        # Environment and architecture
-        environment = random.choice(self.theme_config.get("environments", [])) if not location else location
-        architecture = random.choice(self.theme_config.get("architectural_elements", []))
-        
-        # Lighting and atmosphere
-        lighting = random.choice(self.theme_config.get("lighting", []))
-        atmosphere = random.choice(self.theme_config.get("atmospheres", []))
-        
-        # Weather and color
-        weather = random.choice(self.theme_config.get("weather_effects", []))
-        color_scheme = random.choice(self.theme_config.get("color_schemes", []))
-        
-        # Time period
-        time_period = random.choice(self.theme_config.get("time_periods", []))
-        
-        # Build the prompt
-        prompt_parts = []
-        
-        # Add style and tech elements
-        prompt_parts.extend([style, f"with {tech}"])
-        
-        # Add subject with sci-fi context
-        if subject:
-            if any(word in subject.lower() for word in ["person", "man", "woman", "character"]):
-                prompt_parts.extend([
-                    f"futuristic {subject}",
-                    f"equipped with {equipment}"
-                ])
-            else:
-                prompt_parts.extend([
-                    f"advanced {subject}",
-                    f"enhanced with {tech}"
-                ])
-        
-        # Add environment and architecture
-        prompt_parts.extend([
-            f"in a {environment}",
-            f"featuring {architecture}"
-        ])
-        
-        # Add vehicle and equipment
-        prompt_parts.extend([
-            f"with {vehicle} nearby",
-            f"utilizing {equipment}"
-        ])
-        
-        # Add atmosphere and weather
-        prompt_parts.extend([
-            f"in {atmosphere}",
-            f"during {weather}"
-        ])
-        
-        # Add lighting and color
-        prompt_parts.extend([
-            f"illuminated by {lighting}",
-            f"in {color_scheme}"
-        ])
-        
-        # Add time period
-        prompt_parts.append(f"during the {time_period}")
-        
-        # Join all parts with commas
-        prompt = ", ".join(prompt_parts)
-        
-        return prompt
-
     def get_negative_prompt(self):
-        return "medieval, fantasy elements, natural landscapes, organic materials, primitive technology, ancient artifacts, rustic settings, historical elements, traditional clothing, magical effects"
+        """Generate negative prompt to avoid non-sci-fi elements."""
+        return (
+            "((medieval)), ((fantasy)), ((ancient)), ((organic)), ((rustic)), "
+            "((natural)), ((primitive technology)), ((historical)), "
+            "((traditional)), ((vintage)), ((classical)), ((steam-powered)), "
+            "low quality, blurry, ugly, deformed, amateur, "
+            "((non-technological)), ((outdated)), ((retro))"
+        )

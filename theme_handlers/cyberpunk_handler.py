@@ -14,131 +14,100 @@ class CyberpunkThemeHandler(BaseThemeHandler):
                 include_environment: str = "yes",
                 include_style: str = "yes",
                 include_effects: str = "yes") -> Dict[str, str]:
-        """Generate cyberpunk-themed components."""
+        """Generate cyberpunk-themed components with neon-noir aesthetics."""
         components = {}
         
-        # Generate subject
+        # Generate subject with cyberpunk characteristics
         if custom_subject:
-            tech = random.choice(self.theme_config.get("tech_elements", []))
             components["subject"] = (
-                f"((cyberpunk {custom_subject})) with ((advanced {tech})), "
-                f"((neo-futuristic design)), ((cyber-enhanced)), "
-                f"((neon-lit details)), ((high-tech aesthetics))"
+                f"((masterful cyberpunk art)) of {custom_subject}, "
+                f"((neo-noir aesthetic)), ((cyber-enhanced)), "
+                f"((high-tech dystopian)), ((neon-punk style)), "
+                f"((cybernetic augmentations)), ((urban tech))"
             )
         else:
-            character = random.choice(self.theme_config.get("characters", []))
-            tech = random.choice(self.theme_config.get("tech_elements", []))
-            style = random.choice(self.theme_config.get("character_styles", []))
+            subjects = ["street samurai", "netrunner", "cyber mercenary", "augmented hacker", "rogue AI", "corpo assassin", "cyber detective", "street tech"]
+            cyber_mods = ["neural implants", "cybernetic limbs", "holographic HUD", "retinal enhancements", "chrome plating", "bio-digital interface"]
+            tech_gear = ["plasma weapons", "neural deck", "holo-projectors", "cyber-ware", "nano-tech gear", "quantum hardware"]
+            
+            subject = random.choice(subjects)
+            mod = random.choice(cyber_mods)
+            gear = random.choice(tech_gear)
+            
             components["subject"] = (
-                f"((cyberpunk {character})) with ((advanced {tech})), "
-                f"((featuring {style})), ((neo-futuristic design)), "
-                f"((cyber-enhanced)), ((neon-lit details))"
+                f"((masterful cyberpunk art)) of ((a {subject})), "
+                f"((equipped with {mod})), ((using {gear})), "
+                f"((neo-noir style)), ((cyber-enhanced)), "
+                f"((high-tech dystopian)), ((urban tech))"
             )
         
-        # Generate environment if requested
+        # Generate environment with cyberpunk atmosphere
         if include_environment == "yes":
             if custom_location:
                 components["environment"] = (
                     f"in ((neon-lit {custom_location})), "
-                    f"((cyberpunk atmosphere)), ((high-tech surroundings)), "
-                    f"((dystopian elements))"
+                    f"((cyberpunk atmosphere)), ((urban dystopia)), "
+                    f"((high-tech slums)), ((corporate megastructures)), "
+                    f"((cyber-noir environment))"
                 )
             else:
-                location = random.choice(self.theme_config.get("locations", []))
-                time = random.choice(self.theme_config.get("times", []))
-                atmosphere = random.choice(self.theme_config.get("atmospheres", []))
+                environments = ["megacity slums", "neon streets", "corporate district", "underground hackerspace", "cyber black market", "tech bazaar", "vertical metropolis", "data den"]
+                urban_features = ["holographic billboards", "neon signs", "data streams", "cyber cafes", "black markets", "street tech vendors"]
+                weather = ["acid rain", "neon fog", "smog-filled", "electric storm", "synthetic snow", "digital haze"]
+                
+                environment = random.choice(environments)
+                feature = random.choice(urban_features)
+                atmosphere = random.choice(weather)
+                
                 components["environment"] = (
-                    f"in ((neon-lit {location})), "
-                    f"((during {time})), ((with {atmosphere} atmosphere)), "
-                    f"((cyberpunk world)), ((dystopian future))"
+                    f"in ((a {atmosphere} {environment})) with ((massive {feature})), "
+                    f"((cyberpunk cityscape)), ((neon-lit streets)), "
+                    f"((corporate towers)), ((urban decay)), "
+                    f"((high-tech low-life))"
                 )
         
-        # Generate style if requested
+        # Generate style with cyberpunk techniques
         if include_style == "yes":
-            style = random.choice(self.theme_config.get("styles", []))
-            detail = random.choice(self.theme_config.get("details", []))
+            styles = ["neo-noir", "tech noir", "cyber noir", "neon punk", "chrome punk", "digital punk"]
+            aesthetics = ["retrofuturistic", "neon-noir", "cyber-gritty", "tech-noir", "digital-decay", "chrome-punk"]
+            color_schemes = ["neon-noir", "cyber-chrome", "digital-neon", "tech-glow", "urban-night", "synthetic-pulse"]
+            
+            style = random.choice(styles)
+            aesthetic = random.choice(aesthetics)
+            colors = random.choice(color_schemes)
+            
             components["style"] = (
-                f"((cyberpunk art style)), ((featuring {style})), "
-                f"((with {detail})), ((neo-noir aesthetics)), "
-                f"((perfect composition)), ((neon lighting)), "
-                f"((high contrast)), 8k resolution"
+                f"((rendered in {style} style)), "
+                f"((with {aesthetic} aesthetics)), (({colors} color scheme)), "
+                f"((cyberpunk mood)), ((urban tech)), ((neon lighting)), "
+                f"((chrome reflections)), ((digital distortion)), "
+                f"((masterful execution)), ((cyber-noir atmosphere)), "
+                f"8k resolution, ultra detailed, ray tracing, volumetric lighting"
             )
         
-        # Generate effects if requested
+        # Generate effects with cyberpunk elements
         if include_effects == "yes":
-            effect = random.choice(self.theme_config.get("effects", []))
-            tech_effect = random.choice(self.theme_config.get("tech_effects", []))
+            effects = ["neon glow", "holographic glitch", "digital artifacts", "cyber distortion", "neural noise", "data corruption"]
+            tech_details = ["data streams", "matrix code", "cyber grids", "neural patterns", "digital noise", "tech interference"]
+            
+            effect = random.choice(effects)
+            detail = random.choice(tech_details)
+            
             components["effects"] = (
-                f"with ((cyberpunk {effect})), ((high-tech {tech_effect})), "
-                f"((neon glow)), ((cyber elements)), "
-                f"((digital distortion)), ((tech interference))"
+                f"with ((intense {effect})), ((dynamic {detail})), "
+                f"((cyberpunk atmosphere)), ((neon accents)), "
+                f"((digital distortion)), ((tech noir effects)), "
+                f"((urban decay)), ((cyber-noir mastery))"
             )
         
         return components
 
-    def generate_theme_prompt(self, subject=None, location=None):
-        # Base style and tech elements
-        style = random.choice(self.theme_config.get("styles", []))
-        tech = random.choice(self.theme_config.get("tech_elements", []))
-        
-        # Clothing and accessories if subject is a character
-        clothing = random.choice(self.theme_config.get("clothing", []))
-        accessory = random.choice(self.theme_config.get("accessories", []))
-        
-        # Environment and tech devices
-        environment = random.choice(self.theme_config.get("environments", [])) if not location else location
-        device = random.choice(self.theme_config.get("tech_devices", []))
-        architecture = random.choice(self.theme_config.get("architectural_elements", []))
-        
-        # Lighting and atmosphere
-        lighting = random.choice(self.theme_config.get("lighting", []))
-        atmosphere = random.choice(self.theme_config.get("atmosphere", []))
-        weather = random.choice(self.theme_config.get("weather_effects", []))
-        
-        # Time and color
-        time_period = random.choice(self.theme_config.get("time_periods", []))
-        color_scheme = random.choice(self.theme_config.get("color_schemes", []))
-        
-        # Build the prompt
-        prompt_parts = []
-        
-        # Add style and tech elements
-        prompt_parts.extend([style, f"with {tech}"])
-        
-        # Add subject with clothing and accessories if it's a character
-        if subject:
-            if any(word in subject.lower() for word in ["person", "man", "woman", "character"]):
-                prompt_parts.extend([
-                    f"{subject} wearing {clothing}",
-                    f"equipped with {accessory}"
-                ])
-            else:
-                prompt_parts.append(f"high-tech {subject}")
-        
-        # Add environment and architecture
-        prompt_parts.extend([
-            f"in a {environment}",
-            f"surrounded by {architecture}",
-            f"featuring {device}"
-        ])
-        
-        # Add atmosphere and weather
-        prompt_parts.extend([
-            f"illuminated by {lighting}",
-            f"with {atmosphere}",
-            f"during {weather}"
-        ])
-        
-        # Add time and color
-        prompt_parts.extend([
-            f"set in {time_period}",
-            f"in {color_scheme} colors"
-        ])
-        
-        # Join all parts with commas
-        prompt = ", ".join(prompt_parts)
-        
-        return prompt
-
     def get_negative_prompt(self):
-        return "natural environment, historical setting, vintage style, organic materials, rustic elements, pastoral scenes, traditional clothing, classical architecture, earthy colors, daylight"
+        """Generate negative prompt to avoid non-cyberpunk elements."""
+        return (
+            "((natural landscapes)), ((historical)), ((medieval)), ((fantasy)), "
+            "((clean environment)), ((bright daylight)), ((rural setting)), "
+            "((organic)), ((traditional)), ((classical)), ((pastoral)), "
+            "((clean streets)), ((bright colors)), ((happy mood)), "
+            "low quality, blurry, ugly, deformed, amateur"
+        )

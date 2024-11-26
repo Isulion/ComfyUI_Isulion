@@ -3,7 +3,7 @@ from typing import Dict
 from .base_handler import BaseThemeHandler
 
 class ImpressionistThemeHandler(BaseThemeHandler):
-    """Handler for impressionist-themed prompt generation."""
+    """Handler for impressionist-style prompt generation."""
     
     def __init__(self, config):
         super().__init__(config)
@@ -14,116 +14,94 @@ class ImpressionistThemeHandler(BaseThemeHandler):
                 include_environment: str = "yes",
                 include_style: str = "yes",
                 include_effects: str = "yes") -> Dict[str, str]:
-        """Generate impressionist-themed components."""
+        """Generate impressionist-styled components."""
         components = {}
         
-        # Generate subject
+        # Generate subject with impressionist characteristics
         if custom_subject:
             components["subject"] = (
-                f"((impressionist {custom_subject})), "
-                f"((painterly style)), ((artistic interpretation)), "
-                f"((light and color))"
+                f"((masterful impressionist painting)) of {custom_subject}, "
+                f"((loose brushstrokes)), ((vibrant color impressionism)), "
+                f"((light and atmosphere)), ((impressionist style)), "
+                f"((artistic excellence)), ((painterly quality))"
             )
         else:
-            subject_type = random.choice(self.theme_config.get("subjects", []))
-            color = random.choice(self.theme_config.get("colors", []))
-            technique = random.choice(self.theme_config.get("techniques", []))
+            subjects = ["garden scene", "water lilies", "sunset landscape", "cafe terrace", "flower field", "river scene", "cathedral facade", "people in park"]
+            subject = random.choice(subjects)
             components["subject"] = (
-                f"(({color} {subject_type})), "
-                f"((painted with {technique})), "
-                f"((impressionist style)), ((artistic interpretation))"
+                f"((masterful impressionist painting)) of ((a {subject})), "
+                f"((loose brushstrokes)), ((vibrant color impressionism)), "
+                f"((light and atmosphere)), ((impressionist style)), "
+                f"((artistic excellence)), ((painterly quality))"
             )
         
-        # Generate environment if requested
+        # Generate environment with impressionist atmosphere
         if include_environment == "yes":
             if custom_location:
                 components["environment"] = (
-                    f"in ((impressionist {custom_location})) with "
-                    f"((painterly setting)), ((artistic environment))"
+                    f"in ((impressionist {custom_location})), "
+                    f"((natural light)), ((atmospheric perspective)), "
+                    f"((en plein air)), ((changing light effects)), "
+                    f"((impressionist scene))"
                 )
             else:
-                scene_location = random.choice(self.theme_config.get("locations", []))
-                lighting = random.choice(self.theme_config.get("lighting", []))
-                atmosphere = random.choice(self.theme_config.get("atmospheres", []))
+                environments = ["garden", "riverside", "countryside", "city street", "park", "seaside", "meadow", "terrace"]
+                time_of_day = ["sunset", "midday", "morning light", "afternoon glow", "dusk"]
+                weather = ["misty", "sunny", "cloudy", "rainy", "atmospheric"]
+                
+                environment = random.choice(environments)
+                time = random.choice(time_of_day)
+                atmosphere = random.choice(weather)
+                
                 components["environment"] = (
-                    f"in (({scene_location})) with (({lighting})), "
-                    f"((creating {atmosphere} atmosphere)), "
-                    f"((impressionist scene)), ((artistic vista))"
+                    f"in ((an impressionist {environment})) during (({time})), "
+                    f"((with {atmosphere} atmosphere)), ((natural light)), "
+                    f"((atmospheric perspective)), ((en plein air)), "
+                    f"((changing light effects)), ((impressionist scene))"
                 )
         
-        # Generate style if requested
+        # Generate style with impressionist techniques
         if include_style == "yes":
-            style = random.choice(self.theme_config.get("styles", []))
+            techniques = ["broken color", "visible brushstrokes", "impasto technique", "optical mixing", "pure color application"]
+            palette = ["vibrant", "pure", "complementary", "atmospheric", "light-filled"]
+            mood = ["serene", "lively", "contemplative", "dynamic", "peaceful"]
+            
+            technique = random.choice(techniques)
+            color_palette = random.choice(palette)
+            painting_mood = random.choice(mood)
+            
             components["style"] = (
-                f"((styled in {style})), "
-                f"((impressionist aesthetic)), "
-                f"((painterly beauty)), ((artistic design)), "
-                f"((light and color mastery))"
+                f"((painted in classic impressionist style)), "
+                f"((with {technique})), (({color_palette} color palette)), "
+                f"(({painting_mood} mood)), ((masterful brushwork)), "
+                f"((light capturing)), ((atmospheric quality)), "
+                f"((impressionist excellence)), ((artistic mastery)), "
+                f"8k resolution, oil painting, canvas texture"
             )
         
-        # Generate effects if requested
+        # Generate effects with impressionist elements
         if include_effects == "yes":
-            effect = random.choice(self.theme_config.get("effects", []))
+            effects = ["light diffusion", "color vibration", "atmospheric haze", "natural reflections", "dappled light"]
+            details = ["loose details", "suggestive forms", "spontaneous marks", "textural variety", "gestural strokes"]
+            
+            effect = random.choice(effects)
+            detail = random.choice(details)
+            
             components["effects"] = (
-                f"with (({effect})), "
-                f"((impressionist atmosphere)), "
-                f"((artistic ambiance)), ((painterly environment))"
+                f"with ((masterful {effect})), ((beautiful {detail})), "
+                f"((impressionist light)), ((atmospheric depth)), "
+                f"((painterly effects)), ((artistic excellence)), "
+                f"((impressionist mastery))"
             )
         
         return components
 
-    def generate_theme_prompt(self, subject=None, location=None):
-        # Base style and artist influence
-        style = random.choice(self.theme_config.get("styles", []))
-        artist = random.choice(self.theme_config.get("artists", []))
-        
-        # Technique and color
-        technique = random.choice(self.theme_config.get("techniques", []))
-        color_palette = random.choice(self.theme_config.get("color_palettes", []))
-        
-        # Scene and location
-        subject_type = random.choice(self.theme_config.get("subjects", [])) if not subject else subject
-        scene_location = random.choice(self.theme_config.get("locations", [])) if not location else location
-        
-        # Lighting and atmosphere
-        lighting = random.choice(self.theme_config.get("lighting", []))
-        atmosphere = random.choice(self.theme_config.get("atmospheres", []))
-        weather = random.choice(self.theme_config.get("weather_effects", []))
-        
-        # Time period
-        time_period = random.choice(self.theme_config.get("time_periods", []))
-
-        # Build the prompt
-        prompt_parts = []
-        
-        # Add style and artist influence
-        prompt_parts.extend([style, artist])
-        
-        # Add technique and color
-        prompt_parts.extend([technique, color_palette])
-        
-        # Add subject and location
-        if subject:
-            prompt_parts.append(f"{subject} in impressionist style")
-        else:
-            prompt_parts.append(subject_type)
-            
-        prompt_parts.append(f"in a {scene_location}")
-        
-        # Add lighting and atmosphere
-        prompt_parts.extend([
-            f"with {lighting}",
-            f"during {atmosphere}",
-            f"featuring {weather}"
-        ])
-        
-        # Add time period
-        prompt_parts.append(f"set in {time_period}")
-        
-        # Join all parts with commas
-        prompt = ", ".join(prompt_parts)
-        
-        return prompt
-
     def get_negative_prompt(self):
-        return "sharp details, photorealistic, digital art, modern style, harsh lines, perfect edges, high contrast, cartoon style, anime, manga, contemporary setting"
+        """Generate negative prompt to avoid non-impressionist elements."""
+        return (
+            "((photorealistic)), ((sharp details)), ((precise lines)), "
+            "((digital art)), ((cartoon)), ((anime)), ((3d)), ((modern style)), "
+            "((flat colors)), ((hard edges)), ((graphic design)), "
+            "((pop art)), ((minimalist)), ((abstract)), ((surreal)), "
+            "low quality, blurry, ugly, deformed, amateur"
+        )
