@@ -304,37 +304,14 @@ class MegaPromptV3:
                 print(f"Warning: No handler found for theme {internal_theme}, using abstract handler")
                 handler = self.handlers.get("abstract", AbstractThemeHandler(self.config_manager))
             
-            # Generate components
-            try:
-                components = handler.generate(
-                    custom_subject=custom_subject,
-                    custom_location=custom_location,
-                    include_environment=include_environment,
-                    include_style=include_style,
-                    include_effects=include_effects
-                )
-            except Exception as e:
-                print(f"Error generating components with {internal_theme} handler: {str(e)}")
-                # Only fallback to abstract for themes that should be abstract
-                if internal_theme not in ["peaky_blinders", "essential_realistic", "essential_vintage", "cinema_studio"]:
-                    print("Falling back to abstract handler")
-                    handler = AbstractThemeHandler(self.config_manager)
-                    components = handler.generate(
-                        custom_subject=custom_subject,
-                        custom_location=custom_location,
-                        include_environment=include_environment,
-                        include_style=include_style,
-                        include_effects=include_effects
-                    )
-                else:
-                    # For realistic themes, provide a safe fallback that maintains theme
-                    print(f"Using safe fallback for {internal_theme}")
-                    components = {
-                        "subject": f"((a detailed {internal_theme.replace('_', ' ')} style portrait))",
-                        "environment": "in a thematically appropriate setting",
-                        "style": "with professional quality and theme-specific details",
-                        "effects": "with refined details and appropriate effects"
-                    }
+            # Generate components - no fallback needed as handlers should handle their own errors
+            components = handler.generate(
+                custom_subject=custom_subject,
+                custom_location=custom_location,
+                include_environment=include_environment,
+                include_style=include_style,
+                include_effects=include_effects
+            )
             
             # Ensure all components exist
             default_components = {

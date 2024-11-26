@@ -6,11 +6,31 @@ class ChimeraAnimalsThemeHandler(BaseThemeHandler):
     
     def _get_animal_family(self, animal: str) -> str:
         """Get the family classification of an animal."""
-        animal_lower = animal.lower()
-        for family in self.config_manager.get_config("animal_families"):
-            if any(member.lower() in animal_lower for member in self.config_manager.get_config(f"animal_families.{family}")):
-                return family
-        return None
+        try:
+            animal_lower = animal.lower()
+            for family in self.config_manager.get_config("animal_families"):
+                if any(member.lower() in animal_lower for member in self.config_manager.get_config(f"animal_families.{family}")):
+                    return family
+            return None
+        except Exception as e:
+            print(f"Warning: Error getting animal family for {animal}: {str(e)}")
+            return None
+
+    def _get_safe_random_choice(self, config_key: str, default: str) -> str:
+        """Safely get a random choice with fallback."""
+        try:
+            return self._get_random_choice(config_key)
+        except Exception as e:
+            print(f"Warning: Error getting choice for {config_key}: {str(e)}")
+            return default
+
+    def _get_safe_random_choices(self, config_key: str, count: int, defaults: list) -> list:
+        """Safely get multiple random choices with fallback."""
+        try:
+            return self._get_random_choices(config_key, count)
+        except Exception as e:
+            print(f"Warning: Error getting choices for {config_key}: {str(e)}")
+            return defaults[:count]
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
@@ -31,7 +51,7 @@ class ChimeraAnimalsThemeHandler(BaseThemeHandler):
             
             # Find complementary body animal
             while max_attempts > 0:
-                body_candidate = self._get_random_choice("animals")
+                body_candidate = self._get_safe_random_choice("animals", "Lion")
                 body_family = self._get_animal_family(body_candidate)
                 
                 if (body_family != head_family and 
@@ -45,8 +65,8 @@ class ChimeraAnimalsThemeHandler(BaseThemeHandler):
         else:
             # Random selection of both animals
             while max_attempts > 0:
-                head_candidate = self._get_random_choice("animals")
-                body_candidate = self._get_random_choice("animals")
+                head_candidate = self._get_safe_random_choice("animals", "Lion")
+                body_candidate = self._get_safe_random_choice("animals", "Eagle")
                 
                 head_family = self._get_animal_family(head_candidate)
                 body_family = self._get_animal_family(body_candidate)
@@ -84,9 +104,9 @@ class ChimeraAnimalsThemeHandler(BaseThemeHandler):
                     f"((perfect composition))"
                 )
             else:
-                habitat = self._get_random_choice("habitats")
-                weather = self._get_random_choice("weather")
-                time = self._get_random_choice("times")
+                habitat = self._get_safe_random_choice("habitats", "mystical forest")
+                weather = self._get_safe_random_choice("weather", "sunny")
+                time = self._get_safe_random_choice("times", "day")
                 components["environment"] = (
                     f"in a ((dramatic {habitat})) during {weather} {time}, "
                     f"((natural environment)), ((atmospheric depth)), "
