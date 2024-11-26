@@ -3,101 +3,82 @@ import random
 from .base_handler import BaseThemeHandler
 
 class BinetSurrealThemeHandler(BaseThemeHandler):
-    """Handler for Binet surreal-themed prompt generation."""
+    """Handler for Binet surreal-themed prompt generation in the style of Sylvain Binet's sophisticated animal portraits."""
     
+    def get_negative_prompt(self) -> str:
+        """Get negative prompt to avoid unwanted styles."""
+        negative_elements = self._get_random_choices("binet_surreal.negative_prompts", 8)
+        return ", ".join(negative_elements)
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: str = "yes",
                 include_style: str = "yes",
                 include_effects: str = "yes") -> Dict[str, str]:
-        """Generate Binet surreal-themed components with enhanced portrait styles."""
+        """Generate sophisticated animal portrait components in Sylvain Binet's style."""
         components = {}
         
         # Get custom inputs
         custom_subject = custom_subject.strip()
         custom_location = custom_location.strip()
         
-        # Determine if using color or black and white
-        is_color = random.random() < 0.9  # 90% chance for color
+        # Core style elements
         portrait_style = self._get_random_choice("binet_surreal.portrait_styles")
-        
-        if is_color:
-            color_scheme = self._get_random_choice("binet_surreal.color_schemes")
-            style_prefix = f"sophisticated {portrait_style}"
-            color_emphasis = f", {color_scheme}"
-        else:
-            style_prefix = f"sophisticated black and white {portrait_style}"
-            color_emphasis = ", ((dramatic black and white)), ((extreme contrast))"
+        color_scheme = self._get_random_choice("binet_surreal.color_schemes")
         
         if custom_subject:
             components["subject"] = (
-                f"((surreal anthropomorphic portrait)) of {custom_subject}, "
-                f"((aristocratic pose)), ((noble expression)), "
-                f"((intricate detail)), ((dramatic studio lighting)){color_emphasis}, "
-                f"((dreamlike atmosphere)), ((surreal composition))"
+                f"((masterful portrait)) of {custom_subject}, "
+                f"((aristocratic pose)), ((noble bearing)), "
+                f"((photorealistic detail)), ((dramatic studio lighting)), "
+                f"in {color_scheme} tones, ((professional photography))"
             )
         else:
-            # Select a distinguished animal
+            # Select animal and character elements
             animal = self._get_random_choice("binet_surreal.animals")
             character_theme = self._get_random_choice("binet_surreal.character_themes")
             costume = self._get_random_choice("binet_surreal.costumes")
             props = self._get_random_choice("binet_surreal.props")
-            
-            # Determine if contemporary or classical theme
-            if random.random() < 0.3:  # 30% chance for contemporary
-                theme_type = "contemporary"
-                clothing = self._get_random_choice("binet_surreal.contemporary_clothing")
-                elements = self._get_random_choice("binet_surreal.urban_elements")
-            else:
-                theme_type = "classical"
-                clothing = self._get_random_choice("binet_surreal.classical_clothing")
-                elements = self._get_random_choice("binet_surreal.classical_elements")
+            clothing = self._get_random_choice("binet_surreal.classical_clothing")
             
             components["subject"] = (
-                f"((surreal anthropomorphic {portrait_style} portrait)) of a ((distinguished {animal})) "
-                f"as a ((noble {character_theme})), ((wearing {costume})), "
-                f"((with {props})), ((dressed in {clothing})), "
-                f"((aristocratic pose)), ((noble expression)), "
-                f"((intricate detail)), ((dramatic studio lighting)){color_emphasis}, "
-                f"((dreamlike atmosphere)), ((surreal composition))"
+                f"((masterful {portrait_style})) of a ((distinguished {animal})) "
+                f"as a ((noble {character_theme})), ((wearing {costume} and {clothing})), "
+                f"((adorned with {props})), ((aristocratic pose)), ((noble expression)), "
+                f"((photorealistic detail)), ((dramatic studio lighting)), "
+                f"in {color_scheme} tones, ((professional photography))"
             )
         
         if include_environment == "yes":
             if custom_location:
                 components["environment"] = (
-                    f"in ((surreal {custom_location})) with ((dreamlike setting)), "
-                    f"((surreal atmosphere)), ((mystical elements)), "
-                    f"((floating objects)), ((impossible architecture))"
+                    f"in {custom_location}, ((elegant studio setting)), "
+                    f"((subtle gradient background)), ((professional lighting setup)), "
+                    f"((clean composition))"
                 )
             else:
-                setting = self._get_random_choice("binet_surreal.settings")
-                feature = self._get_random_choice("binet_surreal.features")
+                elements = self._get_random_choice("binet_surreal.classical_elements")
                 components["environment"] = (
-                    f"in ((surreal {setting})) with ((dreamlike {feature})), "
-                    f"((surreal atmosphere)), ((mystical elements)), "
-                    f"((floating objects)), ((impossible architecture))"
+                    f"in ((elegant studio setting)) with {elements}, "
+                    f"((subtle gradient background)), ((professional lighting setup)), "
+                    f"((clean composition))"
                 )
         
         if include_style == "yes":
-            style = self._get_random_choice("binet_surreal.styles")
-            technique = self._get_random_choice("binet_surreal.techniques")
             components["style"] = (
-                f"{style_prefix}, ((masterful composition)), "
-                f"((professional studio lighting)), ((sharp focus)), "
-                f"((photorealistic detail)), ((cinematic framing)), "
-                f"((surreal aesthetics)), ((using {technique} technique)), "
-                f"((dreamlike quality)), 8k resolution{color_emphasis}"
+                f"((masterful oil painting technique)), ((photorealistic detail)), "
+                f"((professional studio photography)), ((sharp focus)), "
+                f"((perfect composition)), ((dramatic lighting)), "
+                f"((rich color grading)), ((elegant aesthetics)), "
+                f"8k resolution, ((award-winning portrait))"
             )
         
         if include_effects == "yes":
-            effect = self._get_random_choice("binet_surreal.effects")
-            mood = self._get_random_choice("binet_surreal.moods")
             components["effects"] = (
-                f"with ((surreal {effect} effects)), ((dreamlike {mood} mood)), "
-                f"((deep shadows)), ((bright highlights)), "
-                f"((dramatic atmosphere)), ((volumetric lighting)), "
-                f"((perfect exposure)), ((subtle vignette)), "
-                f"((symbolic atmosphere)), ((mystical glow))"
+                f"with ((dramatic shadows)), ((perfect exposure)), "
+                f"((volumetric lighting)), ((subtle vignette)), "
+                f"((rich contrast)), ((color harmony)), "
+                f"((professional retouching)), ((gallery quality))"
             )
         
         return components

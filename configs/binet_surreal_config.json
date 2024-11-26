@@ -1,112 +1,126 @@
 {
     "binet_surreal": {
-        "subjects": [
-            "figure",
-            "portrait",
-            "object",
-            "creature",
-            "landscape",
-            "abstraction",
-            "metamorphosis",
-            "illusion",
-            "transformation",
-            "vision"
+        "animals": [
+            "fox",
+            "wolf",
+            "deer",
+            "owl",
+            "rabbit",
+            "bear",
+            "lion",
+            "tiger",
+            "eagle",
+            "hawk",
+            "stag",
+            "leopard",
+            "panther",
+            "falcon"
         ],
-        "elements": [
-            "distortion",
-            "juxtaposition",
-            "fragmentation",
-            "melting",
-            "floating",
-            "morphing",
-            "reflection",
-            "dissolution",
-            "fusion",
-            "transformation"
+        "portrait_styles": [
+            "renaissance portrait",
+            "baroque portrait",
+            "victorian portrait",
+            "royal portrait",
+            "aristocratic portrait",
+            "noble portrait",
+            "military portrait",
+            "dignified portrait"
         ],
-        "symbols": [
-            "clock",
-            "mirror",
-            "eye",
-            "door",
-            "staircase",
-            "cloud",
-            "tree",
-            "bird",
-            "shadow",
-            "key"
+        "character_themes": [
+            "military general",
+            "noble aristocrat",
+            "royal advisor",
+            "court dignitary",
+            "distinguished scholar",
+            "royal guard captain",
+            "master strategist",
+            "royal ambassador"
         ],
-        "settings": [
-            "dreamscape",
-            "void",
-            "labyrinth",
-            "infinity",
-            "dimension",
-            "realm",
-            "space",
-            "plane",
-            "reality",
-            "universe"
+        "costumes": [
+            "ornate military uniform",
+            "royal ceremonial attire",
+            "noble court dress",
+            "ceremonial military regalia",
+            "aristocratic formal wear",
+            "diplomatic uniform",
+            "royal guard uniform",
+            "court formal attire"
         ],
-        "features": [
-            "perspective",
-            "gravity",
-            "time",
-            "space",
-            "reality",
-            "dimension",
-            "physics",
-            "logic",
-            "existence",
-            "consciousness"
+        "props": [
+            "military medals and decorations",
+            "ceremonial sword",
+            "royal scepter",
+            "noble family crest",
+            "military insignia",
+            "ceremonial medals",
+            "royal seal",
+            "diplomatic papers"
         ],
-        "styles": [
-            "surrealist",
-            "dreamlike",
-            "symbolic",
-            "metaphysical",
-            "psychological",
+        "classical_clothing": [
+            "embroidered military jacket",
+            "gold-trimmed uniform",
+            "royal ceremonial coat",
+            "silk brocade vest",
+            "velvet formal jacket",
+            "decorated military coat",
+            "formal court attire",
+            "ceremonial dress uniform"
+        ],
+        "contemporary_clothing": [
+            "modern military dress uniform",
+            "contemporary formal suit",
+            "diplomatic attire",
+            "modern ceremonial uniform",
+            "formal business attire",
+            "modern court dress",
+            "contemporary military uniform",
+            "formal diplomatic suit"
+        ],
+        "color_schemes": [
+            "rich deep burgundy and gold",
+            "navy blue and silver",
+            "forest green and brass",
+            "royal purple and gold",
+            "deep crimson and silver",
+            "midnight blue and bronze",
+            "emerald green and gold",
+            "deep brown and copper"
+        ],
+        "classical_elements": [
+            "antique books",
+            "vintage maps",
+            "classical paintings",
+            "historical documents",
+            "ancient artifacts",
+            "period furniture",
+            "historical weapons",
+            "vintage instruments"
+        ],
+        "urban_elements": [
+            "modern office",
+            "contemporary art",
+            "urban architecture",
+            "city skyline",
+            "modern technology",
+            "contemporary design",
+            "urban landscape",
+            "modern interior"
+        ],
+        "negative_prompts": [
+            "cartoon",
+            "sketch",
+            "watercolor",
             "abstract",
-            "ethereal",
-            "mystical",
-            "transcendent",
-            "visionary"
-        ],
-        "techniques": [
-            "metamorphosis",
-            "juxtaposition",
-            "displacement",
-            "symbolism",
-            "abstraction",
-            "distortion",
-            "fusion",
-            "fragmentation",
-            "transformation",
-            "dissolution"
-        ],
-        "effects": [
-            "distortion",
-            "melting",
-            "floating",
-            "morphing",
-            "dissolving",
-            "fragmenting",
-            "transforming",
-            "reflecting",
-            "bending",
-            "warping"
-        ],
-        "moods": [
-            "mysterious",
-            "enigmatic",
-            "ethereal",
-            "transcendent",
-            "surreal",
-            "dreamlike",
-            "metaphysical",
-            "symbolic",
-            "mystical",
-            "visionary"
+            "distorted",
+            "blurry",
+            "low quality",
+            "dull",
+            "flat lighting",
+            "poor contrast",
+            "casual pose",
+            "informal attire",
+            "simple background",
+            "basic composition"
         ]
     }
 }
