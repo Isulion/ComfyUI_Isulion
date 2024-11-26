@@ -36,6 +36,9 @@ class ConfigManager:
             
         Returns:
             Any: Configuration value
+            
+        Raises:
+            KeyError: If the configuration key is not found
         """
         try:
             # Handle nested keys (e.g., 'anime.characters')
@@ -61,14 +64,11 @@ class ConfigManager:
                 if isinstance(value, dict) and k in value:
                     value = value[k]
                 else:
-                    # Return empty list for missing configuration
-                    # This allows handlers to continue with reduced functionality
-                    print(f"Warning: Configuration key not found: {key}, using empty list")
-                    return []
+                    raise KeyError(f"Configuration key not found: {key}")
             return value
         except Exception as e:
             print(f"Error accessing configuration {key}: {str(e)}")
-            return []
+            raise  # Re-raise the exception to be handled by the caller
     
     def set_seed(self, seed: int):
         """Set random seed for consistent generation.

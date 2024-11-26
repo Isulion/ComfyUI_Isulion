@@ -294,15 +294,12 @@ class MegaPromptV3:
                 # Exclude "random" from possible choices
                 available_themes = [k for k in self.handlers.keys() if k != "random"]
                 if not available_themes:
-                    print("Warning: No theme handlers available, using default handler")
-                    internal_theme = "abstract"  # Use abstract as fallback
-                else:
-                    internal_theme = self.config_manager.random.choice(available_themes)
+                    raise ValueError("No theme handlers available")
+                internal_theme = self.config_manager.random.choice(available_themes)
             
             handler = self.handlers.get(internal_theme)
             if not handler:
-                print(f"Warning: No handler found for theme {internal_theme}, using abstract handler")
-                handler = self.handlers.get("abstract", AbstractThemeHandler(self.config_manager))
+                raise ValueError(f"No handler found for theme {internal_theme}")
             
             # Generate components - no fallback needed as handlers should handle their own errors
             components = handler.generate(
@@ -313,16 +310,12 @@ class MegaPromptV3:
                 include_effects=include_effects
             )
             
-            # Ensure all components exist
-            default_components = {
-                "subject": "a detailed subject",
-                "environment": "in a detailed environment",
-                "style": "with professional quality",
-                "effects": "with refined details",
-            }
-            for key in default_components:
-                if key not in components:
-                    components[key] = default_components[key]
+            if not isinstance(components, dict):
+                raise ValueError(f"Handler {internal_theme} returned invalid components: {components}")
+            
+            # Check for required components
+            if "subject" not in components:
+                raise ValueError(f"Handler {internal_theme} did not generate a subject")
             
             # Build final prompt
             prompt = ", ".join(filter(None, [
@@ -342,13 +335,14 @@ class MegaPromptV3:
             )
             
         except Exception as e:
-            print(f"Error in generate method: {str(e)}")
-            # Return safe default values
+            error_msg = f"Error generating prompt: {str(e)}"
+            print(error_msg)
+            # Return error message in the prompt to make issues visible
             return (
-                "a detailed subject in a professional environment",
-                "a detailed subject",
-                "in a professional environment",
-                "with professional quality",
-                "with refined details",
+                f"Error: {error_msg}",
+                "Error in subject generation",
+                "Error in environment generation",
+                "Error in style generation",
+                "Error in effects generation",
                 seed
             )

@@ -61,3 +61,20 @@ class BaseThemeHandler(ABC):
             last_part = key_parts[-1]
             return defaults.get(last_part, "element")
         return self.config.random.choice(choices)
+
+    def _get_safe_random_choice(self, config_key: str, default_value: str) -> str:
+        """Get a random choice from configuration list with a default fallback.
+        
+        Args:
+            config_key (str): Key to access in configuration
+            default_value (str): Default value if config is not found
+            
+        Returns:
+            str: Random choice from the configuration list or default value
+        """
+        try:
+            choices = self.config.get_config(config_key)
+            return self.config.random.choice(choices) if choices else default_value
+        except Exception as e:
+            print(f"Warning: Could not get random choice for {config_key}: {str(e)}")
+            return default_value

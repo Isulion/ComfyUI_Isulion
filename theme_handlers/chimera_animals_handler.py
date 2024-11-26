@@ -1,36 +1,18 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+import random
 
 class ChimeraAnimalsThemeHandler(BaseThemeHandler):
-    """Handler for chimera animals-themed prompt generation."""
-    
-    def _get_animal_family(self, animal: str) -> str:
-        """Get the family classification of an animal."""
-        try:
-            animal_lower = animal.lower()
-            for family in self.config_manager.get_config("animal_families"):
-                if any(member.lower() in animal_lower for member in self.config_manager.get_config(f"animal_families.{family}")):
-                    return family
-            return None
-        except Exception as e:
-            print(f"Warning: Error getting animal family for {animal}: {str(e)}")
-            return None
+    def _get_random_animal_from_category(self, category: str) -> str:
+        """Get a random animal from a specific category."""
+        animals = self.config.get_config(f"chimera_animals.categories.{category}")
+        return random.choice(animals) if animals else "lion"
 
-    def _get_safe_random_choice(self, config_key: str, default: str) -> str:
-        """Safely get a random choice with fallback."""
-        try:
-            return self._get_random_choice(config_key)
-        except Exception as e:
-            print(f"Warning: Error getting choice for {config_key}: {str(e)}")
-            return default
-
-    def _get_safe_random_choices(self, config_key: str, count: int, defaults: list) -> list:
-        """Safely get multiple random choices with fallback."""
-        try:
-            return self._get_random_choices(config_key, count)
-        except Exception as e:
-            print(f"Warning: Error getting choices for {config_key}: {str(e)}")
-            return defaults[:count]
+    def _get_different_category(self, exclude_category: str) -> str:
+        """Get a random category different from the given one."""
+        categories = list(self.config.get_config("chimera_animals.categories").keys())
+        available_categories = [cat for cat in categories if cat != exclude_category]
+        return random.choice(available_categories) if available_categories else "big_cats"
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
@@ -40,94 +22,78 @@ class ChimeraAnimalsThemeHandler(BaseThemeHandler):
         """Generate chimera animals-themed components."""
         components = {}
         
-        # Initialize variables
-        max_attempts = 20
+        # Initialize variables for head and body selection
         head = None
         body = None
-        
+
         if custom_subject:
+            # Use custom subject as the head
             head = custom_subject
-            head_family = self._get_animal_family(head)
-            
-            # Find complementary body animal
-            while max_attempts > 0:
-                body_candidate = self._get_safe_random_choice("animals", "Lion")
-                body_family = self._get_animal_family(body_candidate)
-                
-                if (body_family != head_family and 
-                    body_family is not None and 
-                    head_family is not None and 
-                    body_candidate.lower() != head.lower()):
-                    body = body_candidate
-                    break
-                    
-                max_attempts -= 1
+            # For custom subjects, randomly select a category for the body
+            # that's different from mythical
+            body_category = self._get_different_category("mythical")
+            body = self._get_random_animal_from_category(body_category)
         else:
-            # Random selection of both animals
-            while max_attempts > 0:
-                head_candidate = self._get_safe_random_choice("animals", "Lion")
-                body_candidate = self._get_safe_random_choice("animals", "Eagle")
+            # Select two different random categories
+            all_categories = list(self.config.get_config("chimera_animals.categories").keys())
+            if not all_categories:
+                # Fallback if categories are not found
+                head = "lion"
+                body = "eagle"
+            else:
+                head_category = random.choice(all_categories)
+                body_category = self._get_different_category(head_category)
                 
-                head_family = self._get_animal_family(head_candidate)
-                body_family = self._get_animal_family(body_candidate)
-                
-                if (head_family != body_family and 
-                    head_family is not None and 
-                    body_family is not None and 
-                    head_candidate.lower() != body_candidate.lower()):
-                    head = head_candidate
-                    body = body_candidate
-                    break
-                    
-                max_attempts -= 1
-        
-        # Fallback to ensure valid animals
-        if head is None or body is None:
-            head = "Lion"  # From felines family
-            body = "Eagle"  # From birds family
-        
-        # Create detailed subject description
+                # Get random animals from each category
+                head = self._get_random_animal_from_category(head_category)
+                body = self._get_random_animal_from_category(body_category)
+
+        # Create the chimera description
         components["subject"] = (
-            f"a complex raw photograph of an intricated chimerical fantastical creature with "
-            f"((the body of a {body})) and ((the head of a {head})), "
-            f"bokeh background, cinematic lighting, shallow depth of field, "
-            f"35mm wide angle lens, sharp focus, cinematic film still, "
-            f"dynamic angle, Photography, 8k, masterfully detailed, hyper-realistic"
+            f"a majestic and powerful chimera creature with "
+            f"((the head of a {head})) and ((the body of a {body})), "
+            f"((detailed creature anatomy)), ((realistic animal features)), "
+            f"((natural pose)), ((dynamic composition)), "
+            f"((ultra-realistic)), ((masterful photography)), "
+            f"((perfect lighting)), 8k resolution"
         )
-        
+
         # Generate environment if requested
         if include_environment == "yes":
             if custom_location:
                 components["environment"] = (
-                    f"in ((dramatic {custom_location})), "
-                    f"((natural environment)), ((atmospheric depth)), "
+                    f"in ((a majestic {custom_location})), "
+                    f"((natural habitat)), ((atmospheric environment)), "
                     f"((perfect composition))"
                 )
             else:
-                habitat = self._get_safe_random_choice("habitats", "mystical forest")
-                weather = self._get_safe_random_choice("weather", "sunny")
-                time = self._get_safe_random_choice("times", "day")
+                environment_elements = [
+                    self._get_safe_random_choice("chimera_animals.habitats", "mystical forest"),
+                    self._get_safe_random_choice("chimera_animals.time_of_day", "golden hour"),
+                    self._get_safe_random_choice("chimera_animals.weather", "clear sky")
+                ]
                 components["environment"] = (
-                    f"in a ((dramatic {habitat})) during {weather} {time}, "
-                    f"((natural environment)), ((atmospheric depth)), "
+                    f"in ((a majestic {environment_elements[0]})) during "
+                    f"(({environment_elements[1]})) with (({environment_elements[2]})), "
+                    f"((natural habitat)), ((atmospheric environment)), "
                     f"((perfect composition))"
                 )
-        
+
         # Generate style if requested
         if include_style == "yes":
             components["style"] = (
-                f"((professional wildlife photography)), ((ultra sharp focus)), "
+                f"((wildlife photography)), ((ultra-detailed)), "
                 f"((perfect exposure)), ((dramatic composition)), "
                 f"((photorealistic quality)), ((natural detail)), "
-                f"8k resolution"
+                f"((masterful technique))"
             )
-        
+
         # Generate effects if requested
         if include_effects == "yes":
             components["effects"] = (
-                f"with ((natural lighting)), ((atmospheric depth)), "
-                f"((perfect shadows)), ((volumetric lighting)), "
-                f"((cinematic atmosphere)), ((photographic realism))"
+                f"with ((natural lighting)), ((volumetric atmosphere)), "
+                f"((perfect shadows)), ((depth of field)), "
+                f"((cinematic mood)), ((photographic excellence))"
             )
-        
+
         return components
