@@ -58,6 +58,7 @@ from .theme_handlers.underwater_civilization_handler import UnderwaterCivilizati
 from .theme_handlers.urban_tag_handler import UrbanTagThemeHandler
 from .theme_handlers.village_world_handler import VillageWorldThemeHandler
 from .theme_handlers.vintage_anthropomorphic_handler import VintageAnthropomorphicThemeHandler
+from .theme_handlers.selfie_handler import SelfieThemeHandler
 
 class MegaPromptV3:
     """
@@ -122,6 +123,7 @@ class MegaPromptV3:
             "🌪️ Post Apocalyptic": "post_apocalyptic",
             "🚀 Sci-Fi": "scifi",
             "📚 School Manga": "school_manga",
+            "📱 Selfie": "selfie",
             "🚀 Star Wars": "star_wars",
             "⚙️ Steampunk": "steampunk",
             "🌊 Underwater Civilization": "underwater_civilization",
@@ -188,7 +190,8 @@ class MegaPromptV3:
             "urban_tag": UrbanTagThemeHandler(self.config_manager),
             "village_world": VillageWorldThemeHandler(self.config_manager),
             "vintage_anthropomorphic": VintageAnthropomorphicThemeHandler(self.config_manager),
-            "watercolor": WatercolorThemeHandler(self.config_manager)
+            "watercolor": WatercolorThemeHandler(self.config_manager),
+            "selfie": SelfieThemeHandler(self.config_manager)
         }
     
     @classmethod
@@ -252,7 +255,8 @@ class MegaPromptV3:
                     "🏙️ Urban Tag",
                     "🏠 Village World",
                     "👴 Vintage Anthropomorphic",
-                    "🎨 Watercolor"
+                    "🎨 Watercolor",
+                    "📱 Selfie"
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
