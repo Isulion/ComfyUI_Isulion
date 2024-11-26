@@ -1,5 +1,22 @@
 {
     "steampunk": {
+        "characters": [
+            "inventor",
+            "airship captain",
+            "mechanical engineer",
+            "clockwork artisan",
+            "steam mechanic",
+            "brass artificer",
+            "Victorian explorer",
+            "automaton creator",
+            "gear wright",
+            "steam powered android",
+            "industrial alchemist",
+            "mechanical tinkerer",
+            "copper work artist",
+            "steam tech pioneer",
+            "clockwork specialist"
+        ],
         "styles": [
             "Victorian steampunk",
             "industrial fantasy",
@@ -109,6 +126,28 @@
             "Victorian dark wood",
             "industrial metals",
             "vintage gold accents"
+        ],
+        "locations": [
+            "clockwork tower",
+            "steam-powered factory",
+            "Victorian laboratory",
+            "brass foundry",
+            "airship dock",
+            "mechanical workshop",
+            "gear-filled chamber",
+            "industrial district",
+            "steam engine room",
+            "copper-plated observatory",
+            "mechanical library",
+            "underground workshop",
+            "automated factory",
+            "brass-fitted parlor",
+            "mechanical garden",
+            "steam-powered train station",
+            "inventor's sanctuary",
+            "mechanical marketplace",
+            "gear-driven theater",
+            "automaton assembly hall"
         ]
     }
 }

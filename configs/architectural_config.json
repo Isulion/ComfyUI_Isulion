@@ -1,5 +1,94 @@
 {
     "architectural": {
+        "buildings": [
+            "modern skyscraper",
+            "gothic cathedral",
+            "art deco tower",
+            "minimalist villa",
+            "classical museum",
+            "contemporary gallery",
+            "brutalist complex",
+            "renaissance palace",
+            "glass office building",
+            "sustainable eco-building",
+            "historic mansion",
+            "modernist house",
+            "cultural center",
+            "innovative pavilion",
+            "urban mixed-use complex"
+        ],
+        "locations": [
+            "bustling city center",
+            "historic district",
+            "waterfront promenade",
+            "urban park",
+            "financial district",
+            "cultural quarter",
+            "university campus",
+            "residential neighborhood",
+            "industrial redevelopment",
+            "suburban development"
+        ],
+        "times": [
+            "golden hour",
+            "blue hour",
+            "sunrise",
+            "sunset",
+            "midday",
+            "twilight",
+            "dusk",
+            "dawn",
+            "night",
+            "morning"
+        ],
+        "weather": [
+            "clear sky",
+            "dramatic clouds",
+            "soft overcast",
+            "misty atmosphere",
+            "light rain",
+            "stormy conditions",
+            "snow covered",
+            "foggy morning",
+            "sunny day",
+            "moody atmosphere"
+        ],
+        "perspectives": [
+            "aerial view",
+            "street level",
+            "low angle",
+            "high angle",
+            "bird's eye view",
+            "worm's eye view",
+            "three-quarter view",
+            "facade view",
+            "interior perspective",
+            "architectural cross-section"
+        ],
+        "lighting": [
+            "natural daylight",
+            "dramatic spotlighting",
+            "ambient illumination",
+            "architectural lighting",
+            "interior lighting",
+            "exterior floodlights",
+            "accent lighting",
+            "diffused lighting",
+            "directional lighting",
+            "mood lighting"
+        ],
+        "atmosphere": [
+            "professional",
+            "dramatic",
+            "serene",
+            "dynamic",
+            "sophisticated",
+            "minimalist",
+            "luxurious",
+            "industrial",
+            "artistic",
+            "contemporary"
+        ],
         "structures": [
             "building",
             "skyscraper",
@@ -106,17 +195,14 @@
             "depth",
             "perspective"
         ],
-        "lighting": [
-            "natural",
-            "artificial",
-            "ambient",
-            "dramatic",
-            "diffused",
-            "directional",
-            "spotlit",
-            "atmospheric",
-            "daylight",
-            "evening"
+        "principles": [
+            "harmony",
+            "balance",
+            "rhythm",
+            "proportion",
+            "scale",
+            "depth",
+            "perspective"
         ]
     }
 }
