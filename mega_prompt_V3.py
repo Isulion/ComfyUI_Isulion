@@ -59,6 +59,7 @@ from .theme_handlers.urban_tag_handler import UrbanTagThemeHandler
 from .theme_handlers.village_world_handler import VillageWorldThemeHandler
 from .theme_handlers.vintage_anthropomorphic_handler import VintageAnthropomorphicThemeHandler
 from .theme_handlers.selfie_handler import SelfieThemeHandler
+from .theme_handlers.street_food_kebab_handler import StreetFoodKebabThemeHandler
 
 class MegaPromptV3:
     """
@@ -130,7 +131,8 @@ class MegaPromptV3:
             "🏙️ Urban Tag": "urban_tag",
             "🏠 Village World": "village_world",
             "👴 Vintage Anthropomorphic": "vintage_anthropomorphic",
-            "🎨 Watercolor": "watercolor"
+            "🎨 Watercolor": "watercolor",
+            "🥙 Street Food Kebab": "street_food_kebab"
         }
     
     def _init_theme_handlers(self):
@@ -191,7 +193,8 @@ class MegaPromptV3:
             "urban_tag": UrbanTagThemeHandler(self.config_manager),
             "village_world": VillageWorldThemeHandler(self.config_manager),
             "vintage_anthropomorphic": VintageAnthropomorphicThemeHandler(self.config_manager),
-            "watercolor": WatercolorThemeHandler(self.config_manager)
+            "watercolor": WatercolorThemeHandler(self.config_manager),
+            "street_food_kebab": StreetFoodKebabThemeHandler(self.config_manager)
         }
     
     @classmethod
@@ -256,7 +259,8 @@ class MegaPromptV3:
                     "🏠 Village World",
                     "👴 Vintage Anthropomorphic",
                     "🎨 Watercolor",
-                    "📱 Selfie"
+                    "📱 Selfie",
+                    "🥙 Street Food Kebab"
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
