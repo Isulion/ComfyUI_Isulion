@@ -1,5 +1,7 @@
 import torch
 import math
+import random
+import numpy
 
 class IsuCollageNode:
     """
@@ -13,6 +15,7 @@ class IsuCollageNode:
             "required": {
                 "images": ("IMAGE",),
                 "target_row_height": ("INT", {"default": 300, "min": 100, "max": 1024, "step": 50}),
+                "seed": ("INT", {"optional": True})
             }
         }
 
@@ -21,56 +24,72 @@ class IsuCollageNode:
     FUNCTION = "create_collage"
     CATEGORY = "Isulion/Image"
 
-    def create_collage(self, images, target_row_height=300):
+    def create_collage(self, images, seed=None, target_row_height=300):
         """
-        Create a collage that preserves image characteristics.
+        Create a collage from input images with optional seed for randomization.
         
-        :param images: List of image tensors
-        :param target_row_height: Target height for image rows
-        :return: Collage image tensor
+        :param images: List of input image tensors
+        :param seed: Random seed for image placement
+        :param target_row_height: Desired height for rows
+        :return: Tuple containing the collage tensor
         """
+        # Set random seed if provided
+        if seed is not None:
+            torch.manual_seed(seed)
+            random.seed(seed)
+            numpy.random.seed(seed)
+        
+        # Shuffle images if seed is set
+        shuffled_images = list(images)
+        if seed is not None:
+            random.shuffle(shuffled_images)
+        
         # Handle edge cases
-        if not images:
+        if not shuffled_images:
             raise ValueError("No images provided")
-        if len(images) == 1:
-            # Ensure the single image is in the correct format
-            return images[0] if len(images[0].shape) == 3 else images[0][0]
+        if len(shuffled_images) == 1:
+            # Ensure the single image is in the correct 4D format
+            single_image = shuffled_images[0]
+            if len(single_image.shape) == 3:
+                single_image = single_image.unsqueeze(0)
+            return (single_image,)
 
         # Ensure all images are in the correct format (H, W, C)
         processed_images = []
-        for img in images:
+        for img in shuffled_images:
             # Convert 4D tensor to 3D if needed
             if len(img.shape) == 4:
                 img = img.squeeze(0)
             processed_images.append(img)
-
-        # Compute aspect ratios
-        aspect_ratios = [
-            img.shape[1] / img.shape[0]  # Width / Height 
-            for img in processed_images
-        ]
         
-        # Distribute images across rows
-        rows = self._distribute_images(processed_images, aspect_ratios)
+        # Distribute images into rows
+        rows = self._distribute_images(processed_images)
         
-        # Normalize and prepare rows
+        # Normalize rows
         normalized_rows = self._normalize_rows(rows, target_row_height)
         
-        # Stack rows vertically
+        # Stack rows to create final collage
         collage_tensor = self._stack_rows(normalized_rows)
         
-        # Ensure the output is a 4D tensor for ComfyUI
-        return (collage_tensor[None, ...],)
+        # Ensure output is a 4D tensor (B, H, W, C)
+        if len(collage_tensor.shape) == 3:
+            collage_tensor = collage_tensor.unsqueeze(0)
+        
+        # Return as a single-element tuple for ComfyUI
+        return (collage_tensor,)
 
-    def _distribute_images(self, images, aspect_ratios):
+    def _distribute_images(self, images):
         """
         Distribute images across rows to maximize canvas utilization.
         
         :param images: List of image tensors
-        :param aspect_ratios: Corresponding aspect ratios
         :return: List of rows with distributed images
         """
         # Sort images by aspect ratio in descending order
+        aspect_ratios = [
+            img.shape[1] / img.shape[0]  # Width / Height 
+            for img in images
+        ]
         sorted_indices = sorted(
             range(len(aspect_ratios)), 
             key=lambda k: aspect_ratios[k], 
