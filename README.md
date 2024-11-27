@@ -2,7 +2,7 @@
 
 The Mega Prompt Generator is a sophisticated ComfyUI node that generates detailed, thematic prompts for image generation. It supports multiple themes and styles with extensive customization options.
 
-![Showcase](https://github.com/user-attachments/assets/56d69f0a-d840-42de-93ef-5378293263ee)
+![Showcase](https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/82d13074-b383-49ab-a19f-5633c8c109a5/original=true,quality=90/Batman_v3.jpeg)
 [Source](https://civitai.com/user/Isulion/images?sort=Newest)
 
 ## Installation
