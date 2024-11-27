@@ -2,27 +2,26 @@ from .base_handler import BaseThemeHandler
 from typing import Dict
 
 class StreetFoodKebabThemeHandler(BaseThemeHandler):
-    """Handler for generating street food kebab-themed prompts."""
+    """Handler for generating street food kebab-themed prompts. Updated to reflect a blend of professional food photography and stylized illustration."""
 
     def generate_subject(self, custom_subject: str = "") -> str:
         if custom_subject:
             return custom_subject
             
         subjects = [
-            "a mouth-watering kebab sandwich",
-            "an authentic döner kebab sandwich",
-            "a freshly prepared shawarma sandwich",
-            "a juicy kebab sandwich with thinly sliced meat",
-            "a loaded kebab sandwich with grilled meat"
+            "a gyro-style sub sandwich with a side of french fries",
+            "an appetizing sub sandwich served with crispy fries",
+            "a freshly prepared pita wrap accompanied by fries",
+            "a vibrant wrap sandwich with golden fries",
+            "a delicious sub with assorted fillings and fries"
         ]
         
         details = [
-            "stuffed with tender, marinated meat slices",
-            "with crispy lettuce, fresh tomatoes, and red onions",
-            "drizzled with creamy garlic sauce and spicy chili sauce",
-            "wrapped in warm, fluffy pita bread",
-            "garnished with fresh herbs and pickled vegetables",
-            "with perfectly seasoned meat slices from the vertical rotisserie"
+            "filled with various meats and vegetables",
+            "accompanied by a side of golden brown fries",
+            "wrapped in warm pita bread with fresh herbs",
+            "served with a hint of creamy garlic sauce",
+            "garnished with crisp lettuce and tomatoes"
         ]
         
         return f"{self.config.random.choice(subjects)}, {self.config.random.choice(details)}"
@@ -32,50 +31,48 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             return custom_location
             
         environments = [
-            "in a busy street food stall",
-            "at a vibrant food market",
-            "in a cozy kebab shop",
-            "at a bustling street corner restaurant",
-            "in an authentic Mediterranean eatery"
+            "in a restaurant or food service environment",
+            "at a vibrant fast food stall",
+            "in a cozy eatery with a side of fries",
+            "on a bustling street corner with fries on the table",
+            "in a high-end culinary setting with fries as a side"
         ]
         
         details = [
-            "with a rotating vertical meat spit in the background",
-            "with steam rising from the grill",
-            "surrounded by aromatic spices and fresh ingredients",
-            "with warm lighting and rustic wooden surfaces",
-            "next to traditional cooking equipment"
+            "with a light brown wooden cutting board",
+            "with a dark gray background",
+            "surrounded by aromatic spices",
+            "with dramatic lighting from the right",
+            "on a dark surface, adding depth"
         ]
         
         return f"{self.config.random.choice(environments)}, {self.config.random.choice(details)}"
 
     def generate_style(self) -> str:
         styles = [
-            "food photography style",
-            "commercial food photography",
-            "appetizing food styling",
-            "natural lighting",
-            "professional food magazine style",
-            "high-end culinary photography"
+            "realistic and representational",
+            "cartoonish and simplified",
+            "high-end culinary photography",
+            "stylized fast food illustration",
+            "professional food photography"
         ]
         
         details = [
-            "with rich colors and textures",
-            "with mouth-watering details",
-            "with perfect composition",
-            "with shallow depth of field",
-            "emphasizing freshness and quality"
+            "with a warm and appetizing color palette",
+            "with exaggerated features for appeal",
+            "with a focus on appetizing presentation",
+            "emphasizing freshness and quality",
+            "with vibrant colors against a dark background"
         ]
         
         return f"{self.config.random.choice(styles)}, {self.config.random.choice(details)}"
 
     def generate_effects(self) -> str:
         effects = [
+            "controlled lighting from the right",
+            "dramatic shadows enhancing depth",
+            "vibrant color grading",
             "soft natural lighting",
-            "subtle steam effects",
-            "gentle bokeh background",
-            "warm color grading",
-            "slight vignetting",
             "crisp focus on the food"
         ]
         
