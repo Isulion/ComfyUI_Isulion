@@ -191,9 +191,6 @@ class IsuCollageNode:
         for i, idx in enumerate(sorted_indices):
             img = row[idx]
             
-            # Calculate proportional width adjustment
-            img_width_ratio = img.shape[1] / current_width
-            
             # Determine width adjustment
             if i == 0:
                 # First (widest) image gets the full remaining adjustment
@@ -218,13 +215,6 @@ class IsuCollageNode:
         # Verify final width with tolerance
         final_width = sum(img.shape[1] for img in normalized_row)
         
-        # Debug print
-        print(f"\n--- WIDTH NORMALIZATION DEBUG ---")
-        print(f"Target Width: {target_width}")
-        print(f"Final Width: {final_width}")
-        for i, img in enumerate(normalized_row):
-            print(f"Image {i} width: {img.shape[1]}")
-        
         # Allow minimal tolerance due to integer rounding
         assert abs(final_width - target_width) <= 1, \
             f"Width mismatch: {final_width} != {target_width}"
@@ -238,13 +228,6 @@ class IsuCollageNode:
         :param rows: List of rows, each row is a list of image tensors
         :return: Final collage tensor
         """
-        # Debug: Print input row information
-        print("\n--- ROW STACKING DEBUG ---")
-        for i, row in enumerate(rows):
-            print(f"Row {i} images:")
-            for j, img in enumerate(row):
-                print(f"  Image {j} shape: {img.shape}")
-        
         # Concatenate rows horizontally first
         row_tensors = []
         for row in rows:
@@ -255,17 +238,8 @@ class IsuCollageNode:
         # Stack rows vertically
         try:
             collage_tensor = torch.cat(row_tensors, dim=0)
-            
-            # Debug: Final collage tensor
-            print("\n--- FINAL COLLAGE DEBUG ---")
-            print(f"Collage tensor shape: {collage_tensor.shape}")
-            
             return collage_tensor
         except Exception as e:
-            print(f"\n!!! STACKING ERROR: {e}")
-            # Print detailed row information for debugging
-            for i, row in enumerate(row_tensors):
-                print(f"Row {i} details: {row.shape}")
             raise
 
     def _resize_to_exact(self, tensor, target_size):
