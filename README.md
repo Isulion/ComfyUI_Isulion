@@ -23,25 +23,9 @@ git clone https://github.com/Isulion/ComfyUI_Isulion
 
 ## Available Nodes
 
-### Core Generators
+## 🎯 Mega Prompt Generator 🎯
 
-- 💡 **Mega Prompt V2** - Latest version with enhanced features and organization
-- 💡 **Mega Prompt** - Advanced multi-theme prompt generator
-- 💻 Prompt - Main prompt generation node
-
-## 🎯 Mega Prompt V2 🎯
-
-The Mega Prompt V2 is an enhanced version of the original generator with improved organization and additional features. It provides more granular control over prompt generation and better theme handling.
-
-### New Features in V2
-
-- **Enhanced Theme Organization**: Better structured theme handling with dedicated handlers for each theme
-- **Improved Component Control**: Separate toggles for environment, style, and effects
-- **Custom Location Support**: Added ability to specify custom locations for more precise scene setting
-- **Expanded Theme Support**: Now includes 40+ distinct themes
-- **Improved Configuration System**: Better organized config file with expanded options
-
-### Supported Themes in V2
+### Supported Themes  
 
 - 🎲 Dynamic Random (Default)
 - 🎨 Abstract
@@ -55,16 +39,20 @@ The Mega Prompt V2 is an enhanced version of the original generator with improve
 - 🐰 Chimera Cute Animals
 - 🎅 Christmas
 - 🎬 Cinema Studio
+- 🏺 Clay Art
+- 🖌️ Crayon Art
 - 🍳 Culinary/Food
 - 👗 Curvy Fashion
 - 💠 Dimension 3D
+- 🖼️ Digital Art
 - ✨ Enchanted Fantasy
 - 📸 Essential Realistic
 - 💥 Futuristic Battlefield
 - 🌆 Futuristic City Metropolis
 - 🚀 Futuristic Sci-Fi
-- 👻 Halloween Ethereal
 - 🎨 Impressionist
+- 👻 Halloween Ethereal
+- 🎭 Horror
 - 👙 Instagram Lifestyle
 - 🏠 Interior Spaces
 - 🏷️ Logo
@@ -79,6 +67,7 @@ The Mega Prompt V2 is an enhanced version of the original generator with improve
 - 📱 Selfie
 - 🖤 Star Wars Universe
 - ⚙️ Steampunk Cities
+- 🌸 Studio Ghibli
 - 🌊 Underwater Civilization
 - 🎨 Urban Tag
 - 🏘️ Village Of the World
@@ -94,7 +83,15 @@ The Mega Prompt V2 is an enhanced version of the original generator with improve
   - Custom Subject: Define specific subjects
   - Custom Location: Specify scene locations
 
-### Specific Nodes
+## 🖼️ Load Images Node
+
+The Load Images node allows you to load multiple images from a specified directory, making it easy to work with batches of images in your workflow.
+
+## 🎭 Image Collage Node
+
+The Image Collage node enables you to create visually appealing collages from multiple input images, perfect for showcasing collections or creating mood boards.
+
+## Specific Nodes
 
 - 🦊 Animal Behavior - Animal actions and poses
 - 🦁 Animal - General animal selection
@@ -116,7 +113,7 @@ The Mega Prompt V2 is an enhanced version of the original generator with improve
 - 🛸 Spacecraft - Space vehicle descriptions
 - 🤖 Tech - Futuristic technology descriptions
 
-#### 🔧 Enhancement Nodes
+### 🔧 Enhancement Nodes
 
 - 📝 Prompt Enhancer - More details, mood, composition, lighting, or color enhancements
 - ⛔ Negative Prompt - Creates matching negative prompts with adjustable strictness
@@ -124,19 +121,39 @@ The Mega Prompt V2 is an enhanced version of the original generator with improve
 
 --------------
 
-## FLUX Worflow Examples
+## Directory Structure
+
+```
+ComfyUI_Isulion/
+├── Core_Nodes/         # Core functionality nodes
+├── animals_nodes/      # Animal-related node implementations
+├── character_nodes/    # Character generation nodes
+├── configs/           # Configuration files
+├── enhancement_nodes/ # Enhancement and improvement nodes
+├── fantasy_nodes/    # Fantasy-themed node implementations
+├── scene_nodes/      # Scene generation nodes
+├── scifi_nodes/      # Science fiction themed nodes
+├── theme_handlers/   # Theme-specific handling logic
+├── isucollage_node.py   # Collage generation functionality
+├── load_images_node.py  # Image loading utilities
+└── mega_prompt_V3.py    # Latest version of Mega Prompt generator
+```
+
+--------------
+
+## FLUX Worflow (old) Examples
 
 [More Workflows and Examples](https://civitai.com/articles/8673/discover-the-mega-prompt-generator-for-comfyui)
 
-### Basic MegaPrompt Workflow
+### Basic MegaPrompt (old) Workflow
 
 ![IsulionFLUX_00468_](https://github.com/user-attachments/assets/91e7db26-9315-45d3-8461-83f0bba457b1)
 
-### Chimera (with Ollama) Work
+### Chimera (with Ollama) (old) Workflow
 
 ![IsulionFlux_00492_](https://github.com/user-attachments/assets/0e097a70-3821-4440-94d9-589703ab7ad1)
 
-### MegaPrompt + Ollama + LoRa Workflow
+### MegaPrompt + Ollama + LoRa (old) Workflow
 
 ![IsulionFLUX_00484_](https://github.com/user-attachments/assets/6cbc3ea8-650b-44b3-9a59-a3476a7e513c)
 [LoRa used for this](https://civitai.com/models/673513/will-smith-flux-dev-lora)
