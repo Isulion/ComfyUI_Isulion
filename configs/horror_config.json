@@ -220,6 +220,28 @@
             "cursed cathedrals",
             "nightmare structures"
         ],
+        "creatures": [
+            "eldritch abomination",
+            "vengeful spirit",
+            "demonic entity",
+            "flesh-eating zombie",
+            "ancient vampire",
+            "shapeshifting monster",
+            "shadow creature",
+            "cursed werewolf",
+            "cosmic horror being",
+            "possessed doll",
+            "ghostly apparition",
+            "undead revenant",
+            "tentacled horror",
+            "parasitic entity",
+            "nightmare creature",
+            "banshee",
+            "twisted chimera",
+            "soul-devouring wraith",
+            "mutated aberration",
+            "dimensional horror"
+        ],
         "times": [
             "midnight hour",
             "witching hour",
@@ -396,6 +418,28 @@
             "twisted agony",
             "nightmarish panic"
         ],
+        "emotions": [
+            "terror",
+            "dread",
+            "despair",
+            "madness",
+            "paranoia",
+            "anguish",
+            "hysteria",
+            "malevolence",
+            "torment",
+            "insanity",
+            "horror",
+            "fear",
+            "panic",
+            "derangement",
+            "malice",
+            "suffering",
+            "agony",
+            "distress",
+            "frenzy",
+            "shock"
+        ],
         "states": [
             "terrified",
             "haunted",
@@ -427,6 +471,28 @@
             "condemned",
             "doomed",
             "forsaken"
+        ],
+        "poses": [
+            "lurking in shadows",
+            "crawling on walls",
+            "floating mid-air",
+            "contorted body",
+            "reaching with claws",
+            "crouching to strike",
+            "emerging from darkness",
+            "twisted limbs",
+            "hovering menacingly",
+            "writhing in agony",
+            "stalking prey",
+            "rising from grave",
+            "lunging forward",
+            "possessed stance",
+            "skeletal pose",
+            "demonic crouch",
+            "spectral float",
+            "unnatural bend",
+            "predatory stance",
+            "ritualistic position"
         ]
     }
 }

@@ -421,6 +421,28 @@
             "quiet courage",
             "sincere empathy",
             "childlike wonder"
+        ],
+        "actions": [
+            "running through fields",
+            "flying on magical creatures",
+            "cooking traditional meals",
+            "tending to garden",
+            "riding a bicycle",
+            "cleaning the house",
+            "exploring magical places",
+            "helping forest spirits",
+            "gathering herbs",
+            "playing with creatures",
+            "working in a bathhouse",
+            "fishing by the sea",
+            "painting in nature",
+            "carrying packages",
+            "feeding spirits",
+            "sweeping leaves",
+            "hanging laundry",
+            "writing letters",
+            "making potions",
+            "sharing meals together"
         ]
     }
 }

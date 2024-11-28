@@ -1,0 +1,60 @@
+{
+    "street_food_kebab": {
+        "actions": [
+            "preparing",
+            "serving",
+            "wrapping",
+            "slicing",
+            "grilling"
+        ],
+        "subjects": [
+            "massive döner kebab",
+            "hefty kebab sandwich",
+            "enormous French street kebab",
+            "greasy late-night kebab",
+            "giant kebab sandwich"
+        ],
+        "details": [
+            "stuffed with crispy fries",
+            "loaded with shaved meat",
+            "drenched in garlic sauce",
+            "packed with fresh vegetables",
+            "oozing with sauce"
+        ],
+        "environments": [
+            "small bustling kebab shop",
+            "cramped street corner stand",
+            "tiny steamy kebab shop",
+            "well-worn counter",
+            "local kebab joint"
+        ],
+        "environment_details": [
+            "rotating meat spit visible",
+            "fluorescent lighting",
+            "steam in the air",
+            "sauce bottles nearby",
+            "busy grill area"
+        ],
+        "styles": [
+            "gritty and realistic",
+            "authentic street food",
+            "raw and unfiltered",
+            "candid late-night",
+            "genuine documentation"
+        ],
+        "style_details": [
+            "harsh lighting",
+            "greasy appeal",
+            "massive portions",
+            "authentic mess",
+            "visible steam"
+        ],
+        "effects": [
+            "harsh fluorescent lighting",
+            "rising steam",
+            "visible grease",
+            "neon glow",
+            "dramatic spotlights"
+        ]
+    }
+}
