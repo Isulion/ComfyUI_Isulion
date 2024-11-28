@@ -61,6 +61,7 @@ from .theme_handlers.vintage_anthropomorphic_handler import VintageAnthropomorph
 from .theme_handlers.selfie_handler import SelfieThemeHandler
 from .theme_handlers.street_food_kebab_handler import StreetFoodKebabThemeHandler
 from .theme_handlers.puzzle_dimension_handler import PuzzleDimensionThemeHandler
+from .theme_handlers.character_designer_handler import CharacterDesignerThemeHandler
 
 class MegaPromptV3:
     """
@@ -90,6 +91,7 @@ class MegaPromptV3:
             "🎬 Cinema Studio": "cinema_studio",
             "🏺 Clay Art": "clay_art",
             "📚 Comic Book": "comic_book",
+            "👤 Character Designer": "character_designer",
             "🎨 Concept Art": "concept_art",
             "🖍️ Crayon Art": "crayon_art",
             "💎 Crystalpunk": "crystalpunk",
@@ -153,6 +155,7 @@ class MegaPromptV3:
             "cinema_studio": CinemaStudioThemeHandler(self.config_manager),
             "clay_art": ClayArtThemeHandler(self.config_manager),
             "comic_book": ComicBookThemeHandler(self.config_manager),
+            "character_designer": CharacterDesignerThemeHandler(self.config_manager),
             "concept_art": ConceptArtThemeHandler(self.config_manager),
             "crayon_art": CrayonArtThemeHandler(self.config_manager),
             "crystalpunk": CrystalpunkThemeHandler(self.config_manager),
@@ -220,6 +223,7 @@ class MegaPromptV3:
                     "🎬 Cinema Studio",
                     "🏺 Clay Art",
                     "📚 Comic Book",
+                    "👤 Character Designer",
                     "🎨 Concept Art",
                     "🖍️ Crayon Art",
                     "💎 Crystalpunk",
