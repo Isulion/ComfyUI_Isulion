@@ -85,6 +85,7 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
 
     def get_character_types(self) -> List[str]:
         return [
+            # Fantasy/Historical Types
             "noble person", "common folk", "warrior",
             "scholar", "artist", "merchant",
             "adventurer", "royal figure", "mystic",
@@ -100,11 +101,23 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
             "shaman", "necromancer", "illusionist",
             "summoner", "enchanter", "assassin",
             "gladiator", "pirate", "ninja",
-            "samurai", "viking", "crusader"
+            "samurai", "viking", "crusader",
+            # Modern Types
+            "entrepreneur", "scientist", "programmer",
+            "artist", "influencer", "athlete",
+            "chef", "designer", "journalist",
+            "activist", "researcher", "executive",
+            "educator", "filmmaker", "musician",
+            "photographer", "architect", "engineer",
+            "doctor", "lawyer", "pilot",
+            "astronaut", "detective", "firefighter",
+            "police officer", "paramedic", "psychologist",
+            "veterinarian", "environmentalist", "curator"
         ]
 
     def get_professions(self) -> List[str]:
         return [
+            # Historical Professions
             "master blacksmith", "royal advisor", "skilled physician",
             "renowned artist", "master chef", "expert navigator",
             "master architect", "skilled merchant", "royal guard",
@@ -115,7 +128,18 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
             "skilled shipwright", "master perfumer", "expert siege engineer",
             "court jester", "master vintner", "skilled animal trainer",
             "expert geologist", "master clockmaker", "royal food taster",
-            "skilled linguist", "master calligrapher", "expert mathematician"
+            "skilled linguist", "master calligrapher", "expert mathematician",
+            # Modern Professions
+            "AI researcher", "blockchain developer", "quantum physicist",
+            "cybersecurity expert", "data scientist", "UX designer",
+            "robotics engineer", "biotech researcher", "space engineer",
+            "neuroscientist", "ethical hacker", "game developer",
+            "sustainability consultant", "drone operator", "VR architect",
+            "genetic counselor", "digital artist", "social media strategist",
+            "machine learning specialist", "renewable energy expert", "3D printing engineer",
+            "cryptocurrency analyst", "cloud architect", "bioinformatician",
+            "telemedicine physician", "space tourism guide", "synthetic biologist",
+            "quantum computing researcher", "augmented reality designer", "neural interface developer"
         ]
 
     def get_role_descriptions(self) -> List[str]:
@@ -129,15 +153,25 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
 
     def get_historical_periods(self) -> List[str]:
         return [
+            # Historical Periods
             "Medieval", "Renaissance", "Victorian",
             "Ancient Roman", "Ancient Egyptian", "Byzantine",
             "Baroque", "Rococo", "Art Nouveau",
             "Ancient Greek", "Tudor", "Gothic",
-            "Belle Époque", "Edwardian", "Regency"
+            "Belle Époque", "Edwardian", "Regency",
+            # Modern Periods
+            "1920s", "1930s", "1940s",
+            "1950s", "1960s", "1970s",
+            "1980s", "1990s", "2000s",
+            "2010s", "2020s", "Contemporary",
+            # Future-Inspired
+            "Near Future", "Cyberpunk", "Post-Cyberpunk",
+            "Solarpunk", "Atompunk", "Dieselpunk"
         ]
 
     def get_outfits(self, era: str) -> List[str]:
         base_outfits = {
+            # Historical Era Outfits
             "Medieval": [
                 "ornate royal garments", "noble court dress",
                 "decorated armor", "merchant's fine clothing",
@@ -173,8 +207,36 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
                 "emperor's opulent robes", "aristocrat's silk garments",
                 "clergy's ornate vestments", "merchant's fine clothing",
                 "soldier's lamellar armor", "commoner's simple tunic"
+            ],
+            # Modern Era Outfits
+            "Contemporary": [
+                "business casual attire", "smart casual ensemble",
+                "tech company casual", "creative professional outfit",
+                "startup founder style", "digital nomad wear",
+                "sustainable fashion", "minimalist clothing",
+                "athleisure ensemble", "modern professional suit"
+            ],
+            "Near Future": [
+                "smart fabric clothing", "biometric suit",
+                "climate-adaptive wear", "tech-integrated outfit",
+                "sustainable bio-fabric", "modular fashion",
+                "augmented reality gear", "eco-conscious attire",
+                "neural interface suit", "smart casual tech-wear"
+            ],
+            "Cyberpunk": [
+                "neon-lit street wear", "high-tech body suit",
+                "cyber-enhanced clothing", "digital punk fashion",
+                "tech-noir ensemble", "neo-tokyo street style",
+                "cybernetic combat gear", "hacker's outfit",
+                "corporate cyber suit", "street samurai wear"
+            ],
+            "Solarpunk": [
+                "sustainable bio-fashion", "solar-powered suit",
+                "eco-tech clothing", "organic tech wear",
+                "living plant clothing", "renewable fashion",
+                "biomimicry outfit", "green tech ensemble",
+                "sustainable luxury wear", "eco-conscious formal"
             ]
-            # Add more era-specific outfits as needed
         }
         return base_outfits.get(era, [
             "elegant formal wear", "professional attire",
@@ -184,6 +246,7 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
 
     def get_accessories(self, era: str) -> List[str]:
         base_accessories = {
+            # Historical Era Accessories
             "Medieval": [
                 "ornate jewelry", "ceremonial sword",
                 "decorated belt", "noble's crown",
@@ -219,6 +282,35 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
                 "jeweled diadem", "ornate pectoral cross",
                 "elaborate belt buckle", "ceremonial orb",
                 "bejeweled book cover", "intricate mosaics"
+            ],
+            # Modern Era Accessories
+            "Contemporary": [
+                "smart watch", "wireless earbuds",
+                "tablet device", "designer bag",
+                "eco-friendly accessories", "tech gadgets",
+                "sustainable jewelry", "digital accessories",
+                "fitness tracker", "modern eyewear"
+            ],
+            "Near Future": [
+                "holographic display", "neural interface",
+                "augmented reality lens", "bio-monitor",
+                "smart jewelry", "tech implants",
+                "digital assistant", "quantum computer",
+                "nano-tech accessories", "biometric scanner"
+            ],
+            "Cyberpunk": [
+                "cyber implants", "neural jack",
+                "holographic HUD", "tech modifications",
+                "digital interface", "neon accessories",
+                "cybernetic enhancements", "data port",
+                "augmented reality mods", "tech weapons"
+            ],
+            "Solarpunk": [
+                "living jewelry", "solar accessories",
+                "bio-luminescent items", "sustainable tech",
+                "organic gadgets", "eco-smart wear",
+                "renewable power cells", "natural tech",
+                "bio-integrated devices", "green energy tools"
             ]
         }
         return base_accessories.get(era, [
@@ -228,13 +320,43 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
         ])
 
     def get_settings(self, era: str, profession: str) -> List[str]:
-        return [
-            f"{era} royal court", f"{era} grand palace",
-            f"{era} noble estate", f"{era} guild hall",
-            f"{era} workshop", f"{era} marketplace",
-            f"{era} garden", f"{era} library",
-            f"{era} cathedral", f"{era} city street"
+        modern_settings = [
+            "high-tech office", "startup incubator",
+            "research laboratory", "digital studio",
+            "innovation hub", "tech campus",
+            "sustainable building", "smart city street",
+            "virtual reality space", "eco-friendly complex",
+            "modern university", "creative workspace",
+            "urban rooftop garden", "smart home interior",
+            "renewable energy facility", "digital art gallery",
+            "modern medical center", "space research facility"
         ]
+        
+        future_settings = [
+            "vertical city", "space colony",
+            "underwater metropolis", "floating city",
+            "biodome complex", "orbital station",
+            "eco-arcology", "quantum research lab",
+            "cyber-enhanced city", "virtual reality hub",
+            "solar punk paradise", "tech noir cityscape",
+            "neo-tokyo streets", "mars settlement",
+            "artificial habitat", "digital dimension"
+        ]
+        
+        if era in ["Contemporary", "2020s", "Near Future"]:
+            return modern_settings
+        elif era in ["Cyberpunk", "Solarpunk", "Post-Cyberpunk"]:
+            return future_settings
+        else:
+            return [
+                f"{era} {setting}" for setting in [
+                    "royal court", "grand palace",
+                    "noble estate", "guild hall",
+                    "workshop", "marketplace",
+                    "garden", "library",
+                    "cathedral", "city street"
+                ]
+            ]
 
     def get_times_of_day(self) -> List[str]:
         return [
@@ -269,6 +391,7 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
 
     def get_color_palettes(self, era: str) -> List[str]:
         base_palettes = {
+            # Historical Era Palettes
             "Medieval": [
                 "rich jewel tones", "royal colors",
                 "deep medieval hues", "traditional pigments",
@@ -298,6 +421,28 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
                 "mosaic golds", "imperial purples",
                 "rich vermilions", "celestial blues",
                 "emerald greens", "ornate metallic accents"
+            ],
+            # Modern Era Palettes
+            "Contemporary": [
+                "modern minimalist", "tech company colors",
+                "startup vibrancy", "digital age palette",
+                "sustainable earth tones", "smart casual colors",
+                "professional modern", "creative workspace hues"
+            ],
+            "Near Future": [
+                "holographic spectrum", "tech-minimal palette",
+                "bio-digital colors", "smart material hues",
+                "quantum computing glow", "augmented reality tints"
+            ],
+            "Cyberpunk": [
+                "neon noir", "digital punk",
+                "tech-noir contrast", "cyber glow",
+                "matrix green", "digital decay"
+            ],
+            "Solarpunk": [
+                "natural tech blend", "sustainable future",
+                "bio-luminescent", "eco-digital",
+                "organic technology", "renewable energy hues"
             ]
         }
         return base_palettes.get(era, [
