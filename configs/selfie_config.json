@@ -1,0 +1,124 @@
+{
+    "selfie": {
+        "styles": [
+            "casual selfie",
+            "professional portrait",
+            "artistic self-portrait",
+            "lifestyle photo",
+            "candid moment",
+            "fashion selfie",
+            "travel selfie",
+            "mirror selfie",
+            "group selfie",
+            "outdoor selfie"
+        ],
+        "poses": [
+            "natural smile",
+            "candid look",
+            "thoughtful expression",
+            "playful pose",
+            "confident stance",
+            "relaxed posture",
+            "dynamic angle",
+            "profile view",
+            "looking away",
+            "direct gaze"
+        ],
+        "lighting": [
+            "natural light",
+            "golden hour",
+            "soft lighting",
+            "studio lighting",
+            "dramatic shadows",
+            "backlit",
+            "ring light effect",
+            "ambient light",
+            "window light",
+            "outdoor lighting"
+        ],
+        "environments": [
+            "urban setting",
+            "nature background",
+            "indoor space",
+            "scenic location",
+            "minimalist backdrop",
+            "cafe setting",
+            "beach scene",
+            "city streets",
+            "home environment",
+            "travel destination"
+        ],
+        "compositions": [
+            "close-up",
+            "medium shot",
+            "full body",
+            "high angle",
+            "low angle",
+            "rule of thirds",
+            "centered composition",
+            "diagonal framing",
+            "environmental portrait",
+            "artistic framing"
+        ],
+        "moods": [
+            "happy",
+            "casual",
+            "professional",
+            "artistic",
+            "adventurous",
+            "relaxed",
+            "energetic",
+            "contemplative",
+            "confident",
+            "friendly"
+        ],
+        "filters": [
+            "natural look",
+            "vintage effect",
+            "black and white",
+            "warm tones",
+            "cool tones",
+            "high contrast",
+            "soft focus",
+            "film simulation",
+            "matte effect",
+            "vivid colors"
+        ],
+        "accessories": [
+            "sunglasses",
+            "hat",
+            "jewelry",
+            "scarf",
+            "phone visible",
+            "camera visible",
+            "fashion accessories",
+            "bag",
+            "watch",
+            "statement piece"
+        ],
+        "backgrounds": [
+            "blurred background",
+            "architectural elements",
+            "natural scenery",
+            "solid color",
+            "textured wall",
+            "urban landscape",
+            "interior design",
+            "landmark",
+            "geometric patterns",
+            "environmental context"
+        ],
+        "camera_effects": [
+            "depth of field",
+            "motion blur",
+            "lens flare",
+            "bokeh effect",
+            "vignette",
+            "HDR look",
+            "soft glow",
+            "sharp details",
+            "film grain",
+            "color grading"
+        ]
+    }
+}

@@ -12,6 +12,7 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
                 include_effects: str = "yes") -> Dict[str, str]:
         """Generate a detailed character design with various customizable elements."""
         
+        self.debug_print("Generating new prompt...")
         components = {}
         
         # Generate character base
@@ -20,14 +21,23 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
         else:
             base_character = random.choice(self.get_character_types())
         
+        self.debug_print(f"Selected base character: {base_character}")
+        
         # Add profession and role
         profession = random.choice(self.get_professions())
         role_description = random.choice(self.get_role_descriptions())
+        
+        self.debug_print(f"Selected profession: {profession}")
+        self.debug_print(f"Selected role description: {role_description}")
         
         # Generate clothing and accessories
         era = random.choice(self.get_historical_periods())
         outfit = random.choice(self.get_outfits(era))
         accessories = random.choice(self.get_accessories(era))
+        
+        self.debug_print(f"Selected era: {era}")
+        self.debug_print(f"Selected outfit: {outfit}")
+        self.debug_print(f"Selected accessories: {accessories}")
         
         # Combine character elements
         components["subject"] = (
@@ -44,8 +54,13 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
             else:
                 setting = random.choice(self.get_settings(era, profession))
             
+            self.debug_print(f"Selected setting: {setting}")
+            
             time_of_day = random.choice(self.get_times_of_day())
             atmosphere = random.choice(self.get_atmospheres())
+            
+            self.debug_print(f"Selected time of day: {time_of_day}")
+            self.debug_print(f"Selected atmosphere: {atmosphere}")
             
             components["environment"] = (
                 f"in ((detailed {setting})) during {time_of_day}, "
@@ -58,6 +73,10 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
             art_style = random.choice(self.get_art_styles())
             lighting = random.choice(self.get_lighting_styles())
             color_palette = random.choice(self.get_color_palettes(era))
+            
+            self.debug_print(f"Selected art style: {art_style}")
+            self.debug_print(f"Selected lighting: {lighting}")
+            self.debug_print(f"Selected color palette: {color_palette}")
             
             components["style"] = (
                 f"((masterful {art_style})), ((perfect {lighting})), "
@@ -202,163 +221,71 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
         ]
 
     def get_outfits(self, era: str) -> List[str]:
+        """Get era-appropriate outfits."""
         base_outfits = {
-            # Historical Era Outfits
-            "Medieval": [
-                "ornate royal garments", "noble court dress",
-                "decorated armor", "merchant's fine clothing",
-                "guild master's attire", "ceremonial robes",
-                "monk's humble habit", "jester's colorful costume",
-                "knight's polished plate mail", "peasant's simple tunic"
+            "ancient": [
+                "toga with golden trim",
+                "ceremonial robes with sacred symbols",
+                "battle-worn armor with divine markings",
+                "priestly vestments with mystical emblems",
+                "royal garments with historical patterns"
             ],
-            "Renaissance": [
-                "elaborate court costume", "rich merchant's dress",
-                "detailed period gown", "noble's fine doublet",
-                "artistic master's garments", "ceremonial outfit",
-                "scholar's academic robes", "explorer's practical attire",
-                "diplomat's elegant suit", "artisan's work clothes"
+            "medieval": [
+                "ornate plate armor with family crest",
+                "noble's attire with heraldic designs",
+                "wizard's robes with arcane symbols",
+                "ranger's leather with forest patterns",
+                "merchant's fine clothes with guild insignia"
             ],
-            "Victorian": [
-                "formal evening wear", "elaborate day dress",
-                "refined gentleman's suit", "formal military uniform",
-                "sophisticated lady's gown", "professional attire",
-                "industrial worker's outfit", "adventurer's practical gear",
-                "scientist's lab coat", "child's miniature adult clothing"
+            "victorian": [
+                "tailored suit with pocket watch",
+                "elaborate dress with mechanical accents",
+                "inventor's coat with brass fittings",
+                "explorer's outfit with scientific tools",
+                "aristocrat's garments with industrial motifs"
             ],
-            "Ancient Roman": [
-                "senator's toga", "legionnaire's armor",
-                "patrician's fine tunic", "plebeian's simple clothing",
-                "emperor's regal attire", "priestess's ceremonial robes"
+            "modern": [
+                "sleek business suit with tech accessories",
+                "urban streetwear with digital patterns",
+                "tactical gear with smart displays",
+                "designer outfit with LED accents",
+                "professional attire with modern flair"
             ],
-            "Ancient Egyptian": [
-                "pharaoh's ornate regalia", "noble's linen sheath dress",
-                "priest's ceremonial attire", "scribe's simple kilt",
-                "soldier's leather armor", "artisan's practical garment"
+            "futuristic": [
+                "nanotech bodysuit with glowing circuits",
+                "holographic clothing with dynamic patterns",
+                "biomechanical armor with energy cores",
+                "quantum fabric outfit with phase shifts",
+                "plasma-infused suit with force fields"
             ],
-            "Byzantine": [
-                "emperor's opulent robes", "aristocrat's silk garments",
-                "clergy's ornate vestments", "merchant's fine clothing",
-                "soldier's lamellar armor", "commoner's simple tunic"
+            "fantasy": [
+                "enchanted robes with floating runes",
+                "dragonscale armor with magical gems",
+                "fae silk garments with living patterns",
+                "celestial cloth with starlight trim",
+                "shadowweave suit with darkness flows"
             ],
-            # Modern Era Outfits
-            "Contemporary": [
-                "business casual attire", "smart casual ensemble",
-                "tech company casual", "creative professional outfit",
-                "startup founder style", "digital nomad wear",
-                "sustainable fashion", "minimalist clothing",
-                "athleisure ensemble", "modern professional suit"
+            "sci_fi": [
+                "advanced exosuit with AI interface",
+                "zero-g combat armor with thrust units",
+                "xenotech outfit with alien materials",
+                "dimensional shift suit with reality anchors",
+                "quantum phase armor with time dilation"
             ],
-            "Near Future": [
-                "smart fabric clothing", "biometric suit",
-                "climate-adaptive wear", "tech-integrated outfit",
-                "sustainable bio-fabric", "modular fashion",
-                "augmented reality gear", "eco-conscious attire",
-                "neural interface suit", "smart casual tech-wear"
-            ],
-            "Cyberpunk": [
-                "neon-lit street wear", "high-tech body suit",
-                "cyber-enhanced clothing", "digital punk fashion",
-                "tech-noir ensemble", "neo-tokyo street style",
-                "cybernetic combat gear", "hacker's outfit",
-                "corporate cyber suit", "street samurai wear"
-            ],
-            "Solarpunk": [
-                "sustainable bio-fashion", "solar-powered suit",
-                "eco-tech clothing", "organic tech wear",
-                "living plant clothing", "renewable fashion",
-                "biomimicry outfit", "green tech ensemble",
-                "sustainable luxury wear", "eco-conscious formal"
-            ],
-            # Fantasy Realm Outfits
-            "Crystal Age": [
-                "crystalline armor with light-refracting panels",
-                "prismatic ceremonial dress with geometric patterns",
-                "light-weaving robes with crystal inlays",
-                "rainbow-shift battle suit with energy cores",
-                "crystal-matrix formal wear with geometric designs",
-                "light-bending stealth suit with prismatic edges",
-                "crystalline scholar's robes with data crystals",
-                "geometric battle armor with energy conduits",
-                "crystal-core diplomat's attire with light patterns",
-                "prismatic hunter's gear with camouflage crystals",
-                "crystal-tech worker's uniform with tool integration",
-                "light-pattern formal dress with geometric trim"
-            ],
-            "Mist Kingdom": [
-                "fog-woven battle armor with vapor vents",
-                "cloud-silk formal dress with atmospheric controls",
-                "mist-form stealth suit with particle diffusers",
-                "nebula-pattern ceremonial robes with weather nodes",
-                "storm-weave diplomat's attire with pressure regulators",
-                "vapor-phase explorer's gear with condensation cyclers",
-                "cloud-weave scholar's robes with atmospheric sensors",
-                "mist-control battle suit with weather manipulators",
-                "fog-pattern formal wear with humidity regulators",
-                "atmospheric ceremonial armor with pressure plates",
-                "cloud-tech worker's gear with vapor tools",
-                "mist-weave hunter's suit with particle filters"
-            ],
-            "Clockwork Empire": [
-                "mechanical-hybrid formal suit with visible gears",
-                "chronograph battle armor with time dials",
-                "gear-integrated ceremonial robes with moving parts",
-                "time-piece formal dress with clock faces",
-                "mechanism-laden diplomatic attire with brass trim",
-                "clockwork explorer's suit with navigation gears",
-                "mechanical scholar's robes with calculation devices",
-                "gear-core battle suit with power transmission",
-                "chronometer-enhanced formal wear with time displays",
-                "mechanical-tech worker's gear with tool integration",
-                "time-keeping ceremonial armor with hour chimes",
-                "gear-pattern stealth suit with silent mechanisms"
-            ],
-            "Quantum Victorian": [
-                "probability-wave formal suit with quantum patterns",
-                "superposition battle dress with state shifters",
-                "quantum-entangled ceremonial robes with particle effects",
-                "wave-function formal wear with probability displays",
-                "quantum-core diplomatic attire with state indicators",
-                "probability-field explorer's gear with quantum shields",
-                "quantum-enhanced scholar's robes with calculation fields",
-                "wave-collapse battle armor with quantum cores",
-                "quantum-pattern formal dress with state decorations",
-                "probability-tech worker's uniform with quantum tools",
-                "quantum-state ceremonial suit with particle displays",
-                "wave-form stealth gear with quantum camouflage"
-            ],
-            "Mycelium Punk": [
-                "fungal-tech battle suit with living spores",
-                "mycelial network robes with bio-luminescent patterns",
-                "spore-pattern formal wear with growth nodes",
-                "mushroom-hybrid ceremonial dress with living trim",
-                "fungal-growth diplomatic attire with network links",
-                "myco-tech explorer's gear with survival systems",
-                "spore-based scholar's robes with knowledge networks",
-                "fungal-core battle armor with organic defenses",
-                "mycelial-pattern formal suit with living decorations",
-                "mushroom-tech worker's gear with organic tools",
-                "fungal-enhanced ceremonial armor with spore displays",
-                "myco-network stealth suit with camouflage colonies"
-            ],
-            "Forest-Tech": [
-                "living-wood battle armor with growing branches",
-                "leaf-circuit formal dress with data veins",
-                "tree-tech ceremonial robes with flowing sap",
-                "flower-digital diplomatic suit with blooming displays",
-                "root-network explorer's gear with earth sensors",
-                "branch-pattern scholar's robes with knowledge leaves",
-                "forest-matrix battle suit with organic processors",
-                "leaf-core formal wear with photosynthetic panels",
-                "tree-integrated worker's gear with organic tools",
-                "forest-tech ceremonial armor with living wood",
+            "nature": [
+                "living armor made of ancient bark",
+                "flowing robes of woven leaves",
+                "crystal-growth suit with mineral patterns",
                 "root-system stealth suit with earth connection",
                 "flower-pattern formal attire with seasonal shifts"
             ]
         }
         return base_outfits.get(era, [
-            "elegant formal wear", "professional attire",
-            "ceremonial costume", "detailed period clothing",
-            "traditional garments", "refined formal dress"
+            "elegant formal wear",
+            "professional attire",
+            "ceremonial costume",
+            "detailed period clothing",
+            "character-appropriate outfit"
         ])
 
     def get_accessories(self, era: str) -> List[str]:

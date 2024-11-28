@@ -9,95 +9,108 @@ class PixarThemeHandler(BaseThemeHandler):
         super().__init__(config)
         self.theme_config = config.get_config("pixar")
 
+    def _safe_choice(self, key: str, default: str) -> str:
+        """Safely choose a random item from a config list with a default fallback."""
+        items = self.theme_config.get(key, [])
+        result = random.choice(items) if items else default
+        self.debug_print(f"Selected {key}: {result} (from {len(items)} options)")
+        return result
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: str = "yes",
                 include_style: str = "yes",
                 include_effects: str = "yes") -> Dict[str, str]:
-        """Generate sophisticated Pixar-themed components with cinematic quality and emotional depth."""
+        """Generate Pixar-themed components."""
+        self.debug_print("Generating new prompt...")
         components = {}
-        
-        # Generate subject with enhanced Pixar elements
+
+        # Generate subject
         if custom_subject:
-            components["subject"] = (
-                f"((masterfully crafted Pixar-style 3D rendering)) of ((highly detailed {custom_subject})), "
-                f"((perfect character design)), ((authentic Pixar aesthetics)), "
-                f"((expressive features)), ((charming personality)), "
-                f"((perfect character proportions)), ((emotional depth)), "
-                f"((cinematic quality)), ((storytelling excellence)), "
-                f"((professional 3D animation)), ((Pixar movie quality))"
-            )
+            base_character = custom_subject
         else:
-            character = self._get_random_choice("pixar.characters")
-            emotion = self._get_random_choice("pixar.emotions")
-            action = self._get_random_choice("pixar.actions")
-            personality = self._get_random_choice("pixar.personalities")
-            expression = self._get_random_choice("pixar.expressions")
-            components["subject"] = (
-                f"((masterfully crafted Pixar-style 3D rendering)) of ((highly detailed {character})), "
-                f"((showing {emotion} emotion)), ((dynamically {action})), "
-                f"((with {personality} personality)), ((expressing {expression})), "
-                f"((perfect character design)), ((authentic Pixar aesthetics)), "
-                f"((expressive features)), ((charming personality)), "
-                f"((emotional depth)), ((storytelling excellence))"
-            )
+            base_character = self._safe_choice("character_types", "character")
+            
+        self.debug_print(f"Selected base character: {base_character}")
         
-        # Generate environment with enhanced Pixar atmosphere
+        # Add character features
+        expression = self._safe_choice("expressions", "expressive")
+        pose = self._safe_choice("poses", "dynamic pose")
+        emotion = self._safe_choice("emotions", "emotional")
+        
+        self.debug_print(f"Selected expression: {expression}")
+        self.debug_print(f"Selected pose: {pose}")
+        self.debug_print(f"Selected emotion: {emotion}")
+        
+        # Generate personality traits
+        personality = self._safe_choice("personality_traits", "charming")
+        quirk = self._safe_choice("quirks", "unique trait")
+        
+        self.debug_print(f"Selected personality: {personality}")
+        self.debug_print(f"Selected quirk: {quirk}")
+        
+        # Combine character elements
+        components["subject"] = (
+            f"((masterful portrait)) of {base_character}, {personality}, "
+            f"with {expression} expression, in {pose}, showing {emotion} emotion, "
+            f"with {quirk}, ((perfect character design)), ((highly detailed))"
+        )
+        
+        # Add environment if requested
         if include_environment == "yes":
             if custom_location:
-                components["environment"] = (
-                    f"in ((masterfully crafted Pixar-style {custom_location})), "
-                    f"((perfect lighting)), ((rich atmosphere)), "
-                    f"((stunning environment detail)), ((authentic Pixar world)), "
-                    f"((cinematic composition)), ((emotional storytelling)), "
-                    f"((perfect color harmony)), ((dynamic scene)), "
-                    f"((professional 3D environment)), ((movie quality))"
-                )
+                setting = custom_location
             else:
-                setting = self._get_random_choice("pixar.settings")
-                time = self._get_random_choice("pixar.times")
-                weather = self._get_random_choice("pixar.weather")
-                atmosphere = self._get_random_choice("pixar.atmospheres")
-                lighting = self._get_random_choice("pixar.lighting")
-                components["environment"] = (
-                    f"in ((masterfully crafted Pixar-style {setting})), "
-                    f"((during {weather} {time})), ((in {atmosphere} atmosphere)), "
-                    f"((with {lighting})), ((perfect lighting)), ((rich atmosphere)), "
-                    f"((stunning environment detail)), ((authentic Pixar world)), "
-                    f"((cinematic composition)), ((emotional storytelling))"
-                )
+                setting = self._safe_choice("settings", "imaginative setting")
+            
+            self.debug_print(f"Selected setting: {setting}")
+            
+            time_of_day = self._safe_choice("times_of_day", "dramatic lighting")
+            weather = self._safe_choice("weather_conditions", "atmospheric")
+            
+            self.debug_print(f"Selected time of day: {time_of_day}")
+            self.debug_print(f"Selected weather: {weather}")
+            
+            components["environment"] = (
+                f"in ((detailed {setting})) during {time_of_day}, "
+                f"with {weather} conditions, ((perfect environment design))"
+            )
         
-        # Generate style with enhanced Pixar techniques
+        # Add style elements if requested
         if include_style == "yes":
-            style = self._get_random_choice("pixar.styles")
-            technique = self._get_random_choice("pixar.techniques")
-            color = self._get_random_choice("pixar.color_schemes")
-            material = self._get_random_choice("pixar.materials")
+            art_style = self._safe_choice("art_styles", "Pixar animation")
+            lighting = self._safe_choice("lighting_styles", "dramatic lighting")
+            color_palette = self._safe_choice("color_palettes", "vibrant colors")
+            
+            self.debug_print(f"Selected art style: {art_style}")
+            self.debug_print(f"Selected lighting: {lighting}")
+            self.debug_print(f"Selected color palette: {color_palette}")
+            
             components["style"] = (
-                f"((masterful Pixar animation style)), ((professional 3D rendered)), "
-                f"((featuring {style})), ((using {technique})), "
-                f"((with {color} color scheme)), ((perfect {material} materials)), "
-                f"((perfect shading)), ((volumetric lighting)), "
-                f"((subsurface scattering)), ((ray tracing)), "
-                f"((cinematic composition)), ((emotional depth)), "
-                f"((professional color grading)), ((Pixar quality rendering)), "
-                f"8k resolution"
+                f"((masterful {art_style})), ((perfect {lighting})), "
+                f"((beautiful {color_palette})), ((professional quality)), "
+                f"((perfect composition))"
             )
         
-        # Generate effects with enhanced Pixar elements
+        # Add effects if requested
         if include_effects == "yes":
-            effect = self._get_random_choice("pixar.effects")
-            detail = self._get_random_choice("pixar.details")
-            particle = self._get_random_choice("pixar.particles")
-            ambiance = self._get_random_choice("pixar.ambiance")
+            special_effect = self._safe_choice("special_effects", "visual effect")
+            atmosphere = self._safe_choice("atmospheres", "atmospheric")
+            
+            self.debug_print(f"Selected special effect: {special_effect}")
+            self.debug_print(f"Selected atmosphere: {atmosphere}")
+            
             components["effects"] = (
-                f"with ((masterful {effect})), ((perfect visual effects)), "
-                f"((featuring {detail})), ((with {particle} particles)), "
-                f"((in {ambiance} ambiance)), ((emotional depth)), "
-                f"((Pixar magic)), ((storytelling excellence)), "
-                f"((perfect lighting)), ((cinematic atmosphere)), "
-                f"((professional rendering)), ((movie quality))"
+                f"((dramatic {special_effect})), (({atmosphere})), "
+                f"((cinematic quality)), ((perfect rendering))"
             )
+        
+        # Add negative prompt
+        components["negative"] = ", ".join([
+            "anime", "manga", "cartoon", "dreamworks style", "disney style",
+            "low quality", "blurry", "distorted", "deformed",
+            "bad art", "amateur", "poorly drawn"
+        ])
         
         return components
 

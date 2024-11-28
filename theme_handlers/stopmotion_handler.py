@@ -1,5 +1,6 @@
 import random
 from .base_handler import BaseThemeHandler
+from typing import Dict
 
 class StopMotionThemeHandler(BaseThemeHandler):
     def __init__(self, config):
@@ -81,3 +82,109 @@ class StopMotionThemeHandler(BaseThemeHandler):
 
     def get_negative_prompt(self):
         return "smooth 3D, CGI, digital animation, realistic textures, photorealistic, modern rendering, perfect surfaces, high detail, sharp edges, digital effects"
+
+    def _safe_choice(self, key: str, default: str) -> str:
+        """Safely choose a random item from a config list with a default fallback."""
+        items = self.theme_config.get(key, [])
+        result = random.choice(items) if items else default
+        self.debug_print(f"[DEBUG] {self.__class__.__name__} - Selected {key}: {result} (from {len(items)} options)")
+        return result
+
+    def generate(self, custom_subject: str = "",
+                custom_location: str = "",
+                include_environment: str = "yes",
+                include_style: str = "yes",
+                include_effects: str = "yes") -> Dict[str, str]:
+        """Generate stop-motion themed components."""
+        self.debug_print("Generating new prompt...")
+        components = {}
+
+        # Generate subject
+        if custom_subject:
+            base_character = custom_subject
+        else:
+            base_character = self._safe_choice("character_types", "character")
+            
+        self.debug_print(f"Selected base character: {base_character}")
+        
+        # Add character features
+        material = self._safe_choice("materials", "clay")
+        texture = self._safe_choice("textures", "textured")
+        detail = self._safe_choice("details", "intricate")
+        
+        self.debug_print(f"Selected material: {material}")
+        self.debug_print(f"Selected texture: {texture}")
+        self.debug_print(f"Selected detail: {detail}")
+        
+        # Generate pose and expression
+        pose = self._safe_choice("poses", "dynamic pose")
+        expression = self._safe_choice("expressions", "expressive")
+        
+        self.debug_print(f"Selected pose: {pose}")
+        self.debug_print(f"Selected expression: {expression}")
+        
+        # Combine character elements
+        components["subject"] = (
+            f"((masterful stop-motion)) of {base_character}, made of {material}, "
+            f"with {texture} texture, {detail} details, in {pose}, "
+            f"with {expression} expression, ((perfect character design)), "
+            f"((highly detailed))"
+        )
+        
+        # Add environment if requested
+        if include_environment == "yes":
+            if custom_location:
+                setting = custom_location
+            else:
+                setting = self._safe_choice("settings", "miniature set")
+            
+            self.debug_print(f"Selected setting: {setting}")
+            
+            prop = self._safe_choice("props", "handcrafted prop")
+            atmosphere = self._safe_choice("atmospheres", "atmospheric")
+            
+            self.debug_print(f"Selected prop: {prop}")
+            self.debug_print(f"Selected atmosphere: {atmosphere}")
+            
+            components["environment"] = (
+                f"in ((detailed {setting})) with {prop}, "
+                f"((with {atmosphere} atmosphere)), ((perfect set design))"
+            )
+        
+        # Add style elements if requested
+        if include_style == "yes":
+            art_style = self._safe_choice("art_styles", "stop-motion animation")
+            lighting = self._safe_choice("lighting_styles", "dramatic lighting")
+            color_palette = self._safe_choice("color_palettes", "rich colors")
+            
+            self.debug_print(f"Selected art style: {art_style}")
+            self.debug_print(f"Selected lighting: {lighting}")
+            self.debug_print(f"Selected color palette: {color_palette}")
+            
+            components["style"] = (
+                f"((masterful {art_style})), ((perfect {lighting})), "
+                f"((beautiful {color_palette})), ((professional quality)), "
+                f"((perfect composition))"
+            )
+        
+        # Add effects if requested
+        if include_effects == "yes":
+            special_effect = self._safe_choice("special_effects", "practical effect")
+            technique = self._safe_choice("techniques", "stop-motion technique")
+            
+            self.debug_print(f"Selected special effect: {special_effect}")
+            self.debug_print(f"Selected technique: {technique}")
+            
+            components["effects"] = (
+                f"((dramatic {special_effect})), ((masterful {technique})), "
+                f"((stop-motion excellence)), ((perfect craftsmanship))"
+            )
+        
+        # Add negative prompt
+        components["negative"] = ", ".join([
+            "3D animation", "CGI", "digital art", "smooth texture",
+            "low quality", "blurry", "distorted", "deformed",
+            "bad art", "amateur", "poorly crafted"
+        ])
+        
+        return components

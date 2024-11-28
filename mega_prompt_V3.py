@@ -62,6 +62,10 @@ from .theme_handlers.selfie_handler import SelfieThemeHandler
 from .theme_handlers.street_food_kebab_handler import StreetFoodKebabThemeHandler
 from .theme_handlers.puzzle_dimension_handler import PuzzleDimensionThemeHandler
 from .theme_handlers.character_designer_handler import CharacterDesignerThemeHandler
+from .theme_handlers.stopmotion_handler import StopMotionThemeHandler
+from .theme_handlers.disney_handler import DisneyThemeHandler
+from .theme_handlers.dreamworks_handler import DreamworksThemeHandler
+from .theme_handlers.interior_spaces_handler import InteriorSpacesThemeHandler
 
 class MegaPromptV3:
     """
@@ -99,6 +103,8 @@ class MegaPromptV3:
             "🍳 Culinary/Food": "culinary_food",
             "👗 Curvy Fashion": "curvy_fashion",
             "💻 Digital Art": "digital_art",
+            "🎡 Disney": "disney",
+            "🎬 Dreamworks": "dreamworks",
             "💠 Dimension 3D": "dimension_3d",
             "✨ Enchanted Fantasy": "enchanted_fantasy",
             "📸 Essential Realistic": "essential_realistic",
@@ -114,6 +120,7 @@ class MegaPromptV3:
             "🎃 Halloween": "halloween",
             "👻 Halloween Ethereal": "halloween_ethereal",
             "👻 Horror": "horror",
+            "🏠 Interior Spaces": "interior_spaces",
             "🎨 Impressionist": "impressionist",
             "📱 Instagram": "instagram",
             "📱 Instagram Lifestyle": "instagram_lifestyle",
@@ -129,6 +136,7 @@ class MegaPromptV3:
             "🚀 Sci-Fi": "scifi",
             "📚 School Manga": "school_manga",
             "📱 Selfie": "selfie",
+            "🎭 Stop Motion": "stopmotion",
             "🚀 Star Wars": "star_wars",
             "⚙️ Steampunk": "steampunk",
             "🥙 Street Food Kebab": "street_food_kebab",
@@ -163,6 +171,8 @@ class MegaPromptV3:
             "culinary_food": CulinaryFoodThemeHandler(self.config_manager),
             "curvy_fashion": CurvyFashionThemeHandler(self.config_manager),
             "digital_art": DigitalArtThemeHandler(self.config_manager),
+            "disney": DisneyThemeHandler(self.config_manager),
+            "dreamworks": DreamworksThemeHandler(self.config_manager),
             "dimension_3d": Dimension3DThemeHandler(self.config_manager),
             "enchanted_fantasy": EnchantedFantasyThemeHandler(self.config_manager),
             "essential_realistic": EssentialRealisticThemeHandler(self.config_manager),
@@ -181,6 +191,7 @@ class MegaPromptV3:
             "impressionist": ImpressionistThemeHandler(self.config_manager),
             "instagram": InstagramThemeHandler(self.config_manager),
             "instagram_lifestyle": InstagramLifestyleThemeHandler(self.config_manager),
+            "interior_spaces": InteriorSpacesThemeHandler(self.config_manager),
             "logo": LogoThemeHandler(self.config_manager),
             "manga_panel": MangaPanelThemeHandler(self.config_manager),
             "marvel": MarvelThemeHandler(self.config_manager),
@@ -195,6 +206,7 @@ class MegaPromptV3:
             "selfie": SelfieThemeHandler(self.config_manager),
             "star_wars": StarWarsThemeHandler(self.config_manager),
             "steampunk": SteampunkThemeHandler(self.config_manager),
+            "stopmotion": StopMotionThemeHandler(self.config_manager),
             "underwater_civilization": UnderwaterCivilizationThemeHandler(self.config_manager),
             "urban_tag": UrbanTagThemeHandler(self.config_manager),
             "village_world": VillageWorldThemeHandler(self.config_manager),
@@ -231,6 +243,8 @@ class MegaPromptV3:
                     "🍳 Culinary/Food",
                     "👗 Curvy Fashion",
                     "💻 Digital Art",
+                    "🎡 Disney",
+                    "🎬 Dreamworks",
                     "💠 Dimension 3D",
                     "✨ Enchanted Fantasy",
                     "📸 Essential Realistic",
@@ -246,6 +260,7 @@ class MegaPromptV3:
                     "🎃 Halloween",
                     "👻 Halloween Ethereal",
                     "👻 Horror",
+                    "🏠 Interior Spaces",
                     "🎨 Impressionist",
                     "📱 Instagram",
                     "📱 Instagram Lifestyle",
@@ -261,6 +276,7 @@ class MegaPromptV3:
                     "🚀 Sci-Fi",
                     "📚 School Manga",
                     "📱 Selfie",
+                    "🎭 Stop Motion",
                     "🚀 Star Wars",
                     "⚙️ Steampunk",
                     "🥙 Street Food Kebab",
@@ -272,6 +288,7 @@ class MegaPromptV3:
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
+                "debug_mode": (["off", "on"], {"default": "off"}),
             },
             "optional": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
@@ -291,7 +308,7 @@ class MegaPromptV3:
     def generate(self, theme: str, complexity: str = "detailed", randomize: str = "enable",
                 seed: int = 0, custom_subject: str = "", custom_location: str = "",
                 include_environment: str = "yes", include_style: str = "yes",
-                include_effects: str = "yes") -> Tuple[str, str, str, str, str, int]:
+                include_effects: str = "yes", debug_mode: str = "off") -> Tuple[str, str, str, str, str, int]:
         """Generate a prompt based on the given parameters."""
         try:
             # Set seed if randomization is disabled
@@ -312,6 +329,9 @@ class MegaPromptV3:
             handler = self.handlers.get(internal_theme)
             if not handler:
                 raise ValueError(f"No handler found for theme {internal_theme}")
+            
+            # Set debug mode
+            handler.set_debug(debug_mode == "on")
             
             # Generate components - no fallback needed as handlers should handle their own errors
             components = handler.generate(
