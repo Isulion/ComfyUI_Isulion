@@ -60,6 +60,7 @@ from .theme_handlers.village_world_handler import VillageWorldThemeHandler
 from .theme_handlers.vintage_anthropomorphic_handler import VintageAnthropomorphicThemeHandler
 from .theme_handlers.selfie_handler import SelfieThemeHandler
 from .theme_handlers.street_food_kebab_handler import StreetFoodKebabThemeHandler
+from .theme_handlers.puzzle_dimension_handler import PuzzleDimensionThemeHandler
 
 class MegaPromptV3:
     """
@@ -122,17 +123,18 @@ class MegaPromptV3:
             "🕴️‍♂️ Peaky Blinders": "peaky_blinders",
             "💫 Pixar": "pixar",
             "🌪️ Post Apocalyptic": "post_apocalyptic",
+            "🧩 Puzzle Dimension": "puzzle_dimension",
             "🚀 Sci-Fi": "scifi",
             "📚 School Manga": "school_manga",
             "📱 Selfie": "selfie",
             "🚀 Star Wars": "star_wars",
             "⚙️ Steampunk": "steampunk",
+            "🥙 Street Food Kebab": "street_food_kebab",
             "🌊 Underwater Civilization": "underwater_civilization",
             "🏙️ Urban Tag": "urban_tag",
             "🏠 Village World": "village_world",
             "👴 Vintage Anthropomorphic": "vintage_anthropomorphic",
-            "🎨 Watercolor": "watercolor",
-            "🥙 Street Food Kebab": "street_food_kebab"
+            "🎨 Watercolor": "watercolor"
         }
     
     def _init_theme_handlers(self):
@@ -184,6 +186,7 @@ class MegaPromptV3:
             "peaky_blinders": PeakyBlindersThemeHandler(self.config_manager),
             "pixar": PixarThemeHandler(self.config_manager),
             "post_apocalyptic": PostApocalypticThemeHandler(self.config_manager),
+            "puzzle_dimension": PuzzleDimensionThemeHandler(self.config_manager),
             "scifi": SciFiThemeHandler(self.config_manager),
             "school_manga": SchoolMangaThemeHandler(self.config_manager),
             "selfie": SelfieThemeHandler(self.config_manager),
@@ -250,6 +253,7 @@ class MegaPromptV3:
                     "🕴️‍♂️ Peaky Blinders",
                     "💫 Pixar",
                     "🌪️ Post Apocalyptic",
+                    "🧩 Puzzle Dimension",
                     "🚀 Sci-Fi",
                     "📚 School Manga",
                     "📱 Selfie",
