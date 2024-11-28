@@ -22,6 +22,7 @@ from .scene_nodes.isulion_scene_composition import IsulionSceneComposition
 from .character_nodes.isulion_profession_generator import IsulionProfessionGenerator
 from .character_nodes.isulion_fantasy_race_generator import IsulionFantasyRaceGenerator
 from .character_nodes.isulion_clothing_generator import IsulionClothingGenerator
+from .character_nodes.isulion_epoch_generator import IsulionEpochGenerator
 from .fantasy_nodes.isulion_magical_effect_generator import IsulionMagicalEffectGenerator
 from .fantasy_nodes.isulion_mythical_location_generator import IsulionMythicalLocationGenerator
 from .fantasy_nodes.isulion_artifact_generator import IsulionArtifactGenerator
@@ -64,7 +65,8 @@ NODE_CLASS_MAPPINGS = {
     "IsulionMegaPromptGenerator": IsulionMegaPromptGenerator,
     "MegaPromptV3": MegaPromptV3,
     "IsuCollage_Node": IsuCollageNode,
-    "IsulionLoadImagesNode": IsulionLoadImagesNode
+    "IsulionLoadImagesNode": IsulionLoadImagesNode,
+    "IsulionEpochGenerator": IsulionEpochGenerator
 }
 
 # Display name mappings
@@ -95,7 +97,8 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionNegativePromptGenerator": "Isulion Negative Prompt Generator",
     "IsulionMegaPromptGenerator": "Isulion Mega Prompt Generator",
     "IsuCollage_Node": "Isulion Image Collage",
-    "IsulionLoadImagesNode": "Isulion Load Images from Directory"
+    "IsulionLoadImagesNode": "Isulion Load Images from Directory",
+    "IsulionEpochGenerator": "Isulion Epoch Generator"
 }
 
 # Web directory for UI elements
