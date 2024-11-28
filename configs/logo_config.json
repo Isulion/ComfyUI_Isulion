@@ -107,6 +107,42 @@
             "debossed",
             "holographic",
             "satin"
+        ],
+        "3d_styles": [
+            "metallic",
+            "glossy",
+            "matte",
+            "crystal",
+            "glass",
+            "chrome",
+            "holographic",
+            "iridescent",
+            "brushed metal",
+            "polished stone"
+        ],
+        "3d_effects": [
+            "reflection",
+            "metallic sheen",
+            "glass refraction",
+            "ambient occlusion",
+            "volumetric lighting",
+            "subsurface scattering",
+            "beveled edges",
+            "depth mapping",
+            "environment mapping",
+            "specular highlights"
+        ],
+        "character_effects": [
+            "sparkle",
+            "glow",
+            "soft shadow",
+            "highlight",
+            "twinkling",
+            "shimmer",
+            "stardust",
+            "aura",
+            "glitter",
+            "radiance"
         ]
     }
 }

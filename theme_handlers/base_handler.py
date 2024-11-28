@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
-from typing import Dict, Optional
+from typing import Dict, Optional, List
+import random
 
 class BaseThemeHandler(ABC):
     """Base class for all theme handlers."""
@@ -60,7 +61,7 @@ class BaseThemeHandler(ABC):
             key_parts = config_key.split('.')
             last_part = key_parts[-1]
             return defaults.get(last_part, "element")
-        return self.config.random.choice(choices)
+        return random.choice(choices)
 
     def _get_safe_random_choice(self, config_key: str, default_value: str) -> str:
         """Get a random choice from configuration list with a default fallback.
@@ -78,3 +79,40 @@ class BaseThemeHandler(ABC):
         except Exception as e:
             print(f"Warning: Could not get random choice for {config_key}: {str(e)}")
             return default_value
+
+    def _get_random_choices(self, config_key: str, count: int = 1) -> List[str]:
+        """Get multiple random choices from configuration list.
+        
+        Args:
+            config_key (str): Key to access in configuration
+            count (int): Number of choices to return
+            
+        Returns:
+            List[str]: List of random choices from the configuration list
+        """
+        choices = self.config.get_config(config_key)
+        if not choices:
+            # Default values for different types of configurations
+            defaults = {
+                "characters": ["character"],
+                "outfits": ["outfit"],
+                "poses": ["pose"],
+                "expressions": ["expression"],
+                "emotions": ["emotion"],
+                "locations": ["location"],
+                "styles": ["style"],
+                "effects": ["effect"],
+            }
+            # Try to find defaults based on the last part of the config key
+            key_parts = config_key.split(".")
+            if key_parts:
+                for default_key in defaults:
+                    if default_key in key_parts[-1]:
+                        return defaults[default_key] * count
+            return ["default"] * count
+        
+        # If we don't have enough choices, repeat them to meet the count
+        if len(choices) < count:
+            choices = choices * (count // len(choices) + 1)
+        
+        return random.sample(choices, count)
