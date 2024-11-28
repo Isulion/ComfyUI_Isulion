@@ -166,7 +166,39 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
             "2010s", "2020s", "Contemporary",
             # Future-Inspired
             "Near Future", "Cyberpunk", "Post-Cyberpunk",
-            "Solarpunk", "Atompunk", "Dieselpunk"
+            "Solarpunk", "Atompunk", "Dieselpunk",
+            # Fantasy Realms
+            "Crystal Age", "Mist Kingdom",
+            "Clockwork Empire", "Dream Realm",
+            "Ethereal Dynasty", "Void Society",
+            # Alternative History
+            "Steam Victorian", "Diesel Renaissance",
+            "Atomic Medieval", "Electric Baroque",
+            "Quantum Victorian", "Neon Gothic",
+            # Elemental Civilizations
+            "Aqua Society", "Terra Kingdom",
+            "Aether Empire", "Flame Dynasty",
+            "Crystal Republic", "Storm Nation",
+            # Fusion Cultures
+            "Cyber-Feudal", "Bio-Victorian",
+            "Quantum-Medieval", "Techno-Egyptian",
+            "Neo-Byzantium", "Solar-Gothic",
+            # Conceptual Ages
+            "Harmonic Era", "Quantum Age",
+            "Dream Epoch", "Mythic Modern",
+            "Cosmic Victorian", "Ethereal Future",
+            # Nature-Tech Fusion
+            "Mycelium Punk", "Coral Society",
+            "Forest-Tech", "Crystal-Digital",
+            "Bio-Luminescent Era", "Quantum Nature",
+            # Abstract Concepts
+            "Fractal Society", "Geometric Age",
+            "Paradox Era", "Quantum Dream",
+            "Probability Kingdom", "Dimension Flux",
+            # Elemental Tech
+            "Hydro-Digital", "Geo-Tech",
+            "Aero-Punk", "Pyro-Future",
+            "Crystal-Pulse", "Plasma Age"
         ]
 
     def get_outfits(self, era: str) -> List[str]:
@@ -236,6 +268,91 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
                 "living plant clothing", "renewable fashion",
                 "biomimicry outfit", "green tech ensemble",
                 "sustainable luxury wear", "eco-conscious formal"
+            ],
+            # Fantasy Realm Outfits
+            "Crystal Age": [
+                "crystalline armor with light-refracting panels",
+                "prismatic ceremonial dress with geometric patterns",
+                "light-weaving robes with crystal inlays",
+                "rainbow-shift battle suit with energy cores",
+                "crystal-matrix formal wear with geometric designs",
+                "light-bending stealth suit with prismatic edges",
+                "crystalline scholar's robes with data crystals",
+                "geometric battle armor with energy conduits",
+                "crystal-core diplomat's attire with light patterns",
+                "prismatic hunter's gear with camouflage crystals",
+                "crystal-tech worker's uniform with tool integration",
+                "light-pattern formal dress with geometric trim"
+            ],
+            "Mist Kingdom": [
+                "fog-woven battle armor with vapor vents",
+                "cloud-silk formal dress with atmospheric controls",
+                "mist-form stealth suit with particle diffusers",
+                "nebula-pattern ceremonial robes with weather nodes",
+                "storm-weave diplomat's attire with pressure regulators",
+                "vapor-phase explorer's gear with condensation cyclers",
+                "cloud-weave scholar's robes with atmospheric sensors",
+                "mist-control battle suit with weather manipulators",
+                "fog-pattern formal wear with humidity regulators",
+                "atmospheric ceremonial armor with pressure plates",
+                "cloud-tech worker's gear with vapor tools",
+                "mist-weave hunter's suit with particle filters"
+            ],
+            "Clockwork Empire": [
+                "mechanical-hybrid formal suit with visible gears",
+                "chronograph battle armor with time dials",
+                "gear-integrated ceremonial robes with moving parts",
+                "time-piece formal dress with clock faces",
+                "mechanism-laden diplomatic attire with brass trim",
+                "clockwork explorer's suit with navigation gears",
+                "mechanical scholar's robes with calculation devices",
+                "gear-core battle suit with power transmission",
+                "chronometer-enhanced formal wear with time displays",
+                "mechanical-tech worker's gear with tool integration",
+                "time-keeping ceremonial armor with hour chimes",
+                "gear-pattern stealth suit with silent mechanisms"
+            ],
+            "Quantum Victorian": [
+                "probability-wave formal suit with quantum patterns",
+                "superposition battle dress with state shifters",
+                "quantum-entangled ceremonial robes with particle effects",
+                "wave-function formal wear with probability displays",
+                "quantum-core diplomatic attire with state indicators",
+                "probability-field explorer's gear with quantum shields",
+                "quantum-enhanced scholar's robes with calculation fields",
+                "wave-collapse battle armor with quantum cores",
+                "quantum-pattern formal dress with state decorations",
+                "probability-tech worker's uniform with quantum tools",
+                "quantum-state ceremonial suit with particle displays",
+                "wave-form stealth gear with quantum camouflage"
+            ],
+            "Mycelium Punk": [
+                "fungal-tech battle suit with living spores",
+                "mycelial network robes with bio-luminescent patterns",
+                "spore-pattern formal wear with growth nodes",
+                "mushroom-hybrid ceremonial dress with living trim",
+                "fungal-growth diplomatic attire with network links",
+                "myco-tech explorer's gear with survival systems",
+                "spore-based scholar's robes with knowledge networks",
+                "fungal-core battle armor with organic defenses",
+                "mycelial-pattern formal suit with living decorations",
+                "mushroom-tech worker's gear with organic tools",
+                "fungal-enhanced ceremonial armor with spore displays",
+                "myco-network stealth suit with camouflage colonies"
+            ],
+            "Forest-Tech": [
+                "living-wood battle armor with growing branches",
+                "leaf-circuit formal dress with data veins",
+                "tree-tech ceremonial robes with flowing sap",
+                "flower-digital diplomatic suit with blooming displays",
+                "root-network explorer's gear with earth sensors",
+                "branch-pattern scholar's robes with knowledge leaves",
+                "forest-matrix battle suit with organic processors",
+                "leaf-core formal wear with photosynthetic panels",
+                "tree-integrated worker's gear with organic tools",
+                "forest-tech ceremonial armor with living wood",
+                "root-system stealth suit with earth connection",
+                "flower-pattern formal attire with seasonal shifts"
             ]
         }
         return base_outfits.get(era, [
@@ -311,6 +428,91 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
                 "organic gadgets", "eco-smart wear",
                 "renewable power cells", "natural tech",
                 "bio-integrated devices", "green energy tools"
+            ],
+            # Fantasy Realm Accessories
+            "Crystal Age": [
+                "prismatic crown with energy focusing gems",
+                "light-bending amulet with rainbow refraction",
+                "crystal-core power source with geometric patterns",
+                "light-weaving tools with prismatic edges",
+                "crystal matrix interface with data storage",
+                "geometric shield generator with energy fields",
+                "rainbow-shift communicator with light signals",
+                "crystal-tech weapon with energy focusing",
+                "light-pattern scanner with analysis crystals",
+                "prismatic meditation device with focus gems",
+                "crystal-core data storage with memory matrix",
+                "light-bending stealth device with cloaking crystals"
+            ],
+            "Mist Kingdom": [
+                "cloud-form crown with weather control",
+                "mist-weaver amulet with vapor manipulation",
+                "fog-phase communicator with particle transmission",
+                "atmospheric controller with pressure regulation",
+                "mist-tech scanner with particle analysis",
+                "weather-manipulation device with storm control",
+                "vapor-phase shield with particle defense",
+                "cloud-tech weapon with condensation control",
+                "mist-pattern analyzer with humidity sensing",
+                "fog-core navigation device with particle tracking",
+                "cloud-form meditation aid with atmospheric harmony",
+                "mist-weaving tool with vapor shaping"
+            ],
+            "Clockwork Empire": [
+                "mechanical crown with turning gears",
+                "chronograph amulet with time display",
+                "gear-work compass with navigation mechanics",
+                "time-piece calculator with brass workings",
+                "mechanical-core tool set with precision instruments",
+                "clockwork weapon with timing mechanisms",
+                "gear-pattern shield with mechanical defense",
+                "chronometer scanner with time analysis",
+                "mechanical communicator with gear transmission",
+                "time-keeping meditation device with rhythm gears",
+                "gear-core power source with energy transmission",
+                "clockwork augmentation with precision parts"
+            ],
+            "Quantum Victorian": [
+                "probability crown with quantum state display",
+                "wave-function amulet with state manipulation",
+                "quantum-core tool set with probability fields",
+                "superposition scanner with state analysis",
+                "quantum-pattern shield with probability defense",
+                "wave-collapse weapon with quantum targeting",
+                "probability-field generator with state control",
+                "quantum communicator with entangled pairs",
+                "wave-form analyzer with quantum sensing",
+                "quantum meditation device with state harmony",
+                "probability-tech augmentation with quantum cores",
+                "wave-pattern interface with quantum control"
+            ],
+            "Mycelium Punk": [
+                "fungal crown with living network",
+                "mycelial amulet with spore control",
+                "mushroom-core tool set with organic functions",
+                "spore-pattern scanner with life analysis",
+                "fungal-tech shield with living defense",
+                "mycelial weapon with organic targeting",
+                "spore-based communicator with network links",
+                "fungal analyzer with growth sensing",
+                "mushroom meditation aid with network harmony",
+                "mycelial augmentation with living parts",
+                "spore-tech interface with organic control",
+                "fungal-pattern device with colony connection"
+            ],
+            "Forest-Tech": [
+                "living wood crown with growing circuits",
+                "leaf-circuit amulet with data processing",
+                "root-network tool set with earth sensing",
+                "tree-tech scanner with life analysis",
+                "branch-pattern shield with organic defense",
+                "forest-matrix weapon with natural targeting",
+                "leaf-core communicator with photosynthetic power",
+                "root analyzer with earth connection",
+                "tree meditation device with forest harmony",
+                "branch augmentation with living circuits",
+                "leaf-pattern interface with seasonal adaptation",
+                "forest-tech device with ecosystem integration"
             ]
         }
         return base_accessories.get(era, [
@@ -443,6 +645,44 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
                 "natural tech blend", "sustainable future",
                 "bio-luminescent", "eco-digital",
                 "organic technology", "renewable energy hues"
+            ],
+            # Fantasy Realm Palettes
+            "Crystal Age": [
+                "prismatic spectrum", "crystal clear",
+                "rainbow refractions", "geometric light",
+                "pure spectrum", "diamond clarity"
+            ],
+            "Mist Kingdom": [
+                "ethereal fog", "cloud whites",
+                "misty grays", "vapor blues",
+                "atmospheric haze", "nebula shift"
+            ],
+            "Clockwork Empire": [
+                "brass and copper", "mechanical gold",
+                "gear-work bronze", "time-worn silver",
+                "steam-age metals", "chronograph patina"
+            ],
+            # Elemental Civilization Palettes
+            "Aqua Society": [
+                "deep ocean", "coral reef",
+                "tidal blues", "marine depths",
+                "aquatic aurora", "wave patterns"
+            ],
+            "Terra Kingdom": [
+                "crystal growth", "mineral veins",
+                "earth tones", "gem spectrum",
+                "geological layers", "stone patterns"
+            ],
+            # Nature-Tech Fusion Palettes
+            "Mycelium Punk": [
+                "fungal glow", "spore patterns",
+                "mycelial networks", "organic tech",
+                "bio-luminescent", "mushroom spectrum"
+            ],
+            "Forest-Tech": [
+                "living circuits", "digital nature",
+                "leaf patterns", "root networks",
+                "forest matrix", "organic tech blend"
             ]
         }
         return base_palettes.get(era, [
