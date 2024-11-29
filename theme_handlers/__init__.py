@@ -12,6 +12,15 @@ from .horror_handler import HorrorThemeHandler
 from .steampunk_handler import SteampunkThemeHandler
 from .watercolor_handler import WatercolorThemeHandler
 
+# New Holiday Theme Handlers
+from .easter_handler import EasterThemeHandler
+from .valentines_day_handler import ValentinesDayThemeHandler
+from .new_years_eve_handler import NewYearsEveThemeHandler
+from .thanksgiving_handler import ThanksgivingThemeHandler
+from .st_patricks_day_handler import StPatricksDayThemeHandler
+from .dia_de_los_muertos_handler import DiaDeLosmuertosThemeHandler
+from .chinese_new_year_handler import ChineseNewYearThemeHandler
+
 __all__ = [
     'BaseThemeHandler',
     'AbstractThemeHandler',
@@ -23,5 +32,13 @@ __all__ = [
     'GhibliThemeHandler',
     'HorrorThemeHandler',
     'SteampunkThemeHandler',
-    'WatercolorThemeHandler'
+    'WatercolorThemeHandler',
+    # New Holiday Theme Handlers
+    'EasterThemeHandler',
+    'ValentinesDayThemeHandler',
+    'NewYearsEveThemeHandler',
+    'ThanksgivingThemeHandler',
+    'StPatricksDayThemeHandler',
+    'DiaDeLosmuertosThemeHandler',
+    'ChineseNewYearThemeHandler'
 ]

@@ -1,0 +1,72 @@
+{
+    "characters": [
+        "traditional dancer", 
+        "dragon parade performer", 
+        "festive child", 
+        "cultural celebrant", 
+        "lantern festival participant", 
+        "zodiac animal character", 
+        "family gathering member", 
+        "traditional musician"
+    ],
+    "attire": [
+        "traditional Chinese dress", 
+        "red festival clothing", 
+        "zodiac animal costume", 
+        "festive silk outfit", 
+        "cultural celebration attire", 
+        "traditional embroidered clothing", 
+        "red lucky clothing", 
+        "ceremonial costume"
+    ],
+    "props": [
+        "red lantern", 
+        "dragon parade prop", 
+        "traditional fireworks", 
+        "zodiac animal figurine", 
+        "festive decorations", 
+        "traditional musical instrument", 
+        "lucky red envelope", 
+        "cultural celebration items"
+    ],
+    "color_schemes": [
+        "red and gold", 
+        "traditional Chinese palette", 
+        "festive celebration colors", 
+        "zodiac animal tones", 
+        "bright cultural colors", 
+        "lucky red spectrum", 
+        "golden celebration hues", 
+        "vibrant festival palette"
+    ],
+    "settings": [
+        "traditional Chinese street", 
+        "lantern festival", 
+        "family gathering space", 
+        "cultural celebration area", 
+        "traditional temple", 
+        "dragon parade route", 
+        "festive community space", 
+        "traditional Chinese home"
+    ],
+    "lighting": [
+        "lantern glow", 
+        "festive street lights", 
+        "warm celebration illumination", 
+        "traditional festival lighting", 
+        "red and gold illumination", 
+        "soft cultural light", 
+        "ceremonial ambient light", 
+        "vibrant festival lighting"
+    ],
+    "negative_prompts": [
+        "dark colors", 
+        "western settings", 
+        "minimalist design", 
+        "cold environments", 
+        "industrial landscapes", 
+        "non-cultural atmosphere", 
+        "monochrome palette", 
+        "non-festive scenes"
+    ]
+}

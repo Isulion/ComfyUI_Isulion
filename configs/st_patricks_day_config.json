@@ -1,0 +1,72 @@
+{
+    "characters": [
+        "leprechaun", 
+        "Irish dancer", 
+        "Celtic musician", 
+        "green-clad reveler", 
+        "Irish folklore character", 
+        "pub patron", 
+        "Irish storyteller", 
+        "festive parade participant"
+    ],
+    "attire": [
+        "green outfit", 
+        "leprechaun costume", 
+        "Celtic traditional dress", 
+        "shamrock accessories", 
+        "festive green hat", 
+        "Irish dance costume", 
+        "green parade attire", 
+        "Celtic-inspired clothing"
+    ],
+    "props": [
+        "shamrock", 
+        "pot of gold", 
+        "Irish flag", 
+        "Celtic musical instrument", 
+        "beer mug", 
+        "parade float", 
+        "Celtic cross", 
+        "green decorations"
+    ],
+    "color_schemes": [
+        "emerald green", 
+        "Irish flag colors", 
+        "forest green", 
+        "Celtic palette", 
+        "bright green", 
+        "shamrock tones", 
+        "green and gold", 
+        "Irish landscape colors"
+    ],
+    "settings": [
+        "Irish pub", 
+        "Dublin street", 
+        "Celtic countryside", 
+        "parade route", 
+        "traditional Irish village", 
+        "festival ground", 
+        "green landscape", 
+        "Irish castle grounds"
+    ],
+    "lighting": [
+        "festive green glow", 
+        "parade lighting", 
+        "golden pub light", 
+        "soft Irish sunset", 
+        "celebration illumination", 
+        "warm tavern light", 
+        "festive street lights", 
+        "green-tinted ambient light"
+    ],
+    "negative_prompts": [
+        "winter scenes", 
+        "dark colors", 
+        "industrial settings", 
+        "summer beach", 
+        "minimalist design", 
+        "cold environments", 
+        "urban landscapes", 
+        "non-festive atmosphere"
+    ]
+}

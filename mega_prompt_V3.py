@@ -66,6 +66,13 @@ from .theme_handlers.stopmotion_handler import StopMotionThemeHandler
 from .theme_handlers.disney_handler import DisneyThemeHandler
 from .theme_handlers.dreamworks_handler import DreamworksThemeHandler
 from .theme_handlers.interior_spaces_handler import InteriorSpacesThemeHandler
+from .theme_handlers.easter_handler import EasterThemeHandler
+from .theme_handlers.valentines_day_handler import ValentinesDayThemeHandler
+from .theme_handlers.new_years_eve_handler import NewYearsEveThemeHandler
+from .theme_handlers.thanksgiving_handler import ThanksgivingThemeHandler
+from .theme_handlers.st_patricks_day_handler import StPatricksDayThemeHandler
+from .theme_handlers.dia_de_los_muertos_handler import DiaDeLosmuertosThemeHandler
+from .theme_handlers.chinese_new_year_handler import ChineseNewYearThemeHandler
 
 class MegaPromptV3:
     """
@@ -94,34 +101,40 @@ class MegaPromptV3:
             "🎄 Christmas": "christmas",
             "🎬 Cinema Studio": "cinema_studio",
             "🏺 Clay Art": "clay_art",
-            "📚 Comic Book": "comic_book",
-            "👤 Character Designer": "character_designer",
-            "🎨 Concept Art": "concept_art",
-            "🖍️ Crayon Art": "crayon_art",
-            "💎 Crystalpunk": "crystalpunk",
-            "🌆 Cyberpunk": "cyberpunk",
+            "🖌️ Crayon Art": "crayon_art",
             "🍳 Culinary/Food": "culinary_food",
             "👗 Curvy Fashion": "curvy_fashion",
-            "💻 Digital Art": "digital_art",
-            "🎡 Disney": "disney",
-            "🎬 Dreamworks": "dreamworks",
             "💠 Dimension 3D": "dimension_3d",
+            "🖼️ Digital Art": "digital_art",
             "✨ Enchanted Fantasy": "enchanted_fantasy",
             "📸 Essential Realistic": "essential_realistic",
-            "🕰️ Essential Vintage": "essential_vintage",
-            "💫 Ethereal Dreams": "ethereal_dreams",
+            "💥 Futuristic Battlefield": "futuristic_battlefield",
+            "🌆 Futuristic City Metropolis": "futuristic_city_metropolis",
+            "🚀 Futuristic Sci-Fi": "futuristic_scifi",
+            "🎨 Impressionist": "impressionist",
+            "👻 Halloween Ethereal": "halloween_ethereal",
+            "👻 Horror": "horror",
+            "🐰 Easter": "easter",
+            "💘 Valentine's Day": "valentines_day",
+            "🎆 New Year's Eve": "new_years_eve",
+            "🦃 Thanksgiving": "thanksgiving",
+            "🍀 St. Patrick's Day": "st_patricks_day",
+            "👹 Dia de los Muertos": "dia_de_los_muertos",
+            "🏮 Chinese New Year": "chinese_new_year",
+            "📺 Comic Book": "comic_book",
+            "👤 Character Designer": "character_designer",
+            "🎨 Concept Art": "concept_art",
+            "💎 Crystalpunk": "crystalpunk",
+            "🌆 Cyberpunk": "cyberpunk",
+            "🎡 Disney": "disney",
+            "🎬 Dreamworks": "dreamworks",
+            "✨ Ethereal Dreams": "ethereal_dreams",
             "🔬 Experimental Art": "experimental_art",
             "⚔️ Fantasy": "fantasy",
             "🌃 Futuristic City": "futuristic_city",
-            "⚔️ Futuristic Battlefield": "futuristic_battlefield",
-            "🌆 Futuristic City Metropolis": "futuristic_city_metropolis",
-            "🚀 Futuristic Sci-Fi": "futuristic_scifi",
             "🍃 Ghibli": "ghibli",
             "🎃 Halloween": "halloween",
-            "👻 Halloween Ethereal": "halloween_ethereal",
-            "👻 Horror": "horror",
             "🏠 Interior Spaces": "interior_spaces",
-            "🎨 Impressionist": "impressionist",
             "📱 Instagram": "instagram",
             "📱 Instagram Lifestyle": "instagram_lifestyle",
             "🎯 Logo": "logo",
@@ -212,7 +225,14 @@ class MegaPromptV3:
             "village_world": VillageWorldThemeHandler(self.config_manager),
             "vintage_anthropomorphic": VintageAnthropomorphicThemeHandler(self.config_manager),
             "watercolor": WatercolorThemeHandler(self.config_manager),
-            "street_food_kebab": StreetFoodKebabThemeHandler(self.config_manager)
+            "street_food_kebab": StreetFoodKebabThemeHandler(self.config_manager),
+            "easter": EasterThemeHandler(self.config_manager),
+            "valentines_day": ValentinesDayThemeHandler(self.config_manager),
+            "new_years_eve": NewYearsEveThemeHandler(self.config_manager),
+            "thanksgiving": ThanksgivingThemeHandler(self.config_manager),
+            "st_patricks_day": StPatricksDayThemeHandler(self.config_manager),
+            "dia_de_los_muertos": DiaDeLosmuertosThemeHandler(self.config_manager),
+            "chinese_new_year": ChineseNewYearThemeHandler(self.config_manager)
         }
     
     @classmethod
@@ -284,7 +304,14 @@ class MegaPromptV3:
                     "🏙️ Urban Tag",
                     "🏠 Village World",
                     "👴 Vintage Anthropomorphic",
-                    "🎨 Watercolor"
+                    "🎨 Watercolor",
+                    "🐰 Easter",
+                    "💘 Valentine's Day",
+                    "🎆 New Year's Eve",
+                    "🦃 Thanksgiving",
+                    "🍀 St. Patrick's Day",
+                    "👹 Dia de los Muertos",
+                    "🏮 Chinese New Year"
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),

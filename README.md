@@ -25,53 +25,105 @@ git clone https://github.com/Isulion/ComfyUI_Isulion
 
 ## 🎯 Mega Prompt Generator 🎯
 
-### Supported Themes  
+### Theme Categories
 
-- 🎲 Dynamic Random (Default)
+Here's a categorized overview of all available themes:
+
+#### 1. Art Styles & Techniques
 - 🎨 Abstract
+- 🎨 Concept Art
+- 🖍️ Crayon Art
+- 💻 Digital Art
+- 🎨 Watercolor
+- 🏺 Clay Art
+- ⬜ Minimalist
+- 🎨 Impressionist
+
+#### 2. Animation & Entertainment
 - 📺 Animation Cartoon
 - 🎌 Anime
-- 🏛️ Architectural
+- 🎬 Dreamworks
+- 🎡 Disney
+- 🍃 Ghibli
+- 💫 Pixar
+- 🎭 Stop Motion
+- 📚 Manga Panel
+- 📚 School Manga
+- 🦸 Marvel
+
+
+#### 3. Science Fiction & Fantasy
+- 💎 Crystalpunk
+- 🌆 Cyberpunk
+- 🚀 Futuristic Sci-Fi
+- 🌃 Futuristic City
+- ⚔️ Futuristic Battlefield
+- 🌆 Futuristic City Metropolis
+- 🚀 Sci-Fi
+- 🚀 Star Wars
+- ⚙️ Steampunk
 - 🧬 Bio-Organic Technology
-- 🖼️ Binet Surreal
-- ✏️ Caricature
+- ⚔️ Fantasy
+- ✨ Enchanted Fantasy
+- 🌊 Underwater Civilization
+
+#### 4. Character & Creature Design
+- 👤 Character Designer
+- 😄 Caricature
 - 🦄 Chimera Animals
 - 🐰 Chimera Cute Animals
-- 🎅 Christmas
-- 🎬 Cinema Studio
-- 🏺 Clay Art
-- 🖌️ Crayon Art
-- 🍳 Culinary/Food
 - 👗 Curvy Fashion
-- 💠 Dimension 3D
-- 🖼️ Digital Art
-- ✨ Enchanted Fantasy
-- 📸 Essential Realistic
-- 💥 Futuristic Battlefield
-- 🌆 Futuristic City Metropolis
-- 🚀 Futuristic Sci-Fi
-- 🎨 Impressionist
-- 👻 Halloween Ethereal
-- 🎭 Horror
-- 👙 Instagram Lifestyle
+
+#### 5. Environment & Architecture
+- 🏛️ Architectural
 - 🏠 Interior Spaces
-- 🏷️ Logo
-- 📖 Manga Panel
-- 🦸‍♂️ Marvel Universe
-- 🔬 Microscopic Universe
-- 🎭 Peaky Blinders Style
-- 💫 Pixar Animation
-- ☢️ Post-Apocalyptic Wasteland
-- 🌌 Quantum Weapons
-- 🏫 School Manga
+- 🏙️ Urban Tag
+- 🏠 Village World
+
+#### 6. Special Themes & Occasions
+- 🎄 Christmas
+- 🎃 Halloween
+- 👻 Halloween Ethereal
+- 👻 Horror
+- 🐰 Easter
+- 💘 Valentine's Day
+- 🎆 New Year's Eve
+- 🦃 Thanksgiving
+- 🍀 St. Patrick's Day
+- 👹 Dia de los Muertos
+- 🏮 Chinese New Year
+
+#### 7. Experimental & Unique
+- 🖼️ Binet Surreal
+- 💫 Ethereal Dreams
+- 🔬 Experimental Art
+- 🧩 Puzzle Dimension
+- 💠 Dimension 3D
+- 🔬 Microscopic
+- 🌪️ Post Apocalyptic
+
+#### 8. Photography & Social Media
+- 📸 Essential Realistic
+- 📱 Instagram
+- 📱 Instagram Lifestyle
 - 📱 Selfie
-- 🖤 Star Wars Universe
-- ⚙️ Steampunk Cities
-- 🌸 Studio Ghibli
-- 🌊 Underwater Civilization
-- 🎨 Urban Tag
-- 🏘️ Village Of the World
-- 🧸 Vintage Anthropomorphic
+
+#### 9. Vintage & Historical
+- 🕰️ Essential Vintage
+- 👴 Vintage Anthropomorphic
+- 🕴️‍♂️ Peaky Blinders
+
+#### 10. Food & Lifestyle
+- 🍳 Culinary/Food
+- 🥙 Street Food Kebab
+
+#### 11. Media & Design
+- 📚 Comic Book
+- 🎬 Cinema Studio
+- 🎯 Logo
+
+#### 12. Random
+- 🎲 Dynamic Random
 
 ### Input Parameters
 

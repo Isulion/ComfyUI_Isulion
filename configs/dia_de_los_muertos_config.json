@@ -1,0 +1,72 @@
+{
+    "characters": [
+        "sugar skull character", 
+        "traditional dancer", 
+        "calavera catrina", 
+        "folkloric spirit", 
+        "Mexican folk artist", 
+        "ancestral memory keeper", 
+        "ceremonial participant", 
+        "cultural celebrant"
+    ],
+    "attire": [
+        "traditional Mexican dress", 
+        "sugar skull makeup", 
+        "colorful embroidery", 
+        "calavera costume", 
+        "festive skull mask", 
+        "traditional headpiece", 
+        "vibrant cultural attire", 
+        "ceremonial clothing"
+    ],
+    "props": [
+        "marigold flowers", 
+        "candle altar", 
+        "sugar skulls", 
+        "traditional offerings", 
+        "papel picado", 
+        "family photo", 
+        "ceremonial objects", 
+        "traditional musical instruments"
+    ],
+    "color_schemes": [
+        "vibrant Mexican palette", 
+        "skull color spectrum", 
+        "marigold and red", 
+        "cultural celebration colors", 
+        "bright festive tones", 
+        "warm earth colors", 
+        "skull makeup palette", 
+        "ceremonial color mix"
+    ],
+    "settings": [
+        "Mexican cemetery", 
+        "traditional altar", 
+        "cultural celebration space", 
+        "festive street", 
+        "family gathering area", 
+        "cultural festival ground", 
+        "traditional Mexican home", 
+        "ceremonial location"
+    ],
+    "lighting": [
+        "candlelight glow", 
+        "warm festival light", 
+        "soft evening illumination", 
+        "cultural celebration lighting", 
+        "warm sunset colors", 
+        "ceremonial ambient light", 
+        "soft memorial lighting", 
+        "festive street lights"
+    ],
+    "negative_prompts": [
+        "dark gothic", 
+        "horror elements", 
+        "cold colors", 
+        "minimalist design", 
+        "urban landscapes", 
+        "industrial settings", 
+        "monochrome palette", 
+        "non-cultural atmosphere"
+    ]
+}

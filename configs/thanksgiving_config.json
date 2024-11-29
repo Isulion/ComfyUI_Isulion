@@ -1,0 +1,72 @@
+{
+    "characters": [
+        "family gathering", 
+        "turkey chef", 
+        "grateful family member", 
+        "autumn farmer", 
+        "festive cook", 
+        "family storyteller", 
+        "harvest worker", 
+        "traditional host"
+    ],
+    "attire": [
+        "cozy sweater", 
+        "autumn plaid", 
+        "warm flannel", 
+        "rustic apron", 
+        "harvest-themed dress", 
+        "comfortable family outfit", 
+        "autumn layers", 
+        "traditional dinner attire"
+    ],
+    "props": [
+        "roasted turkey", 
+        "pumpkin pie", 
+        "cornucopia", 
+        "autumn harvest basket", 
+        "family photo album", 
+        "thanksgiving decorations", 
+        "autumn leaves", 
+        "traditional serving dishes"
+    ],
+    "color_schemes": [
+        "autumn palette", 
+        "warm earth tones", 
+        "harvest colors", 
+        "rustic oranges and browns", 
+        "golden autumn", 
+        "pumpkin spice palette", 
+        "warm sunset colors", 
+        "rich fall tones"
+    ],
+    "settings": [
+        "family dining room", 
+        "rustic farmhouse", 
+        "autumn countryside", 
+        "traditional kitchen", 
+        "harvest festival", 
+        "family gathering space", 
+        "cozy living room", 
+        "autumn garden"
+    ],
+    "lighting": [
+        "warm fireplace glow", 
+        "golden hour", 
+        "soft autumn light", 
+        "warm indoor lighting", 
+        "sunset illumination", 
+        "cozy ambient light", 
+        "harvest evening glow", 
+        "soft family room light"
+    ],
+    "negative_prompts": [
+        "summer scenes", 
+        "beach environments", 
+        "cold colors", 
+        "modern minimalist", 
+        "urban landscapes", 
+        "industrial settings", 
+        "bright neon", 
+        "futuristic design"
+    ]
+}

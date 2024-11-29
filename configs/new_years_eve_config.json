@@ -1,0 +1,72 @@
+{
+    "characters": [
+        "party reveler", 
+        "festive celebrant", 
+        "glamorous host", 
+        "countdown announcer", 
+        "champagne toaster", 
+        "festive dancer", 
+        "midnight dreamer", 
+        "party enthusiast"
+    ],
+    "attire": [
+        "sequin dress", 
+        "tuxedo", 
+        "glittery outfit", 
+        "formal evening wear", 
+        "party hat", 
+        "sparkling accessories", 
+        "glamorous costume", 
+        "festive suit"
+    ],
+    "props": [
+        "champagne bottle", 
+        "party poppers", 
+        "fireworks", 
+        "countdown clock", 
+        "festive balloons", 
+        "celebration banner", 
+        "sparklers", 
+        "New Year's glasses"
+    ],
+    "color_schemes": [
+        "gold and silver", 
+        "midnight blue", 
+        "glittery metallics", 
+        "festive sparkle", 
+        "black and gold", 
+        "starry night palette", 
+        "celebration colors", 
+        "midnight shimmer"
+    ],
+    "settings": [
+        "city rooftop party", 
+        "grand ballroom", 
+        "Times Square", 
+        "festive nightclub", 
+        "luxury hotel", 
+        "city skyline", 
+        "midnight celebration", 
+        "urban party venue"
+    ],
+    "lighting": [
+        "fireworks glow", 
+        "city lights", 
+        "midnight sparkle", 
+        "festive illumination", 
+        "starry night light", 
+        "celebration spotlights", 
+        "glittery ambient light", 
+        "dramatic night lighting"
+    ],
+    "negative_prompts": [
+        "daytime scenes", 
+        "natural landscapes", 
+        "rural settings", 
+        "muted colors", 
+        "casual attire", 
+        "minimalist design", 
+        "soft lighting", 
+        "peaceful environments"
+    ]
+}

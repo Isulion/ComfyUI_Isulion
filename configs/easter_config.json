@@ -1,0 +1,72 @@
+{
+    "characters": [
+        "cute bunny", 
+        "baby chick", 
+        "spring lamb", 
+        "colorful butterfly", 
+        "baby farm animal", 
+        "Easter egg collector", 
+        "spring fairy", 
+        "pastel-dressed child"
+    ],
+    "attire": [
+        "pastel bow", 
+        "flower crown", 
+        "spring dress", 
+        "soft ribbon", 
+        "delicate accessories", 
+        "bunny ears", 
+        "spring bonnet", 
+        "colorful spring outfit"
+    ],
+    "props": [
+        "decorated Easter egg", 
+        "basket of eggs", 
+        "spring flowers", 
+        "colorful ribbons", 
+        "chocolate treats", 
+        "Easter basket", 
+        "pastel balloons", 
+        "spring garden tools"
+    ],
+    "color_schemes": [
+        "pastel", 
+        "soft spring colors", 
+        "Easter egg palette", 
+        "light and airy", 
+        "gentle rainbow", 
+        "soft pink and blue", 
+        "mint and lavender", 
+        "spring blossom"
+    ],
+    "settings": [
+        "flower meadow", 
+        "spring garden", 
+        "blooming orchard", 
+        "countryside field", 
+        "pastoral landscape", 
+        "Easter egg hunt area", 
+        "spring picnic spot", 
+        "family garden"
+    ],
+    "lighting": [
+        "soft morning light", 
+        "golden hour", 
+        "gentle spring sunlight", 
+        "diffused daylight", 
+        "warm spring glow", 
+        "soft pastel light", 
+        "early spring sunshine", 
+        "gentle dawn"
+    ],
+    "negative_prompts": [
+        "dark colors", 
+        "gothic style", 
+        "horror elements", 
+        "industrial settings", 
+        "urban landscapes", 
+        "modern technology", 
+        "autumn tones", 
+        "winter atmosphere"
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "characters": [
+        "romantic couple", 
+        "love-struck person", 
+        "cupid", 
+        "heart-shaped character", 
+        "romantic artist", 
+        "passionate dancer", 
+        "love poet", 
+        "romantic adventurer"
+    ],
+    "attire": [
+        "red dress", 
+        "heart-patterned outfit", 
+        "elegant evening wear", 
+        "romantic lace", 
+        "soft silk", 
+        "rose-colored clothing", 
+        "vintage romantic style", 
+        "love-themed accessories"
+    ],
+    "props": [
+        "red roses", 
+        "heart-shaped chocolates", 
+        "love letter", 
+        "romantic candles", 
+        "champagne glasses", 
+        "engagement ring", 
+        "love poem book", 
+        "romantic picnic basket"
+    ],
+    "color_schemes": [
+        "red and pink", 
+        "romantic pastels", 
+        "deep rose tones", 
+        "soft love palette", 
+        "burgundy and blush", 
+        "romantic crimson", 
+        "love-inspired colors", 
+        "passionate red gradient"
+    ],
+    "settings": [
+        "romantic restaurant", 
+        "moonlit beach", 
+        "elegant ballroom", 
+        "cozy fireplace room", 
+        "sunset landscape", 
+        "Paris street", 
+        "romantic garden", 
+        "intimate cafe"
+    ],
+    "lighting": [
+        "soft candlelight", 
+        "romantic moonlight", 
+        "warm sunset glow", 
+        "gentle evening light", 
+        "soft rose-tinted illumination", 
+        "dreamy ambient light", 
+        "intimate mood lighting", 
+        "romantic twilight"
+    ],
+    "negative_prompts": [
+        "dark themes", 
+        "horror elements", 
+        "industrial settings", 
+        "cold colors", 
+        "aggressive styles", 
+        "urban grunge", 
+        "mechanical objects", 
+        "stark lighting"
+    ]
+}

@@ -14,7 +14,6 @@ class IsuCollageNode:
         return {
             "required": {
                 "images": ("IMAGE",),
-                "target_row_height": ("INT", {"default": 300, "min": 100, "max": 1024, "step": 50}),
                 "seed": ("INT", {"optional": True})
             }
         }
@@ -24,13 +23,12 @@ class IsuCollageNode:
     FUNCTION = "create_collage"
     CATEGORY = "Isulion/Image"
 
-    def create_collage(self, images, seed=None, target_row_height=300):
+    def create_collage(self, images, seed=None):
         """
         Create a collage from input images with optional seed for randomization.
         
         :param images: List of input image tensors
         :param seed: Random seed for image placement
-        :param target_row_height: Desired height for rows
         :return: Tuple containing the collage tensor
         """
         # Set random seed if provided
@@ -66,7 +64,7 @@ class IsuCollageNode:
         rows = self._distribute_images(processed_images)
         
         # Normalize rows
-        normalized_rows = self._normalize_rows(rows, target_row_height)
+        normalized_rows = self._normalize_rows(rows, 300)
         
         # Stack rows to create final collage
         collage_tensor = self._stack_rows(normalized_rows)
@@ -163,61 +161,29 @@ class IsuCollageNode:
 
     def _normalize_row_width(self, row, target_width):
         """
-        Normalize a single row to exactly match the target width.
+        Normalize a single row to match the target width while preserving aspect ratios.
         
         :param row: List of image tensors in a row
         :param target_width: Desired total width for the row
-        :return: Normalized row with images precisely matching target width
+        :return: Normalized row with images scaled to match target width
         """
-        # Current row width
+        # Calculate total width and get scaling factor
         current_width = sum(img.shape[1] for img in row)
+        scale_factor = target_width / current_width
         
-        # If current width matches target, return as-is
-        if current_width == target_width:
-            return row
-        
-        # Determine which images to adjust
+        # Scale all images in the row proportionally
         normalized_row = []
-        remaining_adjustment = target_width - current_width
-        
-        # Sort images by width to ensure most predictable adjustment
-        sorted_indices = sorted(
-            range(len(row)), 
-            key=lambda i: row[i].shape[1], 
-            reverse=True
-        )
-        
-        # Distribute adjustment across images
-        for i, idx in enumerate(sorted_indices):
-            img = row[idx]
-            
-            # Determine width adjustment
-            if i == 0:
-                # First (widest) image gets the full remaining adjustment
-                width_adjustment = remaining_adjustment
-            else:
-                # Proportional adjustment for other images
-                width_adjustment = 0
+        for img in row:
+            # Calculate new dimensions while preserving aspect ratio
+            new_height = int(img.shape[0] * scale_factor)
+            new_width = int(img.shape[1] * scale_factor)
             
             # Resize image
-            new_width = img.shape[1] + width_adjustment
             resized_img = self._resize_to_exact(
                 img, 
-                (img.shape[0], new_width)
+                (new_height, new_width)
             )
-            
-            # Replace or add to normalized row
-            if i < len(normalized_row):
-                normalized_row[idx] = resized_img
-            else:
-                normalized_row.append(resized_img)
-        
-        # Verify final width with tolerance
-        final_width = sum(img.shape[1] for img in normalized_row)
-        
-        # Allow minimal tolerance due to integer rounding
-        assert abs(final_width - target_width) <= 1, \
-            f"Width mismatch: {final_width} != {target_width}"
+            normalized_row.append(resized_img)
         
         return normalized_row
 
@@ -228,19 +194,42 @@ class IsuCollageNode:
         :param rows: List of rows, each row is a list of image tensors
         :return: Final collage tensor
         """
-        # Concatenate rows horizontally first
+        # First concatenate each row horizontally
         row_tensors = []
+        max_width = 0
+        
+        # First pass: concatenate rows and find max width
         for row in rows:
-            # Concatenate images in the row
             row_tensor = torch.cat(row, dim=1)
             row_tensors.append(row_tensor)
+            max_width = max(max_width, row_tensor.shape[1])
+        
+        # Second pass: ensure all rows have the same width
+        normalized_rows = []
+        for row_tensor in row_tensors:
+            current_width = row_tensor.shape[1]
+            if current_width != max_width:
+                # Add batch dimension for interpolate
+                tensor_4d = row_tensor.unsqueeze(0).permute(0, 3, 1, 2)
+                # Resize to match max width
+                resized = torch.nn.functional.interpolate(
+                    tensor_4d,
+                    size=(row_tensor.shape[0], max_width),
+                    mode='bilinear',
+                    align_corners=False
+                )
+                # Convert back to original format
+                row_tensor = resized.permute(0, 2, 3, 1).squeeze(0)
+            normalized_rows.append(row_tensor)
         
         # Stack rows vertically
         try:
-            collage_tensor = torch.cat(row_tensors, dim=0)
+            collage_tensor = torch.cat(normalized_rows, dim=0)
             return collage_tensor
         except Exception as e:
-            raise
+            # Add debug information
+            widths = [row.shape[1] for row in normalized_rows]
+            raise RuntimeError(f"Failed to stack rows. Row widths: {widths}") from e
 
     def _resize_to_exact(self, tensor, target_size):
         """
@@ -261,7 +250,8 @@ class IsuCollageNode:
         resized_tensor = torch.nn.functional.interpolate(
             tensor_4d,
             size=target_size,
-            mode='nearest'  # Preserves image characteristics
+            mode='bilinear',  # Better quality than nearest neighbor
+            align_corners=False
         )
         
         # Convert back to original format
