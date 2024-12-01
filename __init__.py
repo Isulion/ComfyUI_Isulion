@@ -37,10 +37,12 @@ from .Core_Nodes.mega_prompt_generator import IsulionMegaPromptGenerator
 from .Core_Nodes.video_prompt_generator import NODE_CLASS_MAPPINGS as VIDEO_PROMPT_NODES
 from .isucollage_node import IsuCollageNode
 from .load_images_node import IsulionLoadImagesNode
+from .shutdown_node import NODE_CLASS_MAPPINGS as SHUTDOWN_NODES
 
 # Node mappings
 NODE_CLASS_MAPPINGS = {
     **VIDEO_PROMPT_NODES,
+    **SHUTDOWN_NODES,
     "IsulionPromptGenerator": IsulionPromptGenerator,
     "IsulionAnimalRandom": Isulion_AnimalRandom,
     "IsulionCuteAnimalRandom": IsulionCuteAnimalRandom,
