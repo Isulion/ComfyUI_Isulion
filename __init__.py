@@ -34,11 +34,13 @@ from .enhancement_nodes.isulion_style_mixer import IsulionStyleMixer
 from .enhancement_nodes.isulion_prompt_enhancer import IsulionPromptEnhancer
 from .enhancement_nodes.isulion_negative_prompt_generator import IsulionNegativePromptGenerator
 from .Core_Nodes.mega_prompt_generator import IsulionMegaPromptGenerator
+from .Core_Nodes.video_prompt_generator import NODE_CLASS_MAPPINGS as VIDEO_PROMPT_NODES
 from .isucollage_node import IsuCollageNode
 from .load_images_node import IsulionLoadImagesNode
 
 # Node mappings
 NODE_CLASS_MAPPINGS = {
+    **VIDEO_PROMPT_NODES,
     "IsulionPromptGenerator": IsulionPromptGenerator,
     "IsulionAnimalRandom": Isulion_AnimalRandom,
     "IsulionCuteAnimalRandom": IsulionCuteAnimalRandom,
