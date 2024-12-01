@@ -28,28 +28,29 @@ class VideoPromptGenerator:
             lighting_conditions = ["Random", "with natural lighting"]
 
         # Add theme selection with emoticons
-        themes = ["None"] + sorted([
-            "🎌 Anime", "🎨 Abstract", "🚀 Sci-Fi", "💫 Pixar", "⚔️ Fantasy",
-            "🌆 Cyberpunk", "🍃 Ghibli", "👻 Horror", "⚙️ Steampunk", "🎨 Watercolor",
-            "🎯 Logo", "😄 Caricature", "🌃 Futuristic City", "🎃 Halloween",
-            "📱 Instagram", "🦸 Marvel", "🔬 Microscopic", "⬜ Minimalist",
-            "📺 Animation Cartoon", "🏛️ Architectural", "🧬 Bio-Organic Technology",
-            "🖼️ Binet Surreal", "🦄 Chimera Animals", "🐰 Chimera Cute Animals",
-            "🎄 Christmas", "🎬 Cinema Studio", "🏺 Clay Art", "📺 Comic Book",
-            "🎨 Concept Art", "🖌️ Crayon Art", "💎 Crystalpunk", "🍳 Culinary/Food",
-            "👗 Curvy Fashion", "🖼️ Digital Art", "💠 Dimension 3D", "✨ Enchanted Fantasy",
-            "📸 Essential Realistic", "✨ Essential Vintage", "✨ Ethereal Dreams",
-            "🔬 Experimental Art", "💥 Futuristic Battlefield", "🌆 Futuristic City Metropolis",
-            "🚀 Futuristic Sci-Fi", "👻 Halloween Ethereal", "🎨 Impressionist",
-            "📱 Instagram Lifestyle", "📺 Manga Panel", "🕴️‍♂️ Peaky Blinders",
-            "🌪️ Post Apocalyptic", "📚 School Manga", "🚀 Star Wars",
-            "🌊 Underwater Civilization", "🏙️ Urban Tag", "🏠 Village World",
-            "👴 Vintage Anthropomorphic", "📱 Selfie", "🥙 Street Food Kebab",
-            "🧩 Puzzle Dimension", "👤 Character Designer", "🎭 Stop Motion",
-            "🎡 Disney", "🎬 Dreamworks", "🏠 Interior Spaces", "🐰 Easter",
-            "💘 Valentine's Day", "🎆 New Year's Eve", "🦃 Thanksgiving",
-            "🍀 St. Patrick's Day", "👹 Dia de los Muertos", "🏮 Chinese New Year"
-        ])
+        themes = ["None", "🎲 Dynamic Random"] + [
+            "📺 Animation Cartoon", "🎌 Anime", "🏛️ Architectural", "🎨 Abstract",
+            "🧬 Bio-Organic Technology", "🖼️ Binet Surreal", "😄 Caricature",
+            "👤 Character Designer", "🦄 Chimera Animals", "🐰 Chimera Cute Animals",
+            "🎄 Christmas", "🏮 Chinese New Year", "🎬 Cinema Studio", "🏺 Clay Art",
+            "📺 Comic Book", "🎨 Concept Art", "🖌️ Crayon Art", "💎 Crystalpunk",
+            "🍳 Culinary/Food", "👗 Curvy Fashion", "🌆 Cyberpunk", "👹 Dia de los Muertos",
+            "💠 Dimension 3D", "🖼️ Digital Art", "🎡 Disney", "🎬 Dreamworks",
+            "🐰 Easter", "✨ Enchanted Fantasy", "📸 Essential Realistic",
+            "✨ Essential Vintage", "✨ Ethereal Dreams", "🔬 Experimental Art",
+            "⚔️ Fantasy", "💥 Futuristic Battlefield", "🌃 Futuristic City",
+            "🌆 Futuristic City Metropolis", "🚀 Futuristic Sci-Fi", "🍃 Ghibli",
+            "🎃 Halloween", "👻 Halloween Ethereal", "👻 Horror", "🎨 Impressionist",
+            "📱 Instagram", "📱 Instagram Lifestyle", "🏠 Interior Spaces",
+            "🎯 Logo", "📺 Manga Panel", "🦸 Marvel", "🔬 Microscopic",
+            "⬜ Minimalist", "🎆 New Year's Eve", "🕴️‍♂️ Peaky Blinders", "💫 Pixar",
+            "🌪️ Post Apocalyptic", "🧩 Puzzle Dimension", "🚀 Sci-Fi",
+            "📚 School Manga", "📱 Selfie", "🎭 Stop Motion", "🚀 Star Wars",
+            "⚙️ Steampunk", "🥙 Street Food Kebab", "🍀 St. Patrick's Day",
+            "🦃 Thanksgiving", "🌊 Underwater Civilization", "🏙️ Urban Tag",
+            "💘 Valentine's Day", "🏠 Village World", "👴 Vintage Anthropomorphic",
+            "🎨 Watercolor"
+        ]
         return {
             "required": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
@@ -103,6 +104,13 @@ class VideoPromptGenerator:
 
         # Apply theme if selected
         if theme != "None":
+            # Handle random theme selection
+            if theme == "🎲 Dynamic Random":
+                # Get all theme options except None and Random
+                available_themes = [t for t in self.mega_prompt.theme_mappings.keys() 
+                                 if t not in ["None", "🎲 Dynamic Random"]]
+                theme = rng.choice(available_themes)
+            
             # Get theme key from the mapping
             theme_key = self.mega_prompt.theme_mappings.get(theme)
             if not theme_key:
