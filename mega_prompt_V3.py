@@ -406,6 +406,6 @@ class MegaPromptV3:
                 "Error in subject generation",
                 "Error in environment generation",
                 "Error in style generation",
-                "Error in effects generation",
+                "Error in effect generation",
                 seed
             )
