@@ -33,16 +33,16 @@ class FiftiesCommercialHandler(BaseThemeHandler):
         style_elements = self.theme_config.get('style_elements', [])
         visual_elements = self.theme_config.get('visual_elements', [])
         
-        # Combine style elements
+        # Combine style elements - now they already contain brackets
         style = ", ".join(random.sample(style_elements, min(2, len(style_elements))))
         visuals = ", ".join(random.sample(visual_elements, min(3, len(visual_elements))))
         
-        # Build the complete prompt
+        # Build the complete prompt - the elements already contain their own brackets
         enhanced_prompt = f"{positive_prompt}, {style}, {visuals}"
         
         # Add negative prompt elements specific to 1950s commercial style
         base_negative = self.theme_config.get('negative_prompt_base', 
-            "modern elements, contemporary styling, digital artifacts, instagram filters, modern technology, grunge, gritty realism")
+            "modern elements, contemporary styling, digital artifacts, instagram filters, modern technology")
         enhanced_negative = f"{negative_prompt}, {base_negative}" if negative_prompt else base_negative
         
         return {
@@ -64,7 +64,6 @@ class FiftiesCommercialHandler(BaseThemeHandler):
             include_style: str = "yes",
             include_effects: str = "yes") -> Dict[str, str]:
         """Generate theme-specific prompts for 1950s commercial style."""
-        # Debug print the theme_config
         self.debug_print(f"Theme config: {self.theme_config}")
         
         # If no custom subject is provided, generate a default subject
@@ -74,7 +73,7 @@ class FiftiesCommercialHandler(BaseThemeHandler):
             
             if not subjects:
                 # Fallback if subjects list is empty
-                subjects = ["household appliance", "kitchen gadget", "family car"]
+                subjects = ["(pristine, gleaming) household appliance", "(innovative, time-saving) kitchen gadget"]
             
             custom_subject = random.choice(subjects)
             self.debug_print(f"Selected subject: {custom_subject}")
@@ -86,12 +85,12 @@ class FiftiesCommercialHandler(BaseThemeHandler):
             
             if not locations:
                 # Fallback if locations list is empty
-                locations = ["suburban kitchen", "mid-century living room"]
+                locations = ["(spotless, modern) suburban kitchen", "(sophisticated, spacious) mid-century living room"]
             
             custom_location = random.choice(locations)
             self.debug_print(f"Selected location: {custom_location}")
         
-        # Build the positive prompt
+        # Build the positive prompt - now the elements already contain their own descriptive brackets
         positive_prompt = f"{custom_subject} in a {custom_location}"
         
         # Get the prompt details

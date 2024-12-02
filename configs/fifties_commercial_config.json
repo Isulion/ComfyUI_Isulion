@@ -1,46 +1,46 @@
 {
     "subjects": [
-        "household appliance", 
-        "kitchen gadget", 
-        "family car", 
-        "refrigerator", 
-        "television set", 
-        "vacuum cleaner", 
-        "washing machine", 
-        "toaster", 
-        "coffee maker", 
-        "electric fan"
+        "(pristine, gleaming) household appliance", 
+        "(innovative, time-saving) kitchen gadget", 
+        "(luxurious, family-sized) car", 
+        "(modern, frost-free) refrigerator", 
+        "(crystal-clear picture) television set", 
+        "(powerful, effortless) vacuum cleaner", 
+        "(automatic, efficient) washing machine", 
+        "(chrome-plated, automatic) toaster", 
+        "(instant, perfect) coffee maker", 
+        "(whisper-quiet, cooling) electric fan"
     ],
     "locations": [
-        "suburban kitchen", 
-        "mid-century living room", 
-        "pristine kitchen", 
-        "modern home interior", 
-        "family dining room", 
-        "clean kitchen setting"
+        "(spotless, modern) suburban kitchen", 
+        "(sophisticated, spacious) mid-century living room", 
+        "(sparkling, well-organized) pristine kitchen", 
+        "(dream-like, perfect) home interior", 
+        "(welcoming, cheerful) family dining room", 
+        "(immaculate, bright) kitchen setting"
     ],
     "style_elements": [
-        "1950s commercial advertisement style",
-        "vintage advertising illustration",
-        "retro commercial art",
-        "mid-century modern aesthetic",
-        "Norman Rockwell commercial style",
-        "technicolor advertisement",
-        "post-war americana",
-        "classic advertising illustration"
+        "(authentic, nostalgic) 1950s commercial advertisement style",
+        "(masterful, period-accurate) vintage advertising illustration",
+        "(bold, dynamic) retro commercial art",
+        "(sleek, sophisticated) mid-century modern aesthetic",
+        "(wholesome, idealized) Norman Rockwell commercial style",
+        "(vivid, stunning) technicolor advertisement",
+        "(patriotic, optimistic) post-war americana",
+        "(professional, polished) classic advertising illustration"
     ],
     "visual_elements": [
-        "vibrant saturated colors",
-        "hand-painted commercial illustration",
-        "clean bold lines",
-        "optimistic lighting",
-        "idealized composition",
-        "dramatic product presentation",
-        "commercial glamour",
-        "classic typography elements",
-        "perfect nuclear family aesthetic",
-        "vintage color palette",
-        "nostalgic atmosphere"
+        "(eye-catching, rich) vibrant saturated colors",
+        "(skillful, detailed) hand-painted commercial illustration",
+        "(precise, elegant) clean bold lines",
+        "(warm, inviting) optimistic lighting",
+        "(perfectly balanced, harmonious) composition",
+        "(attention-grabbing, impressive) product presentation",
+        "(sophisticated, refined) commercial glamour",
+        "(bold, classic) typography elements",
+        "(wholesome, idealized) nuclear family aesthetic",
+        "(authentic, period-correct) vintage color palette",
+        "(comforting, familiar) nostalgic atmosphere"
     ],
-    "negative_prompt_base": "modern elements, contemporary styling, digital artifacts, instagram filters, modern technology, grunge, gritty realism"
+    "negative_prompt_base": "modern elements, contemporary styling, digital artifacts, instagram filters, modern technology, grunge, gritty realism, (poor quality, amateur), (blurry, unfocused), (messy, cluttered)"
 }
