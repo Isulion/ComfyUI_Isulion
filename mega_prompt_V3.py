@@ -73,6 +73,7 @@ from .theme_handlers.thanksgiving_handler import ThanksgivingThemeHandler
 from .theme_handlers.st_patricks_day_handler import StPatricksDayThemeHandler
 from .theme_handlers.dia_de_los_muertos_handler import DiaDeLosmuertosThemeHandler
 from .theme_handlers.chinese_new_year_handler import ChineseNewYearThemeHandler
+from .theme_handlers.fifties_commercial_handler import FiftiesCommercialHandler
 
 class MegaPromptV3:
     """
@@ -157,7 +158,8 @@ class MegaPromptV3:
             "🏙️ Urban Tag": "urban_tag",
             "🏠 Village World": "village_world",
             "👴 Vintage Anthropomorphic": "vintage_anthropomorphic",
-            "🎨 Watercolor": "watercolor"
+            "🎨 Watercolor": "watercolor",
+            "🧺 50s Commercial": "fifties_commercial"
         }
     
     def _init_theme_handlers(self):
@@ -190,6 +192,7 @@ class MegaPromptV3:
             "enchanted_fantasy": EnchantedFantasyThemeHandler(self.config_manager),
             "essential_realistic": EssentialRealisticThemeHandler(self.config_manager),
             "essential_vintage": EssentialVintageThemeHandler(self.config_manager),
+            "fifties_commercial": FiftiesCommercialHandler(self.config_manager),
             "ethereal_dreams": EtherealDreamsThemeHandler(self.config_manager),
             "experimental_art": ExperimentalArtThemeHandler(self.config_manager),
             "fantasy": FantasyThemeHandler(self.config_manager),
@@ -311,7 +314,8 @@ class MegaPromptV3:
                     "🦃 Thanksgiving",
                     "🍀 St. Patrick's Day",
                     "👹 Dia de los Muertos",
-                    "🏮 Chinese New Year"
+                    "🏮 Chinese New Year",
+                    "🧺 50s Commercial"
                 ], {"default": "🎲 Dynamic Random"}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
