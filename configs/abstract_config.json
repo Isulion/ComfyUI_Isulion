@@ -94,7 +94,17 @@
             "iridescent",
             "gradient mesh",
             "noise pattern",
-            "fractal pattern"
+            "fractal pattern",
+            "blur",
+            "glow",
+            "reflection",
+            "transparency",
+            "shadow",
+            "lens flare",
+            "bloom",
+            "vignette",
+            "pixelation",
+            "motion blur"
         ]
     }
 }

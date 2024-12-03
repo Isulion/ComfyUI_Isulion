@@ -1,13 +1,25 @@
 {
     "characters": [
-        "traditional dancer", 
-        "dragon parade performer", 
-        "festive child", 
-        "cultural celebrant", 
-        "lantern festival participant", 
-        "zodiac animal character", 
-        "family gathering member", 
-        "traditional musician"
+        "traditional dancer",
+        "dragon parade performer",
+        "festive child",
+        "cultural celebrant",
+        "lantern festival participant",
+        "zodiac animal character",
+        "family gathering member",
+        "traditional musician",
+        "lion dance performer",
+        "calligrapher",
+        "fortune teller",
+        "firecracker handler",
+        "temple visitor",
+        "dumpling maker",
+        "red envelope giver",
+        "spring festival couplet writer",
+        "tea ceremony master",
+        "Chinese opera performer",
+        "New Year market vendor",
+        "ancestral altar attendant"
     ],
     "attire": [
         "traditional Chinese dress", 

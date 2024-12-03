@@ -1,16 +1,19 @@
 {
     "cinema_studio": {
         "subjects": [
-            "actor",
-            "actress",
-            "character",
-            "scene",
-            "performance",
-            "action",
-            "drama",
-            "moment",
-            "sequence",
-            "talent"
+            "lead actor", "supporting actress", "antagonist", "protagonist",
+            "ensemble cast", "stunt performer", "voice actor", "child actor",
+            "cameo appearance", "extras", "body double", "stand-in",
+            "character actor", "method actor", "comedic relief",
+            "dramatic persona", "historical figure", "fictional character",
+            "action hero", "romantic lead", "villainous mastermind",
+            "sidekick", "mentor figure", "femme fatale", "antihero",
+            "scene-stealer", "breakout star", "veteran performer",
+            "newcomer", "celebrity cameo", "narrator", "masked character",
+            "dual role", "love interest", "ensemble member", "background artist",
+            "principal cast", "guest star", "recurring character",
+            "main cast", "featured extra", "bit part", "star vehicle",
+            "character transformation", "on-screen chemistry", "screen presence"
         ],
         "shots": [
             "close-up",

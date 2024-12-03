@@ -33,7 +33,20 @@
                 "octopus",
                 "seal",
                 "walrus",
-                "otter"
+                "otter",
+                "squid",
+                "jellyfish",
+                "manta ray",
+                "sea turtle",
+                "narwhal",
+                "manatee",
+                "seahorse",
+                "anglerfish",
+                "giant squid",
+                "beluga whale",
+                "killer whale",
+                "hammerhead shark",
+                "blue whale"
             ],
             "birds": [
                 "eagle",
@@ -82,7 +95,18 @@
                 "beetle",
                 "butterfly",
                 "dragonfly",
-                "ant"
+                "ant",
+                "moth",
+                "wasp",
+                "honeybee",
+                "centipede",
+                "millipede",
+                "praying mantis",
+                "grasshopper",
+                "firefly",
+                "ladybug",
+                "stag beetle",
+                "hornet"
             ]
         },
         "habitats": [
