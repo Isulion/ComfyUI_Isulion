@@ -218,3 +218,49 @@ ComfyUI_Isulion/
 
 - OLLAMA_KEEP_ALIVE: 0
 - OLLAMA_ORIGINS: *
+
+# All Available Nodes
+
+### Core Nodes
+- **Isulion Prompt Generator**: Simple prompt generation node
+- **Isulion Mega Prompt V3**: Advanced version of the prompt generator with extended capabilities
+
+### Animal-Related Nodes
+- **Isulion Animal Selector**: Generate random animal prompts
+- **Isulion Cute Animal Selector**: Generate cute animal-specific prompts
+- **Isulion Animal Behavior Generator**: Create prompts for animal behaviors and actions
+
+### Scene Generation Nodes
+- **Isulion Habitat Generator**: Create environment and habitat descriptions
+- **Isulion Weather Generator**: Generate weather condition prompts
+- **Isulion Time of Day Generator**: Add time-of-day elements to scenes
+- **Isulion Art Style Generator**: Generate various artistic style prompts
+- **Isulion Action Generator**: Create action and movement descriptions
+- **Isulion Scene Composition**: Generate complete scene composition prompts
+
+### Character Generation Nodes
+- **Isulion Profession Generator**: Create profession-based character descriptions
+- **Isulion Fantasy Race Generator**: Generate fantasy race characteristics
+- **Isulion Clothing Generator**: Create detailed clothing descriptions
+- **Isulion Epoch Generator**: Generate historical period-specific elements
+
+### Fantasy Nodes
+- **Isulion Magical Effect Generator**: Create magical effect descriptions
+- **Isulion Mythical Location Generator**: Generate mythical place descriptions
+- **Isulion Artifact Generator**: Create magical item and artifact descriptions
+
+### Sci-Fi Nodes
+- **Isulion Tech Generator**: Generate futuristic technology descriptions
+- **Isulion Alien World Generator**: Create alien planet and environment descriptions
+- **Isulion Spacecraft Generator**: Generate spacecraft and space vehicle descriptions
+
+### Enhancement Nodes
+- **Isulion Emotion Generator**: Add emotional elements to prompts
+- **Isulion Style Mixer**: Combine different artistic styles
+- **Isulion Prompt Enhancer**: Enhance existing prompts with additional details
+- **Isulion Negative Prompt Generator**: Generate effective negative prompts
+
+### Utility Nodes
+- **IsuCollage Node**: Create image collages
+- **Isulion Load Images Node**: Load and manage multiple images
+- **Shutdown Node**: Manage workflow completion

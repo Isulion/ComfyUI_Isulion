@@ -38,6 +38,7 @@ from .Core_Nodes.video_prompt_generator import NODE_CLASS_MAPPINGS as VIDEO_PROM
 from .isucollage_node import IsuCollageNode
 from .load_images_node import IsulionLoadImagesNode
 from .shutdown_node import NODE_CLASS_MAPPINGS as SHUTDOWN_NODES
+from .resource_monitor_node import ResourceMonitorNode
 
 # Node mappings
 NODE_CLASS_MAPPINGS = {
@@ -70,7 +71,8 @@ NODE_CLASS_MAPPINGS = {
     "MegaPromptV3": MegaPromptV3,
     "IsuCollage_Node": IsuCollageNode,
     "IsulionLoadImagesNode": IsulionLoadImagesNode,
-    "IsulionEpochGenerator": IsulionEpochGenerator
+    "IsulionEpochGenerator": IsulionEpochGenerator,
+    "ResourceMonitor": ResourceMonitorNode
 }
 
 # Display name mappings
@@ -102,9 +104,12 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionMegaPromptGenerator": "Isulion Mega Prompt Generator",
     "IsuCollage_Node": "Isulion Image Collage",
     "IsulionLoadImagesNode": "Isulion Load Images from Directory",
-    "IsulionEpochGenerator": "Isulion Epoch Generator"
+    "IsulionEpochGenerator": "Isulion Epoch Generator",
+    "ResourceMonitor": "Resource Monitor"
 }
 
 # Web directory for UI elements
 WEB_DIRECTORY = "./js"
+WEB_DIRECTORY_RESOURCE_MONITOR = "./js/resource_monitor"
+
 __version__ = "2.0.0"
