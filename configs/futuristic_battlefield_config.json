@@ -58,7 +58,17 @@
             "technology",
             "installations",
             "infrastructure",
-            "systems"
+            "systems",
+            "laser fire",
+            "plasma bursts",
+            "energy shields",
+            "holographic displays",
+            "quantum fields",
+            "nano swarms",
+            "force barriers",
+            "tactical readouts",
+            "combat drones",
+            "battle mechs"
         ],
         "styles": [
             "military",
@@ -70,7 +80,17 @@
             "cybernetic",
             "mechanized",
             "armored",
-            "warfare"
+            "warfare",
+            "cinematic sci-fi",
+            "military tech",
+            "advanced warfare",
+            "futuristic combat",
+            "high-tech battle",
+            "quantum warfare",
+            "cyber military",
+            "neo-military",
+            "plasma tech",
+            "tactical future"
         ],
         "aesthetics": [
             "military-tech",
@@ -94,7 +114,17 @@
             "shield",
             "stealth",
             "explosion",
-            "combat"
+            "combat",
+            "energy bursts",
+            "plasma flares",
+            "quantum distortions",
+            "holographic overlays",
+            "nano effects",
+            "shield shimmer",
+            "laser trails",
+            "tactical displays",
+            "power surges",
+            "force fields"
         ],
         "atmospheres": [
             "intense",

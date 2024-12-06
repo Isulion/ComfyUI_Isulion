@@ -16,6 +16,7 @@ from .theme_handlers.watercolor_handler import WatercolorThemeHandler
 from .theme_handlers.logo_handler import LogoThemeHandler
 from .theme_handlers.caricature_handler import CaricatureThemeHandler
 from .theme_handlers.futuristic_city_handler import FuturisticCityThemeHandler
+from .theme_handlers.futuristic_battlefield_handler import FuturisticBattlefieldThemeHandler
 from .theme_handlers.halloween_handler import HalloweenThemeHandler
 from .theme_handlers.instagram_handler import InstagramThemeHandler
 from .theme_handlers.marvel_handler import MarvelThemeHandler
@@ -43,7 +44,6 @@ from .theme_handlers.essential_realistic_handler import EssentialRealisticThemeH
 from .theme_handlers.essential_vintage_handler import EssentialVintageThemeHandler
 from .theme_handlers.ethereal_dreams_handler import EtherealDreamsThemeHandler
 from .theme_handlers.experimental_art_handler import ExperimentalArtThemeHandler
-from .theme_handlers.futuristic_battlefield_handler import FuturisticBattlefieldThemeHandler
 from .theme_handlers.futuristic_city_metropolis_handler import FuturisticCityMetropolisThemeHandler
 from .theme_handlers.futuristic_scifi_handler import FuturisticSciFiThemeHandler
 from .theme_handlers.halloween_ethereal_handler import HalloweenEtherealThemeHandler
@@ -74,6 +74,7 @@ from .theme_handlers.st_patricks_day_handler import StPatricksDayThemeHandler
 from .theme_handlers.dia_de_los_muertos_handler import DiaDeLosmuertosThemeHandler
 from .theme_handlers.chinese_new_year_handler import ChineseNewYearThemeHandler
 from .theme_handlers.fifties_commercial_handler import FiftiesCommercialHandler
+from .theme_handlers.nolan_handler import NolanThemeHandler
 
 class MegaPromptV3:
     """
@@ -105,9 +106,9 @@ class MegaPromptV3:
             "🎄 Christmas": "christmas",
             "🎬 Cinema Studio": "cinema_studio",
             "🏺 Clay Art": "clay_art",
-            "📺 Comic Book": "comic_book",
+            "📚 Comic Book": "comic_book",
             "🎨 Concept Art": "concept_art",
-            "🖌️ Crayon Art": "crayon_art",
+            "🖍️ Crayon Art": "crayon_art",
             "💎 Crystalpunk": "crystalpunk",
             "🍳 Culinary/Food": "culinary_food",
             "👗 Curvy Fashion": "curvy_fashion",
@@ -117,15 +118,15 @@ class MegaPromptV3:
             "🖼️ Digital Art": "digital_art",
             "🎡 Disney": "disney",
             "🎬 Dreamworks": "dreamworks",
-            "🎲 Dynamic Random": "random",
             "🐰 Easter": "easter",
             "✨ Enchanted Fantasy": "enchanted_fantasy",
             "📸 Essential Realistic": "essential_realistic",
+            "🕰️ Essential Vintage": "essential_vintage",
             "✨ Ethereal Dreams": "ethereal_dreams",
             "🔬 Experimental Art": "experimental_art",
             "⚔️ Fantasy": "fantasy",
             "🌆 Futuristic City": "futuristic_city",
-            "💥 Futuristic Battlefield": "futuristic_battlefield",
+            "⚔️ Futuristic Battlefield": "futuristic_battlefield",
             "🌆 Futuristic City Metropolis": "futuristic_city_metropolis",
             "🚀 Futuristic Sci-Fi": "futuristic_scifi",
             "🍃 Ghibli": "ghibli",
@@ -142,6 +143,7 @@ class MegaPromptV3:
             "🔬 Microscopic": "microscopic",
             "⬜ Minimalist": "minimalist",
             "🎆 New Year's Eve": "new_years_eve",
+            "🎬 Nolan Epic": "nolan",
             "🕴️‍♂️ Peaky Blinders": "peaky_blinders",
             "💫 Pixar": "pixar",
             "🌪️ Post Apocalyptic": "post_apocalyptic",
@@ -236,7 +238,8 @@ class MegaPromptV3:
             "thanksgiving": ThanksgivingThemeHandler(self.config_manager),
             "st_patricks_day": StPatricksDayThemeHandler(self.config_manager),
             "dia_de_los_muertos": DiaDeLosmuertosThemeHandler(self.config_manager),
-            "chinese_new_year": ChineseNewYearThemeHandler(self.config_manager)
+            "chinese_new_year": ChineseNewYearThemeHandler(self.config_manager),
+            "nolan": NolanThemeHandler(self.config_manager)
         }
     
     @classmethod
@@ -247,7 +250,6 @@ class MegaPromptV3:
                 "theme": ([
                     "🎲 Dynamic Random",  # Keeps Random at top
                     "🧺 50s Commercial",
-                    "🌆 Futuristic City Metropolis",
                     "🎨 Abstract",
                     "📺 Animation Cartoon",
                     "🎌 Anime",
@@ -256,9 +258,9 @@ class MegaPromptV3:
                     "🖼️ Binet Surreal",
                     "😄 Caricature",
                     "👤 Character Designer",
-                    "🏮 Chinese New Year",
                     "🦄 Chimera Animals",
                     "🐰 Chimera Cute Animals",
+                    "🏮 Chinese New Year",
                     "🎄 Christmas",
                     "🎬 Cinema Studio",
                     "🏺 Clay Art",
@@ -271,18 +273,18 @@ class MegaPromptV3:
                     "🌆 Cyberpunk",
                     "👹 Dia de los Muertos",
                     "💠 Dimension 3D",
-                    "💻 Digital Art",
+                    "🖼️ Digital Art",
                     "🎡 Disney",
                     "🎬 Dreamworks",
                     "🐰 Easter",
                     "✨ Enchanted Fantasy",
                     "📸 Essential Realistic",
                     "🕰️ Essential Vintage",
-                    "💫 Ethereal Dreams",
+                    "✨ Ethereal Dreams",
                     "🔬 Experimental Art",
                     "⚔️ Fantasy",
+                    "🌆 Futuristic City",
                     "⚔️ Futuristic Battlefield",
-                    "🌃 Futuristic City",
                     "🌆 Futuristic City Metropolis",
                     "🚀 Futuristic Sci-Fi",
                     "🍃 Ghibli",
@@ -299,6 +301,7 @@ class MegaPromptV3:
                     "🔬 Microscopic",
                     "⬜ Minimalist",
                     "🎆 New Year's Eve",
+                    "🎬 Nolan Epic",
                     "🕴️‍♂️ Peaky Blinders",
                     "💫 Pixar",
                     "🌪️ Post Apocalyptic",
