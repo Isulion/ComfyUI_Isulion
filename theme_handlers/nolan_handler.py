@@ -43,7 +43,9 @@ class NolanThemeHandler(BaseThemeHandler):
         # Generate environment if included
         if include_environment == "yes":
             if custom_location:
-                base_environment = custom_location
+                atmosphere = self._get_random_choice(f"{self.theme_name}.atmospheres")
+                time = self._get_random_choice(f"{self.theme_name}.times")
+                base_environment = f"{custom_location}, {atmosphere}, {time}"
             else:
                 location = self._get_random_choice(f"{self.theme_name}.environments")
                 atmosphere = self._get_random_choice(f"{self.theme_name}.atmospheres")
