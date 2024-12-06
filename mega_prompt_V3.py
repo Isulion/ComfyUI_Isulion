@@ -75,6 +75,7 @@ from .theme_handlers.dia_de_los_muertos_handler import DiaDeLosmuertosThemeHandl
 from .theme_handlers.chinese_new_year_handler import ChineseNewYearThemeHandler
 from .theme_handlers.fifties_commercial_handler import FiftiesCommercialHandler
 from .theme_handlers.nolan_handler import NolanThemeHandler
+from .theme_handlers.miura_handler import MiuraThemeHandler
 
 class MegaPromptV3:
     """
@@ -142,6 +143,7 @@ class MegaPromptV3:
             "🦸 Marvel": "marvel",
             "🔬 Microscopic": "microscopic",
             "⬜ Minimalist": "minimalist",
+            "⚔️ Miura Dark Fantasy": "miura",
             "🎆 New Year's Eve": "new_years_eve",
             "🎬 Nolan Epic": "nolan",
             "🕴️‍♂️ Peaky Blinders": "peaky_blinders",
@@ -239,7 +241,8 @@ class MegaPromptV3:
             "st_patricks_day": StPatricksDayThemeHandler(self.config_manager),
             "dia_de_los_muertos": DiaDeLosmuertosThemeHandler(self.config_manager),
             "chinese_new_year": ChineseNewYearThemeHandler(self.config_manager),
-            "nolan": NolanThemeHandler(self.config_manager)
+            "nolan": NolanThemeHandler(self.config_manager),
+            "miura": MiuraThemeHandler(self.config_manager)
         }
     
     @classmethod
@@ -300,6 +303,7 @@ class MegaPromptV3:
                     "🦸 Marvel",
                     "🔬 Microscopic",
                     "⬜ Minimalist",
+                    "⚔️ Miura Dark Fantasy",
                     "🎆 New Year's Eve",
                     "🎬 Nolan Epic",
                     "🕴️‍♂️ Peaky Blinders",
