@@ -33,45 +33,52 @@ class MiuraThemeHandler(BaseThemeHandler):
         else:
             character = self._get_random_choice(f"{self.theme_name}.subjects")
             traits = self._get_multiple_random_choices(f"{self.theme_name}.character_traits", 2)
-            base_subject = f"{character}, {', '.join(traits)}"
+            details = self._get_multiple_random_choices(f"{self.theme_name}.detail_elements", 2)
+            base_subject = f"{character}, {', '.join(traits)}, {', '.join(details)}"
         
         # Add Miura's signature detailed styling
-        components["subject"] = f"((hyperdetailed {base_subject})), (intricate armor details), (dramatic pose), (gothic aesthetic), (dark fantasy style), (extreme detail in black and white)"
+        components["subject"] = f"((masterfully detailed {base_subject})), (intricate pen work:1.3), (meticulous cross-hatching:1.2), (high detail illustration), (dramatic chiaroscuro), (extreme attention to texture:1.2), (masterful line weight variation)"
 
         # Generate environment if included
         if include_environment == "yes":
             if custom_location:
                 atmosphere = self._get_random_choice(f"{self.theme_name}.atmospheres")
                 time = self._get_random_choice(f"{self.theme_name}.times")
-                base_environment = f"{custom_location}, {atmosphere}, {time}"
+                details = self._get_random_choice(f"{self.theme_name}.environment_details")
+                base_environment = f"{custom_location}, {atmosphere}, {time}, {details}"
             else:
                 location = self._get_random_choice(f"{self.theme_name}.environments")
                 atmosphere = self._get_random_choice(f"{self.theme_name}.atmospheres")
                 time = self._get_random_choice(f"{self.theme_name}.times")
-                base_environment = f"{location}, {atmosphere}, {time}"
+                details = self._get_random_choice(f"{self.theme_name}.environment_details")
+                base_environment = f"{location}, {atmosphere}, {time}, {details}"
             
-            components["environment"] = f"((detailed medieval fantasy environment)), {base_environment}, (intricate architectural details), (dramatic lighting)"
+            components["environment"] = f"((hyper-detailed environment)), {base_environment}, (intricate architectural details:1.2), (dramatic perspective), (meticulous background detail:1.3)"
 
         # Add style elements if included
         if include_style == "yes":
             style_elements = [
-                "(Kentarō Miura art style)",
-                "(manga panel composition)",
-                "(extreme attention to detail)",
-                "(high contrast black and white)",
-                "(dramatic shadows)",
-                "(intricate line work)",
+                "(Kentarō Miura art style:1.3)",
+                "(masterful pen and ink technique:1.2)",
+                "(extreme attention to detail:1.4)",
+                "(high contrast black and white:1.2)",
+                "(intricate cross-hatching patterns:1.3)",
+                "(meticulous line work:1.2)",
+                "(dramatic shadow placement)",
+                "(textural complexity:1.2)"
             ]
             components["style"] = ", ".join(style_elements)
 
         # Add effects if included
         if include_effects == "yes":
             effects = [
-                "(gothic atmosphere)",
-                "(dramatic lighting)",
-                "(detailed cross-hatching)",
-                "(cinematic composition)",
-                "(dark fantasy mood)"
+                "(masterful light and shadow interplay:1.3)",
+                "(intricate texture layering:1.2)",
+                "(detailed surface rendering)",
+                "(atmospheric depth:1.2)",
+                "(precise line weight variation)",
+                "(micro details in shadows:1.2)",
+                "(complex material textures)"
             ]
             components["effects"] = ", ".join(effects)
 
