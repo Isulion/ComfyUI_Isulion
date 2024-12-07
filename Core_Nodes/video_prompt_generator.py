@@ -118,8 +118,8 @@ class VideoPromptGenerator:
                 theme_key = theme.split()[-1].lower().replace("-", "_")
             
             # Get theme handler from mega prompt handlers dictionary
-            if theme_key in self.mega_prompt.handlers:
-                theme_handler = self.mega_prompt.handlers[theme_key]
+            if theme_key in self.mega_prompt.theme_registry.handlers:
+                theme_handler = self.mega_prompt.theme_registry.handlers[theme_key]
                 # Generate themed components
                 theme_components = theme_handler.generate(
                     custom_subject=subject,
