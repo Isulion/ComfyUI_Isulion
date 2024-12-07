@@ -6,6 +6,7 @@ class MiuraThemeHandler(BaseThemeHandler):
     def __init__(self, config_manager: ConfigManager):
         super().__init__(config_manager)
         self.theme_name = "miura"
+        self.debug = False
 
     def _get_random_choice(self, key: str) -> str:
         """Get a random choice from the config."""
@@ -21,7 +22,7 @@ class MiuraThemeHandler(BaseThemeHandler):
 
     def _debug_print(self, message: str) -> None:
         """Print debug message only if debug mode is enabled."""
-        if self.debug:
+        if hasattr(self, 'debug') and self.debug:
             print(f"MiuraThemeHandler: {message}")
 
     def generate(self, custom_subject: str = "",

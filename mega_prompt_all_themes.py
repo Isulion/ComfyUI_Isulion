@@ -8,91 +8,100 @@ class IsulionMultiplePromptGenerator:
         self.mega_prompt = MegaPromptV3()
         # Define theme categories
         self.theme_categories = {
-            "Art Styles": [
+            "Art Styles & Techniques": [
                 "🎨 Abstract",
-                "🎨 Watercolor",
-                "🎨 Impressionist",
+                "🎨 Concept Art", 
                 "🖍️ Crayon Art",
+                "💻 Digital Art",
+                "🎨 Watercolor", 
                 "🏺 Clay Art",
-                "🎨 Concept Art",
-                "🔬 Experimental Art"
+                "⬜ Minimalist",
+                "🎨 Impressionist"
             ],
-            "Animation & Comics": [
+            "Animation & Entertainment": [
                 "📺 Animation Cartoon",
-                "🎌 Anime",
-                "📚 Comic Book",
-                "🍃 Ghibli",
-                "💫 Pixar",
+                "🎌 Anime", 
                 "🎬 Dreamworks",
-                "📺 Manga Panel",
-                "📚 School Manga"
+                "🎡 Disney",
+                "🍃 Ghibli", 
+                "💫 Pixar",
+                "🎭 Stop Motion",
+                "📚 Manga Panel", 
+                "📚 School Manga",
+                "🦸 Marvel"
             ],
-            "Sci-Fi & Future": [
+            "Science Fiction & Fantasy": [
+                "💎 Crystalpunk",
                 "🌆 Cyberpunk",
-                "🚀 Sci-Fi",
-                "🌆 Futuristic City",
-                "⚔️ Futuristic Battlefield",
-                "🌆 Futuristic City Metropolis",
                 "🚀 Futuristic Sci-Fi",
+                "🌃 Futuristic City",
+                "⚔️ Futuristic Battlefield", 
+                "🌆 Futuristic City Metropolis",
+                "🚀 Sci-Fi",
+                "🚀 Star Wars",
+                "⚙️ Steampunk",
                 "🧬 Bio-Organic Technology",
-                "💎 Crystalpunk"
-            ],
-            "Fantasy & Magic": [
                 "⚔️ Fantasy",
                 "✨ Enchanted Fantasy",
-                "✨ Ethereal Dreams",
-                "⚔️ Miura Dark Fantasy"
+                "🌊 Underwater Civilization"
             ],
-            "Horror & Spooky": [
-                "👻 Horror",
-                "🎃 Halloween",
-                "👻 Halloween Ethereal"
-            ],
-            "Holidays": [
-                "🎄 Christmas",
-                "🐰 Easter",
-                "🎆 New Year's Eve",
-                "💘 Valentine's Day",
-                "🏮 Chinese New Year",
-                "👹 Dia de los Muertos",
-                "🍀 St. Patrick's Day",
-                "🦃 Thanksgiving"
-            ],
-            "Modern & Lifestyle": [
-                "📱 Instagram",
-                "📱 Instagram Lifestyle",
-                "📱 Selfie",
-                "👗 Curvy Fashion",
-                "🏠 Interior Spaces",
-                "🏙️ Urban Tag"
-            ],
-            "Character & Design": [
-                "😄 Caricature",
+            "Character & Creature Design": [
                 "👤 Character Designer",
+                "😄 Caricature", 
                 "🦄 Chimera Animals",
                 "🐰 Chimera Cute Animals",
-                "⬜ Minimalist",
-                "🎯 Logo"
+                "👗 Curvy Fashion"
             ],
-            "Movies & Media": [
-                "🎬 Cinema Studio",
-                "🎡 Disney",
-                "🦸 Marvel",
-                "🚀 Star Wars",
-                "🎬 Nolan Epic",
-                "🕴️‍♂️ Peaky Blinders",
-                "🎭 Stop Motion"
+            "Environment & Architecture": [
+                "🏛️ Architectural",
+                "🏠 Interior Spaces", 
+                "🏙️ Urban Tag",
+                "🏠 Village World"
+            ],
+            "Special Themes & Occasions": [
+                "🎄 Christmas",
+                "🎃 Halloween", 
+                "👻 Halloween Ethereal",
+                "👻 Horror",
+                "🐰 Easter",
+                "💘 Valentine's Day", 
+                "🎆 New Year's Eve",
+                "🦃 Thanksgiving", 
+                "🍀 St. Patrick's Day",
+                "👹 Dia de los Muertos",
+                "🏮 Chinese New Year"
+            ],
+            "Experimental & Unique": [
+                "🖼️ Binet Surreal",
+                "💫 Ethereal Dreams", 
+                "🔬 Experimental Art",
+                "🧩 Puzzle Dimension", 
+                "💠 Dimension 3D",
+                "🔬 Microscopic",
+                "🌪️ Post Apocalyptic"
+            ],
+            "Photography & Social Media": [
+                "📸 Essential Realistic",
+                "📱 Instagram", 
+                "📱 Instagram Lifestyle",
+                "📱 Selfie"
             ],
             "Vintage & Historical": [
-                "🧺 50s Commercial",
                 "🕰️ Essential Vintage",
-                "👴 Vintage Anthropomorphic"
+                "👴 Vintage Anthropomorphic", 
+                "🕴️‍♂️ Peaky Blinders"
             ],
-            "Special Effects": [
-                "💠 Dimension 3D",
-                "🖼️ Digital Art",
-                "🧩 Puzzle Dimension",
-                "🌊 Underwater Civilization"
+            "Food & Lifestyle": [
+                "🍳 Culinary/Food",
+                "🥙 Street Food Kebab"
+            ],
+            "Media & Design": [
+                "📚 Comic Book",
+                "🎬 Cinema Studio", 
+                "🎯 Logo"
+            ],
+            "Random": [
+                "🎲 Dynamic Random"
             ]
         }
     
@@ -110,11 +119,11 @@ class IsulionMultiplePromptGenerator:
                     "multiline": True,
                     "default": "🎨 Abstract\n🎌 Anime\n🌆 Cyberpunk"
                 }),
-                "theme_category": (["Art Styles", "Animation & Comics", "Sci-Fi & Future", 
-                                  "Fantasy & Magic", "Horror & Spooky", "Holidays", 
-                                  "Modern & Lifestyle", "Character & Design", "Movies & Media",
-                                  "Vintage & Historical", "Special Effects"], 
-                                  {"default": "Art Styles"})
+                "theme_category": (["Art Styles & Techniques", "Animation & Entertainment", "Science Fiction & Fantasy", 
+                                  "Character & Creature Design", "Environment & Architecture", "Special Themes & Occasions", 
+                                  "Experimental & Unique", "Photography & Social Media", "Vintage & Historical", 
+                                  "Food & Lifestyle", "Media & Design", "Random"], 
+                                  {"default": "Art Styles & Techniques"})
             }
         }
     
@@ -131,7 +140,7 @@ class IsulionMultiplePromptGenerator:
         custom_location: str = "",
         seed: int = 0,
         selected_themes: str = "",
-        theme_category: str = "Art Styles"
+        theme_category: str = "Art Styles & Techniques"
     ) -> Tuple[List[str], List[str]]:
         """Generate prompts for selected themes.
         Returns lists of (positive_prompts, theme_names)"""
@@ -171,7 +180,6 @@ class IsulionMultiplePromptGenerator:
                     include_environment="yes",
                     include_style="yes",
                     include_effects="yes",
-                    debug_mode="off",
                     randomize="disable"  # Always disable randomization
                 )
                 
