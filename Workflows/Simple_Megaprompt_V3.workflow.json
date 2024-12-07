@@ -1,0 +1,134 @@
+{
+  "last_node_id": 2,
+  "last_link_id": 1,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "MegaPromptV3",
+      "pos": [
+        -110,
+        250
+      ],
+      "size": [
+        400,
+        442
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "subject",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "environment",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "style",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "effects",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MegaPromptV3"
+      },
+      "widgets_values": [
+        "🎲 Dynamic Random",
+        "detailed",
+        "enable",
+        "off",
+        564618134741818,
+        "randomize",
+        "",
+        "",
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "JjkShowText",
+      "pos": [
+        370,
+        250
+      ],
+      "size": [
+        430,
+        260
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 1,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "widgets_values": [
+        "Victorian steampunk, made of polished brass, steam tech pioneer decorated with ornate gears, featuring steam pipes, with ornate gears details, in a brass-filled airship, with mechanical calculator in scene, illuminated by copper reflection, in a mechanical ambiance, in vintage gold accents color scheme, industrial fantasy, made of tarnished bronze, featuring copper coils, with industrial motifs details, in a steam-powered factory, with clockwork mechanism in scene, illuminated by mechanical sparkle, in a industrial haze, in metallic highlights color scheme, Victorian steampunk, made of burnished gold, featuring copper coils, with mechanical patterns details, in a brass-filled airship, with clockwork mechanism in scene, illuminated by Victorian ambiance, in a industrial haze, in metallic highlights color scheme, Victorian steampunk, made of rich mahogany, featuring pressure gauges, with ornate gears details, in a mechanical laboratory, with mechanical calculator in scene, illuminated by brass lantern shine, in a steam-filled air, in steam-aged patina color scheme"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.2100000000000002,
+      "offset": [
+        329.90547409593984,
+        -134.42094490167395
+      ]
+    }
+  },
+  "version": 0.4
+}
