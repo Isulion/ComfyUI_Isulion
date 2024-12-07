@@ -35,6 +35,7 @@ from .enhancement_nodes.isulion_prompt_enhancer import IsulionPromptEnhancer
 from .enhancement_nodes.isulion_negative_prompt_generator import IsulionNegativePromptGenerator
 from .Core_Nodes.mega_prompt_generator import IsulionMegaPromptGenerator
 from .Core_Nodes.video_prompt_generator import NODE_CLASS_MAPPINGS as VIDEO_PROMPT_NODES
+from .mega_prompt_all_themes import IsulionMultiplePromptGenerator
 from .isucollage_node import IsuCollageNode
 from .load_images_node import IsulionLoadImagesNode
 from .shutdown_node import NODE_CLASS_MAPPINGS as SHUTDOWN_NODES
@@ -68,6 +69,7 @@ NODE_CLASS_MAPPINGS = {
     "IsulionNegativePromptGenerator": IsulionNegativePromptGenerator,
     "IsulionMegaPromptGenerator": IsulionMegaPromptGenerator,
     "MegaPromptV3": MegaPromptV3,
+    "IsulionMultiplePromptGenerator": IsulionMultiplePromptGenerator,
     "IsuCollage_Node": IsuCollageNode,
     "IsulionLoadImagesNode": IsulionLoadImagesNode,
     "IsulionEpochGenerator": IsulionEpochGenerator
@@ -77,6 +79,7 @@ NODE_CLASS_MAPPINGS = {
 NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionPromptGenerator": "Isulion Prompt Generator",
     "MegaPromptV3": "Isulion Mega Prompt V3",
+    "IsulionMultiplePromptGenerator": "Isulion Multiple Prompt Generator",
     "IsulionAnimalRandom": "Isulion Animal Selector",
     "IsulionCuteAnimalRandom": "Isulion Cute Animal Selector",
     "IsulionAnimalBehaviorGenerator": "Isulion Animal Behavior Generator",
