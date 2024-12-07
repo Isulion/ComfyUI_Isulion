@@ -90,7 +90,8 @@ class IsulionMultiplePromptGenerator:
             "Vintage & Historical": [
                 "🕰️ Essential Vintage",
                 "👴 Vintage Anthropomorphic", 
-                "🕴️‍♂️ Peaky Blinders"
+                "🕴️‍♂️ Peaky Blinders",
+                "🧺 50s Commercial"
             ],
             "Food & Lifestyle": [
                 "🍳 Culinary/Food",
@@ -99,7 +100,8 @@ class IsulionMultiplePromptGenerator:
             "Media & Design": [
                 "📚 Comic Book",
                 "🎬 Cinema Studio", 
-                "🎯 Logo"
+                "🎯 Logo",
+                "🎬 Nolan Epic"
             ],
             "Random": [
                 "🎲 Dynamic Random"
