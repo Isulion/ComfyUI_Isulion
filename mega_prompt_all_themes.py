@@ -103,7 +103,7 @@ class IsulionMultiplePromptGenerator:
                 "theme_selection_mode": (["All Themes", "Selected Themes", "Theme Category"], {"default": "All Themes"}),
                 "custom_subject": ("STRING", {"default": "", "multiline": True}),
                 "custom_location": ("STRING", {"default": "", "multiline": True}),
-                "randomize": (["enable", "disable"], {"default": "enable"}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
             },
             "optional": {
                 "selected_themes": ("STRING", {
@@ -114,8 +114,7 @@ class IsulionMultiplePromptGenerator:
                                   "Fantasy & Magic", "Horror & Spooky", "Holidays", 
                                   "Modern & Lifestyle", "Character & Design", "Movies & Media",
                                   "Vintage & Historical", "Special Effects"], 
-                                  {"default": "Art Styles"}),
-                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
+                                  {"default": "Art Styles"})
             }
         }
     
@@ -130,10 +129,9 @@ class IsulionMultiplePromptGenerator:
         theme_selection_mode: str,
         custom_subject: str = "",
         custom_location: str = "",
-        randomize: str = "enable",
+        seed: int = 0,
         selected_themes: str = "",
-        theme_category: str = "Art Styles",
-        seed: int = 0
+        theme_category: str = "Art Styles"
     ) -> Tuple[List[str], List[str]]:
         """Generate prompts for selected themes.
         Returns lists of (positive_prompts, theme_names)"""
@@ -143,11 +141,9 @@ class IsulionMultiplePromptGenerator:
             themes = [theme for theme, internal in self.mega_prompt.theme_mappings.items() 
                      if internal != "random"]
         elif theme_selection_mode == "Selected Themes":
-            # Convert selected themes to match theme mappings
             themes = []
             selected = [theme.strip() for theme in selected_themes.split('\n') if theme.strip()]
             for theme in selected:
-                # Try to find matching theme with emoji
                 matched = False
                 for full_theme in self.mega_prompt.theme_mappings.keys():
                     if theme.strip() in full_theme or full_theme.strip() in theme:
@@ -155,40 +151,30 @@ class IsulionMultiplePromptGenerator:
                         matched = True
                         break
                 if not matched:
-                    themes.append(theme)  # Keep original if no match found
+                    themes.append(theme)
         else:  # Theme Category
             themes = self.theme_categories.get(theme_category, [])
         
-        # Store results for each theme
         positives = []
         names = []
         
-        # Use provided seed if randomization is disabled
-        if randomize == "disable":
-            base_seed = seed
-        else:
-            import random
-            base_seed = random.randint(0, 0xffffffffffffffff)
-        
         for i, theme in enumerate(sorted(themes)):
             try:
-                # Generate prompt for this theme with a unique seed
-                theme_seed = (base_seed + i) % 0xffffffffffffffff if randomize == "disable" else 0
+                theme_seed = (seed + i) % 0xffffffffffffffff
                 
                 prompt, subject, env, style, effects, _ = self.mega_prompt.generate(
                     theme=theme,
-                    complexity="very detailed",  # Always set to very detailed
-                    randomize=randomize,  # Use the randomize parameter
-                    seed=theme_seed,  # Use unique seed for each theme when randomize is disabled
+                    complexity="very detailed",
+                    seed=theme_seed,
                     custom_subject=custom_subject,
                     custom_location=custom_location,
                     include_environment="yes",
                     include_style="yes",
                     include_effects="yes",
-                    debug_mode="off"
+                    debug_mode="off",
+                    randomize="disable"  # Always disable randomization
                 )
                 
-                # Only add if generation was successful (no error message)
                 if not prompt.startswith("Error:"):
                     positives.append(prompt)
                     names.append(theme)
