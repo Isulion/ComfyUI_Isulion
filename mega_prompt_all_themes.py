@@ -43,14 +43,14 @@ class IsulionMultiplePromptGenerator:
                 "🧬 Bio-Organic Technology",
                 "⚔️ Fantasy",
                 "✨ Enchanted Fantasy",
-                "🌊 Underwater Civilization"
+                "🌊 Underwater Civilization",
+                "⚔️ Miura Dark Fantasy"
             ],
             "Character & Creature Design": [
                 "👤 Character Designer",
                 "😄 Caricature", 
                 "🦄 Chimera Animals",
-                "🐰 Chimera Cute Animals",
-                "👗 Curvy Fashion"
+                "🐰 Chimera Cute Animals"
             ],
             "Environment & Architecture": [
                 "🏛️ Architectural",
@@ -84,7 +84,8 @@ class IsulionMultiplePromptGenerator:
                 "📸 Essential Realistic",
                 "📱 Instagram", 
                 "📱 Instagram Lifestyle",
-                "📱 Selfie"
+                "📱 Selfie",
+                "👗 Curvy Fashion"
             ],
             "Vintage & Historical": [
                 "🕰️ Essential Vintage",
