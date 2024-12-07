@@ -137,7 +137,6 @@ Here's a categorized overview of all available themes:
 
 ## Node List
 
-- 🎨 Isulion Prompt Generator
 - 🚀 Isulion Mega Prompt V3
 - 🔄 Isulion Multiple Prompt Generator
 - 🦁 Isulion Animal Selector
@@ -162,7 +161,6 @@ Here's a categorized overview of all available themes:
 - 🎨 Isulion Style Mixer
 - 💫 Isulion Prompt Enhancer
 - ⛔ Isulion Negative Prompt Generator
-- 🌟 Isulion Mega Prompt Generator
 - 🖼️ Isulion Image Collage
 - 📁 Isulion Load Images from Directory
 - ⏳ Isulion Epoch Generator
@@ -254,8 +252,7 @@ ComfyUI_Isulion/
 # All Available Nodes
 
 ### Core Nodes
-- **Isulion Prompt Generator**: Simple prompt generation node
-- **Isulion Mega Prompt V3**: Advanced version of the prompt generator with extended capabilities
+- **Isulion Mega Prompt V3**: Advanced version of the prompt generator node with extended capabilities
 
 ### Animal-Related Nodes
 - **Isulion Animal Selector**: Generate random animal prompts

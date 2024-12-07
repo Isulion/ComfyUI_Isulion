@@ -8,7 +8,6 @@ __author__ = "Isulion"
 __description__ = "Advanced prompt generation nodes for ComfyUI with multiple themes and styles"
 
 # Import all node classes
-from .Core_Nodes.isulion_prompt_generator import IsulionPromptGenerator
 from .mega_prompt_V3 import MegaPromptV3
 from .animals_nodes.isulion_animal_generator import Isulion_AnimalRandom
 from .animals_nodes.isulion_cute_animal_generator import IsulionCuteAnimalRandom
@@ -33,7 +32,6 @@ from .enhancement_nodes.isulion_emotion_generator import Isulion_EmotionGenerato
 from .enhancement_nodes.isulion_style_mixer import IsulionStyleMixer
 from .enhancement_nodes.isulion_prompt_enhancer import IsulionPromptEnhancer
 from .enhancement_nodes.isulion_negative_prompt_generator import IsulionNegativePromptGenerator
-from .Core_Nodes.mega_prompt_generator import IsulionMegaPromptGenerator
 from .Core_Nodes.video_prompt_generator import NODE_CLASS_MAPPINGS as VIDEO_PROMPT_NODES
 from .mega_prompt_all_themes import IsulionMultiplePromptGenerator
 from .isucollage_node import IsuCollageNode
@@ -44,7 +42,6 @@ from .shutdown_node import NODE_CLASS_MAPPINGS as SHUTDOWN_NODES
 NODE_CLASS_MAPPINGS = {
     **VIDEO_PROMPT_NODES,
     **SHUTDOWN_NODES,
-    "IsulionPromptGenerator": IsulionPromptGenerator,
     "IsulionAnimalRandom": Isulion_AnimalRandom,
     "IsulionCuteAnimalRandom": IsulionCuteAnimalRandom,
     "IsulionAnimalBehaviorGenerator": Isulion_AnimalBehaviorGenerator,
@@ -67,7 +64,6 @@ NODE_CLASS_MAPPINGS = {
     "IsulionStyleMixer": IsulionStyleMixer,
     "IsulionPromptEnhancer": IsulionPromptEnhancer,
     "IsulionNegativePromptGenerator": IsulionNegativePromptGenerator,
-    "IsulionMegaPromptGenerator": IsulionMegaPromptGenerator,
     "MegaPromptV3": MegaPromptV3,
     "IsulionMultiplePromptGenerator": IsulionMultiplePromptGenerator,
     "IsuCollage_Node": IsuCollageNode,
@@ -102,7 +98,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionStyleMixer": "🎨 Isulion Style Mixer",
     "IsulionPromptEnhancer": "💫 Isulion Prompt Enhancer",
     "IsulionNegativePromptGenerator": "⛔ Isulion Negative Prompt Generator",
-    "IsulionMegaPromptGenerator": "🌟 Isulion Mega Prompt Generator",
     "IsuCollage_Node": "🖼️ Isulion Image Collage",
     "IsulionLoadImagesNode": "📁 Isulion Load Images from Directory",
     "IsulionEpochGenerator": "⏳ Isulion Epoch Generator"
