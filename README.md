@@ -135,6 +135,38 @@ Here's a categorized overview of all available themes:
   - Custom Subject: Define specific subjects
   - Custom Location: Specify scene locations
 
+## Node List
+
+- 🎨 Isulion Prompt Generator
+- 🚀 Isulion Mega Prompt V3
+- 🔄 Isulion Multiple Prompt Generator
+- 🦁 Isulion Animal Selector
+- 🐰 Isulion Cute Animal Selector
+- 🦊 Isulion Animal Behavior Generator
+- 🌳 Isulion Habitat Generator
+- 🌤️ Isulion Weather Generator
+- 🌅 Isulion Time of Day Generator
+- 🖼️ Isulion Art Style Generator
+- ⚡ Isulion Action Generator
+- 🎬 Isulion Scene Composition
+- 👨‍💼 Isulion Profession Generator
+- 🧝‍♂️ Isulion Fantasy Race Generator
+- 👔 Isulion Clothing Generator
+- ✨ Isulion Magical Effect Generator
+- 🏰 Isulion Mythical Location Generator
+- ⚔️ Isulion Artifact Generator
+- 🤖 Isulion Tech Generator
+- 👽 Isulion Alien World Generator
+- 🛸 Isulion Spacecraft Generator
+- 😊 Isulion Emotion Generator
+- 🎨 Isulion Style Mixer
+- 💫 Isulion Prompt Enhancer
+- ⛔ Isulion Negative Prompt Generator
+- 🌟 Isulion Mega Prompt Generator
+- 🖼️ Isulion Image Collage
+- 📁 Isulion Load Images from Directory
+- ⏳ Isulion Epoch Generator
+
 ## 🖼️ Load Images Node
 
 The Load Images node allows you to load multiple images from a specified directory, making it easy to work with batches of images in your workflow.
