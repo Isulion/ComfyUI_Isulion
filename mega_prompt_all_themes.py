@@ -9,47 +9,90 @@ class IsulionMultiplePromptGenerator:
         # Define theme categories
         self.theme_categories = {
             "Art Styles": [
-                " Abstract", " Watercolor", " Impressionist", " Crayon Art",
-                " Clay Art", " Concept Art", " Experimental Art"
+                "🎨 Abstract",
+                "🎨 Watercolor",
+                "🎨 Impressionist",
+                "🖍️ Crayon Art",
+                "🏺 Clay Art",
+                "🎨 Concept Art",
+                "🔬 Experimental Art"
             ],
             "Animation & Comics": [
-                " Animation Cartoon", " Anime", " Comic Book", " Ghibli",
-                " Pixar", " Dreamworks", " Manga Panel", " School Manga"
+                "📺 Animation Cartoon",
+                "🎌 Anime",
+                "📚 Comic Book",
+                "🍃 Ghibli",
+                "💫 Pixar",
+                "🎬 Dreamworks",
+                "📺 Manga Panel",
+                "📚 School Manga"
             ],
             "Sci-Fi & Future": [
-                " Cyberpunk", " Sci-Fi", " Futuristic City", " Futuristic Battlefield",
-                " Futuristic City Metropolis", " Futuristic Sci-Fi", " Bio-Organic Technology",
-                " Crystalpunk"
+                "🌆 Cyberpunk",
+                "🚀 Sci-Fi",
+                "🌆 Futuristic City",
+                "⚔️ Futuristic Battlefield",
+                "🌆 Futuristic City Metropolis",
+                "🚀 Futuristic Sci-Fi",
+                "🧬 Bio-Organic Technology",
+                "💎 Crystalpunk"
             ],
             "Fantasy & Magic": [
-                " Fantasy", " Enchanted Fantasy", " Ethereal Dreams", " Miura Dark Fantasy"
+                "⚔️ Fantasy",
+                "✨ Enchanted Fantasy",
+                "✨ Ethereal Dreams",
+                "⚔️ Miura Dark Fantasy"
             ],
             "Horror & Spooky": [
-                " Horror", " Halloween", " Halloween Ethereal"
+                "👻 Horror",
+                "🎃 Halloween",
+                "👻 Halloween Ethereal"
             ],
             "Holidays": [
-                " Christmas", " Easter", " New Year's Eve", " Valentine's Day",
-                " Chinese New Year", " Dia de los Muertos", " St. Patrick's Day",
-                " Thanksgiving"
+                "🎄 Christmas",
+                "🐰 Easter",
+                "🎆 New Year's Eve",
+                "💘 Valentine's Day",
+                "🏮 Chinese New Year",
+                "👹 Dia de los Muertos",
+                "🍀 St. Patrick's Day",
+                "🦃 Thanksgiving"
             ],
             "Modern & Lifestyle": [
-                " Instagram", " Instagram Lifestyle", " Selfie", " Curvy Fashion",
-                " Interior Spaces", " Urban Tag"
+                "📱 Instagram",
+                "📱 Instagram Lifestyle",
+                "📱 Selfie",
+                "👗 Curvy Fashion",
+                "🏠 Interior Spaces",
+                "🏙️ Urban Tag"
             ],
             "Character & Design": [
-                " Caricature", " Character Designer", " Chimera Animals",
-                " Chimera Cute Animals", " Minimalist", " Logo"
+                "😄 Caricature",
+                "👤 Character Designer",
+                "🦄 Chimera Animals",
+                "🐰 Chimera Cute Animals",
+                "⬜ Minimalist",
+                "🎯 Logo"
             ],
             "Movies & Media": [
-                " Cinema Studio", " Disney", " Marvel", " Star Wars",
-                " Nolan Epic", " Peaky Blinders", " Stop Motion"
+                "🎬 Cinema Studio",
+                "🎡 Disney",
+                "🦸 Marvel",
+                "🚀 Star Wars",
+                "🎬 Nolan Epic",
+                "🕴️‍♂️ Peaky Blinders",
+                "🎭 Stop Motion"
             ],
             "Vintage & Historical": [
-                " 50s Commercial", " Essential Vintage", " Vintage Anthropomorphic"
+                "🧺 50s Commercial",
+                "🕰️ Essential Vintage",
+                "👴 Vintage Anthropomorphic"
             ],
             "Special Effects": [
-                " Dimension 3D", " Digital Art", " Puzzle Dimension",
-                " Underwater Civilization"
+                "💠 Dimension 3D",
+                "🖼️ Digital Art",
+                "🧩 Puzzle Dimension",
+                "🌊 Underwater Civilization"
             ]
         }
     
@@ -60,17 +103,19 @@ class IsulionMultiplePromptGenerator:
                 "theme_selection_mode": (["All Themes", "Selected Themes", "Theme Category"], {"default": "All Themes"}),
                 "custom_subject": ("STRING", {"default": "", "multiline": True}),
                 "custom_location": ("STRING", {"default": "", "multiline": True}),
+                "randomize": (["enable", "disable"], {"default": "enable"}),
             },
             "optional": {
                 "selected_themes": ("STRING", {
                     "multiline": True,
-                    "default": " Abstract\n Anime\n Cyberpunk"
+                    "default": "🎨 Abstract\n🎌 Anime\n🌆 Cyberpunk"
                 }),
                 "theme_category": (["Art Styles", "Animation & Comics", "Sci-Fi & Future", 
                                   "Fantasy & Magic", "Horror & Spooky", "Holidays", 
                                   "Modern & Lifestyle", "Character & Design", "Movies & Media",
                                   "Vintage & Historical", "Special Effects"], 
-                                  {"default": "Art Styles"})
+                                  {"default": "Art Styles"}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
             }
         }
     
@@ -85,8 +130,10 @@ class IsulionMultiplePromptGenerator:
         theme_selection_mode: str,
         custom_subject: str = "",
         custom_location: str = "",
+        randomize: str = "enable",
         selected_themes: str = "",
-        theme_category: str = "Art Styles"
+        theme_category: str = "Art Styles",
+        seed: int = 0
     ) -> Tuple[List[str], List[str]]:
         """Generate prompts for selected themes.
         Returns lists of (positive_prompts, theme_names)"""
@@ -96,7 +143,19 @@ class IsulionMultiplePromptGenerator:
             themes = [theme for theme, internal in self.mega_prompt.theme_mappings.items() 
                      if internal != "random"]
         elif theme_selection_mode == "Selected Themes":
-            themes = [theme.strip() for theme in selected_themes.split('\n') if theme.strip()]
+            # Convert selected themes to match theme mappings
+            themes = []
+            selected = [theme.strip() for theme in selected_themes.split('\n') if theme.strip()]
+            for theme in selected:
+                # Try to find matching theme with emoji
+                matched = False
+                for full_theme in self.mega_prompt.theme_mappings.keys():
+                    if theme.strip() in full_theme or full_theme.strip() in theme:
+                        themes.append(full_theme)
+                        matched = True
+                        break
+                if not matched:
+                    themes.append(theme)  # Keep original if no match found
         else:  # Theme Category
             themes = self.theme_categories.get(theme_category, [])
         
@@ -104,18 +163,23 @@ class IsulionMultiplePromptGenerator:
         positives = []
         names = []
         
-        import random
-        base_seed = random.randint(0, 0xffffffffffffffff)
+        # Use provided seed if randomization is disabled
+        if randomize == "disable":
+            base_seed = seed
+        else:
+            import random
+            base_seed = random.randint(0, 0xffffffffffffffff)
         
         for i, theme in enumerate(sorted(themes)):
             try:
                 # Generate prompt for this theme with a unique seed
-                theme_seed = (base_seed + i) % 0xffffffffffffffff
+                theme_seed = (base_seed + i) % 0xffffffffffffffff if randomize == "disable" else 0
+                
                 prompt, subject, env, style, effects, _ = self.mega_prompt.generate(
                     theme=theme,
                     complexity="very detailed",  # Always set to very detailed
-                    randomize="disable",  # Disable randomization for consistency
-                    seed=theme_seed,  # Use unique seed for each theme
+                    randomize=randomize,  # Use the randomize parameter
+                    seed=theme_seed,  # Use unique seed for each theme when randomize is disabled
                     custom_subject=custom_subject,
                     custom_location=custom_location,
                     include_environment="yes",

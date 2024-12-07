@@ -19,8 +19,10 @@ class MiuraThemeHandler(BaseThemeHandler):
             return []
         return [self.config.random.choice(choices) for _ in range(count)]
 
-    def debug_print(self, message: str) -> None:
-        print(f"MiuraThemeHandler: {message}")
+    def _debug_print(self, message: str) -> None:
+        """Print debug message only if debug mode is enabled."""
+        if self.debug:
+            print(f"MiuraThemeHandler: {message}")
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
@@ -33,17 +35,17 @@ class MiuraThemeHandler(BaseThemeHandler):
         # Generate subject with Miura's characteristic style
         if custom_subject:
             base_subject = custom_subject
-            self.debug_print(f"Using custom subject: {base_subject}")
+            self._debug_print(f"Using custom subject: {base_subject}")
         else:
             character = self._get_random_choice(f"{self.theme_name}.subjects")
             traits = self._get_multiple_random_choices(f"{self.theme_name}.character_traits", 2)
             details = self._get_multiple_random_choices(f"{self.theme_name}.detail_elements", 2)
             base_subject = f"{character}, {', '.join(traits)}, {', '.join(details)}"
-            self.debug_print(f"Generated subject: {base_subject}")
+            self._debug_print(f"Generated subject: {base_subject}")
 
         # Add Miura's signature detailed styling
         components["subject"] = f"((masterfully detailed {base_subject})), (intricate pen work:1.3), (meticulous cross-hatching:1.2), (high detail illustration), (dramatic chiaroscuro), (extreme attention to texture:1.2), (masterful line weight variation)"
-        self.debug_print(f"Subject generated: {components['subject']}")
+        self._debug_print(f"Subject generated: {components['subject']}")
 
         # Generate environment if included
         if include_environment == "yes":
@@ -52,17 +54,17 @@ class MiuraThemeHandler(BaseThemeHandler):
                 time = self._get_random_choice(f"{self.theme_name}.times")
                 details = self._get_random_choice(f"{self.theme_name}.environment_details")
                 base_environment = f"{custom_location}, {atmosphere}, {time}, {details}"
-                self.debug_print(f"Using custom location: {custom_location}")
+                self._debug_print(f"Using custom location: {custom_location}")
             else:
                 location = self._get_random_choice(f"{self.theme_name}.locations")
                 atmosphere = self._get_random_choice(f"{self.theme_name}.atmospheres")
                 time = self._get_random_choice(f"{self.theme_name}.times")
                 details = self._get_random_choice(f"{self.theme_name}.environment_details")
                 base_environment = f"{location}, {atmosphere}, {time}, {details}"
-                self.debug_print(f"Generated environment: {base_environment}")
+                self._debug_print(f"Generated environment: {base_environment}")
 
             components["environment"] = f"((hyper-detailed environment)), {base_environment}, (intricate architectural details:1.2), (dramatic perspective), (meticulous background detail:1.3)"
-            self.debug_print(f"Environment generated: {components['environment']}")
+            self._debug_print(f"Environment generated: {components['environment']}")
 
         # Add style elements if included
         if include_style == "yes":
@@ -77,8 +79,8 @@ class MiuraThemeHandler(BaseThemeHandler):
                 "(textural complexity:1.2)"
             ]
             components["style"] = ", ".join(style_elements)
-            self.debug_print(f"Style elements added: {', '.join(style_elements)}")
-            self.debug_print(f"Style generated: {components['style']}")
+            self._debug_print(f"Style elements added: {', '.join(style_elements)}")
+            self._debug_print(f"Style generated: {components['style']}")
 
         # Add effects if included
         if include_effects == "yes":
@@ -92,7 +94,7 @@ class MiuraThemeHandler(BaseThemeHandler):
                 "(complex material textures)"
             ]
             components["effects"] = ", ".join(effects)
-            self.debug_print(f"Effects added: {', '.join(effects)}")
-            self.debug_print(f"Effects generated: {components['effects']}")
+            self._debug_print(f"Effects added: {', '.join(effects)}")
+            self._debug_print(f"Effects generated: {components['effects']}")
 
         return components
