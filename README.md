@@ -23,7 +23,7 @@ git clone https://github.com/Isulion/ComfyUI_Isulion
 
 ## Available Nodes
 
-## 🎯 Mega Prompt Generator 🎯
+## 🎯 Mega Prompt Generator V3 🎯
 
 ### Theme Categories
 
