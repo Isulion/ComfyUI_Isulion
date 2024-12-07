@@ -2,7 +2,7 @@ from typing import Dict, List, Tuple, Optional
 from .mega_prompt_V3 import MegaPromptV3
 
 class IsulionMultiplePromptGenerator:
-    """Node that generates prompts for all available themes using a custom subject and location. 🎉"""
+    """Node that generates prompts for all available themes using a custom subject and location. """
     
     def __init__(self):
         self.mega_prompt = MegaPromptV3()
@@ -104,27 +104,33 @@ class IsulionMultiplePromptGenerator:
         positives = []
         names = []
         
-        for theme in sorted(themes):
+        import random
+        base_seed = random.randint(0, 0xffffffffffffffff)
+        
+        for i, theme in enumerate(sorted(themes)):
             try:
-                # Generate prompt for this theme
+                # Generate prompt for this theme with a unique seed
+                theme_seed = (base_seed + i) % 0xffffffffffffffff
                 prompt, subject, env, style, effects, _ = self.mega_prompt.generate(
                     theme=theme,
                     complexity="very detailed",  # Always set to very detailed
                     randomize="disable",  # Disable randomization for consistency
-                    seed=0,  # Fixed seed for consistency
+                    seed=theme_seed,  # Use unique seed for each theme
                     custom_subject=custom_subject,
                     custom_location=custom_location,
-                    include_environment="yes",  # Always yes
-                    include_style="yes",  # Always yes
-                    include_effects="yes",  # Always yes
+                    include_environment="yes",
+                    include_style="yes",
+                    include_effects="yes",
+                    debug_mode="off"
                 )
                 
-                positives.append(prompt)
-                names.append(theme)
-            
+                # Only add if generation was successful (no error message)
+                if not prompt.startswith("Error:"):
+                    positives.append(prompt)
+                    names.append(theme)
+                
             except Exception as e:
-                print(f"Error with theme {theme}: {str(e)}")
-                positives.append(f"Error with theme {theme}: {str(e)}")
-                names.append(theme)
+                print(f"Error generating prompt for theme {theme}: {str(e)}")
+                continue
         
-        return (positives, names)
+        return positives, names
