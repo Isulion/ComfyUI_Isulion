@@ -8,45 +8,86 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
         if custom_subject:
             return custom_subject
             
-        subjects = [
-            "a classic French-style kebab with golden frites",
-            "a loaded kebab sandwich overflowing with meat and crispy fries",
-            "an authentic Parisian street kebab with herb-seasoned frites",
-            "a generous kebab platter topped with golden french fries",
-            "a vibrant street-style kebab with perfectly crisp frites"
+        breads = [
+            "pita bread",
+            "large crusty bread roll",
+            "toasted flatbread",
+            "soft white bread",
+            "warm pita wrap"
         ]
         
-        details = [
-            "drizzled with spicy harissa mayo",
-            "garnished with caramelized onions",
-            "served with a side of perfectly golden fries",
-            "accompanied by a zesty herb sauce",
-            "topped with fresh parsley and crisp vegetables"
+        meats = [
+            "grilled chicken pieces",
+            "sliced pieces of grilled meat",
+            "shredded chicken",
+            "tender grilled lamb",
+            "seasoned shredded beef"
         ]
         
-        return f"{self.config.random.choice(subjects)}, {self.config.random.choice(details)}"
+        vegetables = [
+            "fresh lettuce, cucumber, tomato, and red onion",
+            "crisp lettuce, juicy tomato slices, and red onions",
+            "mixed fresh vegetables",
+            "crunchy lettuce and sliced tomatoes",
+            "garden-fresh vegetable mix"
+        ]
+        
+        sauces = [
+            "creamy white sauce",
+            "tangy tzatziki",
+            "garlic aioli",
+            "spicy herb sauce",
+            "creamy ranch dressing"
+        ]
+        
+        fries_descriptions = [
+            "golden and crispy French fries",
+            "freshly cooked crisp fries",
+            "perfectly golden French fries",
+            "hot, crispy potato fries",
+            "golden-brown crispy fries"
+        ]
+        
+        subject_template = "a close-up of a delicious-looking kebab sandwich served with {fries}. The sandwich is made with {bread} filled with {meat}, {vegetables}. The sandwich is topped with {sauce}. The French fries are {fries_desc}, placed next to the sandwich."
+        
+        return subject_template.format(
+            bread=self.config.random.choice(breads),
+            meat=self.config.random.choice(meats),
+            vegetables=self.config.random.choice(vegetables),
+            sauce=self.config.random.choice(sauces),
+            fries=self.config.random.choice(fries_descriptions),
+            fries_desc=self.config.random.choice(fries_descriptions)
+        )
 
     def generate_environment(self, custom_location: str = "") -> str:
         if custom_location:
             return custom_location
             
-        environments = [
-            "on a bustling Parisian street corner",
-            "at an authentic French street food cart",
-            "in a vibrant urban kebab stand",
-            "along a traditional Paris street food setting",
-            "within a lively urban food market"
+        backgrounds = [
+            "dark background which makes the food stand out prominently",
+            "black plate highlighting the food's colors",
+            "matte black surface creating contrast",
+            "deep charcoal background",
+            "shadowy background emphasizing the food"
         ]
         
-        details = [
-            "with warm ambient street lighting",
-            "featuring a rotating meat spit in the background",
-            "surrounded by the energy of urban street cuisine",
-            "with a glimpse of the city's culinary culture",
-            "capturing the essence of street food preparation"
+        lighting = [
+            "soft side lighting",
+            "dramatic overhead light",
+            "warm, focused lighting",
+            "studio-style food photography lighting",
+            "carefully controlled directional light"
         ]
         
-        return f"{self.config.random.choice(environments)}, {self.config.random.choice(details)}"
+        placement = [
+            "neatly arranged on a clean surface",
+            "positioned to showcase both the sandwich and fries",
+            "carefully composed food styling",
+            "artfully displayed with attention to detail",
+            "strategically placed for maximum visual appeal"
+        ]
+        
+        return f"on {self.config.random.choice(backgrounds)}, with {self.config.random.choice(lighting)}, {self.config.random.choice(placement)}"
 
     def generate_style(self) -> str:
         styles = [
