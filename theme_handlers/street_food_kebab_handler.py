@@ -9,19 +9,19 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             return custom_subject
             
         subjects = [
-            "a gyro-style sub sandwich with a side of french fries",
-            "an appetizing sub sandwich served with crispy fries",
-            "a freshly prepared pita wrap accompanied by fries",
-            "a vibrant wrap sandwich with golden fries",
-            "a delicious sub with assorted fillings and fries"
+            "a classic French-style kebab with golden frites",
+            "a loaded kebab sandwich overflowing with meat and crispy fries",
+            "an authentic Parisian street kebab with herb-seasoned frites",
+            "a generous kebab platter topped with golden french fries",
+            "a vibrant street-style kebab with perfectly crisp frites"
         ]
         
         details = [
-            "filled with various meats and vegetables",
-            "accompanied by a side of golden brown fries",
-            "wrapped in warm pita bread with fresh herbs",
-            "served with a hint of creamy garlic sauce",
-            "garnished with crisp lettuce and tomatoes"
+            "drizzled with spicy harissa mayo",
+            "garnished with caramelized onions",
+            "served with a side of perfectly golden fries",
+            "accompanied by a zesty herb sauce",
+            "topped with fresh parsley and crisp vegetables"
         ]
         
         return f"{self.config.random.choice(subjects)}, {self.config.random.choice(details)}"
@@ -31,19 +31,19 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             return custom_location
             
         environments = [
-            "in a restaurant or food service environment",
-            "at a vibrant fast food stall",
-            "in a cozy eatery with a side of fries",
-            "on a bustling street corner with fries on the table",
-            "in a high-end culinary setting with fries as a side"
+            "on a bustling Parisian street corner",
+            "at an authentic French street food cart",
+            "in a vibrant urban kebab stand",
+            "along a traditional Paris street food setting",
+            "within a lively urban food market"
         ]
         
         details = [
-            "with a light brown wooden cutting board",
-            "with a dark gray background",
-            "surrounded by aromatic spices",
-            "with dramatic lighting from the right",
-            "on a dark surface, adding depth"
+            "with warm ambient street lighting",
+            "featuring a rotating meat spit in the background",
+            "surrounded by the energy of urban street cuisine",
+            "with a glimpse of the city's culinary culture",
+            "capturing the essence of street food preparation"
         ]
         
         return f"{self.config.random.choice(environments)}, {self.config.random.choice(details)}"

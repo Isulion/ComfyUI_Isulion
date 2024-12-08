@@ -5,49 +5,50 @@
             "serving",
             "wrapping",
             "slicing",
-            "grilling"
+            "grilling",
+            "assembling frites"
         ],
         "subjects": [
-            "massive döner kebab",
-            "hefty kebab sandwich",
-            "enormous French street kebab",
-            "greasy late-night kebab",
-            "giant kebab sandwich"
+            "classic French-style kebab with frites",
+            "loaded kebab sandwich with crispy fries",
+            "authentic Parisian street kebab",
+            "generous kebab with golden french fries",
+            "street-style kebab frites platter"
         ],
         "details": [
-            "stuffed with crispy fries",
-            "loaded with shaved meat",
-            "drenched in garlic sauce",
-            "packed with fresh vegetables",
-            "oozing with sauce"
+            "topped with golden crispy fries",
+            "overflowing with shaved meat and frites",
+            "drizzled with spicy harissa mayo",
+            "packed with caramelized onions and fries",
+            "garnished with herb-seasoned frites"
         ],
         "environments": [
-            "small bustling kebab shop",
-            "cramped street corner stand",
-            "tiny steamy kebab shop",
-            "well-worn counter",
-            "local kebab joint"
+            "bustling Parisian street corner",
+            "authentic French street food cart",
+            "vibrant urban kebab stand",
+            "traditional Paris street food setting",
+            "lively urban food market"
         ],
         "environment_details": [
-            "rotating meat spit visible",
-            "fluorescent lighting",
-            "steam in the air",
-            "sauce bottles nearby",
-            "busy grill area"
+            "rotating meat spit in background",
+            "sizzling grill with fries",
+            "street-level food preparation",
+            "warm ambient street lighting",
+            "busy urban street atmosphere"
         ],
         "styles": [
-            "gritty and realistic",
-            "authentic street food",
-            "raw and unfiltered",
-            "candid late-night",
-            "genuine documentation"
+            "authentic street food photography",
+            "gritty urban culinary realism",
+            "vibrant street food documentary",
+            "candid Parisian street scene",
+            "raw street cuisine aesthetic"
         ],
         "style_details": [
-            "harsh lighting",
-            "greasy appeal",
-            "massive portions",
-            "authentic mess",
-            "visible steam"
+            "dramatic street lighting",
+            "high contrast urban setting",
+            "authentic food preparation detail",
+            "rich color palette",
+            "dynamic food composition"
         ],
         "effects": [
             "harsh fluorescent lighting",
