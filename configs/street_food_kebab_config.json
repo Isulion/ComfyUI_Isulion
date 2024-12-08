@@ -1,60 +1,48 @@
 {
     "street_food_kebab": {
         "actions": [
-            "preparing",
-            "serving",
-            "assembling",
-            "plating",
-            "garnishing"
+            "presenting",
+            "showcasing",
+            "displaying",
+            "carving",
+            "serving"
         ],
         "subjects": [
-            "kebab sandwich with crispy fries",
-            "close-up of street food sandwich",
-            "detailed kebab meal",
-            "gourmet street food platter",
-            "artfully presented kebab dish"
+            "a döner kebab on a wooden cutting board with various ingredients",
+            "a close-up of a traditional döner kebab sandwich",
+            "a freshly prepared döner kebab with authentic toppings",
+            "a classic Turkish-style döner kebab meal"
         ],
         "details": [
-            "filled with fresh grilled meats",
-            "topped with creamy white sauce",
-            "garnished with crisp vegetables",
-            "served with golden french fries",
-            "featuring perfectly cooked ingredients"
+            "filled with sliced meat, lettuce, cucumber, tomato, and red cabbage",
+            "accompanied by three small sauce containers in red, orange, and yellow",
+            "with a crisp and well-toasted bread wrap",
+            "featuring a creamy white sauce and fresh vegetables",
+            "with golden and crispy French fries on the side"
         ],
         "environments": [
-            "dark background setting",
-            "black plate presentation",
-            "dramatic food photography setup",
-            "studio lighting environment",
-            "carefully styled food scene"
+            "wooden cutting board background",
+            "rustic wooden surface",
+            "traditional Turkish street food setting",
+            "minimalist food photography backdrop"
         ],
         "environment_details": [
-            "prominent food styling",
-            "high-contrast lighting",
-            "carefully arranged composition",
-            "focused culinary presentation",
-            "strategic visual emphasis"
+            "highlighting authentic döner kebab preparation",
+            "emphasizing fresh, vibrant ingredients",
+            "creating an appetizing visual composition",
+            "showcasing traditional Turkish culinary style"
         ],
         "styles": [
-            "professional food photography",
-            "detailed culinary close-up",
-            "gourmet street food aesthetic",
-            "dramatic food styling",
-            "high-contrast food image"
+            "authentic street food photography",
+            "close-up culinary detail",
+            "vibrant color palette",
+            "traditional food styling"
         ],
         "style_details": [
-            "dark background",
-            "sharp focus on food details",
-            "dramatic side lighting",
-            "carefully composed arrangement",
-            "studio-quality food presentation"
-        ],
-        "effects": [
-            "dark background contrast",
-            "focused lighting",
-            "detailed food textures",
-            "crisp visual presentation",
-            "appetizing food styling"
+            "sharp focus on döner kebab ingredients",
+            "natural lighting",
+            "detailed texture representation",
+            "appealing color contrast"
         ]
     }
 }

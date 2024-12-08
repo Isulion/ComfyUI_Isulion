@@ -9,53 +9,70 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             return custom_subject
             
         breads = [
-            "pita bread",
-            "large crusty bread roll",
-            "toasted flatbread",
-            "soft white bread",
-            "warm pita wrap"
+            "traditional Turkish bread wrap",
+            "freshly baked döner bread",
+            "crisp lavash bread",
+            "soft pita bread",
+            "warm Turkish flatbread"
         ]
         
         meats = [
-            "grilled chicken pieces",
-            "sliced pieces of grilled meat",
-            "shredded chicken",
-            "tender grilled lamb",
-            "seasoned shredded beef"
+            "thinly sliced seasoned lamb",
+            "tender grilled chicken döner",
+            "marinated beef döner",
+            "mixed meat döner",
+            "spiced lamb and chicken blend"
         ]
         
         vegetables = [
-            "fresh lettuce, cucumber, tomato, and red onion",
-            "crisp lettuce, juicy tomato slices, and red onions",
-            "mixed fresh vegetables",
-            "crunchy lettuce and sliced tomatoes",
-            "garden-fresh vegetable mix"
+            "crisp lettuce, cucumber, tomato, and red cabbage",
+            "fresh mixed salad with red onions",
+            "crunchy lettuce, juicy tomatoes, and pickled vegetables",
+            "garden-fresh cucumber, tomato, and red onion mix",
+            "traditional Turkish vegetable medley"
         ]
         
         sauces = [
-            "creamy white sauce",
-            "tangy tzatziki",
-            "garlic aioli",
-            "spicy herb sauce",
-            "creamy ranch dressing"
+            "creamy garlic sauce",
+            "traditional white döner sauce",
+            "spicy red pepper sauce",
+            "herb-infused yogurt sauce",
+            "tangy Mediterranean sauce"
         ]
         
         fries_descriptions = [
-            "golden and crispy French fries",
-            "freshly cooked crisp fries",
-            "perfectly golden French fries",
-            "hot, crispy potato fries",
-            "golden-brown crispy fries"
+            "golden and crispy Turkish-style fries",
+            "freshly cooked crisp potato wedges",
+            "perfectly golden Mediterranean fries",
+            "hot, seasoned potato fries",
+            "golden-brown crispy side fries"
         ]
         
-        subject_template = "a close-up of a delicious-looking kebab sandwich served with {fries}. The sandwich is made with {bread} filled with {meat}, {vegetables}. The sandwich is topped with {sauce}. The French fries are {fries_desc}, placed next to the sandwich."
+        packaging_details = [
+            "a traditional döner wrap paper",
+            "an authentic Turkish street food packaging",
+            "a branded döner kebab wrapper",
+            "a rustic food service paper",
+            "a classic döner presentation wrap"
+        ]
+        
+        sauce_details = [
+            "three small containers of sauces: white, red, and herb-green",
+            "a variety of traditional döner sauces",
+            "multiple authentic Turkish condiments",
+            "artfully arranged sauce selection",
+            "classic döner accompaniment sauces"
+        ]
+        
+        subject_template = "an authentic image of a döner kebab featuring {bread} filled with {meat}, layered with {vegetables}, and topped with {sauce}. {packaging} is visible beside the kebab. {sauce_containers} complement the meal. The {fries_desc} are served alongside, creating a traditional Turkish street food scene."
         
         return subject_template.format(
             bread=self.config.random.choice(breads),
             meat=self.config.random.choice(meats),
             vegetables=self.config.random.choice(vegetables),
             sauce=self.config.random.choice(sauces),
-            fries=self.config.random.choice(fries_descriptions),
+            packaging=self.config.random.choice(packaging_details),
+            sauce_containers=self.config.random.choice(sauce_details),
             fries_desc=self.config.random.choice(fries_descriptions)
         )
 
