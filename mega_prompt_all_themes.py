@@ -56,7 +56,8 @@ class IsulionMultiplePromptGenerator:
                 "🏛️ Architectural",
                 "🏠 Interior Spaces", 
                 "🏙️ Urban Tag",
-                "🏠 Village World"
+                "🏠 Village World",
+                "🌿 Nature"
             ],
             "Special Themes & Occasions": [
                 "🎄 Christmas",
