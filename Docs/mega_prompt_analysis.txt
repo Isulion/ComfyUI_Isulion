@@ -2,19 +2,62 @@
 
 The `MegaPromptV3` system is a sophisticated and flexible prompt generator designed for the ComfyUI platform. It leverages a modular architecture with various theme handlers to create diverse and customizable prompts. Key features include extensive theme mappings, robust error handling, and support for custom subjects and locations. The system integrates seamlessly with other components of ComfyUI, offering a user-friendly interface for prompt customization. This document provides a detailed analysis of the system's components, including theme handlers, configuration management, and additional context elements such as randomization logic and user feedback mechanisms.
 
-### File Locations
+### File Locations and Structure
 
-The system's key files are located in the ComfyUI custom nodes directory:
+The system's files are organized within the ComfyUI custom nodes directory as follows:
+
+```
+custom_nodes/
+└── MegaPrompt/
+    ├── __init__.py
+    ├── mega_prompt_V3.py
+    ├── mega_prompt_all_themes.py
+    ├── theme_registry.py
+    ├── base_theme_handler.py
+    ├── Docs/
+    │   └── mega_prompt_analysis.txt
+    ├── configs/
+    │   ├── nature_config.json
+    │   ├── art_styles_config.json
+    │   └── [other theme configs].json
+    └── theme_handlers/
+        ├── __init__.py
+        ├── abstract/
+        │   ├── __init__.py
+        │   └── abstract_handlers.py
+        ├── animation/
+        │   ├── __init__.py
+        │   └── animation_handlers.py
+        ├── character/
+        │   ├── __init__.py
+        │   └── character_handlers.py
+        └── [other theme categories]/
+```
 
 Core Files:
-- Main Implementation: `mega_prompt_V3.py`
-- Analysis Document: `mega_prompt_analysis.txt`
+- `mega_prompt_V3.py`: Main implementation file containing the MegaPromptV3 class
+- `mega_prompt_all_themes.py`: Theme registration and management
+- `theme_registry.py`: Central theme registry implementation
+- `base_theme_handler.py`: Base class for theme handlers
 
-Component Directories:
-- Theme Handlers: `theme_handlers`
-- Configuration Files: `configs`
+Theme handlers are organized by category within the theme_handlers directory, with each category having its own subdirectory and `__init__.py` file. This structure allows for better organization and maintainability while keeping related themes grouped together.
 
-Theme handlers are organized in categories within the theme_handlers directory, with a centralized `__init__.py` file managing imports and exports.
+Configuration files are stored in the configs directory, with one JSON file per theme or theme category. This separation of configuration from code allows for easier maintenance and updates of theme-specific data.
+
+### Theme Handler Organization
+
+Theme handlers are organized into appropriate categories within the theme_handlers directory. Each category has:
+
+1. A dedicated subdirectory (e.g., `abstract/`, `animation/`, etc.)
+2. An `__init__.py` file for proper Python package structure
+3. One or more handler implementation files
+
+When adding new theme handlers:
+1. Place them in the appropriate category directory
+2. Update the category's `__init__.py` to expose the new handler
+3. Register the handler in `mega_prompt_all_themes.py`
+
+This organization helps maintain a clean and scalable codebase while making it easier to locate and manage related themes.
 
 ### System Architecture
 
@@ -224,19 +267,29 @@ For example, the nature theme configuration includes:
 
 ### Instructions for Adding a New Theme to Mega Prompt V3
 
-To add a new theme to `mega_prompt_V3.py`, follow these steps:
+To add a new theme to the system, follow these steps:
 
-0. Don't add any new folder. Use the existing folder structure.
-1. Create a new Python file in the appropriate category subdirectory under `theme_handlers/`.
-2. Create a corresponding config file in the `configs` directory (e.g., `configs/my_new_theme_config.json`) containing all lists and configuration data needed by your theme handler.
-3. In the theme handler file, create a new class that inherits from `BaseThemeHandler`.
-4. Implement the required methods for your theme handler, such as `generate`, making sure to load lists and configuration data from the config file rather than hardcoding them.
-5. Register the new theme handler by adding it to the `__all__` list in `theme_handlers/__init__.py`.
-6. Add the new theme to the `theme_mappings` dictionary in `mega_prompt_V3.py`.
-7. Update the theme registry by adding your new theme handler to the `_init_handlers` method in `ThemeRegistry` class.
-8. Add the theme to the appropriate category in `mega_prompt_all_themes.py`.
+1. Choose the appropriate category directory under `theme_handlers/` (e.g., `abstract/`, `animation/`, etc.)
+2. Create a new handler file in that directory (e.g., `my_new_theme_handler.py`)
+3. Create a corresponding config file in the `configs` directory (e.g., `configs/my_new_theme_config.json`)
+4. In the theme handler file, create a new class that inherits from `BaseThemeHandler`
+5. Implement the required methods for your theme handler
+6. Update the category's `__init__.py` to expose your new handler
+7. Register the handler in `mega_prompt_all_themes.py`
+8. Add any necessary configuration entries to the config file
 
-By following these steps and placing the handler and its configuration in the correct directories, you can easily add a new theme to `mega_prompt_V3.py` while maintaining the organized structure of the codebase. Remember that all lists (subjects, environments, styles, etc.) must be stored in configuration files rather than directly in the theme handler code.
+Example handler structure:
+```python
+from ...base_theme_handler import BaseThemeHandler
+
+class MyNewThemeHandler(BaseThemeHandler):
+    def __init__(self):
+        super().__init__("my_new_theme")
+        
+    def generate(self, **kwargs):
+        # Implementation here
+        pass
+```
 
 ### Instructions for Adding a New Node
 
