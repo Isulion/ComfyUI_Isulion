@@ -1,0 +1,89 @@
+ARTISTIC STYLES
+1. 🎨 Abstract - Generates abstract art with non-representational forms, shapes, colors and compositions
+2. 🖼️ Digital Art - Produces digital artwork with modern tools and techniques
+3. 🔬 Experimental Art - Creates innovative artwork pushing artistic boundaries
+4. 🎨 Impressionist - Emulates Impressionist art movement style with characteristic brushwork
+5. ⬜ Minimalist - Focuses on minimal design with essential elements
+6. 🏙️ Urban Tag - Focuses on urban art and graffiti styles
+7. 🎨 Watercolor - Emulates watercolor painting techniques and effects
+8. 🏺 Clay Art - Mimics clay sculpture and modeling with characteristic texture and dimensionality
+9. 🖍️ Crayon Art - Simulates crayon drawing style with characteristic textures and strokes
+
+ANIMATION & CARTOON
+1. 📺 Animation Cartoon - Creates cartoon-style animations with exaggerated features and dynamic movement
+2. 🎌 Anime - Produces Japanese animation style artwork with characteristic anime aesthetics
+3. 🎡 Disney - Captures Disney's signature animation style with magical and whimsical elements
+4. 🎬 Dreamworks - Emulates Dreamworks' distinctive animation style with contemporary appeal
+5. 🍃 Ghibli - Emulates Studio Ghibli's distinctive animation style
+6. 📺 Manga Panel - Produces manga-style comic panels
+7. 💫 Pixar - Replicates Pixar's 3D animation style with characteristic appeal
+8. 📚 School Manga - Focuses on school-themed manga style
+9. 🎭 Stop Motion - Mimics stop-motion animation style with characteristic textures
+
+FANTASY & MYTHICAL
+1. 🦄 Chimera Animals - Generates hybrid creatures combining features from different animal species
+2. 🐰 Chimera Cute Animals - Creates adorable hybrid creatures with cute and appealing characteristics
+3. ✨ Enchanted Fantasy - Creates magical fantasy scenes with enchanted elements
+4. ⚔️ Fantasy - Generates high fantasy imagery with magical elements and mythical creatures
+5. ⚔️ Miura Dark Fantasy - Inspired by Kentaro Miura's dark fantasy style
+6. 🌊 Underwater Civilization - Creates underwater scenes with civilizations
+
+FUTURISTIC & SCI-FI
+1. 🧬 Bio-Organic Technology - Blends biological and technological elements in a futuristic organic style
+2. 💎 Crystalpunk - Combines crystal aesthetics with punk elements in a unique futuristic style
+3. 🌆 Cyberpunk - Creates high-tech dystopian scenes with neon aesthetics and urban decay
+4. ⚔️ Futuristic Battlefield - Depicts advanced warfare scenarios with sci-fi military elements
+5. 🌆 Futuristic City - Shows advanced urban landscapes with high-tech infrastructure
+6. 🌆 Futuristic City Metropolis - Creates expansive futuristic cityscapes with advanced technology
+7. 🚀 Futuristic Sci-Fi - Generates futuristic science fiction scenes with advanced technology
+8. 🌪️ Post Apocalyptic - Creates post-apocalyptic scenarios and environments
+9. 🚀 Sci-Fi - Creates science fiction imagery with futuristic elements
+10. 🚀 Star Wars - Captures Star Wars universe aesthetic
+11. ⚙️ Steampunk - Combines Victorian era with steam-powered technology
+
+HOLIDAYS & CELEBRATIONS
+1. 🏮 Chinese New Year - Celebrates Chinese New Year themes with traditional elements and festivities
+2. 🎄 Christmas - Features Christmas holiday themes with festive decorations and winter scenes
+3. 👹 Dia de los Muertos - Celebrates Mexican Day of the Dead with traditional motifs and colors
+4. 🐰 Easter - Features Easter holiday themes with spring elements and celebrations
+5. 🎃 Halloween - Features Halloween themes with spooky elements
+6. 👻 Halloween Ethereal - Combines Halloween themes with ethereal, dreamlike qualities
+7. 🎆 New Year's Eve - Features New Year celebrations and festivities
+8. 🍀 St. Patrick's Day - Features Irish holiday themes and celebrations
+9. 🦃 Thanksgiving - Features Thanksgiving holiday themes and celebrations
+10. 💘 Valentine's Day - Features romantic themes and Valentine's celebrations
+
+COMMERCIAL & DESIGN
+1. 👤 Character Designer - Specializes in character design with detailed personality traits and features
+2. 🎬 Cinema Studio - Emulates professional cinema production style with cinematic composition
+3. 📚 Comic Book - Recreates classic comic book art style with bold colors and dynamic compositions
+4. 🎨 Concept Art - Produces conceptual artwork for characters, environments, and props
+5. 🧺 50s Commercial - Recreates 1950s advertising style with retro aesthetics
+6. 📱 Instagram - Mimics popular Instagram photography styles
+7. 📱 Instagram Lifestyle - Focuses on lifestyle photography for social media
+8. 🎯 Logo - Creates logo designs with various styles
+9. 🦸 Marvel - Emulates Marvel Comics' distinctive style
+
+ARCHITECTURAL & SPACES
+1. 🏛️ Architectural - Focuses on architectural designs, structures, and building compositions
+2. 🏠 Interior Spaces - Specializes in interior design and architectural spaces
+3. 🏠 Village World - Creates village scenes with various cultural elements
+
+SPECIALIZED THEMES
+1. 🖼️ Binet Surreal - Creates surrealistic artwork inspired by Binet's mathematical and dreamlike style
+2. 😄 Caricature - Produces exaggerated portraits emphasizing distinctive features in a humorous way
+3. 🍳 Culinary/Food - Specializes in food photography and culinary presentation
+4. 👗 Curvy Fashion - Focuses on fashion design for curvy body types with stylish aesthetics
+5. 💠 Dimension 3D - Creates three-dimensional artwork with depth and perspective
+6. 📸 Essential Realistic - Focuses on realistic representation with essential details
+7. 🕰️ Essential Vintage - Captures vintage aesthetics with essential period elements
+8. ✨ Ethereal Dreams - Produces dreamlike imagery with ethereal qualities
+9. 👻 Horror - Creates horror-themed imagery with scary elements
+10. 🔬 Microscopic - Creates microscopic views of small-scale subjects
+11. 🌿 Nature - Focuses on realistic natural landscapes
+12. 🎬 Nolan Epic - Emulates Christopher Nolan's cinematic style
+13. 🕴️‍♂️ Peaky Blinders - Captures the aesthetic of the Peaky Blinders series
+14. 🧩 Puzzle Dimension - Generates puzzle-like compositions with dimensional elements
+15. 📱 Selfie - Specializes in selfie-style portrait photography
+16. 🥙 Street Food Kebab - Focuses on street food photography, particularly kebabs
+17. 👴 Vintage Anthropomorphic - Produces vintage-style anthropomorphic characters 

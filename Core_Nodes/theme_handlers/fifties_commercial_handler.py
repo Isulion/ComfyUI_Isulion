@@ -56,7 +56,7 @@ class FiftiesCommercialHandler(BaseThemeHandler):
 
     def get_theme_description(self) -> str:
         """Return the description of the theme."""
-        return "Generate images in the style of 1950s commercial advertisements, featuring vibrant colors, idealized scenes, and classic advertising aesthetics."
+        return "Recreates the distinctive advertising style of the 1950s, with retro aesthetics, vintage color palettes, and characteristic mid-century commercial art elements."
 
     def generate(self, custom_subject: str = "",
             custom_location: str = "",

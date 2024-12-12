@@ -40,6 +40,7 @@ Exemples de comportements à éviter comme la peste :
 Les mainteneurs de projet, gardiens des clés du royaume, sont responsables de clarifier les standards de comportement acceptable et de prendre des actions correctives appropriées et justes en réponse à toute instance de comportement inacceptable. Ils ont le droit et la responsabilité de supprimer, modifier ou rejeter les commentaires, les commits, le code, les modifications du wiki, les problèmes, et autres contributions qui ne sont pas alignées sur ce Code de Conduite. Ils peuvent également bannir temporairement ou définitivement tout contributeur pour d'autres comportements jugés inappropriés, menaçants, offensants ou nuisibles (oui, même les trolls sous les ponts).
 
 --------------------------------------------------------------------------------------------------------------------------------------
+
 # Code of Conduct
 
 ## Our Solemn Oath

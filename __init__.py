@@ -8,35 +8,42 @@ __author__ = "Isulion"
 __description__ = "Advanced prompt generation nodes for ComfyUI with multiple themes and styles"
 
 # Import all node classes
-from .mega_prompt_V3 import MegaPromptV3
-from .animals_nodes.isulion_animal_generator import Isulion_AnimalRandom
-from .animals_nodes.isulion_cute_animal_generator import IsulionCuteAnimalRandom
-from .animals_nodes.isulion_animal_behavior_generator import Isulion_AnimalBehaviorGenerator
-from .scene_nodes.isulion_habitat_generator import Isulion_HabitatGenerator
-from .scene_nodes.isulion_weather_generator import Isulion_WeatherGenerator
-from .scene_nodes.isulion_time_of_day_generator import Isulion_TimeOfDayGenerator
-from .scene_nodes.isulion_art_style_generator import Isulion_ArtStyleGenerator
-from .scene_nodes.isulion_action_generator import IsulionActionGenerator
-from .scene_nodes.isulion_scene_composition import IsulionSceneComposition
-from .character_nodes.isulion_profession_generator import IsulionProfessionGenerator
-from .character_nodes.isulion_fantasy_race_generator import IsulionFantasyRaceGenerator
-from .character_nodes.isulion_clothing_generator import IsulionClothingGenerator
-from .character_nodes.isulion_epoch_generator import IsulionEpochGenerator
-from .fantasy_nodes.isulion_magical_effect_generator import IsulionMagicalEffectGenerator
-from .fantasy_nodes.isulion_mythical_location_generator import IsulionMythicalLocationGenerator
-from .fantasy_nodes.isulion_artifact_generator import IsulionArtifactGenerator
-from .scifi_nodes.isulion_tech_generator import IsulionTechGenerator
-from .scifi_nodes.isulion_alien_world_generator import IsulionAlienWorldGenerator
-from .scifi_nodes.isulion_spacecraft_generator import IsulionSpacecraftGenerator
-from .enhancement_nodes.isulion_emotion_generator import Isulion_EmotionGenerator
-from .enhancement_nodes.isulion_style_mixer import IsulionStyleMixer
-from .enhancement_nodes.isulion_prompt_enhancer import IsulionPromptEnhancer
-from .enhancement_nodes.isulion_negative_prompt_generator import IsulionNegativePromptGenerator
+from .Core_Nodes.mega_prompt_V3 import MegaPromptV3
+from .Core_Nodes.mega_prompt_all_themes import IsulionMultiplePromptGenerator
+from .Core_Nodes.isucollage_node import IsuCollageNode
+from .Core_Nodes.load_images_node import IsulionLoadImagesNode
+from .Core_Nodes.shutdown_node import NODE_CLASS_MAPPINGS as SHUTDOWN_NODES
 from .Core_Nodes.video_prompt_generator import NODE_CLASS_MAPPINGS as VIDEO_PROMPT_NODES
-from .mega_prompt_all_themes import IsulionMultiplePromptGenerator
-from .isucollage_node import IsuCollageNode
-from .load_images_node import IsulionLoadImagesNode
-from .shutdown_node import NODE_CLASS_MAPPINGS as SHUTDOWN_NODES
+
+# Import category-specific nodes
+from .Core_Nodes.animals_nodes.isulion_animal_generator import Isulion_AnimalRandom
+from .Core_Nodes.animals_nodes.isulion_cute_animal_generator import IsulionCuteAnimalRandom
+from .Core_Nodes.animals_nodes.isulion_animal_behavior_generator import Isulion_AnimalBehaviorGenerator
+
+from .Core_Nodes.scene_nodes.isulion_habitat_generator import Isulion_HabitatGenerator
+from .Core_Nodes.scene_nodes.isulion_weather_generator import Isulion_WeatherGenerator
+from .Core_Nodes.scene_nodes.isulion_time_of_day_generator import Isulion_TimeOfDayGenerator
+from .Core_Nodes.scene_nodes.isulion_art_style_generator import Isulion_ArtStyleGenerator
+from .Core_Nodes.scene_nodes.isulion_action_generator import IsulionActionGenerator
+from .Core_Nodes.scene_nodes.isulion_scene_composition import IsulionSceneComposition
+
+from .Core_Nodes.character_nodes.isulion_profession_generator import IsulionProfessionGenerator
+from .Core_Nodes.character_nodes.isulion_fantasy_race_generator import IsulionFantasyRaceGenerator
+from .Core_Nodes.character_nodes.isulion_clothing_generator import IsulionClothingGenerator
+from .Core_Nodes.character_nodes.isulion_epoch_generator import IsulionEpochGenerator
+
+from .Core_Nodes.fantasy_nodes.isulion_magical_effect_generator import IsulionMagicalEffectGenerator
+from .Core_Nodes.fantasy_nodes.isulion_mythical_location_generator import IsulionMythicalLocationGenerator
+from .Core_Nodes.fantasy_nodes.isulion_artifact_generator import IsulionArtifactGenerator
+
+from .Core_Nodes.scifi_nodes.isulion_tech_generator import IsulionTechGenerator
+from .Core_Nodes.scifi_nodes.isulion_alien_world_generator import IsulionAlienWorldGenerator
+from .Core_Nodes.scifi_nodes.isulion_spacecraft_generator import IsulionSpacecraftGenerator
+
+from .Core_Nodes.enhancement_nodes.isulion_emotion_generator import Isulion_EmotionGenerator
+from .Core_Nodes.enhancement_nodes.isulion_style_mixer import IsulionStyleMixer
+from .Core_Nodes.enhancement_nodes.isulion_prompt_enhancer import IsulionPromptEnhancer
+from .Core_Nodes.enhancement_nodes.isulion_negative_prompt_generator import IsulionNegativePromptGenerator
 
 # Node mappings
 NODE_CLASS_MAPPINGS = {

@@ -1,11 +1,11 @@
 import json
 import random
 import os
-from ..mega_prompt_V3 import MegaPromptV3
+from .mega_prompt_V3 import MegaPromptV3
 
 class VideoPromptGenerator:
     def __init__(self):
-        self.config_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 
+        self.config_path = os.path.join(os.path.dirname(__file__), 
                                       "configs", "video_prompt_config.json")
         self.load_config()
         self.mega_prompt = MegaPromptV3()
@@ -16,7 +16,7 @@ class VideoPromptGenerator:
     @classmethod
     def INPUT_TYPES(cls):
         try:
-            config_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 
+            config_path = os.path.join(os.path.dirname(__file__), 
                                       "configs", "video_prompt_config.json")
             with open(config_path, 'r') as f:
                 config = json.load(f)
