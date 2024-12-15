@@ -56,6 +56,7 @@ When adding new theme handlers:
 1. Place them in the appropriate category directory
 2. Update the category's `__init__.py` to expose the new handler
 3. Register the handler in `mega_prompt_all_themes.py`
+4. Ensure that the handler class inherits from `BaseThemeHandler`.
 
 This organization helps maintain a clean and scalable codebase while making it easier to locate and manage related themes.
 
@@ -187,6 +188,32 @@ To ensure a theme is properly implemented in the `MegaPromptV3` system, verify t
    - Marvel
    - Pixar
    - Anime
+
+### Theme Handlers Overview
+
+### FantasyThemeHandler
+- **Purpose**: Generates prompts with a fantasy theme.
+- **Customization Options**: Includes subjects, locations, environments, styles, and effects.
+- **Example Usage**:
+```python
+prompt = FantasyThemeHandler().generate(custom_subject="a dragon flying over a castle")
+```
+
+### AnimeThemeHandler
+- **Purpose**: Generates prompts with an anime theme.
+- **Customization Options**: Similar to the fantasy handler, focusing on anime aesthetics.
+- **Example Usage**:
+```python
+prompt = AnimeThemeHandler().generate(custom_subject="a magical girl")
+```
+
+### CyberpunkThemeHandler
+- **Purpose**: Generates prompts with a cyberpunk theme.
+- **Customization Options**: Emphasizes neon-noir aesthetics, includes subjects, environments, styles, and effects.
+- **Example Usage**:
+```python
+prompt = CyberpunkThemeHandler().generate(custom_subject="a street samurai")
+```
 
 ### Configuration Structure
 
@@ -335,7 +362,7 @@ To add a new node that integrates with the MegaPromptV3 system, follow these ste
    }
 
    NODE_DISPLAY_NAME_MAPPINGS = {
-       "Your Node Display Name": "Your Node Display Name 🎨"
+       "Your Node Display Name": "Your Node Display Name "
    }
    ```
 
@@ -384,6 +411,7 @@ Remember to maintain consistency with the existing codebase structure and follow
    - Fallback themes
    - Default configurations
    - Graceful degradation strategies
+   - In the `MegaPromptV3` class, errors during prompt generation are caught and logged, providing meaningful output to the user.
 
 ### Performance Monitoring
 
@@ -392,6 +420,7 @@ Remember to maintain consistency with the existing codebase structure and follow
    - Theme handler load time
    - Configuration parse time
    - Memory usage
+   - These metrics are essential for optimizing the performance of the prompt generation process.
 
 2. **Optimization Strategies**:
    - Configuration caching
@@ -404,6 +433,7 @@ Remember to maintain consistency with the existing codebase structure and follow
    - Sanitize user inputs
    - Validate file paths
    - Check for malicious content
+   - In the `generate` method of `MegaPromptV3`, user inputs are validated to prevent injection attacks and ensure safe processing.
 
 2. **Configuration Security**:
    - Secure storage of sensitive data

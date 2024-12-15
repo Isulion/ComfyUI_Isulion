@@ -14,6 +14,7 @@ from .Core_Nodes.isucollage_node import IsuCollageNode
 from .Core_Nodes.load_images_node import IsulionLoadImagesNode
 from .Core_Nodes.shutdown_node import NODE_CLASS_MAPPINGS as SHUTDOWN_NODES
 from .Core_Nodes.video_prompt_generator import NODE_CLASS_MAPPINGS as VIDEO_PROMPT_NODES
+from .Core_Nodes.display_image_from_url import DisplayImageFromURL
 
 # Import category-specific nodes
 from .Core_Nodes.animals_nodes.isulion_animal_generator import Isulion_AnimalRandom
@@ -44,6 +45,7 @@ from .Core_Nodes.enhancement_nodes.isulion_emotion_generator import Isulion_Emot
 from .Core_Nodes.enhancement_nodes.isulion_style_mixer import IsulionStyleMixer
 from .Core_Nodes.enhancement_nodes.isulion_prompt_enhancer import IsulionPromptEnhancer
 from .Core_Nodes.enhancement_nodes.isulion_negative_prompt_generator import IsulionNegativePromptGenerator
+from .Core_Nodes.civitai_nodes.civitai_API_node import IsulionCivitaiModelExplorer, IsulionCivitaiTrending, IsulionCivitaiImageDisplay
 
 # Node mappings
 NODE_CLASS_MAPPINGS = {
@@ -71,11 +73,15 @@ NODE_CLASS_MAPPINGS = {
     "IsulionStyleMixer": IsulionStyleMixer,
     "IsulionPromptEnhancer": IsulionPromptEnhancer,
     "IsulionNegativePromptGenerator": IsulionNegativePromptGenerator,
+    "IsulionCivitaiModelExplorer": IsulionCivitaiModelExplorer,
+    "IsulionCivitaiTrending": IsulionCivitaiTrending,
+    "IsulionCivitaiImageDisplay": IsulionCivitaiImageDisplay,
     "MegaPromptV3": MegaPromptV3,
     "IsulionMultiplePromptGenerator": IsulionMultiplePromptGenerator,
     "IsuCollage_Node": IsuCollageNode,
     "IsulionLoadImagesNode": IsulionLoadImagesNode,
-    "IsulionEpochGenerator": IsulionEpochGenerator
+    "IsulionEpochGenerator": IsulionEpochGenerator,
+    "DisplayImageFromURL": DisplayImageFromURL,
 }
 
 # Display name mappings
@@ -105,9 +111,13 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionStyleMixer": "🎨 Isulion Style Mixer",
     "IsulionPromptEnhancer": "💫 Isulion Prompt Enhancer",
     "IsulionNegativePromptGenerator": "⛔ Isulion Negative Prompt Generator",
+    "IsulionCivitaiModelExplorer": "🔍 Isulion Civitai Model Explorer",
+    "IsulionCivitaiTrending": "🔥 Isulion Civitai Trending",
+    "IsulionCivitaiImageDisplay": "🖼️ Isulion Civitai Image Display",
     "IsuCollage_Node": "🖼️ Isulion Image Collage",
     "IsulionLoadImagesNode": "📁 Isulion Load Images from Directory",
-    "IsulionEpochGenerator": "⏳ Isulion Epoch Generator"
+    "IsulionEpochGenerator": "⏳ Isulion Epoch Generator",
+    "DisplayImageFromURL": "🖼️ Isulion Display Image From URL",
 }
 
 __version__ = "2.0.0"
