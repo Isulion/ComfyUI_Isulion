@@ -1,0 +1,2284 @@
+{
+  "last_node_id": 177,
+  "last_link_id": 146,
+  "nodes": [
+    {
+      "id": 123,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -500,
+        2300
+      ],
+      "size": [
+        810,
+        76
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 96,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/2e9e4474-f4d2-4651-9b7b-fbe538e9a487/width=1800/2e9e4474-f4d2-4651-9b7b-fbe538e9a487.jpeg"
+      ]
+    },
+    {
+      "id": 124,
+      "type": "IsulionCivitaiImageDisplay",
+      "pos": [
+        -880,
+        1690
+      ],
+      "size": [
+        415.8000183105469,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_info",
+          "type": "STRING",
+          "link": 97,
+          "widget": {
+            "name": "image_info"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            133
+          ]
+        },
+        {
+          "name": "title",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            118
+          ]
+        },
+        {
+          "name": "image_url",
+          "type": "STRING",
+          "links": [
+            117
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IsulionCivitaiImageDisplay"
+      },
+      "widgets_values": [
+        "",
+        "Single",
+        4,
+        512
+      ]
+    },
+    {
+      "id": 125,
+      "type": "IsulionCivitaiImageDisplay",
+      "pos": [
+        -880,
+        1640
+      ],
+      "size": [
+        415.8000183105469,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_info",
+          "type": "STRING",
+          "link": 98,
+          "widget": {
+            "name": "image_info"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            115
+          ]
+        },
+        {
+          "name": "title",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            116
+          ]
+        },
+        {
+          "name": "image_url",
+          "type": "STRING",
+          "links": [
+            114
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IsulionCivitaiImageDisplay"
+      },
+      "widgets_values": [
+        "",
+        "Single",
+        3,
+        512
+      ]
+    },
+    {
+      "id": 126,
+      "type": "IsulionCivitaiImageDisplay",
+      "pos": [
+        -880,
+        1590
+      ],
+      "size": [
+        415.8000183105469,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_info",
+          "type": "STRING",
+          "link": 99,
+          "widget": {
+            "name": "image_info"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            112
+          ]
+        },
+        {
+          "name": "title",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            113
+          ]
+        },
+        {
+          "name": "image_url",
+          "type": "STRING",
+          "links": [
+            111
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IsulionCivitaiImageDisplay"
+      },
+      "widgets_values": [
+        "",
+        "Single",
+        2,
+        512
+      ]
+    },
+    {
+      "id": 127,
+      "type": "IsulionCivitaiImageDisplay",
+      "pos": [
+        -880,
+        1540
+      ],
+      "size": [
+        415.8000183105469,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_info",
+          "type": "STRING",
+          "link": 100,
+          "widget": {
+            "name": "image_info"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            109
+          ]
+        },
+        {
+          "name": "title",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            110
+          ]
+        },
+        {
+          "name": "image_url",
+          "type": "STRING",
+          "links": [
+            106
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IsulionCivitaiImageDisplay"
+      },
+      "widgets_values": [
+        "",
+        "Single",
+        1,
+        512
+      ]
+    },
+    {
+      "id": 128,
+      "type": "IsulionCivitaiImageDisplay",
+      "pos": [
+        -880,
+        1920
+      ],
+      "size": [
+        415.8000183105469,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_info",
+          "type": "STRING",
+          "link": 101,
+          "widget": {
+            "name": "image_info"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            127
+          ]
+        },
+        {
+          "name": "title",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            128
+          ]
+        },
+        {
+          "name": "image_url",
+          "type": "STRING",
+          "links": [
+            129
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IsulionCivitaiImageDisplay"
+      },
+      "widgets_values": [
+        "",
+        "Single",
+        8,
+        512
+      ]
+    },
+    {
+      "id": 129,
+      "type": "IsulionCivitaiImageDisplay",
+      "pos": [
+        -880,
+        1860
+      ],
+      "size": [
+        415.8000183105469,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_info",
+          "type": "STRING",
+          "link": 102,
+          "widget": {
+            "name": "image_info"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            124
+          ]
+        },
+        {
+          "name": "title",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            126
+          ]
+        },
+        {
+          "name": "image_url",
+          "type": "STRING",
+          "links": [
+            125
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IsulionCivitaiImageDisplay"
+      },
+      "widgets_values": [
+        "",
+        "Single",
+        7,
+        512
+      ]
+    },
+    {
+      "id": 130,
+      "type": "IsulionCivitaiImageDisplay",
+      "pos": [
+        -880,
+        1800
+      ],
+      "size": [
+        415.8000183105469,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_info",
+          "type": "STRING",
+          "link": 103,
+          "widget": {
+            "name": "image_info"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            121
+          ]
+        },
+        {
+          "name": "title",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            123
+          ]
+        },
+        {
+          "name": "image_url",
+          "type": "STRING",
+          "links": [
+            122
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IsulionCivitaiImageDisplay"
+      },
+      "widgets_values": [
+        "",
+        "Single",
+        6,
+        512
+      ]
+    },
+    {
+      "id": 131,
+      "type": "IsulionCivitaiImageDisplay",
+      "pos": [
+        -880,
+        1480
+      ],
+      "size": [
+        415.8000183105469,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_info",
+          "type": "STRING",
+          "link": 104,
+          "widget": {
+            "name": "image_info"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            107
+          ]
+        },
+        {
+          "name": "title",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            108
+          ]
+        },
+        {
+          "name": "image_url",
+          "type": "STRING",
+          "links": [
+            96
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IsulionCivitaiImageDisplay"
+      },
+      "widgets_values": [
+        "",
+        "Single",
+        0,
+        512
+      ]
+    },
+    {
+      "id": 132,
+      "type": "IsulionCivitaiImageDisplay",
+      "pos": [
+        -880,
+        1980
+      ],
+      "size": [
+        415.8000183105469,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_info",
+          "type": "STRING",
+          "link": 105,
+          "widget": {
+            "name": "image_info"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            131
+          ]
+        },
+        {
+          "name": "title",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            132
+          ]
+        },
+        {
+          "name": "image_url",
+          "type": "STRING",
+          "links": [
+            130
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IsulionCivitaiImageDisplay"
+      },
+      "widgets_values": [
+        "",
+        "Single",
+        9,
+        512
+      ]
+    },
+    {
+      "id": 133,
+      "type": "ShowText|pysssss",
+      "pos": [
+        330,
+        2300
+      ],
+      "size": [
+        810,
+        76
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 106,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/1497971e-9dd6-401c-93e4-f59bf74c4075/width=832/1497971e-9dd6-401c-93e4-f59bf74c4075.jpeg"
+      ]
+    },
+    {
+      "id": 134,
+      "type": "PreviewImage",
+      "pos": [
+        -500,
+        1940
+      ],
+      "size": [
+        290,
+        320
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 107
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 135,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -200,
+        2070
+      ],
+      "size": [
+        500,
+        180
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 108,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "score_9, score_8_up, score_7_up, score_6_up, score_5_up, score_4_up, (mouse in a box), "
+      ]
+    },
+    {
+      "id": 136,
+      "type": "PreviewImage",
+      "pos": [
+        330,
+        1920
+      ],
+      "size": [
+        290,
+        320
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 109
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 137,
+      "type": "ShowText|pysssss",
+      "pos": [
+        640,
+        2060
+      ],
+      "size": [
+        500,
+        180
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 110,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "A massive, crystalline block of ice hovering mid-air in an endless desert of golden sand dunes, refracting rainbows and fragments of memories within. Inside the ice, a frozen, ethereal ballerina is suspended mid-pirouette, her movements implied by faint trails of light. The sky above is a swirling blend of fiery reds and deep indigos, with melting clocks dripping from invisible surfaces. Hyper-detailed textures, dreamlike atmosphere, surrealism, 8K resolution, artistic and emotional depth. aidmaMJ6.1, OBqpsh"
+      ]
+    },
+    {
+      "id": 138,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1150,
+        2300
+      ],
+      "size": [
+        810,
+        76
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 111,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/f3275527-29a9-43d5-a685-c9c3ba109fe7/width=1800/f3275527-29a9-43d5-a685-c9c3ba109fe7.jpeg"
+      ]
+    },
+    {
+      "id": 139,
+      "type": "PreviewImage",
+      "pos": [
+        1150,
+        1930
+      ],
+      "size": [
+        290,
+        320
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 112
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 140,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1450,
+        2060
+      ],
+      "size": [
+        500,
+        180
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 113,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "several pieces of  white and dark-chocolate, layout is simple,( the chocolate pieces stacked neatly on top of each other), plain white background, ((lighting highlights the sheen on the chocolate)), minimalism. <lora:kodak_ultramax_400:0.25>, sharp focus, selectivefocus:1.2, professional food photo, glossy"
+      ]
+    },
+    {
+      "id": 141,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1970,
+        2300
+      ],
+      "size": [
+        810,
+        76
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 114,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/30bf64da-f102-4d35-9ce9-4254e77cb5b4/width=832/30bf64da-f102-4d35-9ce9-4254e77cb5b4.jpeg"
+      ]
+    },
+    {
+      "id": 142,
+      "type": "PreviewImage",
+      "pos": [
+        1960,
+        1920
+      ],
+      "size": [
+        290,
+        320
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 115
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 143,
+      "type": "ShowText|pysssss",
+      "pos": [
+        2260,
+        2060
+      ],
+      "size": [
+        500,
+        180
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 116,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "No prompt available"
+      ]
+    },
+    {
+      "id": 144,
+      "type": "ShowText|pysssss",
+      "pos": [
+        2800,
+        2300
+      ],
+      "size": [
+        810,
+        76
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 117,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/8291ded0-3c3d-4309-add6-939491ac806f/width=1536/8291ded0-3c3d-4309-add6-939491ac806f.jpeg"
+      ]
+    },
+    {
+      "id": 145,
+      "type": "ShowText|pysssss",
+      "pos": [
+        3100,
+        2060
+      ],
+      "size": [
+        500,
+        180
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 118,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "No prompt available"
+      ]
+    },
+    {
+      "id": 146,
+      "type": "PreviewImage",
+      "pos": [
+        -500,
+        2420
+      ],
+      "size": [
+        290,
+        320
+      ],
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 119
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 147,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -200,
+        2550
+      ],
+      "size": [
+        500,
+        180
+      ],
+      "flags": {},
+      "order": 43,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 120,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "A cinematic split-frame composition where the lens is half-submerged underwater. Half of the body is above water,Below the surface, a serene and calm lake bed stretches out, softly illuminated by refracted light. A squirrel is steering a glass submarine, which moves gracefully underwater. Above the surface, the storm rages ferociously: lightning streaks across the dark clouds, torrential rain pours down, and towering waves crash violently. In the distance, a weathered, ancient lighthouse struggles against the storm, its flickering light barely piercing the chaos. The waterline is sharp, with bubbles and light refractions enhancing the split effect. Dynamic lighting highlights the emotional contrast between the calm underwater world and the savage storm above. (masterpiece, best quality, ultra-detailed, photorealistic, cinematic:1.3)"
+      ]
+    },
+    {
+      "id": 148,
+      "type": "PreviewImage",
+      "pos": [
+        320,
+        2420
+      ],
+      "size": [
+        290,
+        320
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 121
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 149,
+      "type": "ShowText|pysssss",
+      "pos": [
+        320,
+        2780
+      ],
+      "size": [
+        810,
+        76
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 122,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/dcb1c25b-6cff-4b80-9214-9a7957ee2c80/width=1504/dcb1c25b-6cff-4b80-9214-9a7957ee2c80.jpeg"
+      ]
+    },
+    {
+      "id": 150,
+      "type": "ShowText|pysssss",
+      "pos": [
+        620,
+        2540
+      ],
+      "size": [
+        500,
+        180
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 123,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "illustration of  a young woman , taken under water, fill flash  <lora:dreamland:1> dr34ml4nd <lora:michelledockery:1.4> Michelle Dockery"
+      ]
+    },
+    {
+      "id": 151,
+      "type": "PreviewImage",
+      "pos": [
+        1130,
+        2420
+      ],
+      "size": [
+        290,
+        320
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 124
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 152,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1140,
+        2780
+      ],
+      "size": [
+        810,
+        76
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 125,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/8c493eda-e8ad-4b6b-8dbf-a00d21075171/width=1024/8c493eda-e8ad-4b6b-8dbf-a00d21075171.jpeg"
+      ]
+    },
+    {
+      "id": 153,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1430,
+        2540
+      ],
+      "size": [
+        500,
+        180
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 126,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "OBqpsh,"
+      ]
+    },
+    {
+      "id": 154,
+      "type": "PreviewImage",
+      "pos": [
+        1960,
+        2420
+      ],
+      "size": [
+        290,
+        320
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 127
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 155,
+      "type": "ShowText|pysssss",
+      "pos": [
+        2270,
+        2560
+      ],
+      "size": [
+        500,
+        180
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 128,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "No prompt available"
+      ]
+    },
+    {
+      "id": 156,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1970,
+        2790
+      ],
+      "size": [
+        810,
+        76
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 129,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/571de8e4-0f26-439e-8817-b467121722a7/width=831/571de8e4-0f26-439e-8817-b467121722a7.jpeg"
+      ]
+    },
+    {
+      "id": 157,
+      "type": "ShowText|pysssss",
+      "pos": [
+        2790,
+        2780
+      ],
+      "size": [
+        810,
+        76
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 130,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/2f12b2c0-e2ea-42c2-aa62-9b6b75f1e4f4/width=832/2f12b2c0-e2ea-42c2-aa62-9b6b75f1e4f4.jpeg"
+      ]
+    },
+    {
+      "id": 158,
+      "type": "PreviewImage",
+      "pos": [
+        2790,
+        2420
+      ],
+      "size": [
+        290,
+        320
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 131
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 159,
+      "type": "ShowText|pysssss",
+      "pos": [
+        3090,
+        2540
+      ],
+      "size": [
+        500,
+        180
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 132,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "No prompt available"
+      ]
+    },
+    {
+      "id": 160,
+      "type": "PreviewImage",
+      "pos": [
+        2800,
+        1920
+      ],
+      "size": [
+        290,
+        320
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 133
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 162,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -1120,
+        1740
+      ],
+      "size": [
+        810,
+        330
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 135,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            134,
+            136
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/2e9e4474-f4d2-4651-9b7b-fbe538e9a487/width=1800/2e9e4474-f4d2-4651-9b7b-fbe538e9a487.jpeg\nAuthor: JustAMouse\nStats: ❤️ 14 👍 33 💬 3\nSize: 2560x3712\nCreated: 2024-12-15T02:33:00.000Z\nNSFW Level: None\n\nPrompt: score_9, score_8_up, score_7_up, score_6_up, score_5_up, score_4_up, (mouse in a box), \n[][][][][], \nm0use_goldie, yellow fur, pr3s3nt, gift box, looking at viewer, in container, (neck up), \n[][][][][], \ncute, (green elf hat, green Christmas shirt), (cute), large box, (Christmas tree:1.5), (cottage:1.2), (joyful expression), (large gift box:1.7),\nNegative Prompt: score_6, score_5, score_4, (giant:2), (hair, naked, visible crotch:2), child, young, cub, bed, mattress,\nModel: urn:air:sdxl:checkpoint:civitai:349062@494387\nSampler: Euler a\nSteps: 17\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/1497971e-9dd6-401c-93e4-f59bf74c4075/width=832/1497971e-9dd6-401c-93e4-f59bf74c4075.jpeg\nAuthor: labkane2\nStats: ❤️ 2 👍 3 💬 2\nSize: 832x1216\nCreated: 2024-12-15T10:12:47.672Z\nNSFW Level: None\n\nPrompt: A massive, crystalline block of ice hovering mid-air in an endless desert of golden sand dunes, refracting rainbows and fragments of memories within. Inside the ice, a frozen, ethereal ballerina is suspended mid-pirouette, her movements implied by faint trails of light. The sky above is a swirling blend of fiery reds and deep indigos, with melting clocks dripping from invisible surfaces. Hyper-detailed textures, dreamlike atmosphere, surrealism, 8K resolution, artistic and emotional depth. aidmaMJ6.1, OBqpsh\nSampler: Undefined\nSteps: 28\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/f3275527-29a9-43d5-a685-c9c3ba109fe7/width=1800/f3275527-29a9-43d5-a685-c9c3ba109fe7.jpeg\nAuthor: njorthrbjorn\nStats: ❤️ 4 👍 14 💬 2\nSize: 3072x3840\nCreated: 2024-12-14T21:56:27.071Z\nNSFW Level: None\n\nPrompt: several pieces of  white and dark-chocolate, layout is simple,( the chocolate pieces stacked neatly on top of each other), plain white background, ((lighting highlights the sheen on the chocolate)), minimalism. <lora:kodak_ultramax_400:0.25>, sharp focus, selectivefocus:1.2, professional food photo, glossy\nNegative Prompt: GS-DeFeminize-neg:1.3, [PA7_UnRealistic-Neg_v2-neg], [PA7_AnatoNeg-neg], [negative_hand-neg], out of focus, out of frame, out of depth, film grain, blur, blurry, Bad background, boring background,\nModel: Rugged resolve studios - V11-0941-0859-4656\nSampler: DPM++ 2M SDE\nSteps: 25\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/30bf64da-f102-4d35-9ce9-4254e77cb5b4/width=832/30bf64da-f102-4d35-9ce9-4254e77cb5b4.jpeg\nAuthor: DoreenAI\nStats: ❤️ 21 👍 89 💬 2\nSize: 832x1216\nCreated: 2024-12-14T15:31:38.685Z\nNSFW Level: None\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/8291ded0-3c3d-4309-add6-939491ac806f/width=1536/8291ded0-3c3d-4309-add6-939491ac806f.jpeg\nAuthor: aihonobono2023\nStats: ❤️ 15 👍 40 💬 2\nSize: 1536x3072\nCreated: 2024-12-14T15:19:45.976Z\nNSFW Level: None\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/ab2183f0-be3a-4b79-bfeb-549829b9cc5e/width=1536/ab2183f0-be3a-4b79-bfeb-549829b9cc5e.jpeg\nAuthor: Cinnadust\nStats: ❤️ 11 👍 22 💬 2\nSize: 1536x2752\nCreated: 2024-12-14T11:12:58.778Z\nNSFW Level: None\n\nPrompt: A cinematic split-frame composition where the lens is half-submerged underwater. Half of the body is above water,Below the surface, a serene and calm lake bed stretches out, softly illuminated by refracted light. A squirrel is steering a glass submarine, which moves gracefully underwater. Above the surface, the storm rages ferociously: lightning streaks across the dark clouds, torrential rain pours down, and towering waves crash violently. In the distance, a weathered, ancient lighthouse struggles against the storm, its flickering light barely piercing the chaos. The waterline is sharp, with bubbles and light refractions enhancing the split effect. Dynamic lighting highlights the emotional contrast between the calm underwater world and the savage storm above. (masterpiece, best quality, ultra-detailed, photorealistic, cinematic:1.3)\nSampler: Undefined\nSteps: 30\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/dcb1c25b-6cff-4b80-9214-9a7957ee2c80/width=1504/dcb1c25b-6cff-4b80-9214-9a7957ee2c80.jpeg\nAuthor: bobbesch912\nStats: ❤️ 1 👍 1 💬 1\nSize: 1504x2304\nCreated: 2024-12-15T10:10:32.019Z\nNSFW Level: None\n\nPrompt: illustration of  a young woman , taken under water, fill flash  <lora:dreamland:1> dr34ml4nd <lora:michelledockery:1.4> Michelle Dockery\nModel: flux1-dev-bnb-nf4-v2\nSampler: Euler\nSteps: 20\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/8c493eda-e8ad-4b6b-8dbf-a00d21075171/width=1024/8c493eda-e8ad-4b6b-8dbf-a00d21075171.jpeg\nAuthor: 1jiliguala1\nStats: ❤️ 4 👍 3 💬 1\nSize: 1024x1536\nCreated: 2024-12-15T09:51:25.856Z\nNSFW Level: None\n\nPrompt: OBqpsh,\nThis image is a digital drawing in a whimsical, cartoon style. The central subject is a white cat with large, round eyes and a simple, happy expression, sitting on a wooden bookshelf. The cat is dressed in a dark, ribbed sweater, and it is holding an open book in its paws. The book is red with a white spine and a few pages turned down, suggesting the cat is reading.\n\nThe background consists of a dark, starry night sky, giving the scene a cozy, bedtime feel. The bookshelf is filled with a variety of books in different colors and sizes, arranged in a casual, disorganized manner. On the top shelf, there are three small, white cat figurines, each with a simple, smiling expression, adding to the whimsical charm of the scene.\n\nThe drawing style is minimalistic with clean lines and a limited color palette, primarily consisting of earthy tones like brown, black, and white, with splashes of red and blue. The textures are smooth, with a slight texture added to the book pages and the cat's fur to give it a tactile feel. The overall mood is calm and serene, as if the cat is lost in a world of its own while reading.\nSampler: Euler\nSteps: 30\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/571de8e4-0f26-439e-8817-b467121722a7/width=831/571de8e4-0f26-439e-8817-b467121722a7.jpeg\nAuthor: Castr0\nStats: ❤️ 4 👍 4 💬 1\nSize: 831x1400\nCreated: 2024-12-15T09:09:04.438Z\nNSFW Level: None\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/2f12b2c0-e2ea-42c2-aa62-9b6b75f1e4f4/width=832/2f12b2c0-e2ea-42c2-aa62-9b6b75f1e4f4.jpeg\nAuthor: Grubula\nStats: ❤️ 3 👍 5 💬 1\nSize: 832x1216\nCreated: 2024-12-15T08:34:25.412Z\nNSFW Level: None\n-------------------\n"
+      ]
+    },
+    {
+      "id": 163,
+      "type": "IsulionCivitaiImageDisplay",
+      "pos": [
+        -890,
+        1730
+      ],
+      "size": [
+        415.8000183105469,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_info",
+          "type": "STRING",
+          "link": 136,
+          "widget": {
+            "name": "image_info"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            119
+          ]
+        },
+        {
+          "name": "title",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            120
+          ]
+        },
+        {
+          "name": "image_url",
+          "type": "STRING",
+          "links": [
+            137
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IsulionCivitaiImageDisplay"
+      },
+      "widgets_values": [
+        "",
+        "Single",
+        5,
+        512
+      ]
+    },
+    {
+      "id": 164,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -500,
+        2780
+      ],
+      "size": [
+        810,
+        76
+      ],
+      "flags": {},
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 137,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/ab2183f0-be3a-4b79-bfeb-549829b9cc5e/width=1536/ab2183f0-be3a-4b79-bfeb-549829b9cc5e.jpeg"
+      ]
+    },
+    {
+      "id": 161,
+      "type": "IsulionCivitaiImageDisplay",
+      "pos": [
+        -890,
+        1420
+      ],
+      "size": [
+        415.8000183105469,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_info",
+          "type": "STRING",
+          "link": 134,
+          "widget": {
+            "name": "image_info"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            138
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "title",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 2
+        },
+        {
+          "name": "image_url",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IsulionCivitaiImageDisplay"
+      },
+      "widgets_values": [
+        "",
+        "All",
+        3,
+        1024
+      ]
+    },
+    {
+      "id": 165,
+      "type": "PreviewImage",
+      "pos": [
+        -540,
+        200
+      ],
+      "size": [
+        4150,
+        1690
+      ],
+      "flags": {},
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 138
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 166,
+      "type": "IsulionCivitaiTrending",
+      "pos": [
+        -1320,
+        1510
+      ],
+      "size": [
+        340.20001220703125,
+        154
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "image_info",
+          "type": "STRING",
+          "links": [
+            135
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IsulionCivitaiTrending"
+      },
+      "widgets_values": [
+        "Hide NSFW",
+        "Most Comments",
+        "Day",
+        10,
+        "YOUR CIVITAI API KEY HERE"
+      ]
+    },
+    {
+      "id": 175,
+      "type": "ttN text",
+      "pos": [
+        -1300,
+        1240
+      ],
+      "size": [
+        470,
+        76
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Civitai API Key - HowTo",
+      "properties": {
+        "Node name for S&R": "ttN text"
+      },
+      "widgets_values": [
+        "https://developer.civitai.com/docs/getting-started/setup-profile"
+      ]
+    }
+  ],
+  "links": [
+    [
+      96,
+      131,
+      3,
+      123,
+      0,
+      "STRING"
+    ],
+    [
+      97,
+      162,
+      0,
+      124,
+      0,
+      "STRING"
+    ],
+    [
+      98,
+      162,
+      0,
+      125,
+      0,
+      "STRING"
+    ],
+    [
+      99,
+      162,
+      0,
+      126,
+      0,
+      "STRING"
+    ],
+    [
+      100,
+      162,
+      0,
+      127,
+      0,
+      "STRING"
+    ],
+    [
+      101,
+      162,
+      0,
+      128,
+      0,
+      "STRING"
+    ],
+    [
+      102,
+      162,
+      0,
+      129,
+      0,
+      "STRING"
+    ],
+    [
+      103,
+      162,
+      0,
+      130,
+      0,
+      "STRING"
+    ],
+    [
+      104,
+      162,
+      0,
+      131,
+      0,
+      "STRING"
+    ],
+    [
+      105,
+      162,
+      0,
+      132,
+      0,
+      "STRING"
+    ],
+    [
+      106,
+      127,
+      3,
+      133,
+      0,
+      "STRING"
+    ],
+    [
+      107,
+      131,
+      0,
+      134,
+      0,
+      "IMAGE"
+    ],
+    [
+      108,
+      131,
+      2,
+      135,
+      0,
+      "STRING"
+    ],
+    [
+      109,
+      127,
+      0,
+      136,
+      0,
+      "IMAGE"
+    ],
+    [
+      110,
+      127,
+      2,
+      137,
+      0,
+      "STRING"
+    ],
+    [
+      111,
+      126,
+      3,
+      138,
+      0,
+      "STRING"
+    ],
+    [
+      112,
+      126,
+      0,
+      139,
+      0,
+      "IMAGE"
+    ],
+    [
+      113,
+      126,
+      2,
+      140,
+      0,
+      "STRING"
+    ],
+    [
+      114,
+      125,
+      3,
+      141,
+      0,
+      "STRING"
+    ],
+    [
+      115,
+      125,
+      0,
+      142,
+      0,
+      "IMAGE"
+    ],
+    [
+      116,
+      125,
+      2,
+      143,
+      0,
+      "STRING"
+    ],
+    [
+      117,
+      124,
+      3,
+      144,
+      0,
+      "STRING"
+    ],
+    [
+      118,
+      124,
+      2,
+      145,
+      0,
+      "STRING"
+    ],
+    [
+      119,
+      163,
+      0,
+      146,
+      0,
+      "IMAGE"
+    ],
+    [
+      120,
+      163,
+      2,
+      147,
+      0,
+      "STRING"
+    ],
+    [
+      121,
+      130,
+      0,
+      148,
+      0,
+      "IMAGE"
+    ],
+    [
+      122,
+      130,
+      3,
+      149,
+      0,
+      "STRING"
+    ],
+    [
+      123,
+      130,
+      2,
+      150,
+      0,
+      "STRING"
+    ],
+    [
+      124,
+      129,
+      0,
+      151,
+      0,
+      "IMAGE"
+    ],
+    [
+      125,
+      129,
+      3,
+      152,
+      0,
+      "STRING"
+    ],
+    [
+      126,
+      129,
+      2,
+      153,
+      0,
+      "STRING"
+    ],
+    [
+      127,
+      128,
+      0,
+      154,
+      0,
+      "IMAGE"
+    ],
+    [
+      128,
+      128,
+      2,
+      155,
+      0,
+      "STRING"
+    ],
+    [
+      129,
+      128,
+      3,
+      156,
+      0,
+      "STRING"
+    ],
+    [
+      130,
+      132,
+      3,
+      157,
+      0,
+      "STRING"
+    ],
+    [
+      131,
+      132,
+      0,
+      158,
+      0,
+      "IMAGE"
+    ],
+    [
+      132,
+      132,
+      2,
+      159,
+      0,
+      "STRING"
+    ],
+    [
+      133,
+      124,
+      0,
+      160,
+      0,
+      "IMAGE"
+    ],
+    [
+      134,
+      162,
+      0,
+      161,
+      0,
+      "STRING"
+    ],
+    [
+      135,
+      166,
+      0,
+      162,
+      0,
+      "STRING"
+    ],
+    [
+      136,
+      162,
+      0,
+      163,
+      0,
+      "STRING"
+    ],
+    [
+      137,
+      163,
+      3,
+      164,
+      0,
+      "STRING"
+    ],
+    [
+      138,
+      161,
+      0,
+      165,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.46650738020973365,
+      "offset": [
+        1196.8708823466814,
+        -783.5987661769682
+      ]
+    }
+  },
+  "version": 0.4
+}
