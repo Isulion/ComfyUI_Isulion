@@ -36,59 +36,68 @@ class Vintage1800sPhotographyHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes", 
+                include_environment: str = "yes",  
+                include_style: str = "yes",
                 include_effects: str = "yes") -> Dict[str, str]:
-        """Generate vintage 1800s photography components."""
         components = {}
 
         # Subject component
         if custom_subject:
             components["subject"] = (
-                f"((authentic 1800s photograph)) of {custom_subject}, "
-                f"((period-correct pose)), ((historical accuracy))"
+                f"((antique 1800s photograph:1.4)) of {custom_subject}, "
+                f"((period-correct pose)), ((historical accuracy)), "
+                f"((vintage daguerreotype style:1.3))"
             )
         else:
             subject = self._get_random_choice("subjects")
             components["subject"] = (
-                f"((authentic 1800s photograph)) of {subject}, "
-                f"((period-correct pose)), ((historical accuracy))"
+                f"((antique 1800s photograph:1.4)) of {subject}, "
+                f"((period-correct pose)), ((historical accuracy)), "
+                f"((vintage daguerreotype style:1.3))"
             )
 
         # Environment component
         if include_environment == "yes":
             setting = custom_location if custom_location else self._get_random_choice("settings")
-            props = self._get_random_choice("props")
-            lighting = self._get_random_choice("lighting")
+            composition, props, pose, lighting = self._get_composition_elements()
             components["environment"] = (
-                f"in ((period-authentic {setting})), "
-                f"with ((authentic {props})), "
-                f"((masterful {lighting} lighting))"
+                f"in ((period-authentic {setting}:1.2)), "
+                f"with ((authentic {props})), ((masterful {lighting} lighting)), "
+                f"((historical studio arrangement:1.3))"
             )
 
         # Style component
         if include_style == "yes":
             process, toning = self._get_process_and_toning()
             components["style"] = (
-                f"((masterful {process} process:1.3)), "
-                f"((authentic {toning} toning:1.2)), "
-                f"((historical photography techniques))"
+                f"((masterful {process} process:1.4)), "
+                f"((authentic {toning} toning:1.3)), "
+                f"((historical photography techniques:1.2)), "
+                f"((heavily aged photograph:1.3)), "
+                f"((vintage photographic plate:1.2))"
             )
 
         # Effects component
         if include_effects == "yes":
             components["effects"] = (
-                f"((vintage photographic qualities)), "
-                f"((aged photograph appearance)), "
-                f"((period-appropriate imperfections))"
+                f"((extreme vintage photographic qualities:1.4)), "
+                f"((severely aged photograph appearance:1.3)), "
+                f"((vintage chemical stains:1.2)), ((scratched emulsion)), "
+                f"((deteriorated edges)), ((silver mirroring effect)), "
+                f"((foxing marks)), ((heavy patina)), "
+                f"((light leaks)), ((uneven development)), "
+                f"((period-appropriate severe aging)), "
+                f"((authentic vintage photograph damage:1.3))"
             )
 
         return components
 
     def get_negative_prompt(self) -> str:
-        """Generate negative prompt to avoid anachronistic elements."""
+        """Generate negative prompt to avoid modern elements."""
         return (
             "modern elements, contemporary style, digital effects, "
-            "color photography, modern clothing, plastic, "
-            "contemporary poses, modern background, artificial lighting"
+            "color photography, modern clothing, plastic, HDR, "
+            "contemporary poses, modern background, artificial lighting, "
+            "perfect condition, clean photo, sharp details, pristine condition, "
+            "modern photo quality, digital artifacts, contemporary editing"
         )
