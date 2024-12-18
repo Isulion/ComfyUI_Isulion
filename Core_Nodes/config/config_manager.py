@@ -16,8 +16,24 @@ class ConfigManager:
         self._load_configs()
     
     def _load_configs(self):
-        """Load all configuration files from the config directory."""
-        current_dir = os.path.dirname(os.path.abspath(__file__))
+        for filename in self.config_files:
+            try:
+                with open(filename, 'r', encoding='utf-8') as f:
+                    logger.debug(f"Loading config file: {filename}")
+                    contents = f.read().strip() # Read the entire file content and remove leading/trailing whitespace
+                    if not contents:
+                        logger.warning(f"Config file '{filename}' is empty!")
+                        continue # Skip if the file is empty
+                    configs = json.loads(contents) # Use json.loads for debugging purposes to see the string
+                    logger.debug(f"Loaded config: {configs}")
+                    self.configs.update(configs)
+            except json.JSONDecodeError as e:
+                logger.exception(f"JSON decoding error in {filename}: {e}")
+                # Consider more robust error handling (e.g., using a default config)
+            except FileNotFoundError:
+                logger.warning(f"Configuration file not found: {filename}")
+            except Exception as e:
+                logger.exception(f"Unexpected error loading {filename}: {e}")
         
         # Load text-based config files
         config_files = {

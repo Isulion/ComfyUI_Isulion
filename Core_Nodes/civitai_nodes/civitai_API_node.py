@@ -224,6 +224,9 @@ class IsulionCivitaiTrending:
                     "default": "",
                     "multiline": False,
                     "placeholder": "Enter your Civitai API token..."
+                }),
+                "model": (["All", "SDXL", "FLUX", "Other"], {
+                    "default": "FLUX"
                 })
             },
         }
@@ -238,7 +241,8 @@ class IsulionCivitaiTrending:
                     sort_by: str,
                     period: str,
                     number_of_images: int,
-                    api_key: str = "") -> Tuple[List[str]]:
+                    api_key: str = "",
+                    model: str = "") -> Tuple[List[str]]:
         """Retrieve trending images for the specified period."""
 
         logging.info("\n=== Starting Civitai Trending Images Search ===")
@@ -270,11 +274,20 @@ class IsulionCivitaiTrending:
             "All Time": "AllTime"
         }
 
+        # Map model names to their corresponding IDs
+        model_map = {
+            "All": None,  # No specific model
+            "SDXL": 1,    # Example ID, replace with actual ID
+            "FLUX": 2,    # Example ID, replace with actual ID
+            "Other": 3     # Example ID, replace with actual ID
+        }
+
         # Base parameters
         params = {
             "limit": number_of_images,
             "period": period_map[period],
             "sort": sort_by,
+            "modelId": model_map[model]  # Use modelId for filtering
         }
 
         # Add NSFW parameters
@@ -293,7 +306,7 @@ class IsulionCivitaiTrending:
         }
 
         try:
-            cache_key = f"trending_{nsfw_filter}_{sort_by}_{period}_{number_of_images}"
+            cache_key = f"trending_{nsfw_filter}_{sort_by}_{period}_{number_of_images}_{model}"
             if cache_key in self.results_cache:
                 logging.debug("Debug - Returning cached results")
                 return self.results_cache[cache_key]
@@ -403,8 +416,8 @@ class IsulionCivitaiImageDisplay:
             },
         }
 
-    RETURN_TYPES = ("IMAGE", "STRING", "STRING", "STRING")
-    RETURN_NAMES = ("image", "title", "prompt", "image_url")
+    RETURN_TYPES = ("IMAGE", "STRING", "STRING", "STRING", "STRING")
+    RETURN_NAMES = ("image", "title", "prompt", "image_url", "model")
     FUNCTION = "display_image"
     CATEGORY = "Isulion/Prompt Tools"
 
@@ -455,7 +468,8 @@ class IsulionCivitaiImageDisplay:
                 return (self.create_error_image(target_size), 
                        "No images found", 
                        "No prompt available", 
-                       "")
+                       "", 
+                       "No model available")
 
             # Handle "All" mode
             if mode == "All":
@@ -463,6 +477,7 @@ class IsulionCivitaiImageDisplay:
                 all_titles = []
                 all_prompts = []
                 all_urls = []
+                all_models = []
 
                 for entry in entries:
                     image_data = {}
@@ -472,6 +487,7 @@ class IsulionCivitaiImageDisplay:
                             image_data[key] = value
 
                     image_url = image_data.get('URL', '')
+                    model = image_data.get('Model', 'Unknown')
                     if not image_url:
                         continue
 
@@ -501,6 +517,7 @@ class IsulionCivitaiImageDisplay:
                         all_titles.append(image_data.get('Image', 'Untitled'))
                         all_prompts.append(image_data.get('Prompt', 'No prompt available'))
                         all_urls.append(image_url)
+                        all_models.append(model)
 
                     except:
                         # Silently skip any errors
@@ -510,21 +527,24 @@ class IsulionCivitaiImageDisplay:
                     return (self.create_error_image(target_size), 
                            "No valid images found", 
                            "No prompt available", 
-                           "")
+                           "", 
+                           "No model available")
 
                 final_tensor = torch.cat(all_tensors, dim=0)
  
                 return (final_tensor, 
                        " | ".join(all_titles), 
                        " | ".join(all_prompts), 
-                       " | ".join(all_urls))
+                       " | ".join(all_urls),
+                       " | ".join(all_models))
 
             else:  # Single mode
                 if image_index >= len(entries):
                     return (self.create_error_image(target_size),
                            f"Image index {image_index} out of range (total: {len(entries)})",
                            "No prompt available",
-                           "")
+                           "",
+                           "No model available")
 
                 # Try each entry starting from image_index until we find a valid image
                 for current_index in range(image_index, len(entries)):
@@ -538,6 +558,7 @@ class IsulionCivitaiImageDisplay:
                     image_url = image_data.get('URL', '')
                     title = image_data.get('Image', 'Untitled')
                     prompt = image_data.get('Prompt', 'No prompt available')
+                    model = image_data.get('Model', 'Unknown')
 
                     if not image_url:
                         continue
@@ -564,8 +585,8 @@ class IsulionCivitaiImageDisplay:
                         image_tensor = torch.from_numpy(np.array(image)).float() / 255.0
                         image_tensor = image_tensor.unsqueeze(0)
                         
-                        return (image_tensor, title, prompt, image_url)
-                    
+                        return (image_tensor, title, prompt, image_url, model)
+                        
                     except:
                         # Silently skip any errors and continue to next entry
                         continue
@@ -574,14 +595,16 @@ class IsulionCivitaiImageDisplay:
                 return (self.create_error_image(target_size),
                        "No valid images found",
                        "No prompt available",
-                       "")
+                       "",
+                       "No model available")
             
         except Exception as e:
             print(f"Error loading image from URL: {str(e)}")
             return (self.create_error_image(target_size),
                    f"Error: {str(e)}",
                    "No prompt available",
-                   "")
+                   "",
+                   "No model available")
 
 
 # Register the nodes with ComfyUI

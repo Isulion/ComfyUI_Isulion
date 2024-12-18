@@ -1,14 +1,14 @@
 import json
 import random
 import os
-from .mega_prompt_V3 import MegaPromptV3
+from .mega_prompt_V3 import IsulionMegaPromptV3
 
 class VideoPromptGenerator:
     def __init__(self):
         self.config_path = os.path.join(os.path.dirname(__file__), 
                                       "configs", "video_prompt_config.json")
         self.load_config()
-        self.mega_prompt = MegaPromptV3()
+        self.mega_prompt = IsulionMegaPromptV3()
         
         # Create reverse mapping for theme names
         self.theme_name_to_key = {name: key for name, key in self.mega_prompt.theme_mappings.items()}

@@ -8,7 +8,7 @@ __author__ = "Isulion"
 __description__ = "Advanced prompt generation nodes for ComfyUI with multiple themes and styles"
 
 # Import all node classes
-from .Core_Nodes.mega_prompt_V3 import MegaPromptV3
+from .Core_Nodes.mega_prompt_V3 import IsulionMegaPromptV3
 from .Core_Nodes.mega_prompt_all_themes import IsulionMultiplePromptGenerator
 from .Core_Nodes.isucollage_node import IsuCollageNode
 from .Core_Nodes.load_images_node import IsulionLoadImagesNode
@@ -47,6 +47,10 @@ from .Core_Nodes.enhancement_nodes.isulion_prompt_enhancer import IsulionPromptE
 from .Core_Nodes.enhancement_nodes.isulion_negative_prompt_generator import IsulionNegativePromptGenerator
 from .Core_Nodes.civitai_nodes.civitai_API_node import IsulionCivitaiModelExplorer, IsulionCivitaiTrending, IsulionCivitaiImageDisplay
 
+from .Core_Nodes.civitai_nodes.civitai_model_explorer import IsulionCivitaiModelExplorer
+from .Core_Nodes.civitai_nodes.civitai_trending import IsulionCivitaiTrending
+from .Core_Nodes.civitai_nodes.civitai_image_display import IsulionCivitaiImageDisplay
+
 # Node mappings
 NODE_CLASS_MAPPINGS = {
     **VIDEO_PROMPT_NODES,
@@ -76,12 +80,15 @@ NODE_CLASS_MAPPINGS = {
     "IsulionCivitaiModelExplorer": IsulionCivitaiModelExplorer,
     "IsulionCivitaiTrending": IsulionCivitaiTrending,
     "IsulionCivitaiImageDisplay": IsulionCivitaiImageDisplay,
-    "MegaPromptV3": MegaPromptV3,
+    "IsulionMegaPromptV3": IsulionMegaPromptV3,
     "IsulionMultiplePromptGenerator": IsulionMultiplePromptGenerator,
     "IsuCollage_Node": IsuCollageNode,
     "IsulionLoadImagesNode": IsulionLoadImagesNode,
     "IsulionEpochGenerator": IsulionEpochGenerator,
     "DisplayImageFromURL": DisplayImageFromURL,
+    "IsulionCivitaiModelExplorer": IsulionCivitaiModelExplorer,
+    "IsulionCivitaiTrending": IsulionCivitaiTrending,
+    "IsulionCivitaiImageDisplay": IsulionCivitaiImageDisplay,
 }
 
 # Display name mappings
@@ -118,6 +125,9 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionLoadImagesNode": "📁 Isulion Load Images from Directory",
     "IsulionEpochGenerator": "⏳ Isulion Epoch Generator",
     "DisplayImageFromURL": "🖼️ Isulion Display Image From URL",
+    "IsulionCivitaiModelExplorer": "🔍 Isulion Civitai Model Explorer",
+    "IsulionCivitaiTrending": "🔥 Isulion Civitai Trending",
+    "IsulionCivitaiImageDisplay": "🖼️ Isulion Civitai Image Display",
 }
 
 __version__ = "2.0.0"

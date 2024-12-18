@@ -22,6 +22,7 @@ from .experimental_art_handler import ExperimentalArtThemeHandler
 from .impressionist_handler import ImpressionistThemeHandler
 from .minimalist_handler import MinimalistThemeHandler
 from .nature_handler import NatureThemeHandler
+from .spectral_mist_handler import SpectralMistThemeHandler
 from .stopmotion_handler import StopMotionThemeHandler
 from .watercolor_handler import WatercolorThemeHandler
 
@@ -100,7 +101,7 @@ __all__ = [
     'CaricatureThemeHandler', 'CharacterDesignerThemeHandler', 'ClayArtThemeHandler',
     'ComicBookThemeHandler', 'ConceptArtThemeHandler', 'CrayonArtThemeHandler',
     'DigitalArtThemeHandler', 'Dimension3DThemeHandler', 'ExperimentalArtThemeHandler',
-    'ImpressionistThemeHandler', 'MinimalistThemeHandler', 'NatureThemeHandler',
+    'ImpressionistThemeHandler', 'MinimalistThemeHandler', 'NatureThemeHandler', 'SpectralMistThemeHandler',
     'StopMotionThemeHandler', 'WatercolorThemeHandler',
     
     # Genre Handlers

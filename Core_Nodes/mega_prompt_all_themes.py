@@ -1,5 +1,5 @@
 from typing import Dict, List, Tuple, Optional
-from .mega_prompt_V3 import MegaPromptV3
+from .mega_prompt_V3 import IsulionMegaPromptV3
 
 class IsulionMultiplePromptGenerator:
     """Node that generates prompts for all available themes using a custom subject and location. """
@@ -128,7 +128,7 @@ class IsulionMultiplePromptGenerator:
     }
     
     def __init__(self):
-        self.mega_prompt = MegaPromptV3()
+        self.mega_prompt = IsulionMegaPromptV3()
     
     @classmethod
     def INPUT_TYPES(cls):

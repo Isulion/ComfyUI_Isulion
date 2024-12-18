@@ -94,7 +94,8 @@ class ThemeRegistry:
             "thanksgiving": ThanksgivingThemeHandler,
             "st_patricks_day": StPatricksDayThemeHandler,
             "dia_de_los_muertos": DiaDeLosmuertosThemeHandler,
-            "chinese_new_year": ChineseNewYearThemeHandler
+            "chinese_new_year": ChineseNewYearThemeHandler,
+            "spectral_mist": SpectralMistThemeHandler
         }
         
         self.handlers = {
@@ -168,6 +169,7 @@ class ThemeRegistry:
             "🚀 Sci-Fi": "scifi",
             "📚 School Manga": "school_manga",
             "📱 Selfie": "selfie",
+            "💗 Spectral Mist": "spectral_mist",
             "🍀 St. Patrick's Day": "st_patricks_day",
             "🚀 Star Wars": "star_wars",
             "⚙️ Steampunk": "steampunk",
@@ -202,7 +204,7 @@ class ThemeRegistry:
         """Get all theme display names."""
         return list(self.theme_mappings.keys())
 
-class MegaPromptV3:
+class IsulionMegaPromptV3:
     """
     Enhanced version of the Mega Prompt Generator with improved organization and features.
     """

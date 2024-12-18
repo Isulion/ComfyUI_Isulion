@@ -27,6 +27,13 @@ class ConfigManager:
                 with open(file_path, 'r', encoding='utf-8') as f:
                     # Merge the config into the main configs dictionary
                     self.configs.update(json.load(f))
+        
+        # Add default configuration for SpectralMist if not present
+        if "SpectralMist" not in self.configs:
+            self.configs["SpectralMist"] = {
+                "default_color": "azure",
+                "available_colors": ["azure", "violet", "emerald", "ruby", "gold", "sapphire", "amber", "jade"]
+            }
     
     def get_config(self, key: str) -> Any:
         """Get configuration value by key.

@@ -1,6 +1,6 @@
 import random
 from typing import Dict, List, Tuple, Optional
-from .mega_prompt_V3 import MegaPromptV3
+from .mega_prompt_V3 import IsulionMegaPromptV3
 import comfy.ui
 
 class IsulionMultiplePromptGenerator:
@@ -129,7 +129,7 @@ class IsulionMultiplePromptGenerator:
     }
 
     def __init__(self):
-        self.mega_prompt = MegaPromptV3()
+        self.mega_prompt = IsulionMegaPromptV3()
         self.category_states = {}  # Track collapse states for categories
         for category in self.theme_categories:
             self.category_states[category] = False # All start collapsed
