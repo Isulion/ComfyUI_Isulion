@@ -1,38 +1,49 @@
 import random
 from .base_handler import BaseThemeHandler
-from typing import Optional, Tuple
+from typing import Optional, Dict
 
 class SpectralMistThemeHandler(BaseThemeHandler):
     def __init__(self, config):
         super().__init__(config)
         self.theme_config = config.get_config("SpectralMist")
         self.colors = ["azure", "violet", "emerald", "ruby", "gold", "sapphire", "amber", "jade"]
+        self._default_subjects = ["elf", "phantom", "spirit", "ghost", "creature"]
 
-    def generate(self, custom_subject: Optional[str] = None, **kwargs) -> dict:
-        color1 = random.choice(self.colors)
-        color2 = random.choice(self.colors)
-        while color2 == color1:
-            color2 = random.choice(self.colors)
+    def _get_color_scheme(self, custom_location: str) -> tuple:
+        """Select primary and secondary colors."""
+        primary_color = custom_location if custom_location else random.choice(self.colors)
+        secondary_color = random.choice(self.colors)
+        return primary_color, secondary_color
 
-        subject = custom_subject if custom_subject else random.choice(["elf", "phantom", "spirit", "ghost", "creature"])
-        environment = f"((masterful spectral environment)), ((with {color1} ethereal mist)), ((volumetric atmosphere:1.2))"
-        style = "((ethereal art style:1.3)), ((ghostly aesthetics)), ((mystical atmosphere)), ((perfect composition)), ((professional quality)), ((highly detailed))"
-        effects = f"((dynamic {color2} ectoplasmic particles:1.2)), ((forming intricate ethereal patterns)), ((magical energy flows)), ((atmospheric depth)), ((subtle glow)), ((perfect lighting))"
+    def generate(self, custom_subject: Optional[str] = None, **kwargs) -> Dict:
+        try:
+            # Get colors without validation
+            custom_location = kwargs.get('custom_location', '').strip().lower()
+            primary_color, secondary_color = self._get_color_scheme(custom_location)
+            
+            # Get subject
+            subject = custom_subject if custom_subject else random.choice(self._default_subjects)
+            
+            # Build components
+            environment = f"((masterful spectral environment)), ((with {primary_color} ethereal mist)), ((volumetric atmosphere:1.2))"
+            style = "((ethereal art style:1.3)), ((ghostly aesthetics)), ((mystical atmosphere)), ((perfect composition))"
+            effects = f"((dynamic {secondary_color} ectoplasmic particles:1.2)), ((forming intricate patterns)), ((magical energy flows))"
+            
+            prompt = (
+                f"((masterful spectral art)) of {subject}, "
+                f"manifesting within a {environment}, "
+                f"((rendered in {style})), "
+                f"with {effects}, "
+                f"((8k resolution)), ((perfect details))"
+            )
 
-        prompt = (
-            f"((masterful spectral art)) of {subject}, "
-            f"manifesting within a {environment}, "
-            f"((rendered in {style})), "
-            f"with {effects}, "
-            f"((8k resolution)), ((perfect details)), ((atmospheric excellence))"
-        )
+            return {
+                "prompt": prompt,
+                "subject": subject,
+                "environment": environment,
+                "style": style,
+                "effects": effects
+            }
 
-        components = {
-            "prompt": prompt,
-            "subject": subject,
-            "environment": environment,
-            "style": style,
-            "effects": effects
-        }
-
-        return components
+        except Exception as e:
+            raise ValueError(f"Failed to generate spectral mist prompt: {str(e)}")
