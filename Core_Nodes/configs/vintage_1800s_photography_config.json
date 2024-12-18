@@ -1,0 +1,36 @@
+{
+    "vintage_1800s_photography": {
+        "processes": [
+            "daguerreotype", "wet plate collodion", "albumen print",
+            "ambrotype", "tintype", "salt print", "calotype"
+        ],
+        "toning": [
+            "sepia", "gold toning", "platinum toning", 
+            "silver gelatin", "varnished", "hand-colored"
+        ],
+        "compositions": [
+            "formal portrait", "cabinet card", "carte de visite",
+            "stereoscopic", "panoramic", "group portrait"
+        ],
+        "props": [
+            "Victorian furniture", "ornate backdrop", "posing stand",
+            "decorative columns", "period drapery", "painted scenery"
+        ],
+        "poses": [
+            "formal standing", "seated portrait", "profile view",
+            "three-quarter view", "cabinet pose", "grand manner"
+        ],
+        "lighting": [
+            "natural daylight", "north light", "studio skylight",
+            "window light", "period-accurate artificial"
+        ],
+        "subjects": [
+            "Victorian gentleman", "Victorian lady", "family group",
+            "military officer", "merchant", "aristocrat"
+        ],
+        "settings": [
+            "photography studio", "Victorian parlor", "grand estate",
+            "formal garden", "architectural setting", "period interior"
+        ]
+    }
+}

@@ -95,7 +95,8 @@ class ThemeRegistry:
             "st_patricks_day": StPatricksDayThemeHandler,
             "dia_de_los_muertos": DiaDeLosmuertosThemeHandler,
             "chinese_new_year": ChineseNewYearThemeHandler,
-            "spectral_mist": SpectralMistThemeHandler
+            "spectral_mist": SpectralMistThemeHandler,
+            "vintage_1800s_photography": Vintage1800sPhotographyHandler,
         }
         
         self.handlers = {
@@ -180,6 +181,7 @@ class ThemeRegistry:
             "🏙️ Urban Tag": "urban_tag",
             "💘 Valentine's Day": "valentines_day",
             "🏠 Village World": "village_world",
+            "🖼️ Vintage 1800s Photography": "vintage_1800s_photography",
             "👴 Vintage Anthropomorphic": "vintage_anthropomorphic",
             "🎨 Watercolor": "watercolor"
         }
@@ -207,6 +209,7 @@ class ThemeRegistry:
 class IsulionMegaPromptV3:
     """
     Enhanced version of the Mega Prompt Generator with improved organization and features.
+    - vintage_1800s_photography: Authentic 1800s photography style with period-correct processes and effects
     """
     
     def __init__(self):
