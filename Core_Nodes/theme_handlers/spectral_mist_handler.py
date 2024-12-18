@@ -15,12 +15,20 @@ class SpectralMistThemeHandler(BaseThemeHandler):
             color2 = random.choice(self.colors)
 
         subject = custom_subject if custom_subject else random.choice(["elf", "phantom", "spirit", "ghost", "creature"])
-        environment = f"Spectral Mist Emanation with {color1} spectral mist"
-        style = "ethereal, ghostly, mystical"
-        effects = f"intertwining {color2} ectoplasmic particles, forming ethereal shapes"
+        environment = f"((masterful spectral environment)), ((with {color1} ethereal mist)), ((volumetric atmosphere:1.2))"
+        style = "((ethereal art style:1.3)), ((ghostly aesthetics)), ((mystical atmosphere)), ((perfect composition)), ((professional quality)), ((highly detailed))"
+        effects = f"((dynamic {color2} ectoplasmic particles:1.2)), ((forming intricate ethereal patterns)), ((magical energy flows)), ((atmospheric depth)), ((subtle glow)), ((perfect lighting))"
+
+        prompt = (
+            f"((masterful spectral art)) of {subject}, "
+            f"manifesting within a {environment}, "
+            f"((rendered in {style})), "
+            f"with {effects}, "
+            f"((8k resolution)), ((perfect details)), ((atmospheric excellence))"
+        )
 
         components = {
-            "prompt": f"A {subject} manifesting within a {environment}. The scene is {style}, as {effects}.",
+            "prompt": prompt,
             "subject": subject,
             "environment": environment,
             "style": style,
