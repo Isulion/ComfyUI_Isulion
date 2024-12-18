@@ -181,7 +181,7 @@ class ThemeRegistry:
             "🏙️ Urban Tag": "urban_tag",
             "💘 Valentine's Day": "valentines_day",
             "🏠 Village World": "village_world",
-            "🖼️ Vintage 1800s Photography": "vintage_1800s_photography",
+            "📸 Vintage 1800s Photography": "vintage_1800s_photography",
             "👴 Vintage Anthropomorphic": "vintage_anthropomorphic",
             "🎨 Watercolor": "watercolor"
         }

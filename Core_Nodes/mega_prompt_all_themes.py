@@ -117,6 +117,7 @@ class IsulionMultiplePromptGenerator:
             "💫 Ethereal Dreams",
             "🔬 Microscopic",
             "🧩 Puzzle Dimension",
+            "💗 Spectral Mist",
         ],
         
         "Vintage & Historical": [
@@ -124,6 +125,7 @@ class IsulionMultiplePromptGenerator:
             "🕴️‍♂️ Peaky Blinders",
             "🕰️ Essential Vintage",
             "👴 Vintage Anthropomorphic",
+            "📸 Vintage 1800s Photography",
         ],
     }
     

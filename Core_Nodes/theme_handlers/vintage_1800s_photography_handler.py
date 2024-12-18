@@ -36,60 +36,44 @@ class Vintage1800sPhotographyHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",  
+                include_environment: str = "yes",
                 include_style: str = "yes",
                 include_effects: str = "yes") -> Dict[str, str]:
         components = {}
-
-        # Subject component
-        if custom_subject:
-            components["subject"] = (
-                f"((antique 1800s photograph:1.4)) of {custom_subject}, "
-                f"((period-correct pose)), ((historical accuracy)), "
-                f"((vintage daguerreotype style:1.3))"
-            )
-        else:
-            subject = self._get_random_choice("subjects")
-            components["subject"] = (
-                f"((antique 1800s photograph:1.4)) of {subject}, "
-                f"((period-correct pose)), ((historical accuracy)), "
-                f"((vintage daguerreotype style:1.3))"
-            )
-
-        # Environment component
+        
+        # Subject
+        subject = custom_subject if custom_subject else self._get_random_choice("subjects")
+        components["subject"] = (
+            f"((extremely old photograph)), ((vintage 1800s photograph:1.4)) of {subject}, "
+            f"((period-correct pose)), ((historical accuracy:1.3))"
+        )
+        
+        # Environment
         if include_environment == "yes":
             setting = custom_location if custom_location else self._get_random_choice("settings")
-            composition, props, pose, lighting = self._get_composition_elements()
             components["environment"] = (
-                f"in ((period-authentic {setting}:1.2)), "
-                f"with ((authentic {props})), ((masterful {lighting} lighting)), "
-                f"((historical studio arrangement:1.3))"
+                f"in ((period-authentic {setting})), ((authentic vintage studio)), "
+                f"((historical photography setting:1.2))"
             )
-
-        # Style component
+        
+        # Style
         if include_style == "yes":
-            process, toning = self._get_process_and_toning()
             components["style"] = (
-                f"((masterful {process} process:1.4)), "
-                f"((authentic {toning} toning:1.3)), "
-                f"((historical photography techniques:1.2)), "
-                f"((heavily aged photograph:1.3)), "
-                f"((vintage photographic plate:1.2))"
+                f"((masterful daguerreotype:1.4)), ((authentic sepia toning:1.3)), "
+                f"((historical photography techniques)), ((aged photograph)), "
+                f"((vintage photographic plate))"
             )
-
-        # Effects component
+        
+        # Effects
         if include_effects == "yes":
             components["effects"] = (
-                f"((extreme vintage photographic qualities:1.4)), "
-                f"((severely aged photograph appearance:1.3)), "
-                f"((vintage chemical stains:1.2)), ((scratched emulsion)), "
-                f"((deteriorated edges)), ((silver mirroring effect)), "
+                f"((extreme vintage artifacts:1.4)), ((severe aging:1.3)), "
+                f"((chemical stains)), ((scratched emulsion)), "
+                f"((deteriorated edges)), ((silver mirroring)), "
                 f"((foxing marks)), ((heavy patina)), "
-                f"((light leaks)), ((uneven development)), "
-                f"((period-appropriate severe aging)), "
                 f"((authentic vintage photograph damage:1.3))"
             )
-
+        
         return components
 
     def get_negative_prompt(self) -> str:
