@@ -38,18 +38,19 @@ class VideoPromptGenerator:
             "💠 Dimension 3D", "🖼️ Digital Art", "🎡 Disney", "🎬 Dreamworks",
             "🐰 Easter", "✨ Enchanted Fantasy", "📸 Essential Realistic",
             "✨ Essential Vintage", "✨ Ethereal Dreams", "🔬 Experimental Art",
-            "⚔️ Fantasy", "💥 Futuristic Battlefield", "🌃 Futuristic City",
+            "⚔️ Fantasy", "🧺 50s Commercial", "💥 Futuristic Battlefield", "🌃 Futuristic City",
             "🌆 Futuristic City Metropolis", "🚀 Futuristic Sci-Fi", "🍃 Ghibli",
             "🎃 Halloween", "👻 Halloween Ethereal", "👻 Horror", "🎨 Impressionist",
             "📱 Instagram", "📱 Instagram Lifestyle", "🏠 Interior Spaces",
             "🎯 Logo", "📺 Manga Panel", "🦸 Marvel", "🔬 Microscopic",
-            "⬜ Minimalist", "🎆 New Year's Eve", "🕴️‍♂️ Peaky Blinders", "💫 Pixar",
+            "⬜ Minimalist", "⚔️ Miura Dark Fantasy", "🌿 Nature", "🎆 New Year's Eve",
+            "🎬 Nolan Epic", "🕴️‍♂️ Peaky Blinders", "💫 Pixar",
             "🌪️ Post Apocalyptic", "🧩 Puzzle Dimension", "🚀 Sci-Fi",
-            "📚 School Manga", "📱 Selfie", "🎭 Stop Motion", "🚀 Star Wars",
+            "📚 School Manga", "📱 Selfie", "💗 Spectral Mist", "🎭 Stop Motion", "🚀 Star Wars",
             "⚙️ Steampunk", "🥙 Street Food Kebab", "🍀 St. Patrick's Day",
             "🦃 Thanksgiving", "🌊 Underwater Civilization", "🏙️ Urban Tag",
             "💘 Valentine's Day", "🏠 Village World", "👴 Vintage Anthropomorphic",
-            "🎨 Watercolor"
+            "📸 Vintage 1800s Photography", "🎨 Watercolor"
         ]
         return {
             "required": {
