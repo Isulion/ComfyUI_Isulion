@@ -212,6 +212,8 @@ class IsulionMegaPromptV3:
     - vintage_1800s_photography: Authentic 1800s photography style with period-correct processes and effects
     """
     
+    TITLE = "🚀 Mega Prompt V3"
+    
     def __init__(self):
         # Initialize configuration manager
         self.config_manager = ConfigManager()
