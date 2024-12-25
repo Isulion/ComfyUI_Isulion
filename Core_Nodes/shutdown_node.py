@@ -13,7 +13,7 @@ class ShutdownNode:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "input": ("GENERIC_INPUT_TYPE",),
+                "any": ("*",),
                 "delay": ("INT", {
                     "default": 30,
                     "min": 0,
