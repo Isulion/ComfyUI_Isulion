@@ -41,9 +41,9 @@ class ShutdownNode:
         return ()
 
 NODE_CLASS_MAPPINGS = {
-    "⏻ IsulionShutdown": ShutdownNode
+    "💤 IsulionShutdown": ShutdownNode
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "⏻ IsulionShutdown": "⏻ Isulion Shutdown"
+    "💤 IsulionShutdown": "💤 Isulion Shutdown"
 }
