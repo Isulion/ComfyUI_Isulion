@@ -103,21 +103,21 @@
         "in a sunflower field"
     ],
     "camera_angles": [
-        "The camera remains stationary",
-        "The camera pans slowly",
-        "The camera follows the subject",
-        "The camera zooms in gradually",
-        "The camera circles around",
-        "The camera moves from left to right",
-        "The camera captures from a low angle",
-        "The camera shoots from above",
-        "The camera tracks backward",
-        "The camera moves in for a close-up",
-        "The camera glides smoothly",
-        "The camera sweeps across",
-        "The camera rises upward",
-        "The camera descends slowly",
-        "The camera spirals around"
+        "((The camera remains stationary))",
+        "((The camera pans slowly))",
+        "((The camera follows the subject))",
+        "((The camera zooms in gradually))",
+        "((The camera circles around))",
+        "((The camera moves from left to right))",
+        "((The camera captures from a low angle))",
+        "((The camera shoots from above))",
+        "((The camera tracks backward))",
+        "((The camera moves in for a close-up))",
+        "((The camera glides smoothly))",
+        "((The camera sweeps across))",
+        "((The camera rises upward))",
+        "((The camera descends slowly))",
+        "((The camera spirals around))"
     ],
     "lighting_conditions": [
         "natural sunlight streams through windows",
@@ -140,5 +140,93 @@
         "starlight twinkles in the darkness",
         "fog diffuses the light mysteriously",
         "rainbow light refracts through crystal"
-    ]
+    ],
+    "presets": {
+        "None": "",
+        "Nature Documentary": "A wildlife camera crew filming in their natural habitat, using professional photography equipment, crystal clear footage, national geographic style",
+        "Travel Vlog": "A travel vlogger exploring with handheld camera, authentic documentary style, vibrant colors, natural lighting",
+        "Wedding Video": "A wedding videographer capturing romantic moments, cinematic film look, soft focus, dreamy atmosphere",
+        "Music Video": "A professional music video production, dramatic lighting, dynamic camera movements, high production value",
+        "News Report": "A news reporter covering an event, professional broadcast quality, steady camera work, clear visibility",
+        "Sports Coverage": "A sports camera operator tracking the action, high-speed camera, fluid motion, perfect timing",
+        "Fashion Show": "A fashion photographer capturing a runway show, high-end production, perfect lighting, glamorous atmosphere",
+        "Food Review": "A food critic reviewing cuisine, macro lens details, perfect lighting, appetizing presentation",
+        "Real Estate Tour": "A real estate photographer showcasing property, wide-angle lens, professional lighting, clean composition",
+        "Product Commercial": "A commercial photographer shooting product details, studio lighting, professional grade, advertising quality"
+    },
+    "quality_modifiers": {
+        "Standard": "professional quality, 4K resolution, detailed",
+        "High Quality": "masterfully crafted, exceptional quality, 8K resolution, highly detailed, professional grade",
+        "Best Quality": "masterpiece, award-winning cinematography, perfect composition, ultra HD, stunning quality, meticulous detail",
+        "Experimental": "innovative techniques, cutting-edge effects, unique visual style, artistic quality",
+        "Raw Footage": "unprocessed, authentic, natural quality, documentary style",
+        "Film": "cinematic quality, film grain, professional color grading, movie production value",
+        "Broadcast": "broadcast quality, television standards, professional production value"
+    },
+    "prompt_templates": {
+        "cinematic": {
+            "format": "{quality}, {subject} {location}, {camera}, {lighting}, masterful cinematography, professional film production, perfect composition, dramatic atmosphere, cinema camera, anamorphic lens, depth of field, film grain, rich colors",
+            "variants": [
+                "epic cinematic scene, dramatic lighting, professional color grading, premium production value",
+                "hollywood production quality, cinematic atmosphere, perfect framing, expert composition",
+                "high-end film production, professional cinematography, artistic direction, atmospheric lighting"
+            ]
+        },
+        "documentary": {
+            "format": "{quality}, {subject} {location}, {camera}, {lighting}, authentic documentary style, natural lighting, raw footage, genuine moments, unscripted action, photojournalistic approach",
+            "variants": [
+                "documentary realism, candid moments, natural atmosphere, journalistic style",
+                "authentic documentary footage, unfiltered reality, natural environment, truthful capture",
+                "real-life documentation, observational style, natural behavior, unstaged scenes"
+            ]
+        },
+        "nature": {
+            "format": "{quality}, {subject} {location}, {camera}, {lighting}, wildlife photography, natural habitat, pristine environment, organic movement, nature documentary style",
+            "variants": [
+                "national geographic style, wilderness documentation, natural behavior, environmental focus",
+                "wildlife cinematography, untouched nature, pristine conditions, animal behavior",
+                "nature documentary, environmental storytelling, natural world, ecological focus"
+            ]
+        },
+        "artistic": {
+            "format": "{quality}, {subject} {location}, {camera}, {lighting}, artistic vision, creative composition, unique perspective, experimental techniques, innovative approach",
+            "variants": [
+                "avant-garde style, artistic expression, creative freedom, unconventional angles",
+                "experimental cinematography, artistic interpretation, creative lighting, unique vision",
+                "artistic direction, creative storytelling, visual poetry, aesthetic focus"
+            ]
+        },
+        "commercial": {
+            "format": "{quality}, {subject} {location}, {camera}, {lighting}, professional advertising, commercial grade, perfect lighting, high-end production, premium quality",
+            "variants": [
+                "advertising quality, product showcase, premium production, perfect presentation",
+                "commercial production value, professional marketing, high-end advertising, polished look",
+                "promotional quality, brand standards, commercial appeal, professional marketing"
+            ]
+        },
+        "vlog": {
+            "format": "{quality}, {subject} {location}, {camera}, {lighting}, vlog style, personal perspective, authentic content, natural interaction, genuine engagement",
+            "variants": [
+                "YouTube quality, personal story, authentic moments, casual style",
+                "social media content, lifestyle documentation, personal journey, authentic voice",
+                "influencer style, personal brand, authentic presence, engaging content"
+            ]
+        },
+        "news": {
+            "format": "{quality}, {subject} {location}, {camera}, {lighting}, broadcast quality, professional news coverage, clear visibility, steady camera work, journalistic approach",
+            "variants": [
+                "news reporting style, professional broadcast, clear footage, documentary journalism",
+                "media coverage, news worthy, professional reporting, broadcast standards",
+                "television news quality, current events, professional coverage, media production"
+            ]
+        },
+        "vintage": {
+            "format": "{quality}, {subject} {location}, {camera}, {lighting}, retro aesthetic, period-appropriate style, nostalgic atmosphere, classic film look, vintage color palette",
+            "variants": [
+                "classic film style, period accurate, historical aesthetic, vintage processing",
+                "retro cinematography, old-school technique, nostalgic quality, timeless look",
+                "vintage film quality, classic hollywood, golden age cinema, historical accuracy"
+            ]
+        }
+    }
 }
