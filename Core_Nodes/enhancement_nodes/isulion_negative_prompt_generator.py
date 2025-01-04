@@ -67,9 +67,9 @@ class IsulionNegativePromptGenerator:
         selected_negatives = negative_elements[strictness]
         # Randomly select a subset of negative elements
         num_elements = {
-            "basic": random.randint(3, 5),
-            "standard": random.randint(8, 12),
-            "strict": random.randint(15, 20)
+            "basic": random.randint(6, 8),
+            "standard": random.randint(32, 40),
+            "strict": random.randint(60, 80)
         }
         
         negative_prompt = ", ".join(random.sample(selected_negatives, num_elements[strictness]))
