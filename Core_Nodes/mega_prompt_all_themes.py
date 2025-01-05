@@ -126,6 +126,7 @@ class IsulionMultiplePromptGenerator:
             "🕰️ Essential Vintage",
             "👴 Vintage Anthropomorphic",
             "📸 Vintage 1800s Photography",
+            "🏛️ Historical Monuments",  # Added new theme
         ],
     }
     

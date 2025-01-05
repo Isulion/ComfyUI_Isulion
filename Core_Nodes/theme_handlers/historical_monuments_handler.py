@@ -56,7 +56,7 @@ class HistoricalMonumentsHandler(BaseThemeHandler):
             atmosphere = self._get_random_choice("historical_monuments.atmosphere")
             components["effects"] = (
                 f"with ((dramatic {lighting})), ((atmospheric {atmosphere})), "
-                f"((natural water reflections)), ((natural color grading)), "
+                f"((natural color grading)), "
                 f"((pristine conditions)), ((perfect exposure))"
             )
             
