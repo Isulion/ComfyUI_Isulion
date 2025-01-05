@@ -7,6 +7,8 @@ __version__ = "2.0.0"
 __author__ = "Isulion"
 __description__ = "Advanced prompt generation nodes for ComfyUI with multiple themes and styles"
 
+WEB_DIRECTORY = ".Core_Nodes/js"
+
 # Import all node classes
 from .Core_Nodes.mega_prompt_V3 import IsulionMegaPromptV3
 from .Core_Nodes.mega_prompt_all_themes import IsulionMultiplePromptGenerator
@@ -15,6 +17,7 @@ from .Core_Nodes.load_images_node import IsulionLoadImagesNode
 from .Core_Nodes.shutdown_node import NODE_CLASS_MAPPINGS as SHUTDOWN_NODES
 from .Core_Nodes.video_prompt_generator import NODE_CLASS_MAPPINGS as VIDEO_PROMPT_NODES
 from .Core_Nodes.display_image_from_url import DisplayImageFromURL
+from .Core_Nodes.CustomTextNode import CustomTextNode
 
 # Import category-specific nodes
 from .Core_Nodes.animals_nodes.isulion_animal_generator import Isulion_AnimalRandom
@@ -89,6 +92,7 @@ NODE_CLASS_MAPPINGS = {
     "IsulionCivitaiModelExplorer": IsulionCivitaiModelExplorer,
     "IsulionCivitaiTrending": IsulionCivitaiTrending,
     "IsulionCivitaiImageDisplay": IsulionCivitaiImageDisplay,
+    "CustomTextNode": CustomTextNode,
 }
 
 # Display name mappings
@@ -128,6 +132,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionCivitaiModelExplorer": "🔍 Isulion Civitai Model Explorer",
     "IsulionCivitaiTrending": "🔥 Isulion Civitai Trending",
     "IsulionCivitaiImageDisplay": "🖼️ Isulion Civitai Image Display",
+    "CustomTextNode.py": "📝 Custom Text Node",
 }
 
 __version__ = "2.0.0"
