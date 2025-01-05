@@ -1,0 +1,117 @@
+{
+    "historical_monuments": {
+        "monuments": [
+            "Pyramids of Giza",
+            "Parthenon",
+            "Colosseum",
+            "Great Wall of China",
+            "Taj Mahal",
+            "Angkor Wat",
+            "Petra",
+            "Machu Picchu",
+            "Notre-Dame Cathedral",
+            "Hagia Sophia",
+            "Stonehenge",
+            "Acropolis",
+            "Palace of Versailles",
+            "Forbidden City",
+            "Temple of Luxor"
+        ],
+        "architectural_styles": [
+            "Classical Greek",
+            "Roman Imperial",
+            "Gothic",
+            "Renaissance",
+            "Baroque",
+            "Byzantine",
+            "Ancient Egyptian",
+            "Islamic",
+            "Romanesque",
+            "Medieval"
+        ],
+        "eras": [
+            "Ancient Egyptian Era",
+            "Classical Antiquity",
+            "Middle Ages",
+            "Renaissance Period",
+            "Age of Enlightenment",
+            "Victorian Era",
+            "Bronze Age",
+            "Iron Age",
+            "Imperial Period",
+            "Golden Age"
+        ],
+        "settings": [
+            "ancient city",
+            "royal court",
+            "temple complex",
+            "sacred grounds",
+            "imperial palace",
+            "medieval town",
+            "ceremonial plaza",
+            "ancient harbor",
+            "fortress walls",
+            "holy sanctuary"
+        ],
+        "artistic_styles": [
+            "historical painting",
+            "architectural illustration",
+            "period-accurate drawing",
+            "classical art",
+            "documentary style",
+            "archaeological rendering",
+            "academic art",
+            "historical realism",
+            "architectural sketch",
+            "documentary photography"
+        ],
+        "techniques": [
+            "detailed architectural drawing",
+            "historical perspective",
+            "precise architectural rendering",
+            "period-accurate illustration",
+            "structural detail emphasis",
+            "archaeological documentation",
+            "architectural composition",
+            "historical reconstruction",
+            "monumental scale representation",
+            "architectural preservation"
+        ],
+        "lighting": [
+            "golden hour",
+            "dramatic sunset",
+            "dawn light",
+            "moonlight",
+            "natural daylight",
+            "stormy sky",
+            "ceremonial torchlight",
+            "ancient sunlight",
+            "atmospheric dusk",
+            "historical lighting"
+        ],
+        "atmosphere": [
+            "mystical fog",
+            "ancient dust",
+            "ceremonial smoke",
+            "sacred incense",
+            "morning mist",
+            "historical ambiance",
+            "timeless atmosphere",
+            "ancient air",
+            "period atmosphere",
+            "historical environment"
+        ],
+        "cloud_formations": [
+            "cumulus clouds",
+            "dramatic storm clouds",
+            "cirrus wisps",
+            "golden hour clouds",
+            "dawn mist",
+            "sunset clouds",
+            "stratocumulus formations",
+            "weather patterns",
+            "atmospheric clouds",
+            "celestial formations"
+        ]
+    }
+}

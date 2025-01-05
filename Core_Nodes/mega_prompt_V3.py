@@ -97,6 +97,7 @@ class ThemeRegistry:
             "chinese_new_year": ChineseNewYearThemeHandler,
             "spectral_mist": SpectralMistThemeHandler,
             "vintage_1800s_photography": Vintage1800sPhotographyHandler,
+            "historical_monuments": HistoricalMonumentsHandler,  # Fixed reference
         }
         
         self.handlers = {
@@ -183,7 +184,8 @@ class ThemeRegistry:
             "🏠 Village World": "village_world",
             "📸 Vintage 1800s Photography": "vintage_1800s_photography",
             "👴 Vintage Anthropomorphic": "vintage_anthropomorphic",
-            "🎨 Watercolor": "watercolor"
+            "🎨 Watercolor": "watercolor",
+            "🏛️ Historical Monuments": "historical_monuments",
         }
         self.theme_mappings = emoji_mappings
     
