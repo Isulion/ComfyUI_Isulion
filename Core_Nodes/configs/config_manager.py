@@ -20,13 +20,19 @@ class ConfigManager:
         """Load all configuration files from the config directory."""
         current_dir = os.path.dirname(os.path.abspath(__file__))
         
+        # Ensure configs are empty before loading
+        self.configs = {}
+        
         # Load each JSON config file in the configs directory
         for filename in os.listdir(current_dir):
             if filename.endswith('.json'):
                 file_path = os.path.join(current_dir, filename)
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    # Merge the config into the main configs dictionary
-                    self.configs.update(json.load(f))
+                try:
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        # Merge the config into the main configs dictionary
+                        self.configs.update(json.load(f))
+                except Exception as e:
+                    print(f"Error loading config file {filename}: {str(e)}")
         
         # Add default configuration for SpectralMist if not present
         if "SpectralMist" not in self.configs:

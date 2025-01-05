@@ -74,6 +74,7 @@ from .village_world_handler import VillageWorldThemeHandler
 from .vintage_anthropomorphic_handler import VintageAnthropomorphicThemeHandler
 from .vintage_1800s_photography_handler import Vintage1800sPhotographyHandler
 from .historical_monuments_handler import HistoricalMonumentsHandler
+from .medieval_handler import MedievalThemeHandler
 
 # Holiday and Event Handlers
 from .chinese_new_year_handler import ChineseNewYearThemeHandler
@@ -130,6 +131,7 @@ __all__ = [
     'UnderwaterCivilizationThemeHandler', 'UrbanTagThemeHandler',
     'VillageWorldThemeHandler', 'VintageAnthropomorphicThemeHandler',
     'Vintage1800sPhotographyHandler', 'HistoricalMonumentsHandler',
+    'MedievalThemeHandler',
     
     # Holiday and Event Handlers
     'ChineseNewYearThemeHandler', 'ChristmasThemeHandler',
@@ -140,5 +142,9 @@ __all__ = [
     
     # Cinema and Media Handlers
     'CinemaStudioThemeHandler', 'InstagramThemeHandler',
-    'InstagramLifestyleThemeHandler', 'HistoricalMonumentsHandler'
+    'InstagramLifestyleThemeHandler',
+    
+    # Historical and Period Handlers
+    'HistoricalMonumentsHandler',
+    'MedievalThemeHandler'
 ]

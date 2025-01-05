@@ -98,6 +98,7 @@ class ThemeRegistry:
             "spectral_mist": SpectralMistThemeHandler,
             "vintage_1800s_photography": Vintage1800sPhotographyHandler,
             "historical_monuments": HistoricalMonumentsHandler,  # Fixed reference
+            "medieval": MedievalThemeHandler,
         }
         
         self.handlers = {
@@ -186,6 +187,7 @@ class ThemeRegistry:
             "👴 Vintage Anthropomorphic": "vintage_anthropomorphic",
             "🎨 Watercolor": "watercolor",
             "🏛️ Historical Monuments": "historical_monuments",
+            "⚔️ Medieval": "medieval",
         }
         self.theme_mappings = emoji_mappings
     
