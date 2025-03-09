@@ -29,13 +29,15 @@ class s300ThemeHandler(BaseThemeHandler):
 
         # Style & Effects (optional)
         style_elements = [
-            "film grain texture", 
-            "painterly brushstrokes", 
-            "Frank Miller comic panel aesthetic"
+            "film grain texture", "Dreamlike Quality","Emotional Intensity",
+            "painterly brushstrokes", "Strong Contrast and Lighting",
+            "Frank Miller comic panel aesthetic","Textured Background"
         ]
         effects_elements = [
-            "cinematic depth of field",
-            "dynamic composition with rim lighting"
+            "cinematic depth of field","Frank Miller Comic Book Style"
+            "dynamic composition with rim lighting","Stylized Realism",
+            "Grainy Texture", "Desaturated Colors with Deep Reds and Golds","Gritty Textures",
+            "Painterly Brushstrokes","Film Grain Texture","Emotional Intensity"
         ]
 
         components["style"] = f"((stylized {', '.join(style_elements)})"

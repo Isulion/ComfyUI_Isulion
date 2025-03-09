@@ -4,13 +4,16 @@
             "spartan warrior",
             "epic battlefield",
             "dark fantasy armor",
-            "ancient ruins"
+            "ancient ruins",
+            "Epic Landscape",
+            "Spartan Culture",
+            "Dark Fantasy Narrative"
         ],
         "settings": [
-            "stormy sky with lightning",
-            "war-torn desert canyon",
-            "abandoned temple complex",
-            "burning wasteland"
+            "Stormy Sky with Lightning", "War-torn Desert Canyon", "Abandoned Temple Complex",
+            "Burning Wasteland", "Dark Forest with Twisted Trees", "Ruined Cityscape at Night",
+            "Foggy Mountain Pass", "Drowning Town with Waterlogged Buildings", "Frozen Tundra with Snowdrifts",
+            "Gothic Cathedral at Dusk", "Ancient Underwater Ruins", "Scorched Volcano with Lava Flow" 
         ]
     }
 }
