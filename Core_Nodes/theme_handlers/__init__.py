@@ -4,6 +4,7 @@
 from .base_handler import BaseThemeHandler
 
 # Art Style Handlers
+from .s300_handler import s300ThemeHandler
 from .abstract_handler import AbstractThemeHandler
 from .animation_cartoon_handler import AnimationCartoonThemeHandler
 from .anime_handler import AnimeThemeHandler
@@ -141,8 +142,8 @@ __all__ = [
     'ThanksgivingThemeHandler', 'ValentinesDayThemeHandler',
     
     # Cinema and Media Handlers
-    'CinemaStudioThemeHandler', 'InstagramThemeHandler',
-    'InstagramLifestyleThemeHandler',
+    's300ThemeHandler', 'CinemaStudioThemeHandler', 
+    'InstagramThemeHandler', 'InstagramLifestyleThemeHandler',
     
     # Historical and Period Handlers
     'HistoricalMonumentsHandler',
