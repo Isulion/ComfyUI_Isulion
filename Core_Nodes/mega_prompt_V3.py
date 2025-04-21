@@ -85,7 +85,8 @@ class ThemeRegistry:
             "scifi": SciFiThemeHandler,
             "school_manga": SchoolMangaThemeHandler,
             "selfie": SelfieThemeHandler,
-            "Spartan 300": s300ThemeHandler,
+            "skinny_blonde_girl": SkinnyBlondeGirlHandler,
+            "Spartan_300": s300ThemeHandler,
             "spectral_mist": SpectralMistThemeHandler,
             "st_patricks_day": StPatricksDayThemeHandler,            
             "star_wars": StarWarsThemeHandler,
@@ -112,7 +113,6 @@ class ThemeRegistry:
             "vintage_1800s_photography": Vintage1800sPhotographyHandler,
             "historical_monuments": HistoricalMonumentsHandler,
             "medieval": MedievalThemeHandler,
-            "skinny_blonde_girl": SkinnyBlondeGirlHandler,
         }
         
         self.handlers = {
@@ -188,7 +188,8 @@ class ThemeRegistry:
             "🚀 Sci-Fi": "scifi",
             "📚 School Manga": "school_manga",
             "📱 Selfie": "selfie",
-            "👧💃 Skinny Blonde Girl": "skinny_blonde_girl",
+            "👧 Skinny Blonde Girl": "skinny_blonde_girl",
+            "🏛️ Spartan 300": "Spartan_300",
             "💗 Spectral Mist": "spectral_mist",
             "🍀 St. Patrick's Day": "st_patricks_day",
             "🚀 Star Wars": "star_wars",
