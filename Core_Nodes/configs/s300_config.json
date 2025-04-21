@@ -1,0 +1,19 @@
+{
+    "s300": {
+        "main_elements": [
+            "spartan warrior",
+            "epic spartan battlefield",
+            "dark spartan fantasy armor",
+            "ancient spartan ruins",
+            "Epic spartan Landscape",
+            "Spartan Culture",
+            "Dark Fantasy spartan Narrative"
+        ],
+        "settings": [
+            "Stormy Sky with Lightning", "War-torn Desert Canyon", "Abandoned Temple Complex",
+            "Burning Wasteland", "Dark Forest with Twisted Trees", "Ruined Cityscape at Night",
+            "Foggy Mountain Pass", "Drowning Town with Waterlogged Buildings", "Frozen Tundra with Snowdrifts",
+            "Gothic Cathedral at Dusk", "Ancient Underwater Ruins", "Scorched Volcano with Lava Flow" 
+        ]
+    }
+}
