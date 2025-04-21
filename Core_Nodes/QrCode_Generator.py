@@ -1,5 +1,5 @@
 # Core_Nodes/qrcode_node.py
-import torch
+import torch # type: ignore
 import numpy as np
 import math
 import re # Using built-in 're' for color parsing

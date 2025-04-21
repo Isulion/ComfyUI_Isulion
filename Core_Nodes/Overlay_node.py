@@ -1,5 +1,5 @@
 # Core_Nodes/overlay_node.py
-import torch
+import torch # type: ignore
 import numpy as np
 import math
 import traceback # For detailed error printing
