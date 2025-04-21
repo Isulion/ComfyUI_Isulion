@@ -371,9 +371,9 @@ class OverlayQRCodeNode:
 
 # --- ComfyUI Mappings ---
 NODE_CLASS_MAPPINGS = {
-    "ImageOverlayQRCode": OverlayQRCodeNode
+    "⧉ IsulionOverlay": OverlayQRCodeNode
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "ImageOverlayQRCode": "Overlay QR Code on Image"
+    "⧉ IsulionOverlay": "Overlay QR Code on Image"
 }
