@@ -3,7 +3,7 @@ Isulion ComfyUI Custom Nodes
 A collection of powerful prompt generation nodes for ComfyUI
 """
 
-__version__ = "2.0.0"
+__version__ = "4.0.0"
 __author__ = "Isulion"
 __description__ = "Advanced prompt generation nodes for ComfyUI with multiple themes and styles"
 
@@ -139,4 +139,4 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "🧩 IsulionQRCode": "🧩 Isulion QRCode Generator",
 }
 
-__version__ = "2.0.0"
+__version__ = "4.0.0"
