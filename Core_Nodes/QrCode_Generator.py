@@ -48,7 +48,7 @@ class QRCodeNode:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "text": ("STRING", {"multiline": True, "default": "https://github.com/comfyanonymous/ComfyUI"}),
+                "text": ("STRING", {"multiline": True, "default": "https://civitai.com/user/Isulion"}),
                 "error_correction": (["L", "M", "Q", "H"], {"default": "H"}),
                 "scale": ("INT", {"default": 10, "min": 1, "max": 100, "step": 1, "display": "number"}),
                 "border": ("INT", {"default": 4, "min": 0, "max": 40, "step": 1, "display": "number"}),
