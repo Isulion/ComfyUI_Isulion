@@ -97,8 +97,9 @@ class ThemeRegistry:
             "chinese_new_year": ChineseNewYearThemeHandler,
             "spectral_mist": SpectralMistThemeHandler,
             "vintage_1800s_photography": Vintage1800sPhotographyHandler,
-            "historical_monuments": HistoricalMonumentsHandler,  # Fixed reference
+            "historical_monuments": HistoricalMonumentsHandler,
             "medieval": MedievalThemeHandler,
+            "skinny_blonde_girl": SkinnyBlondeGirlHandler,
         }
         
         self.handlers = {
@@ -172,6 +173,7 @@ class ThemeRegistry:
             "🚀 Sci-Fi": "scifi",
             "📚 School Manga": "school_manga",
             "📱 Selfie": "selfie",
+            "👧💃 Skinny Blonde Girl": "skinny_blonde_girl",
             "💗 Spectral Mist": "spectral_mist",
             "🍀 St. Patrick's Day": "st_patricks_day",
             "🚀 Star Wars": "star_wars",

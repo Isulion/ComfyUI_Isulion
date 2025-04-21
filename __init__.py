@@ -14,7 +14,8 @@ from .Core_Nodes.mega_prompt_V3 import IsulionMegaPromptV3
 from .Core_Nodes.mega_prompt_all_themes import IsulionMultiplePromptGenerator
 from .Core_Nodes.isucollage_node import IsuCollageNode
 from .Core_Nodes.load_images_node import IsulionLoadImagesNode
-from .Core_Nodes.shutdown_node import NODE_CLASS_MAPPINGS as SHUTDOWN_NODES
+from .Core_Nodes.shutdown_node import NODE_CLASS_MAPPINGS as ShutdownNode
+from .Core_Nodes.QrCode_Generator import NODE_CLASS_MAPPINGS as QRCodeNode
 from .Core_Nodes.video_prompt_generator import NODE_CLASS_MAPPINGS as VIDEO_PROMPT_NODES
 from .Core_Nodes.display_image_from_url import DisplayImageFromURL
 from .Core_Nodes.CustomTextNode import CustomTextNode
@@ -57,7 +58,8 @@ from .Core_Nodes.civitai_nodes.civitai_image_display import IsulionCivitaiImageD
 # Node mappings
 NODE_CLASS_MAPPINGS = {
     **VIDEO_PROMPT_NODES,
-    **SHUTDOWN_NODES,
+    **ShutdownNode,
+    **QRCodeNode,
     "IsulionAnimalRandom": Isulion_AnimalRandom,
     "IsulionCuteAnimalRandom": IsulionCuteAnimalRandom,
     "IsulionAnimalBehaviorGenerator": Isulion_AnimalBehaviorGenerator,
@@ -133,6 +135,8 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionCivitaiTrending": "🔥 Isulion Civitai Trending",
     "IsulionCivitaiImageDisplay": "🖼️ Isulion Civitai Image Display",
     "CustomTextNode.py": "📝 Custom Text Node",
+    "💤 IsulionShutdown": "💤 Isulion Shutdown",
+    "🧩 IsulionQRCode": "🧩 Isulion QRCode Generator",
 }
 
 __version__ = "2.0.0"

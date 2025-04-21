@@ -14,5 +14,5 @@ class CustomTextNode:
         return (text,)
 
 NODE_CLASS_MAPPINGS = {
-    "CustomTextNode": CustomTextNode
+    "CustomTextNode ⌨️": CustomTextNode
 }

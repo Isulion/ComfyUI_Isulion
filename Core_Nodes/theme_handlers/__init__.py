@@ -67,6 +67,7 @@ from .post_apocalyptic_handler import PostApocalypticThemeHandler
 from .puzzle_dimension_handler import PuzzleDimensionThemeHandler
 from .school_manga_handler import SchoolMangaThemeHandler
 from .selfie_handler import SelfieThemeHandler
+from .skinny_blonde_girl_handler import SkinnyBlondeGirlHandler
 from .street_food_kebab_handler import StreetFoodKebabThemeHandler
 from .underwater_civilization_handler import UnderwaterCivilizationThemeHandler
 from .urban_tag_handler import UrbanTagThemeHandler
@@ -127,7 +128,7 @@ __all__ = [
     'LogoThemeHandler', 'MangaPanelThemeHandler', 'MicroscopicThemeHandler',
     'PeakyBlindersThemeHandler', 'PostApocalypticThemeHandler',
     'PuzzleDimensionThemeHandler', 'SchoolMangaThemeHandler',
-    'SelfieThemeHandler', 'StreetFoodKebabThemeHandler',
+    'SelfieThemeHandler', 'SkinnyBlondeGirlHandler', 'StreetFoodKebabThemeHandler',
     'UnderwaterCivilizationThemeHandler', 'UrbanTagThemeHandler',
     'VillageWorldThemeHandler', 'VintageAnthropomorphicThemeHandler',
     'Vintage1800sPhotographyHandler', 'HistoricalMonumentsHandler',

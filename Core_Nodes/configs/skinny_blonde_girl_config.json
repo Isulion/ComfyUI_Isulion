@@ -1,0 +1,71 @@
+{
+    "skinny_blonde_girl": {
+        "hairstyles": [
+            "long beachy waves",
+            "slick high ponytail with claw clip",
+            "side-swept fringe (bangs)"
+        ],
+        "outfits_top": [
+            "cut-out crop top",
+            "corset-style bodysuit",
+            "halter-neck bikini top"
+        ],
+        "outfits_bottom": [
+            "ultra-high-waisted mom jeans",
+            "cheeky thong bikini bottoms",
+            "velour tracksuit shorts",
+            "classic denim skinny jeans",
+            "leather leggings",
+            "pleated mini skirt",
+            "cropped joggers",
+            "high-rise culottes",
+            "satin midi skirt",
+            "flared palazzo pants"
+        ],
+        "accessories": [
+            "layered gold necklaces",
+            "oversized sunglasses (Y2K style)",
+            "mini Hermès Birkin handbag"
+        ],
+        "poses": [
+            "one leg stretched out",
+            "hand on hip, looking away",
+            "sitting on yacht rail"
+        ],
+        "expressions": [
+            "smizing (smiling with eyes)",
+            "duck face selfie pose",
+            "subtle smirk into camera",
+            "wide-eyed gaze",
+            "playful wink",
+            "pouty lips",
+            "raised eyebrow",
+            "joyful laughter expression",
+            "intense stare",
+            "coy look",
+            "soft, dreamy eyes",
+            "confident grin",
+            "sly smile",
+            "dimples in a smile"
+        ],
+        "settings": [
+            "Palm Springs villa poolside",
+            "Malibu beach cliffside",
+            "private jet cabin view",
+            "Mediterranean coastal villa garden",
+            "Yacht deck on the Caribbean Sea",
+            "Parisian penthouse with Eiffel Tower views",
+            "Desert oasis retreat in the Sahara",
+            "Luxury safari lodge in Kenya",
+            "Private island in the Maldives",
+            "Himalayan luxury mountain chalet"
+            ],
+        "filters": [
+            "Beauty Mode",
+            "Bling Filter",
+            "Anime Cartoon Eyes",
+            "Face Zoom Effect",
+            "bokhe Filter"
+            ]
+    }
+}
