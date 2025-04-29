@@ -45,7 +45,7 @@ except ImportError as e:
 # Import all theme handlers using the original pattern.
 # This relies on your theme_handlers/__init__.py or directory structure
 # correctly exposing the handler classes.
-# This *might* be the source of the 'NameError' if the __init__.py isn't right,
+# This *might* be the source of the 'NameError' if the __init__py isn't right,
 # but let's stick to the original structure first.
 try:
     # This import needs to make classes like AbstractThemeHandler, etc., available in the local scope
@@ -193,13 +193,12 @@ class ThemeRegistry:
         # Define all possible mappings (copied from your original code)
         all_emoji_mappings = {
             "🎲 Dynamic Random": "random",
-            "🧺 50s Commercial": "fifties_commercial",
             "🎨 Abstract": "abstract",
             "📺 Animation Cartoon": "animation_cartoon",
             "🎌 Anime": "anime",
             "🏛️ Architectural": "architectural",
-            "🧬 Bio-Organic Technology": "bio_organic_tech",
             "🖼️ Binet Surreal": "binet_surreal",
+            "🧬 Bio-Organic Technology": "bio_organic_tech",
             "😄 Caricature": "caricature",
             "👤 Character Designer": "character_designer",
             "🦄 Chimera Animals": "chimera_animals",
@@ -216,8 +215,8 @@ class ThemeRegistry:
             "👗 Curvy Fashion": "curvy_fashion",
             "🌆 Cyberpunk": "cyberpunk",
             "👹 Dia de los Muertos": "dia_de_los_muertos",
-            "💠 Dimension 3D": "dimension_3d",
             "🖼️ Digital Art": "digital_art",
+            "💠 Dimension 3D": "dimension_3d",
             "🎡 Disney": "disney",
             "🎬 Dreamworks": "dreamworks",
             "🐰 Easter": "easter",
@@ -227,8 +226,9 @@ class ThemeRegistry:
             "✨ Ethereal Dreams": "ethereal_dreams",
             "🔬 Experimental Art": "experimental_art",
             "⚔️ Fantasy": "fantasy",
-            "🌆 Futuristic City": "futuristic_city",
+            "🧺 50s Commercial": "fifties_commercial",
             "⚔️ Futuristic Battlefield": "futuristic_battlefield",
+            "🌆 Futuristic City": "futuristic_city",
             "🌆 Futuristic City Metropolis": "futuristic_city_metropolis",
             "🚀 Futuristic Sci-Fi": "futuristic_scifi",
             "🍃 Ghibli": "ghibli",
@@ -272,8 +272,8 @@ class ThemeRegistry:
             "🏠 Village World": "village_world",
             "📸 Vintage 1800s Photography": "vintage_1800s_photography",
             "👴 Vintage Anthropomorphic": "vintage_anthropomorphic",
-            "🎨 Watercolor": "watercolor",
-        }
+            "🎨 Watercolor": "watercolor"
+}
 
         # Filter mappings to only include themes for which handlers were successfully initialized instances
         # Always include the "random" option mapping
@@ -317,19 +317,26 @@ class ThemeRegistry:
         return self.config_manager.random.choice(available_themes)
 
     def get_all_display_themes(self) -> List[str]:
-        """Get all theme display names available based on initialized handlers, sorted."""
         available_display_themes = list(self.theme_mappings.keys())
 
-        # Ensure '🎲 Dynamic Random' is always the first option and sort the rest
         dynamic_random = "🎲 Dynamic Random"
+
+    # Separate 'Dynamic Random' to ensure it's always first
         if dynamic_random in available_display_themes:
             available_display_themes.remove(dynamic_random)
-            available_display_themes.sort()
+
+            # Sort the remaining list using a key function that extracts the theme name
+            # The lambda function splits the string by the first space (' ', 1) and takes the second part ([-1]).
+            # .strip() removes any leading/trailing whitespace just in case.
+            available_display_themes.sort(key=lambda item: item.split(' ', 1)[-1].strip())
+
+            # Insert 'Dynamic Random' back at the beginning
             available_display_themes.insert(0, dynamic_random)
         else:
-             available_display_themes.sort() # Sort even if random is missing
-
+            # If 'Dynamic Random' isn't there, just sort the whole list by theme name
+            available_display_themes.sort(key=lambda item: item.split(' ', 1)[-1].strip())
         return available_display_themes
+
 
 
 class IsulionMegaPromptV3:
@@ -347,6 +354,10 @@ class IsulionMegaPromptV3:
         # Initialize theme registry. This will attempt to load and instantiate handlers.
         self.theme_registry = ThemeRegistry(self.config_manager)
 
+        # ** FIX: Expose theme_mappings directly on the node instance **
+        # This addresses the AttributeError reported by ComfyUI during loading/initialization
+        self.theme_mappings = self.theme_registry.theme_mappings
+
         # Optional: Check if any handlers were successfully loaded for actual generation
         if not self.theme_registry.handlers and "random" not in self.theme_registry.theme_mappings.values():
              print("CRITICAL WARNING: No theme handler instances were successfully loaded and 'random' option is unavailable. The node will likely fail to generate prompts.")
@@ -361,6 +372,11 @@ class IsulionMegaPromptV3:
         # NOTE: If ConfigManager initialization has side effects, you might reuse self.config_manager
         # from the class instance somehow, but this is tricky in a @classmethod.
         # Using a new instance is standard for INPUT_TYPES.
+        # IMPORTANT: If the error 'IsulionMegaPromptV3' object has no attribute 'theme_mappings'
+        # *still* occurs after the fix in __init__, it might be because ComfyUI accesses
+        # theme_mappings during the static INPUT_TYPES phase *before* __init__ is called
+        # on an instance. If so, a dummy placeholder `theme_mappings = {}` might be
+        # needed at the class level, but try the fix in __init__ first.
         temp_registry = ThemeRegistry(ConfigManager())
         available_themes = temp_registry.get_all_display_themes()
 
