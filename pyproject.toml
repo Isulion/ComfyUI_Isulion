@@ -1,7 +1,7 @@
 [project]
 name = "comfyui_isulion"
 description = "ComfyUI Nodes that generate prompts and many more"
-version = "5.0.0"
+version = "5.0.1"
 license = {file = "LICENSE"}
 
 [project.urls]

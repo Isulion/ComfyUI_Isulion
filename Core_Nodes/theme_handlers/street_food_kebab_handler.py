@@ -140,17 +140,17 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "", 
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate street food kebab-themed components.
         
         Args:
             custom_subject (str): Custom subject override
             custom_location (str): Custom location override
-            include_environment (str): Whether to include environment
-            include_style (str): Whether to include style
-            include_effects (str): Whether to include effects
+            include_environment (bool): Whether to include environment
+            include_style (bool): Whether to include style
+            include_effects (bool): Whether to include effects
             
         Returns:
             Dict[str, str]: Dictionary containing generated components
@@ -159,13 +159,13 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             "subject": self.generate_subject(custom_subject),
         }
         
-        if str(include_environment).lower() == "yes":
+        if include_environment:
             result["environment"] = self.generate_environment(custom_location)
             
-        if str(include_style).lower() == "yes":
+        if include_style:
             result["style"] = self.generate_style()
             
-        if str(include_effects).lower() == "yes":
+        if include_effects:
             result["effects"] = self.generate_effects()
             
         return result
