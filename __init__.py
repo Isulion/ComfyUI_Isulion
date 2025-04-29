@@ -3,7 +3,7 @@ Isulion ComfyUI Custom Nodes
 A collection of powerful prompt generation nodes for ComfyUI
 """
 
-__version__ = "4.6.0"
+__version__ = "4.7.0"
 __author__ = "Isulion"
 __description__ = "Advanced prompt generation nodes for ComfyUI with multiple themes and styles"
 
@@ -142,4 +142,4 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "⧉ IsulionOverlay": "⧉ IsulionOverlay"
 }
 
-__version__ = "4.6.0"
+__version__ = "4.7.0"
