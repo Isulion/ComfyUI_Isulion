@@ -12,10 +12,17 @@ class InteriorSpacesThemeHandler(BaseThemeHandler):
         """Generate interior spaces-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        style = self._get_random_choice("interior_spaces.styles")
+        lighting = self._get_random_choice("interior_spaces.lighting")
+        material = self._get_random_choice("interior_spaces.materials")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
                 f"((interior of {custom_subject})), "
+                f"((styled as {style})), ((with {lighting})), "
+                f"((featuring {material} elements)), "
                 f"((architectural interior)), ((interior design)), "
                 f"((indoor space))"
             )
@@ -37,12 +44,12 @@ class InteriorSpacesThemeHandler(BaseThemeHandler):
                     f"((interior setting)), ((indoor environment))"
                 )
             else:
-                style = self._get_random_choice("interior_spaces.styles")
-                lighting = self._get_random_choice("interior_spaces.lighting")
-                material = self._get_random_choice("interior_spaces.materials")
+                style_env = self._get_random_choice("interior_spaces.styles")
+                lighting_env = self._get_random_choice("interior_spaces.lighting")
+                material_env = self._get_random_choice("interior_spaces.materials")
                 components["environment"] = (
-                    f"in (({style} space)) with (({lighting})), "
-                    f"((featuring {material} elements)), "
+                    f"in (({style_env} space)) with (({lighting_env})), "
+                    f"((featuring {material_env} elements)), "
                     f"((interior vista)), ((designed space))"
                 )
         

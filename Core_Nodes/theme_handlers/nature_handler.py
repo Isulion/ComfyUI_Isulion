@@ -12,12 +12,19 @@ class NatureThemeHandler(BaseThemeHandler):
         """Generate nature-themed components with enhanced realism and detail."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        atmosphere = self._get_random_choice("nature.atmospheres")
+        season = self._get_random_choice("nature.seasons")
+        natural_phenomena = self._get_random_choice("nature.natural_phenomena")
+        flora = self._get_random_choice("nature.flora")
+
         # Generate subject with natural elements
         if custom_subject:
             components["subject"] = (
-                f"((masterful landscape photograph of {custom_subject})), "
-                f"((breathtaking natural beauty)), ((perfect composition)), "
-                f"((environmental excellence)), ((pristine condition)), "
+                f"((masterful landscape photograph of {atmosphere} {custom_subject})) "
+                f"with ((majestic {natural_phenomena})) and ((beautiful {flora})), "
+                f"((during {season})), ((breathtaking natural beauty)), "
+                f"((perfect composition)), ((pristine wilderness)), "
                 f"((professional landscape photography))"
             )
         else:
@@ -26,7 +33,6 @@ class NatureThemeHandler(BaseThemeHandler):
             flora = self._get_random_choice("nature.flora")
             season = self._get_random_choice("nature.seasons")
             atmosphere = self._get_random_choice("nature.atmospheres")
-            
             components["subject"] = (
                 f"((masterful landscape photograph of {atmosphere} {landscape})) "
                 f"with ((majestic {self._get_random_choice('nature.natural_phenomena')})) and ((beautiful {flora})), "
@@ -48,7 +54,6 @@ class NatureThemeHandler(BaseThemeHandler):
                 geology = self._get_random_choice("nature.geological_features")
                 pattern = self._get_random_choice("nature.natural_patterns")
                 time = self._get_random_choice("nature.time_of_day")
-                
                 components["environment"] = (
                     f"during (({time} with {weather})), featuring ((impressive {geology})) "
                     f"with ((intricate {pattern})), ((perfect natural lighting)), "
@@ -61,7 +66,6 @@ class NatureThemeHandler(BaseThemeHandler):
             style = self._get_random_choice("nature.styles")
             technique = self._get_random_choice("nature.techniques")
             lighting = self._get_random_choice("nature.lighting_conditions")
-            
             components["style"] = (
                 f"((captured in {style} style)), ((using {technique})), "
                 f"((with {lighting})), ((landscape photography excellence)), "
@@ -74,7 +78,6 @@ class NatureThemeHandler(BaseThemeHandler):
         if include_effects == "yes":
             effect = self._get_random_choice("nature.effects")
             pattern = self._get_random_choice("nature.natural_patterns")
-            
             components["effects"] = (
                 f"with ((natural {effect})), ((subtle {pattern})), "
                 f"((environmental authenticity)), ((natural atmosphere)), "
@@ -82,4 +85,4 @@ class NatureThemeHandler(BaseThemeHandler):
                 f"((perfect exposure)), ((sharp details)), ((rich textures))"
             )
         
-        return components 
+        return components

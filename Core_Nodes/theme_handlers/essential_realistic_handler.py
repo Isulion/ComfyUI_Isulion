@@ -12,12 +12,16 @@ class EssentialRealisticThemeHandler(BaseThemeHandler):
         """Generate essential realistic-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        detail = self._get_random_choice("essential_realistic.details")
+        feature = self._get_random_choice("essential_realistic.features")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((realistic {custom_subject})), "
-                f"((photorealistic)), ((true to life)), "
-                f"((natural appearance))"
+                f"((realistic {custom_subject} with {detail})), "
+                f"((featuring {feature})), ((photorealistic)), "
+                f"((true to life)), ((natural appearance))"
             )
         else:
             subject = self._get_random_choice("essential_realistic.subjects")

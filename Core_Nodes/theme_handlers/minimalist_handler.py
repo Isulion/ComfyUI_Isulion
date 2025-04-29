@@ -12,12 +12,16 @@ class MinimalistThemeHandler(BaseThemeHandler):
         """Generate minimalist-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        form = self._get_random_choice("minimalist.forms")
+        element = self._get_random_choice("minimalist.elements")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((minimalist {custom_subject})), "
-                f"((clean design)), ((simple form)), "
-                f"((elegant simplicity))"
+                f"((minimalist {custom_subject})) with ((simple {form})), "
+                f"((featuring {element})), ((clean design)), "
+                f"((elegant simplicity)), ((pure form))"
             )
         else:
             subject = self._get_random_choice("minimalist.subjects")

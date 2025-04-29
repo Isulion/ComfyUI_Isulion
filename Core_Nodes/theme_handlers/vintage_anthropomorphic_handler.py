@@ -16,24 +16,27 @@ class VintageAnthropomorphicThemeHandler(BaseThemeHandler):
                 include_effects: str = "yes") -> Dict[str, str]:
         """Generate vintage anthropomorphic-themed components."""
         components = {}
-        
+
+        # Always use random elements, even with custom_subject
+        character = self._get_random_choice("vintage_anthropomorphic.characters")
+        species = self._get_random_choice("vintage_anthropomorphic.species")
+        clothing = self._get_random_choice("vintage_anthropomorphic.clothing")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
                 f"((vintage anthropomorphic {custom_subject})), "
+                f"((wearing {clothing})), "
                 f"((dressed animal)), ((period style)), "
                 f"((classic character))"
             )
         else:
-            character = self._get_random_choice("vintage_anthropomorphic.characters")
-            species = self._get_random_choice("vintage_anthropomorphic.species")
-            clothing = self._get_random_choice("vintage_anthropomorphic.clothing")
             components["subject"] = (
                 f"((vintage {character} {species})), "
                 f"((wearing {clothing})), "
                 f"((dressed animal)), ((period style))"
             )
-        
+
         # Generate environment if requested
         if include_environment == "yes":
             if custom_location:
@@ -50,7 +53,7 @@ class VintageAnthropomorphicThemeHandler(BaseThemeHandler):
                     f"((with {prop})), "
                     f"((vintage scene)), ((period setting))"
                 )
-        
+
         # Generate style if requested
         if include_style == "yes":
             atmosphere = self._get_random_choice("vintage_anthropomorphic.atmospheres")
@@ -60,7 +63,7 @@ class VintageAnthropomorphicThemeHandler(BaseThemeHandler):
                 f"((period design)), ((classic look)), "
                 f"((antique authenticity))"
             )
-        
+
         # Generate effects if requested
         if include_effects == "yes":
             effect = self._get_random_choice("vintage_anthropomorphic.effects")
@@ -69,7 +72,7 @@ class VintageAnthropomorphicThemeHandler(BaseThemeHandler):
                 f"((vintage atmosphere)), "
                 f"((period ambiance)), ((classic environment))"
             )
-        
+
         return components
 
     def generate_theme_prompt(self, subject=None, location=None):

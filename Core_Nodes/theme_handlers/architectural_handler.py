@@ -11,26 +11,28 @@ class ArchitecturalThemeHandler(BaseThemeHandler):
                 include_effects: str = "yes") -> Dict[str, str]:
         """Generate architectural-themed components with professional quality."""
         components = {}
-        
-        # Generate subject with enhanced architectural detail
+
+        # Always use random elements, even with custom_subject
+        style = self._get_random_choice("architectural.styles")
+        feature = self._get_random_choice("architectural.features")
+
         if custom_subject:
             components["subject"] = (
                 f"((masterful architectural photography)) of {custom_subject}, "
+                f"((in {style} style)), ((featuring {feature})), "
                 f"((perfect architectural composition)), ((structural excellence)), "
                 f"((professional architectural detail)), ((design mastery)), "
                 f"((geometric precision)), ((architectural brilliance))"
             )
         else:
             building = self._get_random_choice("architectural.buildings")
-            style = self._get_random_choice("architectural.styles")
-            feature = self._get_random_choice("architectural.features")
             components["subject"] = (
                 f"((masterful architectural photography)) of ((magnificent {building})), "
                 f"((in {style} style)), ((featuring {feature})), "
                 f"((perfect architectural composition)), ((structural excellence)), "
                 f"((design mastery)), ((geometric precision))"
             )
-        
+
         # Generate environment with enhanced spatial context
         if include_environment == "yes":
             if custom_location:
@@ -50,7 +52,7 @@ class ArchitecturalThemeHandler(BaseThemeHandler):
                     f"((architectural context)), ((spatial harmony)), "
                     f"((environmental mastery)), ((urban excellence))"
                 )
-        
+
         # Generate style with enhanced architectural techniques
         if include_style == "yes":
             technique = self._get_random_choice("architectural.techniques")
@@ -62,7 +64,7 @@ class ArchitecturalThemeHandler(BaseThemeHandler):
                 f"((design excellence)), ((technical mastery)), "
                 f"((flawless composition)), 8k resolution"
             )
-        
+
         # Generate effects with enhanced architectural elements
         if include_effects == "yes":
             effect = self._get_random_choice("architectural.effects")
@@ -74,7 +76,7 @@ class ArchitecturalThemeHandler(BaseThemeHandler):
                 f"((dramatic shadows)), ((structural detail)), "
                 f"((professional finish)), ((visual excellence))"
             )
-        
+
         return components
 
     def get_negative_prompt(self):

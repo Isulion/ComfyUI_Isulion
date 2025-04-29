@@ -11,24 +11,26 @@ class ConceptArtThemeHandler(BaseThemeHandler):
                 include_effects: str = "yes") -> Dict[str, str]:
         """Generate concept art-themed components."""
         components = {}
-        
+
+        # Always use random elements, even with custom_subject
+        design = self._get_random_choice("concept_art.designs")
+        feature = self._get_random_choice("concept_art.features")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((concept art {custom_subject})), "
-                f"((design visualization)), ((concept design)), "
-                f"((pre-production art))"
+                f"((concept art {custom_subject} with {design} design)), "
+                f"((featuring {feature})), ((design visualization)), "
+                f"((concept design)), ((pre-production art))"
             )
         else:
             subject = self._get_random_choice("concept_art.subjects")
-            design = self._get_random_choice("concept_art.designs")
-            feature = self._get_random_choice("concept_art.features")
             components["subject"] = (
                 f"((concept art {subject} with {design} design)), "
                 f"((featuring {feature})), ((design visualization)), "
                 f"((concept design)), ((pre-production art))"
             )
-        
+
         # Generate environment if requested
         if include_environment == "yes":
             if custom_location:
@@ -45,7 +47,7 @@ class ConceptArtThemeHandler(BaseThemeHandler):
                     f"((visualization environment)), ((concept background)), "
                     f"((pre-production setting))"
                 )
-        
+
         # Generate style if requested
         if include_style == "yes":
             style = self._get_random_choice("concept_art.styles")
@@ -56,7 +58,7 @@ class ConceptArtThemeHandler(BaseThemeHandler):
                 f"((concept design)), ((visualization artistry)), "
                 f"((pre-production quality))"
             )
-        
+
         # Generate effects if requested
         if include_effects == "yes":
             effect = self._get_random_choice("concept_art.effects")
@@ -66,5 +68,5 @@ class ConceptArtThemeHandler(BaseThemeHandler):
                 f"((design {mood} mood)), "
                 f"((visualization impact)), ((pre-production finish))"
             )
-        
+
         return components

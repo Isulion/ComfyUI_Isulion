@@ -11,11 +11,14 @@ class DigitalArtThemeHandler(BaseThemeHandler):
                 include_effects: str = "yes") -> Dict[str, str]:
         """Generate digital art-themed components with professional quality."""
         components = {}
-        
+
         # Generate subject with enhanced digital art characteristics
         if custom_subject:
+            style = self._get_random_choice("digital_art.styles")
+            technique = self._get_random_choice("digital_art.techniques")
             components["subject"] = (
                 f"((masterful digital art)) of {custom_subject}, "
+                f"((rendered in {style} style)), ((using {technique})), "
                 f"((perfect digital rendering)), ((professional illustration)), "
                 f"((artistic excellence)), ((digital mastery)), "
                 f"((detailed design)), ((creative brilliance))"
@@ -30,7 +33,7 @@ class DigitalArtThemeHandler(BaseThemeHandler):
                 f"((professional illustration)), ((digital excellence)), "
                 f"((perfect execution)), ((artistic mastery))"
             )
-        
+
         # Generate environment with enhanced digital atmosphere
         if include_environment == "yes":
             if custom_location:
@@ -50,7 +53,7 @@ class DigitalArtThemeHandler(BaseThemeHandler):
                     f"((digital excellence)), ((scene composition)), "
                     f"((environmental harmony)), ((artistic depth))"
                 )
-        
+
         # Generate style with enhanced digital techniques
         if include_style == "yes":
             workflow = self._get_random_choice("digital_art.workflows")
@@ -64,7 +67,7 @@ class DigitalArtThemeHandler(BaseThemeHandler):
                 f"((artistic sophistication)), ((perfect composition)), "
                 f"((color harmony)), 8k resolution"
             )
-        
+
         # Generate effects with enhanced digital elements
         if include_effects == "yes":
             effect = self._get_random_choice("digital_art.effects")
@@ -76,7 +79,7 @@ class DigitalArtThemeHandler(BaseThemeHandler):
                 f"((professional effects)), ((digital excellence)), "
                 f"((artistic finish)), ((visual mastery))"
             )
-        
+
         return components
 
     def get_negative_prompt(self):

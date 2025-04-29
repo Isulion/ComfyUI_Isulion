@@ -20,7 +20,7 @@ class SkinnyBlondeGirlHandler(BaseThemeHandler):
         # Core subject generation
         if custom_subject:
             components["subject"] = (
-                f"((slim blonde girl with curves)), "
+                f"((slim blonde girl with curves as {custom_subject})), "
                 f"wearing {self._get_outfit()}, "
                 f"{pose}, {expression}"
             )

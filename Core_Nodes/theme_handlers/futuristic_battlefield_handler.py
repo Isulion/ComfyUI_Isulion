@@ -12,12 +12,16 @@ class FuturisticBattlefieldThemeHandler(BaseThemeHandler):
         """Generate futuristic battlefield-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        weapon = self._get_random_choice("futuristic_battlefield.weapons")
+        tech = self._get_random_choice("futuristic_battlefield.tech")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((futuristic {custom_subject})), "
-                f"((advanced warfare)), ((high-tech combat)), "
-                f"((military technology))"
+                f"((futuristic {custom_subject} wielding {weapon})), "
+                f"((equipped with {tech})), ((advanced warfare)), "
+                f"((high-tech combat)), ((military technology))"
             )
         else:
             subject = self._get_random_choice("futuristic_battlefield.subjects")

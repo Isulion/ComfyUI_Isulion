@@ -12,12 +12,16 @@ class UnderwaterCivilizationThemeHandler(BaseThemeHandler):
         """Generate underwater civilization-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        technology = self._get_random_choice("underwater_civilization.technology")
+        creature = self._get_random_choice("underwater_civilization.creatures")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
                 f"((underwater {custom_subject})), "
-                f"((aquatic)), ((oceanic)), "
-                f"((submerged))"
+                f"((using {technology})), ((with {creature})), "
+                f"((aquatic)), ((oceanic)), ((submerged))"
             )
         else:
             inhabitant = self._get_random_choice("underwater_civilization.inhabitants")

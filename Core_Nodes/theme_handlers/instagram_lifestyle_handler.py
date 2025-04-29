@@ -12,10 +12,15 @@ class InstagramLifestyleThemeHandler(BaseThemeHandler):
         """Generate Instagram lifestyle-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        activity = self._get_random_choice("instagram_lifestyle.activities")
+        prop = self._get_random_choice("instagram_lifestyle.props")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((lifestyle {custom_subject})), "
+                f"((lifestyle {custom_subject} {activity})), "
+                f"((with {prop})), "
                 f"((instagram aesthetic)), ((social media style)), "
                 f"((influencer look))"
             )

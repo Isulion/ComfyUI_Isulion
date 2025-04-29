@@ -11,26 +11,27 @@ class AnimationCartoonThemeHandler(BaseThemeHandler):
                 include_effects: str = "yes") -> Dict[str, str]:
         """Generate animation cartoon-themed components with professional quality."""
         components = {}
-        
-        # Generate subject with enhanced character detail
+
+        # Always use random elements, even with custom_subject
+        character = self._get_random_choice("animation_cartoon.characters")
+        expression = self._get_random_choice("animation_cartoon.expressions")
+        pose = self._get_random_choice("animation_cartoon.poses")
+
         if custom_subject:
             components["subject"] = (
                 f"((masterful cartoon rendition)) of {custom_subject}, "
-                f"((perfectly animated character)), ((expressive design excellence)), "
-                f"((professional cartoon style)), ((character appeal)), "
-                f"((animation quality))"
+                f"((as {character})), ((perfect {expression} expression)), "
+                f"((in dynamic {pose})), ((professional cartoon style)), "
+                f"((character appeal)), ((animation quality))"
             )
         else:
-            character = self._get_random_choice("animation_cartoon.characters")
-            expression = self._get_random_choice("animation_cartoon.expressions")
-            pose = self._get_random_choice("animation_cartoon.poses")
             components["subject"] = (
                 f"((masterful cartoon {character})) with ((perfect {expression} expression)), "
                 f"((in dynamic {pose})), ((professional animated character)), "
                 f"((expert cartoon style)), ((perfect pose execution)), "
                 f"((character appeal)), ((animation excellence))"
             )
-        
+
         # Generate environment with enhanced animation quality
         if include_environment == "yes":
             if custom_location:
@@ -49,7 +50,7 @@ class AnimationCartoonThemeHandler(BaseThemeHandler):
                     f"((professional animated setting)), ((whimsical atmosphere)), "
                     f"((perfect background composition)), ((scene detail))"
                 )
-        
+
         # Generate style with enhanced animation techniques
         if include_style == "yes":
             style = self._get_random_choice("animation_cartoon.styles")
@@ -61,7 +62,7 @@ class AnimationCartoonThemeHandler(BaseThemeHandler):
                 f"((vibrant color palette)), ((artistic excellence)), "
                 f"((flawless composition)), 8k resolution"
             )
-        
+
         # Generate effects with enhanced cartoon elements
         if include_effects == "yes":
             effect = self._get_random_choice("animation_cartoon.effects")
@@ -72,7 +73,7 @@ class AnimationCartoonThemeHandler(BaseThemeHandler):
                 f"((cartoon excellence)), ((visual appeal)), "
                 f"((professional finish)), ((artistic mastery))"
             )
-        
+
         return components
 
     def get_negative_prompt(self):

@@ -11,12 +11,17 @@ class MedievalThemeHandler(BaseThemeHandler):
                 include_effects: str = "yes") -> Dict[str, str]:
         components = {}
         
+        # Always use random elements, even with custom_subject
+        attire = self._get_random_choice("medieval.attire")
+        character = self._get_random_choice("medieval.characters")
+
         # Subject generation
         if custom_subject:
             components["subject"] = (
                 f"((medieval {custom_subject})), "
-                f"((authentic historical appearance)), ((period-accurate details)), "
-                f"((medieval craftsmanship)), ((historical authenticity))"
+                f"wearing ((authentic {attire})), "
+                f"((period-accurate details)), ((medieval craftsmanship)), "
+                f"((historical authenticity))"
             )
         else:
             character = self._get_random_choice("medieval.characters")

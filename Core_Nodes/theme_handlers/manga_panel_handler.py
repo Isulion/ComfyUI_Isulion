@@ -12,10 +12,16 @@ class MangaPanelThemeHandler(BaseThemeHandler):
         """Generate manga panel-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        panel_type = self._get_random_choice("manga_panel.panel_types")
+        composition = self._get_random_choice("manga_panel.compositions")
+        element = self._get_random_choice("manga_panel.elements")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
                 f"((manga panel of {custom_subject})), "
+                f"((with {composition})), ((featuring {element})), "
                 f"((manga art style)), ((comic panel)), "
                 f"((japanese comic))"
             )

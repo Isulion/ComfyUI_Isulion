@@ -15,15 +15,23 @@ class SchoolMangaThemeHandler(BaseThemeHandler):
                 include_effects: str = "yes") -> Dict[str, str]:
         """Generate sophisticated school manga-themed components with authentic Japanese school life elements and professional manga techniques."""
         components = {}
-        
+
+        # Always use random elements, even with custom_subject
+        activity = self._get_random_choice("school_manga.activities")
+        prop = self._get_random_choice("school_manga.props")
+        uniform = self._get_random_choice("school_manga.uniforms")
+        expression = self._get_random_choice("school_manga.expressions")
+        linework = self._get_random_choice("school_manga.linework")
+
         # Generate subject with enhanced manga characteristics
         if custom_subject:
             components["subject"] = (
                 f"((professional black and white manga illustration)) of (({custom_subject})), "
-                f"((perfect manga character design)), ((authentic japanese school life)), "
-                f"((masterful ink technique)), ((dynamic pose)), ((expressive features)), "
-                f"((detailed school uniform)), ((clean linework)), ((high contrast rendering)), "
-                f"((professional manga quality)), ((technical excellence))"
+                f"((engaging in {activity})), ((with detailed {prop})), "
+                f"((wearing technically detailed {uniform})), ((showing {expression})), "
+                f"((with {linework})), ((perfect manga character design)), "
+                f"((masterful ink technique)), ((dynamic pose)), ((clean linework)), "
+                f"((high contrast rendering)), ((professional manga quality)), ((technical excellence))"
             )
         else:
             character = self._get_random_choice("school_manga.characters")
@@ -40,7 +48,7 @@ class SchoolMangaThemeHandler(BaseThemeHandler):
                 f"((masterful ink technique)), ((dynamic pose)), ((clean linework)), "
                 f"((high contrast rendering)), ((professional manga quality))"
             )
-        
+
         # Generate environment with enhanced architectural detail
         if include_environment == "yes":
             if custom_location:
@@ -64,7 +72,7 @@ class SchoolMangaThemeHandler(BaseThemeHandler):
                     f"((masterful spatial depth)), ((authentic japanese architecture)), "
                     f"((sharp background contrast)), ((technical excellence))"
                 )
-        
+
         # Generate style with enhanced manga techniques
         if include_style == "yes":
             style = self._get_random_choice("school_manga.styles")
@@ -80,7 +88,7 @@ class SchoolMangaThemeHandler(BaseThemeHandler):
                 f"((authentic japanese manga style)), ((technical excellence)), "
                 f"8k resolution, perfect details"
             )
-        
+
         # Generate effects with enhanced technical elements
         if include_effects == "yes":
             effect = self._get_random_choice("school_manga.effects")
@@ -95,7 +103,7 @@ class SchoolMangaThemeHandler(BaseThemeHandler):
                 f"((professional black and white contrast)), ((technical precision)), "
                 f"((sharp detail rendering)), ((clear tonal hierarchy))"
             )
-        
+
         return components
 
     def get_negative_prompt(self):

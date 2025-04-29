@@ -12,12 +12,16 @@ class ExperimentalArtThemeHandler(BaseThemeHandler):
         """Generate experimental art-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        concept = self._get_random_choice("experimental_art.concepts")
+        technique = self._get_random_choice("experimental_art.techniques")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((experimental {custom_subject})), "
-                f"((avant-garde)), ((innovative)), "
-                f"((unconventional approach))"
+                f"((experimental {custom_subject} exploring {concept})), "
+                f"((using {technique})), ((avant-garde)), "
+                f"((innovative)), ((unconventional approach))"
             )
         else:
             subject = self._get_random_choice("experimental_art.subjects")

@@ -12,12 +12,16 @@ class ClayArtThemeHandler(BaseThemeHandler):
         """Generate clay art-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        texture = self._get_random_choice("clay_art.textures")
+        detail = self._get_random_choice("clay_art.details")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((clay art {custom_subject})), "
-                f"((sculpted figure)), ((ceramic design)), "
-                f"((moldable creation))"
+                f"((clay art {custom_subject} with {texture} texture)), "
+                f"((featuring {detail})), ((sculpted figure)), "
+                f"((ceramic design)), ((moldable creation))"
             )
         else:
             figure = self._get_random_choice("clay_art.figures")

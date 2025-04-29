@@ -27,10 +27,14 @@ class BinetSurrealThemeHandler(BaseThemeHandler):
         color_scheme = self._get_random_choice("binet_surreal.color_schemes")
         
         if custom_subject:
+            # Add randomization to custom subject
+            pose = self._get_random_choice("binet_surreal.poses") if hasattr(self, "_get_random_choice") else "aristocratic pose"
+            detail = self._get_random_choice("binet_surreal.details") if hasattr(self, "_get_random_choice") else "photorealistic detail"
+            lighting = self._get_random_choice("binet_surreal.lighting") if hasattr(self, "_get_random_choice") else "dramatic studio lighting"
             components["subject"] = (
-                f"((masterful portrait)) of {custom_subject}, "
-                f"((aristocratic pose)), ((noble bearing)), "
-                f"((photorealistic detail)), ((dramatic studio lighting)), "
+                f"((masterful {portrait_style})) of {custom_subject}, "
+                f"(({pose})), ((noble bearing)), "
+                f"(({detail})), (({lighting})), "
                 f"in {color_scheme} tones, ((professional photography))"
             )
         else:

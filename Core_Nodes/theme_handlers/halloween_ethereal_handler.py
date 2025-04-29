@@ -12,20 +12,25 @@ class HalloweenEtherealThemeHandler(BaseThemeHandler):
         """Generate halloween ethereal-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        creature = self._get_random_choice("halloween_ethereal.creatures")
+        obj = self._get_random_choice("halloween_ethereal.objects")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
                 f"((ethereal {custom_subject})), "
+                f"((with {creature})), ((holding {obj})), "
                 f"((halloween spirit)), ((mystical being)), "
                 f"((supernatural entity))"
             )
         else:
             subject = self._get_random_choice("halloween_ethereal.subjects")
             creature = self._get_random_choice("halloween_ethereal.creatures")
-            object = self._get_random_choice("halloween_ethereal.objects")
+            obj = self._get_random_choice("halloween_ethereal.objects")
             components["subject"] = (
                 f"(({subject})), "
-                f"((with {creature})), ((holding {object})), "
+                f"((with {creature})), ((holding {obj})), "
                 f"((halloween spirit)), ((mystical being))"
             )
         

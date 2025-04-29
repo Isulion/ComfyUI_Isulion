@@ -12,17 +12,19 @@ class CinemaStudioThemeHandler(BaseThemeHandler):
         """Generate cinema studio-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        shot = self._get_random_choice("cinema_studio.shots")
+        feature = self._get_random_choice("cinema_studio.features")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((cinematic {custom_subject})), "
-                f"((professional film quality)), ((movie production)), "
-                f"((studio cinematography))"
+                f"((cinematic {custom_subject} in {shot} shot)), "
+                f"((featuring {feature})), ((professional film quality)), "
+                f"((movie production)), ((studio cinematography))"
             )
         else:
             subject = self._get_random_choice("cinema_studio.subjects")
-            shot = self._get_random_choice("cinema_studio.shots")
-            feature = self._get_random_choice("cinema_studio.features")
             components["subject"] = (
                 f"((cinematic {subject} in {shot} shot)), "
                 f"((featuring {feature})), ((professional film quality)), "

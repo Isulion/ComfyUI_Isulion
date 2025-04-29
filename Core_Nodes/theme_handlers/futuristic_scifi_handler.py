@@ -12,10 +12,15 @@ class FuturisticSciFiThemeHandler(BaseThemeHandler):
         """Generate futuristic sci-fi-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        tech = self._get_random_choice("futuristic_scifi.technology")
+        artifact = self._get_random_choice("futuristic_scifi.artifacts")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
                 f"((futuristic {custom_subject})), "
+                f"((wielding {tech})), ((with {artifact})), "
                 f"((science fiction)), ((advanced being)), "
                 f"((cosmic entity))"
             )

@@ -492,25 +492,28 @@ class IsulionMegaPromptV3:
 
             if include_environment == "yes":
                 environment = components.get("environment", "")
-                if environment and isinstance(environment, str):
-                    prompt_parts.append(environment)
-                elif environment is not None:
-                     print(f"Warning: Handler for theme '{internal_theme}' generated environment of type {type(environment)}. Expected string.")
+                if isinstance(environment, str):
+                    if environment:
+                        prompt_parts.append(environment)
+                else:
+                    print(f"Warning: Handler for theme '{internal_theme}' generated environment of type {type(environment)}. Expected string.")
 
 
             if include_style == "yes":
                 style = components.get("style", "")
-                if style and isinstance(style, str):
-                     prompt_parts.append(style)
-                elif style is not None:
-                     print(f"Warning: Handler for theme '{internal_theme}' generated style of type {type(style)}. Expected string.")
+                if isinstance(style, str):
+                    if style:
+                        prompt_parts.append(style)
+                else:
+                    print(f"Warning: Handler for theme '{internal_theme}' generated style of type {type(style)}. Expected string.")
 
 
             if include_effects == "yes":
                 effects = components.get("effects", "")
-                if effects and isinstance(effects, str):
-                    prompt_parts.append(effects)
-                elif effects is not None:
+                if isinstance(effects, str):
+                    if effects:
+                        prompt_parts.append(effects)
+                else:
                     print(f"Warning: Handler for theme '{internal_theme}' generated effects of type {type(effects)}. Expected string.")
 
 

@@ -40,14 +40,22 @@ class Vintage1800sPhotographyHandler(BaseThemeHandler):
                 include_style: str = "yes",
                 include_effects: str = "yes") -> Dict[str, str]:
         components = {}
-        
+
+        # Always use random elements, even with custom_subject
+        composition, props, pose, lighting = self._get_composition_elements()
+        process, toning = self._get_process_and_toning()
+
         # Subject
-        subject = custom_subject if custom_subject else self._get_random_choice("subjects")
+        if custom_subject:
+            subject = custom_subject
+        else:
+            subject = self._get_random_choice("subjects")
         components["subject"] = (
             f"((extremely old photograph)), ((vintage 1800s photograph:1.4)) of {subject}, "
+            f"(({composition})), ((with {props})), (({pose})), (({lighting})), "
             f"((period-correct pose)), ((historical accuracy:1.3))"
         )
-        
+
         # Environment
         if include_environment == "yes":
             setting = custom_location if custom_location else self._get_random_choice("settings")
@@ -55,15 +63,15 @@ class Vintage1800sPhotographyHandler(BaseThemeHandler):
                 f"in ((period-authentic {setting})), ((authentic vintage studio)), "
                 f"((historical photography setting:1.2))"
             )
-        
+
         # Style
         if include_style == "yes":
             components["style"] = (
-                f"((masterful daguerreotype:1.4)), ((authentic sepia toning:1.3)), "
+                f"((masterful {process}:1.4)), ((authentic {toning}:1.3)), "
                 f"((historical photography techniques)), ((aged photograph)), "
                 f"((vintage photographic plate))"
             )
-        
+
         # Effects
         if include_effects == "yes":
             components["effects"] = (
@@ -73,7 +81,7 @@ class Vintage1800sPhotographyHandler(BaseThemeHandler):
                 f"((foxing marks)), ((heavy patina)), "
                 f"((authentic vintage photograph damage:1.3))"
             )
-        
+
         return components
 
     def get_negative_prompt(self) -> str:

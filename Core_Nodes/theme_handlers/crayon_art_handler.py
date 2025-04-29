@@ -12,12 +12,16 @@ class CrayonArtThemeHandler(BaseThemeHandler):
         """Generate crayon art-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        color = self._get_random_choice("crayon_art.colors")
+        feature = self._get_random_choice("crayon_art.features")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((crayon art {custom_subject})), "
-                f"((childlike drawing)), ((crayon sketch)), "
-                f"((hand-drawn creation))"
+                f"((crayon art {custom_subject} in {color} colors)), "
+                f"((featuring {feature})), ((childlike drawing)), "
+                f"((crayon sketch)), ((hand-drawn creation))"
             )
         else:
             subject = self._get_random_choice("crayon_art.subjects")

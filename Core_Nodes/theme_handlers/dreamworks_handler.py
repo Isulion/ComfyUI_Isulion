@@ -99,91 +99,71 @@ class DreamworksThemeHandler(BaseThemeHandler):
         self.debug_print("Generating new prompt...")
         components = {}
 
-        # Generate subject
-        if custom_subject:
-            base_character = custom_subject
-        else:
-            base_character = self._safe_choice("character_types", "character")
-            
-        self.debug_print(f"Selected base character: {base_character}")
-        
-        # Add character features
+        # Always use random elements, even with custom_subject
+        base_character = custom_subject if custom_subject else self._safe_choice("character_types", "character")
         expression = self._safe_choice("expressions", "expressive")
         pose = self._safe_choice("poses", "dynamic pose")
         emotion = self._safe_choice("emotions", "emotional")
-        
+        personality = self._safe_choice("personality_traits", "charismatic")
+        quirk = self._safe_choice("quirks", "unique trait")
+
+        self.debug_print(f"Selected base character: {base_character}")
         self.debug_print(f"Selected expression: {expression}")
         self.debug_print(f"Selected pose: {pose}")
         self.debug_print(f"Selected emotion: {emotion}")
-        
-        # Generate personality traits
-        personality = self._safe_choice("personality_traits", "charismatic")
-        quirk = self._safe_choice("quirks", "unique trait")
-        
         self.debug_print(f"Selected personality: {personality}")
         self.debug_print(f"Selected quirk: {quirk}")
-        
+
         # Combine character elements
         components["subject"] = (
             f"((masterful portrait)) of {base_character}, {personality}, "
             f"with {expression} expression, in {pose}, showing {emotion} emotion, "
             f"with {quirk}, ((perfect character design)), ((highly detailed))"
         )
-        
+
         # Add environment if requested
         if include_environment == "yes":
-            if custom_location:
-                setting = custom_location
-            else:
-                setting = self._safe_choice("settings", "dramatic setting")
-            
-            self.debug_print(f"Selected setting: {setting}")
-            
+            setting = custom_location if custom_location else self._safe_choice("settings", "dramatic setting")
             time_of_day = self._safe_choice("times_of_day", "dramatic lighting")
             weather = self._safe_choice("weather_conditions", "atmospheric")
-            
+            self.debug_print(f"Selected setting: {setting}")
             self.debug_print(f"Selected time of day: {time_of_day}")
             self.debug_print(f"Selected weather: {weather}")
-            
             components["environment"] = (
                 f"in ((detailed {setting})) during {time_of_day}, "
                 f"with {weather} conditions, ((perfect environment design))"
             )
-        
+
         # Add style elements if requested
         if include_style == "yes":
             art_style = self._safe_choice("art_styles", "Dreamworks animation")
             lighting = self._safe_choice("lighting_styles", "dramatic lighting")
             color_palette = self._safe_choice("color_palettes", "vibrant colors")
-            
             self.debug_print(f"Selected art style: {art_style}")
             self.debug_print(f"Selected lighting: {lighting}")
             self.debug_print(f"Selected color palette: {color_palette}")
-            
             components["style"] = (
                 f"((masterful {art_style})), ((perfect {lighting})), "
                 f"((beautiful {color_palette})), ((professional quality)), "
                 f"((perfect composition))"
             )
-        
+
         # Add effects if requested
         if include_effects == "yes":
             special_effect = self._safe_choice("special_effects", "visual effect")
             atmosphere = self._safe_choice("atmospheres", "atmospheric")
-            
             self.debug_print(f"Selected special effect: {special_effect}")
             self.debug_print(f"Selected atmosphere: {atmosphere}")
-            
             components["effects"] = (
                 f"((dramatic {special_effect})), (({atmosphere})), "
                 f"((cinematic quality)), ((perfect rendering))"
             )
-        
+
         # Add negative prompt
         components["negative"] = ", ".join([
             "anime", "manga", "cartoon", "pixar style", "disney style",
             "low quality", "blurry", "distorted", "deformed",
             "bad art", "amateur", "poorly drawn"
         ])
-        
+
         return components

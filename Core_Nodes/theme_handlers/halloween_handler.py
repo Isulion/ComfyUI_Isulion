@@ -12,12 +12,16 @@ class HalloweenThemeHandler(BaseThemeHandler):
         """Generate Halloween-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        costume = self._get_random_choice("halloween.costumes")
+        pose = self._get_random_choice("halloween.poses")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((spooky {custom_subject})), "
-                f"((Halloween theme)), ((eerie presence)), "
-                f"((haunting appearance))"
+                f"((spooky {custom_subject})) wearing ((creepy {costume})), "
+                f"((in {pose})), ((Halloween theme)), "
+                f"((eerie presence)), ((haunting appearance))"
             )
         else:
             character = self._get_random_choice("halloween.characters")

@@ -17,13 +17,20 @@ class HorrorThemeHandler(BaseThemeHandler):
         """Generate sophisticated horror-themed components with psychological depth."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        state = self._get_random_choice("horror.states")
+        pose = self._get_random_choice("horror.poses")
+        emotion = self._get_random_choice("horror.emotions")
+
         # Generate subject with enhanced horror elements
         if custom_subject:
             components["subject"] = (
                 f"((masterfully crafted horror rendition)) of ((nightmarish {custom_subject})), "
-                f"((dark and psychologically disturbing)), ((sinister presence)), "
-                f"((intricate macabre details)), ((unsettling anatomical features)), "
-                f"((haunting expression)), ((psychological horror)), ((masterful horror design)), "
+                f"((in a terrifying {state} state)), ((with {pose})), "
+                f"((expressing {emotion})), ((dark and psychologically disturbing)), "
+                f"((sinister presence)), ((intricate macabre details)), "
+                f"((unsettling anatomical features)), ((haunting expression)), "
+                f"((psychological horror)), ((masterful horror design)), "
                 f"((visceral fear)), ((primal dread))"
             )
         else:

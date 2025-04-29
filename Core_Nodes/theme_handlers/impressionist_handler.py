@@ -17,22 +17,36 @@ class ImpressionistThemeHandler(BaseThemeHandler):
         """Generate impressionist-styled components."""
         components = {}
         
+        # Prepare random elements for both branches
+        techniques = ["broken color", "visible brushstrokes", "impasto technique", "optical mixing", "pure color application"]
+        palette = ["vibrant", "pure", "complementary", "atmospheric", "light-filled"]
+        mood = ["serene", "lively", "contemplative", "dynamic", "peaceful"]
+
+        technique = random.choice(techniques)
+        color_palette = random.choice(palette)
+        painting_mood = random.choice(mood)
+
         # Generate subject with impressionist characteristics
         if custom_subject:
             components["subject"] = (
                 f"((masterful impressionist painting)) of {custom_subject}, "
-                f"((loose brushstrokes)), ((vibrant color impressionism)), "
-                f"((light and atmosphere)), ((impressionist style)), "
-                f"((artistic excellence)), ((painterly quality))"
+                f"((with {technique})), (({color_palette} color palette)), "
+                f"(({painting_mood} mood)), ((loose brushstrokes)), "
+                f"((vibrant color impressionism)), ((light and atmosphere)), "
+                f"((impressionist style)), ((artistic excellence)), ((painterly quality))"
             )
         else:
             subjects = ["garden scene", "water lilies", "sunset landscape", "cafe terrace", "flower field", "river scene", "cathedral facade", "people in park"]
             subject = random.choice(subjects)
+            technique = random.choice(techniques)
+            color_palette = random.choice(palette)
+            painting_mood = random.choice(mood)
             components["subject"] = (
                 f"((masterful impressionist painting)) of ((a {subject})), "
-                f"((loose brushstrokes)), ((vibrant color impressionism)), "
-                f"((light and atmosphere)), ((impressionist style)), "
-                f"((artistic excellence)), ((painterly quality))"
+                f"((with {technique})), (({color_palette} color palette)), "
+                f"(({painting_mood} mood)), ((loose brushstrokes)), "
+                f"((vibrant color impressionism)), ((light and atmosphere)), "
+                f"((impressionist style)), ((artistic excellence)), ((painterly quality))"
             )
         
         # Generate environment with impressionist atmosphere
@@ -62,14 +76,9 @@ class ImpressionistThemeHandler(BaseThemeHandler):
         
         # Generate style with impressionist techniques
         if include_style == "yes":
-            techniques = ["broken color", "visible brushstrokes", "impasto technique", "optical mixing", "pure color application"]
-            palette = ["vibrant", "pure", "complementary", "atmospheric", "light-filled"]
-            mood = ["serene", "lively", "contemplative", "dynamic", "peaceful"]
-            
             technique = random.choice(techniques)
             color_palette = random.choice(palette)
             painting_mood = random.choice(mood)
-            
             components["style"] = (
                 f"((painted in classic impressionist style)), "
                 f"((with {technique})), (({color_palette} color palette)), "

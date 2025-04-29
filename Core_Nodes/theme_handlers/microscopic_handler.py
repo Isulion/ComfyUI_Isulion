@@ -12,10 +12,17 @@ class MicroscopicThemeHandler(BaseThemeHandler):
         """Generate microscopic-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        style = self._get_random_choice("microscopic.styles")
+        technique = self._get_random_choice("microscopic.techniques")
+        detail = self._get_random_choice("microscopic.details")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
                 f"((microscopic view of {custom_subject})), "
+                f"((with {detail})), ((rendered in {style} style)), "
+                f"((using {technique} technique)), "
                 f"((cellular detail)), ((molecular structure)), "
                 f"((microscope magnification))"
             )

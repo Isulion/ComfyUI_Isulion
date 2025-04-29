@@ -33,19 +33,24 @@ class MiuraThemeHandler(BaseThemeHandler):
         """Generate a prompt based on Kentarō Miura's distinctive style."""
         components = {}
         
-        # Generate subject with Miura's characteristic style
+        # Always use random traits/details, even with custom_subject
+        traits = self._get_multiple_random_choices(f"{self.theme_name}.character_traits", 2)
+        details = self._get_multiple_random_choices(f"{self.theme_name}.detail_elements", 2)
         if custom_subject:
-            base_subject = custom_subject
-            self._debug_print(f"Using custom subject: {base_subject}")
+            base_subject = f"{custom_subject}, {', '.join(traits)}, {', '.join(details)}"
+            self._debug_print(f"Using custom subject with random traits/details: {base_subject}")
         else:
             character = self._get_random_choice(f"{self.theme_name}.subjects")
-            traits = self._get_multiple_random_choices(f"{self.theme_name}.character_traits", 2)
-            details = self._get_multiple_random_choices(f"{self.theme_name}.detail_elements", 2)
             base_subject = f"{character}, {', '.join(traits)}, {', '.join(details)}"
             self._debug_print(f"Generated subject: {base_subject}")
 
         # Add Miura's signature detailed styling
-        components["subject"] = f"((masterfully detailed {base_subject})), (intricate pen work:1.3), (meticulous cross-hatching:1.2), (high detail illustration), (dramatic chiaroscuro), (extreme attention to texture:1.2), (masterful line weight variation)"
+        components["subject"] = (
+            f"((masterfully detailed {base_subject})), "
+            f"(intricate pen work:1.3), (meticulous cross-hatching:1.2), "
+            f"(high detail illustration), (dramatic chiaroscuro), "
+            f"(extreme attention to texture:1.2), (masterful line weight variation)"
+        )
         self._debug_print(f"Subject generated: {components['subject']}")
 
         # Generate environment if included

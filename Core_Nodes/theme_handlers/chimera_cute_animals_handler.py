@@ -12,12 +12,15 @@ class ChimeraCuteAnimalsThemeHandler(BaseThemeHandler):
         """Generate chimera cute animals-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        feature = self._get_random_choice("chimera_cute_animals.features")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
                 f"((cute chimeric {custom_subject})), "
-                f"((adorable hybrid)), ((kawaii creature)), "
-                f"((magical pet))"
+                f"((featuring {feature})), ((adorable hybrid)), "
+                f"((kawaii creature)), ((magical pet))"
             )
         else:
             base = self._get_random_choice("chimera_cute_animals.base_creatures")

@@ -12,12 +12,16 @@ class MarvelThemeHandler(BaseThemeHandler):
         """Generate Marvel-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        costume = self._get_random_choice("marvel.costumes")
+        pose = self._get_random_choice("marvel.poses")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((Marvel-style {custom_subject})), "
-                f"((superhero aesthetic)), ((comic book style)), "
-                f"((dynamic pose))"
+                f"((Marvel-style {custom_subject})) wearing ((epic {costume})), "
+                f"((in {pose})), ((superhero aesthetic)), "
+                f"((comic book style)), ((dynamic pose))"
             )
         else:
             character = self._get_random_choice("marvel.characters")

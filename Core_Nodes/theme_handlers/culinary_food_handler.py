@@ -12,10 +12,14 @@ class CulinaryFoodThemeHandler(BaseThemeHandler):
         """Generate culinary/food-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        feature = self._get_random_choice("culinary_food.features")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
                 f"((culinary {custom_subject})), "
+                f"((featuring {feature})), "
                 f"((food photography)), ((gourmet presentation)), "
                 f"((professional food styling))"
             )

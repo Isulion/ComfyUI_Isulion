@@ -5,9 +5,6 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
     """Handler for generating street food kebab-themed prompts. Updated to reflect a blend of professional food photography and stylized illustration."""
 
     def generate_subject(self, custom_subject: str = "") -> str:
-        if custom_subject:
-            return custom_subject
-            
         breads = [
             "traditional Turkish bread wrap",
             "freshly baked döner bread",
@@ -64,9 +61,14 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             "classic döner accompaniment sauces"
         ]
         
-        subject_template = "an authentic image of a döner kebab featuring {bread} filled with {meat}, layered with {vegetables}, and topped with {sauce}. {packaging} is visible beside the kebab. {sauce_containers} complement the meal. The {fries_desc} are served alongside, creating a traditional Turkish street food scene."
-        
+        subject_template = (
+            "an authentic image of a döner kebab{custom} featuring {bread} filled with {meat}, "
+            "layered with {vegetables}, and topped with {sauce}. {packaging} is visible beside the kebab. "
+            "{sauce_containers} complement the meal. The {fries_desc} are served alongside, creating a traditional Turkish street food scene."
+        )
+        custom = f" with {custom_subject}" if custom_subject else ""
         return subject_template.format(
+            custom=custom,
             bread=self.config.random.choice(breads),
             meat=self.config.random.choice(meats),
             vegetables=self.config.random.choice(vegetables),
@@ -157,13 +159,13 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             "subject": self.generate_subject(custom_subject),
         }
         
-        if include_environment.lower() == "yes":
+        if str(include_environment).lower() == "yes":
             result["environment"] = self.generate_environment(custom_location)
             
-        if include_style.lower() == "yes":
+        if str(include_style).lower() == "yes":
             result["style"] = self.generate_style()
             
-        if include_effects.lower() == "yes":
+        if str(include_effects).lower() == "yes":
             result["effects"] = self.generate_effects()
             
         return result

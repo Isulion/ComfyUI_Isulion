@@ -11,24 +11,25 @@ class BioOrganicTechThemeHandler(BaseThemeHandler):
                 include_effects: str = "yes") -> Dict[str, str]:
         """Generate bio-organic technology-themed components."""
         components = {}
-        
-        # Generate subject
+
+        # Always use random elements, even with custom_subject
+        form = self._get_random_choice("bio_organic_tech.forms")
+        feature = self._get_random_choice("bio_organic_tech.features")
+
         if custom_subject:
             components["subject"] = (
-                f"((bio-organic tech {custom_subject})), "
-                f"((organic technology)), ((biomechanical design)), "
-                f"((living machinery))"
+                f"((bio-organic tech {custom_subject})) with ((organic {form})), "
+                f"((featuring {feature})), ((biomechanical design)), "
+                f"((living technology)), ((organic machinery))"
             )
         else:
             entity = self._get_random_choice("bio_organic_tech.entities")
-            form = self._get_random_choice("bio_organic_tech.forms")
-            feature = self._get_random_choice("bio_organic_tech.features")
             components["subject"] = (
                 f"((bio-organic {entity})) with ((organic {form})), "
                 f"((featuring {feature})), ((biomechanical design)), "
                 f"((living technology)), ((organic machinery))"
             )
-        
+
         # Generate environment if requested
         if include_environment == "yes":
             if custom_location:
@@ -45,7 +46,7 @@ class BioOrganicTechThemeHandler(BaseThemeHandler):
                     f"((living technology)), ((biomechanical surroundings)), "
                     f"((organic tech environment))"
                 )
-        
+
         # Generate style if requested
         if include_style == "yes":
             style = self._get_random_choice("bio_organic_tech.styles")
@@ -56,7 +57,7 @@ class BioOrganicTechThemeHandler(BaseThemeHandler):
                 f"((bio-organic design)), ((living tech artistry)), "
                 f"((organic machinery aesthetics))"
             )
-        
+
         # Generate effects if requested
         if include_effects == "yes":
             effect = self._get_random_choice("bio_organic_tech.effects")
@@ -66,5 +67,5 @@ class BioOrganicTechThemeHandler(BaseThemeHandler):
                 f"((organic {energy} energy)), "
                 f"((living tech glow)), ((biomechanical aura))"
             )
-        
+
         return components

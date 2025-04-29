@@ -20,16 +20,28 @@ class SpectralMistThemeHandler(BaseThemeHandler):
             # Get colors without validation
             custom_location = kwargs.get('custom_location', '').strip().lower()
             primary_color, secondary_color = self._get_color_scheme(custom_location)
-            
-            # Get subject
+
+            # Always use random elements, even with custom_subject
             subject = custom_subject if custom_subject else random.choice(self._default_subjects)
-            
+            aura = random.choice(["shimmering", "glowing", "flickering", "pulsating", "luminous"])
+            form = random.choice(["apparition", "wraith", "phantasm", "entity", "spirit"])
+            detail = random.choice(["wispy", "translucent", "ethereal", "mist-wrapped", "otherworldly"])
+
             # Build components
             environment = f"((masterful spectral environment)), ((with {primary_color} ethereal mist)), ((volumetric atmosphere:1.2))"
             style = "((ethereal art style:1.3)), ((ghostly aesthetics)), ((mystical atmosphere)), ((perfect composition))"
             effects = f"((dynamic {secondary_color} ectoplasmic particles:1.2)), ((forming intricate patterns)), ((magical energy flows))"
-            
-            prompt = (
+
+            # Subject always gets random spectral details
+            components = {}
+            components["subject"] = (
+                f"((spectral {subject})), (({aura} aura)), (({detail} {form})), "
+                f"((manifesting in {primary_color} mist)), ((otherworldly presence)), ((mystical energy))"
+            )
+            components["environment"] = environment
+            components["style"] = style
+            components["effects"] = effects
+            components["prompt"] = (
                 f"((masterful spectral art)) of {subject}, "
                 f"manifesting within a {environment}, "
                 f"((rendered in {style})), "
@@ -37,13 +49,7 @@ class SpectralMistThemeHandler(BaseThemeHandler):
                 f"((8k resolution)), ((perfect details))"
             )
 
-            return {
-                "prompt": prompt,
-                "subject": subject,
-                "environment": environment,
-                "style": style,
-                "effects": effects
-            }
+            return components
 
         except Exception as e:
             raise ValueError(f"Failed to generate spectral mist prompt: {str(e)}")

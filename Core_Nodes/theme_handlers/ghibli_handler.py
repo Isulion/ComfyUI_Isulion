@@ -17,10 +17,15 @@ class GhibliThemeHandler(BaseThemeHandler):
         """Generate Studio Ghibli-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        emotion = self._get_random_choice("ghibli.emotions")
+        action = self._get_random_choice("ghibli.actions")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
                 f"((Studio Ghibli style {custom_subject})), "
+                f"((showing {emotion})), ((dynamically {action})), "
                 f"((whimsical character design)), "
                 f"((gentle expression)), ((charming details)), "
                 f"((Miyazaki inspired))"

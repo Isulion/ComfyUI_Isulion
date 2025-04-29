@@ -12,12 +12,16 @@ class InstagramThemeHandler(BaseThemeHandler):
         """Generate Instagram-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        pose = self._get_random_choice("instagram.poses")
+        outfit = self._get_random_choice("instagram.outfits")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((aesthetic {custom_subject})), "
-                f"((Instagram worthy)), ((trendy composition)), "
-                f"((social media style))"
+                f"((aesthetic {custom_subject})) in ((trendy {outfit})), "
+                f"((with {pose})), ((Instagram worthy)), "
+                f"((social media style)), ((influencer aesthetic))"
             )
         else:
             subject = self._get_random_choice("instagram.subjects")

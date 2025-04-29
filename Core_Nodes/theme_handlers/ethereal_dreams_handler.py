@@ -12,12 +12,16 @@ class EtherealDreamsThemeHandler(BaseThemeHandler):
         """Generate ethereal dreams-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        realm = self._get_random_choice("ethereal_dreams.realms")
+        feature = self._get_random_choice("ethereal_dreams.features")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((ethereal {custom_subject})), "
-                f"((dreamlike)), ((surreal)), "
-                f"((otherworldly appearance))"
+                f"((ethereal {custom_subject} in {realm})), "
+                f"((featuring {feature})), ((dreamlike)), "
+                f"((surreal)), ((otherworldly appearance))"
             )
         else:
             subject = self._get_random_choice("ethereal_dreams.subjects")

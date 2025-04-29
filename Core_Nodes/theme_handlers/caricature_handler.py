@@ -12,17 +12,20 @@ class CaricatureThemeHandler(BaseThemeHandler):
         """Generate caricature-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        expression = self._get_random_choice("caricature.expressions")
+        pose = self._get_random_choice("caricature.poses")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
                 f"((exaggerated caricature)) of ((humorous {custom_subject})), "
+                f"((with {expression} expression)), ((in {pose})), "
                 f"((comical proportions)), ((expressive features)), "
                 f"((cartoon style))"
             )
         else:
             character = self._get_random_choice("caricature.characters")
-            expression = self._get_random_choice("caricature.expressions")
-            pose = self._get_random_choice("caricature.poses")
             components["subject"] = (
                 f"((exaggerated caricature)) of ((humorous {character})), "
                 f"((with {expression} expression)), ((in {pose})), "

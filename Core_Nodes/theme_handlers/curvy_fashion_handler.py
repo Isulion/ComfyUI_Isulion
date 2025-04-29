@@ -12,17 +12,20 @@ class CurvyFashionThemeHandler(BaseThemeHandler):
         """Generate curvy fashion-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        model = self._get_random_choice("curvy_fashion.models")
+        outfit = self._get_random_choice("curvy_fashion.outfits")
+        feature = self._get_random_choice("curvy_fashion.features")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
                 f"((curvy fashion {custom_subject})), "
-                f"((plus size model)), ((body positive)), "
-                f"((fashion photography))"
+                f"((modeled by {model} wearing {outfit})), "
+                f"((featuring {feature})), ((plus size model)), "
+                f"((body positive)), ((fashion photography))"
             )
         else:
-            model = self._get_random_choice("curvy_fashion.models")
-            outfit = self._get_random_choice("curvy_fashion.outfits")
-            feature = self._get_random_choice("curvy_fashion.features")
             components["subject"] = (
                 f"((curvy fashion {model} wearing {outfit})), "
                 f"((featuring {feature})), ((plus size model)), "

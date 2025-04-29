@@ -17,12 +17,16 @@ class EnchantedFantasyThemeHandler(BaseThemeHandler):
         """Generate enchanted fantasy-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        feature = self._get_random_choice("enchanted_fantasy.features")
+        realm = self._get_random_choice("enchanted_fantasy.realms")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((enchanted {custom_subject})), "
-                f"((magical being)), ((fantasy creature)), "
-                f"((mystical character))"
+                f"((enchanted {custom_subject} from {realm})), "
+                f"((featuring {feature})), ((magical being)), "
+                f"((fantasy creature)), ((mystical character))"
             )
         else:
             being = self._get_random_choice("enchanted_fantasy.beings")

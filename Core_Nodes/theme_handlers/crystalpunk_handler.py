@@ -12,12 +12,16 @@ class CrystalpunkThemeHandler(BaseThemeHandler):
         """Generate crystalpunk-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        feature = self._get_random_choice("crystalpunk.features")
+        crystal = self._get_random_choice("crystalpunk.crystals")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((crystalpunk {custom_subject})), "
-                f"((crystalline design)), ((gemstone aesthetic)), "
-                f"((mineral-tech fusion))"
+                f"((crystalpunk {custom_subject} with {crystal} crystals)), "
+                f"((featuring {feature})), ((crystalline design)), "
+                f"((gemstone aesthetic)), ((mineral-tech fusion))"
             )
         else:
             character = self._get_random_choice("crystalpunk.characters")

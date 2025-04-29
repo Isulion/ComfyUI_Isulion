@@ -11,27 +11,29 @@ class AnimeThemeHandler(BaseThemeHandler):
                 include_effects: str = "yes") -> Dict[str, str]:
         """Generate anime-themed components with professional quality and style."""
         components = {}
-        
-        # Generate subject with enhanced anime characteristics
+
+        # Always use random elements, even with custom_subject
+        character = self._get_random_choice("anime.characters")
+        expression = self._get_random_choice("anime.expressions")
+        pose = self._get_random_choice("anime.poses")
+        outfit = self._get_random_choice("anime.outfits")
+
         if custom_subject:
             components["subject"] = (
                 f"((masterful anime rendition)) of {custom_subject}, "
-                f"((perfect anime character design)), ((expressive anime features)), "
-                f"((professional manga style)), ((character appeal)), "
+                f"((as {character})), ((perfect {expression} expression)), "
+                f"((in dynamic {pose})), ((wearing detailed {outfit})), "
+                f"((professional anime style)), ((character appeal)), "
                 f"((detailed anime aesthetics)), ((dynamic pose))"
             )
         else:
-            character = self._get_random_choice("anime.characters")
-            expression = self._get_random_choice("anime.expressions")
-            pose = self._get_random_choice("anime.poses")
-            outfit = self._get_random_choice("anime.outfits")
             components["subject"] = (
                 f"((masterful anime {character})) with ((perfect {expression} expression)), "
                 f"((in dynamic {pose})), ((wearing detailed {outfit})), "
                 f"((professional anime style)), ((perfect character design)), "
                 f"((expressive features)), ((anime excellence))"
             )
-        
+
         # Generate environment with enhanced anime atmosphere
         if include_environment == "yes":
             if custom_location:
@@ -51,7 +53,7 @@ class AnimeThemeHandler(BaseThemeHandler):
                     f"((detailed background)), ((anime atmosphere)), "
                     f"((perfect scene composition)), ((artistic excellence))"
                 )
-        
+
         # Generate style with enhanced anime techniques
         if include_style == "yes":
             style = self._get_random_choice("anime.styles")
@@ -63,7 +65,7 @@ class AnimeThemeHandler(BaseThemeHandler):
                 f"((detailed highlights)), ((artistic excellence)), "
                 f"((flawless composition)), 8k resolution"
             )
-        
+
         # Generate effects with enhanced anime elements
         if include_effects == "yes":
             effect = self._get_random_choice("anime.effects")
@@ -75,7 +77,7 @@ class AnimeThemeHandler(BaseThemeHandler):
                 f"((dramatic shadows)), ((anime visual excellence)), "
                 f"((perfect detail)), ((artistic mastery))"
             )
-        
+
         return components
 
     def get_negative_prompt(self):

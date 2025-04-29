@@ -11,10 +11,18 @@ class HistoricalMonumentsHandler(BaseThemeHandler):
                 include_effects: str = "yes") -> Dict[str, str]:
         components = {}
         
+        # Always use random elements, even with custom_subject
+        architectural_style = self._get_random_choice("historical_monuments.architectural_styles")
+        historical_period = self._get_random_choice("historical_monuments.historical_periods")
+        civilization = self._get_random_choice("historical_monuments.civilizations")
+
         # Subject generation with enhanced historical context
         if custom_subject:
             components["subject"] = (
                 f"((majestic {custom_subject})), "
+                f"((built in authentic {architectural_style} style)), "
+                f"((during the height of {civilization} civilization)), "
+                f"((in {historical_period})), "
                 f"((architectural masterpiece at its peak)), ((monumental scale)), "
                 f"((historical grandeur)), ((architectural excellence)), "
                 f"((original appearance)), ((perfect condition))"
@@ -24,7 +32,6 @@ class HistoricalMonumentsHandler(BaseThemeHandler):
             architectural_style = self._get_random_choice("historical_monuments.architectural_styles")
             historical_period = self._get_random_choice("historical_monuments.historical_periods")
             civilization = self._get_random_choice("historical_monuments.civilizations")
-            
             components["subject"] = (
                 f"((majestic {monument})), ((at its greatest splendor)), "
                 f"((built in authentic {architectural_style} style)), "

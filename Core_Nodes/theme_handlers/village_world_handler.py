@@ -16,24 +16,26 @@ class VillageWorldThemeHandler(BaseThemeHandler):
                 include_effects: str = "yes") -> Dict[str, str]:
         """Generate village of the world-themed components."""
         components = {}
-        
+
+        # Always use random elements, even with custom_subject
+        culture = self._get_random_choice("village_world.cultures")
+        person = self._get_random_choice("village_world.people")
+        activity = self._get_random_choice("village_world.activities")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
                 f"((traditional {custom_subject})), "
-                f"((village life)), ((cultural)), "
-                f"((authentic))"
+                f"(({person})), ((doing {activity})), "
+                f"((village life)), ((cultural)), ((authentic))"
             )
         else:
-            culture = self._get_random_choice("village_world.cultures")
-            person = self._get_random_choice("village_world.people")
-            activity = self._get_random_choice("village_world.activities")
             components["subject"] = (
                 f"((in {culture})), "
                 f"(({person})), ((doing {activity})), "
                 f"((traditional)), ((cultural))"
             )
-        
+
         # Generate environment if requested
         if include_environment == "yes":
             if custom_location:
@@ -50,7 +52,7 @@ class VillageWorldThemeHandler(BaseThemeHandler):
                     f"((featuring {element})), "
                     f"((village vista)), ((cultural scene))"
                 )
-        
+
         # Generate style if requested
         if include_style == "yes":
             atmosphere = self._get_random_choice("village_world.atmospheres")
@@ -60,7 +62,7 @@ class VillageWorldThemeHandler(BaseThemeHandler):
                 f"((village design)), ((cultural look)), "
                 f"((authentic atmosphere))"
             )
-        
+
         # Generate effects if requested
         if include_effects == "yes":
             effect = self._get_random_choice("village_world.effects")
@@ -69,7 +71,7 @@ class VillageWorldThemeHandler(BaseThemeHandler):
                 f"((village atmosphere)), "
                 f"((cultural ambiance)), ((traditional environment))"
             )
-        
+
         return components
 
     def generate_theme_prompt(self, subject=None, location=None):

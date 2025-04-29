@@ -12,10 +12,15 @@ class PostApocalypticThemeHandler(BaseThemeHandler):
         """Generate post-apocalyptic wasteland-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        equipment = self._get_random_choice("post_apocalyptic.equipment")
+        vehicle = self._get_random_choice("post_apocalyptic.vehicles")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
                 f"((post-apocalyptic {custom_subject})), "
+                f"((wearing {equipment})), ((with {vehicle})), "
                 f"((wasteland style)), ((survival)), "
                 f"((post-nuclear))"
             )

@@ -12,12 +12,17 @@ class FuturisticCityThemeHandler(BaseThemeHandler):
         """Generate futuristic city-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        structure = self._get_random_choice("futuristic_city.structures")
+        material = self._get_random_choice("futuristic_city.materials")
+        feature = self._get_random_choice("futuristic_city.features")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((ultra-modern {custom_subject})), "
-                f"((futuristic design)), ((high-tech aesthetics)), "
-                f"((advanced architecture))"
+                f"((ultra-modern {custom_subject})) made of ((advanced {material})), "
+                f"((featuring {feature})), ((futuristic design)), "
+                f"((high-tech aesthetics)), ((advanced architecture))"
             )
         else:
             structure = self._get_random_choice("futuristic_city.structures")

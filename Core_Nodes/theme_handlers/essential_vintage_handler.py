@@ -12,12 +12,16 @@ class EssentialVintageThemeHandler(BaseThemeHandler):
         """Generate essential vintage-themed components."""
         components = {}
         
+        # Always use random elements, even with custom_subject
+        era = self._get_random_choice("essential_vintage.eras")
+        feature = self._get_random_choice("essential_vintage.features")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((vintage {custom_subject})), "
-                f"((retro style)), ((classic look)), "
-                f"((nostalgic appearance))"
+                f"((vintage {custom_subject} from {era})), "
+                f"((featuring {feature})), ((retro style)), "
+                f"((classic look)), ((nostalgic appearance))"
             )
         else:
             subject = self._get_random_choice("essential_vintage.subjects")

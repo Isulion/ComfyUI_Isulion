@@ -11,13 +11,17 @@ class Dimension3DThemeHandler(BaseThemeHandler):
                 include_effects: str = "yes") -> Dict[str, str]:
         """Generate 3D dimension-themed components."""
         components = {}
-        
+
+        # Always use random elements, even with custom_subject
+        style = self._get_random_choice("dimension_3d.styles")
+        feature = self._get_random_choice("dimension_3d.features")
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
-                f"((3D {custom_subject})), "
-                f"((3D modeling)), ((dimensional design)), "
-                f"((3D rendering))"
+                f"((3D {custom_subject} in {style} style)), "
+                f"((featuring {feature})), ((3D modeling)), "
+                f"((dimensional design)), ((3D rendering))"
             )
         else:
             subject = self._get_random_choice("dimension_3d.subjects")
@@ -28,7 +32,7 @@ class Dimension3DThemeHandler(BaseThemeHandler):
                 f"((featuring {feature})), ((3D modeling)), "
                 f"((dimensional design)), ((3D rendering))"
             )
-        
+
         # Generate environment if requested
         if include_environment == "yes":
             if custom_location:
@@ -45,7 +49,7 @@ class Dimension3DThemeHandler(BaseThemeHandler):
                     f"((dimensional environment)), ((3D space)), "
                     f"((rendered world))"
                 )
-        
+
         # Generate style if requested
         if include_style == "yes":
             render_style = self._get_random_choice("dimension_3d.render_styles")
@@ -56,7 +60,7 @@ class Dimension3DThemeHandler(BaseThemeHandler):
                 f"((3D quality)), ((dimensional artistry)), "
                 f"((professional 3D))"
             )
-        
+
         # Generate effects if requested
         if include_effects == "yes":
             effect = self._get_random_choice("dimension_3d.effects")
@@ -66,5 +70,5 @@ class Dimension3DThemeHandler(BaseThemeHandler):
                 f"((dimensional {lighting} lighting)), "
                 f"((3D finish)), ((render quality))"
             )
-        
+
         return components

@@ -16,26 +16,28 @@ class FantasyThemeHandler(BaseThemeHandler):
                 include_effects: str = "yes") -> Dict[str, str]:
         """Generate fantasy-themed components with enhanced magical elements."""
         components = {}
-        
+
+        # Always use random elements, even with custom_subject
+        character = random.choice(self.theme_config.get("characters", ["mystical hero", "ancient wizard", "elven warrior"]))
+        class_type = random.choice(self.theme_config.get("character_classes", ["mage", "warrior", "druid"]))
+        creature = random.choice(self.theme_config.get("creatures", ["dragon", "phoenix", "unicorn"]))
+
         # Generate subject with enhanced fantasy characteristics
         if custom_subject:
             components["subject"] = (
-                f"((masterful fantasy art)) of {custom_subject}, "
-                f"((legendary fantasy design)), ((magical excellence)), "
-                f"((mythical quality)), ((enchanted presence)), "
-                f"((fantasy mastery)), ((ethereal beauty))"
+                f"((epic fantasy art)) of {custom_subject}, "
+                f"((as a powerful {class_type})), ((with mystical {creature})), "
+                f"((perfect character design)), ((fantasy excellence)), "
+                f"((magical presence)), ((mythical mastery))"
             )
         else:
-            character = random.choice(self.theme_config.get("characters", ["mystical hero", "ancient wizard", "elven warrior"]))
-            class_type = random.choice(self.theme_config.get("character_classes", ["mage", "warrior", "druid"]))
-            creature = random.choice(self.theme_config.get("creatures", ["dragon", "phoenix", "unicorn"]))
             components["subject"] = (
                 f"((epic fantasy art)) of ((legendary {character})), "
                 f"((as a powerful {class_type})), ((with mystical {creature})), "
                 f"((perfect character design)), ((fantasy excellence)), "
                 f"((magical presence)), ((mythical mastery))"
             )
-        
+
         # Generate environment with enhanced magical atmosphere
         if include_environment == "yes":
             if custom_location:
@@ -55,7 +57,7 @@ class FantasyThemeHandler(BaseThemeHandler):
                     f"((perfect fantasy atmosphere)), ((magical realm)), "
                     f"((ethereal surroundings)), ((fantasy excellence))"
                 )
-        
+
         # Generate style with enhanced fantasy techniques
         if include_style == "yes":
             style = random.choice(self.theme_config.get("styles", ["epic fantasy", "high fantasy", "magical realism"]))
@@ -69,7 +71,7 @@ class FantasyThemeHandler(BaseThemeHandler):
                 f"((mystical quality)), ((artistic excellence)), "
                 f"8k resolution, RAW photo"
             )
-        
+
         # Generate effects with enhanced magical elements
         if include_effects == "yes":
             magic = random.choice(self.theme_config.get("magical_elements", ["ancient spells", "mystical runes", "magical crystals"]))
@@ -80,7 +82,7 @@ class FantasyThemeHandler(BaseThemeHandler):
                 f"((enchanted particles)), ((magical excellence)), "
                 f"((fantasy perfection)), ((mystical mastery))"
             )
-        
+
         return components
 
     def get_negative_prompt(self):

@@ -12,18 +12,20 @@ class AbstractThemeHandler(BaseThemeHandler):
         """Generate abstract-themed components with enhanced emphasis and detail."""
         components = {}
         
-        # Generate subject with enhanced artistic emphasis
+        # Always use random elements, even with custom_subject
+        shape = self._get_random_choice("abstract.shapes")
+        motion = self._get_random_choice("abstract.motions")
+        color_scheme = self._get_random_choice("abstract.color_schemes")
+
         if custom_subject:
             components["subject"] = (
                 f"((masterful abstract interpretation)) of {custom_subject}, "
-                f"((with dynamic fluid motion)), ((sophisticated minimalist design)), "
-                f"((perfect geometric harmony)), ((artistic composition)), "
-                f"((abstract excellence))"
+                f"((dynamic {motion})), (({shape} inspiration)), "
+                f"((harmonious {color_scheme} color scheme)), "
+                f"((sophisticated minimalist design)), ((perfect geometric harmony)), "
+                f"((artistic composition)), ((abstract excellence))"
             )
         else:
-            shape = self._get_random_choice("abstract.shapes")
-            motion = self._get_random_choice("abstract.motions")
-            color_scheme = self._get_random_choice("abstract.color_schemes")
             components["subject"] = (
                 f"((masterful abstract {shape} composition)) with ((dynamic {motion})), "
                 f"((featuring harmonious {color_scheme} color scheme)), "
@@ -33,15 +35,16 @@ class AbstractThemeHandler(BaseThemeHandler):
         
         # Generate environment with enhanced spatial elements
         if include_environment == "yes":
+            texture = self._get_random_choice("abstract.textures")
+            pattern = self._get_random_choice("abstract.patterns")
             if custom_location:
                 components["environment"] = (
                     f"in ((artistically textured {custom_location} space)) with "
-                    f"((intricate abstract patterns)), ((perfect spatial composition)), "
-                    f"((dimensional harmony)), ((abstract environment mastery))"
+                    f"((intricate {pattern} patterns)), ((perfect spatial composition)), "
+                    f"((dimensional harmony)), ((abstract environment mastery)), "
+                    f"((background texture: {texture}))"
                 )
             else:
-                texture = self._get_random_choice("abstract.textures")
-                pattern = self._get_random_choice("abstract.patterns")
                 components["environment"] = (
                     f"in ((artistically textured {texture} space)) with "
                     f"((intricate {pattern} elements)), ((perfect spatial composition)), "

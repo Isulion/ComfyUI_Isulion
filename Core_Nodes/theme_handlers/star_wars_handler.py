@@ -15,11 +15,17 @@ class StarWarsThemeHandler(BaseThemeHandler):
                 include_effects: str = "yes") -> Dict[str, str]:
         """Generate sophisticated Star Wars universe-themed components with cinematic quality."""
         components = {}
-        
+
+        # Always use random elements, even with custom_subject
+        pose = self._get_random_choice("star_wars.poses")
+        prop = self._get_random_choice("star_wars.props")
+        character = self._get_random_choice("star_wars.characters")
+
         # Generate subject with enhanced Star Wars elements
         if custom_subject:
             components["subject"] = (
                 f"((epic Star Wars universe scene)) of ((masterfully crafted {custom_subject})), "
+                f"((wielding glowing {prop})), ((in {pose})), "
                 f"((perfect Star Wars design)), ((authentic sci-fi details)), "
                 f"((cinematic quality)), ((epic scale)), ((dramatic pose)), "
                 f"((photorealistic detail)), ((Star Wars excellence)), "
@@ -61,7 +67,7 @@ class StarWarsThemeHandler(BaseThemeHandler):
                     f"((perfect battle choreography)), ((authentic Star Wars combat)), "
                     f"((cinematic excellence)), ((epic scale))"
                 )
-        
+
         # Generate environment with enhanced Star Wars atmosphere
         if include_environment == "yes":
             if custom_location:
@@ -84,7 +90,7 @@ class StarWarsThemeHandler(BaseThemeHandler):
                     f"((otherworldly vista)), ((dramatic lighting)), "
                     f"((cinematic environment)), ((photorealistic details))"
                 )
-        
+
         # Generate style with enhanced cinematic quality
         if include_style == "yes":
             style = self._get_random_choice("star_wars.styles")
@@ -100,7 +106,7 @@ class StarWarsThemeHandler(BaseThemeHandler):
                 f"((high production value)), ((perfect composition)), "
                 f"((professional color grading)), 8k resolution"
             )
-        
+
         # Generate effects with enhanced Star Wars elements
         if include_effects == "yes":
             effect = self._get_random_choice("star_wars.effects")
@@ -115,7 +121,7 @@ class StarWarsThemeHandler(BaseThemeHandler):
                 f"((volumetric lighting)), ((perfect atmosphere)), "
                 f"((photorealistic rendering)), ((movie quality))"
             )
-        
+
         return components
 
     def get_negative_prompt(self):
