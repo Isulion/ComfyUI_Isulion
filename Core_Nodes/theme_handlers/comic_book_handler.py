@@ -24,9 +24,9 @@ class ComicBookThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate comic book-themed components."""
         self.debug_print("Generating new comic book prompt...")
         components = {}
@@ -55,7 +55,7 @@ class ComicBookThemeHandler(BaseThemeHandler):
         )
         
         # Generate environment if requested
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 setting = custom_location
             else:
@@ -74,7 +74,7 @@ class ComicBookThemeHandler(BaseThemeHandler):
             )
         
         # Generate style if requested
-        if include_style == "yes":
+        if include_style:
             style = self._safe_choice("styles", "classic comic")
             technique = self._safe_choice("techniques", "bold inking")
             
@@ -88,7 +88,7 @@ class ComicBookThemeHandler(BaseThemeHandler):
             )
         
         # Generate effects if requested
-        if include_effects == "yes":
+        if include_effects:
             effect = self._safe_choice("effects", "dramatic lighting")
             
             self.debug_print(f"Selected effect: {effect}")

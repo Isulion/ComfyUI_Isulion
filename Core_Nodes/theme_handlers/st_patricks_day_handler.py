@@ -14,9 +14,9 @@ class StPatricksDayThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate St. Patrick's Day-themed components."""
         components = {}
         
@@ -48,7 +48,7 @@ class StPatricksDayThemeHandler(BaseThemeHandler):
                 f"in {color_scheme} colors, ((celebration atmosphere)), ((Irish magic))"
             )
         
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((festive {custom_location})), ((decorated for St. Patrick's Day)), "
@@ -68,7 +68,7 @@ class StPatricksDayThemeHandler(BaseThemeHandler):
                     f"((Irish landscape)), ((moment of joy))"
                 )
         
-        if include_style == "yes":
+        if include_style:
             components["style"] = (
                 f"((celebratory St. Patrick's Day artwork)), ((Irish illustration style)), "
                 f"((festive painting technique)), ((energetic composition)), "
@@ -77,7 +77,7 @@ class StPatricksDayThemeHandler(BaseThemeHandler):
                 f"8k resolution, ((magical celebration lighting))"
             )
         
-        if include_effects == "yes":
+        if include_effects:
             components["effects"] = (
                 f"with ((magical celebration glow)), ((emerald light)), "
                 f"((floating shamrock)), ((lucky sparkle)), "

@@ -11,9 +11,9 @@ class ImpressionistThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate impressionist-styled components."""
         components = {}
         
@@ -50,7 +50,7 @@ class ImpressionistThemeHandler(BaseThemeHandler):
             )
         
         # Generate environment with impressionist atmosphere
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((impressionist {custom_location})), "
@@ -75,7 +75,7 @@ class ImpressionistThemeHandler(BaseThemeHandler):
                 )
         
         # Generate style with impressionist techniques
-        if include_style == "yes":
+        if include_style:
             technique = random.choice(techniques)
             color_palette = random.choice(palette)
             painting_mood = random.choice(mood)
@@ -89,7 +89,7 @@ class ImpressionistThemeHandler(BaseThemeHandler):
             )
         
         # Generate effects with impressionist elements
-        if include_effects == "yes":
+        if include_effects:
             effects = ["light diffusion", "color vibration", "atmospheric haze", "natural reflections", "dappled light"]
             details = ["loose details", "suggestive forms", "spontaneous marks", "textural variety", "gestural strokes"]
             

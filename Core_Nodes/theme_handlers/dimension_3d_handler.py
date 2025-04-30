@@ -6,9 +6,9 @@ class Dimension3DThemeHandler(BaseThemeHandler):
     
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate 3D dimension-themed components."""
         components = {}
 
@@ -34,7 +34,7 @@ class Dimension3DThemeHandler(BaseThemeHandler):
             )
 
         # Generate environment if requested
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((3D {custom_location})) with "
@@ -51,7 +51,7 @@ class Dimension3DThemeHandler(BaseThemeHandler):
                 )
 
         # Generate style if requested
-        if include_style == "yes":
+        if include_style:
             render_style = self._get_random_choice("dimension_3d.render_styles")
             technique = self._get_random_choice("dimension_3d.techniques")
             components["style"] = (
@@ -62,7 +62,7 @@ class Dimension3DThemeHandler(BaseThemeHandler):
             )
 
         # Generate effects if requested
-        if include_effects == "yes":
+        if include_effects:
             effect = self._get_random_choice("dimension_3d.effects")
             lighting = self._get_random_choice("dimension_3d.lighting")
             components["effects"] = (

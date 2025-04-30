@@ -18,9 +18,9 @@ class PixarThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate Pixar-themed components."""
         self.debug_print("Generating new prompt...")
         components = {}
@@ -57,7 +57,7 @@ class PixarThemeHandler(BaseThemeHandler):
         )
         
         # Add environment if requested
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 setting = custom_location
             else:
@@ -77,7 +77,7 @@ class PixarThemeHandler(BaseThemeHandler):
             )
         
         # Add style elements if requested
-        if include_style == "yes":
+        if include_style:
             art_style = self._safe_choice("art_styles", "Pixar animation")
             lighting = self._safe_choice("lighting_styles", "dramatic lighting")
             color_palette = self._safe_choice("color_palettes", "vibrant colors")
@@ -93,7 +93,7 @@ class PixarThemeHandler(BaseThemeHandler):
             )
         
         # Add effects if requested
-        if include_effects == "yes":
+        if include_effects:
             special_effect = self._safe_choice("special_effects", "visual effect")
             atmosphere = self._safe_choice("atmospheres", "atmospheric")
             

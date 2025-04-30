@@ -6,9 +6,9 @@ class UrbanTagThemeHandler(BaseThemeHandler):
     
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate urban tag and street art-themed components."""
         components = {}
         
@@ -42,7 +42,7 @@ class UrbanTagThemeHandler(BaseThemeHandler):
             )
         
         # Generate environment if requested
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in (({custom_location})), ((with urban texture)), "
@@ -60,7 +60,7 @@ class UrbanTagThemeHandler(BaseThemeHandler):
                 )
         
         # Generate style if requested
-        if include_style == "yes":
+        if include_style:
             atmosphere = self._get_random_choice("urban_tag.atmospheres")
             components["style"] = (
                 f"((street art style)), ((graffiti aesthetic)), "
@@ -73,7 +73,7 @@ class UrbanTagThemeHandler(BaseThemeHandler):
             )
         
         # Generate effects if requested
-        if include_effects == "yes":
+        if include_effects:
             effect = self._get_random_choice("urban_tag.effects")
             components["effects"] = (
                 f"with (({effect})), ((urban textures)), "

@@ -11,9 +11,9 @@ class ChristmasThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate Christmas-themed components."""
         components = {}
         
@@ -44,7 +44,7 @@ class ChristmasThemeHandler(BaseThemeHandler):
                 f"in {color_scheme} colors, ((holiday spirit)), ((Christmas magic))"
             )
         
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 lighting = self._get_random_choice("christmas.lighting")
                 components["environment"] = (
@@ -62,7 +62,7 @@ class ChristmasThemeHandler(BaseThemeHandler):
                     f"((Christmas decorations)), ((winter wonderland))"
                 )
         
-        if include_style == "yes":
+        if include_style:
             components["style"] = (
                 f"((traditional Christmas artwork)), ((festive holiday style)), "
                 f"((professional photography)), ((perfect composition)), "
@@ -71,7 +71,7 @@ class ChristmasThemeHandler(BaseThemeHandler):
                 f"8k resolution, ((masterful lighting))"
             )
         
-        if include_effects == "yes":
+        if include_effects:
             components["effects"] = (
                 f"with ((magical Christmas glow)), ((soft winter light)), "
                 f"((twinkling holiday lights)), ((gentle snow effects)), "

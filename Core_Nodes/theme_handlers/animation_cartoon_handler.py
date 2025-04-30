@@ -6,9 +6,9 @@ class AnimationCartoonThemeHandler(BaseThemeHandler):
     
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate animation cartoon-themed components with professional quality."""
         components = {}
 
@@ -33,7 +33,7 @@ class AnimationCartoonThemeHandler(BaseThemeHandler):
             )
 
         # Generate environment with enhanced animation quality
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((masterfully animated {custom_location})) with "
@@ -52,7 +52,7 @@ class AnimationCartoonThemeHandler(BaseThemeHandler):
                 )
 
         # Generate style with enhanced animation techniques
-        if include_style == "yes":
+        if include_style:
             style = self._get_random_choice("animation_cartoon.styles")
             technique = self._get_random_choice("animation_cartoon.techniques")
             components["style"] = (
@@ -64,7 +64,7 @@ class AnimationCartoonThemeHandler(BaseThemeHandler):
             )
 
         # Generate effects with enhanced cartoon elements
-        if include_effects == "yes":
+        if include_effects:
             effect = self._get_random_choice("animation_cartoon.effects")
             mood = self._get_random_choice("animation_cartoon.moods")
             components["effects"] = (

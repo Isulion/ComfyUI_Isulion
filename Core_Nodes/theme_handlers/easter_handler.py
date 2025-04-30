@@ -14,9 +14,9 @@ class EasterThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate Easter-themed components."""
         components = {}
         
@@ -48,7 +48,7 @@ class EasterThemeHandler(BaseThemeHandler):
                 f"in {color_scheme} colors, ((spring spirit)), ((Easter magic))"
             )
         
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((festive {custom_location})), ((decorated for Easter)), "
@@ -68,7 +68,7 @@ class EasterThemeHandler(BaseThemeHandler):
                     f"((colorful spring landscape)), ((renewal of life))"
                 )
         
-        if include_style == "yes":
+        if include_style:
             components["style"] = (
                 f"((whimsical Easter artwork)), ((spring illustration style)), "
                 f"((soft watercolor technique)), ((delicate painting)), "
@@ -77,7 +77,7 @@ class EasterThemeHandler(BaseThemeHandler):
                 f"8k resolution, ((magical spring lighting))"
             )
         
-        if include_effects == "yes":
+        if include_effects:
             components["effects"] = (
                 f"with ((magical spring glow)), ((soft pastel light)), "
                 f"((floating spring petals)), ((gentle egg sparkle)), "

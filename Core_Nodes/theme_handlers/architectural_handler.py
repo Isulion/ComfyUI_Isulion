@@ -6,9 +6,9 @@ class ArchitecturalThemeHandler(BaseThemeHandler):
     
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate architectural-themed components with professional quality."""
         components = {}
 
@@ -34,7 +34,7 @@ class ArchitecturalThemeHandler(BaseThemeHandler):
             )
 
         # Generate environment with enhanced spatial context
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((professionally composed {custom_location})) with "
@@ -54,7 +54,7 @@ class ArchitecturalThemeHandler(BaseThemeHandler):
                 )
 
         # Generate style with enhanced architectural techniques
-        if include_style == "yes":
+        if include_style:
             technique = self._get_random_choice("architectural.techniques")
             perspective = self._get_random_choice("architectural.perspectives")
             components["style"] = (
@@ -66,7 +66,7 @@ class ArchitecturalThemeHandler(BaseThemeHandler):
             )
 
         # Generate effects with enhanced architectural elements
-        if include_effects == "yes":
+        if include_effects:
             effect = self._get_random_choice("architectural.effects")
             lighting = self._get_random_choice("architectural.lighting")
             atmosphere = self._get_random_choice("architectural.atmosphere")

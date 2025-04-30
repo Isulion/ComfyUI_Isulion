@@ -6,9 +6,9 @@ class NatureThemeHandler(BaseThemeHandler):
     
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate nature-themed components with enhanced realism and detail."""
         components = {}
         
@@ -42,7 +42,7 @@ class NatureThemeHandler(BaseThemeHandler):
             )
         
         # Generate environment with natural settings
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((pristine {custom_location})) with "
@@ -62,7 +62,7 @@ class NatureThemeHandler(BaseThemeHandler):
                 )
         
         # Generate style with nature photography techniques
-        if include_style == "yes":
+        if include_style:
             style = self._get_random_choice("nature.styles")
             technique = self._get_random_choice("nature.techniques")
             lighting = self._get_random_choice("nature.lighting_conditions")
@@ -75,7 +75,7 @@ class NatureThemeHandler(BaseThemeHandler):
             )
         
         # Generate effects with natural elements
-        if include_effects == "yes":
+        if include_effects:
             effect = self._get_random_choice("nature.effects")
             pattern = self._get_random_choice("nature.natural_patterns")
             components["effects"] = (

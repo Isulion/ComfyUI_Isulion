@@ -36,9 +36,9 @@ class Vintage1800sPhotographyHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         components = {}
 
         # Always use random elements, even with custom_subject
@@ -57,7 +57,7 @@ class Vintage1800sPhotographyHandler(BaseThemeHandler):
         )
 
         # Environment
-        if include_environment == "yes":
+        if include_environment:
             setting = custom_location if custom_location else self._get_random_choice("settings")
             components["environment"] = (
                 f"in ((period-authentic {setting})), ((authentic vintage studio)), "
@@ -65,7 +65,7 @@ class Vintage1800sPhotographyHandler(BaseThemeHandler):
             )
 
         # Style
-        if include_style == "yes":
+        if include_style:
             components["style"] = (
                 f"((masterful {process}:1.4)), ((authentic {toning}:1.3)), "
                 f"((historical photography techniques)), ((aged photograph)), "
@@ -73,7 +73,7 @@ class Vintage1800sPhotographyHandler(BaseThemeHandler):
             )
 
         # Effects
-        if include_effects == "yes":
+        if include_effects:
             components["effects"] = (
                 f"((extreme vintage artifacts:1.4)), ((severe aging:1.3)), "
                 f"((chemical stains)), ((scratched emulsion)), "

@@ -7,9 +7,9 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate a detailed character design with various customizable elements."""
         
         self.debug_print("Generating new prompt...")
@@ -48,7 +48,7 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
         )
         
         # Generate environment based on profession and era
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 setting = custom_location
             else:
@@ -69,7 +69,7 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
             )
         
         # Add style elements
-        if include_style == "yes":
+        if include_style:
             art_style = random.choice(self.get_art_styles())
             lighting = random.choice(self.get_lighting_styles())
             color_palette = random.choice(self.get_color_palettes(era))
@@ -85,7 +85,7 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
             )
         
         # Add special effects
-        if include_effects == "yes":
+        if include_effects:
             effect = random.choice(self.get_special_effects())
             components["effects"] = (
                 f"((dramatic {effect})), ((character focus)), "

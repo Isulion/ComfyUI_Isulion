@@ -6,9 +6,9 @@ class CurvyFashionThemeHandler(BaseThemeHandler):
     
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate curvy fashion-themed components."""
         components = {}
         
@@ -33,7 +33,7 @@ class CurvyFashionThemeHandler(BaseThemeHandler):
             )
         
         # Generate environment if requested
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((fashion {custom_location})) with "
@@ -50,7 +50,7 @@ class CurvyFashionThemeHandler(BaseThemeHandler):
                 )
         
         # Generate style if requested
-        if include_style == "yes":
+        if include_style:
             style = self._get_random_choice("curvy_fashion.styles")
             technique = self._get_random_choice("curvy_fashion.techniques")
             components["style"] = (
@@ -61,7 +61,7 @@ class CurvyFashionThemeHandler(BaseThemeHandler):
             )
         
         # Generate effects if requested
-        if include_effects == "yes":
+        if include_effects:
             effect = self._get_random_choice("curvy_fashion.effects")
             lighting = self._get_random_choice("curvy_fashion.lighting")
             components["effects"] = (

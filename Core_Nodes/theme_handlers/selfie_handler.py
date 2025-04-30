@@ -7,9 +7,9 @@ class SelfieThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate selfie theme components with location-based styling."""
         components = {}
         
@@ -63,7 +63,7 @@ class SelfieThemeHandler(BaseThemeHandler):
                 f"((high-quality smartphone photography))"
             )
         
-        if include_environment == "yes":
+        if include_environment:
             time = random.choice(["golden hour", "sunset", "bright daylight", "blue hour", "evening"])
             components["environment"] = (
                 f"during {time}, ((perfect lighting)), "
@@ -71,7 +71,7 @@ class SelfieThemeHandler(BaseThemeHandler):
                 f"((social media aesthetic)), ((lifestyle photography))"
             )
         
-        if include_style == "yes":
+        if include_style:
             components["style"] = (
                 f"((social media photography)), ((smartphone aesthetic)), "
                 f"((perfect exposure)), ((authentic lifestyle)), "
@@ -79,7 +79,7 @@ class SelfieThemeHandler(BaseThemeHandler):
                 f"((natural looking)), ((candid moment)), 8k resolution"
             )
         
-        if include_effects == "yes":
+        if include_effects:
             components["effects"] = (
                 f"with ((natural bokeh)), ((soft skin glow)), "
                 f"((perfect lighting)), ((subtle vignette)), "

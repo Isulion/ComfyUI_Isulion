@@ -10,9 +10,9 @@ class SchoolMangaThemeHandler(BaseThemeHandler):
     
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate sophisticated school manga-themed components with authentic Japanese school life elements and professional manga techniques."""
         components = {}
 
@@ -50,7 +50,7 @@ class SchoolMangaThemeHandler(BaseThemeHandler):
             )
 
         # Generate environment with enhanced architectural detail
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((detailed manga {custom_location})) with ((precise architectural linework)), "
@@ -74,7 +74,7 @@ class SchoolMangaThemeHandler(BaseThemeHandler):
                 )
 
         # Generate style with enhanced manga techniques
-        if include_style == "yes":
+        if include_style:
             style = self._get_random_choice("school_manga.styles")
             detail = self._get_random_choice("school_manga.details")
             technique = self._get_random_choice("school_manga.techniques")
@@ -90,7 +90,7 @@ class SchoolMangaThemeHandler(BaseThemeHandler):
             )
 
         # Generate effects with enhanced technical elements
-        if include_effects == "yes":
+        if include_effects:
             effect = self._get_random_choice("school_manga.effects")
             element = self._get_random_choice("school_manga.elements")
             mood = self._get_random_choice("school_manga.moods")

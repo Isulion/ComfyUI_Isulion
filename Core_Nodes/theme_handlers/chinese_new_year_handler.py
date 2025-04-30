@@ -14,9 +14,9 @@ class ChineseNewYearThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate Chinese New Year-themed components."""
         components = {}
         
@@ -48,7 +48,7 @@ class ChineseNewYearThemeHandler(BaseThemeHandler):
                 f"in {color_scheme} colors, ((cultural celebration)), ((festive magic))"
             )
         
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((festive {custom_location})), ((decorated for Chinese New Year)), "
@@ -68,7 +68,7 @@ class ChineseNewYearThemeHandler(BaseThemeHandler):
                     f"((traditional landscape)), ((moment of renewal))"
                 )
         
-        if include_style == "yes":
+        if include_style:
             components["style"] = (
                 f"((celebratory Chinese New Year artwork)), ((traditional Chinese illustration style)), "
                 f"((cultural painting technique)), ((festive composition)), "
@@ -77,7 +77,7 @@ class ChineseNewYearThemeHandler(BaseThemeHandler):
                 f"8k resolution, ((magical cultural lighting))"
             )
         
-        if include_effects == "yes":
+        if include_effects:
             components["effects"] = (
                 f"with ((magical festive glow)), ((warm cultural light)), "
                 f"((floating red lanterns)), ((cultural sparkle)), "

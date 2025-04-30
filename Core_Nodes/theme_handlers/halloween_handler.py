@@ -6,9 +6,9 @@ class HalloweenThemeHandler(BaseThemeHandler):
     
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate Halloween-themed components."""
         components = {}
         
@@ -34,7 +34,7 @@ class HalloweenThemeHandler(BaseThemeHandler):
             )
         
         # Generate environment if requested
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((haunted {custom_location})) with "
@@ -50,7 +50,7 @@ class HalloweenThemeHandler(BaseThemeHandler):
                 )
         
         # Generate style if requested
-        if include_style == "yes":
+        if include_style:
             style = self._get_random_choice("halloween.styles")
             mood = self._get_random_choice("halloween.moods")
             components["style"] = (
@@ -61,7 +61,7 @@ class HalloweenThemeHandler(BaseThemeHandler):
             )
         
         # Generate effects if requested
-        if include_effects == "yes":
+        if include_effects:
             effect = self._get_random_choice("halloween.effects")
             lighting = self._get_random_choice("halloween.lighting")
             components["effects"] = (

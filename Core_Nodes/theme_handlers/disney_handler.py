@@ -94,9 +94,9 @@ class DisneyThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate Disney-themed components with magical and whimsical elements."""
         self.debug_print(f"\n[DEBUG] {self.__class__.__name__} - Generating new prompt...")
         components = {}
@@ -118,7 +118,7 @@ class DisneyThemeHandler(BaseThemeHandler):
         )
         
         # Add environment if requested
-        if include_environment == "yes":
+        if include_environment:
             environment = custom_location if custom_location else self._safe_choice("environments", "default environment")
             architecture = self._safe_choice("architectural_elements", "default architecture")
             atmosphere = self._safe_choice("atmospheres", "default atmosphere")
@@ -130,7 +130,7 @@ class DisneyThemeHandler(BaseThemeHandler):
             )
         
         # Add style elements if requested
-        if include_style == "yes":
+        if include_style:
             lighting = self._safe_choice("lighting", "default lighting")
             color_scheme = self._safe_choice("color_schemes", "default color scheme")
             
@@ -141,7 +141,7 @@ class DisneyThemeHandler(BaseThemeHandler):
             )
         
         # Add effects if requested
-        if include_effects == "yes":
+        if include_effects:
             magic_effect = self._safe_choice("magical_elements", "default magic")
             atmosphere = self._safe_choice("atmospheres", "default atmosphere")
             components["effects"] = (

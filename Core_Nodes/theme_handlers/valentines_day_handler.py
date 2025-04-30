@@ -14,9 +14,9 @@ class ValentinesDayThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate Valentine's Day-themed components."""
         components = {}
         
@@ -48,7 +48,7 @@ class ValentinesDayThemeHandler(BaseThemeHandler):
                 f"in {color_scheme} colors, ((love atmosphere)), ((romantic magic))"
             )
         
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((romantic {custom_location})), ((decorated for Valentine's Day)), "
@@ -68,7 +68,7 @@ class ValentinesDayThemeHandler(BaseThemeHandler):
                     f"((love-inspired landscape)), ((tender moments))"
                 )
         
-        if include_style == "yes":
+        if include_style:
             components["style"] = (
                 f"((romantic Valentine's Day artwork)), ((love illustration style)), "
                 f"((soft watercolor technique)), ((delicate painting)), "
@@ -77,7 +77,7 @@ class ValentinesDayThemeHandler(BaseThemeHandler):
                 f"8k resolution, ((magical love lighting))"
             )
         
-        if include_effects == "yes":
+        if include_effects:
             components["effects"] = (
                 f"with ((magical love glow)), ((soft romantic light)), "
                 f"((floating rose petals)), ((heart sparkle)), "

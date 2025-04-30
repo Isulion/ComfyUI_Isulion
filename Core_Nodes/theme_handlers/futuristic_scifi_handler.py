@@ -6,9 +6,9 @@ class FuturisticSciFiThemeHandler(BaseThemeHandler):
     
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate futuristic sci-fi-themed components."""
         components = {}
         
@@ -35,7 +35,7 @@ class FuturisticSciFiThemeHandler(BaseThemeHandler):
             )
         
         # Generate environment if requested
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((futuristic {custom_location})) with "
@@ -51,7 +51,7 @@ class FuturisticSciFiThemeHandler(BaseThemeHandler):
                 )
         
         # Generate style if requested
-        if include_style == "yes":
+        if include_style:
             style = self._get_random_choice("futuristic_scifi.styles")
             detail = self._get_random_choice("futuristic_scifi.details")
             components["style"] = (
@@ -62,7 +62,7 @@ class FuturisticSciFiThemeHandler(BaseThemeHandler):
             )
         
         # Generate effects if requested
-        if include_effects == "yes":
+        if include_effects:
             effect = self._get_random_choice("futuristic_scifi.effects")
             components["effects"] = (
                 f"with (({effect} effects)), "

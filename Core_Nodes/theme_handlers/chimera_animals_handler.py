@@ -16,9 +16,9 @@ class ChimeraAnimalsThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate chimera animals-themed components."""
         components = {}
         
@@ -59,7 +59,7 @@ class ChimeraAnimalsThemeHandler(BaseThemeHandler):
         )
 
         # Generate environment if requested
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((a majestic {custom_location})), "
@@ -80,7 +80,7 @@ class ChimeraAnimalsThemeHandler(BaseThemeHandler):
                 )
 
         # Generate style if requested
-        if include_style == "yes":
+        if include_style:
             components["style"] = (
                 f"((wildlife photography)), ((ultra-detailed)), "
                 f"((perfect exposure)), ((dramatic composition)), "
@@ -89,7 +89,7 @@ class ChimeraAnimalsThemeHandler(BaseThemeHandler):
             )
 
         # Generate effects if requested
-        if include_effects == "yes":
+        if include_effects:
             components["effects"] = (
                 f"with ((natural lighting)), ((volumetric atmosphere)), "
                 f"((perfect shadows)), ((depth of field)), "

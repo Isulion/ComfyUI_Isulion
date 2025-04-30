@@ -6,9 +6,9 @@ class InteriorSpacesThemeHandler(BaseThemeHandler):
     
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate interior spaces-themed components."""
         components = {}
         
@@ -37,7 +37,7 @@ class InteriorSpacesThemeHandler(BaseThemeHandler):
             )
         
         # Generate environment if requested
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((designed {custom_location})) with "
@@ -54,7 +54,7 @@ class InteriorSpacesThemeHandler(BaseThemeHandler):
                 )
         
         # Generate style if requested
-        if include_style == "yes":
+        if include_style:
             color = self._get_random_choice("interior_spaces.colors")
             atmosphere = self._get_random_choice("interior_spaces.atmospheres")
             components["style"] = (
@@ -65,7 +65,7 @@ class InteriorSpacesThemeHandler(BaseThemeHandler):
             )
         
         # Generate effects if requested
-        if include_effects == "yes":
+        if include_effects:
             components["effects"] = (
                 f"with ((natural lighting effects)), "
                 f"((interior atmosphere)), "

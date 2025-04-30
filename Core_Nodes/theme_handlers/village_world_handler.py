@@ -11,9 +11,9 @@ class VillageWorldThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate village of the world-themed components."""
         components = {}
 
@@ -37,7 +37,7 @@ class VillageWorldThemeHandler(BaseThemeHandler):
             )
 
         # Generate environment if requested
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((traditional {custom_location})) with "
@@ -54,7 +54,7 @@ class VillageWorldThemeHandler(BaseThemeHandler):
                 )
 
         # Generate style if requested
-        if include_style == "yes":
+        if include_style:
             atmosphere = self._get_random_choice("village_world.atmospheres")
             components["style"] = (
                 f"((styled as {atmosphere})), "
@@ -64,7 +64,7 @@ class VillageWorldThemeHandler(BaseThemeHandler):
             )
 
         # Generate effects if requested
-        if include_effects == "yes":
+        if include_effects:
             effect = self._get_random_choice("village_world.effects")
             components["effects"] = (
                 f"with (({effect})), "

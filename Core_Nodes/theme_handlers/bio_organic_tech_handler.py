@@ -6,9 +6,9 @@ class BioOrganicTechThemeHandler(BaseThemeHandler):
     
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate bio-organic technology-themed components."""
         components = {}
 
@@ -31,7 +31,7 @@ class BioOrganicTechThemeHandler(BaseThemeHandler):
             )
 
         # Generate environment if requested
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((bio-organic {custom_location})) with "
@@ -48,7 +48,7 @@ class BioOrganicTechThemeHandler(BaseThemeHandler):
                 )
 
         # Generate style if requested
-        if include_style == "yes":
+        if include_style:
             style = self._get_random_choice("bio_organic_tech.styles")
             aesthetic = self._get_random_choice("bio_organic_tech.aesthetics")
             components["style"] = (
@@ -59,7 +59,7 @@ class BioOrganicTechThemeHandler(BaseThemeHandler):
             )
 
         # Generate effects if requested
-        if include_effects == "yes":
+        if include_effects:
             effect = self._get_random_choice("bio_organic_tech.effects")
             energy = self._get_random_choice("bio_organic_tech.energies")
             components["effects"] = (

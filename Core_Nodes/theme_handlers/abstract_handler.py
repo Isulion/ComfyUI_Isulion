@@ -6,9 +6,9 @@ class AbstractThemeHandler(BaseThemeHandler):
     
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate abstract-themed components with enhanced emphasis and detail."""
         components = {}
         
@@ -34,7 +34,7 @@ class AbstractThemeHandler(BaseThemeHandler):
             )
         
         # Generate environment with enhanced spatial elements
-        if include_environment == "yes":
+        if include_environment:
             texture = self._get_random_choice("abstract.textures")
             pattern = self._get_random_choice("abstract.patterns")
             if custom_location:
@@ -53,7 +53,7 @@ class AbstractThemeHandler(BaseThemeHandler):
                 )
         
         # Generate style with enhanced artistic techniques
-        if include_style == "yes":
+        if include_style:
             style = self._get_random_choice("abstract.styles")
             technique = self._get_random_choice("abstract.techniques")
             components["style"] = (
@@ -64,7 +64,7 @@ class AbstractThemeHandler(BaseThemeHandler):
             )
         
         # Generate effects with enhanced artistic elements
-        if include_effects == "yes":
+        if include_effects:
             effect = self._get_random_choice("abstract.effects")
             components["effects"] = (
                 f"with ((dynamic {effect} effect)), ((sophisticated abstract patterns)), "

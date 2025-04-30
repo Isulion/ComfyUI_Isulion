@@ -17,9 +17,9 @@ class LogoThemeHandler(BaseThemeHandler):
     
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate logo-themed components."""
         components = {}
         
@@ -79,7 +79,7 @@ class LogoThemeHandler(BaseThemeHandler):
             )
         
         # Generate environment if requested
-        if include_environment == "yes":
+        if include_environment:
             if style_approach == "3D":
                 components["environment"] = (
                     f"with ((perfect lighting setup)), ((studio environment)), "
@@ -99,7 +99,7 @@ class LogoThemeHandler(BaseThemeHandler):
                 )
         
         # Generate style if requested
-        if include_style == "yes":
+        if include_style:
             if style_approach == "3D":
                 components["style"] = (
                     f"((premium 3D rendering)), ((perfect materials)), "
@@ -124,7 +124,7 @@ class LogoThemeHandler(BaseThemeHandler):
                 )
         
         # Generate effects if requested
-        if include_effects == "yes":
+        if include_effects:
             if style_approach == "3D":
                 try:
                     effect = self._get_random_choice("logo.3d_effects")

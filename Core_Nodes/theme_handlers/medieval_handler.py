@@ -6,9 +6,9 @@ class MedievalThemeHandler(BaseThemeHandler):
     
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         components = {}
         
         # Always use random elements, even with custom_subject
@@ -32,7 +32,7 @@ class MedievalThemeHandler(BaseThemeHandler):
             )
             
         # Environment
-        if include_environment == "yes":
+        if include_environment:
             setting = self._get_random_choice("medieval.settings")
             time_period = self._get_random_choice("medieval.time_periods")
             components["environment"] = (
@@ -42,7 +42,7 @@ class MedievalThemeHandler(BaseThemeHandler):
             )
             
         # Style
-        if include_style == "yes":
+        if include_style:
             style = self._get_random_choice("medieval.artistic_styles")
             technique = self._get_random_choice("medieval.techniques")
             components["style"] = (
@@ -52,7 +52,7 @@ class MedievalThemeHandler(BaseThemeHandler):
             )
             
         # Effects
-        if include_effects == "yes":
+        if include_effects:
             lighting = self._get_random_choice("medieval.lighting")
             atmosphere = self._get_random_choice("medieval.atmosphere")
             components["effects"] = (

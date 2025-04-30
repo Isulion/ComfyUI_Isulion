@@ -21,9 +21,9 @@ class NolanThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate a prompt based on the theme and complexity."""
         components = {}
         
@@ -41,7 +41,7 @@ class NolanThemeHandler(BaseThemeHandler):
         components["subject"] = f"(({chosen_angle} {base_subject})), (intense expression), (cinematic lighting), (dramatic composition)"
 
         # Generate environment if included
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 atmosphere = self._get_random_choice(f"{self.theme_name}.atmospheres")
                 time = self._get_random_choice(f"{self.theme_name}.times")
@@ -55,13 +55,13 @@ class NolanThemeHandler(BaseThemeHandler):
             components["environment"] = f"((epic {base_environment})), (extreme perspective), (IMAX scale), (dynamic camera movement)"
 
         # Generate style if included
-        if include_style == "yes":
+        if include_style:
             style = self._get_random_choice(f"{self.theme_name}.styles")
             cinematography = self._get_random_choice(f"{self.theme_name}.cinematography")
             components["style"] = f"((masterful {style})), ({cinematography}), (hans zimmer intensity), (high contrast), (adrenaline-pumping action)"
 
         # Generate effects if included with enhanced explosions
-        if include_effects == "yes":
+        if include_effects:
             explosion_effects = ["massive explosions", "fiery explosions", "spectacular pyrotechnics", 
                                "chain reaction explosions", "explosive shockwaves", "debris flying everywhere"]
             main_effect = self._get_random_choice(f"{self.theme_name}.effects")

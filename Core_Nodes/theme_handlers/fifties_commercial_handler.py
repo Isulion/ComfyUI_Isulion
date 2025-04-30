@@ -60,9 +60,9 @@ class FiftiesCommercialHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
             custom_location: str = "",
-            include_environment: str = "yes",
-            include_style: str = "yes",
-            include_effects: str = "yes") -> Dict[str, str]:
+            include_environment: bool = True,
+            include_style: bool = True,
+            include_effects: bool = True) -> Dict[str, str]:
         """Generate theme-specific prompts for 1950s commercial style."""
         self.debug_print(f"Theme config: {self.theme_config}")
         

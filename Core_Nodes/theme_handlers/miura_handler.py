@@ -27,9 +27,9 @@ class MiuraThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate a prompt based on Kentarō Miura's distinctive style."""
         components = {}
         
@@ -54,7 +54,7 @@ class MiuraThemeHandler(BaseThemeHandler):
         self._debug_print(f"Subject generated: {components['subject']}")
 
         # Generate environment if included
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 atmosphere = self._get_random_choice(f"{self.theme_name}.atmospheres")
                 time = self._get_random_choice(f"{self.theme_name}.times")
@@ -73,7 +73,7 @@ class MiuraThemeHandler(BaseThemeHandler):
             self._debug_print(f"Environment generated: {components['environment']}")
 
         # Add style elements if included
-        if include_style == "yes":
+        if include_style:
             style_elements = [
                 "(Kentarō Miura art style:1.3)",
                 "(masterful pen and ink technique:1.2)",
@@ -89,7 +89,7 @@ class MiuraThemeHandler(BaseThemeHandler):
             self._debug_print(f"Style generated: {components['style']}")
 
         # Add effects if included
-        if include_effects == "yes":
+        if include_effects:
             effects = [
                 "(masterful light and shadow interplay:1.3)",
                 "(intricate texture layering:1.2)",

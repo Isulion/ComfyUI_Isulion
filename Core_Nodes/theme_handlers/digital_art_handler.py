@@ -6,9 +6,9 @@ class DigitalArtThemeHandler(BaseThemeHandler):
     
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate digital art-themed components with professional quality."""
         components = {}
 
@@ -35,7 +35,7 @@ class DigitalArtThemeHandler(BaseThemeHandler):
             )
 
         # Generate environment with enhanced digital atmosphere
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((digitally mastered {custom_location})) with "
@@ -55,7 +55,7 @@ class DigitalArtThemeHandler(BaseThemeHandler):
                 )
 
         # Generate style with enhanced digital techniques
-        if include_style == "yes":
+        if include_style:
             workflow = self._get_random_choice("digital_art.workflows")
             software = self._get_random_choice("digital_art.software")
             color_scheme = self._get_random_choice("digital_art.color_schemes")
@@ -69,7 +69,7 @@ class DigitalArtThemeHandler(BaseThemeHandler):
             )
 
         # Generate effects with enhanced digital elements
-        if include_effects == "yes":
+        if include_effects:
             effect = self._get_random_choice("digital_art.effects")
             filter = self._get_random_choice("digital_art.filters")
             texture = self._get_random_choice("digital_art.textures")

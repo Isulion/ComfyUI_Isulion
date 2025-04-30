@@ -39,9 +39,9 @@ class PeakyBlindersThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate historically accurate 1920s Peaky Blinders-themed components."""
         components = {}
         
@@ -93,7 +93,7 @@ class PeakyBlindersThemeHandler(BaseThemeHandler):
                 )
             
             # Generate environment component
-            if include_environment == "yes":
+            if include_environment:
                 if custom_location:
                     lighting = self._get_safe_random_choice(
                         "peaky_blinders.lighting",
@@ -122,7 +122,7 @@ class PeakyBlindersThemeHandler(BaseThemeHandler):
                     )
             
             # Generate style component
-            if include_style == "yes":
+            if include_style:
                 style = self._get_safe_random_choice(
                     "peaky_blinders.period_styles",
                     "1920s period"
@@ -140,7 +140,7 @@ class PeakyBlindersThemeHandler(BaseThemeHandler):
                 )
             
             # Generate effects component
-            if include_effects == "yes":
+            if include_effects:
                 components["effects"] = (
                     f"with ((1920s photo effects)), ((period appropriate film grain)), "
                     f"((historical color grading)), ((authentic aging)), "

@@ -11,9 +11,9 @@ class CyberpunkThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate cyberpunk-themed components with neon-noir aesthetics."""
         components = {}
 
@@ -44,7 +44,7 @@ class CyberpunkThemeHandler(BaseThemeHandler):
             )
 
         # Generate environment with cyberpunk atmosphere
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((neon-lit {custom_location})), "
@@ -69,7 +69,7 @@ class CyberpunkThemeHandler(BaseThemeHandler):
                 )
 
         # Generate style with cyberpunk techniques
-        if include_style == "yes":
+        if include_style:
             styles = ["neo-noir", "tech noir", "cyber noir", "neon punk", "chrome punk", "digital punk"]
             aesthetics = ["retrofuturistic", "neon-noir", "cyber-gritty", "tech-noir", "digital-decay", "chrome-punk"]
             color_schemes = ["neon-noir", "cyber-chrome", "digital-neon", "tech-glow", "urban-night", "synthetic-pulse"]
@@ -88,7 +88,7 @@ class CyberpunkThemeHandler(BaseThemeHandler):
             )
 
         # Generate effects with cyberpunk elements
-        if include_effects == "yes":
+        if include_effects:
             effects = ["neon glow", "holographic glitch", "digital artifacts", "cyber distortion", "neural noise", "data corruption"]
             tech_details = ["data streams", "matrix code", "cyber grids", "neural patterns", "digital noise", "tech interference"]
 

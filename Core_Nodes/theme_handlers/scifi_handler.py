@@ -11,9 +11,9 @@ class SciFiThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate sci-fi themed components."""
         components = {}
 
@@ -44,7 +44,7 @@ class SciFiThemeHandler(BaseThemeHandler):
             )
 
         # Generate environment with sci-fi atmosphere
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((futuristic {custom_location})), "
@@ -69,7 +69,7 @@ class SciFiThemeHandler(BaseThemeHandler):
                 )
 
         # Generate style with sci-fi techniques
-        if include_style == "yes":
+        if include_style:
             styles = ["cyberpunk", "hard sci-fi", "space opera", "biopunk", "quantum punk", "tech noir"]
             tech_aspects = ["holographic", "quantum", "cybernetic", "plasma-based", "nano-tech", "neural-linked"]
             color_schemes = ["neon-chrome", "quantum plasma", "cyber-tech", "holographic spectrum", "energy pulse", "neural grid"]
@@ -88,7 +88,7 @@ class SciFiThemeHandler(BaseThemeHandler):
             )
 
         # Generate effects with sci-fi elements
-        if include_effects == "yes":
+        if include_effects:
             effects = ["energy fields", "holographic overlays", "quantum particles", "plasma emissions", "neural patterns", "tech auras"]
             tech_details = ["circuitry patterns", "data streams", "energy flows", "quantum effects", "neural networks", "cyber enhancements"]
 

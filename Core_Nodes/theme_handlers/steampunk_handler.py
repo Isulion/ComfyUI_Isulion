@@ -11,9 +11,9 @@ class SteampunkThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate steampunk-themed components."""
         components = {}
         
@@ -27,7 +27,7 @@ class SteampunkThemeHandler(BaseThemeHandler):
             components["subject"] = prompt
         
         # Generate environment if requested
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 prompt = self.generate_theme_prompt(location=custom_location)
                 components["environment"] = prompt
@@ -37,12 +37,12 @@ class SteampunkThemeHandler(BaseThemeHandler):
                 components["environment"] = prompt
         
         # Generate style if requested
-        if include_style == "yes":
+        if include_style:
             style = self.generate_theme_prompt()
             components["style"] = style
         
         # Generate effects if requested
-        if include_effects == "yes":
+        if include_effects:
             effects = self.generate_theme_prompt()
             components["effects"] = effects
         

@@ -6,9 +6,9 @@ class AnimeThemeHandler(BaseThemeHandler):
     
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate anime-themed components with professional quality and style."""
         components = {}
 
@@ -35,7 +35,7 @@ class AnimeThemeHandler(BaseThemeHandler):
             )
 
         # Generate environment with enhanced anime atmosphere
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((beautifully rendered anime {custom_location})) with "
@@ -55,7 +55,7 @@ class AnimeThemeHandler(BaseThemeHandler):
                 )
 
         # Generate style with enhanced anime techniques
-        if include_style == "yes":
+        if include_style:
             style = self._get_random_choice("anime.styles")
             studio = self._get_random_choice("anime.studios")
             components["style"] = (
@@ -67,7 +67,7 @@ class AnimeThemeHandler(BaseThemeHandler):
             )
 
         # Generate effects with enhanced anime elements
-        if include_effects == "yes":
+        if include_effects:
             effect = self._get_random_choice("anime.effects")
             mood = self._get_random_choice("anime.moods")
             lighting = self._get_random_choice("anime.lighting")

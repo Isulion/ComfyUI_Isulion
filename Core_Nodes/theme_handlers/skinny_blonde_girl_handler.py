@@ -8,9 +8,9 @@ class SkinnyBlondeGirlHandler(BaseThemeHandler):
     def generate(self,
                  custom_subject: str = "",
                  custom_location: str = "",  
-                 include_environment: str = "yes",
-                 include_style: str = "yes",
-                 include_effects: str = "yes") -> Dict[str, str]:
+                 include_environment: bool = True,
+                 include_style: bool = True,
+                 include_effects: bool = True) -> Dict[str, str]:
         components = {}
 
         # Instagram-style poses & expressions
@@ -32,7 +32,7 @@ class SkinnyBlondeGirlHandler(BaseThemeHandler):
             )
 
         # Instagram-style backdrops
-        if include_environment == "yes":
+        if include_environment:
             setting = self._get_random_choice("skinny_blonde_girl.settings")
             components["environment"] = (
                 f"((in a {setting})), "
@@ -40,7 +40,7 @@ class SkinnyBlondeGirlHandler(BaseThemeHandler):
             )
 
         # Filters/effects (optional)
-        if include_effects == "yes":
+        if include_effects:
             filter_ = self._get_random_choice("skinny_blonde_girl.filters")
             components["effects"] = (
                 f"((applied {filter_})), "

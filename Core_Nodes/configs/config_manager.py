@@ -41,11 +41,12 @@ class ConfigManager:
                 "available_colors": ["azure", "violet", "emerald", "ruby", "gold", "sapphire", "amber", "jade"]
             }
     
-    def get_config(self, key: str) -> Any:
+    def get_config(self, key: str, suppress_error: bool = False) -> Any:
         """Get configuration value by key.
         
         Args:
             key (str): Configuration key (e.g., 'anime.characters')
+            suppress_error (bool): Whether to suppress error messages
             
         Returns:
             Any: Configuration value
@@ -77,10 +78,13 @@ class ConfigManager:
                 if isinstance(value, dict) and k in value:
                     value = value[k]
                 else:
+                    if not suppress_error:
+                        print(f"Error accessing configuration {key}: 'Configuration key not found: {key}'")
                     raise KeyError(f"Configuration key not found: {key}")
             return value
         except Exception as e:
-            print(f"Error accessing configuration {key}: {str(e)}")
+            if not suppress_error:
+                print(f"Error accessing configuration {key}: {str(e)}")
             raise  # Re-raise the exception to be handled by the caller
     
     def set_seed(self, seed: int):

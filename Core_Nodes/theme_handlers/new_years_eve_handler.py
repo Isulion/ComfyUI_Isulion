@@ -14,9 +14,9 @@ class NewYearsEveThemeHandler(BaseThemeHandler):
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes") -> Dict[str, str]:
+                include_environment: bool = True,
+                include_style: bool = True,
+                include_effects: bool = True) -> Dict[str, str]:
         """Generate New Year's Eve-themed components."""
         components = {}
         
@@ -48,7 +48,7 @@ class NewYearsEveThemeHandler(BaseThemeHandler):
                 f"in {color_scheme} colors, ((celebration atmosphere)), ((festive magic))"
             )
         
-        if include_environment == "yes":
+        if include_environment:
             if custom_location:
                 components["environment"] = (
                     f"in ((festive {custom_location})), ((decorated for New Year's)), "
@@ -68,7 +68,7 @@ class NewYearsEveThemeHandler(BaseThemeHandler):
                     f"((festive landscape)), ((moment of transition))"
                 )
         
-        if include_style == "yes":
+        if include_style:
             components["style"] = (
                 f"((celebratory New Year's artwork)), ((festive illustration style)), "
                 f"((dynamic painting technique)), ((energetic composition)), "
@@ -77,7 +77,7 @@ class NewYearsEveThemeHandler(BaseThemeHandler):
                 f"8k resolution, ((magical celebration lighting))"
             )
         
-        if include_effects == "yes":
+        if include_effects:
             components["effects"] = (
                 f"with ((magical celebration glow)), ((sparkling light)), "
                 f"((floating confetti)), ((fireworks sparkle)), "
