@@ -2,7 +2,7 @@
 name = "comfyui_isulion"
 description = "ComfyUI Nodes that generate prompts and many more"
 version = "5.1.1"
-license = {file = "LICENSE"}
+license = "file: LICENSE"
 
 [project.urls]
 Repository = "https://github.com/Isulion/ComfyUI_Isulion"
