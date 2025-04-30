@@ -1,4 +1,6 @@
 {
+  "id": "a10e0158-b3b2-4ee7-8b29-04f37ebba759",
+  "revision": 0,
   "last_node_id": 177,
   "last_link_id": 146,
   "nodes": [
@@ -20,26 +22,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 96,
-          "widget": {
-            "name": "text"
-          }
+          "link": 96
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/2e9e4474-f4d2-4651-9b7b-fbe538e9a487/width=1800/2e9e4474-f4d2-4651-9b7b-fbe538e9a487.jpeg"
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/012041fd-c1cb-4c08-b0dd-b4ae9148e9bc/width=832/012041fd-c1cb-4c08-b0dd-b4ae9148e9bc.jpeg"
       ]
     },
     {
@@ -62,10 +62,10 @@
         {
           "name": "image_info",
           "type": "STRING",
-          "link": 97,
           "widget": {
             "name": "image_info"
-          }
+          },
+          "link": 97
         }
       ],
       "outputs": [
@@ -94,9 +94,16 @@
           "links": [
             117
           ]
+        },
+        {
+          "name": "model",
+          "type": "STRING",
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui_isulion",
+        "ver": "5.1.1",
         "Node name for S&R": "IsulionCivitaiImageDisplay"
       },
       "widgets_values": [
@@ -126,10 +133,10 @@
         {
           "name": "image_info",
           "type": "STRING",
-          "link": 98,
           "widget": {
             "name": "image_info"
-          }
+          },
+          "link": 98
         }
       ],
       "outputs": [
@@ -158,9 +165,16 @@
           "links": [
             114
           ]
+        },
+        {
+          "name": "model",
+          "type": "STRING",
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui_isulion",
+        "ver": "5.1.1",
         "Node name for S&R": "IsulionCivitaiImageDisplay"
       },
       "widgets_values": [
@@ -190,10 +204,10 @@
         {
           "name": "image_info",
           "type": "STRING",
-          "link": 99,
           "widget": {
             "name": "image_info"
-          }
+          },
+          "link": 99
         }
       ],
       "outputs": [
@@ -222,9 +236,16 @@
           "links": [
             111
           ]
+        },
+        {
+          "name": "model",
+          "type": "STRING",
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui_isulion",
+        "ver": "5.1.1",
         "Node name for S&R": "IsulionCivitaiImageDisplay"
       },
       "widgets_values": [
@@ -254,10 +275,10 @@
         {
           "name": "image_info",
           "type": "STRING",
-          "link": 100,
           "widget": {
             "name": "image_info"
-          }
+          },
+          "link": 100
         }
       ],
       "outputs": [
@@ -286,9 +307,16 @@
           "links": [
             106
           ]
+        },
+        {
+          "name": "model",
+          "type": "STRING",
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui_isulion",
+        "ver": "5.1.1",
         "Node name for S&R": "IsulionCivitaiImageDisplay"
       },
       "widgets_values": [
@@ -318,10 +346,10 @@
         {
           "name": "image_info",
           "type": "STRING",
-          "link": 101,
           "widget": {
             "name": "image_info"
-          }
+          },
+          "link": 101
         }
       ],
       "outputs": [
@@ -350,9 +378,16 @@
           "links": [
             129
           ]
+        },
+        {
+          "name": "model",
+          "type": "STRING",
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui_isulion",
+        "ver": "5.1.1",
         "Node name for S&R": "IsulionCivitaiImageDisplay"
       },
       "widgets_values": [
@@ -382,10 +417,10 @@
         {
           "name": "image_info",
           "type": "STRING",
-          "link": 102,
           "widget": {
             "name": "image_info"
-          }
+          },
+          "link": 102
         }
       ],
       "outputs": [
@@ -414,9 +449,16 @@
           "links": [
             125
           ]
+        },
+        {
+          "name": "model",
+          "type": "STRING",
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui_isulion",
+        "ver": "5.1.1",
         "Node name for S&R": "IsulionCivitaiImageDisplay"
       },
       "widgets_values": [
@@ -446,10 +488,10 @@
         {
           "name": "image_info",
           "type": "STRING",
-          "link": 103,
           "widget": {
             "name": "image_info"
-          }
+          },
+          "link": 103
         }
       ],
       "outputs": [
@@ -478,9 +520,16 @@
           "links": [
             122
           ]
+        },
+        {
+          "name": "model",
+          "type": "STRING",
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui_isulion",
+        "ver": "5.1.1",
         "Node name for S&R": "IsulionCivitaiImageDisplay"
       },
       "widgets_values": [
@@ -510,10 +559,10 @@
         {
           "name": "image_info",
           "type": "STRING",
-          "link": 104,
           "widget": {
             "name": "image_info"
-          }
+          },
+          "link": 104
         }
       ],
       "outputs": [
@@ -542,9 +591,16 @@
           "links": [
             96
           ]
+        },
+        {
+          "name": "model",
+          "type": "STRING",
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui_isulion",
+        "ver": "5.1.1",
         "Node name for S&R": "IsulionCivitaiImageDisplay"
       },
       "widgets_values": [
@@ -574,10 +630,10 @@
         {
           "name": "image_info",
           "type": "STRING",
-          "link": 105,
           "widget": {
             "name": "image_info"
-          }
+          },
+          "link": 105
         }
       ],
       "outputs": [
@@ -606,9 +662,16 @@
           "links": [
             130
           ]
+        },
+        {
+          "name": "model",
+          "type": "STRING",
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui_isulion",
+        "ver": "5.1.1",
         "Node name for S&R": "IsulionCivitaiImageDisplay"
       },
       "widgets_values": [
@@ -636,26 +699,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 106,
-          "widget": {
-            "name": "text"
-          }
+          "link": 106
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/1497971e-9dd6-401c-93e4-f59bf74c4075/width=832/1497971e-9dd6-401c-93e4-f59bf74c4075.jpeg"
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/8f79e571-27ca-49fc-abcf-5df36aa9b2b7/width=1800/8f79e571-27ca-49fc-abcf-5df36aa9b2b7.jpeg"
       ]
     },
     {
@@ -681,6 +742,8 @@
       ],
       "outputs": [],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "PreviewImage"
       },
       "widgets_values": []
@@ -703,26 +766,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 108,
-          "widget": {
-            "name": "text"
-          }
+          "link": 108
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "score_9, score_8_up, score_7_up, score_6_up, score_5_up, score_4_up, (mouse in a box), "
+        "No prompt available"
       ]
     },
     {
@@ -748,6 +809,8 @@
       ],
       "outputs": [],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "PreviewImage"
       },
       "widgets_values": []
@@ -770,26 +833,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 110,
-          "widget": {
-            "name": "text"
-          }
+          "link": 110
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "A massive, crystalline block of ice hovering mid-air in an endless desert of golden sand dunes, refracting rainbows and fragments of memories within. Inside the ice, a frozen, ethereal ballerina is suspended mid-pirouette, her movements implied by faint trails of light. The sky above is a swirling blend of fiery reds and deep indigos, with melting clocks dripping from invisible surfaces. Hyper-detailed textures, dreamlike atmosphere, surrealism, 8K resolution, artistic and emotional depth. aidmaMJ6.1, OBqpsh"
+        "masterpiece, newest,absurdres,incredibly absurdres, best quality, amazing quality, very aesthetic, surreal, flat color, "
       ]
     },
     {
@@ -810,26 +871,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 111,
-          "widget": {
-            "name": "text"
-          }
+          "link": 111
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/f3275527-29a9-43d5-a685-c9c3ba109fe7/width=1800/f3275527-29a9-43d5-a685-c9c3ba109fe7.jpeg"
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/bacdfa32-4bd9-4b5a-8e1b-91e88add7566/width=1800/bacdfa32-4bd9-4b5a-8e1b-91e88add7566.jpeg"
       ]
     },
     {
@@ -855,6 +914,8 @@
       ],
       "outputs": [],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "PreviewImage"
       },
       "widgets_values": []
@@ -877,26 +938,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 113,
-          "widget": {
-            "name": "text"
-          }
+          "link": 113
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "several pieces of  white and dark-chocolate, layout is simple,( the chocolate pieces stacked neatly on top of each other), plain white background, ((lighting highlights the sheen on the chocolate)), minimalism. <lora:kodak_ultramax_400:0.25>, sharp focus, selectivefocus:1.2, professional food photo, glossy"
+        "No prompt available"
       ]
     },
     {
@@ -917,26 +976,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 114,
-          "widget": {
-            "name": "text"
-          }
+          "link": 114
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/30bf64da-f102-4d35-9ce9-4254e77cb5b4/width=832/30bf64da-f102-4d35-9ce9-4254e77cb5b4.jpeg"
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/98503ed9-5a26-4cad-ae85-03ed1a770804/width=1800/98503ed9-5a26-4cad-ae85-03ed1a770804.jpeg"
       ]
     },
     {
@@ -962,6 +1019,8 @@
       ],
       "outputs": [],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "PreviewImage"
       },
       "widgets_values": []
@@ -984,26 +1043,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 116,
-          "widget": {
-            "name": "text"
-          }
+          "link": 116
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "No prompt available"
+        "cinematic film still a young woman standing in a luxurious ballroom with high ceilings and ornate chandeliers. She is wearing a long, flowing green gown with a deep V-neckline and short sleeves. The dress has a fitted bodice and a full skirt that flares out at the bottom. The woman has long dark hair styled in loose waves and is wearing statement earrings and a statement necklace. In the background, there are other women in formal attire, sitting at tables and enjoying a meal. The room is decorated with red curtains and gold accents, and there is a large window. <lora:add-detail-xl:.5>  <lora:Flux-style-xl-lora:.5>"
       ]
     },
     {
@@ -1024,26 +1081,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 117,
-          "widget": {
-            "name": "text"
-          }
+          "link": 117
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/8291ded0-3c3d-4309-add6-939491ac806f/width=1536/8291ded0-3c3d-4309-add6-939491ac806f.jpeg"
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/a281df40-805d-417c-aadf-a37b99da0980/width=832/a281df40-805d-417c-aadf-a37b99da0980.jpeg"
       ]
     },
     {
@@ -1064,26 +1119,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 118,
-          "widget": {
-            "name": "text"
-          }
+          "link": 118
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "No prompt available"
+        "scaleboundsdxl, hamster made of scales sitting on toilet, holding a phone"
       ]
     },
     {
@@ -1109,6 +1162,8 @@
       ],
       "outputs": [],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "PreviewImage"
       },
       "widgets_values": []
@@ -1131,26 +1186,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 120,
-          "widget": {
-            "name": "text"
-          }
+          "link": 120
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "A cinematic split-frame composition where the lens is half-submerged underwater. Half of the body is above water,Below the surface, a serene and calm lake bed stretches out, softly illuminated by refracted light. A squirrel is steering a glass submarine, which moves gracefully underwater. Above the surface, the storm rages ferociously: lightning streaks across the dark clouds, torrential rain pours down, and towering waves crash violently. In the distance, a weathered, ancient lighthouse struggles against the storm, its flickering light barely piercing the chaos. The waterline is sharp, with bubbles and light refractions enhancing the split effect. Dynamic lighting highlights the emotional contrast between the calm underwater world and the savage storm above. (masterpiece, best quality, ultra-detailed, photorealistic, cinematic:1.3)"
+        "No prompt available"
       ]
     },
     {
@@ -1176,6 +1229,8 @@
       ],
       "outputs": [],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "PreviewImage"
       },
       "widgets_values": []
@@ -1198,26 +1253,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 122,
-          "widget": {
-            "name": "text"
-          }
+          "link": 122
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/dcb1c25b-6cff-4b80-9214-9a7957ee2c80/width=1504/dcb1c25b-6cff-4b80-9214-9a7957ee2c80.jpeg"
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/3eae1550-3890-44b3-9e05-937fb74568e8/width=896/3eae1550-3890-44b3-9e05-937fb74568e8.jpeg"
       ]
     },
     {
@@ -1238,26 +1291,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 123,
-          "widget": {
-            "name": "text"
-          }
+          "link": 123
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "illustration of  a young woman , taken under water, fill flash  <lora:dreamland:1> dr34ml4nd <lora:michelledockery:1.4> Michelle Dockery"
+        "No prompt available"
       ]
     },
     {
@@ -1283,6 +1334,8 @@
       ],
       "outputs": [],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "PreviewImage"
       },
       "widgets_values": []
@@ -1305,26 +1358,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 125,
-          "widget": {
-            "name": "text"
-          }
+          "link": 125
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/8c493eda-e8ad-4b6b-8dbf-a00d21075171/width=1024/8c493eda-e8ad-4b6b-8dbf-a00d21075171.jpeg"
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/72250d53-2ae9-448f-ac08-125d87240826/width=832/72250d53-2ae9-448f-ac08-125d87240826.jpeg"
       ]
     },
     {
@@ -1345,26 +1396,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 126,
-          "widget": {
-            "name": "text"
-          }
+          "link": 126
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "OBqpsh,"
+        "Studio Ghibli Dark Fairytale, moody ethdysty, fantastical, ethereal aesthetic. The image is a high-resolution macro photograph of a small, Ghibli-inspired Kodama forest spirit, showcasing intricate details of its tiny, otherworldly body. The Kodama has a smooth, desaturated white surface with faint, faded markings that give it an aged, ghost-like appearance. Its large, hollow black eyes are glossy and reflective, hinting at a silent wisdom. The delicate limbs and subtle textures, almost translucent, catch the ambient light in a soft glow. Fine, mist-like particles drift around it, adding to its eerie, serene presence. Cracks and tiny mossy growths adorn parts of its body, as if it's partially formed from the forest itself. The background is blurred, filled with diffused forest light and glowing spores, creating a dreamlike depth that makes the Kodama appear to hover silently in a realm between life and spirit."
       ]
     },
     {
@@ -1390,6 +1439,8 @@
       ],
       "outputs": [],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "PreviewImage"
       },
       "widgets_values": []
@@ -1412,26 +1463,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 128,
-          "widget": {
-            "name": "text"
-          }
+          "link": 128
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "No prompt available"
+        "pinkfantasybabes, "
       ]
     },
     {
@@ -1452,26 +1501,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 129,
-          "widget": {
-            "name": "text"
-          }
+          "link": 129
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/571de8e4-0f26-439e-8817-b467121722a7/width=831/571de8e4-0f26-439e-8817-b467121722a7.jpeg"
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/49559700-e12a-40eb-a05d-6994166db2c7/width=832/49559700-e12a-40eb-a05d-6994166db2c7.jpeg"
       ]
     },
     {
@@ -1492,26 +1539,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 130,
-          "widget": {
-            "name": "text"
-          }
+          "link": 130
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/2f12b2c0-e2ea-42c2-aa62-9b6b75f1e4f4/width=832/2f12b2c0-e2ea-42c2-aa62-9b6b75f1e4f4.jpeg"
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/1e226cab-55c9-4499-b17e-5b643c228fa3/width=1800/1e226cab-55c9-4499-b17e-5b643c228fa3.jpeg"
       ]
     },
     {
@@ -1537,6 +1582,8 @@
       ],
       "outputs": [],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "PreviewImage"
       },
       "widgets_values": []
@@ -1559,25 +1606,23 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 132,
-          "widget": {
-            "name": "text"
-          }
+          "link": 132
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
         "No prompt available"
       ]
     },
@@ -1604,6 +1649,8 @@
       ],
       "outputs": [],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "PreviewImage"
       },
       "widgets_values": []
@@ -1628,16 +1675,15 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 135,
-          "widget": {
-            "name": "text"
-          }
+          "link": 135
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
+          "slot_index": 0,
           "links": [
             97,
             98,
@@ -1650,17 +1696,25 @@
             105,
             134,
             136
-          ],
-          "slot_index": 0,
-          "shape": 6
+          ]
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/2e9e4474-f4d2-4651-9b7b-fbe538e9a487/width=1800/2e9e4474-f4d2-4651-9b7b-fbe538e9a487.jpeg\nAuthor: JustAMouse\nStats: ❤️ 14 👍 33 💬 3\nSize: 2560x3712\nCreated: 2024-12-15T02:33:00.000Z\nNSFW Level: None\n\nPrompt: score_9, score_8_up, score_7_up, score_6_up, score_5_up, score_4_up, (mouse in a box), \n[][][][][], \nm0use_goldie, yellow fur, pr3s3nt, gift box, looking at viewer, in container, (neck up), \n[][][][][], \ncute, (green elf hat, green Christmas shirt), (cute), large box, (Christmas tree:1.5), (cottage:1.2), (joyful expression), (large gift box:1.7),\nNegative Prompt: score_6, score_5, score_4, (giant:2), (hair, naked, visible crotch:2), child, young, cub, bed, mattress,\nModel: urn:air:sdxl:checkpoint:civitai:349062@494387\nSampler: Euler a\nSteps: 17\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/1497971e-9dd6-401c-93e4-f59bf74c4075/width=832/1497971e-9dd6-401c-93e4-f59bf74c4075.jpeg\nAuthor: labkane2\nStats: ❤️ 2 👍 3 💬 2\nSize: 832x1216\nCreated: 2024-12-15T10:12:47.672Z\nNSFW Level: None\n\nPrompt: A massive, crystalline block of ice hovering mid-air in an endless desert of golden sand dunes, refracting rainbows and fragments of memories within. Inside the ice, a frozen, ethereal ballerina is suspended mid-pirouette, her movements implied by faint trails of light. The sky above is a swirling blend of fiery reds and deep indigos, with melting clocks dripping from invisible surfaces. Hyper-detailed textures, dreamlike atmosphere, surrealism, 8K resolution, artistic and emotional depth. aidmaMJ6.1, OBqpsh\nSampler: Undefined\nSteps: 28\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/f3275527-29a9-43d5-a685-c9c3ba109fe7/width=1800/f3275527-29a9-43d5-a685-c9c3ba109fe7.jpeg\nAuthor: njorthrbjorn\nStats: ❤️ 4 👍 14 💬 2\nSize: 3072x3840\nCreated: 2024-12-14T21:56:27.071Z\nNSFW Level: None\n\nPrompt: several pieces of  white and dark-chocolate, layout is simple,( the chocolate pieces stacked neatly on top of each other), plain white background, ((lighting highlights the sheen on the chocolate)), minimalism. <lora:kodak_ultramax_400:0.25>, sharp focus, selectivefocus:1.2, professional food photo, glossy\nNegative Prompt: GS-DeFeminize-neg:1.3, [PA7_UnRealistic-Neg_v2-neg], [PA7_AnatoNeg-neg], [negative_hand-neg], out of focus, out of frame, out of depth, film grain, blur, blurry, Bad background, boring background,\nModel: Rugged resolve studios - V11-0941-0859-4656\nSampler: DPM++ 2M SDE\nSteps: 25\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/30bf64da-f102-4d35-9ce9-4254e77cb5b4/width=832/30bf64da-f102-4d35-9ce9-4254e77cb5b4.jpeg\nAuthor: DoreenAI\nStats: ❤️ 21 👍 89 💬 2\nSize: 832x1216\nCreated: 2024-12-14T15:31:38.685Z\nNSFW Level: None\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/8291ded0-3c3d-4309-add6-939491ac806f/width=1536/8291ded0-3c3d-4309-add6-939491ac806f.jpeg\nAuthor: aihonobono2023\nStats: ❤️ 15 👍 40 💬 2\nSize: 1536x3072\nCreated: 2024-12-14T15:19:45.976Z\nNSFW Level: None\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/ab2183f0-be3a-4b79-bfeb-549829b9cc5e/width=1536/ab2183f0-be3a-4b79-bfeb-549829b9cc5e.jpeg\nAuthor: Cinnadust\nStats: ❤️ 11 👍 22 💬 2\nSize: 1536x2752\nCreated: 2024-12-14T11:12:58.778Z\nNSFW Level: None\n\nPrompt: A cinematic split-frame composition where the lens is half-submerged underwater. Half of the body is above water,Below the surface, a serene and calm lake bed stretches out, softly illuminated by refracted light. A squirrel is steering a glass submarine, which moves gracefully underwater. Above the surface, the storm rages ferociously: lightning streaks across the dark clouds, torrential rain pours down, and towering waves crash violently. In the distance, a weathered, ancient lighthouse struggles against the storm, its flickering light barely piercing the chaos. The waterline is sharp, with bubbles and light refractions enhancing the split effect. Dynamic lighting highlights the emotional contrast between the calm underwater world and the savage storm above. (masterpiece, best quality, ultra-detailed, photorealistic, cinematic:1.3)\nSampler: Undefined\nSteps: 30\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/dcb1c25b-6cff-4b80-9214-9a7957ee2c80/width=1504/dcb1c25b-6cff-4b80-9214-9a7957ee2c80.jpeg\nAuthor: bobbesch912\nStats: ❤️ 1 👍 1 💬 1\nSize: 1504x2304\nCreated: 2024-12-15T10:10:32.019Z\nNSFW Level: None\n\nPrompt: illustration of  a young woman , taken under water, fill flash  <lora:dreamland:1> dr34ml4nd <lora:michelledockery:1.4> Michelle Dockery\nModel: flux1-dev-bnb-nf4-v2\nSampler: Euler\nSteps: 20\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/8c493eda-e8ad-4b6b-8dbf-a00d21075171/width=1024/8c493eda-e8ad-4b6b-8dbf-a00d21075171.jpeg\nAuthor: 1jiliguala1\nStats: ❤️ 4 👍 3 💬 1\nSize: 1024x1536\nCreated: 2024-12-15T09:51:25.856Z\nNSFW Level: None\n\nPrompt: OBqpsh,\nThis image is a digital drawing in a whimsical, cartoon style. The central subject is a white cat with large, round eyes and a simple, happy expression, sitting on a wooden bookshelf. The cat is dressed in a dark, ribbed sweater, and it is holding an open book in its paws. The book is red with a white spine and a few pages turned down, suggesting the cat is reading.\n\nThe background consists of a dark, starry night sky, giving the scene a cozy, bedtime feel. The bookshelf is filled with a variety of books in different colors and sizes, arranged in a casual, disorganized manner. On the top shelf, there are three small, white cat figurines, each with a simple, smiling expression, adding to the whimsical charm of the scene.\n\nThe drawing style is minimalistic with clean lines and a limited color palette, primarily consisting of earthy tones like brown, black, and white, with splashes of red and blue. The textures are smooth, with a slight texture added to the book pages and the cat's fur to give it a tactile feel. The overall mood is calm and serene, as if the cat is lost in a world of its own while reading.\nSampler: Euler\nSteps: 30\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/571de8e4-0f26-439e-8817-b467121722a7/width=831/571de8e4-0f26-439e-8817-b467121722a7.jpeg\nAuthor: Castr0\nStats: ❤️ 4 👍 4 💬 1\nSize: 831x1400\nCreated: 2024-12-15T09:09:04.438Z\nNSFW Level: None\n-------------------\n,Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/2f12b2c0-e2ea-42c2-aa62-9b6b75f1e4f4/width=832/2f12b2c0-e2ea-42c2-aa62-9b6b75f1e4f4.jpeg\nAuthor: Grubula\nStats: ❤️ 3 👍 5 💬 1\nSize: 832x1216\nCreated: 2024-12-15T08:34:25.412Z\nNSFW Level: None\n-------------------\n"
+        "Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/012041fd-c1cb-4c08-b0dd-b4ae9148e9bc/width=832/012041fd-c1cb-4c08-b0dd-b4ae9148e9bc.jpeg\nAuthor: Pinkielicious\nStats: ❤️ 2413 👍 6528 💬 11\nSize: 832x1456\nCreated: 2025-04-29T17:24:07.192Z\nNSFW Level: None\n-------------------\n",
+        "Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/8f79e571-27ca-49fc-abcf-5df36aa9b2b7/width=1800/8f79e571-27ca-49fc-abcf-5df36aa9b2b7.jpeg\nAuthor: roxin282\nStats: ❤️ 52 👍 182 💬 4\nSize: 1800x3200\nCreated: 2025-04-29T22:11:00.000Z\nNSFW Level: None\n\nPrompt: masterpiece, newest,absurdres,incredibly absurdres, best quality, amazing quality, very aesthetic, surreal, flat color, \n1woman, public, see-through silhouette, smile, \n <lora:fuyumur4s4ki_style:1> fuyumur4s4ki_illu  <lora:KonYa666:0.7> kony4666\nNegative Prompt: worst quality, bad quality, low quality, anatomical nonsense, bad anatomy,interlocked fingers, extra fingers,watermark,\nModel: dreambox_v3_1447351\nSampler: Euler a\nSteps: 72\n-------------------\n",
+        "Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/bacdfa32-4bd9-4b5a-8e1b-91e88add7566/width=1800/bacdfa32-4bd9-4b5a-8e1b-91e88add7566.jpeg\nAuthor: Aerth\nStats: ❤️ 17 👍 51 💬 4\nSize: 1952x2496\nCreated: 2025-04-29T15:57:14.188Z\nNSFW Level: None\nModel: flux1DevHyperNF4Flux1DevBNB_flux1DevHyperNF4\nSampler: Euler\nSteps: 40\n-------------------\n",
+        "Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/98503ed9-5a26-4cad-ae85-03ed1a770804/width=1800/98503ed9-5a26-4cad-ae85-03ed1a770804.jpeg\nAuthor: lilgianttoe911\nStats: ❤️ 1 👍 5 💬 3\nSize: 2000x2737\nCreated: 2025-04-30T06:08:35.398Z\nNSFW Level: None\n\nPrompt: cinematic film still a young woman standing in a luxurious ballroom with high ceilings and ornate chandeliers. She is wearing a long, flowing green gown with a deep V-neckline and short sleeves. The dress has a fitted bodice and a full skirt that flares out at the bottom. The woman has long dark hair styled in loose waves and is wearing statement earrings and a statement necklace. In the background, there are other women in formal attire, sitting at tables and enjoying a meal. The room is decorated with red curtains and gold accents, and there is a large window. <lora:add-detail-xl:.5>  <lora:Flux-style-xl-lora:.5>\nNegative Prompt: anime, cartoon, graphic, text, painting, crayon, graphite, abstract, glitch, deformed, mutated, ugly, disfigured, anime, cartoon, graphic, text, painting, crayon, graphite, abstract, glitch, deformed, mutated, ugly, disfigured, bad anatomy, comics, cropped, cross-eyed, worst quality, low quality, painting, 3D render, drawing, crayon, sketch, graphite, impressionist, cartoon, anime, noisy, blurry, soft, deformed, ugly, lowres, low details, JPEG artifacts, airbrushed, semi-realistic, CGI, render, Blender, digital art, manga, amateur, mutilated, distorted\nModel: zavychromaxl_v100\nSampler: DPM++ 2M SDE Heun\nSteps: 46\n-------------------\n",
+        "Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/a281df40-805d-417c-aadf-a37b99da0980/width=832/a281df40-805d-417c-aadf-a37b99da0980.jpeg\nAuthor: flaxozz\nStats: ❤️ 12 👍 49 💬 3\nSize: 832x1216\nCreated: 2025-04-30T05:49:04.858Z\nNSFW Level: None\n\nPrompt: scaleboundsdxl, hamster made of scales sitting on toilet, holding a phone\nNegative Prompt: Watermark, Text, censored, deformed, bad anatomy, disfigured, poorly drawn face, mutated, extra limb, ugly, poorly drawn hands, missing limb, floating limbs, disconnected limbs, disconnected head, malformed hands, long neck, mutated hands and fingers, bad hands, missing fingers, cropped, worst quality, low quality, mutation, poorly drawn, huge calf, bad hands, fused hand, missing hand, disappearing arms, disappearing thigh, disappearing calf, disappearing legs, missing fingers, fused fingers, abnormal eye proportion, Abnormal hands, abnormal legs, abnormal feet, abnormal fingers\nSampler: DPM++ 2M Karras\nSteps: 30\n-------------------\n",
+        "Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/26761da4-ed21-4fea-9fef-794023456aba/width=896/26761da4-ed21-4fea-9fef-794023456aba.jpeg\nAuthor: NJordan\nStats: ❤️ 10 👍 31 💬 3\nSize: 896x1152\nCreated: 2025-04-30T00:13:32.017Z\nNSFW Level: None\n-------------------\n",
+        "Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/3eae1550-3890-44b3-9e05-937fb74568e8/width=896/3eae1550-3890-44b3-9e05-937fb74568e8.jpeg\nAuthor: Nebelx\nStats: ❤️ 9 👍 26 💬 3\nSize: 896x1440\nCreated: 2025-04-29T20:28:48.155Z\nNSFW Level: None\n-------------------\n",
+        "Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/72250d53-2ae9-448f-ac08-125d87240826/width=832/72250d53-2ae9-448f-ac08-125d87240826.jpeg\nAuthor: FredRocks\nStats: ❤️ 330 👍 1004 💬 3\nSize: 832x1216\nCreated: 2025-04-29T15:55:54.416Z\nNSFW Level: None\n\nPrompt: Studio Ghibli Dark Fairytale, moody ethdysty, fantastical, ethereal aesthetic. The image is a high-resolution macro photograph of a small, Ghibli-inspired Kodama forest spirit, showcasing intricate details of its tiny, otherworldly body. The Kodama has a smooth, desaturated white surface with faint, faded markings that give it an aged, ghost-like appearance. Its large, hollow black eyes are glossy and reflective, hinting at a silent wisdom. The delicate limbs and subtle textures, almost translucent, catch the ambient light in a soft glow. Fine, mist-like particles drift around it, adding to its eerie, serene presence. Cracks and tiny mossy growths adorn parts of its body, as if it's partially formed from the forest itself. The background is blurred, filled with diffused forest light and glowing spores, creating a dreamlike depth that makes the Kodama appear to hover silently in a realm between life and spirit.\nSampler: Undefined\nSteps: 38\n-------------------\n",
+        "Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/49559700-e12a-40eb-a05d-6994166db2c7/width=832/49559700-e12a-40eb-a05d-6994166db2c7.jpeg\nAuthor: Pinkielicious\nStats: ❤️ 408 👍 1370 💬 3\nSize: 832x1456\nCreated: 2025-04-29T15:16:36.131Z\nNSFW Level: None\n\nPrompt: pinkfantasybabes, \n\nClose-up of a woman's face, focusing on her right side, wearing an ornate, intricate masquerade mask that covers her eyes and upper nose. The mask is detailed with lace-like patterns, embedded with small glowing lights and tiny luminescent butterflies, primarily in blue and orange hues. The mask has an elaborate design that merges seamlessly with her skin, which is illuminated with bioluminescent patterns glowing in shades of blue and orange, covering her neck, shoulders, and chest. Her lips are slightly parted, showing a natural yet f. B_6, An enchanting scene filled with heart-shaped bokeh lights that sparkle against a deep black background. The lights are arranged in a visually appealing pattern, with some glowing softly and others shining brightly, creating a magical and romantic ambiance. The heart shapes are interspersed with smaller, round light orbs, adding depth and variety to the composition. The overall effect is a beautiful, dreamy display of love and light.\nSampler: Euler\nSteps: 25\n-------------------\n",
+        "Image: Untitled\nURL: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/1e226cab-55c9-4499-b17e-5b643c228fa3/width=1800/1e226cab-55c9-4499-b17e-5b643c228fa3.jpeg\nAuthor: Clear_Note\nStats: ❤️ 19 👍 31 💬 2\nSize: 2048x3648\nCreated: 2025-04-30T08:59:54.333Z\nNSFW Level: None\n-------------------\n"
       ]
     },
     {
@@ -1683,10 +1737,10 @@
         {
           "name": "image_info",
           "type": "STRING",
-          "link": 136,
           "widget": {
             "name": "image_info"
-          }
+          },
+          "link": 136
         }
       ],
       "outputs": [
@@ -1715,9 +1769,16 @@
           "links": [
             137
           ]
+        },
+        {
+          "name": "model",
+          "type": "STRING",
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui_isulion",
+        "ver": "5.1.1",
         "Node name for S&R": "IsulionCivitaiImageDisplay"
       },
       "widgets_values": [
@@ -1745,26 +1806,24 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 137,
-          "widget": {
-            "name": "text"
-          }
+          "link": 137
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/ab2183f0-be3a-4b79-bfeb-549829b9cc5e/width=1536/ab2183f0-be3a-4b79-bfeb-549829b9cc5e.jpeg"
+        "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/26761da4-ed21-4fea-9fef-794023456aba/width=896/26761da4-ed21-4fea-9fef-794023456aba.jpeg"
       ]
     },
     {
@@ -1787,20 +1846,20 @@
         {
           "name": "image_info",
           "type": "STRING",
-          "link": 134,
           "widget": {
             "name": "image_info"
-          }
+          },
+          "link": 134
         }
       ],
       "outputs": [
         {
           "name": "image",
           "type": "IMAGE",
+          "slot_index": 0,
           "links": [
             138
-          ],
-          "slot_index": 0
+          ]
         },
         {
           "name": "title",
@@ -1810,17 +1869,24 @@
         {
           "name": "prompt",
           "type": "STRING",
-          "links": [],
-          "slot_index": 2
+          "slot_index": 2,
+          "links": []
         },
         {
           "name": "image_url",
           "type": "STRING",
-          "links": [],
-          "slot_index": 3
+          "slot_index": 3,
+          "links": []
+        },
+        {
+          "name": "model",
+          "type": "STRING",
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui_isulion",
+        "ver": "5.1.1",
         "Node name for S&R": "IsulionCivitaiImageDisplay"
       },
       "widgets_values": [
@@ -1853,9 +1919,44 @@
       ],
       "outputs": [],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "PreviewImage"
       },
       "widgets_values": []
+    },
+    {
+      "id": 175,
+      "type": "ttN text",
+      "pos": [
+        -1300,
+        1240
+      ],
+      "size": [
+        470,
+        88
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Civitai API Key - HowTo",
+      "properties": {
+        "cnr_id": "comfyui_tinyterranodes",
+        "ver": "2.0.7",
+        "Node name for S&R": "ttN text",
+        "ttNnodeVersion": "1.0.0"
+      },
+      "widgets_values": [
+        "https://developer.civitai.com/docs/getting-started/setup-profile"
+      ]
     },
     {
       "id": 166,
@@ -1866,10 +1967,10 @@
       ],
       "size": [
         340.20001220703125,
-        154
+        178
       ],
       "flags": {},
-      "order": 0,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1882,6 +1983,8 @@
         }
       ],
       "properties": {
+        "cnr_id": "comfyui_isulion",
+        "ver": "5.1.1",
         "Node name for S&R": "IsulionCivitaiTrending"
       },
       "widgets_values": [
@@ -1889,37 +1992,8 @@
         "Most Comments",
         "Day",
         10,
-        "YOUR CIVITAI API KEY HERE"
-      ]
-    },
-    {
-      "id": 175,
-      "type": "ttN text",
-      "pos": [
-        -1300,
-        1240
-      ],
-      "size": [
-        470,
-        76
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "links": null
-        }
-      ],
-      "title": "Civitai API Key - HowTo",
-      "properties": {
-        "Node name for S&R": "ttN text"
-      },
-      "widgets_values": [
-        "https://developer.civitai.com/docs/getting-started/setup-profile"
+        "YOUR CIVITAI API KEY HERE",
+        "All"
       ]
     }
   ],
@@ -2273,12 +2347,13 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.46650738020973365,
+      "scale": 0.47362440744767687,
       "offset": [
-        1196.8708823466814,
-        -783.5987661769682
+        1376.2179014354667,
+        340.9394415105611
       ]
-    }
+    },
+    "frontendVersion": "1.17.11"
   },
   "version": 0.4
 }

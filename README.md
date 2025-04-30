@@ -164,6 +164,8 @@ Here's a categorized overview of all available themes:
 - 🖼️ Isulion Image Collage
 - 📁 Isulion Load Images from Directory
 - ⏳ Isulion Epoch Generator
+- 🧩 Isulion QRCode Generator
+- ⧉ IsulionOverlay
 
 ## 🖼️ Load Images Node
 
@@ -293,3 +295,5 @@ ComfyUI_Isulion/
 - **IsuCollage Node**: Create image collages
 - **Isulion Load Images Node**: Load and manage multiple images
 - **Shutdown Node**: Manage workflow completion
+- **Overlay Node**: Add overlay or watermarks to your images
+- **QRCode Node**: Create Various moderns QRCode

@@ -1,17 +1,135 @@
 {
-  "last_node_id": 42,
-  "last_link_id": 61,
+  "id": "380cc4fe-d0f6-4c3b-8d91-99528ea12efc",
+  "revision": 0,
+  "last_node_id": 43,
+  "last_link_id": 66,
   "nodes": [
     {
-      "id": 16,
-      "type": "KSamplerSelect",
+      "id": 33,
+      "type": "ShowText|pysssss",
       "pos": [
-        815,
-        259
+        -280.0440673828125,
+        315.7345886230469
       ],
       "size": [
-        315,
-        58
+        210,
+        3926
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 65
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Theme",
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "🧺 50s Commercial",
+        "🎨 Abstract",
+        "📺 Animation Cartoon",
+        "🎌 Anime",
+        "🏛️ Architectural",
+        "🖼️ Binet Surreal",
+        "🧬 Bio-Organic Technology",
+        "😄 Caricature",
+        "👤 Character Designer",
+        "🦄 Chimera Animals",
+        "🐰 Chimera Cute Animals",
+        "🏮 Chinese New Year",
+        "🎄 Christmas",
+        "🎬 Cinema Studio",
+        "🏺 Clay Art",
+        "📚 Comic Book",
+        "🎨 Concept Art",
+        "🖍️ Crayon Art",
+        "💎 Crystalpunk",
+        "🍳 Culinary/Food",
+        "👗 Curvy Fashion",
+        "🌆 Cyberpunk",
+        "👹 Dia de los Muertos",
+        "💻 Digital Art",
+        "💠 Dimension 3D",
+        "🎡 Disney",
+        "🎬 Dreamworks",
+        "🎲 Dynamic Random",
+        "🐰 Easter",
+        "✨ Enchanted Fantasy",
+        "📸 Essential Realistic",
+        "🕰️ Essential Vintage",
+        "💫 Ethereal Dreams",
+        "🔬 Experimental Art",
+        "⚔️ Fantasy",
+        "⚔️ Futuristic Battlefield",
+        "🌃 Futuristic City",
+        "🌆 Futuristic City Metropolis",
+        "🚀 Futuristic Sci-Fi",
+        "🍃 Ghibli",
+        "🎃 Halloween",
+        "👻 Halloween Ethereal",
+        "🏛️ Historical Monuments",
+        "👻 Horror",
+        "🎨 Impressionist",
+        "📱 Instagram",
+        "📱 Instagram Lifestyle",
+        "🏠 Interior Spaces",
+        "🎯 Logo",
+        "📚 Manga Panel",
+        "🦸 Marvel",
+        "🔬 Microscopic",
+        "⬜ Minimalist",
+        "⚔️ Miura Dark Fantasy",
+        "🌿 Nature",
+        "🎆 New Year's Eve",
+        "🎬 Nolan Epic",
+        "🕴️‍♂️ Peaky Blinders",
+        "💫 Pixar",
+        "🌪️ Post Apocalyptic",
+        "🧩 Puzzle Dimension",
+        "📚 School Manga",
+        "🚀 Sci-Fi",
+        "📱 Selfie",
+        "💗 Spectral Mist",
+        "🍀 St. Patrick's Day",
+        "🚀 Star Wars",
+        "⚙️ Steampunk",
+        "🎭 Stop Motion",
+        "🥙 Street Food Kebab",
+        "🦃 Thanksgiving",
+        "🌊 Underwater Civilization",
+        "🏙️ Urban Tag",
+        "💘 Valentine's Day",
+        "🏠 Village World",
+        "📸 Vintage 1800s Photography",
+        "👴 Vintage Anthropomorphic",
+        "🎨 Watercolor"
+      ]
+    },
+    {
+      "id": 43,
+      "type": "IsulionMultiplePromptGenerator",
+      "pos": [
+        -843.2169189453125,
+        235.86248779296875
+      ],
+      "size": [
+        519,
+        2466
       ],
       "flags": {},
       "order": 0,
@@ -19,470 +137,126 @@
       "inputs": [],
       "outputs": [
         {
-          "name": "SAMPLER",
-          "type": "SAMPLER",
-          "links": [
-            19
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSamplerSelect"
-      },
-      "widgets_values": [
-        "euler"
-      ]
-    },
-    {
-      "id": 5,
-      "type": "EmptyLatentImage",
-      "pos": [
-        830,
-        540
-      ],
-      "size": [
-        315,
-        106
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "width",
-          "type": "INT",
-          "link": 51,
-          "widget": {
-            "name": "width"
-          }
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "link": 52,
-          "widget": {
-            "name": "height"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            23
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        768,
-        768,
-        1
-      ]
-    },
-    {
-      "id": 17,
-      "type": "BasicScheduler",
-      "pos": [
-        820,
-        370
-      ],
-      "size": [
-        315,
-        106
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 49,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SIGMAS",
-          "type": "SIGMAS",
-          "links": [
-            20
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "BasicScheduler"
-      },
-      "widgets_values": [
-        "ddim_uniform",
-        39,
-        1
-      ]
-    },
-    {
-      "id": 34,
-      "type": "FluxResolutionNode",
-      "pos": [
-        490,
-        540
-      ],
-      "size": [
-        315,
-        170
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "width",
-          "type": "INT",
-          "links": [
-            51
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": [
-            52
-          ],
-          "slot_index": 1
-        },
-        {
-          "name": "resolution",
+          "name": "positive",
+          "shape": 6,
           "type": "STRING",
-          "links": null
+          "links": [
+            64
+          ]
+        },
+        {
+          "name": "name",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            65
+          ]
         }
       ],
       "properties": {
-        "Node name for S&R": "FluxResolutionNode"
+        "cnr_id": "comfyui_isulion",
+        "ver": "5.1.1",
+        "Node name for S&R": "IsulionMultiplePromptGenerator"
       },
       "widgets_values": [
-        "1.0",
-        "16:9 (Panorama)",
+        "All Themes",
+        "",
+        "",
+        827896175566896,
+        "randomize",
         false,
-        "1:1"
-      ]
-    },
-    {
-      "id": 12,
-      "type": "UNETLoader",
-      "pos": [
-        460,
-        240
-      ],
-      "size": [
-        315,
-        82
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            49,
-            50
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "UNETLoader"
-      },
-      "widgets_values": [
-        "flux1-dev-fp8.safetensors",
-        "fp8_e5m2"
-      ]
-    },
-    {
-      "id": 13,
-      "type": "SamplerCustomAdvanced",
-      "pos": [
-        1220,
-        230
-      ],
-      "size": [
-        355.20001220703125,
-        106
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "noise",
-          "type": "NOISE",
-          "link": 37,
-          "slot_index": 0
-        },
-        {
-          "name": "guider",
-          "type": "GUIDER",
-          "link": 30,
-          "slot_index": 1
-        },
-        {
-          "name": "sampler",
-          "type": "SAMPLER",
-          "link": 19,
-          "slot_index": 2
-        },
-        {
-          "name": "sigmas",
-          "type": "SIGMAS",
-          "link": 20,
-          "slot_index": 3
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 23,
-          "slot_index": 4
-        }
-      ],
-      "outputs": [
-        {
-          "name": "output",
-          "type": "LATENT",
-          "links": [
-            24
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "denoised_output",
-          "type": "LATENT",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "SamplerCustomAdvanced"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 22,
-      "type": "BasicGuider",
-      "pos": [
-        830,
-        140
-      ],
-      "size": [
-        241.79998779296875,
-        46
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 50,
-          "slot_index": 0
-        },
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 40,
-          "slot_index": 1
-        }
-      ],
-      "outputs": [
-        {
-          "name": "GUIDER",
-          "type": "GUIDER",
-          "links": [
-            30
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "BasicGuider"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 10,
-      "type": "VAELoader",
-      "pos": [
-        1260,
-        410
-      ],
-      "size": [
-        315,
-        58
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            12
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "ae.sft"
-      ]
-    },
-    {
-      "id": 8,
-      "type": "VAEDecode",
-      "pos": [
-        1610,
-        350
-      ],
-      "size": [
-        210,
-        46
-      ],
-      "flags": {
-        "collapsed": true
-      },
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 24
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 12
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            9
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 6,
-      "type": "CLIPTextEncode",
-      "pos": [
-        -290,
-        160
-      ],
-      "size": [
-        470,
-        140
-      ],
-      "flags": {
-        "collapsed": true
-      },
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 41
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 59,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            40
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "Front view of a futuristic Ferrari sport car from cyberpunk 2077, licence plate is \"Mouge\" licence plate is french with departement 67, mouvement, smoke, drip, sliping, paradise tropical island road, bokhe background"
-      ]
-    },
-    {
-      "id": 27,
-      "type": "DualCLIPLoaderGGUF",
-      "pos": [
-        -650,
-        50
-      ],
-      "size": [
-        315,
-        106
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            41
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DualCLIPLoaderGGUF"
-      },
-      "widgets_values": [
-        "converted-flan-t5-xxl-Q8_0.gguf",
-        "clip_l.safetensors",
-        "flux"
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "[Animation & Entertainment]"
       ]
     },
     {
@@ -493,339 +267,127 @@
         240
       ],
       "size": [
-        480,
-        1240
+        1173.2171630859375,
+        4246
       ],
       "flags": {},
-      "order": 10,
+      "order": 1,
       "mode": 0,
       "inputs": [
         {
           "name": "text",
           "type": "STRING",
-          "link": 60,
-          "widget": {
-            "name": "text"
-          }
+          "link": 64
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "title": "Prompt",
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "",
-        "((Studio Ghibli style A funny cat with big pink round sunglasses)), ((whimsical character design)), ((gentle expression)), ((charming details)), ((Miyazaki inspired)), in ((magical Ghibli-style rollercoaster)), ((soft lighting)), ((enchanted atmosphere)), ((stunning background detail)), ((Studio Ghibli art style)), ((featuring whimsical animation)), ((with expressive character animation)), ((hand-drawn quality)), ((perfect color palette)), ((masterful composition)), ((traditional animation)), 8k resolution, with ((magical nature spirits)), ((enchanted magical dust)), ((gentle glow)), ((natural elements)), ((Ghibli magic)), ((whimsical atmosphere))",
-        "((masterful anime rendition)) of A funny cat with big pink round sunglasses, ((perfect anime character design)), ((expressive anime features)), ((professional manga style)), ((character appeal)), ((detailed anime aesthetics)), ((dynamic pose)), in ((beautifully rendered anime rollercoaster)) with ((perfect background detail)), ((anime atmosphere)), ((environmental storytelling)), ((scene composition)), ((manga-style background)), ((artistic excellence)), ((masterfully rendered in experimental anime anime style)), ((inspired by MAPPA quality)), ((perfect line art)), ((professional cel shading)), ((vibrant anime colors)), ((detailed highlights)), ((artistic excellence)), ((flawless composition)), 8k resolution, with ((perfect anime starry effect effects)), ((masterful dramatic and intense atmosphere)), ((beautiful warm sunlight)), ((dramatic shadows)), ((anime visual excellence)), ((perfect detail)), ((artistic mastery))",
-        "((masterful portrait)) of A funny cat with big pink round sunglasses, charismatic, with expressive expression, in dynamic pose, showing emotional emotion, with unique trait, ((perfect character design)), ((highly detailed)), in ((detailed rollercoaster)) during dramatic lighting, with atmospheric conditions, ((perfect environment design)), ((masterful Dreamworks animation)), ((perfect dramatic lighting)), ((beautiful vibrant colors)), ((professional quality)), ((perfect composition)), ((dramatic visual effect)), ((magical environment)), ((cinematic quality)), ((perfect rendering))",
-        "((masterful portrait)) of A funny cat with big pink round sunglasses, charming, with mischievous grin expression, in dynamic pose, showing determined courage emotion, with unique trait, ((perfect character design)), ((highly detailed)), in ((detailed rollercoaster)) during dramatic lighting, with atmospheric conditions, ((perfect environment design)), ((masterful Pixar animation)), ((perfect dramatic lighting)), ((beautiful vibrant colors)), ((professional quality)), ((perfect composition)), ((dramatic visual effect)), ((playful mood)), ((cinematic quality)), ((perfect rendering))",
-        "((comic book illustration:1.4)), A funny cat with big pink round sunglasses, ((in defensive:1.2)), ((with glowing mask:1.2)), ((comic book art:1.3)), ((comic book character:1.3)), ((bold comic linework:1.2)), ((strong inks:1.2)), ((in dramatic rollercoaster:1.3)), ((comic book panel:1.4)), ((with action frames:1.2)), ((comic book background:1.3)), ((dynamic composition:1.2)), ((comic book style:1.4)), ((mainstream epic:1.3)), ((with detailed crosshatching:1.2)), ((comic book coloring:1.3)), ((comic book shading:1.2)), ((strong blacks:1.2)), ((comic book effects:1.3)), ((with dimensional tear:1.2)), ((dramatic shadows:1.2)), ((comic book rendering:1.3)), ((high contrast:1.2))",
-        "((professional black and white manga illustration)) of ((A funny cat with big pink round sunglasses)), ((perfect manga character design)), ((authentic japanese school life)), ((masterful ink technique)), ((dynamic pose)), ((expressive features)), ((detailed school uniform)), ((clean linework)), ((high contrast rendering)), ((professional manga quality)), ((technical excellence)), in ((detailed manga rollercoaster)) with ((precise architectural linework)), ((perfect perspective control)), ((clean background separation)), ((professional environmental detail)), ((masterful spatial depth)), ((authentic japanese architecture)), ((sharp background contrast)), ((technical background excellence)), ((manga environmental mastery)), ((professional manga technique)), ((masterful school mystery style)), ((with perfect window reflections)), ((using motion blur effects)), ((featuring ambient occlusion)), ((perfect hatching control)), ((technical black and white mastery)), ((clean line confidence)), ((sharp value contrast)), ((professional manga artwork)), ((authentic japanese manga style)), ((technical excellence)), 8k resolution, perfect details, with ((precise line weight control)), ((perfect special effects)), ((masterful school festivals)), ((authentic cultural pride)), ((featuring contour hatching)), ((perfect shadow definition)), ((masterful cross-hatching technique)), ((clean edge separation)), ((professional black and white contrast)), ((technical precision)), ((sharp detail rendering)), ((clear tonal hierarchy))",
-        "((masterful cartoon rendition)) of A funny cat with big pink round sunglasses, ((perfectly animated character)), ((expressive design excellence)), ((professional cartoon style)), ((character appeal)), ((animation quality)), in ((masterfully animated rollercoaster)) with ((perfect cartoon setting)), ((animation excellence)), ((environmental storytelling)), ((scene composition)), ((background detail)), ((masterfully rendered in classic cartoon style)), ((using professional expressive animation technique)), ((perfect cartoon aesthetics)), ((animation mastery)), ((vibrant color palette)), ((artistic excellence)), ((flawless composition)), 8k resolution, with ((perfect cartoon swirl effects)), ((masterful cheerful mood)), ((animation energy)), ((cartoon excellence)), ((visual appeal)), ((professional finish)), ((artistic mastery))",
-        "((manga panel of A funny cat with big pink round sunglasses)), ((manga art style)), ((comic panel)), ((japanese comic)), in ((manga rollercoaster)) with ((comic panel setting)), ((manga environment)), ((styled as manga art)), ((comedic atmosphere)), ((comic panel aesthetic)), ((manga design)), ((japanese comic style)), with ((emotion symbols)), ((manga atmosphere)), ((comic panel effects)), ((manga environment))"
-      ]
-    },
-    {
-      "id": 33,
-      "type": "ShowText|pysssss",
-      "pos": [
-        -260,
-        240
-      ],
-      "size": [
-        210,
-        1240
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 61,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": null,
-          "shape": 6
-        }
-      ],
-      "title": "Theme",
-      "properties": {
-        "Node name for S&R": "ShowText|pysssss"
-      },
-      "widgets_values": [
-        "",
-        "🍃 Ghibli",
-        "🎌 Anime",
-        "🎬 Dreamworks",
-        "💫 Pixar",
-        "📚 Comic Book",
-        "📚 School Manga",
-        "📺 Animation Cartoon",
-        "📺 Manga Panel"
-      ]
-    },
-    {
-      "id": 42,
-      "type": "IsulionMultiplePromptGenerator",
-      "pos": [
-        -770,
-        220
-      ],
-      "size": [
-        453.5999755859375,
-        316
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "positive",
-          "type": "STRING",
-          "links": [
-            59,
-            60
-          ],
-          "shape": 6
-        },
-        {
-          "name": "name",
-          "type": "STRING",
-          "links": [
-            61
-          ],
-          "shape": 6
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "IsulionMultiplePromptGenerator"
-      },
-      "widgets_values": [
-        "Theme Category",
-        "A funny cat with big pink round sunglasses",
-        "rollercoaster",
-        "enable",
-        "🎨 Abstract\n🎌 Anime\n🌆 Cyberpunk",
-        "Animation & Comics",
-        240173400551327,
-        "randomize"
-      ]
-    },
-    {
-      "id": 25,
-      "type": "RandomNoise",
-      "pos": [
-        790,
-        0
-      ],
-      "size": [
-        315,
-        82
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 6,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "NOISE",
-          "type": "NOISE",
-          "links": [
-            37
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "RandomNoise"
-      },
-      "widgets_values": [
-        293307634853485,
-        "randomize"
-      ]
-    },
-    {
-      "id": 9,
-      "type": "SaveImage",
-      "pos": [
-        1790,
-        10
-      ],
-      "size": [
-        980,
-        1170
-      ],
-      "flags": {},
-      "order": 15,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 9
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "SaveImage"
-      },
-      "widgets_values": [
-        "Isulion_ComfyUI"
+        "(whisper-quiet, cooling) electric fan, (bustling, chrome-filled) soda fountain, (wholesome, idealized) Norman Rockwell commercial style, (bold, dynamic) retro commercial art, (comforting, familiar) nostalgic atmosphere, (wholesome, idealized) nuclear family aesthetic",
+        "((masterful abstract fluid composition)) with ((dynamic expanding)), ((featuring harmonious neon color scheme)), ((sophisticated minimalist design)), ((perfect geometric harmony)), ((artistic excellence)), ((compositional balance)), in ((artistically textured fabric space)) with ((intricate geometric elements)), ((perfect spatial composition)), ((sophisticated dimensional depth)), ((abstract environment mastery)), ((harmonious background)), ((masterful de stijl execution)), ((abstract art excellence)), ((sophisticated minimalist aesthetic)), ((perfect geometric precision)), ((enhanced with professional digital painting)), ((artistic mastery)), ((flawless composition)), ((color harmony)), 8k resolution, with ((dynamic shadow effect)), ((sophisticated abstract patterns)), ((perfect geometric flow)), ((harmonious minimalist elements)), ((masterful artistic finish)), ((visual excellence)), ((abstract perfection))",
+        "((masterful cartoon villain)) with ((perfect joy expression)), ((in dynamic dancing)), ((professional animated character)), ((expert cartoon style)), ((perfect pose execution)), ((character appeal)), ((animation excellence)), in ((masterfully animated magical world)) with ((perfectly detailed magical quills that write by themselves)), ((expert cartoon environment)), ((professional animated setting)), ((whimsical atmosphere)), ((perfect background composition)), ((scene detail)), ((masterfully rendered in fantasy animation style)), ((using professional squash and stretch technique)), ((perfect cartoon aesthetics)), ((animation mastery)), ((vibrant color palette)), ((artistic excellence)), ((flawless composition)), 8k resolution, with ((perfect cartoon swirl effects)), ((masterful fun mood)), ((animation energy)), ((cartoon excellence)), ((visual appeal)), ((professional finish)), ((artistic mastery))",
+        "((masterful anime fantasy hero)) with ((perfect angry scowl expression)), ((in dynamic running pose)), ((wearing detailed formal wear)), ((professional anime style)), ((perfect character design)), ((expressive features)), ((anime excellence)), in ((beautifully rendered anime Japanese high school)) during ((dramatic golden hour)) with ((perfect winter snowfall effects)), ((detailed background)), ((anime atmosphere)), ((perfect scene composition)), ((artistic excellence)), ((masterfully rendered in seinen style anime style)), ((inspired by MAPPA quality)), ((perfect line art)), ((professional cel shading)), ((vibrant anime colors)), ((detailed highlights)), ((artistic excellence)), ((flawless composition)), 8k resolution, with ((perfect anime floating particles effects)), ((masterful epic and grand atmosphere)), ((beautiful dramatic backlight)), ((dramatic shadows)), ((anime visual excellence)), ((perfect detail)), ((artistic mastery))",
+        "((masterful architectural photography)) of ((magnificent renaissance palace)), ((in gothic style)), ((featuring public spaces)), ((perfect architectural composition)), ((structural excellence)), ((design mastery)), ((geometric precision)), in ((professionally composed historic district)) during ((dramatic night)) with ((perfect dramatic clouds conditions)), ((architectural context)), ((spatial harmony)), ((environmental mastery)), ((urban excellence)), ((masterfully captured using 3D modeling)), ((perfect three-quarter view perspective)), ((architectural photography)), ((professional lighting)), ((structural clarity)), ((design excellence)), ((technical mastery)), ((flawless composition)), 8k resolution, with ((perfect architectural reflection)), ((masterful mood lighting lighting)), ((beautiful sophisticated)), ((dramatic shadows)), ((structural detail)), ((professional finish)), ((visual excellence))",
+        "((masterful noble portrait)) of a ((distinguished pelican)) as a ((noble master strategist)), ((wearing ornate military uniform and decorated military coat)), ((adorned with military medals and decorations)), ((aristocratic pose)), ((noble expression)), ((photorealistic detail)), ((dramatic studio lighting)), in emerald green and gold tones, ((professional photography)), in ((elegant studio setting)) with period furniture, ((subtle gradient background)), ((professional lighting setup)), ((clean composition)), ((masterful oil painting technique)), ((photorealistic detail)), ((professional studio photography)), ((sharp focus)), ((perfect composition)), ((dramatic lighting)), ((rich color grading)), ((elegant aesthetics)), 8k resolution, ((award-winning portrait)), with ((dramatic shadows)), ((perfect exposure)), ((volumetric lighting)), ((subtle vignette)), ((rich contrast)), ((color harmony)), ((professional retouching)), ((gallery quality))",
+        "((bio-organic hybrid)) with ((organic core)), ((featuring living displays)), ((biomechanical design)), ((living technology)), ((organic machinery)), in ((bio-organic laboratory)) with ((organic growth)), ((living technology)), ((biomechanical surroundings)), ((organic tech environment)), ((rendered in living machine style)), ((with organic flow aesthetic)), ((bio-organic design)), ((living tech artistry)), ((organic machinery aesthetics)), with ((bio-organic synthesis effects)), ((organic synthetic energy)), ((living tech glow)), ((biomechanical aura))",
+        "((exaggerated caricature)) of ((humorous chef)), ((with over-the-top shock expression)), ((in dramatic posture)), ((comical proportions)), ((expressive features)), ((cartoon style)), in ((whimsical humorous stage)) with ((humorous exaggerated tools)), ((playful atmosphere)), ((comic scene)), ((drawn in comic book style)), ((using whimsical coloring technique)), ((exaggerated art)), ((comic artistry)), ((professional caricature)), with ((humorous comic sparkles effects)), ((exaggerated accessories)), ((comic charm)), ((playful energy))",
+        "((masterful portrait)) of athlete as a skilled physician, showing great dignity, ((wearing Techno-Egyptian style elegant formal wear)), ((detailed symbolic items)), ((perfect character design)), ((expressive features)), ((professional quality)), ((character excellence)), in ((detailed Techno-Egyptian garden)) during mysterious twilight, ((with regal atmosphere)), ((period-accurate details)), ((environmental storytelling)), ((perfect composition)), ((masterful oil painting)), ((perfect professional studio lighting)), ((beautiful period-appropriate color palette)), ((high detail)), ((professional quality)), ((dramatic fine details)), ((character focus)), ((subtle details)), ((perfect rendering))",
+        "a majestic and powerful chimera creature with ((the head of a swan)) and ((the body of a baboon)), ((detailed creature anatomy)), ((realistic animal features)), ((natural pose)), ((dynamic composition)), ((ultra-realistic)), ((masterful photography)), ((perfect lighting)), 8k resolution, in ((a majestic sacred grove)) during ((dusk)) with ((mystical fog)), ((natural habitat)), ((atmospheric environment)), ((perfect composition)), ((wildlife photography)), ((ultra-detailed)), ((perfect exposure)), ((dramatic composition)), ((photorealistic quality)), ((natural detail)), ((masterful technique)), with ((natural lighting)), ((volumetric atmosphere)), ((perfect shadows)), ((depth of field)), ((cinematic mood)), ((photographic excellence))",
+        "((cute baby monkey with candy stripes)), ((featuring glitter spots)), ((adorable hybrid)), ((kawaii creature)), ((magical pet)), in ((cute crystal garden)) with ((adorable crystal flowers)), ((kawaii setting)), ((magical surroundings)), ((charming realm)), ((rendered in kawaii style)), ((with kawaii aesthetic)), ((kawaii design)), ((adorable artistry)), ((cute quality)), with ((magical glitter effects)), ((adorable starry aura)), ((kawaii energy)), ((cute glow))",
+        "((vibrant Chinese New Year scene)) of ((a cultural celebrant)), ((wearing traditional Chinese dress) ), ((with lucky red envelope) ), in traditional red and gold colors, ((cultural celebration)), ((festive magic)), in ((a magical festival ground)), ((illuminated by traditional cultural lighting)), ((cultural atmosphere)), ((Chinese New Year setting)), ((traditional landscape)), ((moment of renewal)), ((celebratory Chinese New Year artwork)), ((traditional Chinese illustration style)), ((cultural painting technique)), ((festive composition)), ((auspicious color palette)), ((joyful holiday mood)), ((cultural celebration quality)), ((artistic cultural rendering)), 8k resolution, ((magical cultural lighting)), with ((magical festive glow)), ((warm cultural light)), ((floating red lanterns)), ((cultural sparkle)), ((jubilant atmosphere)), ((festive magic)), ((zodiac shimmer)), ((dynamic cultural effects))",
+        "((festive Christmas scene)) of ((a cheerful elf)), ((wearing holiday-themed apron)), ((with golden bells with red ribbons)), ((enjoying warm apple cider)), ((surrounded by handmade paper snowflakes)), in classic red and gold colors, ((holiday spirit)), ((Christmas magic)), in ((a magical cozy fireplace with stockings)), ((illuminated by sparkly tinsel shine)), with ((beautiful gently falling snow)), ((holiday atmosphere)), ((Christmas decorations)), ((winter wonderland)), ((traditional Christmas artwork)), ((festive holiday style)), ((professional photography)), ((perfect composition)), ((holiday color palette)), ((seasonal charm)), ((Christmas card quality)), ((warm holiday atmosphere)), 8k resolution, ((masterful lighting)), with ((magical Christmas glow)), ((soft winter light)), ((twinkling holiday lights)), ((gentle snow effects)), ((warm festive atmosphere)), ((seasonal magic)), ((Christmas sparkle)), ((cozy holiday ambiance))",
+        "((cinematic extras in wide shot)), ((featuring costume design)), ((professional film quality)), ((movie production)), ((studio cinematography)), in ((cinematic sound stage)) with ((studio effects)), ((film set)), ((production background)), ((movie environment)), ((filmed in feature film style)), ((using practical effects technique)), ((cinematic quality)), ((studio production)), ((professional filming)), with ((cinematic special effects)), ((studio practical lighting)), ((film grade)), ((production finish))",
+        "((clay art statue with etched texture)), ((featuring incised lines)), ((sculpted figure)), ((ceramic design)), ((moldable creation)), in ((clay art pottery)) with ((ceramic supplies)), ((sculpted environment)), ((moldable surroundings)), ((pottery world)), ((rendered in sculptural style)), ((using pinching technique)), ((ceramic design)), ((clay artistry)), ((sculptural quality)), with ((clay art decorated effects)), ((ceramic decorated finish)), ((sculptural texture)), ((pottery surface))",
+        "((comic book illustration:1.4)), civilian, ((in running:1.2)), ((with power gauntlets:1.2)), ((comic book art:1.3)), ((comic book character:1.3)), ((bold comic linework:1.2)), ((strong inks:1.2)), ((in dramatic dystopian skyline:1.3)), ((comic book panel:1.4)), ((with time dilation effects:1.2)), ((comic book background:1.3)), ((dynamic composition:1.2)), ((comic book style:1.4)), ((underground gritty:1.3)), ((with dramatic hatching:1.2)), ((comic book coloring:1.3)), ((comic book shading:1.2)), ((strong blacks:1.2)), ((comic book effects:1.3)), ((with psychic wave:1.2)), ((dramatic shadows:1.2)), ((comic book rendering:1.3)), ((high contrast:1.2))",
+        "((concept art sentient structure with sci-fi design)), ((featuring visual interest)), ((design visualization)), ((concept design)), ((pre-production art)), in ((concept art dimension)) with ((design architecture)), ((visualization environment)), ((concept background)), ((pre-production setting)), ((rendered in realistic style)), ((using 3D rendering technique)), ((concept design)), ((visualization artistry)), ((pre-production quality)), with ((concept art depth effects)), ((design dramatic mood)), ((visualization impact)), ((pre-production finish))",
+        "((crayon art illustration in mixed colors)), ((featuring stick figures)), ((childlike drawing)), ((crayon sketch)), ((hand-drawn creation)), in ((crayon art amusement park)) with ((childlike trees)), ((hand-drawn environment)), ((crayon background)), ((sketched surroundings)), ((rendered in naive style)), ((using blending technique)), ((childlike art)), ((crayon artistry)), ((hand-drawn quality)), with ((crayon art rough effects)), ((childlike patchy texture)), ((hand-drawn style)), ((sketched finish))",
+        "((crystalpunk crystal-shaper with crystal crystals)), ((featuring crystal nodes)), ((crystalline design)), ((gemstone aesthetic)), ((mineral-tech fusion)), in ((crystalpunk mineral labs)) with ((crystalline devices)), ((gemstone environment)), ((mineral background)), ((crystal-tech world)), ((rendered in mineral-fusion style)), ((using crystal-binding technique)), ((crystalline design)), ((gemstone artistry)), ((mineral-tech quality)), with ((crystalpunk gem-radiance effects)), ((crystalline gem-like lighting)), ((gemstone glow)), ((mineral-tech radiance))",
+        "((culinary appetizer from Indian cuisine)), ((featuring sauce presentation)), ((food photography)), ((gourmet presentation)), ((professional food styling)), in ((culinary bistro)) with ((food accessories)), ((professional staging)), ((culinary background)), ((gourmet environment)), ((styled in artistic manner)), ((using color balancing technique)), ((culinary artistry)), ((food styling)), ((professional presentation)), with ((culinary frost effects)), ((food backlit lighting)), ((gourmet quality)), ((professional finish))",
+        "((curvy fashion hourglass-shaped model wearing designer outfit)), ((featuring confidence)), ((plus size model)), ((body positive)), ((fashion photography)), in ((fashion photo shoot)) with ((fashion set design)), ((professional setting)), ((fashion backdrop)), ((studio environment)), ((styled in haute couture fashion)), ((using commercial look technique)), ((fashion photography)), ((professional styling)), ((body positive representation)), with ((fashion professional effects)), ((studio professional lighting)), ((professional finish)), ((fashion quality))",
+        "((masterful cyberpunk art)) of ((a cyber detective)), ((equipped with retinal enhancements)), ((using plasma weapons)), ((neo-noir style)), ((cyber-enhanced)), ((high-tech dystopian)), ((urban tech)), in ((a synthetic snow data den)) with ((massive holographic billboards)), ((cyberpunk cityscape)), ((neon-lit streets)), ((corporate towers)), ((urban decay)), ((high-tech low-life)), ((rendered in tech noir style)), ((with retrofuturistic aesthetics)), ((tech-glow color scheme)), ((cyberpunk mood)), ((urban tech)), ((neon lighting)), ((chrome reflections)), ((digital distortion)), ((masterful execution)), ((cyber-noir atmosphere)), 8k resolution, ultra detailed, ray tracing, volumetric lighting, with ((intense holographic glitch)), ((dynamic neural patterns)), ((cyberpunk atmosphere)), ((neon accents)), ((digital distortion)), ((tech noir effects)), ((urban decay)), ((cyber-noir mastery))",
+        "((vibrant Dia de los Muertos scene)) of ((a festive skeleton)), ((wearing traditional Mexican dress) ), ((with candle offering) ), in vibrant Mexican colors colors, ((cultural celebration)), ((spiritual magic)), in ((a magical Mexican plaza)), ((illuminated by candlelight)), ((cultural atmosphere)), ((Dia de los Muertos setting)), ((Mexican landscape)), ((moments of remembrance)), ((celebratory Dia de los Muertos artwork)), ((Mexican illustration style)), ((traditional painting technique)), ((cultural composition)), ((vibrant color palette)), ((spiritual holiday mood)), ((cultural celebration quality)), ((artistic cultural rendering)), 8k resolution, ((magical cultural lighting)), with ((magical spiritual glow)), ((warm cultural light)), ((floating marigold petals)), ((cultural sparkle)), ((spiritual atmosphere)), ((cultural magic)), ((remembrance shimmer)), ((dynamic cultural effects))",
+        "((experimental structure exploring duality)), ((using generative algorithms)), ((avant-garde)), ((innovative)), ((unconventional approach)), in ((experimental data landscape)) with ((innovative vectors)), ((abstract environment)), ((avant-garde atmosphere)), ((unconventional space)), ((styled with experimental approach)), ((using neural processing method)), ((experimental aesthetic)), ((innovative artistry)), ((avant-garde quality)), with ((experimental evolution effects)), ((innovative computational textures)), ((avant-garde finish)), ((unconventional treatment))",
+        "((3D robot in realistic style)), ((featuring modeling)), ((3D modeling)), ((dimensional design)), ((3D rendering)), in ((3D environment)) with ((3D props)), ((dimensional environment)), ((3D space)), ((rendered world)), ((rendered in non-photorealistic style)), ((using parametric design technique)), ((3D quality)), ((dimensional artistry)), ((professional 3D)), with ((3D motion blur effects)), ((dimensional soft lighting)), ((3D finish)), ((render quality))",
+        "((masterful Disney style portrait)) of character, dynamic gestures, ((with magical swirls)), ((holding magic wand)), ((in Disney Renaissance)), ((perfect character design)), ((Disney animation excellence)), ((magical quality)), ((romantic expression)), in ((detailed charming cottage)) with ((detailed whimsical structures)), ((perfect Disney environment)), ((romantic mood)), ((masterful background)), ((perfect composition)), ((Disney animation style)), ((perfect dream-like illumination)), ((beautiful enchanted forest colors)), ((high detail)), ((professional quality)), ((magical enchanted objects)), ((dreamy environment)), ((Disney magic)), ((perfect rendering))",
+        "((masterful portrait)) of dramatic character, charismatic, with expressive expression, in dynamic pose, showing emotional emotion, with unique trait, ((perfect character design)), ((highly detailed)), in ((detailed dramatic setting)) during dramatic lighting, with atmospheric conditions, ((perfect environment design)), ((masterful Dreamworks animation)), ((perfect dramatic lighting)), ((beautiful vibrant colors)), ((professional quality)), ((perfect composition)), ((dramatic visual effect)), ((dramatic mood)), ((cinematic quality)), ((perfect rendering))",
+        "((futuristic unit wielding quantum weapon)), ((equipped with nano-enhancement)), ((advanced warfare)), ((high-tech combat)), ((military technology)), in ((futuristic command center)) with ((advanced technology)), ((war-torn environment)), ((combat zone)), ((military installation)), ((styled with high-tech aesthetic)), ((featuring cybernetic battle design)), ((military precision)), ((advanced technology)), ((futuristic warfare)), with ((futuristic holographic effects)), ((combat strategic atmosphere)), ((battlefield ambiance)), ((war-torn environment))",
+        "((adorable Easter scene)) of ((a cute bunny)), ((wearing soft ribbon) ), ((with chocolate treats) ), in pastel colors, ((spring spirit)), ((Easter magic)), in ((a magical countryside field)), ((illuminated by gentle spring sunlight)), ((spring blossoms)), ((Easter atmosphere)), ((colorful spring landscape)), ((renewal of life)), ((whimsical Easter artwork)), ((spring illustration style)), ((soft watercolor technique)), ((delicate painting)), ((pastel color palette)), ((cheerful holiday mood)), ((Easter card quality)), ((gentle artistic rendering)), 8k resolution, ((magical spring lighting)), with ((magical spring glow)), ((soft pastel light)), ((floating spring petals)), ((gentle egg sparkle)), ((warm Easter atmosphere)), ((spring magic)), ((Easter egg shimmer)), ((delicate nature effects))",
+        "((enchanted forest guardian from mystic valley)), ((featuring enchanted armor)), ((magical being)), ((fantasy creature)), ((mystical character)), in ((enchanted ethereal sanctuary)) with ((magical arcane symbols)), ((fantasy environment)), ((mystical world)), ((enchanted realm)), ((styled with legendary artwork magic)), ((using fairy glamour powers)), ((enchanted artistry)), ((fantasy aesthetic)), ((magical quality)), with ((magical ethereal glow effects)), ((enchanted mystical aura)), ((mystical atmosphere)), ((fantasy ambiance))",
+        "((realistic scene with lifelike qualities)), ((featuring realistic scale)), ((photorealistic)), ((true to life)), ((natural appearance)), in ((realistic true setting)) with ((natural perspective)), ((authentic environment)), ((true setting)), ((real world atmosphere)), ((captured in documentary style)), ((using accurate exposure technique)), ((photorealistic quality)), ((authentic representation)), ((natural rendering)), with ((realistic surface effects)), ((natural authentic lighting)), ((true to life)), ((authentic finish))",
+        "((vintage decor from victorian)), ((featuring timeless appeal)), ((retro style)), ((classic look)), ((nostalgic appearance)), in ((vintage train station)) with ((retro signage)), ((classic environment)), ((nostalgic atmosphere)), ((period accurate details)), ((styled in nostalgic manner)), ((using chromatic technique)), ((vintage aesthetic)), ((retro artistry)), ((classic quality)), with ((vintage weathering effects)), ((retro faded color tones)), ((classic finish)), ((nostalgic mood))",
+        "((crystalpunk warrior with ruby crystals)), ((featuring crystal cores)), ((crystalline design)), ((gemstone aesthetic)), ((mineral-tech fusion)), in ((crystalpunk crystal city)) with ((crystalline constructs)), ((gemstone environment)), ((mineral background)), ((crystal-tech world)), ((rendered in mineral-fusion style)), ((using mineral-smithing technique)), ((crystalline design)), ((gemstone artistry)), ((mineral-tech quality)), with ((crystalpunk mineral-flare effects)), ((crystalline gleaming lighting)), ((gemstone glow)), ((mineral-tech radiance))",
+        "((experimental composition exploring emergence)), ((using data visualization)), ((avant-garde)), ((innovative)), ((unconventional approach)), in ((experimental data landscape)) with ((innovative patterns)), ((abstract environment)), ((avant-garde atmosphere)), ((unconventional space)), ((styled with computational approach)), ((using artificial life method)), ((experimental aesthetic)), ((innovative artistry)), ((avant-garde quality)), with ((experimental glitch effects)), ((innovative quantum textures)), ((avant-garde finish)), ((unconventional treatment))",
+        "((epic fantasy art)) of ((legendary ancient wizard)), ((as a powerful mystical druid)), ((with mystical majestic dragon)), ((perfect character design)), ((fantasy excellence)), ((magical presence)), ((mythical mastery)), in ((magical enchanted forest)) with ((majestic ethereal palaces)) during ((mystical magical storm)), ((perfect fantasy atmosphere)), ((magical realm)), ((ethereal surroundings)), ((fantasy excellence)), ((masterfully rendered in mythical fantasy style)), ((with ancient luminescence)), ((magical realism)), ((enchanted magical rainbow)), ((fantasy artistry)), ((perfect composition)), ((ethereal atmosphere)), ((mystical quality)), ((artistic excellence)), 8k resolution, RAW photo, with ((powerful mystical runes)), ((mystical energy)), ((legendary magical sword)), ((ethereal glow)), ((enchanted particles)), ((magical excellence)), ((fantasy perfection)), ((mystical mastery))",
+        "((futuristic unit wielding plasma rifle)), ((equipped with force field)), ((advanced warfare)), ((high-tech combat)), ((military technology)), in ((futuristic fortress)) with ((advanced tactical readouts)), ((war-torn environment)), ((combat zone)), ((military installation)), ((styled with mechanized aesthetic)), ((featuring military-tech design)), ((military precision)), ((advanced technology)), ((futuristic warfare)), with ((futuristic power surges effects)), ((combat chaotic atmosphere)), ((battlefield ambiance)), ((war-torn environment))",
+        "a majestic and powerful chimera creature with ((the head of a jackal)) and ((the body of a gorilla)), ((detailed creature anatomy)), ((realistic animal features)), ((natural pose)), ((dynamic composition)), ((ultra-realistic)), ((masterful photography)), ((perfect lighting)), 8k resolution, in ((a majestic crystal caverns)) during ((golden hour)) with ((gentle breeze)), ((natural habitat)), ((atmospheric environment)), ((perfect composition)), ((wildlife photography)), ((ultra-detailed)), ((perfect exposure)), ((dramatic composition)), ((photorealistic quality)), ((natural detail)), ((masterful technique)), with ((natural lighting)), ((volumetric atmosphere)), ((perfect shadows)), ((depth of field)), ((cinematic mood)), ((photographic excellence))",
+        "((crystalline android)), ((integrated with holographic displays)), ((metropolis)), ((urban future)), ((advanced cityscape)), in ((bustling metropolis)) with ((sky bridges)), during ((artificial sunset)), ((urban vista)), ((city panorama)), ((styled in clean-future)), ((floating aesthetic)), ((urban precision)), ((advanced design)), ((futuristic architecture)), with ((neon glow effects)), ((urban atmosphere)), ((city ambiance)), ((metropolitan environment))",
+        "((cyborg)), ((wielding holographic system)), ((with neural core)), ((science fiction)), ((advanced being)), in ((cosmic void)) with ((otherworldly atmosphere)), ((cosmic vista)), ((otherworldly scene)), ((styled in quantum punk)), ((quantum aesthetic)), ((sci-fi precision)), ((advanced design)), ((futuristic technology)), with ((neural patterns effects)), ((cosmic atmosphere)), ((sci-fi ambiance)), ((otherworldly environment))",
+        "((Studio Ghibli style mystical creature)), ((showing pure happiness)), ((dynamically fishing by the sea)), ((whimsical character design)), ((gentle expression)), ((Miyazaki inspired)), in ((magical Ghibli-style ancient garden)), ((during golden afternoon)), ((with ancient trees)), ((soft lighting)), ((enchanted atmosphere)), ((stunning background detail)), ((Studio Ghibli art style)), ((featuring anime watercolor)), ((with environmental storytelling)), ((hand-drawn quality)), ((perfect color palette)), ((masterful composition)), ((traditional animation)), 8k resolution, with ((magical firefly lights)), ((enchanted forest spirits)), ((gentle glow)), ((natural elements)), ((Ghibli magic)), ((whimsical atmosphere))",
+        "((spooky skeleton)) wearing ((creepy monster suit)), ((in sinister pose)), ((Halloween theme)), ((eerie presence)), ((haunting appearance)), in ((haunted haunted village)) with ((spooky ghostly apparitions)), ((Halloween atmosphere)), ((eerie setting)), ((rendered in vintage Halloween style)), ((with supernatural mood)), ((Halloween aesthetics)), ((spooky artistry)), ((haunting quality)), with ((spooky mist effects)), ((eerie jack-o'-lantern lighting)), ((Halloween ambiance)), ((haunting atmosphere))",
+        "((witch)), ((with familiar)), ((holding crystal ball)), ((halloween spirit)), ((mystical being)), in ((enchanted forest)) during ((haunted evening)) with ((otherworldly atmosphere)), ((haunted vista)), ((mystical scene)), ((styled in enchanted horror)), ((ethereal aesthetic)), ((haunting beauty)), ((mystical design)), ((supernatural elegance)), with ((haunting shadows)), ((ethereal atmosphere)), ((mystical ambiance)), ((haunted environment))",
+        "((majestic Temple of Karnak)), ((at its greatest splendor)), ((built in authentic Byzantine style)), ((during the height of Persian civilization)), ((in Baroque)), ((perfectly preserved)), ((architectural magnificence)), ((original appearance)), in ((historically accurate sacred grounds)), during ((the Age of Enlightenment)), with ((period-authentic royal procession)), ((historical accuracy)), ((bustling with period-appropriate life)), ((rich historical context)), ((cultural significance)), ((rendered in architectural illustration)), ((using detailed architectural drawing)), ((masterful architectural photography)), ((historical documentation quality)), ((supreme architectural detail)), ((perfect scale representation)), ((professional historical record)), ((8k resolution)), during ((majestic natural daylight)), ((at twilight)), with ((atmospheric historical ambiance)), ((dramatic scale)), ((awe-inspiring presence)), ((timeless beauty)), ((perfect historical preservation))",
+        "((masterfully crafted horror rendition)) of ((nightmarish cursed werewolf)), ((in a terrifying damned state)), ((with writhing in agony)), ((expressing paranoia)), ((dark and psychologically disturbing)), ((intricate macabre details)), ((unsettling anatomical features)), ((masterful horror design)), ((visceral fear)), ((primal dread)), in ((masterfully crafted horror environment)) of ((nightmarish forgotten ruins)), ((during cursed dusk)), ((with oppressive darkness atmosphere)), ((featuring crumbling ruins)), ((perfect horror atmosphere)), ((psychological tension)), ((sinister architectural details)), ((haunting mood)), ((unsettling perspective)), ((masterful environmental horror)), ((masterfully crafted horror art style)), ((featuring supernatural horror)), ((with perfect shattered windows)), ((using vignette effects)), ((enhanced by evil altar glow)), ((psychological horror aesthetics)), ((perfect horror composition)), ((masterful dramatic lighting)), ((haunting atmosphere)), ((visceral impact)), ((psychological depth)), ((horror excellence)), 8k resolution, perfect details, with ((masterful horror cursed symbols)), ((terrifying unholy relics)), ((disturbing dried blood)), ((haunting necrotic mist)), ((psychological horror elements)), ((visceral fear effects)), ((masterful horror atmosphere)), ((perfect dread)), ((unsettling details)), ((horror excellence))",
+        "((masterful impressionist painting)) of ((a cathedral facade)), ((with impasto technique)), ((pure color palette)), ((peaceful mood)), ((loose brushstrokes)), ((vibrant color impressionism)), ((light and atmosphere)), ((impressionist style)), ((artistic excellence)), ((painterly quality)), in ((an impressionist countryside)) during ((sunset)), ((with cloudy atmosphere)), ((natural light)), ((atmospheric perspective)), ((en plein air)), ((changing light effects)), ((impressionist scene)), ((painted in classic impressionist style)), ((with visible brushstrokes)), ((light-filled color palette)), ((peaceful mood)), ((masterful brushwork)), ((light capturing)), ((atmospheric quality)), ((impressionist excellence)), ((artistic mastery)), 8k resolution, oil painting, canvas texture, with ((masterful dappled light)), ((beautiful loose details)), ((impressionist light)), ((atmospheric depth)), ((painterly effects)), ((artistic excellence)), ((impressionist mastery))",
+        "((aesthetic food plate)) in ((trendy aesthetic outfit)), ((with natural expression)), ((Instagram worthy)), ((social media style)), ((influencer aesthetic)), in ((Instagram-worthy luxury hotel)) with ((aesthetic aesthetic books)), ((perfect lighting)), ((trendy setting)), ((social media background)), ((shot in contemporary style)), ((with soft glow filter)), ((Instagram aesthetics)), ((social media quality)), ((trendy photography)), with ((trendy aesthetic glow effects)), ((aesthetic vibrant mood)), ((Instagram vibes)), ((social media appeal))",
+        "((foodie traveling)), ((with yoga mat)), ((instagram aesthetic)), ((influencer style)), in ((infinity pool)) with ((urban chic design)), ((creating confident atmosphere)), ((instagram worthy)), ((lifestyle scene)), ((styled as food styling)), ((instagram aesthetic)), ((social media beauty)), ((lifestyle design)), ((influencer quality)), with ((golden hour)), ((instagram atmosphere)), ((lifestyle ambiance)), ((social media environment))",
+        "((interior of living room)), ((featuring cabinet)), ((with vases)), ((architectural interior)), ((interior design)), in ((bohemian space)) with ((track lighting)), ((featuring concrete elements)), ((interior vista)), ((designed space)), ((styled in earthy palette)), ((relaxing atmosphere)), ((interior design aesthetic)), ((architectural beauty)), ((spatial harmony)), with ((natural lighting effects)), ((interior atmosphere)), ((spatial ambiance)), ((architectural environment))",
+        "((highly detailed crystal 3D typography)) of the text \"ISULION\", ((volumetric letters)), ((dimensional depth)), ((perfect 3D modeling)), ((ultra-detailed materials)), with ((perfect lighting setup)), ((studio environment)), ((professional composition)), ((clean background)), ((premium 3D rendering)), ((perfect materials)), ((professional lighting)), ((high-end finish)), ((commercial quality)), ((volumetric effects)), ((brand identity)), 8k resolution, with ((subsurface scattering)), ((perfect shadows)), ((realistic materials)), ((professional rendering)), ((3D effects)), ((depth and volume))",
+        "((underwater deep sea being)), ((using sea crystal power)), ((with aquatic mount)), ((aquatic)), ((oceanic)), in ((kelp forest)) with ((sunken temple)), ((featuring coral formations)), ((underwater vista)), ((oceanic realm)), ((styled as ethereal)), ((underwater aesthetic)), ((aquatic design)), ((oceanic look)), ((submerged authenticity)), with ((floating particles)), ((underwater atmosphere)), ((aquatic ambiance)), ((oceanic environment))",
+        "((Marvel-style mutant)) wearing ((epic high-tech suit)), ((in battle pose)), ((superhero aesthetic)), ((comic book style)), ((dynamic pose)), in ((epic New York skyline)) with ((dramatic high-tech weapons)), ((Marvel atmosphere)), ((superhero setting)), ((comic book environment)), ((rendered in epic action style)), ((inspired by John Byrne)), ((Marvel comics aesthetics)), ((superhero art)), ((dynamic comic style)), with ((epic explosion effects)), ((dramatic cosmic power powers)), ((Marvel energy)), ((superhero impact))",
+        "((microscopic view of microorganism)) showing ((detailed cytoplasm)), ((with vesicles)), ((cellular detail)), ((molecular structure)), ((microscope magnification)), in ((microscopic cellular fluid)) with ((detailed signal cascades)), ((cellular environment)), ((molecular surroundings)), ((microscopic world)), ((rendered in phase contrast style)), ((using TIRF microscopy technique)), ((scientific visualization)), ((microscopic detail)), ((cellular aesthetics)), with ((microscopic polarization effects)), ((cellular histological stain coloring)), ((molecular visualization)), ((microscope lens effects))",
+        "((minimalist geometric shape)) with ((simple lines)), ((featuring geometric harmony)), ((clean design)), ((elegant simplicity)), ((pure form)), in ((minimalist setting)) with ((simple clarity)), ((clean space)), ((pure background)), ((minimal setting)), ((rendered in pure style)), ((with minimal aesthetic)), ((minimalist design)), ((clean artistry)), ((simple elegance)), with ((minimal contrast effects)), ((simple black tones)), ((clean finish)), ((pure lighting))",
+        "((masterfully detailed fallen angel with detailed feathers, wearing ceremonial armor with inscriptions, covered in armor with detailed etchings, featuring complex mechanical parts, with precise anatomical details)), (intricate pen work:1.3), (meticulous cross-hatching:1.2), (high detail illustration), (dramatic chiaroscuro), (extreme attention to texture:1.2), (masterful line weight variation), ((hyper-detailed environment)), cursed village lost to time, covered in layered mist effects, during eternal night with stars, with complex structural details, (intricate architectural details:1.2), (dramatic perspective), (meticulous background detail:1.3), (Kentarō Miura art style:1.3), (masterful pen and ink technique:1.2), (extreme attention to detail:1.4), (high contrast black and white:1.2), (intricate cross-hatching patterns:1.3), (meticulous line work:1.2), (dramatic shadow placement), (textural complexity:1.2), (masterful light and shadow interplay:1.3), (intricate texture layering:1.2), (detailed surface rendering), (atmospheric depth:1.2), (precise line weight variation), (micro details in shadows:1.2), (complex material textures)",
+        "((masterful landscape photograph of tranquil kelp forest)) with ((majestic forest echo)) and ((beautiful wildflower meadow)), ((during dry season)), ((breathtaking natural beauty)), ((perfect composition)), ((pristine wilderness)), ((professional landscape photography)), during ((mid-morning with frost patterns)), featuring ((impressive mineral deposits)) with ((intricate wave interference)), ((perfect natural lighting)), ((environmental harmony)), ((pristine wilderness)), ((raw natural beauty)), ((captured in hyper-detailed style)), ((using leading lines)), ((with morning rays)), ((landscape photography excellence)), ((environmental artistry)), ((perfect natural composition)), ((8k resolution)), ((professional landscape photography)), ((award-winning landscape photograph)), ((National Geographic style)), with ((natural depth layering)), ((subtle bark textures)), ((environmental authenticity)), ((natural atmosphere)), ((natural color grading)), ((pristine conditions)), ((perfect exposure)), ((sharp details)), ((rich textures))",
+        "((vibrant New Year's Eve scene)) of ((a joyful people)), ((wearing party dress) ), ((with party hat) ), in glittering metallics colors, ((celebration atmosphere)), ((festive magic)), in ((a magical elegant venue)), ((illuminated by sparkling decorations)), ((celebration atmosphere)), ((New Year's Eve setting)), ((festive landscape)), ((moment of transition)), ((celebratory New Year's artwork)), ((festive illustration style)), ((dynamic painting technique)), ((energetic composition)), ((festive color palette)), ((joyful holiday mood)), ((celebration card quality)), ((vibrant artistic rendering)), 8k resolution, ((magical celebration lighting)), with ((magical celebration glow)), ((sparkling light)), ((floating confetti)), ((fireworks sparkle)), ((jubilant atmosphere)), ((festive magic)), ((countdown shimmer)), ((dynamic celebration effects))",
+        "((epic side profile of tactical genius, fighting inner demons, questioning reality)), (intense expression), (cinematic lighting), (dramatic composition), ((epic orbital space dock, dimensional overlap, during temporal shift)), (extreme perspective), (IMAX scale), (dynamic camera movement), ((masterful practical pyrotechnics)), (symmetrical framing), (hans zimmer intensity), (high contrast), (adrenaline-pumping action), ((intense dimensional shift)), (practical wire removal), (((massive explosions))), (practical effects), (no cgi), (michael bay level explosions)",
+        "((3D scene in organic style)), ((featuring modeling)), ((3D modeling)), ((dimensional design)), ((3D rendering)), in ((3D exterior)) with ((3D props)), ((dimensional environment)), ((3D space)), ((rendered world)), ((rendered in product style)), ((using texturing technique)), ((3D quality)), ((dimensional artistry)), ((professional 3D)), with ((3D ambient occlusion effects)), ((dimensional rim lighting)), ((3D finish)), ((render quality))",
+        "((masterful portrait)) of lovable monster, charming, with proud stance expression, in dynamic pose, showing heartwarming joy emotion, with unique trait, ((perfect character design)), ((highly detailed)), in ((detailed whimsical bedroom)) during dramatic lighting, with atmospheric conditions, ((perfect environment design)), ((masterful Pixar animation)), ((perfect dramatic lighting)), ((beautiful vibrant colors)), ((professional quality)), ((perfect composition)), ((dramatic visual effect)), ((playful mood)), ((cinematic quality)), ((perfect rendering))",
+        "((post-apocalyptic wasteland warrior)), ((wearing gas mask)), ((with modified motorcycle)), ((wasteland style)), ((survival)), in ((abandoned highway)) with ((scorching sun)), ((featuring abandoned factory)), ((wasteland vista)), ((destroyed world)), ((styled as hostile)), ((post-apocalyptic aesthetic)), ((wasteland design)), ((survival look)), ((post-nuclear authenticity)), with ((atmospheric haze)), ((wasteland atmosphere)), ((post-apocalyptic ambiance)), ((destroyed environment))",
+        "((3D vehicle in photorealistic style)), ((featuring animation)), ((3D modeling)), ((dimensional design)), ((3D rendering)), in ((3D exterior)) with ((3D background)), ((dimensional environment)), ((3D space)), ((rendered world)), ((rendered in physically based style)), ((using procedural modeling technique)), ((3D quality)), ((dimensional artistry)), ((professional 3D)), with ((3D reflection effects)), ((dimensional studio lighting)), ((3D finish)), ((render quality))",
+        "((professional black and white manga illustration)) of ((authentic class president)), ((engaging in morning assembly)), ((with detailed love letter)), ((wearing technically detailed student council uniform)), ((showing angry pout)), ((with bold outlines)), ((perfect manga character design)), ((masterful ink technique)), ((dynamic pose)), ((clean linework)), ((high contrast rendering)), ((professional manga quality)), in ((detailed manga locker room)) during ((club recruitment)), ((in winter holidays)), ((during afternoon classes)), ((with precise architectural linework)), ((perfect perspective control)), ((clean background separation)), ((professional environmental detail)), ((masterful spatial depth)), ((authentic japanese architecture)), ((sharp background contrast)), ((technical excellence)), ((professional manga technique)), ((masterful shoujo manga style)), ((with perfect classroom windows)), ((using dynamic panel layout)), ((featuring light reflection)), ((perfect hatching control)), ((technical black and white mastery)), ((clean line confidence)), ((sharp value contrast)), ((professional manga artwork)), ((authentic japanese manga style)), ((technical excellence)), 8k resolution, perfect details, with ((precise line weight control)), ((perfect speed lines)), ((masterful cherry blossoms)), ((authentic after-school peace)), ((featuring curved hatching)), ((perfect shadow definition)), ((masterful cross-hatching technique)), ((clean edge separation)), ((professional black and white contrast)), ((technical precision)), ((sharp detail rendering)), ((clear tonal hierarchy))",
+        "((masterful sci-fi art)) of ((a space explorer)), ((with nanotech augmentations)), ((made of chrome)), ((futuristic design)), ((technological excellence)), ((advanced engineering)), ((sci-fi aesthetics)), in ((a cybernetic orbital platform)) with ((advanced gravity manipulators)), ((sci-fi technology)), ((futuristic architecture)), ((technological marvels)), ((future world building)), ((high-tech atmosphere)), ((rendered in space opera style)), ((with neural-linked aesthetics)), ((energy pulse color scheme)), ((technological precision)), ((futuristic design)), ((sci-fi excellence)), ((advanced rendering)), ((future tech details)), ((masterful execution)), 8k resolution, ultra detailed, with ((advanced energy fields)), ((intricate energy flows)), ((technological brilliance)), ((futuristic atmosphere)), ((sci-fi elements)), ((high-tech details)), ((future tech mastery))",
+        "((professional selfie photograph)) of ((attractive person)) at a ((beautiful party)), ((wearing festive outfit)), ((perfect selfie angle)), ((flattering pose)), ((authentic expression)), ((high-quality smartphone photography)), during blue hour, ((perfect lighting)), ((instagram-worthy party background)), ((social media aesthetic)), ((lifestyle photography)), ((social media photography)), ((smartphone aesthetic)), ((perfect exposure)), ((authentic lifestyle)), ((trendy composition)), ((influencer style)), ((natural looking)), ((candid moment)), 8k resolution, with ((natural bokeh)), ((soft skin glow)), ((perfect lighting)), ((subtle vignette)), ((instagram filter)), ((social media finish)), ((lifestyle colors)), ((authentic atmosphere))",
+        "((spectral creature)), ((luminous aura)), ((wispy phantasm)), ((manifesting in amber mist)), ((otherworldly presence)), ((mystical energy)), ((masterful spectral environment)), ((with amber ethereal mist)), ((volumetric atmosphere:1.2)), ((ethereal art style:1.3)), ((ghostly aesthetics)), ((mystical atmosphere)), ((perfect composition)), ((dynamic sapphire ectoplasmic particles:1.2)), ((forming intricate patterns)), ((magical energy flows))",
+        "((festive St. Patrick's Day scene)) of ((a joyful Irish character)), ((wearing traditional Irish clothing) ), ((with lucky charm) ), in Celtic palette colors, ((celebration atmosphere)), ((Irish magic)), in ((a magical city parade)), ((illuminated by celebration lighting)), ((celebration atmosphere)), ((St. Patrick's Day setting)), ((Irish landscape)), ((moment of joy)), ((celebratory St. Patrick's Day artwork)), ((Irish illustration style)), ((festive painting technique)), ((energetic composition)), ((green color palette)), ((joyful holiday mood)), ((celebration card quality)), ((vibrant artistic rendering)), 8k resolution, ((magical celebration lighting)), with ((magical celebration glow)), ((emerald light)), ((floating shamrock)), ((lucky sparkle)), ((jubilant atmosphere)), ((Irish magic)), ((Celtic shimmer)), ((dynamic celebration effects))",
+        "((epic Star Wars battle scene)) of ((masterfully crafted siege defense)) with ((detailed jedi knight)) using ((powerful rebel alliance symbol)) near ((massive millennium falcon)), ((intense action)), ((perfect battle choreography)), ((authentic Star Wars combat)), ((cinematic excellence)), ((epic scale)), in ((masterfully crafted rebel hideout)) with ((epic nebula)), ((featuring massive moisture farm)), ((in sacred ground atmosphere)), ((authentic Star Wars setting)), ((perfect sci-fi architecture)), ((otherworldly vista)), ((dramatic lighting)), ((cinematic environment)), ((photorealistic details)), ((masterful space adventure style)), ((authentic Star Wars aesthetic)), ((featuring hangar bay lighting)), ((with rebel orange and white color scheme)), ((using dynamic action shots)), ((ILM VFX quality)), ((cinematic excellence)), ((photorealistic detail)), ((professional cinematography)), ((epic movie scene)), ((high production value)), ((perfect composition)), ((professional color grading)), 8k resolution, with ((masterful force healing)), ((authentic mystical objects)), ((featuring force lightning sparks)), ((in starship bustle ambiance)), ((Star Wars VFX)), ((cinematic effects)), ((dramatic lighting)), ((lens flares)), ((volumetric lighting)), ((perfect atmosphere)), ((photorealistic rendering)), ((movie quality))",
+        "vintage sci-fi style, made of tarnished bronze, gear wright decorated with steam pipe designs, featuring steam valves, with steam pipe designs details, in a steam engine room, with clockwork mechanism in scene, illuminated by brass lantern shine, in a gear-laden environment, in brass and copper color scheme, industrial fantasy, made of aged copper, featuring steam pipes, with Victorian ornaments details, in a Victorian laboratory, with mechanical calculator in scene, illuminated by industrial haze, in a clockwork surroundings, in aged bronze tones color scheme, retro-futuristic, made of aged copper, featuring bronze mechanisms, with clockwork details details, in a steam engine room, with clockwork mechanism in scene, illuminated by mechanical sparkle, in a clockwork surroundings, in vintage gold accents color scheme, mechanical baroque, made of frosted glass, featuring bronze mechanisms, with clockwork details details, in a clockwork factory, with mechanical calculator in scene, illuminated by gear-filtered light, in a brass-tinted atmosphere, in aged bronze tones color scheme",
+        "((masterful portrait)) of action hero, charismatic, with expressive expression, in dynamic pose, showing emotional emotion, with unique trait, ((perfect character design)), ((highly detailed)), in ((detailed dramatic setting)) during dramatic lighting, with atmospheric conditions, ((perfect environment design)), ((masterful Dreamworks animation)), ((perfect dramatic lighting)), ((beautiful vibrant colors)), ((professional quality)), ((perfect composition)), ((dramatic visual effect)), ((epic atmosphere)), ((cinematic quality)), ((perfect rendering))",
+        "an authentic image of a döner kebab featuring traditional Turkish bread wrap filled with mixed meat döner, layered with crisp lettuce, cucumber, tomato, and red cabbage, and topped with creamy garlic sauce. a rustic food service paper is visible beside the kebab. a variety of traditional döner sauces complement the meal. The freshly cooked crisp potato wedges are served alongside, creating a traditional Turkish street food scene., on deep charcoal background, with soft side lighting, neatly arranged on a clean surface, professional food photography, with vibrant colors against a dark background, crisp focus on the food",
+        "((heartwarming Thanksgiving scene)) of ((a festive family)), ((wearing comfortable family attire) ), ((with cornucopia) ), in warm autumn colors colors, ((gratitude atmosphere)), ((family magic)), in ((a magical harvest celebration space)), ((illuminated by golden hour)), ((family atmosphere)), ((Thanksgiving setting)), ((autumn landscape)), ((moments of gratitude)), ((heartwarming Thanksgiving artwork)), ((family illustration style)), ((warm painting technique)), ((nostalgic composition)), ((autumn color palette)), ((grateful holiday mood)), ((family gathering quality)), ((tender artistic rendering)), 8k resolution, ((magical family lighting)), with ((magical gratitude glow)), ((warm soft light)), ((falling autumn leaves)), ((feast sparkle)), ((cozy atmosphere)), ((family magic)), ((harvest shimmer)), ((tender family effects))",
+        "((underwater ocean dweller)), ((using pressure shield)), ((with luminous fish)), ((aquatic)), ((oceanic)), in ((sea mountain)) with ((abyss settlement)), ((featuring bioluminescence)), ((underwater vista)), ((oceanic realm)), ((styled as crystalline)), ((underwater aesthetic)), ((aquatic design)), ((oceanic look)), ((submerged authenticity)), with ((sea mist)), ((underwater atmosphere)), ((aquatic ambiance)), ((oceanic environment))",
+        "((urban art interpretation)) of STYLE, ((with various details spray-painted)), ((in stencil art)), ((street art aesthetic)), ((graffiti lettering)), ((urban culture)), ((with vibrant color scheme)), ((dynamic typography)), on ((urban brick surface)) in ((underpass)), ((with urban texture)), ((city atmosphere)), ((street culture)), ((urban decay)), ((metropolitan setting)), ((street art style)), ((graffiti aesthetic)), ((urban art)), ((spray paint technique)), ((professional street art)), ((urban culture)), ((stylized urban art)), ((graffiti character design)), ((street art interpretation)), ((not photorealistic)), ((complex fresco style)), ((hip hop culture)), 8k resolution, with ((spray texture)), ((urban textures)), ((street art finish)), ((graffiti effects)), ((spray paint details)), ((metropolitan atmosphere)), ((stylized urban artwork)), ((street art character)), ((multicolored spray paint)), ((detailed fresco))",
+        "((romantic Valentine's Day scene)) of ((a heart-shaped silhouette)), ((wearing romantic outfit) ), ((with love letter) ), in rose gold colors, ((love atmosphere)), ((romantic magic)), in ((a magical cozy cafe)), ((illuminated by warm ambient glow)), ((romantic atmosphere)), ((Valentine's Day setting)), ((love-inspired landscape)), ((tender moments)), ((romantic Valentine's Day artwork)), ((love illustration style)), ((soft watercolor technique)), ((delicate painting)), ((romantic color palette)), ((passionate holiday mood)), ((Valentine's card quality)), ((tender artistic rendering)), 8k resolution, ((magical love lighting)), with ((magical love glow)), ((soft romantic light)), ((floating rose petals)), ((heart sparkle)), ((warm love atmosphere)), ((romantic magic)), ((love letter shimmer)), ((delicate emotion effects))",
+        "((in cave dwelling community)), ((weaver)), ((doing village festival)), ((traditional)), ((cultural)), in ((rice terraces)) with ((fisherman's wharf)), ((featuring sacred objects)), ((village vista)), ((cultural scene)), ((styled as traditional)), ((traditional aesthetic)), ((village design)), ((cultural look)), ((authentic atmosphere)), with ((morning mist)), ((village atmosphere)), ((cultural ambiance)), ((traditional environment))",
+        "((extremely old photograph)), ((vintage 1800s photograph:1.4)) of merchant, ((carte de visite)), ((with painted scenery)), ((three-quarter view)), ((north light)), ((period-correct pose)), ((historical accuracy:1.3)), in ((period-authentic Victorian parlor)), ((authentic vintage studio)), ((historical photography setting:1.2)), ((masterful tintype:1.4)), ((authentic silver gelatin:1.3)), ((historical photography techniques)), ((aged photograph)), ((vintage photographic plate)), ((extreme vintage artifacts:1.4)), ((severe aging:1.3)), ((chemical stains)), ((scratched emulsion)), ((deteriorated edges)), ((silver mirroring)), ((foxing marks)), ((heavy patina)), ((authentic vintage photograph damage:1.3))",
+        "((vintage lady animal marmot)), ((wearing parasol)), ((dressed animal)), ((period style)), in ((classic library)) during ((bungee jumping)), ((with old photographs)), ((vintage scene)), ((period setting)), ((styled as graceful)), ((vintage aesthetic)), ((period design)), ((classic look)), ((antique authenticity)), with ((aged texture)), ((vintage atmosphere)), ((period ambiance)), ((classic environment))",
+        "((watercolor painting of garden scene)), ((using negative painting)), ((in abstract wash style)), ((soft edges)), ((fluid forms)), in ((watercolor spring orchard)), ((during soft twilight)), ((with serene mood)), ((flowing colors)), ((artistic atmosphere)), ((watercolor art style)), ((featuring bold contrast)), ((with fluid transitions)), ((traditional painting)), ((perfect composition)), ((artistic lighting)), ((painterly quality)), 8k resolution, with ((watercolor paint diffusion)), ((artistic natural flow)), ((color bleeding)), ((paint flow)), ((artistic medium)), ((traditional techniques))"
       ]
     }
   ],
   "links": [
     [
-      9,
-      8,
-      0,
-      9,
-      0,
-      "IMAGE"
-    ],
-    [
-      12,
-      10,
-      0,
-      8,
-      1,
-      "VAE"
-    ],
-    [
-      19,
-      16,
-      0,
-      13,
-      2,
-      "SAMPLER"
-    ],
-    [
-      20,
-      17,
-      0,
-      13,
-      3,
-      "SIGMAS"
-    ],
-    [
-      23,
-      5,
-      0,
-      13,
-      4,
-      "LATENT"
-    ],
-    [
-      24,
-      13,
-      0,
-      8,
-      0,
-      "LATENT"
-    ],
-    [
-      30,
-      22,
-      0,
-      13,
-      1,
-      "GUIDER"
-    ],
-    [
-      37,
-      25,
-      0,
-      13,
-      0,
-      "NOISE"
-    ],
-    [
-      40,
-      6,
-      0,
-      22,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      41,
-      27,
-      0,
-      6,
-      0,
-      "CLIP"
-    ],
-    [
-      49,
-      12,
-      0,
-      17,
-      0,
-      "MODEL"
-    ],
-    [
-      50,
-      12,
-      0,
-      22,
-      0,
-      "MODEL"
-    ],
-    [
-      51,
-      34,
-      0,
-      5,
-      0,
-      "INT"
-    ],
-    [
-      52,
-      34,
-      1,
-      5,
-      1,
-      "INT"
-    ],
-    [
-      59,
-      42,
-      0,
-      6,
-      1,
-      "STRING"
-    ],
-    [
-      60,
-      42,
+      64,
+      43,
       0,
       32,
       0,
       "STRING"
     ],
     [
-      61,
-      42,
+      65,
+      43,
       1,
       33,
       0,
@@ -836,12 +398,13 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9646149645000075,
+      "scale": 0.8390545288824142,
       "offset": [
-        850.4460598079635,
-        182.17336598983314
+        807.3517339200188,
+        156.04425150176485
       ]
-    }
+    },
+    "frontendVersion": "1.17.11"
   },
   "version": 0.4
 }

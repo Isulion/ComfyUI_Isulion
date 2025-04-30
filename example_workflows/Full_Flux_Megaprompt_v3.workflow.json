@@ -1,6 +1,8 @@
 {
-  "last_node_id": 217,
-  "last_link_id": 289,
+  "id": "ec713fc6-451d-44df-babf-0addfc6cdfdd",
+  "revision": 0,
+  "last_node_id": 218,
+  "last_link_id": 291,
   "nodes": [
     {
       "id": 22,
@@ -22,28 +24,27 @@
         {
           "name": "model",
           "type": "MODEL",
-          "link": 94,
-          "slot_index": 0
+          "link": 94
         },
         {
           "name": "conditioning",
           "type": "CONDITIONING",
-          "link": 87,
-          "slot_index": 1
+          "link": 87
         }
       ],
       "outputs": [
         {
           "name": "GUIDER",
           "type": "GUIDER",
+          "slot_index": 0,
           "links": [
             30
-          ],
-          "slot_index": 0,
-          "shape": 3
+          ]
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "BasicGuider",
         "ttNbgOverride": {
           "color": "#2a363b",
@@ -64,7 +65,7 @@
       ],
       "size": [
         320,
-        122
+        130
       ],
       "flags": {},
       "order": 8,
@@ -78,33 +79,34 @@
         {
           "name": "width",
           "type": "INT",
-          "link": 143,
           "widget": {
             "name": "width"
-          }
+          },
+          "link": 143
         },
         {
           "name": "height",
           "type": "INT",
-          "link": 144,
           "widget": {
             "name": "height"
-          }
+          },
+          "link": 144
         }
       ],
       "outputs": [
         {
           "name": "MODEL",
           "type": "MODEL",
+          "slot_index": 0,
           "links": [
             93,
             94
-          ],
-          "slot_index": 0,
-          "shape": 3
+          ]
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "ModelSamplingFlux",
         "ttNbgOverride": {
           "color": "#2a363b",
@@ -129,7 +131,7 @@
         340
       ],
       "size": [
-        210,
+        236.8000030517578,
         60
       ],
       "flags": {},
@@ -142,11 +144,12 @@
           "type": "SAMPLER",
           "links": [
             19
-          ],
-          "shape": 3
+          ]
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "KSamplerSelect",
         "ttNbgOverride": {
           "color": "#2a363b",
@@ -179,14 +182,15 @@
         {
           "name": "NOISE",
           "type": "NOISE",
+          "slot_index": 0,
           "links": [
             37
-          ],
-          "slot_index": 0,
-          "shape": 3
+          ]
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "RandomNoise",
         "ttNbgOverride": {
           "color": "#2a363b",
@@ -210,7 +214,7 @@
       ],
       "size": [
         330,
-        80
+        106
       ],
       "flags": {},
       "order": 7,
@@ -219,31 +223,33 @@
         {
           "name": "width",
           "type": "INT",
-          "link": 141,
           "widget": {
             "name": "width"
-          }
+          },
+          "link": 141
         },
         {
           "name": "height",
           "type": "INT",
-          "link": 142,
           "widget": {
             "name": "height"
-          }
+          },
+          "link": 142
         }
       ],
       "outputs": [
         {
           "name": "LATENT",
           "type": "LATENT",
+          "slot_index": 0,
           "links": [
             23
-          ],
-          "slot_index": 0
+          ]
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "EmptyLatentImage",
         "ttNbgOverride": {
           "color": "#2a363b",
@@ -267,7 +273,7 @@
         210
       ],
       "size": [
-        211.60000610351562,
+        262,
         60
       ],
       "flags": {
@@ -286,14 +292,15 @@
         {
           "name": "CONDITIONING",
           "type": "CONDITIONING",
+          "slot_index": 0,
           "links": [
             87
-          ],
-          "slot_index": 0,
-          "shape": 3
+          ]
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "FluxGuidance"
       },
       "widgets_values": [
@@ -321,13 +328,15 @@
         {
           "name": "CLIP",
           "type": "CLIP",
+          "slot_index": 0,
           "links": [
             254
-          ],
-          "slot_index": 0
+          ]
         }
       ],
       "properties": {
+        "cnr_id": "ComfyUI-GGUF",
+        "ver": "3d673c5c098ecaa6e6027f834659ba8de534ca32",
         "Node name for S&R": "DualCLIPLoaderGGUF",
         "ttNbgOverride": {
           "color": "#2a363b",
@@ -352,12 +361,12 @@
       ],
       "size": [
         210,
-        54
+        88
       ],
       "flags": {
         "collapsed": false
       },
-      "order": 9,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -368,24 +377,25 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 285,
-          "slot_index": 1,
           "widget": {
             "name": "text"
-          }
+          },
+          "link": 291
         }
       ],
       "outputs": [
         {
           "name": "CONDITIONING",
           "type": "CONDITIONING",
+          "slot_index": 0,
           "links": [
             86
-          ],
-          "slot_index": 0
+          ]
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "CLIPTextEncode",
         "ttNbgOverride": {
           "color": "#2a363b",
@@ -417,8 +427,7 @@
         {
           "name": "model",
           "type": "MODEL",
-          "link": 93,
-          "slot_index": 0
+          "link": 93
         }
       ],
       "outputs": [
@@ -427,11 +436,12 @@
           "type": "SIGMAS",
           "links": [
             20
-          ],
-          "shape": 3
+          ]
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "BasicScheduler",
         "ttNbgOverride": {
           "color": "#2a363b",
@@ -470,6 +480,8 @@
       ],
       "outputs": [],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "SaveImage",
         "ttNbgOverride": {
           "color": "#2a363b",
@@ -512,6 +524,8 @@
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "1.2.9",
         "Node name for S&R": "easy cleanGpuUsed",
         "ttNbgOverride": {
           "color": "#2a363b",
@@ -541,52 +555,47 @@
         {
           "name": "noise",
           "type": "NOISE",
-          "link": 37,
-          "slot_index": 0
+          "link": 37
         },
         {
           "name": "guider",
           "type": "GUIDER",
-          "link": 30,
-          "slot_index": 1
+          "link": 30
         },
         {
           "name": "sampler",
           "type": "SAMPLER",
-          "link": 19,
-          "slot_index": 2
+          "link": 19
         },
         {
           "name": "sigmas",
           "type": "SIGMAS",
-          "link": 20,
-          "slot_index": 3
+          "link": 20
         },
         {
           "name": "latent_image",
           "type": "LATENT",
-          "link": 23,
-          "slot_index": 4
+          "link": 23
         }
       ],
       "outputs": [
         {
           "name": "output",
           "type": "LATENT",
+          "slot_index": 0,
           "links": [
             24
-          ],
-          "slot_index": 0,
-          "shape": 3
+          ]
         },
         {
           "name": "denoised_output",
           "type": "LATENT",
-          "links": null,
-          "shape": 3
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "SamplerCustomAdvanced",
         "ttNbgOverride": {
           "color": "#2a363b",
@@ -628,14 +637,16 @@
         {
           "name": "IMAGE",
           "type": "IMAGE",
+          "slot_index": 0,
           "links": [
             162,
             208
-          ],
-          "slot_index": 0
+          ]
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "VAEDecode",
         "ttNbgOverride": {
           "color": "#2a363b",
@@ -666,14 +677,15 @@
         {
           "name": "VAE",
           "type": "VAE",
+          "slot_index": 0,
           "links": [
             161
-          ],
-          "slot_index": 0,
-          "shape": 3
+          ]
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "VAELoader",
         "ttNbgOverride": {
           "color": "#2a363b",
@@ -706,14 +718,15 @@
         {
           "name": "MODEL",
           "type": "MODEL",
+          "slot_index": 0,
           "links": [
             288
-          ],
-          "slot_index": 0,
-          "shape": 3
+          ]
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
         "Node name for S&R": "UNETLoader",
         "ttNbgOverride": {
           "color": "#2a363b",
@@ -737,7 +750,7 @@
       ],
       "size": [
         320,
-        170
+        190
       ],
       "flags": {},
       "order": 5,
@@ -747,28 +760,35 @@
         {
           "name": "width",
           "type": "INT",
+          "slot_index": 0,
           "links": [
             141,
             143
-          ],
-          "slot_index": 0
+          ]
         },
         {
           "name": "height",
           "type": "INT",
+          "slot_index": 1,
           "links": [
             142,
             144
-          ],
-          "slot_index": 1
+          ]
         },
         {
           "name": "resolution",
           "type": "STRING",
           "links": null
+        },
+        {
+          "name": "preview",
+          "type": "IMAGE",
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "1.1.1",
         "Node name for S&R": "FluxResolutionNode",
         "ttNbgOverride": {
           "color": "#2a363b",
@@ -797,46 +817,43 @@
         310
       ],
       "flags": {},
-      "order": 10,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
           "name": "text",
           "type": "STRING",
-          "link": 289,
-          "widget": {
-            "name": "text"
-          }
+          "link": 290
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
         "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        [
-          "((urban art interpretation)) of Princess Peach, ((with various details spray-painted)), ((urban art interpretation)), ((street art character)), ((in tag style)), ((street art aesthetic)), ((urban culture)), ((graffiti art style)), ((with graffiti tones color scheme)), ((stylized urban character)), ((not realistic)), ((street art portrait)), in ((Disneyworld)), ((with urban texture)), ((city atmosphere)), ((street culture)), ((urban decay)), ((metropolitan setting)), ((street art style)), ((graffiti aesthetic)), ((urban art)), ((spray paint technique)), ((professional street art)), ((urban culture)), ((stylized urban art)), ((graffiti character design)), ((street art interpretation)), ((not photorealistic)), ((complex fresco style)), ((hip hop culture)), 8k resolution, with ((paint drips)), ((urban textures)), ((street art finish)), ((graffiti effects)), ((spray paint details)), ((metropolitan atmosphere)), ((stylized urban artwork)), ((street art character)), ((multicolored spray paint)), ((detailed fresco))"
-        ],
+        "((urban art interpretation)) of Princess Peach, ((with various details spray-painted)), ((urban art interpretation)), ((street art character)), ((in tag style)), ((street art aesthetic)), ((urban culture)), ((graffiti art style)), ((with graffiti tones color scheme)), ((stylized urban character)), ((not realistic)), ((street art portrait)), in ((Disneyworld)), ((with urban texture)), ((city atmosphere)), ((street culture)), ((urban decay)), ((metropolitan setting)), ((street art style)), ((graffiti aesthetic)), ((urban art)), ((spray paint technique)), ((professional street art)), ((urban culture)), ((stylized urban art)), ((graffiti character design)), ((street art interpretation)), ((not photorealistic)), ((complex fresco style)), ((hip hop culture)), 8k resolution, with ((paint drips)), ((urban textures)), ((street art finish)), ((graffiti effects)), ((spray paint details)), ((metropolitan atmosphere)), ((stylized urban artwork)), ((street art character)), ((multicolored spray paint)), ((detailed fresco))",
         "((graffiti art style)) of Princess Peach, ((with various details spray-painted)), ((urban art interpretation)), ((street art character)), ((in bubble letters)), ((street art aesthetic)), ((urban culture)), ((graffiti art style)), ((with urban palette color scheme)), ((stylized urban character)), ((not realistic)), ((street art portrait)), on ((urban brick surface)) in ((industrial zone)), ((with urban texture)), ((city atmosphere)), ((street culture)), ((urban decay)), ((metropolitan setting)), ((street art style)), ((graffiti aesthetic)), ((urban art)), ((spray paint technique)), ((professional street art)), ((urban culture)), ((stylized urban art)), ((graffiti character design)), ((street art interpretation)), ((not photorealistic)), ((complex fresco style)), ((hip hop culture)), 8k resolution, with ((street lighting)), ((urban textures)), ((street art finish)), ((graffiti effects)), ((spray paint details)), ((metropolitan atmosphere)), ((stylized urban artwork)), ((street art character)), ((multicolored spray paint)), ((detailed fresco))"
       ]
     },
     {
-      "id": 214,
-      "type": "MegaPromptV3",
+      "id": 218,
+      "type": "IsulionMegaPromptV3",
       "pos": [
-        -970,
-        210
+        -971.6762084960938,
+        200.8290252685547
       ],
       "size": [
         400,
-        442
+        512
       ],
       "flags": {},
       "order": 6,
@@ -847,10 +864,9 @@
           "name": "prompt",
           "type": "STRING",
           "links": [
-            285,
-            289
-          ],
-          "slot_index": 0
+            290,
+            291
+          ]
         },
         {
           "name": "subject",
@@ -879,16 +895,19 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "MegaPromptV3"
+        "cnr_id": "comfyui_isulion",
+        "ver": "5.1.1",
+        "Node name for S&R": "IsulionMegaPromptV3"
       },
       "widgets_values": [
-        "🏙️ Urban Tag",
-        "complex",
+        "🎲 Dynamic Random",
+        "detailed",
         "enable",
-        "on",
-        130634537613913,
+        "off",
+        0,
         "randomize",
-        "Princess Peach",
+        "",
+        "",
         "",
         "yes",
         "yes",
@@ -1042,14 +1061,6 @@
       "CLIP"
     ],
     [
-      285,
-      214,
-      0,
-      6,
-      1,
-      "STRING"
-    ],
-    [
       288,
       12,
       0,
@@ -1058,11 +1069,19 @@
       "MODEL"
     ],
     [
-      289,
-      214,
+      290,
+      218,
       0,
       217,
       0,
+      "STRING"
+    ],
+    [
+      291,
+      218,
+      0,
+      6,
+      1,
       "STRING"
     ]
   ],
@@ -1070,12 +1089,13 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5131581182307068,
+      "scale": 0.6934334949441439,
       "offset": [
-        1031.061308692073,
-        249.57279390047017
+        1132.464351290858,
+        873.7256853026472
       ]
-    }
+    },
+    "frontendVersion": "1.17.11"
   },
   "version": 0.4
 }

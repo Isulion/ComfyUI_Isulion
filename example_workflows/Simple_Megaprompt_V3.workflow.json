@@ -1,17 +1,19 @@
 {
-  "last_node_id": 2,
-  "last_link_id": 1,
+  "id": "2db22cbf-8542-44a5-a1b1-c78354756a3c",
+  "revision": 0,
+  "last_node_id": 4,
+  "last_link_id": 3,
   "nodes": [
     {
-      "id": 1,
-      "type": "MegaPromptV3",
+      "id": 3,
+      "type": "IsulionMegaPromptV3",
       "pos": [
-        -110,
-        250
+        -147.08468627929688,
+        256.32476806640625
       ],
       "size": [
         400,
-        442
+        512
       ],
       "flags": {},
       "order": 0,
@@ -22,9 +24,8 @@
           "name": "prompt",
           "type": "STRING",
           "links": [
-            1
-          ],
-          "slot_index": 0
+            3
+          ]
         },
         {
           "name": "subject",
@@ -53,15 +54,18 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "MegaPromptV3"
+        "cnr_id": "comfyui_isulion",
+        "ver": "5.1.1",
+        "Node name for S&R": "IsulionMegaPromptV3"
       },
       "widgets_values": [
         "🎲 Dynamic Random",
         "detailed",
         "enable",
         "off",
-        564618134741818,
+        743839086220436,
         "randomize",
+        "",
         "",
         "",
         "yes",
@@ -70,15 +74,15 @@
       ]
     },
     {
-      "id": 2,
-      "type": "JjkShowText",
+      "id": 4,
+      "type": "ShowText|pysssss",
       "pos": [
-        370,
-        250
+        300.45074462890625,
+        267.5740661621094
       ],
       "size": [
-        430,
-        260
+        412.43658447265625,
+        195.26022338867188
       ],
       "flags": {},
       "order": 1,
@@ -87,34 +91,33 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 1,
-          "widget": {
-            "name": "text"
-          }
+          "link": 3
         }
       ],
       "outputs": [
         {
-          "name": "text",
+          "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
-        "Node name for S&R": "JjkShowText"
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.4",
+        "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        "Victorian steampunk, made of polished brass, steam tech pioneer decorated with ornate gears, featuring steam pipes, with ornate gears details, in a brass-filled airship, with mechanical calculator in scene, illuminated by copper reflection, in a mechanical ambiance, in vintage gold accents color scheme, industrial fantasy, made of tarnished bronze, featuring copper coils, with industrial motifs details, in a steam-powered factory, with clockwork mechanism in scene, illuminated by mechanical sparkle, in a industrial haze, in metallic highlights color scheme, Victorian steampunk, made of burnished gold, featuring copper coils, with mechanical patterns details, in a brass-filled airship, with clockwork mechanism in scene, illuminated by Victorian ambiance, in a industrial haze, in metallic highlights color scheme, Victorian steampunk, made of rich mahogany, featuring pressure gauges, with ornate gears details, in a mechanical laboratory, with mechanical calculator in scene, illuminated by brass lantern shine, in a steam-filled air, in steam-aged patina color scheme"
+        "((cute baby quokka with heart spots)), ((featuring pastel colors)), ((adorable hybrid)), ((kawaii creature)), ((magical pet)), in ((cute rainbow meadow)) with ((adorable rainbow bubbles)), ((kawaii setting)), ((magical surroundings)), ((charming realm)), ((rendered in cute style)), ((with pastel aesthetic)), ((kawaii design)), ((adorable artistry)), ((cute quality)), with ((magical bubble effects)), ((adorable sparkly aura)), ((kawaii energy)), ((cute glow))"
       ]
     }
   ],
   "links": [
     [
-      1,
-      1,
+      3,
+      3,
       0,
-      2,
+      4,
       0,
       "STRING"
     ]
@@ -123,12 +126,13 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.2100000000000002,
+      "scale": 1.6350799082656051,
       "offset": [
-        329.90547409593984,
-        -134.42094490167395
+        441.40900251266476,
+        0.9142823682948026
       ]
-    }
+    },
+    "frontendVersion": "1.17.11"
   },
   "version": 0.4
 }
