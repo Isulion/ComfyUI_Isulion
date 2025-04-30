@@ -337,6 +337,17 @@ class ThemeRegistry:
         return available_display_themes
 
 
+def deduplicate_prompt_parts(parts):
+    """Remove duplicate prompt parts while preserving order and ignoring case/whitespace."""
+    seen = set()
+    result = []
+    for part in parts:
+        norm = part.strip().lower()
+        if norm and norm not in seen:
+            seen.add(norm)
+            result.append(part)
+    return result
+
 
 class IsulionMegaPromptV3:
     theme_mappings = {}
@@ -493,6 +504,9 @@ class IsulionMegaPromptV3:
 
             if lora_key and lora_key.strip():
                  prompt_parts.append(lora_key.strip())
+
+            # Deduplicate prompt parts globally before joining
+            prompt_parts = deduplicate_prompt_parts(prompt_parts)
 
             final_prompt = ", ".join(filter(None, prompt_parts))
 

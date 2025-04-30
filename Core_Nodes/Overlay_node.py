@@ -144,7 +144,8 @@ class OverlayQRCodeNode:
                     # Calculate repetitions needed for the rotated canvas dimensions
                     reps_h = math.ceil(rotated_canvas_h / tile_h)
                     reps_w = math.ceil(rotated_canvas_w / tile_w)
-                    reps_h = max(1, reps_h); reps_w = max(1, reps_w)
+                    reps_h = max(1, reps_h)
+                    reps_w = max(1, reps_w)
 
                     # Tile the UNROTATED resized QR code image
                     resized_qr_np_unrot = resized_qr_tensor_nchw.squeeze(0).permute(1, 2, 0).numpy() # H, W, 4 float32
