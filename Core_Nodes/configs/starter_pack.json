@@ -1,0 +1,50 @@
+{
+  "starter_pack": {
+    "names": [
+      "Alex", "Jordan", "Taylor", "Morgan", "Casey", "Sam", "Jamie", "Robin"
+    ],
+    "genders": [
+      "man", "woman", "Monkey", "robot", "alien", "cat", "dog", "bird"
+    ],
+    "physical_traits": [
+      "tall and athletic", "short and cheerful", "with glasses", "curly hair", "freckles", "bearded", "with a bright smile", "with a unique hairstyle", "with a distinctive tattoo", "with a quirky fashion sense", "with a warm expression", "with a confident posture", "with an artistic flair", "with a tech-savvy look", "with a vintage style", "with a sporty appearance"
+    ],
+    "jobs": [
+      "software developer", "artist", "teacher", "engineer", "musician", "designer", "scientist", "writer", "photographer", "chef", "gardener", "mechanic", "nurse", "entrepreneur", "researcher", "architect"
+    ],
+    "passions": [
+      "hiking and photography", "reading fantasy novels", "playing chess", "cooking exotic dishes", "traveling", "collecting vinyl records", "gardening", "building model kits", "playing video games", "drawing", "playing sports", "writing poetry"
+    ],
+    "objects": [
+      "a laptop and headphones", "a sketchbook and pencils", "a camera and backpack", "a guitar and notebook", "a coffee mug and book", "a paintbrush and palette", "a toolbox and blueprints", "a plant and watering can"
+    ],
+    "styles": [
+      "sleek minimalist", "futuristic packaging", "bold vector", "digital illustration", "pop art", "cyberpunk"
+    ],
+    "colors": [
+      "electric blue", "neon purple", "crimson red", "emerald green", "midnight black", "silver gray", "golden yellow", "cyber teal"
+    ],
+    "brand_signatures": [
+      "ISULION", "NEOTRONIX", "FUTUREWAVE", "COLLECTOR'S EDGE", "HYPERCORE", "VANGUARD"
+    ],
+    "badges": [
+      "LIMITED RELEASE", "EXCLUSIVE DROP", "RARE FIND", "PREMIUM EDITION"
+    ],
+    "character_types": [
+      "enigmatic hero", "cybernetic explorer", "digital visionary", "urban guardian", "techno-mage", "futuristic athlete", "galactic agent", "neon samurai"
+    ],
+    "attires": [
+      "modern, tech-inspired attire", "sleek cyber armor", "minimalist streetwear", "avant-garde fashion", "holographic jacket", "smart-fabric suit", "luminescent vest", "modular exosuit"
+    ],
+    "items": [
+      "Magic Wand","Sword","Magnifying Glass","Stethoscope","Knife","Microscope","Laptop","Dagger","Brush","Hammer","Chalk","Electric Guitar","Drum Set","Violin","Trumpet","Saxophone","Flute","Accordion"
+    ],
+    "supporting_items": [
+      "Quick Start Guide","A concise manual or digital brochure that outlines key features, basic steps, and usage tips to help newcomers get started.",
+      "Primary Collectible/Product","The star item of the pack—a flagship piece that embodies the theme or brand (e.g., a styled figurine, tech gadget, or thematic accessory).",
+      "Branded Merchandise","Complementary items such as stickers, badges, keychains, or patches that carry the brand’s logo or design elements.",
+      "Accessory or Tool","A useful add-on that enhances the experience with the main product, like a multi-tool, adapter, or an exclusive digital download linked via a QR code.",
+      "Bonus Item","An extra little surprise—this could be a limited-edition collectible, discount coupon for future products, or a sample complimentary product."
+    ]
+  }
+}

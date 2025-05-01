@@ -163,6 +163,7 @@ HANDLER_CLASS_NAMES_MAP = {
     "vintage_1800s_photography": "Vintage1800sPhotographyHandler",
     "vintage_anthropomorphic": "VintageAnthropomorphicThemeHandler",
     "watercolor": "WatercolorThemeHandler",
+    "starter_pack": "StarterPackThemeHandler",
     # Removed duplicates that were in your original list
 }
 
@@ -285,7 +286,8 @@ class ThemeRegistry:
             "🏠 Village World": "village_world",
             "📸 Vintage 1800s Photography": "vintage_1800s_photography",
             "👴 Vintage Anthropomorphic": "vintage_anthropomorphic",
-            "🎨 Watercolor": "watercolor"
+            "🎨 Watercolor": "watercolor",
+            "🧸 Starter Pack": "starter_pack"
         }
 
         available_internal_names = set(self.handlers.keys()).union({"random"})
@@ -407,8 +409,8 @@ class IsulionMegaPromptV3:
             }
         }
 
-    RETURN_TYPES = ("STRING", "STRING", "STRING", "STRING", "STRING", "INT")
-    RETURN_NAMES = ("prompt", "subject", "environment", "style", "effects", "seed")
+    RETURN_TYPES = ("STRING", "STRING", "STRING", "STRING", "STRING", "STRING", "INT")
+    RETURN_NAMES = ("prompt", "selected_theme", "subject", "environment", "style", "effects", "seed")
     FUNCTION = "generate"
     CATEGORY = "Isulion/Core"
 
@@ -416,7 +418,7 @@ class IsulionMegaPromptV3:
                 seed: int = 0, custom_subject: str = "", custom_location: str = "",
                 lora_key: str = "",
                 include_environment: str = "yes", include_style: str = "yes",
-                include_effects: str = "yes", debug_mode: str = "off") -> Tuple[str, str, str, str, str, int]:
+                include_effects: str = "yes", debug_mode: str = "off") -> Tuple[str, str, str, str, str, str, int]:
         self.debug_mode = (debug_mode == "on")
         if self.debug_mode:
             print(f"[DEBUG] generate called with theme={theme}, seed={seed}")
@@ -425,25 +427,35 @@ class IsulionMegaPromptV3:
         if theme == "--- Error ---":
              error_msg = "Prompt generation failed: Theme handlers could not be loaded during startup."
              print(error_msg)
-             return (error_msg, "", "", "", "", return_seed)
+             return (error_msg, theme, "", "", "", "", return_seed)
 
         try:
             self.config_manager.set_seed(seed)
 
             internal_theme = self.theme_registry.get_internal_theme(theme)
 
+            # Track the display name of the selected theme for output
+            selected_theme_display = theme
+
             if internal_theme == "random":
                 try:
                     internal_theme = self.theme_registry.get_random_theme()
+                    # Find the display name for the randomly selected internal theme
+                    for display_name, internal_name in self.theme_registry.theme_mappings.items():
+                        if internal_name == internal_theme:
+                            selected_theme_display = display_name
+                            break
+                    else:
+                        selected_theme_display = internal_theme  # fallback
                 except ValueError as e:
                     error_msg = f"Error selecting random theme: {e}"
                     print(error_msg)
                     return (
                         f"Error: {error_msg}",
+                        "random",
                         "", "", "", "",
                         return_seed
                     )
-
 
             handler = self.theme_registry.get_handler(internal_theme)
             if self.debug_mode:
@@ -453,7 +465,7 @@ class IsulionMegaPromptV3:
                  error_msg = f"Error: Handler instance for theme '{internal_theme}' (selected via '{theme}') could not be found or was not initialized."
                  print(error_msg)
                  return (
-                    error_msg, "", "", "", "", return_seed
+                    error_msg, selected_theme_display, "", "", "", "", return_seed
                  )
 
             handler.set_debug(debug_mode == "on")
@@ -512,6 +524,7 @@ class IsulionMegaPromptV3:
 
             return (
                 final_prompt,
+                selected_theme_display,
                 components.get("subject", "") if isinstance(components.get("subject"), str) else "",
                 components.get("environment", "") if include_environment and isinstance(components.get("environment"), str) else "",
                 components.get("style", "") if include_style and isinstance(components.get("style"), str) else "",
@@ -524,6 +537,7 @@ class IsulionMegaPromptV3:
             print(error_msg)
             return (
                 f"Error: {error_msg}",
+                theme,
                 "", "", "", "",
                 return_seed
             )

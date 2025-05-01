@@ -95,6 +95,9 @@ from .cinema_studio_handler import CinemaStudioThemeHandler
 from .instagram_handler import InstagramThemeHandler
 from .instagram_lifestyle_handler import InstagramLifestyleThemeHandler
 
+# Starter Pack Handler
+from .starter_pack_handler import StarterPackThemeHandler
+
 # Export all handlers
 __all__ = [
     # Base Handler
@@ -148,5 +151,8 @@ __all__ = [
     
     # Historical and Period Handlers
     'HistoricalMonumentsHandler',
-    'MedievalThemeHandler'
+    'MedievalThemeHandler',
+    
+    # Starter Pack Handler
+    'StarterPackThemeHandler'
 ]

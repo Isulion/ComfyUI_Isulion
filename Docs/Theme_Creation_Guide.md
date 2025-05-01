@@ -200,6 +200,22 @@ def _init_mappings(self):
 }
 ```
 
+**Example Theme**: "Starter Pack" figurine in a blister pack.
+
+```json
+{
+  "starter_pack": {
+    "names": ["Alex", "Jordan"],
+    "genders": ["man", "woman"],
+    "physical_traits": ["tall and athletic", "with glasses"],
+    "jobs": ["developer", "artist"],
+    "passions": ["hiking", "reading"],
+    "objects": ["a laptop and headphones", "a sketchbook and pencils"],
+    "styles": ["cartoon", "comic book"]
+  }
+}
+```
+
 ---
 
 🚀 **Ready to create your theme?** Follow this guide strictly for seamless integration with ComfyUI!
