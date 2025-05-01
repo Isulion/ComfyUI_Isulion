@@ -13,9 +13,17 @@ class StarterPackThemeHandler(BaseThemeHandler):
                  include_effects: str = "yes") -> Dict[str, str]:
         components = {}
 
-        # Title
-        subject = custom_subject.strip() if custom_subject else self._get_random_choice("starter_pack.names")
-        title = f"{subject} Starter Pack"
+        # Parse custom_subject for title/description split
+        if custom_subject and "," in custom_subject:
+            title_part, desc_part = custom_subject.split(",", 1)
+            subject_title = title_part.strip()
+            figurine_desc = desc_part.strip()
+        else:
+            subject_title = custom_subject.strip() if custom_subject else self._get_random_choice("starter_pack.names")
+            figurine_desc = ""
+
+        # Always use the part before the first comma as the starter pack title
+        title = f"{subject_title} Starter Pack"
 
         # Accessories/items: from custom_location (comma-separated) or random
         if custom_location and custom_location.strip():
@@ -49,18 +57,20 @@ class StarterPackThemeHandler(BaseThemeHandler):
                     if choice not in items:
                         items.append(choice)
 
-        # Packaging details (logo and badge removed)
         color = self._get_random_choice("starter_pack.colors")
         tagline = f"Includes: {', '.join(items)}"
         style = self._get_random_choice("starter_pack.styles")
 
-        # Compose the action-figure-in-packaging meme prompt (logo and badge removed)
+        # Compose the action-figure-in-packaging meme prompt
         components["subject"] = (
-            f"{title} -- action figure collectible\n"
-            f"Depict a glossy, miniature action figure of {subject} in a plastic blister packaging, "
-            f"styled like a 1990s/2000s toy shelf product. "
+            f"{title}\n"
+            f"Depict a glossy, miniature action figure of {subject_title}"
+            + (f", {figurine_desc}" if figurine_desc else "")
+            + " in a plastic blister packaging. "
+            f"The packaging must display only the title text \"{title}\", no other text, logos, or labels. "
+            f"Styled like a 1990s/2000s toy shelf product. "
             f"Accessories inside the packaging: {', '.join(items)}. "
-            f"Packaging features: bold {color} background and tagline '{tagline}'. "
+            f"Packaging features: bold {color} background. "
             f"Figure has plastic-like skin, oversized head, glossy eyes, and is posed heroically. "
             f"Accessories are arranged around the figure in the packaging. "
             f"Design evokes a playful, collectible, meme-inspired starter pack."
@@ -72,7 +82,7 @@ class StarterPackThemeHandler(BaseThemeHandler):
             )
         if include_style == "yes":
             components["style"] = (
-                f"((glossy plastic miniature)), ((action figure style)), ((90s/2000s toy ad aesthetic)), ((bold logo)), ((meme collectible)), (({style}))"
+                f"((glossy plastic miniature)), ((action figure style)), ((90s/2000s toy ad aesthetic)), ((meme collectible)), (({style}))"
             )
         if include_effects == "yes":
             components["effects"] = (
