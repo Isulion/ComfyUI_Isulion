@@ -8,6 +8,7 @@ ARTISTIC STYLES
 7. 🎨 Watercolor - Emulates watercolor painting techniques and effects
 8. 🏺 Clay Art - Mimics clay sculpture and modeling with characteristic texture and dimensionality
 9. 🖍️ Crayon Art - Simulates crayon drawing style with characteristic textures and strokes
+10. 💗 Spectral Mist - Produces ethereal, misty, and spectral visual effects
 
 ANIMATION & CARTOON
 1. 📺 Animation Cartoon - Creates cartoon-style animations with exaggerated features and dynamic movement
@@ -19,6 +20,7 @@ ANIMATION & CARTOON
 7. 💫 Pixar - Replicates Pixar's 3D animation style with characteristic appeal
 8. 📚 School Manga - Focuses on school-themed manga style
 9. 🎭 Stop Motion - Mimics stop-motion animation style with characteristic textures
+10. 👧 Skinny Blonde Girl - Focuses on the "skinny blonde girl" character archetype in stylized art
 
 FANTASY & MYTHICAL
 1. 🦄 Chimera Animals - Generates hybrid creatures combining features from different animal species
@@ -27,6 +29,7 @@ FANTASY & MYTHICAL
 4. ⚔️ Fantasy - Generates high fantasy imagery with magical elements and mythical creatures
 5. ⚔️ Miura Dark Fantasy - Inspired by Kentaro Miura's dark fantasy style
 6. 🌊 Underwater Civilization - Creates underwater scenes with civilizations
+7. 🏛️ Spartan 300 - Inspired by the Spartan warriors of ancient Greece, especially the "300" aesthetic
 
 FUTURISTIC & SCI-FI
 1. 🧬 Bio-Organic Technology - Blends biological and technological elements in a futuristic organic style
@@ -40,6 +43,7 @@ FUTURISTIC & SCI-FI
 9. 🚀 Sci-Fi - Creates science fiction imagery with futuristic elements
 10. 🚀 Star Wars - Captures Star Wars universe aesthetic
 11. ⚙️ Steampunk - Combines Victorian era with steam-powered technology
+12. 🚀 Space Colony - Depicts advanced human settlements and life in outer space
 
 HOLIDAYS & CELEBRATIONS
 1. 🏮 Chinese New Year - Celebrates Chinese New Year themes with traditional elements and festivities
@@ -68,6 +72,7 @@ ARCHITECTURAL & SPACES
 1. 🏛️ Architectural - Focuses on architectural designs, structures, and building compositions
 2. 🏠 Interior Spaces - Specializes in interior design and architectural spaces
 3. 🏠 Village World - Creates village scenes with various cultural elements
+4. 🏛️ Historical Monuments - Focuses on famous historical monuments and their architectural details
 
 SPECIALIZED THEMES
 1. 🖼️ Binet Surreal - Creates surrealistic artwork inspired by Binet's mathematical and dreamlike style
@@ -86,4 +91,6 @@ SPECIALIZED THEMES
 14. 🧩 Puzzle Dimension - Generates puzzle-like compositions with dimensional elements
 15. 📱 Selfie - Specializes in selfie-style portrait photography
 16. 🥙 Street Food Kebab - Focuses on street food photography, particularly kebabs
-17. 👴 Vintage Anthropomorphic - Produces vintage-style anthropomorphic characters 
+17. 👴 Vintage Anthropomorphic - Produces vintage-style anthropomorphic characters
+18. 📸 Vintage 1800s Photography - Emulates the look and feel of 19th-century photography
+19. 🏝️ Tropical Paradise - Depicts idyllic tropical settings with lush vegetation, beaches, and vibrant colors

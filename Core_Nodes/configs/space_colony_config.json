@@ -1,0 +1,107 @@
+{
+  "config_version": "1.1",
+  "space_colony": {
+    "metadata": {
+      "version": "1.1",
+      "author": "Isulion",
+      "last_updated": "2024-06-10"
+    },
+    "main_elements": [
+      "dome habitat",
+      "hydroponic farm",
+      "command center",
+      "solar array",
+      "terraforming module",
+      "robotics lab",
+      "spaceport",
+      "biodome",
+      "mining rig",
+      "energy shield",
+      "observation tower"
+    ],
+    "settings": [
+      "lunar surface",
+      "Martian desert",
+      "asteroid belt",
+      "orbiting space station",
+      "icy moon",
+      "Europa's ocean",
+      "Titan's methane lakes",
+      "Ceres outpost",
+      "deep space",
+      "binary star system"
+    ],
+    "flora": [
+      "alien vegetation",
+      "bioluminescent plants",
+      "engineered crops",
+      "moss gardens",
+      "oxygen-producing algae"
+    ],
+    "inhabitants": [
+      "astronauts",
+      "robotic workers",
+      "scientists",
+      "engineers",
+      "alien visitors"
+    ],
+    "activities": [
+      "spacewalk",
+      "terraforming",
+      "mineral extraction",
+      "scientific research",
+      "zero-gravity sports"
+    ],
+    "styles": [
+      "sleek futuristic",
+      "brutalist architecture",
+      "biophilic design",
+      "retro sci-fi",
+      "high-tech minimalism",
+      "modular construction",
+      "transparent structures"
+    ],
+    "effects": [
+      "glowing neon lights",
+      "dust storms",
+      "starfield backdrop",
+      "artificial gravity",
+      "transparent domes",
+      "solar flares",
+      "meteor shower",
+      "aurora borealis",
+      "force fields"
+    ],
+    "technologies": [
+      "fusion reactor",
+      "AI control systems",
+      "quantum computers",
+      "holographic displays",
+      "gravity generators"
+    ],
+    "lighting_conditions": [
+      "harsh sunlight",
+      "soft blue glow",
+      "emergency lighting",
+      "twilight",
+      "starlit night"
+    ],
+    "nature_techniques": [
+      "focus stacking",
+      "long exposure",
+      "HDR photography",
+      "macro photography"
+    ],
+    "nature_effects": [
+      "atmospheric haze",
+      "light rays",
+      "water reflections",
+      "natural textures"
+    ],
+    "defaults": {
+      "fallback_category": "main_elements",
+      "min_items": 1,
+      "max_items": 14
+    }
+  }
+}

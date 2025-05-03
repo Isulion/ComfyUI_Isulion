@@ -69,6 +69,7 @@ from .puzzle_dimension_handler import PuzzleDimensionThemeHandler
 from .school_manga_handler import SchoolMangaThemeHandler
 from .selfie_handler import SelfieThemeHandler
 from .skinny_blonde_girl_handler import SkinnyBlondeGirlHandler
+from .space_colony_handler import SpaceColonyHandler
 from .street_food_kebab_handler import StreetFoodKebabThemeHandler
 from .underwater_civilization_handler import UnderwaterCivilizationThemeHandler
 from .urban_tag_handler import UrbanTagThemeHandler
@@ -77,6 +78,7 @@ from .vintage_anthropomorphic_handler import VintageAnthropomorphicThemeHandler
 from .vintage_1800s_photography_handler import Vintage1800sPhotographyHandler
 from .historical_monuments_handler import HistoricalMonumentsHandler
 from .medieval_handler import MedievalThemeHandler
+from .tropical_paradise_handler import TropicalParadiseThemeHandler
 
 # Holiday and Event Handlers
 from .chinese_new_year_handler import ChineseNewYearThemeHandler
@@ -132,11 +134,11 @@ __all__ = [
     'LogoThemeHandler', 'MangaPanelThemeHandler', 'MicroscopicThemeHandler',
     'PeakyBlindersThemeHandler', 'PostApocalypticThemeHandler',
     'PuzzleDimensionThemeHandler', 'SchoolMangaThemeHandler',
-    'SelfieThemeHandler', 'SkinnyBlondeGirlHandler', 'StreetFoodKebabThemeHandler',
-    'UnderwaterCivilizationThemeHandler', 'UrbanTagThemeHandler',
-    'VillageWorldThemeHandler', 'VintageAnthropomorphicThemeHandler',
+    'SelfieThemeHandler', 'SkinnyBlondeGirlHandler', 'SpaceColonyHandler',
+    'StreetFoodKebabThemeHandler', 'UnderwaterCivilizationThemeHandler',
+    'UrbanTagThemeHandler', 'VillageWorldThemeHandler', 'VintageAnthropomorphicThemeHandler',
     'Vintage1800sPhotographyHandler', 'HistoricalMonumentsHandler',
-    'MedievalThemeHandler',
+    'MedievalThemeHandler', 'TropicalParadiseThemeHandler',
     
     # Holiday and Event Handlers
     'ChineseNewYearThemeHandler', 'ChristmasThemeHandler',

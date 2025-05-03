@@ -23,6 +23,7 @@ ComfyUI/
 1. **Handler filename**: `Core_Nodes/theme_handlers/your_theme_handler.py` (no double underscores).
 2. **Config filename**: `Core_Nodes/configs/your_theme.json`.
 3. Use **consistent internal names** (`your_theme`) across all files.  This is crucial for linking the handler, config, and UI elements.
+4. **Handler class name and config key must match the internal name** (e.g., `YourThemeHandler` for `your_theme`).
 
 ---
 
@@ -30,7 +31,8 @@ ComfyUI/
 
 - [ ] Handler file: `your_theme_handler.py`
 - [ ] Config file: `your_theme.json`
-- [ ] Import in `theme_handlers/__init__.py`
+- [ ] Import in `theme_handlers/__init__.py`  
+      _Example:_ `from .your_theme_handler import YourThemeHandler`
 - [ ] Registration in `mega_prompt_V3.py`
 
 ---
@@ -47,35 +49,50 @@ from .base_handler import BaseThemeHandler
 class YourThemeHandler(BaseThemeHandler):
     """Handler for your custom theme."""
 
-    def generate(self,
-                 custom_subject: str = "",
-                 custom_location: str = "",
-                 include_environment: str = "yes",
-                 include_style: str = "yes",
-                 include_effects: str = "yes") -> Dict[str, str]:
+    def generate(
+        self,
+        custom_subject: str = "",
+        custom_location: str = "",
+        include_environment: bool = True,
+        include_style: bool = True,
+        include_effects: bool = True
+    ) -> Dict[str, str]:
         """Generates prompt components for the theme."""
 
         components = {}
 
-        # Required: Subject generation
+        # Subject
         if custom_subject:
             components["subject"] = (
-                f"((themed {custom_subject})), "
-                f"((main attribute)), ((supporting detail))"
+                f"((themed {custom_subject})), ((main attribute)), ((supporting detail))"
             )
         else:
             main_element = self._get_random_choice("your_theme.main_elements")
             components["subject"] = f"((themed {main_element})), ((supporting detail))"
 
-        # Optional: Environment
-        if include_environment == "yes":
-            setting = self._get_random_choice("your_theme.settings")
-            components["environment"] = f"in ((themed {setting}))"
+        # Environment
+        if include_environment:
+            if custom_location:
+                components["environment"] = f"in ((themed {custom_location}))"
+            else:
+                setting = self._get_random_choice("your_theme.settings")
+                components["environment"] = f"in ((themed {setting}))"
+        else:
+            components["environment"] = ""
 
-        # Optional: Style (example - expand as needed)
-        if include_style == "yes":
+        # Style
+        if include_style:
             style = self._get_random_choice("your_theme.styles")
             components["style"] = f"in the style of ((themed {style}))"
+        else:
+            components["style"] = ""
+
+        # Effects
+        if include_effects:
+            effect = self._get_random_choice("your_theme.effects")
+            components["effects"] = f"with ((themed {effect}))"
+        else:
+            components["effects"] = ""
 
         return components
 ```
@@ -85,19 +102,10 @@ class YourThemeHandler(BaseThemeHandler):
 ```json
 {
   "your_theme": {
-    "main_elements": [
-      "example1",
-      "example2"
-    ],
-    "settings": [
-      "settingA",
-      "settingB"
-    ],
-    "styles": [
-      "art nouveau",
-      "cyberpunk",
-      "impressionism"
-    ]
+    "main_elements": ["example1", "example2"],
+    "settings": ["settingA", "settingB"],
+    "styles": ["art nouveau", "cyberpunk"],
+    "effects": ["soft lighting", "dramatic shadows"]
   }
 }
 ```
@@ -123,26 +131,176 @@ def _init_mappings(self):
 
 ---
 
+## Example: 🚀 Space Colony Theme
+
+### Handler File
+
+```python
+# filepath: Core_Nodes/theme_handlers/space_colony_handler.py
+from typing import Dict
+from .base_handler import BaseThemeHandler
+
+class SpaceColonyHandler(BaseThemeHandler):
+    """Handler for the Space Colony theme."""
+
+    def generate(
+        self,
+        custom_subject: str = "",
+        custom_location: str = "",
+        include_environment: bool = True,
+        include_style: bool = True,
+        include_effects: bool = True
+    ) -> Dict[str, str]:
+        """Generates prompt components for the Space Colony theme."""
+
+        components = {}
+
+        # Subject
+        if custom_subject:
+            components["subject"] = (
+                f"((space colony {custom_subject})), ((main structure)), ((supporting detail))"
+            )
+        else:
+            main_element = self._get_random_choice("space_colony.main_elements")
+            components["subject"] = f"((space colony {main_element})), ((supporting detail))"
+
+        # Environment
+        if include_environment:
+            if custom_location:
+                components["environment"] = f"in ((space environment {custom_location}))"
+            else:
+                setting = self._get_random_choice("space_colony.settings")
+                components["environment"] = f"in ((space environment {setting}))"
+        else:
+            components["environment"] = ""
+
+        # Style
+        if include_style:
+            style = self._get_random_choice("space_colony.styles")
+            components["style"] = f"in the style of (({style}))"
+        else:
+            components["style"] = ""
+
+        # Effects
+        if include_effects:
+            effect = self._get_random_choice("space_colony.effects")
+            components["effects"] = f"with (({effect}))"
+        else:
+            components["effects"] = ""
+
+        return components
+```
+
+### Config File
+
+```json
+{
+  "space_colony": {
+    "main_elements": [
+      "dome habitat",
+      "hydroponic farm",
+      "command center",
+      "solar array",
+      "terraforming module"
+    ],
+    "settings": [
+      "lunar surface",
+      "Martian desert",
+      "asteroid belt",
+      "orbiting space station",
+      "icy moon"
+    ],
+    "styles": [
+      "sleek futuristic",
+      "brutalist architecture",
+      "biophilic design",
+      "retro sci-fi",
+      "high-tech minimalism"
+    ],
+    "effects": [
+      "glowing neon lights",
+      "dust storms",
+      "starfield backdrop",
+      "artificial gravity",
+      "transparent domes"
+    ]
+  }
+}
+```
+
+### Registration in `mega_prompt_V3.py`
+
+```python
+def _init_handlers(self):
+    handler_classes = {
+        # ...existing handlers...
+        "space_colony": SpaceColonyHandler,
+    }
+
+def _init_mappings(self):
+    emoji_mappings = {
+        # ...existing mappings...
+        "🚀 Space Colony": "space_colony"
+    }
+```
+
+### Import in `theme_handlers/__init__.py`
+
+```python
+from .space_colony_handler import SpaceColonyHandler
+```
+
+---
+
 ## Common Errors & Solutions
 
 1. **"Handler not found" error:**
    - Double-check the handler filename (no double underscores).
    - Verify the import statement in `theme_handlers/__init__.py` (e.g., `from .your_theme_handler import YourThemeHandler`).
    - Ensure the handler is correctly registered in `_init_handlers` in `mega_prompt_V3.py`.
+   - **If you see a Python import error:** Check for typos or missing files in the `theme_handlers` directory.
 
 2. **"Config not found" error:**
    - Ensure the config file is named `your_theme.json`.
    - Verify the file is located in the `Core_Nodes/configs/` directory.
-   - Remove any JSON comments or trailing commas.  JSON is strict!
+   - Remove any JSON comments or trailing commas.  **JSON is strict!**  
+     _Tip: Use a JSON validator if unsure._
 
 3. **"Theme not appearing" error:**
    - Check `_init_handlers` and `_init_mappings` in `mega_prompt_V3.py` for correct registration.
    - Restart ComfyUI after making changes to ensure the new theme is loaded.
    - Check the ComfyUI console for any error messages related to theme loading.
+   - The theme should appear in the Mega Prompt Generator V3 dropdown menu.
 
 4. **Empty or unexpected results:**
    - Inspect the `generate()` method in your handler.  Are you returning the expected components?
    - Check the values in your `your_theme.json` file.  Are they valid and appropriate for your theme?
+   - Test with different parameter combinations (e.g., `custom_subject`, `custom_location`, toggling environment/style/effects).
+
+---
+
+## Additional Tips & Reminders
+
+- **Restart Required:**  
+  After adding or modifying handler/config files, always restart ComfyUI to reload all themes and avoid caching issues.
+
+- **File Placement:**  
+  Place your handler file in `Core_Nodes/theme_handlers/` and your config file in `Core_Nodes/configs/`.
+
+- **Python Syntax:**  
+  Use a code editor with Python syntax checking to avoid indentation or syntax errors in your handler file.
+
+- **Handler Inheritance:**  
+  Your handler class must inherit from `BaseThemeHandler` for compatibility.
+
+- **Random Choice Methods:**  
+  Use `_get_random_choice` for standard random selection, or `_safe_choice` if you want to provide a fallback value.
+
+- **Docstrings & Comments:**  
+  Add docstrings and comments to your handler for clarity and maintainability.
+
+- **Updating Existing Themes:**  
+  To update a theme, edit the handler or config file, then restart ComfyUI. You can add new elements to the config or extend the handler logic as needed.
 
 ---
 
@@ -151,6 +309,7 @@ def _init_mappings(self):
 - **Handler class**: Use `PascalCase` (e.g., `MedievalThemeHandler`).
 - **Internal name**: Use `snake_case` (e.g., `medieval_theme`).
 - **Display name**: Include an emoji + title case (e.g., `🎨 Medieval Theme`).
+- **Config key**: Should match the internal name (e.g., `"medieval_theme": {...}`).
 
 ---
 
@@ -164,8 +323,8 @@ def _init_mappings(self):
    prompt = handler.generate(custom_subject="medieval castle")
    print(prompt) # Inspect the generated prompt
    ```
-5. Check the dropdown menu in ComfyUI for your theme name.
-6. Experiment with different `custom_subject` values to ensure the theme integrates correctly.
+5. Check the dropdown menu in ComfyUI for your theme name (Mega Prompt Generator V3 node).
+6. Experiment with different `custom_subject` values and other parameters to ensure the theme integrates correctly.
 
 ---
 

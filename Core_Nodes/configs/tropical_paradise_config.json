@@ -1,0 +1,47 @@
+{
+  "space_colony": {
+    "main_elements": [
+      "dome habitat",
+      "hydroponic farm",
+      "command center",
+      "solar array",
+      "terraforming module"
+    ],
+    "settings": [
+      "lunar surface",
+      "Martian desert",
+      "asteroid belt",
+      "orbiting space station",
+      "icy moon"
+    ],
+    "styles": [
+      "sleek futuristic",
+      "brutalist architecture",
+      "biophilic design",
+      "retro sci-fi",
+      "high-tech minimalism"
+    ],
+    "effects": [
+      "glowing neon lights",
+      "dust storms",
+      "starfield backdrop",
+      "artificial gravity",
+      "transparent domes"
+    ]
+  },
+  "tropical_paradise": {
+    "main_elements": ["beach", "lagoon", "island", "waterfall", "coral reef"],
+    "flora": ["orchids", "hibiscus", "plumeria", "bamboo", "palm trees", "banana trees"],
+    "fauna": ["parrots", "tropical fish", "sea turtles", "butterflies", "monkeys"],
+    "features": ["palm trees", "rock formations", "tide pools", "flowering vines"],
+    "settings": ["secluded island", "beach cove", "lagoon", "coral reef", "tropical forest"],
+    "water": ["crystal-clear water", "turquoise sea", "gentle waves", "shallow lagoon"],
+    "sand": ["white sand beach", "golden sand", "powdery shore"],
+    "weather": ["sunny", "golden hour", "clear sky", "gentle breeze", "tropical rain"],
+    "times": ["sunrise", "sunset", "midday", "dusk"],
+    "styles": ["vivid color palette", "photorealistic", "impressionist", "watercolor"],
+    "techniques": ["soft focus", "high saturation", "cinematic lighting", "macro detail"],
+    "effects": ["sunbeams", "lens flare", "bokeh", "water reflections", "misty haze"],
+    "patterns": ["rippling water", "leaf shadows", "sand patterns", "cloud reflections"]
+  }
+}

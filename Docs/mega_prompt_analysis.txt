@@ -31,7 +31,7 @@ custom_nodes/
         ├── character/
         │   ├── __init__.py
         │   └── character_handlers.py
-        └── [other theme categories]/
+        └── [other theme categories]/ 
 ```
 
 Core Files:
@@ -51,12 +51,14 @@ Theme handlers are organized into appropriate categories within the theme_handle
 1. A dedicated subdirectory (e.g., `abstract/`, `animation/`, etc.)
 2. An `__init__.py` file for proper Python package structure
 3. One or more handler implementation files
+4. **A corresponding JSON configuration file in the `configs/` directory for all randomizable elements.**
 
 When adding new theme handlers:
-1. Place them in the appropriate category directory
-2. Update the category's `__init__.py` to expose the new handler
-3. Register the handler in `mega_prompt_all_themes.py`
-4. Ensure that the handler class inherits from `BaseThemeHandler`.
+1. Place them in the appropriate category directory (e.g., for Space Colony, use a sci-fi or space subdirectory under `theme_handlers/`)
+2. Update the category's `__init__.py` to expose the new handler (e.g., add `from .space_colony_handler import SpaceColonyHandler`)
+3. Register the handler in `mega_prompt_all_themes.py` and `mega_prompt_V3.py` (add to handler mappings and emoji mappings)
+4. Ensure that the handler class inherits from `BaseThemeHandler` and loads all randomizable elements from its config file (do not hardcode lists in the handler)
+5. **Create or update a JSON config file in `configs/` (e.g., `Core_Nodes/configs/space_colony_config.json`) to define all lists and options used by the handler. Reference only config data in the handler.**
 
 This organization helps maintain a clean and scalable codebase while making it easier to locate and manage related themes.
 
@@ -236,6 +238,8 @@ Theme configurations are stored in JSON files with the following structure:
 }
 ```
 
+**All randomizable elements for a theme must be defined in its JSON config file. The handler should never hardcode lists or options, but always load them from the config.**
+
 For example, the nature theme configuration includes:
 ```json
 {
@@ -260,6 +264,7 @@ For example, the nature theme configuration includes:
    - Use JSON Schema for config validation
    - Implement type checking
    - Validate required fields
+   - **Ensure all handler random choices are present in the JSON config file.**
 
 2. **Versioning**:
    - Include config version number
@@ -292,31 +297,30 @@ For example, the nature theme configuration includes:
 }
 ```
 
+**When adding or updating a theme, always update the JSON config file to reflect all prompt elements used by the handler.**
+
 ### Instructions for Adding a New Theme to Mega Prompt V3
 
 To add a new theme to the system, follow these steps:
 
 1. Choose the appropriate category directory under `theme_handlers/` (e.g., `abstract/`, `animation/`, etc.)
 2. Create a new handler file in that directory (e.g., `my_new_theme_handler.py`)
-3. Create a corresponding config file in the `configs` directory (e.g., `configs/my_new_theme_config.json`)
+3. **Create a corresponding config file in the `configs` directory (e.g., `configs/my_new_theme_config.json`) and define all randomizable elements there.**
 4. In the theme handler file, create a new class that inherits from `BaseThemeHandler`
-5. Implement the required methods for your theme handler
+5. Implement the required methods for your theme handler, always loading lists/options from the config file.
 6. Update the category's `__init__.py` to expose your new handler
 7. Register the handler in `mega_prompt_all_themes.py`
 8. Add any necessary configuration entries to the config file
 
-Example handler structure:
-```python
-from ...base_theme_handler import BaseThemeHandler
+**Example: Improving the Space Colony Theme**
 
-class MyNewThemeHandler(BaseThemeHandler):
-    def __init__(self):
-        super().__init__("my_new_theme")
-        
-    def generate(self, **kwargs):
-        # Implementation here
-        pass
-```
+- Place `space_colony_handler.py` in `theme_handlers/` (or a `sci_fi/` subdirectory if organizing by category)
+- In `theme_handlers/__init__.py`, add `from .space_colony_handler import SpaceColonyHandler`
+- In `mega_prompt_V3.py`, add `"space_colony": "SpaceColonyHandler"` to handler mappings and `"🚀 Space Colony": "space_colony"` to emoji mappings
+- In `Core_Nodes/configs/space_colony_config.json`, define all randomizable elements (main_elements, settings, styles, effects, etc.)
+- In the handler, always use `self.theme_config.get("main_elements", [])` etc. for all random choices
+
+**This ensures the Space Colony theme is fully config-driven, maintainable, and consistent with the MegaPromptV3 system architecture.**
 
 ### Instructions for Adding a New Node
 
@@ -390,7 +394,8 @@ To add a new node that integrates with the MegaPromptV3 system, follow these ste
    - Save workflows in the `Workflows` directory
    - Test compatibility with existing nodes
 
-Remember to maintain consistency with the existing codebase structure and follow the established patterns for error handling, configuration management, and user interface design.
+Remember to maintain consistency with the existing codebase structure and follow the established patterns for error handling, configuration management, and user interface design.  
+**Always use the JSON config file for all theme data and randomization.**
 
 ### Error Handling and Logging
 

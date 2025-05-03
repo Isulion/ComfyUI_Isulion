@@ -164,6 +164,8 @@ HANDLER_CLASS_NAMES_MAP = {
     "vintage_anthropomorphic": "VintageAnthropomorphicThemeHandler",
     "watercolor": "WatercolorThemeHandler",
     "starter_pack": "StarterPackThemeHandler",
+    "space_colony": "SpaceColonyHandler",
+    "tropical_paradise": "TropicalParadiseThemeHandler",
     # Removed duplicates that were in your original list
 }
 
@@ -287,7 +289,9 @@ class ThemeRegistry:
             "📸 Vintage 1800s Photography": "vintage_1800s_photography",
             "👴 Vintage Anthropomorphic": "vintage_anthropomorphic",
             "🎨 Watercolor": "watercolor",
-            "🧸 Starter Pack": "starter_pack"
+            "🧸 Starter Pack": "starter_pack",
+            "🚀 Space Colony": "space_colony",
+            "🏝️ Tropical Paradise": "tropical_paradise"
         }
 
         available_internal_names = set(self.handlers.keys()).union({"random"})
@@ -456,6 +460,14 @@ class IsulionMegaPromptV3:
                         "", "", "", "",
                         return_seed
                     )
+            else:
+                # Always show the display name for the selected theme
+                for display_name, internal_name in self.theme_registry.theme_mappings.items():
+                    if internal_name == internal_theme:
+                        selected_theme_display = display_name
+                        break
+                else:
+                    selected_theme_display = internal_theme  # fallback
 
             handler = self.theme_registry.get_handler(internal_theme)
             if self.debug_mode:
