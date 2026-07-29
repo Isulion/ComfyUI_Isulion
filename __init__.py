@@ -93,6 +93,9 @@ NODE_CLASS_MAPPINGS = {
     "IsulionLoadImagesNode": IsulionLoadImagesNode,
     "IsulionEpochGenerator": IsulionEpochGenerator,
     "DisplayImageFromURL": DisplayImageFromURL,
+    "IsulionCivitaiModelExplorer": IsulionCivitaiModelExplorer,
+    "IsulionCivitaiTrending": IsulionCivitaiTrending,
+    "IsulionCivitaiImageDisplay": IsulionCivitaiImageDisplay,
     "CustomTextNode": CustomTextNode,
 }
 
@@ -130,7 +133,10 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionLoadImagesNode": "📁 Isulion Load Images from Directory",
     "IsulionEpochGenerator": "⏳ Isulion Epoch Generator",
     "DisplayImageFromURL": "🖼️ Isulion Display Image From URL",
-    "CustomTextNode": "📝 Custom Text Node",
+    "IsulionCivitaiModelExplorer": "🔍 Isulion Civitai Model Explorer",
+    "IsulionCivitaiTrending": "🔥 Isulion Civitai Trending",
+    "IsulionCivitaiImageDisplay": "🖼️ Isulion Civitai Image Display",
+    "CustomTextNode.py": "📝 Custom Text Node",
     "💤 IsulionShutdown": "💤 Isulion Shutdown",
     "🧩 IsulionQRCode": "🧩 Isulion QRCode Generator",
     "⧉ IsulionOverlay": "⧉ IsulionOverlay"

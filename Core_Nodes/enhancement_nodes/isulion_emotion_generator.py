@@ -1,5 +1,5 @@
 import random
-
+from nodes import NODE_CLASS_MAPPINGS
 
 class Isulion_EmotionGenerator:
     emotions = [
@@ -11,7 +11,7 @@ class Isulion_EmotionGenerator:
         'Confused', 'Determined', 'Hopeful', 'Tired', 'Energetic', 'Bored',
         'Surprised', 'Curious', 'Embarrassed', 'Guilty', 'Relief', 'Nostalgic'
     ]
-
+  
     @classmethod
     def INPUT_TYPES(cls):
         return {
@@ -44,12 +44,12 @@ class Isulion_EmotionGenerator:
         
         return (prompt, emotion, seed)
 
-
-# ComfyUI node registration
-NODE_CLASS_MAPPINGS = {
+# Register the node with ComfyUI
+NODE_CLASS_MAPPINGS.update({
     "IsulionEmotionGenerator": Isulion_EmotionGenerator
-}
+}) 
 
+# At the end of the file, after NODE_CLASS_MAPPINGS
 NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionEmotionGenerator": "Isulion Emotion Generator 😊"
-}
+} 

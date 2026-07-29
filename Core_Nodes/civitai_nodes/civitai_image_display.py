@@ -12,7 +12,8 @@ import logging
 from PIL import ImageOps
 import PIL
 
-logger = logging.getLogger(__name__)
+#Configure logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class IsulionCivitaiImageDisplay:
     """Node that displays Civitai images directly from URLs."""

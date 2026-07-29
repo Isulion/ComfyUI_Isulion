@@ -191,18 +191,11 @@ class IsulionMultiplePromptGenerator:
                     "default": 0, 
                     "min": 0, 
                     "max": 0xffffffffffffffff
-                }),
-                "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
-                "randomize": (["enable", "disable"], {"default": "enable"}),
-                "debug_mode": (["off", "on"], {"default": "off"}),
+                })
             },
             "optional": {
                 **theme_checkboxes,
-                "theme_names": (all_themes, {"default": all_themes[0], "hidden": True}),
-                "lora_key": ("STRING", {"default": "", "multiline": True}),
-                "include_environment": (["yes", "no"], {"default": "yes"}),
-                "include_style": (["yes", "no"], {"default": "yes"}),
-                "include_effects": (["yes", "no"], {"default": "yes"}),
+                "theme_names": (all_themes, {"default": all_themes[0], "hidden": True})  # Hidden list of all themes with headers
             }
         }
     
@@ -222,14 +215,7 @@ class IsulionMultiplePromptGenerator:
                 custom_subject: str,
                 custom_location: str,
                 seed: int,
-                complexity: str = "detailed",
-                randomize: str = "enable",
-                debug_mode: str = "off",
-                theme_names: List[str] = None,
-                lora_key: str = "",
-                include_environment: str = "yes",
-                include_style: str = "yes",
-                include_effects: str = "yes",
+                theme_names: List[str],
                 **kwargs) -> Tuple[List[str], List[str]]:
         """Generate prompts based on selected themes."""
         
@@ -286,18 +272,16 @@ class IsulionMultiplePromptGenerator:
             try:
                 theme_seed = (seed + i) % 0xffffffffffffffff
                 
-                prompt, selected_theme, subject, env, style, effects, _ = self.mega_prompt.generate(
+                prompt, subject, env, style, effects, _ = self.mega_prompt.generate(
                     theme=theme,
-                    complexity=complexity,
-                    randomize=randomize,
+                    complexity="very detailed",
                     seed=theme_seed,
                     custom_subject=custom_subject,
                     custom_location=custom_location,
-                    lora_key=lora_key,
-                    include_environment=include_environment,
-                    include_style=include_style,
-                    include_effects=include_effects,
-                    debug_mode=debug_mode
+                    include_environment="yes",
+                    include_style="yes",
+                    include_effects="yes",
+                    randomize="disable"
                 )
                 
                 if not prompt.startswith("Error:"):
