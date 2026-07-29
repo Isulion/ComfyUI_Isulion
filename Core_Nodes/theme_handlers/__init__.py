@@ -3,6 +3,9 @@
 # Base handler
 from .base_handler import BaseThemeHandler
 
+# Registry (must be imported before handlers to allow decorator usage)
+from .registry import register_handler
+
 # Art Style Handlers
 from .s300_handler import s300ThemeHandler
 from .abstract_handler import AbstractThemeHandler
@@ -100,10 +103,108 @@ from .instagram_lifestyle_handler import InstagramLifestyleThemeHandler
 # Starter Pack Handler
 from .starter_pack_handler import StarterPackThemeHandler
 
+
+# Register all handlers with their internal names
+# This replaces the fragile HANDLER_CLASS_NAMES_MAP in mega_prompt_V3.py
+register_handler("s300")(s300ThemeHandler)
+register_handler("abstract")(AbstractThemeHandler)
+register_handler("animation_cartoon")(AnimationCartoonThemeHandler)
+register_handler("anime")(AnimeThemeHandler)
+register_handler("architectural")(ArchitecturalThemeHandler)
+register_handler("bio_organic_tech")(BioOrganicTechThemeHandler)
+register_handler("binet_surreal")(BinetSurrealThemeHandler)
+register_handler("caricature")(CaricatureThemeHandler)
+register_handler("character_designer")(CharacterDesignerThemeHandler)
+register_handler("clay_art")(ClayArtThemeHandler)
+register_handler("comic_book")(ComicBookThemeHandler)
+register_handler("concept_art")(ConceptArtThemeHandler)
+register_handler("crayon_art")(CrayonArtThemeHandler)
+register_handler("digital_art")(DigitalArtThemeHandler)
+register_handler("dimension_3d")(Dimension3DThemeHandler)
+register_handler("experimental_art")(ExperimentalArtThemeHandler)
+register_handler("impressionist")(ImpressionistThemeHandler)
+register_handler("minimalist")(MinimalistThemeHandler)
+register_handler("nature")(NatureThemeHandler)
+register_handler("spectral_mist")(SpectralMistThemeHandler)
+register_handler("stopmotion")(StopMotionThemeHandler)
+register_handler("watercolor")(WatercolorThemeHandler)
+
+register_handler("cyberpunk")(CyberpunkThemeHandler)
+register_handler("crystalpunk")(CrystalpunkThemeHandler)
+register_handler("fantasy")(FantasyThemeHandler)
+register_handler("horror")(HorrorThemeHandler)
+register_handler("scifi")(SciFiThemeHandler)
+register_handler("steampunk")(SteampunkThemeHandler)
+
+register_handler("disney")(DisneyThemeHandler)
+register_handler("dreamworks")(DreamworksThemeHandler)
+register_handler("ghibli")(GhibliThemeHandler)
+register_handler("marvel")(MarvelThemeHandler)
+register_handler("nolan")(NolanThemeHandler)
+register_handler("miura")(MiuraThemeHandler)
+register_handler("pixar")(PixarThemeHandler)
+register_handler("star_wars")(StarWarsThemeHandler)
+
+register_handler("chimera_animals")(ChimeraAnimalsThemeHandler)
+register_handler("chimera_cute_animals")(ChimeraCuteAnimalsThemeHandler)
+register_handler("culinary_food")(CulinaryFoodThemeHandler)
+register_handler("curvy_fashion")(CurvyFashionThemeHandler)
+register_handler("enchanted_fantasy")(EnchantedFantasyThemeHandler)
+register_handler("essential_realistic")(EssentialRealisticThemeHandler)
+register_handler("essential_vintage")(EssentialVintageThemeHandler)
+register_handler("ethereal_dreams")(EtherealDreamsThemeHandler)
+register_handler("fifties_commercial")(FiftiesCommercialHandler)
+register_handler("futuristic_battlefield")(FuturisticBattlefieldThemeHandler)
+register_handler("futuristic_city")(FuturisticCityThemeHandler)
+register_handler("futuristic_city_metropolis")(FuturisticCityMetropolisThemeHandler)
+register_handler("futuristic_scifi")(FuturisticSciFiThemeHandler)
+register_handler("interior_spaces")(InteriorSpacesThemeHandler)
+register_handler("logo")(LogoThemeHandler)
+register_handler("manga_panel")(MangaPanelThemeHandler)
+register_handler("microscopic")(MicroscopicThemeHandler)
+register_handler("peaky_blinders")(PeakyBlindersThemeHandler)
+register_handler("post_apocalyptic")(PostApocalypticThemeHandler)
+register_handler("puzzle_dimension")(PuzzleDimensionThemeHandler)
+register_handler("school_manga")(SchoolMangaThemeHandler)
+register_handler("selfie")(SelfieThemeHandler)
+register_handler("skinny_blonde_girl")(SkinnyBlondeGirlHandler)
+register_handler("space_colony")(SpaceColonyHandler)
+register_handler("street_food_kebab")(StreetFoodKebabThemeHandler)
+register_handler("underwater_civilization")(UnderwaterCivilizationThemeHandler)
+register_handler("urban_tag")(UrbanTagThemeHandler)
+register_handler("village_world")(VillageWorldThemeHandler)
+register_handler("vintage_anthropomorphic")(VintageAnthropomorphicThemeHandler)
+register_handler("vintage_1800s_photography")(Vintage1800sPhotographyHandler)
+register_handler("historical_monuments")(HistoricalMonumentsHandler)
+register_handler("medieval")(MedievalThemeHandler)
+register_handler("tropical_paradise")(TropicalParadiseThemeHandler)
+
+register_handler("chinese_new_year")(ChineseNewYearThemeHandler)
+register_handler("christmas")(ChristmasThemeHandler)
+register_handler("dia_de_los_muertos")(DiaDeLosmuertosThemeHandler)
+register_handler("easter")(EasterThemeHandler)
+register_handler("halloween")(HalloweenThemeHandler)
+register_handler("halloween_ethereal")(HalloweenEtherealThemeHandler)
+register_handler("new_years_eve")(NewYearsEveThemeHandler)
+register_handler("st_patricks_day")(StPatricksDayThemeHandler)
+register_handler("thanksgiving")(ThanksgivingThemeHandler)
+register_handler("valentines_day")(ValentinesDayThemeHandler)
+
+register_handler("cinema_studio")(CinemaStudioThemeHandler)
+register_handler("instagram")(InstagramThemeHandler)
+register_handler("instagram_lifestyle")(InstagramLifestyleThemeHandler)
+
+register_handler("starter_pack")(StarterPackThemeHandler)
+
+
 # Export all handlers
 __all__ = [
     # Base Handler
     'BaseThemeHandler',
+    
+    # Registry functions
+    'register_handler', 'get_handler_class', 'get_handler_instance',
+    'list_handlers', 'clear_instance_cache', 'get_registered_names',
     
     # Art Style Handlers
     'AbstractThemeHandler', 'AnimationCartoonThemeHandler', 'AnimeThemeHandler',

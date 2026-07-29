@@ -3,6 +3,13 @@ import math
 import random
 import numpy
 
+try:
+    import comfy.model_management as model_management
+    HAS_COMFY_MM = True
+except ImportError:
+    HAS_COMFY_MM = False
+    model_management = None
+
 class IsuCollageNode:
     """
     Intelligent Image Collage Generator
@@ -74,6 +81,9 @@ class IsuCollageNode:
             collage_tensor = collage_tensor.unsqueeze(0)
         
         # Return as a single-element tuple for ComfyUI
+        # Free VRAM cache after large tensor operations
+        if HAS_COMFY_MM:
+            model_management.soft_empty_cache()
         return (collage_tensor,)
 
     def _distribute_images(self, images):

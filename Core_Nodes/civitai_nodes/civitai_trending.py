@@ -5,8 +5,7 @@ import requests
 import traceback
 import logging
 
-#Configure logging
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 class IsulionCivitaiTrending:
     """Node that retrieves trending images from Civitai."""
@@ -60,9 +59,9 @@ class IsulionCivitaiTrending:
                      model: str = "") -> Tuple[List[str]]:
         """Retrieve trending images for the specified period."""
 
-        logging.info("\n=== Starting Civitai Trending Images Search ===")
-        logging.debug(f"Debug - Search params:")
-        logging.debug(f"  NSFW Filter: {nsfw_filter}")
+        logger.info("\n=== Starting Civitai Trending Images Search ===")
+        logger.debug(f"Debug - Search params:")
+        logger.debug(f"  NSFW Filter: {nsfw_filter}")
 
         api_key = api_key.strip() or self.api_key
 
@@ -150,12 +149,12 @@ class IsulionCivitaiTrending:
             return result
 
         except requests.RequestException as e:
-            logging.error(f"Debug - Request Exception: {str(e)}")
+            logger.error(f"Debug - Request Exception: {str(e)}")
             if hasattr(e, 'response'):
-                logging.error(f"Response Status: {e.response.status_code}")
-                logging.error(f"Response Text: {e.response.text}")
+                logger.error(f"Response Status: {e.response.status_code}")
+                logger.error(f"Response Text: {e.response.text}")
             return (["Error: Failed to connect to Civitai API"],)
         except Exception as e:
-            logging.error(f"Debug - Unexpected Error: {str(e)}")
+            logger.error(f"Debug - Unexpected Error: {str(e)}")
             traceback.print_exc()
             return (["Error: Unexpected error occurred"],)

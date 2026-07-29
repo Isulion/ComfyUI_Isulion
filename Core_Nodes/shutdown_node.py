@@ -4,6 +4,7 @@ import subprocess
 class ShutdownNode:
     """
     A node that will shutdown the computer.
+    Requires explicit confirmation to prevent accidental shutdowns.
     """
     
     def __init__(self):
@@ -14,6 +15,10 @@ class ShutdownNode:
         return {
             "required": {
                 "any": ("*",),
+                "confirm": ("BOOLEAN", {
+                    "default": False,
+                    "label": "Confirm shutdown"
+                }),
                 "delay": ("INT", {
                     "default": 30,
                     "min": 0,
@@ -27,7 +32,11 @@ class ShutdownNode:
     CATEGORY = "utils"
     OUTPUT_NODE = True
 
-    def shutdown_computer(self, input, delay):
+    def shutdown_computer(self, any, confirm, delay):
+        if not confirm:
+            print("[ShutdownNode] Aborted: confirmation not checked.")
+            return ()
+        
         try:
             if os.name == 'nt':  # Windows
                 os.system(f'shutdown /s /f /t {delay}')

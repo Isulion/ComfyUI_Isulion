@@ -1,32 +1,21 @@
 import json
 import os
 from typing import Dict, List, Tuple, Optional
-import requests
-import traceback
-from PIL import Image
-from io import BytesIO
-import numpy as np
-import torch
-import comfy.utils as comfy_utils
 import logging
-from PIL import ImageOps
-import PIL
+
+import torch
+
+from .client import CivitaiClient, ImageDownloader, get_client, get_downloader
 
 
-#Configure logging
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 
 class IsulionCivitaiModelExplorer:
-    """Node that searches and displays model information and previews from Civitai."""
+    """Node that searches and displays model information from Civitai."""
 
     def __init__(self):
-        self.api_base = "https://civitai.com/api/v1"
-        self.results_cache = {}
-        self.current_page = 1
-        self.items_per_page = 10
-        self.api_key = os.getenv('CIVITAI_API_TOKEN')
-        print(f"Debug - Init: API base URL: {self.api_base}")
+        pass
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -73,133 +62,74 @@ class IsulionCivitaiModelExplorer:
                       api_key: str = "") -> Tuple[List[str]]:
         """Search for models and return associated information."""
 
-        logging.info("\n=== Starting Civitai API Search ===")
-        logging.debug(f"Debug - Search params:")
-        logging.debug(f"  Query: {search_query}")
-        logging.debug(f"  Sort: {sort_by}")
-        logging.debug(f"  NSFW Filter: {nsfw_filter}")
-        logging.debug(f"  Model Type: {model_type}")
-        logging.debug(f"  Page: {page}")
-        logging.debug(f"  API Key provided: {'Yes' if api_key else 'No'}")
+        logger.info("\n=== Starting Civitai API Search ===")
+        logger.debug(f"Params: query={search_query}, sort={sort_by}, nsfw={nsfw_filter}, type={model_type}, page={page}")
 
-        api_key = api_key.strip() or self.api_key
-        logging.debug(f"Debug - Final API key present: {'Yes' if api_key else 'No'}")
-
+        api_key = api_key.strip() or os.getenv('CIVITAI_API_TOKEN', '')
+        
         if not api_key:
-            logging.error("Debug - Error: No API key available")
-            return (
-                ["Error: No API key provided. Please provide a Civitai API token."],
-            )
-
-        logging.debug(f"Debug - Final page number: {page}")
-
-        sort_map = {
-            "Highest Rated": "Highest Rated",
-            "Most Downloaded": "Most Downloaded",
-            "Newest": "Newest"
-        }
-
-        nsfw_map = {
-            "Hide NSFW": "None",
-            "Show All": "All",
-            "Only NSFW": "NSFW"
-        }
-
-        params = {
-            "query": search_query,
-            "limit": self.items_per_page,
-            "page": page,
-            "sort": sort_map[sort_by],
-            "nsfw": nsfw_map[nsfw_filter],
-            "type": model_type.upper() if model_type != "All" else None
-        }
-
-        params = {k: v for k, v in params.items() if v is not None}
-        logging.debug(f"Debug - Final API parameters: {json.dumps(params, indent=2)}")
-
-        headers = {
-            "Authorization": f"Bearer {api_key}",
-            "Accept": "application/json"
-        }
-        logging.debug("Debug - Headers set (excluding auth token)")
+            logger.error("No API key available")
+            return (["Error: No API key provided. Please provide a Civitai API token."],)
 
         try:
-            cache_key = f"{search_query}_{sort_by}_{nsfw_filter}_{model_type}_{page}"
-            logging.debug(f"Debug - Cache key: {cache_key}")
+            client = get_client(api_key)
+            
+            sort_map = {
+                "Highest Rated": "Highest Rated",
+                "Most Downloaded": "Most Downloaded",
+                "Newest": "Newest"
+            }
 
-            if cache_key in self.results_cache:
-                logging.debug("Debug - Returning cached results")
-                return self.results_cache[cache_key]
+            nsfw_map = {
+                "Hide NSFW": "None",
+                "Show All": "All",
+                "Only NSFW": "NSFW"
+            }
 
-            logging.debug(f"Debug - Making API request to: {self.api_base}/models")
-            response = requests.get(
-                f"{self.api_base}/models",
-                params=params,
-                headers=headers,
-                timeout=10
+            models = client.search_models(
+                query=search_query,
+                sort=sort_map[sort_by],
+                nsfw=nsfw_map[nsfw_filter],
+                model_type=model_type if model_type != "All" else None,
+                page=page,
+                limit=10
             )
 
-            logging.debug(f"Debug - API Response Status: {response.status_code}")
-            logging.debug(f"Debug - API Response Headers: {dict(response.headers)}")
-            logging.debug(f"Debug - API Response Content: {response.text[:500]}...")
-
-            response.raise_for_status()
-            data = response.json()
-            logging.debug(f"Debug - Successfully parsed JSON response")
-            logging.debug(f"API Response Body: {data}")
-
+            if not models:
+                logger.warning("API returned empty models list")
+                return (["Warning: No results found for the given query."],)
 
             model_infos = []
-
-            items = data.get("items", [])
-
-            if not items:
-                logging.warning("Debug - API returned empty items list.")
-                return ["Warning: No results found for the given query."]
-
-            for item in items:
-                versions = item.get("modelVersions", [])
+            for model in models:
+                versions = model.get("modelVersions", [])
                 version = versions[0] if versions else {}
 
                 model_info = (
-                    f"Model: {item.get('name', 'Unknown')}\n"
-                    f"Type: {item.get('type', 'Unknown')}\n"
+                    f"Model: {model.get('name', 'Unknown')}\n"
+                    f"Type: {model.get('type', 'Unknown')}\n"
                     f"Hash: {version.get('hash', 'Unknown')}\n"
                     f"Base Model: {version.get('baseModel', 'Unknown')}"
                 )
-
                 model_infos.append(model_info)
-            result = (model_infos,)
-            self.results_cache[cache_key] = result
-            return result
+
+            logger.info(f"Found {len(model_infos)} models")
+            return (model_infos,)
 
         except requests.RequestException as e:
-            logging.error(f"Debug - Request Exception Details:")
-            logging.error(f"  Error Type: {type(e).__name__}")
-            logging.error(f"  Error Message: {str(e)}")
+            logger.error(f"Request failed: {e}")
             if hasattr(e, 'response') and e.response is not None:
-                logging.error(f"  Response Status: {e.response.status_code}")
-                logging.error(f"  Response Headers: {dict(e.response.headers)}")
-                logging.error(f"  Response Content: {e.response.text[:500]}...")
-            logging.error("Debug - Full traceback:")
-            traceback.print_exc()
-            return ["Error: Failed to connect to Civitai API"]
+                logger.error(f"Response: {e.response.status_code} - {e.response.text[:500]}")
+            return (["Error: Failed to connect to Civitai API"],)
         except Exception as e:
-            logging.error(f"Debug - Unexpected Error Details:")
-            logging.error(f"  Error Type: {type(e).__name__}")
-            logging.error(f"  Error Message: {str(e)}")
-            logging.error("Debug - Full traceback:")
-            traceback.print_exc()
-            return ["Error: Unexpected error occurred"]
+            logger.error(f"Unexpected error: {type(e).__name__}: {e}")
+            return (["Error: Unexpected error occurred"],)
 
 
 class IsulionCivitaiTrending:
     """Node that retrieves trending images from Civitai."""
 
     def __init__(self):
-        self.api_base = "https://civitai.com/api/v1"
-        self.results_cache = {}
-        self.api_key = os.getenv('CIVITAI_API_TOKEN')
+        pass
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -245,93 +175,61 @@ class IsulionCivitaiTrending:
                     model: str = "") -> Tuple[List[str]]:
         """Retrieve trending images for the specified period."""
 
-        logging.info("\n=== Starting Civitai Trending Images Search ===")
-        logging.debug(f"Debug - Search params:")
-        logging.debug(f"  NSFW Filter: {nsfw_filter}")
+        logger.info("\n=== Starting Civitai Trending Images Search ===")
+        logger.debug(f"Params: nsfw={nsfw_filter}, sort={sort_by}, period={period}, count={number_of_images}, model={model}")
 
-        api_key = api_key.strip() or self.api_key
+        api_key = api_key.strip() or os.getenv('CIVITAI_API_TOKEN', '')
 
         if not api_key:
             return (["Error: No API key provided. Please provide a Civitai API token."],)
 
-        # Updated NSFW mapping with correct API parameters
-        nsfw_params = {
-            "Hide NSFW": {
-                "nsfw": "false",
-                "nsfwLevel": ["None", "Soft"]  # Only show Safe and Soft content
-            },
-            "Only NSFW": {
-                "nsfw": "true",
-                "nsfwLevel": ["Mature", "X"]  # Only show Mature and X content
-            }
-        }
-
-        period_map = {
-            "Day": "Day",
-            "Week": "Week",
-            "Month": "Month",
-            "Year": "Year",
-            "All Time": "AllTime"
-        }
-
-        # Map model names to their corresponding IDs
-        model_map = {
-            "All": None,  # No specific model
-            "SDXL": 1,    # Example ID, replace with actual ID
-            "FLUX": 2,    # Example ID, replace with actual ID
-            "Other": 3     # Example ID, replace with actual ID
-        }
-
-        # Base parameters
-        params = {
-            "limit": number_of_images,
-            "period": period_map[period],
-            "sort": sort_by,
-            "modelId": model_map[model]  # Use modelId for filtering
-        }
-
-        # Add NSFW parameters
-        current_nsfw_params = nsfw_params[nsfw_filter]
-        params["nsfw"] = current_nsfw_params["nsfw"]
-        
-        # Handle nsfwLevel as a comma-separated string
-        if current_nsfw_params["nsfwLevel"]:
-            params["nsfwLevel"] = ",".join(current_nsfw_params["nsfwLevel"])
-
-        logging.debug(f"Debug - Final API parameters: {params}")
-
-        headers = {
-            "Authorization": f"Bearer {api_key}",
-            "Accept": "application/json"
-        }
-
         try:
-            cache_key = f"trending_{nsfw_filter}_{sort_by}_{period}_{number_of_images}_{model}"
-            if cache_key in self.results_cache:
-                logging.debug("Debug - Returning cached results")
-                return self.results_cache[cache_key]
+            client = get_client(api_key)
 
-            logging.debug(f"Debug - Making API request to: {self.api_base}/images")
-            response = requests.get(
-                f"{self.api_base}/images",
-                params=params,
-                headers=headers,
-                timeout=10
-            )
+            nsfw_params = {
+                "Hide NSFW": {
+                    "nsfw": "false",
+                    "nsfw_level": ["None", "Soft"]
+                },
+                "Only NSFW": {
+                    "nsfw": "true",
+                    "nsfw_level": ["Mature", "X"]
+                }
+            }
 
-            response.raise_for_status()
-            data = response.json()
-            logging.debug(f"Debug - Successfully parsed JSON response")
+            period_map = {
+                "Day": "Day",
+                "Week": "Week",
+                "Month": "Month",
+                "Year": "Year",
+                "All Time": "AllTime"
+            }
+
+            model_map = {
+                "All": None,
+                "SDXL": 1,
+                "FLUX": 2,
+                "Other": 3
+            }
+
+            params = {
+                "limit": number_of_images,
+                "period": period_map[period],
+                "sort": sort_by,
+                "modelId": model_map[model]
+            }
+
+            current_nsfw = nsfw_params[nsfw_filter]
+            params["nsfw"] = current_nsfw["nsfw"]
+            if current_nsfw["nsfw_level"]:
+                params["nsfwLevel"] = ",".join(current_nsfw["nsfw_level"])
+
+            logger.debug(f"Final API params: {params}")
+
+            images = client.get_trending_images(**params)
 
             image_infos = []
-            items = data.get("items", [])
-
-            if not items:
-                logging.warning("Debug - API returned empty items list.")
-                return (["Warning: No trending images found."],)
-
-            for item in items:
-                # Silently skip videos
+            for item in images:
                 if item.get('type', '').lower() == 'video':
                     continue
 
@@ -371,19 +269,15 @@ class IsulionCivitaiTrending:
             if not image_infos:
                 return (["No images found in the current selection."],)
 
-            result = (image_infos,)
-            self.results_cache[cache_key] = result
-            return result
+            return (image_infos,)
 
         except requests.RequestException as e:
-            logging.error(f"Debug - Request Exception: {str(e)}")
-            if hasattr(e, 'response'):
-                logging.error(f"Response Status: {e.response.status_code}")
-                logging.error(f"Response Text: {e.response.text}")
+            logger.error(f"Request failed: {e}")
+            if hasattr(e, 'response') and e.response is not None:
+                logger.error(f"Response: {e.response.status_code} - {e.response.text}")
             return (["Error: Failed to connect to Civitai API"],)
         except Exception as e:
-            logging.error(f"Debug - Unexpected Error: {str(e)}")
-            traceback.print_exc()
+            logger.error(f"Unexpected error: {type(e).__name__}: {e}")
             return (["Error: Unexpected error occurred"],)
 
 
@@ -421,43 +315,18 @@ class IsulionCivitaiImageDisplay:
     FUNCTION = "display_image"
     CATEGORY = "Isulion/Prompt Tools"
 
-    def resize_image(self, image, target_size):
-        """Resize image to exact target size with padding."""
-        # Create a new blank image with the target size
-        new_image = Image.new('RGB', (target_size, target_size), (0, 0, 0))
-        
-        # Calculate scaling factor to fit within target size
-        aspect_ratio = image.width / image.height
-        if aspect_ratio > 1:
-            new_width = target_size
-            new_height = int(target_size / aspect_ratio)
-        else:
-            new_height = target_size
-            new_width = int(target_size * aspect_ratio)
-            
-        # Resize the original image
-        resized = image.resize((new_width, new_height), Image.Resampling.LANCZOS)
-        
-        # Calculate position to paste (center)
-        paste_x = (target_size - new_width) // 2
-        paste_y = (target_size - new_height) // 2
-        
-        # Paste the resized image onto the new image
-        new_image.paste(resized, (paste_x, paste_y))
-        
-        return new_image
+    def __init__(self):
+        self.downloader = get_downloader()
 
-    def create_error_image(self, target_size: int, message: str = "No valid images found"):
-        """Create a black image with error message."""
-        # Create a black image
+    def create_error_tensor(self, target_size: int, message: str = "No valid images found") -> torch.Tensor:
+        """Create a black tensor with error indication."""
         error_image = Image.new('RGB', (target_size, target_size), (0, 0, 0))
-        image_tensor = torch.from_numpy(np.array(error_image)).float() / 255.0
-        image_tensor = image_tensor.unsqueeze(0)
-        return image_tensor
+        tensor = torch.from_numpy(np.array(error_image)).float() / 255.0
+        return tensor.unsqueeze(0)
 
     def display_image(self, image_info: str, mode: str, image_index: int, target_size: int):
         try:
-            # Parse image info to get URL
+            # Parse image info to get URLs
             if isinstance(image_info, list):
                 entries = image_info
             else:
@@ -465,7 +334,7 @@ class IsulionCivitaiImageDisplay:
                 entries = [entry.strip() for entry in entries if entry.strip()]
 
             if not entries:
-                return (self.create_error_image(target_size), 
+                return (self.create_error_tensor(target_size), 
                        "No images found", 
                        "No prompt available", 
                        "", 
@@ -479,59 +348,57 @@ class IsulionCivitaiImageDisplay:
                 all_urls = []
                 all_models = []
 
+                urls = []
                 for entry in entries:
                     image_data = {}
                     for line in entry.split('\n'):
                         if ': ' in line:
                             key, value = line.split(': ', 1)
                             image_data[key] = value
-
+                    
                     image_url = image_data.get('URL', '')
                     model = image_data.get('Model', 'Unknown')
-                    if not image_url:
-                        continue
+                    if image_url:
+                        urls.append((image_url, image_data, model))
 
-                    try:
-                        response = requests.get(image_url, timeout=10)
-                        response.raise_for_status()
-                        
-                        # Silently skip non-image content
-                        content_type = response.headers.get('content-type', '').lower()
-                        if not content_type.startswith('image/') or 'video' in content_type:
-                            continue
+                if not urls:
+                    return (self.create_error_tensor(target_size), 
+                           "No valid images found", 
+                           "No prompt available", 
+                           "", 
+                           "No model available")
 
-                        image_data = response.content
-                        if not image_data:
-                            continue
+                # Download in parallel
+                results = self.downloader.download_batch(
+                    [u[0] for u in urls], 
+                    target_size=target_size,
+                    max_workers=4
+                )
 
-                        image = Image.open(BytesIO(image_data))
-                        if image.mode != 'RGB':
-                            image = image.convert('RGB')
-                        
-                        image = self.resize_image(image, target_size)
-                        
-                        image_tensor = torch.from_numpy(np.array(image)).float() / 255.0
-                        image_tensor = image_tensor.unsqueeze(0)
-                        
-                        all_tensors.append(image_tensor)
+                for (tensor, meta), (url, image_data, model) in zip(results, urls):
+                    if tensor is not None:
+                        all_tensors.append(tensor)
                         all_titles.append(image_data.get('Image', 'Untitled'))
                         all_prompts.append(image_data.get('Prompt', 'No prompt available'))
-                        all_urls.append(image_url)
+                        all_urls.append(url)
                         all_models.append(model)
 
-                    except:
-                        # Silently skip any errors
-                        continue
-
                 if not all_tensors:
-                    return (self.create_error_image(target_size), 
+                    return (self.create_error_tensor(target_size), 
                            "No valid images found", 
                            "No prompt available", 
                            "", 
                            "No model available")
 
                 final_tensor = torch.cat(all_tensors, dim=0)
- 
+                
+                # Free VRAM cache after batch processing
+                try:
+                    import comfy.model_management as model_management
+                    model_management.soft_empty_cache()
+                except ImportError:
+                    pass
+
                 return (final_tensor, 
                        " | ".join(all_titles), 
                        " | ".join(all_prompts), 
@@ -540,13 +407,13 @@ class IsulionCivitaiImageDisplay:
 
             else:  # Single mode
                 if image_index >= len(entries):
-                    return (self.create_error_image(target_size),
+                    return (self.create_error_tensor(target_size),
                            f"Image index {image_index} out of range (total: {len(entries)})",
                            "No prompt available",
                            "",
                            "No model available")
 
-                # Try each entry starting from image_index until we find a valid image
+                # Try each entry starting from image_index
                 for current_index in range(image_index, len(entries)):
                     entry = entries[current_index]
                     image_data = {}
@@ -564,43 +431,22 @@ class IsulionCivitaiImageDisplay:
                         continue
 
                     try:
-                        response = requests.get(image_url, timeout=10)
-                        response.raise_for_status()
-                        
-                        # Check if content is an image
-                        content_type = response.headers.get('content-type', '').lower()
-                        if not content_type.startswith('image/') or 'video' in content_type:
-                            continue
-
-                        image_data = response.content
-                        if not image_data:
-                            continue
-
-                        image = Image.open(BytesIO(image_data))
-                        if image.mode != 'RGB':
-                            image = image.convert('RGB')
-                        
-                        image = self.resize_image(image, target_size)
-                        
-                        image_tensor = torch.from_numpy(np.array(image)).float() / 255.0
-                        image_tensor = image_tensor.unsqueeze(0)
-                        
-                        return (image_tensor, title, prompt, image_url, model)
-                        
-                    except:
-                        # Silently skip any errors and continue to next entry
+                        tensor = self.downloader.download_and_convert(image_url, target_size)
+                        return (tensor, title, prompt, image_url, model)
+                    except Exception as e:
+                        logger.warning(f"Failed to load image {current_index}: {e}")
                         continue
 
-                # If we get here, no valid images were found
-                return (self.create_error_image(target_size),
+                # No valid images found
+                return (self.create_error_tensor(target_size),
                        "No valid images found",
                        "No prompt available",
                        "",
                        "No model available")
-            
+             
         except Exception as e:
-            print(f"Error loading image from URL: {str(e)}")
-            return (self.create_error_image(target_size),
+            logger.error(f"Error in display_image: {e}")
+            return (self.create_error_tensor(target_size),
                    f"Error: {str(e)}",
                    "No prompt available",
                    "",
