@@ -13,8 +13,7 @@ from PIL import ImageOps
 import PIL
 
 
-#Configure logging
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 
 class IsulionCivitaiModelExplorer:
@@ -64,6 +63,10 @@ class IsulionCivitaiModelExplorer:
     FUNCTION = "search_prompts"
     CATEGORY = "Isulion/Prompt Tools"
 
+    @classmethod
+    def IS_CHANGED(cls, **kwargs):
+        return float("NaN")
+
     def search_prompts(self,
                       search_query: str,
                       sort_by: str,
@@ -73,25 +76,25 @@ class IsulionCivitaiModelExplorer:
                       api_key: str = "") -> Tuple[List[str]]:
         """Search for models and return associated information."""
 
-        logging.info("\n=== Starting Civitai API Search ===")
-        logging.debug(f"Debug - Search params:")
-        logging.debug(f"  Query: {search_query}")
-        logging.debug(f"  Sort: {sort_by}")
-        logging.debug(f"  NSFW Filter: {nsfw_filter}")
-        logging.debug(f"  Model Type: {model_type}")
-        logging.debug(f"  Page: {page}")
-        logging.debug(f"  API Key provided: {'Yes' if api_key else 'No'}")
+        logger.info("\n=== Starting Civitai API Search ===")
+        logger.debug(f"Debug - Search params:")
+        logger.debug(f"  Query: {search_query}")
+        logger.debug(f"  Sort: {sort_by}")
+        logger.debug(f"  NSFW Filter: {nsfw_filter}")
+        logger.debug(f"  Model Type: {model_type}")
+        logger.debug(f"  Page: {page}")
+        logger.debug(f"  API Key provided: {'Yes' if api_key else 'No'}")
 
         api_key = api_key.strip() or self.api_key
-        logging.debug(f"Debug - Final API key present: {'Yes' if api_key else 'No'}")
+        logger.debug(f"Debug - Final API key present: {'Yes' if api_key else 'No'}")
 
         if not api_key:
-            logging.error("Debug - Error: No API key available")
+            logger.error("Debug - Error: No API key available")
             return (
                 ["Error: No API key provided. Please provide a Civitai API token."],
             )
 
-        logging.debug(f"Debug - Final page number: {page}")
+        logger.debug(f"Debug - Final page number: {page}")
 
         sort_map = {
             "Highest Rated": "Highest Rated",
@@ -115,23 +118,23 @@ class IsulionCivitaiModelExplorer:
         }
 
         params = {k: v for k, v in params.items() if v is not None}
-        logging.debug(f"Debug - Final API parameters: {json.dumps(params, indent=2)}")
+        logger.debug(f"Debug - Final API parameters: {json.dumps(params, indent=2)}")
 
         headers = {
             "Authorization": f"Bearer {api_key}",
             "Accept": "application/json"
         }
-        logging.debug("Debug - Headers set (excluding auth token)")
+        logger.debug("Debug - Headers set (excluding auth token)")
 
         try:
             cache_key = f"{search_query}_{sort_by}_{nsfw_filter}_{model_type}_{page}"
-            logging.debug(f"Debug - Cache key: {cache_key}")
+            logger.debug(f"Debug - Cache key: {cache_key}")
 
             if cache_key in self.results_cache:
-                logging.debug("Debug - Returning cached results")
+                logger.debug("Debug - Returning cached results")
                 return self.results_cache[cache_key]
 
-            logging.debug(f"Debug - Making API request to: {self.api_base}/models")
+            logger.debug(f"Debug - Making API request to: {self.api_base}/models")
             response = requests.get(
                 f"{self.api_base}/models",
                 params=params,
@@ -139,14 +142,14 @@ class IsulionCivitaiModelExplorer:
                 timeout=10
             )
 
-            logging.debug(f"Debug - API Response Status: {response.status_code}")
-            logging.debug(f"Debug - API Response Headers: {dict(response.headers)}")
-            logging.debug(f"Debug - API Response Content: {response.text[:500]}...")
+            logger.debug(f"Debug - API Response Status: {response.status_code}")
+            logger.debug(f"Debug - API Response Headers: {dict(response.headers)}")
+            logger.debug(f"Debug - API Response Content: {response.text[:500]}...")
 
             response.raise_for_status()
             data = response.json()
-            logging.debug(f"Debug - Successfully parsed JSON response")
-            logging.debug(f"API Response Body: {data}")
+            logger.debug(f"Debug - Successfully parsed JSON response")
+            logger.debug(f"API Response Body: {data}")
 
 
             model_infos = []
@@ -154,7 +157,7 @@ class IsulionCivitaiModelExplorer:
             items = data.get("items", [])
 
             if not items:
-                logging.warning("Debug - API returned empty items list.")
+                logger.warning("Debug - API returned empty items list.")
                 return ["Warning: No results found for the given query."]
 
             for item in items:
@@ -174,21 +177,21 @@ class IsulionCivitaiModelExplorer:
             return result
 
         except requests.RequestException as e:
-            logging.error(f"Debug - Request Exception Details:")
-            logging.error(f"  Error Type: {type(e).__name__}")
-            logging.error(f"  Error Message: {str(e)}")
+            logger.error(f"Debug - Request Exception Details:")
+            logger.error(f"  Error Type: {type(e).__name__}")
+            logger.error(f"  Error Message: {str(e)}")
             if hasattr(e, 'response') and e.response is not None:
-                logging.error(f"  Response Status: {e.response.status_code}")
-                logging.error(f"  Response Headers: {dict(e.response.headers)}")
-                logging.error(f"  Response Content: {e.response.text[:500]}...")
-            logging.error("Debug - Full traceback:")
+                logger.error(f"  Response Status: {e.response.status_code}")
+                logger.error(f"  Response Headers: {dict(e.response.headers)}")
+                logger.error(f"  Response Content: {e.response.text[:500]}...")
+            logger.error("Debug - Full traceback:")
             traceback.print_exc()
             return ["Error: Failed to connect to Civitai API"]
         except Exception as e:
-            logging.error(f"Debug - Unexpected Error Details:")
-            logging.error(f"  Error Type: {type(e).__name__}")
-            logging.error(f"  Error Message: {str(e)}")
-            logging.error("Debug - Full traceback:")
+            logger.error(f"Debug - Unexpected Error Details:")
+            logger.error(f"  Error Type: {type(e).__name__}")
+            logger.error(f"  Error Message: {str(e)}")
+            logger.error("Debug - Full traceback:")
             traceback.print_exc()
             return ["Error: Unexpected error occurred"]
 
@@ -236,6 +239,10 @@ class IsulionCivitaiTrending:
     FUNCTION = "get_trending"
     CATEGORY = "Isulion/Prompt Tools"
 
+    @classmethod
+    def IS_CHANGED(cls, **kwargs):
+        return float("NaN")
+
     def get_trending(self,
                     nsfw_filter: str,
                     sort_by: str,
@@ -245,9 +252,9 @@ class IsulionCivitaiTrending:
                     model: str = "") -> Tuple[List[str]]:
         """Retrieve trending images for the specified period."""
 
-        logging.info("\n=== Starting Civitai Trending Images Search ===")
-        logging.debug(f"Debug - Search params:")
-        logging.debug(f"  NSFW Filter: {nsfw_filter}")
+        logger.info("\n=== Starting Civitai Trending Images Search ===")
+        logger.debug(f"Debug - Search params:")
+        logger.debug(f"  NSFW Filter: {nsfw_filter}")
 
         api_key = api_key.strip() or self.api_key
 
@@ -298,7 +305,7 @@ class IsulionCivitaiTrending:
         if current_nsfw_params["nsfwLevel"]:
             params["nsfwLevel"] = ",".join(current_nsfw_params["nsfwLevel"])
 
-        logging.debug(f"Debug - Final API parameters: {params}")
+        logger.debug(f"Debug - Final API parameters: {params}")
 
         headers = {
             "Authorization": f"Bearer {api_key}",
@@ -308,10 +315,10 @@ class IsulionCivitaiTrending:
         try:
             cache_key = f"trending_{nsfw_filter}_{sort_by}_{period}_{number_of_images}_{model}"
             if cache_key in self.results_cache:
-                logging.debug("Debug - Returning cached results")
+                logger.debug("Debug - Returning cached results")
                 return self.results_cache[cache_key]
 
-            logging.debug(f"Debug - Making API request to: {self.api_base}/images")
+            logger.debug(f"Debug - Making API request to: {self.api_base}/images")
             response = requests.get(
                 f"{self.api_base}/images",
                 params=params,
@@ -321,13 +328,13 @@ class IsulionCivitaiTrending:
 
             response.raise_for_status()
             data = response.json()
-            logging.debug(f"Debug - Successfully parsed JSON response")
+            logger.debug(f"Debug - Successfully parsed JSON response")
 
             image_infos = []
             items = data.get("items", [])
 
             if not items:
-                logging.warning("Debug - API returned empty items list.")
+                logger.warning("Debug - API returned empty items list.")
                 return (["Warning: No trending images found."],)
 
             for item in items:
@@ -376,13 +383,13 @@ class IsulionCivitaiTrending:
             return result
 
         except requests.RequestException as e:
-            logging.error(f"Debug - Request Exception: {str(e)}")
+            logger.error(f"Debug - Request Exception: {str(e)}")
             if hasattr(e, 'response'):
-                logging.error(f"Response Status: {e.response.status_code}")
-                logging.error(f"Response Text: {e.response.text}")
+                logger.error(f"Response Status: {e.response.status_code}")
+                logger.error(f"Response Text: {e.response.text}")
             return (["Error: Failed to connect to Civitai API"],)
         except Exception as e:
-            logging.error(f"Debug - Unexpected Error: {str(e)}")
+            logger.error(f"Debug - Unexpected Error: {str(e)}")
             traceback.print_exc()
             return (["Error: Unexpected error occurred"],)
 

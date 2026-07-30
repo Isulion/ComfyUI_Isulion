@@ -191,11 +191,23 @@ class IsulionMultiplePromptGenerator:
                     "default": 0, 
                     "min": 0, 
                     "max": 0xffffffffffffffff
-                })
+                }),
+                "complexity": (["simple", "detailed", "complex"], {
+                    "default": "detailed"
+                }),
+                "include_environment": (["yes", "no"], {"default": "yes"}),
+                "include_style": (["yes", "no"], {"default": "yes"}),
+                "include_effects": (["yes", "no"], {"default": "yes"}),
+                "lora_key": ("STRING", {
+                    "default": "",
+                    "multiline": True,
+                    "placeholder": "(lora:key:weight)..."
+                }),
             },
             "optional": {
                 **theme_checkboxes,
-                "theme_names": (all_themes, {"default": all_themes[0], "hidden": True})  # Hidden list of all themes with headers
+                "debug_mode": (["off", "on"], {"default": "off"}),
+                "theme_names": (all_themes, {"default": all_themes[0], "hidden": True})
             }
         }
     
@@ -215,6 +227,11 @@ class IsulionMultiplePromptGenerator:
                 custom_subject: str,
                 custom_location: str,
                 seed: int,
+                complexity: str,
+                include_environment: str,
+                include_style: str,
+                include_effects: str,
+                lora_key: str,
                 theme_names: List[str],
                 **kwargs) -> Tuple[List[str], List[str]]:
         """Generate prompts based on selected themes."""
@@ -264,6 +281,9 @@ class IsulionMultiplePromptGenerator:
             themes_to_process.sort(key=lambda x: x.split(' ', 1)[1] if ' ' in x else x)
             themes_to_process = list(dict.fromkeys(themes_to_process))  # Remove duplicates while preserving order
         
+        # Extract optional params from kwargs
+        debug_mode = kwargs.get("debug_mode", "off")
+
         # Generate prompts
         positives = []
         names = []
@@ -272,16 +292,18 @@ class IsulionMultiplePromptGenerator:
             try:
                 theme_seed = (seed + i) % 0xffffffffffffffff
                 
-                prompt, subject, env, style, effects, _ = self.mega_prompt.generate(
+                prompt, _, subject, env, style, effects, _ = self.mega_prompt.generate(
                     theme=theme,
-                    complexity="very detailed",
+                    complexity=complexity,
                     seed=theme_seed,
                     custom_subject=custom_subject,
                     custom_location=custom_location,
-                    include_environment="yes",
-                    include_style="yes",
-                    include_effects="yes",
-                    randomize="disable"
+                    include_environment=include_environment,
+                    include_style=include_style,
+                    include_effects=include_effects,
+                    lora_key=lora_key,
+                    randomize="disable",
+                    debug_mode=debug_mode
                 )
                 
                 if not prompt.startswith("Error:"):

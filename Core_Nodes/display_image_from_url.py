@@ -26,7 +26,7 @@ class DisplayImageFromURL:
     def display_image(self, image_url):
         try:
             # Download the image from URL
-            response = requests.get(image_url)
+            response = requests.get(image_url, timeout=15)
             response.raise_for_status()  # Raise an exception for bad status codes
             
             # Open the image using PIL

@@ -1,5 +1,4 @@
 import random
-from nodes import NODE_CLASS_MAPPINGS
 
 class Isulion_TimeOfDayGenerator:
     times = [
@@ -26,7 +25,7 @@ class Isulion_TimeOfDayGenerator:
     FUNCTION = "generate_time"
     CATEGORY = "Art/Styles"
 
-    def generate_time(self, randomize, seed, time):
+    def generate_time(self, randomize: str, seed: int, time: str) -> tuple:
         if randomize == "enable":
             if seed is not None and seed > 0:
                 random.seed(seed)
@@ -37,5 +36,3 @@ class Isulion_TimeOfDayGenerator:
             time = random.choice(self.times)
 
         return (f"{time}", seed)
-
-# Remove NODE_CLASS_MAPPINGS and NODE_DISPLAY_NAME_MAPPINGS from here

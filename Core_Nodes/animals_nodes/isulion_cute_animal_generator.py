@@ -1,5 +1,4 @@
 import random
-from nodes import NODE_CLASS_MAPPINGS
 
 class IsulionCuteAnimalRandom:
     animals = [
@@ -21,7 +20,7 @@ class IsulionCuteAnimalRandom:
     FUNCTION = "random_animal"
     CATEGORY = "Art/Styles"
 
-    def random_animal(self, randomize, seed, animal):
+    def random_animal(self, randomize: str, seed: int, animal: str) -> tuple:
         if randomize == "enable":
             # Set seed for reproducibility if provided
             if seed is not None and seed > 0:

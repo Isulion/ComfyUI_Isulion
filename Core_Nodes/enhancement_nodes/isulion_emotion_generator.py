@@ -1,5 +1,4 @@
 import random
-from nodes import NODE_CLASS_MAPPINGS
 
 class Isulion_EmotionGenerator:
     emotions = [
@@ -27,7 +26,7 @@ class Isulion_EmotionGenerator:
     FUNCTION = "generate_emotion"
     CATEGORY = "Art/Styles"
 
-    def generate_emotion(self, randomize, seed, emotion):
+    def generate_emotion(self, randomize: str, seed: int, emotion: str) -> tuple:
         if randomize == "enable":
             # Set seed for reproducibility if provided
             if seed is not None and seed > 0:
@@ -43,13 +42,3 @@ class Isulion_EmotionGenerator:
         prompt = f"feeling {emotion.lower()}, emotional"
         
         return (prompt, emotion, seed)
-
-# Register the node with ComfyUI
-NODE_CLASS_MAPPINGS.update({
-    "IsulionEmotionGenerator": Isulion_EmotionGenerator
-}) 
-
-# At the end of the file, after NODE_CLASS_MAPPINGS
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "IsulionEmotionGenerator": "Isulion Emotion Generator 😊"
-} 

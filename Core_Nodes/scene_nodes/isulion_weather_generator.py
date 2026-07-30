@@ -1,5 +1,4 @@
 import random
-from nodes import NODE_CLASS_MAPPINGS
 
 class Isulion_WeatherGenerator:
     weather_conditions = [
@@ -26,7 +25,7 @@ class Isulion_WeatherGenerator:
     FUNCTION = "generate_weather"
     CATEGORY = "Art/Styles"
 
-    def generate_weather(self, randomize, seed, weather):
+    def generate_weather(self, randomize: str, seed: int, weather: str) -> tuple:
         if randomize == "enable":
             if seed is not None and seed > 0:
                 random.seed(seed)
@@ -37,5 +36,3 @@ class Isulion_WeatherGenerator:
             weather = random.choice(self.weather_conditions)
 
         return (f"{weather}", seed)
-
-# Remove NODE_CLASS_MAPPINGS and NODE_DISPLAY_NAME_MAPPINGS from here

@@ -1,5 +1,4 @@
 import random
-from nodes import NODE_CLASS_MAPPINGS
 
 class Isulion_AnimalRandom:
     animals = [
@@ -21,7 +20,7 @@ class Isulion_AnimalRandom:
     FUNCTION = "random_animal"
     CATEGORY = "Art/Styles"
 
-    def random_animal(self, randomize, seed, animal):
+    def random_animal(self, randomize: str, seed: int, animal: str) -> tuple:
         if randomize == "enable":
             # Set seed for reproducibility if provided
             if seed is not None and seed > 0:
@@ -35,12 +34,3 @@ class Isulion_AnimalRandom:
 
         return (f"{animal}", seed)  # Return both the animal name and the seed
 
-# Register the node with ComfyUI
-NODE_CLASS_MAPPINGS.update({
-    "IsulionAnimalRandom": Isulion_AnimalRandom
-})
-
-# At the end of the file, after NODE_CLASS_MAPPINGS
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "IsulionAnimalRandom": "Isulion Animal Selector 🦁"
-}

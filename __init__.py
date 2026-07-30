@@ -52,10 +52,6 @@ from .Core_Nodes.enhancement_nodes.isulion_prompt_enhancer import IsulionPromptE
 from .Core_Nodes.enhancement_nodes.isulion_negative_prompt_generator import IsulionNegativePromptGenerator
 from .Core_Nodes.civitai_nodes.civitai_API_node import IsulionCivitaiModelExplorer, IsulionCivitaiTrending, IsulionCivitaiImageDisplay
 
-from .Core_Nodes.civitai_nodes.civitai_model_explorer import IsulionCivitaiModelExplorer
-from .Core_Nodes.civitai_nodes.civitai_trending import IsulionCivitaiTrending
-from .Core_Nodes.civitai_nodes.civitai_image_display import IsulionCivitaiImageDisplay
-
 # Node mappings
 NODE_CLASS_MAPPINGS = {
     **VIDEO_PROMPT_NODES,
@@ -93,9 +89,6 @@ NODE_CLASS_MAPPINGS = {
     "IsulionLoadImagesNode": IsulionLoadImagesNode,
     "IsulionEpochGenerator": IsulionEpochGenerator,
     "DisplayImageFromURL": DisplayImageFromURL,
-    "IsulionCivitaiModelExplorer": IsulionCivitaiModelExplorer,
-    "IsulionCivitaiTrending": IsulionCivitaiTrending,
-    "IsulionCivitaiImageDisplay": IsulionCivitaiImageDisplay,
     "CustomTextNode": CustomTextNode,
 }
 
@@ -133,10 +126,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionLoadImagesNode": "📁 Isulion Load Images from Directory",
     "IsulionEpochGenerator": "⏳ Isulion Epoch Generator",
     "DisplayImageFromURL": "🖼️ Isulion Display Image From URL",
-    "IsulionCivitaiModelExplorer": "🔍 Isulion Civitai Model Explorer",
-    "IsulionCivitaiTrending": "🔥 Isulion Civitai Trending",
-    "IsulionCivitaiImageDisplay": "🖼️ Isulion Civitai Image Display",
-    "CustomTextNode.py": "📝 Custom Text Node",
+    "CustomTextNode": "📝 Custom Text Node",
     "💤 IsulionShutdown": "💤 Isulion Shutdown",
     "🧩 IsulionQRCode": "🧩 Isulion QRCode Generator",
     "⧉ IsulionOverlay": "⧉ IsulionOverlay"

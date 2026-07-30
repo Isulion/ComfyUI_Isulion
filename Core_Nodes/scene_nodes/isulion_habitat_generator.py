@@ -1,5 +1,4 @@
 import random
-from nodes import NODE_CLASS_MAPPINGS
 
 class Isulion_HabitatGenerator:
     habitats = [
@@ -27,7 +26,7 @@ class Isulion_HabitatGenerator:
     FUNCTION = "generate_habitat"
     CATEGORY = "Art/Styles"
 
-    def generate_habitat(self, randomize, seed, habitat):
+    def generate_habitat(self, randomize: str, seed: int, habitat: str) -> tuple:
         if randomize == "enable":
             if seed is not None and seed > 0:
                 random.seed(seed)
@@ -38,5 +37,3 @@ class Isulion_HabitatGenerator:
             habitat = random.choice(self.habitats)
 
         return (f"{habitat}", seed)
-
-# Remove NODE_CLASS_MAPPINGS and NODE_DISPLAY_NAME_MAPPINGS from here

@@ -4,6 +4,7 @@ import numpy as np
 import math
 import re # Using built-in 're' for color parsing
 import traceback # For detailed error printing
+import comfy.model_management as mm
 
 # Try to import the bundled qrcodegen module
 try:
@@ -66,12 +67,11 @@ class QRCodeNode:
     RETURN_TYPES = ("IMAGE",) # Output is IMAGE type, ComfyUI handles RGBA (B, H, W, 4)
     FUNCTION = "generate_qr_code"
     CATEGORY = "image"
-    OUTPUT_NODE = True
 
     def generate_qr_code(self, text, error_correction, scale, border,
                          foreground_color, background_color, transparent_background,
                          logo=None, logo_scale_percent=23.0, clear_behind_logo=True):
-
+        mm.soft_empty_cache()
         # Determine output channels and create a dummy tensor for error returns
         output_channels = 4 if transparent_background else 3
         # Create dummy tensor matching expected output channels

@@ -1,9 +1,15 @@
 import os
 import subprocess
 
+print("\033[93m⚠️  SECURITY WARNING: The '💤 IsulionShutdown' node is loaded.\033[0m")
+print("\033[93m   This node can shut down your entire system when executed.\033[0m")
+print("\033[93m   Only use in trusted workflows. To disable, remove shutdown_node.py.\033[0m")
+
 class ShutdownNode:
     """
     A node that will shutdown the computer.
+    WARNING: This node executes a system shutdown command.
+    Only use in trusted workflows.
     """
     
     def __init__(self):

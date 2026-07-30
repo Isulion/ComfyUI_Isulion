@@ -9,6 +9,7 @@ class CustomTextNode:
 
     RETURN_TYPES = ("STRING",)
     FUNCTION = "display_text"
+    CATEGORY = "Isulion/Utilities"
 
     def display_text(self, text):
         return (text,)

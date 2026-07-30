@@ -1,5 +1,4 @@
 import random
-from nodes import NODE_CLASS_MAPPINGS
 
 class Isulion_ArtStyleGenerator:
     styles = [
@@ -28,7 +27,7 @@ class Isulion_ArtStyleGenerator:
     FUNCTION = "generate_style"
     CATEGORY = "Art/Styles"
 
-    def generate_style(self, randomize, seed, style):
+    def generate_style(self, randomize: str, seed: int, style: str) -> tuple:
         if randomize == "enable":
             if seed is not None and seed > 0:
                 random.seed(seed)
@@ -39,5 +38,3 @@ class Isulion_ArtStyleGenerator:
             style = random.choice(self.styles)
 
         return (f"{style}", seed)
-
-# Remove NODE_CLASS_MAPPINGS and NODE_DISPLAY_NAME_MAPPINGS from here

@@ -1,5 +1,4 @@
 import random
-from nodes import NODE_CLASS_MAPPINGS
 
 class Isulion_AnimalBehaviorGenerator:
     behaviors = [
@@ -28,7 +27,7 @@ class Isulion_AnimalBehaviorGenerator:
     FUNCTION = "generate_behavior"
     CATEGORY = "Art/Styles"
 
-    def generate_behavior(self, randomize, seed, behavior):
+    def generate_behavior(self, randomize: str, seed: int, behavior: str) -> tuple:
         if randomize == "enable":
             if seed is not None and seed > 0:
                 random.seed(seed)
@@ -39,5 +38,3 @@ class Isulion_AnimalBehaviorGenerator:
             behavior = random.choice(self.behaviors)
 
         return (f"{behavior}", seed)
-
-# Remove NODE_CLASS_MAPPINGS and NODE_DISPLAY_NAME_MAPPINGS from here

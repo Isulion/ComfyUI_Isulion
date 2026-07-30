@@ -2,6 +2,7 @@ import torch
 import math
 import random
 import numpy
+import comfy.model_management as mm
 
 class IsuCollageNode:
     """
@@ -31,6 +32,7 @@ class IsuCollageNode:
         :param seed: Random seed for image placement
         :return: Tuple containing the collage tensor
         """
+        mm.soft_empty_cache()
         # Set random seed if provided
         if seed is not None:
             torch.manual_seed(seed)

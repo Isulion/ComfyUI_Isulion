@@ -4,6 +4,7 @@ import torch.nn.functional as F # For affine_grid and grid_sample
 import numpy as np
 import math # Needed for ceil, sin, cos, radians
 import traceback # For detailed error printing
+import comfy.model_management as mm
 
 class OverlayQRCodeNode:
     """
@@ -42,13 +43,12 @@ class OverlayQRCodeNode:
     RETURN_TYPES = ("IMAGE",)
     FUNCTION = "overlay_qr"
     CATEGORY = "image/postprocessing"
-    OUTPUT_NODE = True
 
     def overlay_qr(self, base_image, qr_code_image,
                    size_percent, opacity, rotation_angle, repeat_pattern,
                    vertical_align="bottom", horizontal_align="right", margin_percent=2.0
                    ):
-
+        mm.soft_empty_cache()
         dummy_tensor = torch.zeros((1, 64, 64, 4), dtype=torch.float32) # RGBA dummy
 
         if base_image is None or qr_code_image is None:
