@@ -27,107 +27,138 @@ git clone https://github.com/Isulion/ComfyUI_Isulion
 
 ### Theme Categories
 
-Here's a categorized overview of all available themes:
+Here's a categorized overview of all available themes (80+):
 
 #### 1. Art Styles & Techniques
 - 🎨 Abstract
 - 🎨 Concept Art
 - 🖍️ Crayon Art
 - 💻 Digital Art
-- 🎨 Watercolor
-- 🏺 Clay Art
-- ⬜ Minimalist
+- 🔬 Experimental Art
+- 🧊 Glassmorphism
 - 🎨 Impressionist
+- ⬜ Minimalist
+- 🏺 Clay Art
+- ✂️ Papercraft
+- 🎨 Watercolor
+- 🪩 Y2K Retro-Futurism
 
 #### 2. Animation & Entertainment
 - 📺 Animation Cartoon
 - 🎌 Anime
-- 🎬 Dreamworks
+- 🎬 Cinema Studio
+- 📚 Comic Book
 - 🎡 Disney
+- 🎬 Dreamworks
 - 🍃 Ghibli
-- 💫 Pixar
-- 🎭 Stop Motion
+- 🎯 Logo
 - 📚 Manga Panel
-- 📚 School Manga
 - 🦸 Marvel
-
+- 🎬 Nolan Epic
+- 👾 16-Bit Pixel Art
+- 💫 Pixar
+- 📚 School Manga
+- 🎭 Stop Motion
+- 🕹️ Voxel Low-Poly
 
 #### 3. Science Fiction & Fantasy
+- 🧬 Bio-Organic Technology
+- 🌧️ Cinematic Neon Rain
 - 💎 Crystalpunk
 - 🌆 Cyberpunk
-- 🚀 Futuristic Sci-Fi
-- 🌃 Futuristic City
+- ✨ Enchanted Fantasy
+- ⚔️ Fantasy
 - ⚔️ Futuristic Battlefield
+- 🌃 Futuristic City
 - 🌆 Futuristic City Metropolis
+- 🚀 Futuristic Sci-Fi
+- ⚔️ Miura Dark Fantasy
 - 🚀 Sci-Fi
 - 🚀 Star Wars
 - ⚙️ Steampunk
-- 🧬 Bio-Organic Technology
-- ⚔️ Fantasy
-- ✨ Enchanted Fantasy
 - 🌊 Underwater Civilization
+- 🩻 X-Ray Anatomy
 
-#### 4. Character & Creature Design
-- 👤 Character Designer
+#### 4. Character Art
 - 😄 Caricature
+- 👤 Character Designer
 - 🦄 Chimera Animals
 - 🐰 Chimera Cute Animals
-- 👗 Curvy Fashion
 
-#### 5. Environment & Architecture
+#### 5. Architectural & Spaces
 - 🏛️ Architectural
 - 🏠 Interior Spaces
 - 🏙️ Urban Tag
 - 🏠 Village World
 
-#### 6. Special Themes & Occasions
-- 🎄 Christmas
-- 🎃 Halloween
+#### 6. Dark & Horror
 - 👻 Halloween Ethereal
 - 👻 Horror
-- 🐰 Easter
-- 💘 Valentine's Day
-- 🎆 New Year's Eve
-- 🦃 Thanksgiving
-- 🍀 St. Patrick's Day
-- 👹 Dia de los Muertos
+- ⚔️ Miura Dark Fantasy
+
+#### 7. Holiday Themes
 - 🏮 Chinese New Year
+- 🎄 Christmas
+- 👹 Dia de los Muertos
+- 🐰 Easter
+- 🎃 Halloween
+- 👻 Halloween Ethereal
+- 🎆 New Year's Eve
+- 🍀 St. Patrick's Day
+- 🦃 Thanksgiving
+- 💘 Valentine's Day
 
-#### 7. Experimental & Unique
-- 🖼️ Binet Surreal
-- 💫 Ethereal Dreams
-- 🔬 Experimental Art
-- 🧩 Puzzle Dimension
-- 💠 Dimension 3D
-- 🔬 Microscopic
-- 🌪️ Post Apocalyptic
+#### 8. Nature & Environment
+- 🌌 Astrophotography
+- 🌿 Nature
+- 🌿 Overgrown Ruins
+- 🌊 Underwater Civilization
 
-#### 8. Photography & Social Media
+#### 9. Photography & Fashion
+- 🎬 Analog 35mm Film
+- 👗 Curvy Fashion
 - 📸 Essential Realistic
 - 📱 Instagram
 - 📱 Instagram Lifestyle
 - 📱 Selfie
 
-#### 9. Vintage & Historical
-- 🕰️ Essential Vintage
-- 👴 Vintage Anthropomorphic
-- 🕴️‍♂️ Peaky Blinders
-
-#### 10. Food & Lifestyle
+#### 10. Food
 - 🍳 Culinary/Food
 - 🥙 Street Food Kebab
 
-#### 11. Media & Design
-- 📚 Comic Book
-- 🎬 Cinema Studio
-- 🎯 Logo
+#### 11. Vintage & Historical
+- 🧺 50s Commercial
+- 🕰️ Essential Vintage
+- 🏛️ Historical Monuments
+- 🕴️‍♂️ Peaky Blinders
+- 👴 Vintage Anthropomorphic
+- 📸 Vintage 1800s Photography
 
-#### 12. Random
+#### 12. Surreal & Dreams
+- 🖼️ Binet Surreal
+- 💠 Dimension 3D
+- 💫 Ethereal Dreams
+- 🔬 Microscopic
+- 🧩 Puzzle Dimension
+- 💗 Spectral Mist
+
+#### 13. Post-Apocalyptic
+- 🌪️ Post Apocalyptic
+
+#### 14. Random
 - 🎲 Dynamic Random
+
+#### Bonus Themes
+- 🧸 Starter Pack
+- 🚀 Space Colony
+- 🏝️ Tropical Paradise
+- 👧 Skinny Blonde Girl
+- ⚔️ Medieval
+- 🏛️ Spartan 300
 
 ### Input Parameters
 
-- **Theme**: Select from 40+ themed generators
+- **Theme**: Select from 80+ themed generators
 - **Complexity**: Choose between simple, detailed, or complex outputs
 - **Randomization**: Enable/disable random generation
 - **Custom Inputs**:
