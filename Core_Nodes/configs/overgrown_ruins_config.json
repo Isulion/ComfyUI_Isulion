@@ -1,0 +1,86 @@
+{
+    "overgrown_ruins": {
+        "subjects": [
+            "abandoned stone temple with ivy",
+            "crumbled castle tower with moss",
+            "forgotten statue overtaken by vines",
+            "ruined cathedral with trees growing through",
+            "decayed mansion with creeping plants",
+            "broken aqueduct with hanging roots",
+            "fallen obelisk wrapped in flowers",
+            "abandoned village with grassy paths",
+            "ruined amphitheater with wild blooms",
+            "collapsed bridge with climbing ivy",
+            "ancient tomb with overgrown entrance",
+            "deserted factory with mossy machinery",
+            "cracked monument with sprouting saplings",
+            "crumbling watchtower with bird nests"
+        ],
+        "environments": [
+            "deep jungle clearing with ruins",
+            "misty forest with stone remnants",
+            "sun-dappled ancient courtyard",
+            "swampy marsh with sunken structures",
+            "mountain slope with terraced ruins",
+            "coastal cliff with ruined lighthouse",
+            "dense bamboo grove hiding stones",
+            "rolling plains with lone archway"
+        ],
+        "styles": [
+            "romantic ruin landscape painting",
+            "jungle reclaiming civilization aesthetic",
+            "post-apocalyptic nature regrowth",
+            "ancient ruins archaeological photography",
+            "overgrown gothic ruin atmosphere",
+            "ferngully forest reclaiming style",
+            "fantasy ancient civilization remains",
+            "dark souls ruin and decay aesthetic",
+            "tropical ruins with vibrant flora",
+            "melancholic abandoned place beauty"
+        ],
+        "effects": [
+            "sunbeams breaking through canopy",
+            "dappled leaf light patterns on stone",
+            "hanging moss tendril curtains",
+            "floating dust motes in light shafts",
+            "morning mist rising from ruins",
+            "fireflies glowing around foliage",
+            "water droplets on broad leaves",
+            "vine tendrils creeping across stone",
+            "flower petals scattered on ground",
+            "roots splitting stone cracks"
+        ],
+        "lighting": [
+            "sunbeams piercing dense canopy",
+            "soft diffused forest light",
+            "golden hour warm glow on stone",
+            "moonlight through broken roof",
+            "misty morning soft illumination",
+            "dramatic cloud break light rays",
+            "twilight deep shadow contrast"
+        ],
+        "flora": [
+            "thick ivy and creeping vines",
+            "moss covered stone surfaces",
+            "wildflowers in cracked pavement",
+            "ferns unfurling on walls",
+            "banyan tree roots wrapping pillars",
+            "lichen patterns on weathered stone",
+            "bamboo growing through windows",
+            "giant philodendron leaves",
+            "orchids blooming on ruins"
+        ],
+        "moods": [
+            "peaceful nature reclamation",
+            "melancholic forgotten beauty",
+            "atmospheric mysterious silence",
+            "romantic decay and ruin",
+            "hopeful regrowth after destruction",
+            "awe at ancient craftsmanship",
+            "lonely timeless solitude",
+            "sacred natural temple atmosphere",
+            "post-human world tranquility",
+            "secret garden hidden paradise"
+        ]
+    }
+}

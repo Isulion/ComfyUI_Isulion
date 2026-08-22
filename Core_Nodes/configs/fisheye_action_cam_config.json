@@ -1,0 +1,71 @@
+{
+    "fisheye_action_cam": {
+        "subjects": [
+            "skateboarder doing a trick on a giant monster tail",
+            "mountain biker jumping over a dragon",
+            "surfer riding a wave next to a sea serpent",
+            "base jumper leaping off a castle with a griffin",
+            "parkour runner chased by a minotaur",
+            "snowboarder dodging a yeti avalanche",
+            "inline skater grinding on a giant sword",
+            "bmx rider jumping over a cyclops",
+            "climber scaling a giant statue",
+            "street runner escaping a chimera"
+        ],
+        "environments": [
+            "extreme fisheye skate park",
+            "mountain trail with mythical creatures",
+            "urban rooftops with monsters chasing",
+            "volcanic extreme sports arena",
+            "ancient ruins turned action course",
+            "neon city extreme race track",
+            "forest trail with giant beasts",
+            "abandoned industrial action park"
+        ],
+        "camera_angles": [
+            "extreme fisheye low angle shot",
+            "helmet cam POV distorted view",
+            "ultra wide angle action close-up",
+            "selfie stick arm extension shot",
+            "ground level upward monster perspective",
+            "shoulder mount action follow cam",
+            "drone chase extreme wide angle"
+        ],
+        "style": [
+            "GoPro action cam extreme sports",
+            "fisheye lens POV adrenaline shot",
+            "Jackass style stunt cam photography",
+            "extreme sports documentary cinematography",
+            "skate video 90s fisheye aesthetic",
+            "action sport Instagram reel style",
+            "POV monster chase action movie"
+        ],
+        "effects": [
+            "extreme fisheye barrel distortion",
+            "wide angle lens flare streaks",
+            "motion blur action trail lines",
+            "camera shake vibration blur",
+            "water droplet on lens wide angle",
+            "extreme perspective foreshortening",
+            "lens chromatic aberration at edges",
+            "camera strap swinging into frame"
+        ],
+        "lighting": [
+            "harsh outdoor midday action sun",
+            "golden hour extreme contrast",
+            "urban neon night action glow",
+            "flash mounted on camera burst",
+            "overcast skate park flat light"
+        ],
+        "moods": [
+            "extreme adrenaline rush",
+            "absurd action movie energy",
+            "POV monster chase terror",
+            "90s skate video nostalgia",
+            "over-the-top stunt show",
+            "heart-pumping extreme sports",
+            "ridiculous action heroics",
+            "fisheye funhouse action world"
+        ]
+    }
+}

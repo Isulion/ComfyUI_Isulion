@@ -1,0 +1,87 @@
+{
+    "cinematic_neon_rain": {
+        "subjects": [
+            "detective under a neon umbrella",
+            "lovers kissing in a rain doorway",
+            "lone taxi waiting at a red light",
+            "street musician under a marquee",
+            "cyberpunk hacker in a phone booth",
+            "dog walker in neon raincoat",
+            "couple dancing in the rain puddles",
+            "bike messenger splashing through water",
+            "business executive with briefcase caught in rain",
+            "vintage car at a gas station in storm",
+            "figure with glowing umbrella reflecting",
+            "street vendor under awning with steam rising",
+            "cat watching from a neon-lit window",
+            "late night jogger in reflective gear"
+        ],
+        "environments": [
+            "wet downtown street at midnight",
+            "neon-lit alleyway with puddles",
+            "rain-soaked shinjuku intersection",
+            "glowing market street in downpour",
+            "city bridge with streaming traffic",
+            "waterfront pier with wet reflections",
+            "busy night market under awnings",
+            "parking garage with dripping water",
+            "subway entrance with rainy steps",
+            "neon-sign reflected wet pavement"
+        ],
+        "styles": [
+            "cinematic cyberpunk noir style",
+            "blade runner aesthetic photography",
+            "anamorphic lens cinema look",
+            "neon-drenched noir cinematography",
+            "rainy city street photography",
+            "wong kar-wai romantic longing style",
+            "synthwave retro-futuristic film",
+            "misty neon atmospheric thriller",
+            "glossy reflection urban night style",
+            "dramatic film noir neo-noir"
+        ],
+        "effects": [
+            "wet pavement mirror reflections",
+            "anamorphic horizontal lens flare",
+            "rain streaks catching neon light",
+            "water droplet lens refraction",
+            "steam rising from wet streets",
+            "puddle ripple distortion reflections",
+            "fog machine atmospheric haze",
+            "neon sign glow bleeding into rain",
+            "umbrella water cascade effects",
+            "headlight beam through rain curtain"
+        ],
+        "lighting": [
+            "neon sign multicolored ambient light",
+            "street lamp orange sodium glow",
+            "car headlight piercing rain beams",
+            "storefront window warm spill",
+            "dramatic rim light edge glow",
+            "underlit neon reflection from ground",
+            "traffic light red and green pools",
+            "billboard backlight through fog"
+        ],
+        "colors": [
+            "electric cyan and hot pink",
+            "deep blue with amber streetlights",
+            "toxic green and crimson neon",
+            "purple rain with golden reflections",
+            "ice blue with magenta highlights",
+            "teal and orange cinematic grade",
+            "violet mist with red accents"
+        ],
+        "moods": [
+            "melancholic urban romance",
+            "mysterious film noir tension",
+            "lonely city night atmosphere",
+            "electric nocturnal energy",
+            "rain-soaked introspection",
+            "gritty cyberpunk dystopia",
+            "dreamlike urban isolation",
+            "romantic longing in the rain",
+            "dangerous neon underworld",
+            "peaceful nighttime solitude"
+        ]
+    }
+}

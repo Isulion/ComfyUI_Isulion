@@ -1,0 +1,69 @@
+{
+    "ikea_backrooms": {
+        "subjects": [
+            "lonely figure in an infinite showroom",
+            "mannequin family in a staged living room",
+            "cleaner mopping an endless corridor",
+            "child's toy abandoned on a display bed",
+            "security guard in a maze of shelves",
+            "lost customer in a lighting section labyrinth",
+            "strange shadow between two bookcases",
+            "eerie display room with slightly off furniture"
+        ],
+        "environments": [
+            "infinite showroom with no exit",
+            "yellow and blue warehouse abyss",
+            "lighting aisle stretching to infinity",
+            "kitchen display room with flickering lights",
+            "endless shelf maze with identical sections",
+            "bedroom section with impossible angles",
+            "cafeteria that shouldn't exist",
+            "staircase to a floor that doesn't exist"
+        ],
+        "liminal_features": [
+            "slightly tilted picture frame",
+            "flickering fluorescent ceiling light",
+            "doorway leading to a solid wall",
+            "stairs going down forever",
+            "room with furniture on the ceiling",
+            "window showing a room that should be outside",
+            "exit sign pointing into a wall",
+            "display room that repeats identically"
+        ],
+        "style": [
+            "liminal space analog photography",
+            "backrooms unsettling liminality aesthetic",
+            "ultra-realistic IKEA catalog gone wrong",
+            "dreamlike corporate interior horror",
+            "surrealist retail space photography",
+            "ominous showroom documentary style",
+            "empty mall aesthetic nightmare"
+        ],
+        "effects": [
+            "flat clinical fluorescent lighting",
+            "slight color shift to greenish tint",
+            "subtle motion in peripheral vision",
+            "unnaturally clean sterile surfaces",
+            "distant humming of ventilation",
+            "identical reflections in dark tv screens",
+            "shadow that moves independently"
+        ],
+        "lighting": [
+            "harsh overhead fluorescent tubes",
+            "flat shadowless clinical lighting",
+            "flickering broken light sections",
+            "pale green institutional tint",
+            "dark corners with no light source"
+        ],
+        "moods": [
+            "uneasy liminal emptiness",
+            "clinical isolation anxiety",
+            "dreamlike wrongness",
+            "uncanny retail purgatory",
+            "silent watchful dread",
+            "existential showroom horror",
+            "peaceful yet deeply unsettling",
+            "trapped in consumer eternity"
+        ]
+    }
+}

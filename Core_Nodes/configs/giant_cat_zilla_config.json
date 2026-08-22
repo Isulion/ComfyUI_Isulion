@@ -1,0 +1,80 @@
+{
+    "giant_cat_zilla": {
+        "subjects": [
+            "giant fluffy tabby cat",
+            "enormous white persian cat",
+            "massive black cat with glowing eyes",
+            "gigantic orange cat",
+            "colossal calico cat",
+            "huge siamese cat",
+            "giant tuxedo cat",
+            "enormous maine coon cat",
+            "massive kitten with oversized paws",
+            "gigantic hairless sphynx cat",
+            "colossal cat stretching across buildings",
+            "huge cat with a laser pointer obsession"
+        ],
+        "environments": [
+            "downtown city skyline at sunset",
+            "busy urban intersection",
+            "japanese shopping district",
+            "neon-lit city at night",
+            "coastal city with skyscrapers",
+            "mediterranean coastal town",
+            "sprawling suburban neighborhood",
+            "historic european old town",
+            "futuristic metropolis with bridges",
+            "industrial port city"
+        ],
+        "destruction_styles": [
+            "playfully swatting at helicopters",
+            "knocking down skyscrapers like dominoes",
+            "chasing cars like laser pointers",
+            "curled up crushing a city block",
+            "stretching across multiple buildings",
+            "batting at a bridge like a toy",
+            "scratching a skyscraper like a scratching post",
+            "napping on top of a city",
+            "chasing a giant ball of yarn through buildings",
+            "knocking over a landmark with its tail"
+        ],
+        "style": [
+            "epic kaiju disaster movie cinematography",
+            "dramatic godzilla scale destruction",
+            "cinematic monster attack blockbuster",
+            "Pacific Rim epic scale action",
+            "anime city destruction dramatic angle",
+            "Cloverfield monster POV chaos",
+            "disaster film wide establishing shot"
+        ],
+        "effects": [
+            "dust clouds and debris scattering",
+            "massive cat pawprint craters in streets",
+            "buildings crumbling like cardboard",
+            "helicopters swarming around giant cat",
+            "military jets flying past giant whiskers",
+            "car alarms and sirens echoing",
+            "explosions and fire from broken gas lines",
+            "giant cat eyes reflecting city lights",
+            "power lines sparking from giant tail sweep",
+            "tiny people running in panic below"
+        ],
+        "lighting": [
+            "dramatic golden hour sunset destruction",
+            "neon city night with cat silhouette",
+            "harsh midday chaos lighting",
+            "moody apocalyptic overcast sky",
+            "dramatic backlit destruction silhouette"
+        ],
+        "moods": [
+            "absurdly epic chaos",
+            "whimsical mass destruction",
+            "catastrophe meets cuteness",
+            "over-the-top dramatic silliness",
+            "majestic destruction with feline grace",
+            "playful apocalyptic mayhem",
+            "surprisingly cinematic absurdity",
+            "terrifying yet adorable rampage"
+        ]
+    }
+}

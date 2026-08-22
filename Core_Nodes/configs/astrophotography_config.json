@@ -1,0 +1,100 @@
+{
+    "astrophotography": {
+        "subjects": [
+            "solitary tree under the milky way",
+            "mountain silhouette against star trails",
+            "abandoned barn beneath the aurora",
+            "lighthouse under a starry sky",
+            "campsite with glowing tent under stars",
+            "ancient observatory dome at night",
+            "silhouetted pine forest under nebula",
+            "desert cactus under starry expanse",
+            "lone figure on a hilltop at night",
+            "lake reflection of the milky way",
+            "old wooden pier under the cosmos",
+            "volcanic peak under meteor shower",
+            "ruined castle beneath the galaxy",
+            "lighthouse beam crossing the aurora"
+        ],
+        "environments": [
+            "high altitude mountain pass",
+            "remote desert landscape",
+            "dark sky preserve wilderness",
+            "coastal cliff overlooking ocean",
+            "alpine lake surrounded by peaks",
+            "open grassland under wide sky",
+            "arctic tundra under northern lights",
+            "canyon rim at midnight",
+            "isolated island shoreline",
+            "volcanic crater rim"
+        ],
+        "styles": [
+            "long exposure astrophotography",
+            "deep space astronomical imaging",
+            "wide field Milky Way panorama",
+            "Hubble palette space rendering",
+            "star tracker composite photography",
+            "wide angle nightscape photography",
+            "time-lapse star trail composition",
+            "narrowband nebula astrophotography",
+            "multi-exposure night blending",
+            "planetary imaging detail"
+        ],
+        "effects": [
+            "stars twinkling with diffraction spikes",
+            "nebulae glowing in deep space",
+            "aurora borealis curtain shimmering",
+            "meteor streak burning across sky",
+            "starlight bloom and lens flare",
+            "galactic core cosmic dust lanes",
+            "silhouette landscape against stars",
+            "star trail circular motion blur",
+            "airglow atmospheric light bands",
+            "satellite trail across exposure"
+        ],
+        "lighting": [
+            "milky way core ambient glow",
+            "aurora borealis green veils",
+            "starlight subtle illumination",
+            "crescent moon silver light",
+            "airglow atmospheric radiance",
+            "zodiacal light pyramid glow",
+            "galactic plane brightness",
+            "bortle class 1 pristine darkness"
+        ],
+        "celestial_bodies": [
+            "Milky Way galactic core",
+            "Orion Nebula M42",
+            "Andromeda Galaxy M31",
+            "Pleiades star cluster",
+            "Lagoon Nebula M8",
+            "Crescent Nebula NGC 6888",
+            "Eagle Nebula Pillars of Creation",
+            "North America Nebula NGC 7000",
+            "Veil Nebula supernova remnant",
+            "Triangulum Galaxy M33"
+        ],
+        "phenomena": [
+            "Perseid meteor shower",
+            "aurora borealis northern lights",
+            "total lunar eclipse",
+            "comet with visible tail",
+            "noctilucent cloud glow",
+            "zodiacal light pyramid",
+            "solar corona during eclipse",
+            "iridium flare satellite reflection"
+        ],
+        "moods": [
+            "awe inspiring cosmic wonder",
+            "peaceful solitude under stars",
+            "vast infinite universe perspective",
+            "mysterious deep space silence",
+            "humbling celestial grandeur",
+            "romantic starlit atmosphere",
+            "sublime natural phenomenon",
+            "transcendent spiritual connection",
+            "scientific wonder and discovery",
+            "ethereal cosmic dreamscape"
+        ]
+    }
+}

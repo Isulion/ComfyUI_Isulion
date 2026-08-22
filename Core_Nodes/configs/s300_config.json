@@ -14,6 +14,16 @@
             "Burning Wasteland", "Dark Forest with Twisted Trees", "Ruined Cityscape at Night",
             "Foggy Mountain Pass", "Drowning Town with Waterlogged Buildings", "Frozen Tundra with Snowdrifts",
             "Gothic Cathedral at Dusk", "Ancient Underwater Ruins", "Scorched Volcano with Lava Flow" 
+        ],
+        "lighting": [
+            "dramatic chiaroscuro lighting", "harsh backlighting", "fiery sunset glow",
+            "moonlit shadows", "torch-lit ambiance", "stormy lightning flashes"
+        ],
+        "realism": [
+            "stylized realism", "hyper-realistic detail", "painterly realism", "cinematic realism"
+        ],
+        "weather": [
+            "stormy", "foggy", "rain-soaked", "dusty", "wind-swept", "desaturated"
         ]
     }
 }

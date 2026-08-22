@@ -1,0 +1,115 @@
+{
+    "y2k": {
+        "subjects": [
+            "fashion model with chrome accessories",
+            "gamer at a retro PC setup",
+            "pop star in metallic outfit",
+            "skateboarder in baggy clothes",
+            "teenager with butterfly clips",
+            "dancer in holographic fabric",
+            "influencer with silver sunglasses",
+            "cyber fan in chrome jacket",
+            "DJ with oversized headphones",
+            "model with iridescent makeup",
+            "extreme sports athlete",
+            "futuristic raver with glow sticks",
+            "tech enthusiast with handheld device",
+            "boy band member in coordinated outfit"
+        ],
+        "environments": [
+            "futuristic mall interior",
+            "neon-lit arcade hallway",
+            "silver chrome elevator lobby",
+            "internet cafe with CRT monitors",
+            "roller skating rink",
+            "cyber-themed nightclub",
+            "spaceship corridor with metallic walls",
+            "retro gaming convention floor",
+            "fashion runway with chrome fixtures",
+            "futuristic city balcony at sunset",
+            "recording studio with mixing boards",
+            "rooftop with satellite dishes"
+        ],
+        "styles": [
+            "Y2K futuristic aesthetic",
+            "late 90s cyber fashion",
+            "silver chrome metallic style",
+            "early 2000s digital art",
+            "fisheye lens photography",
+            "glossy magazine editorial",
+            "techno rave visual style",
+            "retro-futurism graphic design",
+            "McBess metal heart style",
+            "MS-DOS inspired compositing"
+        ],
+        "effects": [
+            "fisheye lens distortion",
+            "lens flare reflections",
+            "chromatic aberration glitch",
+            "silver metallic reflections",
+            "holographic iridescent shimmer",
+            "CRT scanline overlay",
+            "glossy highlight streaks",
+            "neon light bleed",
+            "digital pixel glitch",
+            "rainbow prismatic flare"
+        ],
+        "lighting": [
+            "harsh overhead fluorescent",
+            "colored LED strip lighting",
+            "dramatic silver reflector bounce",
+            "neon tube ambient glow",
+            "flash photography burst",
+            "strobe club lighting",
+            "blue and pink colored spotlights",
+            "bright sunset golden hour"
+        ],
+        "color_schemes": [
+            "silver chrome with electric blue",
+            "hot pink and lime green",
+            "metallic silver with lavender",
+            "baby blue and silver frost",
+            "bright orange and silver",
+            "iridescent holographic multicolor",
+            "icy blue with white chrome",
+            "silver and magenta pop",
+            "glossy black with neon accents",
+            "frost white with metallic gold"
+        ],
+        "textures": [
+            "brushed silver metal",
+            "holographic foil surface",
+            "glossy plastic casing",
+            "chromed steel finish",
+            "iridescent oil slick",
+            "reflective mirrored surface",
+            "fuzzy velvet bag material",
+            "matte metallic coating",
+            "transparent jelly plastic"
+        ],
+        "accessories": [
+            "silver chain necklace",
+            "oversized sunglasses",
+            "butterfly hair clips",
+            "metallic choker",
+            "plastic colorful watch",
+            "silver hoop earrings",
+            "futuristic visor goggles",
+            "glow-in-the-dark bracelets",
+            "tiny shoulder backpack",
+            "chrome belt buckle"
+        ],
+        "moods": [
+            "nostalgic and futuristic",
+            "energetic and playful",
+            "bold and confident",
+            "cheesy yet charming",
+            "optimistic tech enthusiasm",
+            "rebellious youth culture",
+            "glossy consumerism",
+            "party all night energy",
+            "retro optimism",
+            "digital dreamscape"
+        ]
+    }
+}

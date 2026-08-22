@@ -1,0 +1,78 @@
+{
+    "voxel": {
+        "subjects": [
+            "blocky medieval castle on a hill",
+            "cute cube character with sword",
+            "voxel cottage in a forest clearing",
+            "isometric city block with tiny cars",
+            "blocky dragon perched on a tower",
+            "voxel space rocket launching pad",
+            "miniature village with colored roofs",
+            "cube animal in a blocky world",
+            "voxel pirate ship on cubed ocean",
+            "isometric temple ruin in jungle",
+            "blocky robot in a factory setting",
+            "voxel farm with crop grid patterns",
+            "cubic lighthouse on a rocky shore",
+            "isometric japanese temple garden"
+        ],
+        "environments": [
+            "isometric game world landscape",
+            "blocky mountain range at sunset",
+            "cubed forest with square trees",
+            "voxel beach with blocky waves",
+            "isometric city grid from above",
+            "minecraft-style plains and hills",
+            "cubic cave system with crystals",
+            "floating islands in blocky sky"
+        ],
+        "styles": [
+            "isometric voxel game art",
+            "blocky low-poly 3D rendering",
+            "minecraft-inspired cubic style",
+            "clean sharp geometric modeling",
+            "magicavoxel aesthetic render",
+            "8-bit 3D retro game style",
+            "chunky pixel 3D world design",
+            "lego-style block construction",
+            "voxel sculpting digital art",
+            "cubist 3D low-res modeling"
+        ],
+        "effects": [
+            "clean directional shadow cubes",
+            "sharp specular block highlight",
+            "ambient occlusion between blocks",
+            "flat shaded polygon faces",
+            "voxel grid line visibility",
+            "cubic particle block debris",
+            "chunky light ray god beams",
+            "block smoke square puff particles"
+        ],
+        "lighting": [
+            "bright sunlit global illumination",
+            "flat ambient isometric light",
+            "warm sunset side lighting",
+            "colored ambient glow fill",
+            "directional top-down game light",
+            "emissive block internal glow"
+        ],
+        "color_schemes": [
+            "warm earthy greens and browns",
+            "vibrant game world primary colors",
+            "pastel soft cube palette",
+            "retro muted game color palette",
+            "neon cyberpunk voxel brights",
+            "classic grass sky and stone"
+        ],
+        "moods": [
+            "playful game world adventure",
+            "nostalgic retro gaming feel",
+            "whimsical blocky charm",
+            "creative sandbox freedom",
+            "clean geometric simplicity",
+            "charming miniature scale",
+            "retro digital nostalgia",
+            "colorful imaginative landscape"
+        ]
+    }
+}

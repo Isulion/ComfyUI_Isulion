@@ -134,6 +134,36 @@
             "informal attire",
             "simple background",
             "basic composition"
+        ],
+        "poses": [
+            "aristocratic pose",
+            "noble bearing",
+            "regal posture",
+            "dignified stance",
+            "majestic presence",
+            "proud profile",
+            "commanding stance",
+            "graceful turn"
+        ],
+        "details": [
+            "photorealistic detail",
+            "intricate texture rendering",
+            "fine fur detail",
+            "feather precision",
+            "sharp eye detail",
+            "exquisite fabric texture",
+            "meticulous uniform detail",
+            "precise medal rendering"
+        ],
+        "lighting": [
+            "dramatic studio lighting",
+            "Rembrandt lighting",
+            "chiaroscuro dramatic shadows",
+            "soft window light",
+            "dramatic side lighting",
+            "golden hour glow",
+            "studio key light with fill",
+            "dramatic low key lighting"
         ]
     }
 }

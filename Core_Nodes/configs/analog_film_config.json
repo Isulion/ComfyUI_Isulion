@@ -1,0 +1,104 @@
+{
+    "analog_film": {
+        "subjects": [
+            "vintage street photographer",
+            "couple at a diner booth",
+            "lonely figure on a park bench",
+            "child with a polaroid camera",
+            "musician in a smoky jazz club",
+            "waitress at a retro diner",
+            "vintage car mechanic",
+            "traveler with a film camera",
+            "dancer at a dive bar",
+            "old fisherman on a pier",
+            "family gathering at a picnic",
+            "cyclist in a rainy street",
+            "street vendor in a market",
+            "friends at a drive-in theater"
+        ],
+        "environments": [
+            "rainy city street at dusk",
+            "vintage american diner interior",
+            "dusty countryside road",
+            "retro living room with vinyl records",
+            "old train station platform",
+            "seaside boardwalk in autumn",
+            "cobblestone European alley",
+            "neon-lit motel parking lot",
+            "cozy vinyl record shop",
+            "rustic french cafe terrace",
+            "abandoned drive-in theater",
+            "vintage barbershop interior"
+        ],
+        "styles": [
+            "35mm film photography aesthetic",
+            "Kodak Portra 400 color grading",
+            "Fujifilm Superia rich tones",
+            "analog street photography style",
+            "candid retro photojournalism",
+            "vintage documentary film look",
+            "grainy 70s film stock style",
+            "Italian neorealism cinematography",
+            "Japanese street photography aesthetic",
+            "classic National Geographic style"
+        ],
+        "effects": [
+            "subtle film grain texture",
+            "natural light leaks",
+            "chromatic aberration fringing",
+            "soft vintage lens blur",
+            "chemical cross-processing colors",
+            "halation glow around highlights",
+            "vignette darkening edges",
+            "dust and scratch overlays",
+            "bleached shadows fade",
+            "analog color fringing"
+        ],
+        "lighting": [
+            "soft golden hour sunlight",
+            "harsh midday documentary light",
+            "warm tungsten interior glow",
+            "diffused overcast sky",
+            "neon sign ambient glow",
+            "candlelit intimate warmth",
+            "dramatic window light",
+            "street lamp orange glow",
+            "flash bulb direct pop",
+            "dappled forest sunlight"
+        ],
+        "film_stocks": [
+            "Kodak Portra 400",
+            "Fujifilm Superia X-Tra 400",
+            "Kodak Tri-X 400 black and white",
+            "Kodak Ektar 100",
+            "Fujifilm Velvia 50",
+            "Ilford HP5 Plus",
+            "Agfa Vista 200",
+            "Kodak Gold 200",
+            "Cinestill 800T",
+            "Lomography Color 400"
+        ],
+        "cameras": [
+            "vintage Leica M6",
+            "Pentax K1000",
+            "Nikon FM2",
+            "Olympus OM-1",
+            "Canon AE-1 Program",
+            "Hasselblad 500C medium format",
+            "Rolleiflex twin lens reflex",
+            "Minolta X-700"
+        ],
+        "moods": [
+            "warmly nostalgic",
+            "melancholic and romantic",
+            "honest and documentary",
+            "softly sentimental",
+            "gritty urban realism",
+            "peacefully mundane",
+            "bittersweet memory",
+            "vibrant everyday life",
+            "timeless and classic",
+            "intimate and personal"
+        ]
+    }
+}

@@ -1,0 +1,98 @@
+{
+    "xray_anatomy": {
+        "subjects": [
+            "human hand with visible bone structure",
+            "robotic arm with neon circuitry",
+            "flower with translucent veins glowing",
+            "serpent with spinal glow skeleton",
+            "dragon skull with bioluminescent brain",
+            "butterfly with transparent wing veins",
+            "mechanical heart with pulsing tubes",
+            "alien creature with glowing organs",
+            "tree branch with glowing sap vessels",
+            "cybernetic eye with visible wiring",
+            "jellyfish with luminous inner bell",
+            "ancient fossil with crystalized core",
+            "bird in flight with skeletal glow",
+            "bat with echolocation organ glow"
+        ],
+        "environments": [
+            "dark laboratory scanning chamber",
+            "deep black void space",
+            "high contrast shadow backdrop",
+            "dark medical examination room",
+            "neon-lit scientific facility",
+            "underwater bioluminescent cave",
+            "dark research institute vault",
+            "glow-in-the-dark specimen display",
+            "electromagnetic field visualization",
+            "dark museum of natural history"
+        ],
+        "styles": [
+            "medical x-ray imaging style",
+            "bioluminescent anatomy visualization",
+            "cyberpunk anatomical scan render",
+            "fluorescent inner structure photography",
+            "translucent scientific specimen study",
+            "neon glow anatomical illustration",
+            "CT scan volumetric rendering",
+            "biomechanical internal wireframe",
+            "darkfield microscopy aesthetic",
+            "scientific electron microscope style"
+        ],
+        "effects": [
+            "neon blue inner glow lines",
+            "bioluminescent pulsing veins",
+            "translucent outer flesh fading",
+            "neon green skeletal highlights",
+            "electric synapse spark connections",
+            "glowing circulatory system network",
+            "soft inner organ radiance",
+            "dark high contrast background",
+            "fluorescent marker tracer glow",
+            "energized neural network paths"
+        ],
+        "lighting": [
+            "dark high contrast edge lighting",
+            "backlit x-ray illumination",
+            "neon tube ambient glow",
+            "cold blue scientific lighting",
+            "fluorescent ultraviolet blacklight",
+            "dramatic rim light on dark",
+            "internal bioluminescent source",
+            "scanner bed light emission"
+        ],
+        "color_schemes": [
+            "neon cyan on deep black",
+            "electric blue and phosphorescent green",
+            "x-ray white on navy background",
+            "magenta and teal inner structures",
+            "amber and crimson vascular glow",
+            "ice blue with ultraviolet accents",
+            "toxic green with deep violet",
+            "bioluminescent rainbow spectrum"
+        ],
+        "inner_structures": [
+            "crystalline bone lattice",
+            "glowing neural network pathways",
+            "pulsing vascular tree system",
+            "translucent organ membranes",
+            "phosphorescent muscle fibers",
+            "iridescent tendon connections",
+            "bioluminescent nerve endings",
+            "fluorescent lymphatic channels",
+            "glowing cellular matrix",
+            "luminous skeletal framework"
+        ],
+        "moods": [
+            "scientifically clinical",
+            "eerily beautiful",
+            "transcendental anatomy",
+            "cyberpunk medical aesthetic",
+            "otherworldly biological wonder",
+            "dark and mysterious",
+            "futuristic diagnostic feel",
+            "alien biology fascination"
+        ]
+    }
+}

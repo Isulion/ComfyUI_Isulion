@@ -1,0 +1,80 @@
+{
+    "pixel_art": {
+        "subjects": [
+            "brave knight with enchanted sword",
+            "cute slime monster in a field",
+            "wizard casting a fire spell",
+            "pixel dragon perched on a treasure",
+            "robot explorer on a strange planet",
+            "ninja running across rooftops",
+            "mermaid swimming through coral",
+            "adventurer in a dungeon corridor",
+            "spaceship battling alien invaders",
+            "farmer tending pixel crops",
+            "ghost haunting a pixel mansion",
+            "samurai dueling at sunset",
+            "alien creature from another world",
+            "pixel cat with a magical hat"
+        ],
+        "environments": [
+            "fantasy overworld with rolling hills",
+            "dark dungeon torchlit corridor",
+            "enchanted forest with glowing flora",
+            "retro space station interior",
+            "haunted castle silhouette backdrop",
+            "underwater coral reef level",
+            "volcanic cavern with lava pools",
+            "futuristic cyberpunk city street"
+        ],
+        "styles": [
+            "16-bit pixel art sprite style",
+            "8-bit retro game aesthetic",
+            "SNES era pixel illustration",
+            "arcade cabinet screen capture",
+            "dither-shaded pixel rendering",
+            "retro JRPG battle scene style",
+            "classic platformer game design",
+            "pixel art portrait composition",
+            "gameboy advance color palette",
+            "neogeo arcade fighting style"
+        ],
+        "effects": [
+            "dither shadow gradient transitions",
+            "pixel dust particle sparkles",
+            "retro sprite glow highlights",
+            "screen shake motion effect",
+            "pixel explosion debris scatter",
+            "color cycling animated glow",
+            "scanline CRT display overlay",
+            "sprite stacking depth layers"
+        ],
+        "lighting": [
+            "flat sprite ambient lighting",
+            "retro sunset gradient sky",
+            "dungeon torch flicker glow",
+            "neon city sign ambient light",
+            "magic spell cast illumination",
+            "starlit night sky pixel glow"
+        ],
+        "color_palettes": [
+            "SNES mode 7 earth tones",
+            "gameboy 4-shade green scale",
+            "Mega Drive bright primary",
+            "NES limited color palette",
+            "commodore 64 pastels",
+            "arcade vibrant neon brights",
+            "JPGRP classic fantasy palette",
+            "pico-8 limited pastel range"
+        ],
+        "moods": [
+            "nostalgic retro gaming joy",
+            "epic 16-bit adventure feel",
+            "whimsical pixel fantasy charm",
+            "dark retro gothic atmosphere",
+            "energetic arcade action vibe",
+            "peaceful rpg town tranquility",
+            "mysterious dungeon exploration",
+            "colorful platformer cheerfulness"
+        ]
+    }
+}

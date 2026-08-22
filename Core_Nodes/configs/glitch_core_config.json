@@ -1,0 +1,68 @@
+{
+    "glitch_core": {
+        "subjects": [
+            "figure tearing apart into jpeg artifacts",
+            "cityscape fragmenting into wireframe mesh",
+            "portrait with missing texture checkerboard",
+            "landscape breaking into compression blocks",
+            "statue dissolving into digital noise",
+            "room with walls becoming 3D wireframe",
+            "face glitching between multiple expressions",
+            "building with geometry falling apart"
+        ],
+        "environments": [
+            "reality tearing at the seams",
+            "simulation glitching world",
+            "digital void with floating code",
+            "fragmented city in static",
+            "corrupted data landscape",
+            "rendering error wasteland",
+            "broken simulation skybox"
+        ],
+        "glitch_types": [
+            "jpeg compression artifact blocks",
+            "VHS tracking distortion lines",
+            "3D wireframe overlay on reality",
+            "missing texture checkerboard pattern",
+            "RGB channel separation chromatic",
+            "data corruption pixel sorting",
+            "screen tearing horizontal split",
+            "polygon model simplification"
+        ],
+        "style": [
+            "glitch art digital corruption aesthetic",
+            "reality distortion digital nightmare",
+            "VHS tracking analog horror style",
+            "cyberpunk digital decay aesthetic",
+            "corrupted data visualization art",
+            "simulation breaking glitchcore",
+            "post-internet digital surrealism"
+        ],
+        "effects": [
+            "pixels scrambling like static",
+            "colors separating into RGB channels",
+            "wireframe mesh appearing over objects",
+            "objects duplicated and offset",
+            "geometry stretching into infinity",
+            "texture tearing and sliding off models",
+            "digital noise static overlay",
+            "black void holes in reality"
+        ],
+        "lighting": [
+            "flat digital void illumination",
+            "flickering glitch strobe",
+            "neon error code red and blue",
+            "monitor glow on fragmented surfaces",
+            "static overlay dimming"
+        ],
+        "moods": [
+            "anxiously breaking reality",
+            "digital existential dread",
+            "simulation collapsing horror",
+            "chaotic digital fragmentation",
+            "unsettling technological decay",
+            "surreal digital purgatory",
+            "mesmerizing digital destruction"
+        ]
+    }
+}

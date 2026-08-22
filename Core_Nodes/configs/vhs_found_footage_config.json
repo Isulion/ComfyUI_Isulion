@@ -1,0 +1,70 @@
+{
+    "vhs_found_footage": {
+        "subjects": [
+            "blurry figure standing in a dark hallway",
+            "creature caught on night vision camcorder",
+            "abandoned building explored with shaky camera",
+            "family video with something wrong in the background",
+            "surveillance footage of an impossible event",
+            "lost tape recording of a strange ritual",
+            "static-filled image of a smiling entity",
+            "handheld camera running through a forest at night"
+        ],
+        "environments": [
+            "abandoned mental hospital corridor",
+            "dark suburban street at 3am",
+            "forgotten basement with old furniture",
+            "abandoned amusement park after dark",
+            "empty parking garage with flickering lights",
+            "deep forest with no moonlight",
+            "abandoned church with boarded windows",
+            "derelict industrial warehouse"
+        ],
+        "tape_artifacts": [
+            "heavy VHS tracking static lines",
+            "magnetic tape degradation warble",
+            "time code burn-in overlay",
+            "dated recording date stamp",
+            "white noise static interference",
+            "vertical hold rolling distortion",
+            "ghost image trailing after movement",
+            "audio static visual interference lines"
+        ],
+        "style": [
+            "90s VHS camcorder found footage",
+            "analog horror documentary aesthetic",
+            "degraded tape experimental horror",
+            "Blair Witch handheld documentary",
+            "creepy vintage home movie style",
+            "lost media analog horror aesthetic",
+            "Soviet sleep experiment tape style"
+        ],
+        "effects": [
+            "heavy film grain and noise",
+            "night vision green tinted footage",
+            "camera autofocus hunting blur",
+            "shaky handheld camera movement",
+            "lens flare from direct light into camcorder",
+            "tape static scrambling image",
+            "date stamp flickering in corner",
+            "recording red dot in viewfinder"
+        ],
+        "lighting": [
+            "single camcorder night vision green",
+            "flickering flashlight beam in darkness",
+            "dim hallway fluorescent emergency light",
+            "moonlight through dirty windows",
+            "car headlights cutting through dark"
+        ],
+        "moods": [
+            "unsettling analog dread",
+            "found footage terror",
+            "creepy nostalgic horror",
+            "something is wrong feeling",
+            "lost in time and space",
+            "witnessing forbidden footage",
+            "grainy nightmare captured on tape",
+            "90s childhood fear nostalgia"
+        ]
+    }
+}

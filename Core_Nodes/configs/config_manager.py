@@ -1,7 +1,10 @@
+import logging
 import os
 import random
 import json
 from typing import Any, Dict, List, Optional
+
+logger = logging.getLogger(__name__)
 
 class ConfigManager:
     """Manages configuration loading and access for theme handlers."""
@@ -32,7 +35,7 @@ class ConfigManager:
                         # Merge the config into the main configs dictionary
                         self.configs.update(json.load(f))
                 except Exception as e:
-                    print(f"Error loading config file {filename}: {str(e)}")
+                    logger.error("Error loading config file %s: %s", filename, e)
         
         # Add default configuration for SpectralMist if not present
         if "SpectralMist" not in self.configs:
@@ -79,12 +82,12 @@ class ConfigManager:
                     value = value[k]
                 else:
                     if not suppress_error:
-                        print(f"Error accessing configuration {key}: 'Configuration key not found: {key}'")
+                        logger.error("Configuration key not found: %s", key)
                     raise KeyError(f"Configuration key not found: {key}")
             return value
         except Exception as e:
             if not suppress_error:
-                print(f"Error accessing configuration {key}: {str(e)}")
+                logger.error("Error accessing configuration %s: %s", key, e)
             raise  # Re-raise the exception to be handled by the caller
     
     def set_seed(self, seed: int):
