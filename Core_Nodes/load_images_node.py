@@ -34,6 +34,10 @@ class IsulionLoadImagesNode:
     RETURN_NAMES = ("images",)
     FUNCTION = "load_images"
     CATEGORY = "Isulion/Image"
+    # Output a LIST of variable-size tensors so downstream nodes (e.g.
+    # IsuCollage) receive every image at its own native size instead of a
+    # uniform batch distorted by padding.
+    OUTPUT_IS_LIST = (True,)
 
     def load_images(self, directory, target_row_height=300):
         """
@@ -92,24 +96,9 @@ class IsulionLoadImagesNode:
 
             processed_images.append(img_tensor)
         
-        # Pad all images to same dimensions and stack into batched 4D tensor (B, H, W, C)
-        max_h = max(img.shape[0] for img in processed_images)
-        max_w = max(img.shape[1] for img in processed_images)
-
-        batch = []
-        for img in processed_images:
-            h, w = img.shape[:2]
-            if h == max_h and w == max_w:
-                batch.append(img)
-            else:
-                pad_h = max_h - h
-                pad_w = max_w - w
-                padded = torch.nn.functional.pad(img, (0, 0, 0, pad_w, 0, pad_h), mode='constant', value=0.0)
-                batch.append(padded)
-
-        images_tensor = torch.stack(batch, dim=0)
-
-        return (images_tensor,)
+        # Return the list as-is: each image keeps its own size (no padding),
+        # preserving native aspect ratios for downstream collage layout.
+        return (processed_images,)
 
     @classmethod
     def IS_CHANGED(cls, directory, **kwargs):
