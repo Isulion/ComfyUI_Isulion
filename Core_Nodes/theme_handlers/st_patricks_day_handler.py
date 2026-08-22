@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("st_patricks_day")
 class StPatricksDayThemeHandler(BaseThemeHandler):
     """Handler for St. Patrick's Day-themed prompt generation."""
     

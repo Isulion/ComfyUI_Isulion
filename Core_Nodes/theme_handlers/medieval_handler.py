@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("medieval")
 class MedievalThemeHandler(BaseThemeHandler):
     """Handler for medieval-themed prompt generation."""
     

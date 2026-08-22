@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("instagram_lifestyle")
 class InstagramLifestyleThemeHandler(BaseThemeHandler):
     """Handler for Instagram lifestyle-themed prompt generation."""
     

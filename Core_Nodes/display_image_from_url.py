@@ -1,8 +1,12 @@
 import torch
-import requests
 from PIL import Image
 from io import BytesIO
 import numpy as np
+
+import logging
+logger = logging.getLogger(__name__)
+
+from .net_utils import safe_download, DownloadError
 
 class DisplayImageFromURL:
     def __init__(self):
@@ -25,23 +29,25 @@ class DisplayImageFromURL:
 
     def display_image(self, image_url):
         try:
-            # Download the image from URL
-            response = requests.get(image_url, timeout=15)
-            response.raise_for_status()  # Raise an exception for bad status codes
-            
+            # Hardened download: http(s) only + size cap
+            content = safe_download(image_url, timeout=15)
+
             # Open the image using PIL
-            image = Image.open(BytesIO(response.content))
-            
+            image = Image.open(BytesIO(content))
+
             # Convert to RGB if necessary
             if image.mode != 'RGB':
                 image = image.convert('RGB')
-            
+
             # Convert PIL image to tensor
             image_tensor = torch.from_numpy(np.array(image)).float() / 255.0
             image_tensor = image_tensor.unsqueeze(0)
-            
+
             return (image_tensor,)
-            
+
+        except DownloadError as e:
+            logger.error("Rejected URL %r: %s", image_url, e)
+            raise Exception(f"Failed to load image from URL: {str(e)}")
         except Exception as e:
-            print(f"Error loading image from URL: {str(e)}")
+            logger.error(f"Error loading image from URL: {str(e)}")
             raise Exception(f"Failed to load image from URL: {str(e)}") 

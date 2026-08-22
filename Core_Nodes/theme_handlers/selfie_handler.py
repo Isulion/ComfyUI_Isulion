@@ -1,7 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
-import random
+from .registry import register_theme
 
+@register_theme("selfie")
 class SelfieThemeHandler(BaseThemeHandler):
     """Handler for selfie theme with location-appropriate styling."""
 
@@ -39,13 +40,13 @@ class SelfieThemeHandler(BaseThemeHandler):
             matching_locations = [loc for loc in location_outfits.keys() 
                                 if loc.lower() in custom_location.lower()]
             if matching_locations:
-                outfit = random.choice(location_outfits[matching_locations[0]])
+                outfit = self.rng.choice(location_outfits[matching_locations[0]])
             else:
                 # Use casual outfit if no specific location match
                 outfit = "stylish casual wear"
         else:
-            location = random.choice(list(location_outfits.keys()))
-            outfit = random.choice(location_outfits[location])
+            location = self.rng.choice(list(location_outfits.keys()))
+            outfit = self.rng.choice(location_outfits[location])
         
         # Build subject component
         if custom_subject:
@@ -64,7 +65,7 @@ class SelfieThemeHandler(BaseThemeHandler):
             )
         
         if include_environment:
-            time = random.choice(["golden hour", "sunset", "bright daylight", "blue hour", "evening"])
+            time = self.rng.choice(["golden hour", "sunset", "bright daylight", "blue hour", "evening"])
             components["environment"] = (
                 f"during {time}, ((perfect lighting)), "
                 f"((instagram-worthy {location} background)), "

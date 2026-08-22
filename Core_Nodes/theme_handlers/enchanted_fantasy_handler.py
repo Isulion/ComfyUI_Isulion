@@ -1,7 +1,8 @@
-import random
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("enchanted_fantasy")
 class EnchantedFantasyThemeHandler(BaseThemeHandler):
     """Handler for enchanted fantasy-themed prompt generation."""
     
@@ -80,25 +81,25 @@ class EnchantedFantasyThemeHandler(BaseThemeHandler):
 
     def generate_theme_prompt(self, subject=None, location=None):
         # Base style and atmosphere
-        style = random.choice(self.theme_config.get("styles", []))
-        atmosphere = random.choice(self.theme_config.get("atmosphere", []))
+        style = self.rng.choice(self.theme_config.get("styles", []))
+        atmosphere = self.rng.choice(self.theme_config.get("atmosphere", []))
         
         # Magical elements and artifacts
-        magical_element = random.choice(self.theme_config.get("magical_elements", []))
-        artifact = random.choice(self.theme_config.get("artifacts", []))
+        magical_element = self.rng.choice(self.theme_config.get("magical_elements", []))
+        artifact = self.rng.choice(self.theme_config.get("artifacts", []))
         
         # Environment and architecture
-        environment = random.choice(self.theme_config.get("environments", [])) if not location else location
-        architecture = random.choice(self.theme_config.get("architectural_elements", []))
+        environment = self.rng.choice(self.theme_config.get("environments", [])) if not location else location
+        architecture = self.rng.choice(self.theme_config.get("architectural_elements", []))
         
         # Lighting and atmosphere
-        lighting = random.choice(self.theme_config.get("lighting_effects", []))
-        time = random.choice(self.theme_config.get("time_of_day", []))
-        weather = random.choice(self.theme_config.get("weather_effects", []))
+        lighting = self.rng.choice(self.theme_config.get("lighting_effects", []))
+        time = self.rng.choice(self.theme_config.get("time_of_day", []))
+        weather = self.rng.choice(self.theme_config.get("weather_effects", []))
         
         # Color and creatures
-        color_scheme = random.choice(self.theme_config.get("color_schemes", []))
-        creature = random.choice(self.theme_config.get("creatures", []))
+        color_scheme = self.rng.choice(self.theme_config.get("color_schemes", []))
+        creature = self.rng.choice(self.theme_config.get("creatures", []))
 
         # Build the prompt
         prompt_parts = []

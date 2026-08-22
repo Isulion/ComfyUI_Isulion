@@ -1,7 +1,8 @@
-import random
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("impressionist")
 class ImpressionistThemeHandler(BaseThemeHandler):
     """Handler for impressionist-style prompt generation."""
     
@@ -22,9 +23,9 @@ class ImpressionistThemeHandler(BaseThemeHandler):
         palette = ["vibrant", "pure", "complementary", "atmospheric", "light-filled"]
         mood = ["serene", "lively", "contemplative", "dynamic", "peaceful"]
 
-        technique = random.choice(techniques)
-        color_palette = random.choice(palette)
-        painting_mood = random.choice(mood)
+        technique = self.rng.choice(techniques)
+        color_palette = self.rng.choice(palette)
+        painting_mood = self.rng.choice(mood)
 
         # Generate subject with impressionist characteristics
         if custom_subject:
@@ -37,10 +38,10 @@ class ImpressionistThemeHandler(BaseThemeHandler):
             )
         else:
             subjects = ["garden scene", "water lilies", "sunset landscape", "cafe terrace", "flower field", "river scene", "cathedral facade", "people in park"]
-            subject = random.choice(subjects)
-            technique = random.choice(techniques)
-            color_palette = random.choice(palette)
-            painting_mood = random.choice(mood)
+            subject = self.rng.choice(subjects)
+            technique = self.rng.choice(techniques)
+            color_palette = self.rng.choice(palette)
+            painting_mood = self.rng.choice(mood)
             components["subject"] = (
                 f"((masterful impressionist painting)) of ((a {subject})), "
                 f"((with {technique})), (({color_palette} color palette)), "
@@ -63,9 +64,9 @@ class ImpressionistThemeHandler(BaseThemeHandler):
                 time_of_day = ["sunset", "midday", "morning light", "afternoon glow", "dusk"]
                 weather = ["misty", "sunny", "cloudy", "rainy", "atmospheric"]
                 
-                environment = random.choice(environments)
-                time = random.choice(time_of_day)
-                atmosphere = random.choice(weather)
+                environment = self.rng.choice(environments)
+                time = self.rng.choice(time_of_day)
+                atmosphere = self.rng.choice(weather)
                 
                 components["environment"] = (
                     f"in ((an impressionist {environment})) during (({time})), "
@@ -76,9 +77,9 @@ class ImpressionistThemeHandler(BaseThemeHandler):
         
         # Generate style with impressionist techniques
         if include_style:
-            technique = random.choice(techniques)
-            color_palette = random.choice(palette)
-            painting_mood = random.choice(mood)
+            technique = self.rng.choice(techniques)
+            color_palette = self.rng.choice(palette)
+            painting_mood = self.rng.choice(mood)
             components["style"] = (
                 f"((painted in classic impressionist style)), "
                 f"((with {technique})), (({color_palette} color palette)), "
@@ -93,8 +94,8 @@ class ImpressionistThemeHandler(BaseThemeHandler):
             effects = ["light diffusion", "color vibration", "atmospheric haze", "natural reflections", "dappled light"]
             details = ["loose details", "suggestive forms", "spontaneous marks", "textural variety", "gestural strokes"]
             
-            effect = random.choice(effects)
-            detail = random.choice(details)
+            effect = self.rng.choice(effects)
+            detail = self.rng.choice(details)
             
             components["effects"] = (
                 f"with ((masterful {effect})), ((beautiful {detail})), "

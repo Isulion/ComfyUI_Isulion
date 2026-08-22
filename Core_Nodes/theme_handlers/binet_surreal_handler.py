@@ -1,7 +1,8 @@
 from typing import Dict
-import random
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("binet_surreal")
 class BinetSurrealThemeHandler(BaseThemeHandler):
     """Handler for Binet surreal-themed prompt generation in the style of Sylvain Binet's sophisticated animal portraits."""
     
@@ -27,10 +28,9 @@ class BinetSurrealThemeHandler(BaseThemeHandler):
         color_scheme = self._get_random_choice("binet_surreal.color_schemes")
         
         if custom_subject:
-            # Add randomization to custom subject
-            pose = self._get_random_choice("binet_surreal.poses") if hasattr(self, "_get_random_choice") else "aristocratic pose"
-            detail = self._get_random_choice("binet_surreal.details") if hasattr(self, "_get_random_choice") else "photorealistic detail"
-            lighting = self._get_random_choice("binet_surreal.lighting") if hasattr(self, "_get_random_choice") else "dramatic studio lighting"
+            pose = self._get_random_choice("binet_surreal.poses")
+            detail = self._get_random_choice("binet_surreal.details")
+            lighting = self._get_random_choice("binet_surreal.lighting")
             components["subject"] = (
                 f"((masterful {portrait_style})) of {custom_subject}, "
                 f"(({pose})), ((noble bearing)), "

@@ -1,15 +1,5 @@
-from .display_image_from_url import DisplayImageFromURL
-from .civitai_nodes.civitai_API_node import *
+"""Core_Nodes package for ComfyUI_Isulion.
 
-# Initialize the dictionaries
-NODE_CLASS_MAPPINGS = {}
-NODE_DISPLAY_NAME_MAPPINGS = {}
-
-# Update the mappings
-NODE_CLASS_MAPPINGS.update({
-    "DisplayImageFromURL": DisplayImageFromURL,
-})
-
-NODE_DISPLAY_NAME_MAPPINGS.update({
-    "DisplayImageFromURL": "Display Image From URL",
-}) 
+Nodes are registered by the root __init__.py; this package only provides
+the module namespace. Import submodules explicitly where needed.
+"""

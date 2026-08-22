@@ -1,7 +1,8 @@
-import random
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("ghibli")
 class GhibliThemeHandler(BaseThemeHandler):
     """Handler for Studio Ghibli-themed prompt generation."""
     
@@ -85,27 +86,27 @@ class GhibliThemeHandler(BaseThemeHandler):
 
     def generate_theme_prompt(self, subject=None, location=None):
         # Base style and character traits
-        style = random.choice(self.theme_config.get("styles", []))
-        trait = random.choice(self.theme_config.get("character_traits", []))
+        style = self.rng.choice(self.theme_config.get("styles", []))
+        trait = self.rng.choice(self.theme_config.get("character_traits", []))
         
         # Environment and natural elements
-        environment = random.choice(self.theme_config.get("environments", [])) if not location else location
-        nature = random.choice(self.theme_config.get("natural_elements", []))
+        environment = self.rng.choice(self.theme_config.get("environments", [])) if not location else location
+        nature = self.rng.choice(self.theme_config.get("natural_elements", []))
         
         # Magical and architectural elements
-        magic = random.choice(self.theme_config.get("magical_elements", []))
-        architecture = random.choice(self.theme_config.get("architectural_elements", []))
+        magic = self.rng.choice(self.theme_config.get("magical_elements", []))
+        architecture = self.rng.choice(self.theme_config.get("architectural_elements", []))
         
         # Lighting and atmosphere
-        lighting = random.choice(self.theme_config.get("lighting", []))
-        weather = random.choice(self.theme_config.get("weather_effects", []))
+        lighting = self.rng.choice(self.theme_config.get("lighting", []))
+        weather = self.rng.choice(self.theme_config.get("weather_effects", []))
         
         # Color and time
-        color_palette = random.choice(self.theme_config.get("color_palettes", []))
-        time_period = random.choice(self.theme_config.get("time_periods", []))
+        color_palette = self.rng.choice(self.theme_config.get("color_palettes", []))
+        time_period = self.rng.choice(self.theme_config.get("time_periods", []))
         
         # Emotional tone
-        emotion = random.choice(self.theme_config.get("emotional_tones", []))
+        emotion = self.rng.choice(self.theme_config.get("emotional_tones", []))
         
         # Build the prompt
         prompt_parts = []

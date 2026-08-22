@@ -1,5 +1,9 @@
 from typing import Dict, List, Tuple, Optional
-from .mega_prompt_V3 import IsulionMegaPromptV3
+import logging
+
+from .mega_prompt_V3 import IsulionMegaPromptV3, available_themes
+
+logger = logging.getLogger(__name__)
 
 class IsulionMultiplePromptGenerator:
     """Node that generates prompts for all available themes using a custom subject and location. """
@@ -13,14 +17,17 @@ class IsulionMultiplePromptGenerator:
             "📚 Comic Book",
             "🎡 Disney",
             "🎬 Dreamworks",
+            "🐱 Giant Cat-zilla",
             "🍃 Ghibli",
             "🎯 Logo",
-            "📚 Manga Panel",
+            "📺 Manga Panel",
             "🦸 Marvel",
             "🎬 Nolan Epic",
             "💫 Pixar",
+            "👾 16-Bit Pixel Art",
             "📚 School Manga",
             "🎭 Stop Motion",
+            "🕹️ Voxel Low-Poly",
         ],
         
         "Architectural & Spaces": [
@@ -34,12 +41,18 @@ class IsulionMultiplePromptGenerator:
             "🎨 Abstract",
             "🎨 Concept Art",
             "🖍️ Crayon Art",
-            "💻 Digital Art",
+            "🖼️ Digital Art",
             "🔬 Experimental Art",
+            "🧊 Glassmorphism",
             "🎨 Impressionist",
+            "🎈 Inflatable World",
+            "🧶 Knitted World",
+            "🧊 Liquid Chrome",
             "⬜ Minimalist",
             "🏺 Clay Art",
+            "✂️ Papercraft",
             "🎨 Watercolor",
+            "🪩 Y2K Retro-Futurism",
         ],
         
         "Character Art": [
@@ -53,10 +66,12 @@ class IsulionMultiplePromptGenerator:
             "👻 Halloween Ethereal",
             "👻 Horror",
             "⚔️ Miura Dark Fantasy",
+            "📹 VHS Found Footage",
         ],
         
         "Food": [
             "🍳 Culinary/Food",
+            "🍕 Food Apocalypse",
             "🥙 Street Food Kebab",
         ],
         
@@ -74,13 +89,17 @@ class IsulionMultiplePromptGenerator:
         ],
         
         "Nature & Environment": [
+            "🌌 Astrophotography",
             "🌿 Nature",
+            "🌿 Overgrown Ruins",
             "🌊 Underwater Civilization",
         ],
         
         "Photography & Fashion": [
+            "🎬 Analog 35mm Film",
             "👗 Curvy Fashion",
             "📸 Essential Realistic",
+            "📱 Fisheye Action Cam",
             "📱 Instagram",
             "📱 Instagram Lifestyle",
             "📱 Selfie",
@@ -96,60 +115,87 @@ class IsulionMultiplePromptGenerator:
         
         "Science Fiction & Fantasy": [
             "🧬 Bio-Organic Technology",
+            "🪼 Bioluminescent Jelly",
+            "🌧️ Cinematic Neon Rain",
             "💎 Crystalpunk",
+            "👟 Cyber Hypebeast",
             "🌆 Cyberpunk",
             "✨ Enchanted Fantasy",
             "⚔️ Fantasy",
             "⚔️ Futuristic Battlefield",
-            "🌃 Futuristic City",
+            "🌆 Futuristic City",
             "🌆 Futuristic City Metropolis",
             "🚀 Futuristic Sci-Fi",
             "⚔️ Miura Dark Fantasy",
+            "🍄 Psychedelic Cyber Fungus",
             "🚀 Sci-Fi",
             "🚀 Star Wars",
             "⚙️ Steampunk",
             "🌊 Underwater Civilization",
+            "🩻 X-Ray Anatomy",
         ],
         
         "Surreal & Dreams": [
             "🖼️ Binet Surreal",
             "💠 Dimension 3D",
-            "💫 Ethereal Dreams",
+            "✨ Ethereal Dreams",
+            "🌌 Glitch Core",
+            "🛋️ IKEA Backrooms",
             "🔬 Microscopic",
             "🧩 Puzzle Dimension",
+            "🦆 Rubber Duck Supremacy",
             "💗 Spectral Mist",
+            "📦 Unboxing Surrealism",
         ],
         
         "Vintage & Historical": [
             "🧺 50s Commercial",
-            "🕴️‍♂️ Peaky Blinders",
+            "🪩 Disco Medieval",
+            "🕴️ Peaky Blinders",
             "🕰️ Essential Vintage",
+            "🛒 Retro Vaporwave Mall",
             "👴 Vintage Anthropomorphic",
             "📸 Vintage 1800s Photography",
-            "🏛️ Historical Monuments",  # Added new theme
+            "🏛️ Historical Monuments",
         ],
     }
     
+    @classmethod
+    def _themes_in_sync_with_registry(cls) -> List[str]:
+        """Theme list filtered against the live registry, with drift warnings.
+
+        Keeps stale entries from breaking the UI when handlers are renamed
+        or removed: unknown themes are dropped and logged.
+        """
+        try:
+            known = set(available_themes())
+        except Exception:
+            return [t for themes in cls.theme_categories.values() for t in themes]
+        result = []
+        for themes in cls.theme_categories.values():
+            for theme in themes:
+                if theme in known:
+                    result.append(theme)
+                else:
+                    logger.warning("MultiplePromptGenerator: theme '%s' absent du registre (entrée obsolète ignorée).", theme)
+        return list(dict.fromkeys(result))  # dédoublonnage stable
+
     def __init__(self):
         self.mega_prompt = IsulionMegaPromptV3()
-    
+
     @classmethod
     def INPUT_TYPES(cls):
         # Get all available themes organized by category
         all_themes = []
-        
+
         # Add all category headers first
         categories = sorted(cls.theme_categories.keys())
         for category in categories:
             all_themes.append(f"[{category}]")
-        
-        # Then add all themes sorted by name (ignoring emojis)
-        all_sorted_themes = []
-        for category in categories:
-            all_sorted_themes.extend(cls.theme_categories[category])
-        
-        # Sort all themes by their names (ignoring emojis)
-        all_sorted_themes.sort(key=lambda x: x.split(' ', 1)[1] if ' ' in x else x)
+
+        # Then add all themes sorted by name (ignoring emojis), synced with registry
+        all_sorted_themes = sorted(cls._themes_in_sync_with_registry(),
+                                   key=lambda x: x.split(' ', 1)[1] if ' ' in x else x)
         all_themes.extend(all_sorted_themes)
 
         # Create checkbox inputs for each theme
@@ -273,13 +319,9 @@ class IsulionMultiplePromptGenerator:
                     themes_to_process.append(theme)
                     
         elif selection_mode == "All Themes":
-            # Get all themes sorted by name
-            for category in sorted(self.theme_categories.keys()):
-                themes_to_process.extend(self.theme_categories[category])
-            
-            # Sort by theme name (ignoring emojis)
+            # All known themes, synced with registry and sorted by name
+            themes_to_process = self._themes_in_sync_with_registry()
             themes_to_process.sort(key=lambda x: x.split(' ', 1)[1] if ' ' in x else x)
-            themes_to_process = list(dict.fromkeys(themes_to_process))  # Remove duplicates while preserving order
         
         # Extract optional params from kwargs
         debug_mode = kwargs.get("debug_mode", "off")
@@ -315,49 +357,3 @@ class IsulionMultiplePromptGenerator:
                 continue
         
         return positives, names
-
-class IsulionCategorySelector:
-    """Node that selects categories and outputs them for use with the Multiple Prompt Generator."""
-    
-    def __init__(self):
-        self.theme_categories = IsulionMultiplePromptGenerator.theme_categories
-
-    @classmethod
-    def INPUT_TYPES(cls):
-        # Get list of categories for the combo box
-        categories = list(IsulionMultiplePromptGenerator.theme_categories.keys())
-        return {
-            "required": {
-                "selection_mode": (["Single Category", "Multiple Categories"], {"default": "Single Category"}),
-                "primary_category": (categories, {"default": categories[0]}),  # Primary category selector
-            },
-            "optional": {
-                **{f"enable_{cat.lower().replace(' & ', '_').replace(' ', '_')}": ("BOOLEAN", {"default": False})
-                   for cat in categories}
-            }
-        }
-    
-    RETURN_TYPES = ("STRING",)
-    RETURN_NAMES = ("selected_categories",)
-    FUNCTION = "select_categories"
-    CATEGORY = "Isulion - Multiple Prompt Generator"
-
-    def select_categories(self, selection_mode: str, primary_category: str, **kwargs) -> tuple[str]:
-        """Select categories based on primary selection and checkboxes."""
-        
-        if selection_mode == "Single Category":
-            # In single category mode, just return the primary category
-            return (primary_category,)
-        
-        # For multiple categories, combine primary category with checked categories
-        selected = [primary_category]  # Always include primary category
-        
-        # Add any additional checked categories
-        for category in self.theme_categories.keys():
-            if category != primary_category:  # Skip primary category as it's already included
-                checkbox_name = f"enable_{category.lower().replace(' & ', '_').replace(' ', '_')}"
-                if kwargs.get(checkbox_name, False):
-                    selected.append(category)
-        
-        # Format the output as a string that can be parsed by the prompt generator
-        return ("\n".join(selected),)

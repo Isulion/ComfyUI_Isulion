@@ -1,7 +1,8 @@
-import random
 from .base_handler import BaseThemeHandler
 from typing import Dict
+from .registry import register_theme
 
+@register_theme("disney")
 class DisneyThemeHandler(BaseThemeHandler):
     def __init__(self, config):
         super().__init__(config)
@@ -10,7 +11,7 @@ class DisneyThemeHandler(BaseThemeHandler):
     def _safe_choice(self, key: str, default: str) -> str:
         """Safely choose a random item from a config list with a default fallback."""
         items = self.theme_config.get(key, [])
-        result = random.choice(items) if items else default
+        result = self.rng.choice(items) if items else default
         self.debug_print(f"[DEBUG] {self.__class__.__name__} - Selected {key}: {result} (from {len(items)} options)")
         return result
 

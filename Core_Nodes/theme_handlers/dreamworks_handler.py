@@ -1,7 +1,8 @@
-import random
 from .base_handler import BaseThemeHandler
 from typing import Dict
+from .registry import register_theme
 
+@register_theme("dreamworks")
 class DreamworksThemeHandler(BaseThemeHandler):
     def __init__(self, config):
         super().__init__(config)
@@ -10,34 +11,34 @@ class DreamworksThemeHandler(BaseThemeHandler):
     def _safe_choice(self, key: str, default: str) -> str:
         """Safely choose a random item from a config list with a default fallback."""
         items = self.theme_config.get(key, [])
-        result = random.choice(items) if items else default
+        result = self.rng.choice(items) if items else default
         self.debug_print(f"[DEBUG] {self.__class__.__name__} - Selected {key}: {result} (from {len(items)} options)")
         return result
 
     def generate_theme_prompt(self, subject=None, location=None):
         # Base style and character features
-        style = random.choice(self.theme_config.get("styles", []))
-        character_feature = random.choice(self.theme_config.get("character_features", []))
+        style = self.rng.choice(self.theme_config.get("styles", []))
+        character_feature = self.rng.choice(self.theme_config.get("character_features", []))
         
         # Visual effects and props
-        effect = random.choice(self.theme_config.get("visual_effects", []))
-        prop = random.choice(self.theme_config.get("props", []))
+        effect = self.rng.choice(self.theme_config.get("visual_effects", []))
+        prop = self.rng.choice(self.theme_config.get("props", []))
         
         # Environment and architecture
-        environment = random.choice(self.theme_config.get("environments", [])) if not location else location
-        architecture = random.choice(self.theme_config.get("architectural_elements", []))
+        environment = self.rng.choice(self.theme_config.get("environments", [])) if not location else location
+        architecture = self.rng.choice(self.theme_config.get("architectural_elements", []))
         
         # Lighting and atmosphere
-        lighting = random.choice(self.theme_config.get("lighting", []))
-        atmosphere = random.choice(self.theme_config.get("atmospheres", []))
+        lighting = self.rng.choice(self.theme_config.get("lighting", []))
+        atmosphere = self.rng.choice(self.theme_config.get("atmospheres", []))
         
         # Color and emotion
-        color_scheme = random.choice(self.theme_config.get("color_schemes", []))
-        emotional_tone = random.choice(self.theme_config.get("emotional_tones", []))
+        color_scheme = self.rng.choice(self.theme_config.get("color_schemes", []))
+        emotional_tone = self.rng.choice(self.theme_config.get("emotional_tones", []))
         
         # Animation effect and character type
-        animation_effect = random.choice(self.theme_config.get("animation_effects", []))
-        character_type = random.choice(self.theme_config.get("character_types", []))
+        animation_effect = self.rng.choice(self.theme_config.get("animation_effects", []))
+        character_type = self.rng.choice(self.theme_config.get("character_types", []))
         
         # Build the prompt
         prompt_parts = []

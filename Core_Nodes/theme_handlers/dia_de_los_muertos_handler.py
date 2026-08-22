@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("dia_de_los_muertos")
 class DiaDeLosmuertosThemeHandler(BaseThemeHandler):
     """Handler for Dia de los Muertos-themed prompt generation."""
     

@@ -1,7 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
-import random
+from .registry import register_theme
 
+@register_theme("tropical_paradise")
 class TropicalParadiseThemeHandler(BaseThemeHandler):
     """Handler for tropical paradise-themed prompt generation."""
 
@@ -13,7 +14,7 @@ class TropicalParadiseThemeHandler(BaseThemeHandler):
         try:
             values = self.theme_config.get(key, [])
             if values:
-                return random.choice(values)
+                return self.rng.choice(values)
             if fallback is not None:
                 return fallback
         except Exception:

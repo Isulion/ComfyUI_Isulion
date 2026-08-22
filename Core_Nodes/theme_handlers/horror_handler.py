@@ -1,7 +1,8 @@
-import random
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("horror")
 class HorrorThemeHandler(BaseThemeHandler):
     """Handler for horror-themed prompt generation with enhanced atmospheric and psychological elements."""
     

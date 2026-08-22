@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("peaky_blinders")
 class PeakyBlindersThemeHandler(BaseThemeHandler):
     """Handler for Peaky Blinders-themed prompt generation, focusing on 1920s Birmingham."""
     

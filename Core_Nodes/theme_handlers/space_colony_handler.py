@@ -1,7 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
-import random
+from .registry import register_theme
 
+@register_theme("space_colony")
 class SpaceColonyHandler(BaseThemeHandler):
     """Handler for the Space Colony theme."""
 
@@ -12,7 +13,7 @@ class SpaceColonyHandler(BaseThemeHandler):
     def _get_random(self, key, fallback=None):
         values = self.theme_config.get(key, [])
         if values:
-            return random.choice(values)
+            return self.rng.choice(values)
         return fallback or ""
 
     def generate(
@@ -45,7 +46,7 @@ class SpaceColonyHandler(BaseThemeHandler):
                     subject_parts.append(value)
 
         # Optionally add nature photography technique
-        if "nature_techniques" in cfg and random.random() < 0.5:
+        if "nature_techniques" in cfg and self.rng.random() < 0.5:
             technique = self._get_random("nature_techniques")
             if technique:
                 subject_parts.append(f"{technique} technique")
@@ -59,7 +60,7 @@ class SpaceColonyHandler(BaseThemeHandler):
             else:
                 env = self._get_random("settings", "Martian desert")
             # Optionally add lighting
-            if "lighting_conditions" in cfg and random.random() < 0.5:
+            if "lighting_conditions" in cfg and self.rng.random() < 0.5:
                 lighting = self._get_random("lighting_conditions")
                 env = f"{env}, {lighting}"
             components["environment"] = f"in (({env}))"
@@ -69,7 +70,7 @@ class SpaceColonyHandler(BaseThemeHandler):
             style = self._get_random("styles", "sleek futuristic")
             style_str = f"in the style of (({style}))"
             # Optionally add nature photography style
-            if "nature_techniques" in cfg and random.random() < 0.5:
+            if "nature_techniques" in cfg and self.rng.random() < 0.5:
                 technique = self._get_random("nature_techniques")
                 style_str += f", ((hyper-realistic nature photography)), (({technique}))"
             components["style"] = style_str
@@ -79,7 +80,7 @@ class SpaceColonyHandler(BaseThemeHandler):
             effect = self._get_random("effects", "starfield backdrop")
             effects_str = f"with (({effect}))"
             # Optionally add nature effect
-            if "nature_effects" in cfg and random.random() < 0.7:
+            if "nature_effects" in cfg and self.rng.random() < 0.7:
                 nature_effect = self._get_random("nature_effects")
                 effects_str += f", (({nature_effect}))"
             components["effects"] = effects_str

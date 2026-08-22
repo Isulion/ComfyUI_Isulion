@@ -1,7 +1,8 @@
-import random
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("steampunk")
 class SteampunkThemeHandler(BaseThemeHandler):
     """Handler for steampunk-themed prompt generation."""
     
@@ -50,27 +51,27 @@ class SteampunkThemeHandler(BaseThemeHandler):
 
     def generate_theme_prompt(self, subject=None, location=None):
         # Base style and materials
-        style = random.choice(self.theme_config.get("styles", []))
-        material = random.choice(self.theme_config.get("materials", []))
+        style = self.rng.choice(self.theme_config.get("styles", []))
+        material = self.rng.choice(self.theme_config.get("materials", []))
         
         # Mechanical and decorative elements
-        mechanical = random.choice(self.theme_config.get("mechanical_elements", []))
-        decorative = random.choice(self.theme_config.get("decorative_elements", []))
+        mechanical = self.rng.choice(self.theme_config.get("mechanical_elements", []))
+        decorative = self.rng.choice(self.theme_config.get("decorative_elements", []))
         
         # Clothing and accessories if subject is a character
-        clothing = random.choice(self.theme_config.get("clothing", []))
-        accessory = random.choice(self.theme_config.get("accessories", []))
+        clothing = self.rng.choice(self.theme_config.get("clothing", []))
+        accessory = self.rng.choice(self.theme_config.get("accessories", []))
         
         # Environment and machines
-        environment = random.choice(self.theme_config.get("environments", [])) if not location else location
-        machine = random.choice(self.theme_config.get("machines", []))
+        environment = self.rng.choice(self.theme_config.get("environments", [])) if not location else location
+        machine = self.rng.choice(self.theme_config.get("machines", []))
         
         # Lighting and atmosphere
-        lighting = random.choice(self.theme_config.get("lighting", []))
-        atmosphere = random.choice(self.theme_config.get("atmosphere", []))
+        lighting = self.rng.choice(self.theme_config.get("lighting", []))
+        atmosphere = self.rng.choice(self.theme_config.get("atmosphere", []))
         
         # Color scheme
-        color_scheme = random.choice(self.theme_config.get("color_schemes", []))
+        color_scheme = self.rng.choice(self.theme_config.get("color_schemes", []))
         
         # Build the prompt
         prompt_parts = []

@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("experimental_art")
 class ExperimentalArtThemeHandler(BaseThemeHandler):
     """Handler for experimental art-themed prompt generation."""
     

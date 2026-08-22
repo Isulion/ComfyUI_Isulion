@@ -1,22 +1,23 @@
 # Core_Nodes/qrcode_node.py
 import torch
 import numpy as np
-import math
 import re # Using built-in 're' for color parsing
 import traceback # For detailed error printing
-import comfy.model_management as mm
+
+import logging
+logger = logging.getLogger(__name__)
 
 # Try to import the bundled qrcodegen module
 try:
     from . import qrcodegen
     qrcodegen_available = True
 except ImportError:
-    print("ERROR: QRCodeNode - Could not import the bundled 'qrcodegen.py'.")
-    print("Please ensure 'qrcodegen.py' is in the same directory as 'qrcode_node.py'.")
-    print("Download it from: https://github.com/nayuki/QR-Code-generator/blob/master/python/qrcodegen.py")
+    logger.error("QRCodeNode - Could not import the bundled 'qrcodegen.py'.")
+    logger.error("Please ensure 'qrcodegen.py' is in the same directory as 'qrcode_node.py'.")
+    logger.error("Download it from: https://github.com/nayuki/QR-Code-generator/blob/master/python/qrcodegen.py")
     qrcodegen_available = False
 except Exception as e:
-    print(f"ERROR: QRCodeNode - An unexpected error occurred importing qrcodegen: {e}")
+    logger.error(f"QRCodeNode - An unexpected error occurred importing qrcodegen: {e}")
     qrcodegen_available = False
 
 # --- Helper Function for Color Parsing ---
@@ -71,14 +72,13 @@ class QRCodeNode:
     def generate_qr_code(self, text, error_correction, scale, border,
                          foreground_color, background_color, transparent_background,
                          logo=None, logo_scale_percent=23.0, clear_behind_logo=True):
-        mm.soft_empty_cache()
         # Determine output channels and create a dummy tensor for error returns
         output_channels = 4 if transparent_background else 3
         # Create dummy tensor matching expected output channels
         dummy_tensor = torch.zeros((1, 64, 64, output_channels), dtype=torch.float32)
 
         if not qrcodegen_available:
-            print("ERROR: QRCodeNode - Bundled 'qrcodegen' module is not available.")
+            logger.error("QRCodeNode - Bundled 'qrcodegen' module is not available.")
             return (dummy_tensor,)
 
         data_to_encode = text
@@ -88,7 +88,7 @@ class QRCodeNode:
         bg_rgb = hex_to_rgb(background_color) or (255, 255, 255)
 
         if transparent_background:
-            print("INFO: QRCodeNode - Generating RGBA image with transparent background.")
+            logger.info("QRCodeNode - Generating RGBA image with transparent background.")
             # Foreground is opaque black/color, Background is transparent white/color
             final_fg_color = fg_rgb + (255,) # RGBA, Alpha=255 (Opaque)
             final_bg_color = bg_rgb + (0,)   # RGBA, Alpha=0   (Transparent)
@@ -101,7 +101,7 @@ class QRCodeNode:
 
         # Handle empty text input gracefully
         if not data_to_encode:
-            print("Warning: QRCodeNode - Input text is empty. Generating blank QR code area.")
+            logger.warning("QRCodeNode - Input text is empty. Generating blank QR code area.")
             img_size = max(64, (border * 2 + 21) * scale) # Estimate minimum size
             try:
                 # Use the determined final background color and channels
@@ -109,7 +109,7 @@ class QRCodeNode:
                 img_tensor_out = torch.from_numpy(img_np.astype(np.float32) / 255.0).unsqueeze(0).cpu()
                 return (img_tensor_out,)
             except Exception as e:
-                 print(f"ERROR: QRCodeNode - Failed to create blank image: {e}")
+                 logger.error(f"QRCodeNode - Failed to create blank image: {e}")
                  return (dummy_tensor,)
 
         # --- 2. Generate QR Code Structure ---
@@ -120,26 +120,26 @@ class QRCodeNode:
         try:
             qr = qrcodegen.QrCode.encode_text(data_to_encode, ecl)
         except qrcodegen.DataTooLongError as e:
-            print(f"ERROR: QRCodeNode - Data too long. Reduce text or lower Error Correction ('{error_correction}'). Details: {str(e)}")
+            logger.error(f"QRCodeNode - Data too long. Reduce text or lower Error Correction ('{error_correction}'). Details: {str(e)}")
             return (dummy_tensor,)
         except ValueError as e:
-             print(f"ERROR: QRCodeNode - Value error during encoding (invalid chars?). Details: {str(e)}")
+             logger.error(f"QRCodeNode - Value error during encoding (invalid chars?). Details: {str(e)}")
              return (dummy_tensor,)
         except Exception as e:
-            print(f"ERROR: QRCodeNode - Error generating QR code structure: {str(e)}\n{traceback.format_exc()}")
+            logger.error(f"QRCodeNode - Error generating QR code structure: {str(e)}\n{traceback.format_exc()}")
             return (dummy_tensor,)
 
         # --- 3. Draw QR Code Base Image (RGB or RGBA) ---
         qr_size = qr.get_size()
         if qr_size <= 0:
-             print("ERROR: QRCodeNode - QR Code generation resulted in zero size.")
+             logger.error("QRCodeNode - QR Code generation resulted in zero size.")
              return (dummy_tensor,)
 
         module_size = qr_size + border * 2
         image_size = module_size * scale
 
         if image_size <= 0 or image_size > 16384: # Size check
-             print(f"ERROR: QRCodeNode - Invalid calculated image size ({image_size}x{image_size}). Check scale/border.")
+             logger.error(f"QRCodeNode - Invalid calculated image size ({image_size}x{image_size}). Check scale/border.")
              return (dummy_tensor,)
 
         # Create base image with the correct number of channels and background color
@@ -147,49 +147,52 @@ class QRCodeNode:
             # Use final_channels and final_bg_color determined earlier
             img_np = np.full((image_size, image_size, final_channels), final_bg_color, dtype=np.uint8)
         except MemoryError:
-            print(f"ERROR: QRCodeNode - Not enough memory for {image_size}x{image_size}x{final_channels} image.")
+            logger.error(f"QRCodeNode - Not enough memory for {image_size}x{image_size}x{final_channels} image.")
             return (dummy_tensor,)
         except Exception as e:
-            print(f"ERROR: QRCodeNode - Failed to create numpy array for QR code: {e}")
+            logger.error(f"QRCodeNode - Failed to create numpy array for QR code: {e}")
             return (dummy_tensor,)
 
-        # Draw the QR code modules using the final foreground color (RGB or RGBA)
-        for y in range(qr_size):
-            for x in range(qr_size):
-                if qr.get_module(x, y): # True if foreground module
-                    start_y, start_x = (y + border) * scale, (x + border) * scale
-                    end_y, end_x = min(start_y + scale, image_size), min(start_x + scale, image_size)
-                    if start_y < end_y and start_x < end_x:
-                       img_np[start_y : end_y, start_x : end_x] = final_fg_color # Use final FG color
+        # Draw the QR code modules using the final foreground color (RGB or RGBA).
+        # Vectorized: build a boolean module matrix, upscale it with np.kron,
+        # then assign the foreground color through the mask (no per-module loops).
+        modules = np.fromiter(
+            (qr.get_module(x, y) for y in range(qr_size) for x in range(qr_size)),
+            dtype=bool, count=qr_size * qr_size,
+        ).reshape(qr_size, qr_size)
+
+        padded_modules = np.pad(modules, pad_width=border, constant_values=False)
+        fg_mask = np.kron(padded_modules, np.ones((scale, scale), dtype=bool))
+        img_np[fg_mask] = final_fg_color
 
         # --- 4. Handle Optional Logo ---
         if logo is not None and logo.numel() > 0:
             # Warnings about ECL vs logo size
-            if ecl == qrcodegen.QrCode.Ecc.LOW: print("Warning: QRCodeNode - Using logo with LOW ECL is not recommended.")
-            elif ecl == qrcodegen.QrCode.Ecc.MEDIUM and logo_scale_percent > 20: print("Warning: QRCodeNode - Logo > 20% with MEDIUM ECL might impact scannability.")
+            if ecl == qrcodegen.QrCode.Ecc.LOW: logger.warning("QRCodeNode - Using logo with LOW ECL is not recommended.")
+            elif ecl == qrcodegen.QrCode.Ecc.MEDIUM and logo_scale_percent > 20: logger.warning("QRCodeNode - Logo > 20% with MEDIUM ECL might impact scannability.")
 
             try:
                 # --- 4a. Prepare Input Logo ---
                 logo_input_tensor = logo # B, H, W, C float
-                if logo_input_tensor.shape[0] > 1: print("Warning: QRCodeNode - Multiple logos in batch, using only the first one.")
+                if logo_input_tensor.shape[0] > 1: logger.warning("QRCodeNode - Multiple logos in batch, using only the first one.")
                 logo_np_float = logo_input_tensor[0].cpu().numpy() # H, W, C float [0, 1]
 
                 # Check input logo channels and handle grayscale
                 input_logo_channels = logo_np_float.shape[2] if logo_np_float.ndim == 3 else 1
                 input_has_alpha = False
                 if logo_np_float.ndim == 2: # Grayscale (H, W)
-                    print("INFO: QRCodeNode - Input logo is grayscale, converting to RGB.")
+                    logger.info("QRCodeNode - Input logo is grayscale, converting to RGB.")
                     logo_np_float = np.stack((logo_np_float,) * 3, axis=-1) # -> H, W, 3
                     input_logo_channels = 3
                 elif input_logo_channels == 1: # Grayscale (H, W, 1)
-                     print("INFO: QRCodeNode - Input logo is grayscale (1 channel), converting to RGB.")
+                     logger.info("QRCodeNode - Input logo is grayscale (1 channel), converting to RGB.")
                      logo_np_float = np.concatenate((logo_np_float,) * 3, axis=-1) # -> H, W, 3
                      input_logo_channels = 3
                 elif input_logo_channels == 4: # RGBA
-                    print("INFO: QRCodeNode - Input logo has alpha channel.")
+                    logger.info("QRCodeNode - Input logo has alpha channel.")
                     input_has_alpha = True
                 elif input_logo_channels != 3: # RGB
-                     print(f"Warning: QRCodeNode - Input logo has unsupported channel count ({input_logo_channels}). Treating as RGB.")
+                     logger.warning(f"QRCodeNode - Input logo has unsupported channel count ({input_logo_channels}). Treating as RGB.")
                      logo_np_float = logo_np_float[:, :, :3] # Take first 3 channels if > 4? Risky. Better to just treat as RGB.
                      input_logo_channels = 3
 
@@ -205,7 +208,7 @@ class QRCodeNode:
                 target_h = max_logo_dim if logo_h > logo_w else max(1, int(max_logo_dim / aspect_ratio))
 
                 if target_w <= 0 or target_h <= 0:
-                    print("Warning: QRCodeNode - Calculated logo dimensions are zero/negative. Skipping overlay.")
+                    logger.warning("QRCodeNode - Calculated logo dimensions are zero/negative. Skipping overlay.")
                 else:
                     # --- 4c. Resize Logo ---
                     # Resize using torch interpolation (requires float NCHW)
@@ -228,7 +231,7 @@ class QRCodeNode:
                     logo_to_blend = resized_logo_np[:bg_slice_shape[0], :bg_slice_shape[1], :]
 
                     if logo_to_blend.size == 0:
-                        print("Warning: QRCodeNode - Logo placement resulted in zero-sized area. Skipping overlay.")
+                        logger.warning("QRCodeNode - Logo placement resulted in zero-sized area. Skipping overlay.")
                     else:
                         # --- 4e. Clear Background Area ---
                         if clear_behind_logo:
@@ -267,7 +270,7 @@ class QRCodeNode:
                         img_np[slice_y, slice_x] = blended_area_uint8
 
             except Exception as e:
-                print(f"ERROR: QRCodeNode - Error processing or overlaying logo: {str(e)}\n{traceback.format_exc()}")
+                logger.error(f"QRCodeNode - Error processing or overlaying logo: {str(e)}\n{traceback.format_exc()}")
                 # Continue without logo if processing fails
 
         # --- 5. Convert Final Image to Torch Tensor ---
@@ -276,11 +279,11 @@ class QRCodeNode:
             img_tensor_out = torch.from_numpy(img_np.astype(np.float32) / 255.0).unsqueeze(0).cpu()
             # Final check on tensor shape
             if img_tensor_out.shape[3] != final_channels:
-                 print(f"ERROR: QRCodeNode - Final tensor channel mismatch! Expected {final_channels}, got {img_tensor_out.shape[3]}. Returning dummy.")
+                 logger.error(f"QRCodeNode - Final tensor channel mismatch! Expected {final_channels}, got {img_tensor_out.shape[3]}. Returning dummy.")
                  return (dummy_tensor,)
             # print(f"DEBUG: QRCodeNode - Output tensor shape: {img_tensor_out.shape}") # Optional debug
         except Exception as e:
-            print(f"ERROR: QRCodeNode - Failed to convert final numpy array to tensor: {e}")
+            logger.error(f"QRCodeNode - Failed to convert final numpy array to tensor: {e}")
             return (dummy_tensor,)
 
         return (img_tensor_out,)

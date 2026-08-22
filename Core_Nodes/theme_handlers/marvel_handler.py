@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("marvel")
 class MarvelThemeHandler(BaseThemeHandler):
     """Handler for Marvel-themed prompt generation."""
     

@@ -3,11 +3,9 @@ Isulion ComfyUI Custom Nodes
 A collection of powerful prompt generation nodes for ComfyUI
 """
 
-__version__ = "5.1.5"
+__version__ = "6.0.0"
 __author__ = "Isulion"
 __description__ = "Advanced prompt generation nodes for ComfyUI with multiple themes and styles"
-
-WEB_DIRECTORY = ".Core_Nodes/js"
 
 # Import all node classes
 from .Core_Nodes.mega_prompt_V3 import IsulionMegaPromptV3
@@ -94,8 +92,8 @@ NODE_CLASS_MAPPINGS = {
 
 # Display name mappings
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "IsulionPromptGenerator": "🎨 Isulion Prompt Generator",
-    "MegaPromptV3": "🚀 Isulion Mega Prompt V3",
+    "IsulionMegaPromptV3": "🚀 Isulion Mega Prompt V3",
+    "IsulionVideoPromptGenerator": "🎥 Isulion Video Prompt Generator",
     "IsulionMultiplePromptGenerator": "🔄 Isulion Multiple Prompt Generator",
     "IsulionAnimalRandom": "🦁 Isulion Animal Selector",
     "IsulionCuteAnimalRandom": "🐰 Isulion Cute Animal Selector",
@@ -131,5 +129,3 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "🧩 IsulionQRCode": "🧩 Isulion QRCode Generator",
     "⧉ IsulionOverlay": "⧉ IsulionOverlay"
 }
-
-__version__ = "5.1.5"

@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("animation_cartoon")
 class AnimationCartoonThemeHandler(BaseThemeHandler):
     """Handler for animation cartoon-themed prompt generation."""
     

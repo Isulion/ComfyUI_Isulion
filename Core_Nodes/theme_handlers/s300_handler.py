@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("Spartan_300")
 class s300ThemeHandler(BaseThemeHandler):
     """ Handler for the s300 cinematic dark fantasy theme """
 
@@ -18,12 +20,12 @@ class s300ThemeHandler(BaseThemeHandler):
             ],
         }
         try:
-            return self.config_manager.get_random_choice(key)
+            choices = self.config.get_config(key)
+            return self.rng.choice(choices)
         except Exception:
             if key in FALLBACKS:
-                if getattr(self, "debug", False):
-                    print(f"[DEBUG] Using fallback for missing config key: {key}")
-                return self.config_manager.random.choice(FALLBACKS[key])
+                self.debug_print(f"Using fallback for missing config key: {key}")
+                return self.rng.choice(FALLBACKS[key])
             raise
 
     def _safe_random_choice(self, key, fallback):

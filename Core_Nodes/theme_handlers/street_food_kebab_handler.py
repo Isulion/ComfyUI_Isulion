@@ -1,6 +1,8 @@
 from .base_handler import BaseThemeHandler
 from typing import Dict
+from .registry import register_theme
 
+@register_theme("street_food_kebab")
 class StreetFoodKebabThemeHandler(BaseThemeHandler):
     """Handler for generating street food kebab-themed prompts. Updated to reflect a blend of professional food photography and stylized illustration."""
 

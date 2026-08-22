@@ -1,7 +1,8 @@
 from typing import Dict, List, Optional
 from .base_handler import BaseThemeHandler
-import random
+from .registry import register_theme
 
+@register_theme("puzzle_dimension")
 class PuzzleDimensionThemeHandler(BaseThemeHandler):
     """Handler for the Puzzle Dimension theme, featuring M.C. Escher-inspired impossible geometries."""
 
@@ -22,7 +23,7 @@ class PuzzleDimensionThemeHandler(BaseThemeHandler):
                 f"((mathematical precision)), ((intricate patterns))"
             )
         else:
-            subject = random.choice(self.get_subject_modifiers())
+            subject = self.rng.choice(self.get_subject_modifiers())
             components["subject"] = (
                 f"((masterful geometric {subject})), "
                 f"((M.C. Escher style)), ((impossible geometry)), "
@@ -38,7 +39,7 @@ class PuzzleDimensionThemeHandler(BaseThemeHandler):
                     f"((spatial paradox)), ((geometric harmony))"
                 )
             else:
-                location = random.choice([
+                location = self.rng.choice([
                     "impossible space",
                     "geometric void",
                     "mathematical dimension",
@@ -54,10 +55,10 @@ class PuzzleDimensionThemeHandler(BaseThemeHandler):
         
         # Add style elements
         if include_style:
-            style = random.choice(self.get_style_modifiers())
-            lighting = random.choice(self.get_lighting_modifiers())
-            color = random.choice(self.get_color_modifiers())
-            composition = random.choice(self.get_composition_modifiers())
+            style = self.rng.choice(self.get_style_modifiers())
+            lighting = self.rng.choice(self.get_lighting_modifiers())
+            color = self.rng.choice(self.get_color_modifiers())
+            composition = self.rng.choice(self.get_composition_modifiers())
             
             components["style"] = (
                 f"((masterful {style})), ((perfect {lighting})), "
@@ -67,14 +68,14 @@ class PuzzleDimensionThemeHandler(BaseThemeHandler):
         
         # Add special effects
         if include_effects:
-            effect = random.choice(self.get_special_effects())
+            effect = self.rng.choice(self.get_special_effects())
             components["effects"] = (
                 f"((dramatic {effect})), ((geometric transitions)), "
                 f"((mathematical transformations)), ((spatial warping))"
             )
         
         # Add negative prompt
-        components["negative"] = ", ".join(random.sample(self.get_negative_prompts(), min(5, len(self.get_negative_prompts()))))
+        components["negative"] = ", ".join(self.rng.sample(self.get_negative_prompts(), min(5, len(self.get_negative_prompts()))))
         
         return components
 

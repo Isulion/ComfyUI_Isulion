@@ -1,7 +1,8 @@
 from typing import Dict
-import random
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("logo")
 class LogoThemeHandler(BaseThemeHandler):
     """Handler for logo-themed prompt generation."""
     
@@ -24,7 +25,7 @@ class LogoThemeHandler(BaseThemeHandler):
         components = {}
         
         # Determine logo style approach with adjusted weights
-        style_approach = random.choices(
+        style_approach = self.rng.choices(
             ["classic", "3D", "character", "artistic"],
             weights=[0.6, 0.2, 0.05, 0.15]
         )[0]
@@ -48,8 +49,8 @@ class LogoThemeHandler(BaseThemeHandler):
             # Try to get 3D style from config, fallback to default if not available
             try:
                 style_3d = self._get_random_choice("logo.3d_styles")
-            except:
-                style_3d = random.choice(self._3D_STYLE_FALLBACKS)
+            except Exception:
+                style_3d = self.rng.choice(self._3D_STYLE_FALLBACKS)
             
             components["subject"] = (
                 f"((highly detailed {style_3d} 3D typography)) of the text \"{logo_text}\", "
@@ -58,7 +59,7 @@ class LogoThemeHandler(BaseThemeHandler):
             )
             
         elif style_approach == "character":
-            character = random.choice(self._MASCOT_OPTIONS)
+            character = self.rng.choice(self._MASCOT_OPTIONS)
             decorative = self._get_random_choice("logo.elements")
             
             components["subject"] = (
@@ -128,8 +129,8 @@ class LogoThemeHandler(BaseThemeHandler):
             if style_approach == "3D":
                 try:
                     effect = self._get_random_choice("logo.3d_effects")
-                except:
-                    effect = random.choice(self._3D_EFFECTS_FALLBACKS)
+                except Exception:
+                    effect = self.rng.choice(self._3D_EFFECTS_FALLBACKS)
                     
                 components["effects"] = (
                     f"with (({effect})), ((perfect shadows)), "
@@ -139,8 +140,8 @@ class LogoThemeHandler(BaseThemeHandler):
             elif style_approach == "character":
                 try:
                     effect = self._get_random_choice("logo.character_effects")
-                except:
-                    effect = random.choice(self._CHARACTER_EFFECTS_FALLBACKS)
+                except Exception:
+                    effect = self.rng.choice(self._CHARACTER_EFFECTS_FALLBACKS)
                     
                 components["effects"] = (
                     f"with (({effect})), ((sweet details)), "

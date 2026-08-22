@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("manga_panel")
 class MangaPanelThemeHandler(BaseThemeHandler):
     """Handler for manga panel-themed prompt generation."""
     

@@ -1,7 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
-import random
+from .registry import register_theme
 
+@register_theme("starter_pack")
 class StarterPackThemeHandler(BaseThemeHandler):
     """Handler for AI action-figure starter pack meme prompt generation."""
 
@@ -31,11 +32,11 @@ class StarterPackThemeHandler(BaseThemeHandler):
         else:
             # Pick 4 unique items from various starter_pack fields
             pool = []
-            pool += random.sample(self.theme_config.get("attires", []), min(1, len(self.theme_config.get("attires", []))))
-            pool += random.sample(self.theme_config.get("items", []), min(1, len(self.theme_config.get("items", []))))
-            pool += random.sample(self.theme_config.get("supporting_items", []), min(1, len(self.theme_config.get("supporting_items", []))))
-            pool += random.sample(self.theme_config.get("objects", []), min(1, len(self.theme_config.get("objects", []))))
-            pool += random.sample(self.theme_config.get("passions", []), min(1, len(self.theme_config.get("passions", []))))
+            pool += self.rng.sample(self.theme_config.get("attires", []), min(1, len(self.theme_config.get("attires", []))))
+            pool += self.rng.sample(self.theme_config.get("items", []), min(1, len(self.theme_config.get("items", []))))
+            pool += self.rng.sample(self.theme_config.get("supporting_items", []), min(1, len(self.theme_config.get("supporting_items", []))))
+            pool += self.rng.sample(self.theme_config.get("objects", []), min(1, len(self.theme_config.get("objects", []))))
+            pool += self.rng.sample(self.theme_config.get("passions", []), min(1, len(self.theme_config.get("passions", []))))
             # Fill up to 4 items, avoid duplicates
             items = []
             for i in pool:
@@ -53,7 +54,7 @@ class StarterPackThemeHandler(BaseThemeHandler):
                     self.theme_config.get("passions", [])
                 )
                 while len(items) < 4 and all_items:
-                    choice = random.choice(all_items)
+                    choice = self.rng.choice(all_items)
                     if choice not in items:
                         items.append(choice)
 

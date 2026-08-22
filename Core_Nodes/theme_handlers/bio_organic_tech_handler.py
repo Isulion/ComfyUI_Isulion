@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("bio_organic_tech")
 class BioOrganicTechThemeHandler(BaseThemeHandler):
     """Handler for bio-organic technology-themed prompt generation."""
     

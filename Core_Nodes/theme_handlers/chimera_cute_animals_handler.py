@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("chimera_cute_animals")
 class ChimeraCuteAnimalsThemeHandler(BaseThemeHandler):
     """Handler for chimera cute animals-themed prompt generation."""
     

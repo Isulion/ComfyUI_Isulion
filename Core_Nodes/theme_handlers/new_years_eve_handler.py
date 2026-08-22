@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("new_years_eve")
 class NewYearsEveThemeHandler(BaseThemeHandler):
     """Handler for New Year's Eve-themed prompt generation."""
     

@@ -1,7 +1,8 @@
 from typing import Dict, List, Optional
 from .base_handler import BaseThemeHandler
-import random
+from .registry import register_theme
 
+@register_theme("character_designer")
 class CharacterDesignerThemeHandler(BaseThemeHandler):
     """Handler for creating detailed character designs with customizable attributes."""
 
@@ -19,21 +20,21 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
         if custom_subject:
             base_character = custom_subject
         else:
-            base_character = random.choice(self.get_character_types())
+            base_character = self.rng.choice(self.get_character_types())
         
         self.debug_print(f"Selected base character: {base_character}")
         
         # Add profession and role
-        profession = random.choice(self.get_professions())
-        role_description = random.choice(self.get_role_descriptions())
+        profession = self.rng.choice(self.get_professions())
+        role_description = self.rng.choice(self.get_role_descriptions())
         
         self.debug_print(f"Selected profession: {profession}")
         self.debug_print(f"Selected role description: {role_description}")
         
         # Generate clothing and accessories
-        era = random.choice(self.get_historical_periods())
-        outfit = random.choice(self.get_outfits(era))
-        accessories = random.choice(self.get_accessories(era))
+        era = self.rng.choice(self.get_historical_periods())
+        outfit = self.rng.choice(self.get_outfits(era))
+        accessories = self.rng.choice(self.get_accessories(era))
         
         self.debug_print(f"Selected era: {era}")
         self.debug_print(f"Selected outfit: {outfit}")
@@ -52,12 +53,12 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
             if custom_location:
                 setting = custom_location
             else:
-                setting = random.choice(self.get_settings(era, profession))
+                setting = self.rng.choice(self.get_settings(era, profession))
             
             self.debug_print(f"Selected setting: {setting}")
             
-            time_of_day = random.choice(self.get_times_of_day())
-            atmosphere = random.choice(self.get_atmospheres())
+            time_of_day = self.rng.choice(self.get_times_of_day())
+            atmosphere = self.rng.choice(self.get_atmospheres())
             
             self.debug_print(f"Selected time of day: {time_of_day}")
             self.debug_print(f"Selected atmosphere: {atmosphere}")
@@ -70,9 +71,9 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
         
         # Add style elements
         if include_style:
-            art_style = random.choice(self.get_art_styles())
-            lighting = random.choice(self.get_lighting_styles())
-            color_palette = random.choice(self.get_color_palettes(era))
+            art_style = self.rng.choice(self.get_art_styles())
+            lighting = self.rng.choice(self.get_lighting_styles())
+            color_palette = self.rng.choice(self.get_color_palettes(era))
             
             self.debug_print(f"Selected art style: {art_style}")
             self.debug_print(f"Selected lighting: {lighting}")
@@ -86,7 +87,7 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
         
         # Add special effects
         if include_effects:
-            effect = random.choice(self.get_special_effects())
+            effect = self.rng.choice(self.get_special_effects())
             components["effects"] = (
                 f"((dramatic {effect})), ((character focus)), "
                 f"((subtle details)), ((perfect rendering))"

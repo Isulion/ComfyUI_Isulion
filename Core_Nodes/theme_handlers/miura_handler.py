@@ -1,7 +1,9 @@
 from typing import Dict, List
 from .base_handler import BaseThemeHandler
 from ..configs.config_manager import ConfigManager
+from .registry import register_theme
 
+@register_theme("miura")
 class MiuraThemeHandler(BaseThemeHandler):
     def __init__(self, config_manager: ConfigManager):
         super().__init__(config_manager)

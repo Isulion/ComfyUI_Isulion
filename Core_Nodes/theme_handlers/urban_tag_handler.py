@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("urban_tag")
 class UrbanTagThemeHandler(BaseThemeHandler):
     """Handler for urban tag and street art-themed prompt generation."""
     

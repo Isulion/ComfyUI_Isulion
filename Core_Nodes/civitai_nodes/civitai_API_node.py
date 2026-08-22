@@ -1,16 +1,16 @@
 import json
 import os
-from typing import Dict, List, Tuple, Optional
+from typing import List, Tuple
 import requests
 import traceback
 from PIL import Image
 from io import BytesIO
 import numpy as np
 import torch
-import comfy.utils as comfy_utils
 import logging
-from PIL import ImageOps
 import PIL
+
+from ..net_utils import safe_download, DownloadError
 
 
 logger = logging.getLogger(__name__)
@@ -227,9 +227,6 @@ class IsulionCivitaiTrending:
                     "default": "",
                     "multiline": False,
                     "placeholder": "Enter your Civitai API token..."
-                }),
-                "model": (["All", "SDXL", "FLUX", "Other"], {
-                    "default": "FLUX"
                 })
             },
         }
@@ -248,8 +245,7 @@ class IsulionCivitaiTrending:
                     sort_by: str,
                     period: str,
                     number_of_images: int,
-                    api_key: str = "",
-                    model: str = "") -> Tuple[List[str]]:
+                    api_key: str = "") -> Tuple[List[str]]:
         """Retrieve trending images for the specified period."""
 
         logger.info("\n=== Starting Civitai Trending Images Search ===")
@@ -281,20 +277,11 @@ class IsulionCivitaiTrending:
             "All Time": "AllTime"
         }
 
-        # Map model names to their corresponding IDs
-        model_map = {
-            "All": None,  # No specific model
-            "SDXL": 1,    # Example ID, replace with actual ID
-            "FLUX": 2,    # Example ID, replace with actual ID
-            "Other": 3     # Example ID, replace with actual ID
-        }
-
         # Base parameters
         params = {
             "limit": number_of_images,
             "period": period_map[period],
-            "sort": sort_by,
-            "modelId": model_map[model]  # Use modelId for filtering
+            "sort": sort_by
         }
 
         # Add NSFW parameters
@@ -313,7 +300,7 @@ class IsulionCivitaiTrending:
         }
 
         try:
-            cache_key = f"trending_{nsfw_filter}_{sort_by}_{period}_{number_of_images}_{model}"
+            cache_key = f"trending_{nsfw_filter}_{sort_by}_{period}_{number_of_images}"
             if cache_key in self.results_cache:
                 logger.debug("Debug - Returning cached results")
                 return self.results_cache[cache_key]
@@ -499,35 +486,30 @@ class IsulionCivitaiImageDisplay:
                         continue
 
                     try:
-                        response = requests.get(image_url, timeout=10)
-                        response.raise_for_status()
-                        
-                        # Silently skip non-image content
-                        content_type = response.headers.get('content-type', '').lower()
-                        if not content_type.startswith('image/') or 'video' in content_type:
+                        try:
+                            image_bytes = safe_download(image_url, timeout=10)
+                        except DownloadError as dl_err:
+                            logger.debug("Skipping URL %s: %s", image_url, dl_err)
                             continue
 
-                        image_data = response.content
-                        if not image_data:
-                            continue
-
-                        image = Image.open(BytesIO(image_data))
+                        image = Image.open(BytesIO(image_bytes))
                         if image.mode != 'RGB':
                             image = image.convert('RGB')
-                        
+
                         image = self.resize_image(image, target_size)
-                        
+
                         image_tensor = torch.from_numpy(np.array(image)).float() / 255.0
                         image_tensor = image_tensor.unsqueeze(0)
-                        
+
                         all_tensors.append(image_tensor)
                         all_titles.append(image_data.get('Image', 'Untitled'))
                         all_prompts.append(image_data.get('Prompt', 'No prompt available'))
                         all_urls.append(image_url)
                         all_models.append(model)
 
-                    except:
-                        # Silently skip any errors
+                    except Exception:
+                        # Skip any errors for this entry
+                        logger.debug("Skipping entry after error", exc_info=True)
                         continue
 
                 if not all_tensors:
@@ -571,31 +553,26 @@ class IsulionCivitaiImageDisplay:
                         continue
 
                     try:
-                        response = requests.get(image_url, timeout=10)
-                        response.raise_for_status()
-                        
-                        # Check if content is an image
-                        content_type = response.headers.get('content-type', '').lower()
-                        if not content_type.startswith('image/') or 'video' in content_type:
+                        try:
+                            image_bytes = safe_download(image_url, timeout=10)
+                        except DownloadError as dl_err:
+                            logger.debug("Skipping URL %s: %s", image_url, dl_err)
                             continue
 
-                        image_data = response.content
-                        if not image_data:
-                            continue
-
-                        image = Image.open(BytesIO(image_data))
+                        image = Image.open(BytesIO(image_bytes))
                         if image.mode != 'RGB':
                             image = image.convert('RGB')
-                        
+
                         image = self.resize_image(image, target_size)
-                        
+
                         image_tensor = torch.from_numpy(np.array(image)).float() / 255.0
                         image_tensor = image_tensor.unsqueeze(0)
-                        
+
                         return (image_tensor, title, prompt, image_url, model)
-                        
-                    except:
-                        # Silently skip any errors and continue to next entry
+
+                    except Exception:
+                        # Skip any errors and continue to next entry
+                        logger.debug("Skipping entry after error", exc_info=True)
                         continue
 
                 # If we get here, no valid images were found
@@ -606,7 +583,7 @@ class IsulionCivitaiImageDisplay:
                        "No model available")
             
         except Exception as e:
-            print(f"Error loading image from URL: {str(e)}")
+            logger.error("Error loading image from URL: %s", e)
             return (self.create_error_image(target_size),
                    f"Error: {str(e)}",
                    "No prompt available",

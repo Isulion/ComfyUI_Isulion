@@ -1,7 +1,8 @@
-import random
 from .base_handler import BaseThemeHandler
 from typing import Optional, Dict
+from .registry import register_theme
 
+@register_theme("spectral_mist")
 class SpectralMistThemeHandler(BaseThemeHandler):
     def __init__(self, config):
         super().__init__(config)
@@ -11,8 +12,8 @@ class SpectralMistThemeHandler(BaseThemeHandler):
 
     def _get_color_scheme(self, custom_location: str) -> tuple:
         """Select primary and secondary colors."""
-        primary_color = custom_location if custom_location else random.choice(self.colors)
-        secondary_color = random.choice(self.colors)
+        primary_color = custom_location if custom_location else self.rng.choice(self.colors)
+        secondary_color = self.rng.choice(self.colors)
         return primary_color, secondary_color
 
     def generate(self, custom_subject: Optional[str] = None, **kwargs) -> Dict:
@@ -22,10 +23,10 @@ class SpectralMistThemeHandler(BaseThemeHandler):
             primary_color, secondary_color = self._get_color_scheme(custom_location)
 
             # Always use random elements, even with custom_subject
-            subject = custom_subject if custom_subject else random.choice(self._default_subjects)
-            aura = random.choice(["shimmering", "glowing", "flickering", "pulsating", "luminous"])
-            form = random.choice(["apparition", "wraith", "phantasm", "entity", "spirit"])
-            detail = random.choice(["wispy", "translucent", "ethereal", "mist-wrapped", "otherworldly"])
+            subject = custom_subject if custom_subject else self.rng.choice(self._default_subjects)
+            aura = self.rng.choice(["shimmering", "glowing", "flickering", "pulsating", "luminous"])
+            form = self.rng.choice(["apparition", "wraith", "phantasm", "entity", "spirit"])
+            detail = self.rng.choice(["wispy", "translucent", "ethereal", "mist-wrapped", "otherworldly"])
 
             # Build components
             environment = f"((masterful spectral environment)), ((with {primary_color} ethereal mist)), ((volumetric atmosphere:1.2))"

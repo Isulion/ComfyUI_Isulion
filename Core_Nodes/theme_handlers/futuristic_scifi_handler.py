@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("futuristic_scifi")
 class FuturisticSciFiThemeHandler(BaseThemeHandler):
     """Handler for futuristic sci-fi-themed prompt generation."""
     

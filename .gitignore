@@ -43,3 +43,7 @@ input/
 output/
 temp/
 models/ 
+# Isulion local artifacts
+.tracking
+temp_img/
+*:Zone.Identifier

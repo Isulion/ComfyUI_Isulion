@@ -1,7 +1,8 @@
-import random
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("scifi")
 class SciFiThemeHandler(BaseThemeHandler):
     """Handler for science fiction themed prompt generation."""
     
@@ -23,8 +24,8 @@ class SciFiThemeHandler(BaseThemeHandler):
 
         # Generate subject with sci-fi characteristics
         if custom_subject:
-            tech = random.choice(tech_elements)
-            material = random.choice(materials)
+            tech = self.rng.choice(tech_elements)
+            material = self.rng.choice(materials)
             components["subject"] = (
                 f"((masterful sci-fi art)) of {custom_subject}, "
                 f"((with {tech})), ((made of {material})), "
@@ -33,9 +34,9 @@ class SciFiThemeHandler(BaseThemeHandler):
             )
         else:
             subjects = ["advanced robot", "cyborg warrior", "space explorer", "alien being", "tech augmented human", "holographic entity", "quantum being", "cybernetic creature"]
-            tech = random.choice(tech_elements)
-            material = random.choice(materials)
-            subject = random.choice(subjects)
+            tech = self.rng.choice(tech_elements)
+            material = self.rng.choice(materials)
+            subject = self.rng.choice(subjects)
             components["subject"] = (
                 f"((masterful sci-fi art)) of ((a {subject})), "
                 f"((with {tech})), ((made of {material})), "
@@ -57,9 +58,9 @@ class SciFiThemeHandler(BaseThemeHandler):
                 tech_features = ["holographic displays", "energy fields", "quantum processors", "plasma reactors", "gravity manipulators", "neural networks"]
                 atmospheres = ["neon-lit", "high-tech", "futuristic", "cybernetic", "quantum", "plasma-charged"]
 
-                environment = random.choice(environments)
-                feature = random.choice(tech_features)
-                atmosphere = random.choice(atmospheres)
+                environment = self.rng.choice(environments)
+                feature = self.rng.choice(tech_features)
+                atmosphere = self.rng.choice(atmospheres)
 
                 components["environment"] = (
                     f"in ((a {atmosphere} {environment})) with ((advanced {feature})), "
@@ -74,9 +75,9 @@ class SciFiThemeHandler(BaseThemeHandler):
             tech_aspects = ["holographic", "quantum", "cybernetic", "plasma-based", "nano-tech", "neural-linked"]
             color_schemes = ["neon-chrome", "quantum plasma", "cyber-tech", "holographic spectrum", "energy pulse", "neural grid"]
 
-            style = random.choice(styles)
-            aspect = random.choice(tech_aspects)
-            colors = random.choice(color_schemes)
+            style = self.rng.choice(styles)
+            aspect = self.rng.choice(tech_aspects)
+            colors = self.rng.choice(color_schemes)
 
             components["style"] = (
                 f"((rendered in {style} style)), "
@@ -92,8 +93,8 @@ class SciFiThemeHandler(BaseThemeHandler):
             effects = ["energy fields", "holographic overlays", "quantum particles", "plasma emissions", "neural patterns", "tech auras"]
             tech_details = ["circuitry patterns", "data streams", "energy flows", "quantum effects", "neural networks", "cyber enhancements"]
 
-            effect = random.choice(effects)
-            detail = random.choice(tech_details)
+            effect = self.rng.choice(effects)
+            detail = self.rng.choice(tech_details)
 
             components["effects"] = (
                 f"with ((advanced {effect})), ((intricate {detail})), "

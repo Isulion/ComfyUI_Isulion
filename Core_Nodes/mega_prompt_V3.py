@@ -1,6 +1,10 @@
 import random
 import os
+from functools import lru_cache
 from typing import Dict, List, Tuple, Optional
+
+import logging
+logger = logging.getLogger(__name__)
 import json
 
 # Config imports - Reverting to the original import that you said was working
@@ -8,166 +12,59 @@ import json
 try:
     from .configs.config_manager import ConfigManager
 except ImportError as e:
-    print(f"CRITICAL ERROR: Could not import ConfigManager from '.configs.config_manager'. Please check the file path and your __init__.py. Error: {e}")
+    logger.error(f"CRITICAL ERROR: Could not import ConfigManager from '.configs.config_manager'. Please check the file path and your __init__.py. Error: {e}")
     # Define a dummy ConfigManager to prevent immediate crash, but node won't work.
     class ConfigManager:
         def __init__(self):
-            print("Warning: Using dummy ConfigManager. Node will not function correctly.")
+            logger.warning("Using dummy ConfigManager. Node will not function correctly.")
             self.random = random # Fallback to standard random, won't be seeded by ComfyUI
         def set_seed(self, seed):
-             print(f"Warning: Dummy ConfigManager: set_seed called with {seed}")
+             logger.warning(f"Dummy ConfigManager: set_seed called with {seed}")
              self.random.seed(seed)
         def get_current_seed(self):
-             print("Warning: Dummy ConfigManager: get_current_seed called.")
+             logger.warning("Dummy ConfigManager: get_current_seed called.")
              # Standard random doesn't expose current state easily, return dummy
              return 0
         def _load_configs(self):
             current_dir = os.path.dirname(os.path.abspath(__file__))
-            print(f"[DEBUG] ConfigManager._load_configs: current_dir={current_dir}")
+            logger.debug(f"[DEBUG] ConfigManager._load_configs: current_dir={current_dir}")
             self.configs = {}
             found_json = False
             for filename in os.listdir(current_dir):
                 if filename.endswith('.json'):
                     found_json = True
                     file_path = os.path.join(current_dir, filename)
-                    print(f"[DEBUG] Loading config file: {file_path}")
+                    logger.debug(f"[DEBUG] Loading config file: {file_path}")
                     try:
                         with open(file_path, 'r', encoding='utf-8') as f:
                             self.configs.update(json.load(f))
                     except Exception as e:
-                        print(f"[ERROR] Error loading config file {filename}: {str(e)}")
+                        logger.error(f"[ERROR] Error loading config file {filename}: {str(e)}")
             if not found_json:
-                print("[WARNING] No .json config files found in config directory!")
+                logger.warning("[WARNING] No .json config files found in config directory!")
             if not self.configs:
-                print("[WARNING] No configs loaded in ConfigManager!")
+                logger.warning("[WARNING] No configs loaded in ConfigManager!")
 
 
 # Import the base handler class.
-# Based on your tree, this should be in theme_handlers/base_handler.py
-# This was missing from the original snippet you provided, causing the NameError.
 try:
     from .theme_handlers.base_handler import BaseThemeHandler
-    # print("Successfully imported BaseThemeHandler") # Debugging
 except ImportError as e:
-    print(f"CRITICAL ERROR: Could not import BaseThemeHandler from '.theme_handlers.base_handler'. Ensure the file exists and defines BaseThemeHandler. Error: {e}")
+    logger.error(f"CRITICAL ERROR: Could not import BaseThemeHandler from '.theme_handlers.base_handler'. Ensure the file exists and defines BaseThemeHandler. Error: {e}")
     # Define a dummy BaseThemeHandler to allow the node to load, but generation will fail.
     class BaseThemeHandler:
         def __init__(self, config_manager=None):
-            self.config_manager = config_manager or ConfigManager() # Use dummy ConfigManager if needed
+            self.config_manager = config_manager or ConfigManager()
             self.debug = False
         def set_debug(self, debug: bool):
             self.debug = debug
         def generate(self, custom_subject: str, custom_location: str, include_environment: bool, include_style: bool, include_effects: bool) -> Dict[str, str]:
-            print("Warning: Using dummy BaseThemeHandler. Prompt generation will be empty.")
+            logger.warning("Using dummy BaseThemeHandler. Prompt generation will be empty.")
             return {"subject": "Error: Dummy handler used", "environment": "", "style": "", "effects": ""}
 
 
-# Import all theme handlers using the original pattern.
-# This relies on your theme_handlers/__init__.py or directory structure
-# correctly exposing the handler classes.
-# This *might* be the source of the 'NameError' if the __init__py isn't right,
-# but let's stick to the original structure first.
-try:
-    # This import needs to make classes like AbstractThemeHandler, etc., available in the local scope
-    from .theme_handlers import *
-    print("Successfully imported theme handlers via '*'.") # Debugging
-except ImportError as e:
-    print(f"CRITICAL WARNING: Could not import theme handlers using 'from .theme_handlers import *'. Theme selection may be limited or fail. Error: {e}")
-    # Continue loading, but warn the user. ThemeRegistry will have limited or no handlers.
-
-
-# Now define the mapping from display name to internal name.
-# We *must* use the class names here as strings, because the 'from ... import *'
-# happens *before* this dictionary is defined, making the class names available.
-# But the dictionary needs the *names*, not the classes themselves directly for lookup.
-# We rely on ThemeRegistry._init_handlers to check if the class exists *after* import *.
-HANDLER_CLASS_NAMES_MAP = {
-    # Using strings for class names now
-    "abstract": "AbstractThemeHandler",
-    "animation_cartoon": "AnimationCartoonThemeHandler",
-    "anime": "AnimeThemeHandler",
-    "architectural": "ArchitecturalThemeHandler",
-    "bio_organic_tech": "BioOrganicTechThemeHandler",
-    "binet_surreal": "BinetSurrealThemeHandler",
-    "caricature": "CaricatureThemeHandler",
-    "chimera_animals": "ChimeraAnimalsThemeHandler",
-    "chimera_cute_animals": "ChimeraCuteAnimalsThemeHandler",
-    "christmas": "ChristmasThemeHandler",
-    "cinema_studio": "CinemaStudioThemeHandler",
-    "clay_art": "ClayArtThemeHandler",
-    "comic_book": "ComicBookThemeHandler",
-    "character_designer": "CharacterDesignerThemeHandler",
-    "chinese_new_year": "ChineseNewYearThemeHandler",
-    "concept_art": "ConceptArtThemeHandler",
-    "crayon_art": "CrayonArtThemeHandler",
-    "crystalpunk": "CrystalpunkThemeHandler",
-    "cyberpunk": "CyberpunkThemeHandler",
-    "culinary_food": "CulinaryFoodThemeHandler",
-    "curvy_fashion": "CurvyFashionThemeHandler",
-    "dia_de_los_muertos": "DiaDeLosmuertosThemeHandler",
-    "digital_art": "DigitalArtThemeHandler",
-    "disney": "DisneyThemeHandler",
-    "dreamworks": "DreamworksThemeHandler",
-    "dimension_3d": "Dimension3DThemeHandler",
-    "easter": "EasterThemeHandler",
-    "enchanted_fantasy": "EnchantedFantasyThemeHandler",
-    "essential_realistic": "EssentialRealisticThemeHandler",
-    "essential_vintage": "EssentialVintageThemeHandler",
-    "ethereal_dreams": "EtherealDreamsThemeHandler",
-    "experimental_art": "ExperimentalArtThemeHandler",
-    "fantasy": "FantasyThemeHandler",
-    "fifties_commercial": "FiftiesCommercialHandler",
-    "futuristic_battlefield": "FuturisticBattlefieldThemeHandler",
-    "futuristic_city": "FuturisticCityThemeHandler",
-    "futuristic_city_metropolis": "FuturisticCityMetropolisThemeHandler",
-    "futuristic_scifi": "FuturisticSciFiThemeHandler",
-    "ghibli": "GhibliThemeHandler",
-    "halloween": "HalloweenThemeHandler",
-    "halloween_ethereal": "HalloweenEtherealThemeHandler",
-    "historical_monuments": "HistoricalMonumentsHandler",
-    "horror": "HorrorThemeHandler",
-    "impressionist": "ImpressionistThemeHandler",
-    "instagram": "InstagramThemeHandler",
-    "instagram_lifestyle": "InstagramLifestyleThemeHandler",
-    "interior_spaces": "InteriorSpacesThemeHandler",
-    "logo": "LogoThemeHandler",
-    "manga_panel": "MangaPanelThemeHandler",
-    "marvel": "MarvelThemeHandler",
-    "medieval": "MedievalThemeHandler",
-    "microscopic": "MicroscopicThemeHandler",
-    "minimalist": "MinimalistThemeHandler",
-    "miura": "MiuraThemeHandler",
-    "nature": "NatureThemeHandler",
-    "new_years_eve": "NewYearsEveThemeHandler",
-    "nolan": "NolanThemeHandler",
-    "peaky_blinders": "PeakyBlindersThemeHandler",
-    "pixar": "PixarThemeHandler",
-    "post_apocalyptic": "PostApocalypticThemeHandler",
-    "puzzle_dimension": "PuzzleDimensionHandler", # Corrected? Original had puzzle_dimension, tree has puzzle_dimension_handler
-    "scifi": "SciFiThemeHandler",
-    "school_manga": "SchoolMangaThemeHandler",
-    "selfie": "SelfieThemeHandler",
-    "skinny_blonde_girl": "SkinnyBlondeGirlHandler",
-    "Spartan_300": "s300ThemeHandler",
-    "spectral_mist": "SpectralMistThemeHandler",
-    "st_patricks_day": "StPatricksDayThemeHandler",
-    "star_wars": "StarWarsThemeHandler",
-    "steampunk": "SteampunkThemeHandler",
-    "stopmotion": "StopMotionHandler", # Corrected? Original had stopmotion, tree has stopmotion_handler
-    "street_food_kebab": "StreetFoodKebabThemeHandler",
-    "thanksgiving": "ThanksgivingThemeHandler",
-    "underwater_civilization": "UnderwaterCivilizationThemeHandler",
-    "urban_tag": "UrbanTagThemeHandler",
-    "valentines_day": "ValentinesDayThemeHandler",
-    "village_world": "VillageWorldThemeHandler",
-    "vintage_1800s_photography": "Vintage1800sPhotographyHandler",
-    "vintage_anthropomorphic": "VintageAnthropomorphicThemeHandler",
-    "watercolor": "WatercolorThemeHandler",
-    "starter_pack": "StarterPackThemeHandler",
-    "space_colony": "SpaceColonyHandler",
-    "tropical_paradise": "TropicalParadiseThemeHandler",
-    # Removed duplicates that were in your original list
-}
+# Decorator-based theme registry: every handler module registers itself at import.
+from .theme_handlers.registry import THEME_HANDLERS
 
 
 class ThemeRegistry:
@@ -188,22 +85,18 @@ class ThemeRegistry:
     def _init_handlers(self):
         self._debug_print("[DEBUG] ThemeRegistry._init_handlers called")
         self.handlers = {}
-        for internal_name, class_name_str in HANDLER_CLASS_NAMES_MAP.items():
-            handler_class = globals().get(class_name_str)
-            if handler_class is None:
-                self._debug_print(f"[DEBUG] Handler class '{class_name_str}' for theme '{internal_name}' not found in global scope.")
-                continue
-            if 'BaseThemeHandler' in globals() and not issubclass(handler_class, BaseThemeHandler):
-                print(f"Warning: Loaded object '{class_name_str}' for theme '{internal_name}' is not a valid handler class (doesn't inherit BaseThemeHandler). Skipping.")
+        for internal_name, handler_class in THEME_HANDLERS.items():
+            if not issubclass(handler_class, BaseThemeHandler):
+                logger.warning(f"Registered class '{handler_class.__name__}' for theme '{internal_name}' does not inherit BaseThemeHandler. Skipping.")
                 continue
             try:
                 self.handlers[internal_name] = handler_class(self.config_manager)
-                self._debug_print(f"[DEBUG] Initialized handler for '{internal_name}' ({class_name_str})")
+                self._debug_print(f"[DEBUG] Initialized handler for '{internal_name}' ({handler_class.__name__})")
             except Exception as e:
-                print(f"Warning: Error initializing handler '{class_name_str}' for theme '{internal_name}': {e}. Skipping.")
+                logger.warning(f"Error initializing handler '{handler_class.__name__}' for theme '{internal_name}': {e}. Skipping.")
                 continue
         if not self.handlers:
-            print("[WARNING] No theme handlers were initialized in ThemeRegistry!")
+            logger.warning("[WARNING] No theme handlers were initialized in ThemeRegistry!")
 
     def _init_mappings(self):
         self._debug_print("[DEBUG] ThemeRegistry._init_mappings called")
@@ -291,7 +184,33 @@ class ThemeRegistry:
             "🎨 Watercolor": "watercolor",
             "🧸 Starter Pack": "starter_pack",
             "🚀 Space Colony": "space_colony",
-            "🏝️ Tropical Paradise": "tropical_paradise"
+            "🏝️ Tropical Paradise": "tropical_paradise",
+            "🧊 Glassmorphism": "glassmorphism",
+            "🪩 Y2K Retro-Futurism": "y2k",
+            "🎬 Analog 35mm Film": "analog_film",
+            "🌌 Astrophotography": "astrophotography",
+            "🩻 X-Ray Anatomy": "xray_anatomy",
+            "🌧️ Cinematic Neon Rain": "cinematic_neon_rain",
+            "✂️ Papercraft": "papercraft",
+            "🕹️ Voxel Low-Poly": "voxel",
+            "👾 16-Bit Pixel Art": "pixel_art",
+            "🌿 Overgrown Ruins": "overgrown_ruins",
+            "🐱 Giant Cat-zilla": "giant_cat_zilla",
+            "🍕 Food Apocalypse": "food_apocalypse",
+            "🪩 Disco Medieval": "disco_medieval",
+            "🦆 Rubber Duck Supremacy": "rubber_duck",
+            "🎈 Inflatable World": "inflatable_world",
+            "🪼 Bioluminescent Jelly": "bioluminescent_jelly",
+            "🧶 Knitted World": "knitted_world",
+            "🧊 Liquid Chrome": "liquid_chrome",
+            "🛋️ IKEA Backrooms": "ikea_backrooms",
+            "🌌 Glitch Core": "glitch_core",
+            "🍄 Psychedelic Cyber Fungus": "psychedelic_cyber_fungus",
+            "📦 Unboxing Surrealism": "unboxing_surrealism",
+            "📹 VHS Found Footage": "vhs_found_footage",
+            "👟 Cyber Hypebeast": "cyber_hypebeast",
+            "🛒 Retro Vaporwave Mall": "retro_vaporwave_mall",
+            "📱 Fisheye Action Cam": "fisheye_action_cam"
         }
 
         available_internal_names = set(self.handlers.keys()).union({"random"})
@@ -310,7 +229,7 @@ class ThemeRegistry:
     def get_internal_theme(self, display_theme: str) -> str:
         internal_name = self.theme_mappings.get(display_theme)
         if internal_name is None:
-             print(f"Warning: Display theme '{display_theme}' not found in available mappings. Using 'random'.")
+             logger.warning(f"Display theme '{display_theme}' not found in available mappings. Using 'random'.")
              return "random"
         return internal_name
 
@@ -318,9 +237,9 @@ class ThemeRegistry:
     def get_random_theme(self) -> str:
         available_themes = list(self.handlers.keys())
         if not available_themes:
-            print("Error: No theme handler instances available for random selection.")
+            logger.error("No theme handler instances available for random selection.")
             if "essential_realistic" in self.handlers:
-                 print("Falling back to 'essential_realistic'.")
+                 logger.error("Falling back to 'essential_realistic'.")
                  return "essential_realistic"
             else:
                 raise ValueError("Cannot select random theme: No handler instances were initialized and no fallback available.")
@@ -343,6 +262,22 @@ class ThemeRegistry:
         return available_display_themes
 
 
+@lru_cache(maxsize=1)
+def get_theme_registry() -> "ThemeRegistry":
+    """Shared ThemeRegistry singleton.
+
+    Avoids re-reading ~100 JSON config files on every node instantiation or
+    INPUT_TYPES call. Themes added/changed on disk require a ComfyUI restart.
+    """
+    return ThemeRegistry(ConfigManager())
+
+
+@lru_cache(maxsize=1)
+def available_themes() -> List[str]:
+    """Cached list of display theme names for dropdowns."""
+    return get_theme_registry().get_all_display_themes()
+
+
 def deduplicate_prompt_parts(parts):
     """Remove duplicate prompt parts while preserving order and ignoring case/whitespace."""
     seen = set()
@@ -363,15 +298,14 @@ class IsulionMegaPromptV3:
     def __init__(self):
         try:
             self.debug_mode = False
-            self.config_manager = ConfigManager()
-            self.theme_registry = ThemeRegistry(self.config_manager, debug=self.debug_mode)
+            # Shared singleton registry (cheap: no disk I/O after first call)
+            self.theme_registry = get_theme_registry()
+            self.config_manager = self.theme_registry.config_manager
             self.theme_mappings = self.theme_registry.theme_mappings
-            if self.debug_mode:
-                print(f"[DEBUG] theme_mappings set on instance: {list(self.theme_mappings.keys())}")
             if not self.theme_registry.handlers and "random" not in self.theme_registry.theme_mappings.values():
-                print("CRITICAL WARNING: No theme handler instances were successfully loaded and 'random' option is unavailable. The node will likely fail to generate prompts.")
+                logger.warning("CRITICAL WARNING: No theme handler instances were successfully loaded and 'random' option is unavailable. The node will likely fail to generate prompts.")
         except Exception as e:
-            print(f"[ERROR] Exception in IsulionMegaPromptV3.__init__: {type(e).__name__}: {e}")
+            logger.error(f"[ERROR] Exception in IsulionMegaPromptV3.__init__: {type(e).__name__}: {e}")
             self.theme_mappings = {}
             self.theme_registry = None
 
@@ -379,25 +313,18 @@ class IsulionMegaPromptV3:
     def INPUT_TYPES(cls) -> Dict:
         debug_mode = False
         try:
-            if debug_mode:
-                print("[DEBUG] IsulionMegaPromptV3.INPUT_TYPES called")
-            temp_registry = ThemeRegistry(ConfigManager(), debug=debug_mode)
-            if debug_mode:
-                print(f"[DEBUG] temp_registry.theme_mappings: {list(temp_registry.theme_mappings.keys())}")
-            available_themes = temp_registry.get_all_display_themes()
-            if debug_mode:
-                print(f"[DEBUG] available_themes for dropdown: {available_themes}")
+            available_themes_list = available_themes()
         except Exception as e:
-            print(f"[ERROR] Exception in INPUT_TYPES: {type(e).__name__}: {e}")
-            available_themes = ["--- Error ---"]
-        default_theme = "🎲 Dynamic Random" if "🎲 Dynamic Random" in available_themes else (available_themes[0] if available_themes else "--- Error ---")
-        if not available_themes:
-            available_themes = ["--- Error ---"]
+            logger.error(f"[ERROR] Exception in INPUT_TYPES: {type(e).__name__}: {e}")
+            available_themes_list = ["--- Error ---"]
+        default_theme = "🎲 Dynamic Random" if "🎲 Dynamic Random" in available_themes_list else (available_themes_list[0] if available_themes_list else "--- Error ---")
+        if not available_themes_list:
+            available_themes_list = ["--- Error ---"]
             default_theme = "--- Error ---"
-            print("Error: No themes available for INPUT_TYPES dropdown.")
+            logger.error("No themes available for INPUT_TYPES dropdown.")
         return {
             "required": {
-                "theme": (available_themes, {"default": default_theme}),
+                "theme": (list(available_themes_list), {"default": default_theme}),
                 "complexity": (["simple", "detailed", "complex"], {"default": "detailed"}),
                 "randomize": (["enable", "disable"], {"default": "enable"}),
                 "debug_mode": (["off", "on"], {"default": "off"}),
@@ -430,7 +357,7 @@ class IsulionMegaPromptV3:
 
         if theme == "--- Error ---":
              error_msg = "Prompt generation failed: Theme handlers could not be loaded during startup."
-             print(error_msg)
+             logger.error(error_msg)
              return (error_msg, theme, "", "", "", "", return_seed)
 
         try:
@@ -453,7 +380,7 @@ class IsulionMegaPromptV3:
                         selected_theme_display = internal_theme  # fallback
                 except ValueError as e:
                     error_msg = f"Error selecting random theme: {e}"
-                    print(error_msg)
+                    logger.error(error_msg)
                     return (
                         f"Error: {error_msg}",
                         "random",
@@ -475,7 +402,7 @@ class IsulionMegaPromptV3:
 
             if not handler:
                  error_msg = f"Error: Handler instance for theme '{internal_theme}' (selected via '{theme}') could not be found or was not initialized."
-                 print(error_msg)
+                 logger.error(error_msg)
                  return (
                     error_msg, selected_theme_display, "", "", "", "", return_seed
                  )
@@ -500,7 +427,7 @@ class IsulionMegaPromptV3:
             if subject and isinstance(subject, str):
                 prompt_parts.append(subject)
             elif subject is not None:
-                 print(f"Warning: Handler for theme '{internal_theme}' generated subject of type {type(subject)}. Expected string.")
+                 logger.warning(f"Handler for theme '{internal_theme}' generated subject of type {type(subject)}. Expected string.")
 
             if include_environment:
                 environment = components.get("environment", "")
@@ -546,7 +473,7 @@ class IsulionMegaPromptV3:
 
         except Exception as e:
             error_msg = f"Error during prompt generation for theme '{theme}' (internal '{internal_theme if 'internal_theme' in locals() else 'N/A'}'): {type(e).__name__}: {str(e)}"
-            print(error_msg)
+            logger.error(error_msg)
             return (
                 f"Error: {error_msg}",
                 theme,

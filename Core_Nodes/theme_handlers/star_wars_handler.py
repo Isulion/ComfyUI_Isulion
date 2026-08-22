@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("star_wars")
 class StarWarsThemeHandler(BaseThemeHandler):
     """Handler for Star Wars universe-themed prompt generation with cinematic quality and authentic details."""
     

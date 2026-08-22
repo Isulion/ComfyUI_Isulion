@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("microscopic")
 class MicroscopicThemeHandler(BaseThemeHandler):
     """Handler for microscopic-themed prompt generation."""
     

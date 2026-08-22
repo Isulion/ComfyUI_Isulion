@@ -100,6 +100,42 @@ from .instagram_lifestyle_handler import InstagramLifestyleThemeHandler
 # Starter Pack Handler
 from .starter_pack_handler import StarterPackThemeHandler
 
+# New Theme Handlers
+from .glassmorphism_handler import GlassmorphismThemeHandler
+from .y2k_handler import Y2KThemeHandler
+from .analog_film_handler import AnalogFilmThemeHandler
+from .astrophotography_handler import AstrophotographyThemeHandler
+from .xray_anatomy_handler import XRayAnatomyThemeHandler
+from .cinematic_neon_rain_handler import CinematicNeonRainThemeHandler
+from .papercraft_handler import PapercraftThemeHandler
+from .voxel_handler import VoxelThemeHandler
+from .pixel_art_handler import PixelArtThemeHandler
+from .overgrown_ruins_handler import OvergrownRuinsThemeHandler
+
+# Fusion Pop & WTF Handlers
+from .giant_cat_zilla_handler import GiantCatZillaThemeHandler
+from .food_apocalypse_handler import FoodApocalypseThemeHandler
+from .disco_medieval_handler import DiscoMedievalThemeHandler
+from .rubber_duck_handler import RubberDuckThemeHandler
+
+# Impossible Materials Handlers
+from .inflatable_world_handler import InflatableWorldThemeHandler
+from .bioluminescent_jelly_handler import BioluminescentJellyThemeHandler
+from .knitted_world_handler import KnittedWorldThemeHandler
+from .liquid_chrome_handler import LiquidChromeThemeHandler
+
+# Surrealism & Liminal Handlers
+from .ikea_backrooms_handler import IKEABackroomsThemeHandler
+from .glitch_core_handler import GlitchCoreThemeHandler
+from .psychedelic_cyber_fungus_handler import PsychedelicCyberFungusThemeHandler
+from .unboxing_surrealism_handler import UnboxingSurrealismThemeHandler
+
+# Media Trends Handlers
+from .vhs_found_footage_handler import VHSFoundFootageThemeHandler
+from .cyber_hypebeast_handler import CyberHypebeastThemeHandler
+from .retro_vaporwave_mall_handler import RetroVaporwaveMallThemeHandler
+from .fisheye_action_cam_handler import FisheyeActionCamThemeHandler
+
 # Export all handlers
 __all__ = [
     # Base Handler
@@ -156,5 +192,27 @@ __all__ = [
     'MedievalThemeHandler',
     
     # Starter Pack Handler
-    'StarterPackThemeHandler'
+    'StarterPackThemeHandler',
+
+    # New Theme Handlers
+    'GlassmorphismThemeHandler', 'Y2KThemeHandler', 'AnalogFilmThemeHandler',
+    'AstrophotographyThemeHandler', 'XRayAnatomyThemeHandler',
+    'CinematicNeonRainThemeHandler', 'PapercraftThemeHandler',
+    'VoxelThemeHandler', 'PixelArtThemeHandler', 'OvergrownRuinsThemeHandler',
+
+    # Fusion Pop & WTF
+    'GiantCatZillaThemeHandler', 'FoodApocalypseThemeHandler',
+    'DiscoMedievalThemeHandler', 'RubberDuckThemeHandler',
+
+    # Impossible Materials
+    'InflatableWorldThemeHandler', 'BioluminescentJellyThemeHandler',
+    'KnittedWorldThemeHandler', 'LiquidChromeThemeHandler',
+
+    # Surrealism & Liminal
+    'IKEABackroomsThemeHandler', 'GlitchCoreThemeHandler',
+    'PsychedelicCyberFungusThemeHandler', 'UnboxingSurrealismThemeHandler',
+
+    # Media Trends
+    'VHSFoundFootageThemeHandler', 'CyberHypebeastThemeHandler',
+    'RetroVaporwaveMallThemeHandler', 'FisheyeActionCamThemeHandler',
 ]

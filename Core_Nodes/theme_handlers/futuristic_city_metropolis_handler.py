@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("futuristic_city_metropolis")
 class FuturisticCityMetropolisThemeHandler(BaseThemeHandler):
     """Handler for futuristic city metropolis-themed prompt generation."""
     

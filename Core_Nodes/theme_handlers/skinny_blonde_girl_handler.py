@@ -1,7 +1,9 @@
 # filepath: Core_Nodes/theme_handlers/skinny_blonde_girl_handler.py
 from typing import Dict, Optional
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("skinny_blonde_girl")
 class SkinnyBlondeGirlHandler(BaseThemeHandler):
     """Instagram-style 'Skinny Blonde Girl' theme."""
 

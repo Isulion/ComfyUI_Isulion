@@ -1,6 +1,8 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("clay_art")
 class ClayArtThemeHandler(BaseThemeHandler):
     """Handler for clay art-themed prompt generation."""
     

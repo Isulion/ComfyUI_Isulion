@@ -1,7 +1,10 @@
 import json
 import random
 import os
-from .mega_prompt_V3 import IsulionMegaPromptV3
+
+import logging
+logger = logging.getLogger(__name__)
+from .mega_prompt_V3 import get_theme_registry, available_themes
 
 # Must be the exact same name as used in registration
 class IsulionVideoPromptGenerator:
@@ -11,7 +14,6 @@ class IsulionVideoPromptGenerator:
         self.config_path = os.path.join(os.path.dirname(__file__), 
                                       "configs", "video_prompt_config.json")
         self.load_config()
-        self.mega_prompt = IsulionMegaPromptV3()
     
     @classmethod
     def INPUT_TYPES(cls):
@@ -22,7 +24,7 @@ class IsulionVideoPromptGenerator:
             with open(config_path, 'r') as f:
                 config = json.load(f)
         except Exception as e:
-            print(f"Error loading config for INPUT_TYPES: {e}")
+            logger.error(f"Error loading config for INPUT_TYPES: {e}")
             config = {
                 "camera_angles": ["The camera remains stationary"],
                 "lighting_conditions": ["with natural lighting"],
@@ -34,13 +36,12 @@ class IsulionVideoPromptGenerator:
                 }
             }
 
-        # Initialize MegaPromptV3 for themes
+        # Initialize MegaPromptV3 themes from the shared registry (cached)
         try:
-            mega = IsulionMegaPromptV3()
-            theme_list = ["None", "🎲 Dynamic Random"] + [k for k in mega.theme_mappings.keys() 
+            theme_list = ["None", "🎲 Dynamic Random"] + [k for k in available_themes()
                     if k not in ["None", "🎲 Dynamic Random"]]
         except Exception as e:
-            print(f"Error loading themes: {e}")
+            logger.error(f"Error loading themes: {e}")
             theme_list = ["None", "🎲 Dynamic Random"]
 
         # Prepare input lists
@@ -91,7 +92,7 @@ class IsulionVideoPromptGenerator:
             with open(self.config_path, 'r') as f:
                 self.config = json.load(f)
         except Exception as e:
-            print(f"Error loading config: {e}")
+            logger.error(f"Error loading config: {e}")
             self.config = {
                 "subjects": ["a person"],
                 "locations": ["in a room"],
@@ -106,6 +107,9 @@ class IsulionVideoPromptGenerator:
 
     def generate_prompt(self, preset, seed, quality_level, custom_subject, custom_location, camera_angle, lighting, theme):
         rng = random.Random(seed)
+        registry = get_theme_registry()
+        # Seed the shared theme-handler PRNG for reproducible generation
+        registry.config_manager.set_seed(seed)
         components = []
 
         # Add quality modifier first
@@ -136,15 +140,16 @@ class IsulionVideoPromptGenerator:
                     components.append(light)
 
                 # Add theme if selected
-                if theme != "None" and theme in self.mega_prompt.theme_mappings:
-                    theme_key = self.mega_prompt.theme_mappings[theme]
-                    handler = self.mega_prompt.theme_registry.handlers.get(theme_key)
+                if theme != "None" and theme in registry.theme_mappings:
+                    theme_key = registry.theme_mappings[theme]
+                    handler = registry.handlers.get(theme_key)
                     if handler:
                         theme_components = handler.generate(
                             custom_subject="",
                             custom_location="",
-                            include_style="yes",
-                            include_effects="yes"
+                            include_environment=False,
+                            include_style=True,
+                            include_effects=True
                         )
                         if theme_components and "style" in theme_components:
                             components.append(theme_components["style"])
@@ -173,15 +178,16 @@ class IsulionVideoPromptGenerator:
             components.append(light)
 
         # Add theme for custom prompt
-        if theme != "None" and theme in self.mega_prompt.theme_mappings:
-            theme_key = self.mega_prompt.theme_mappings[theme]
-            handler = self.mega_prompt.theme_registry.handlers.get(theme_key)
+        if theme != "None" and theme in registry.theme_mappings:
+            theme_key = registry.theme_mappings[theme]
+            handler = registry.handlers.get(theme_key)
             if handler:
                 theme_components = handler.generate(
                     custom_subject="",
                     custom_location="",
-                    include_style="yes",
-                    include_effects="yes"
+                    include_environment=False,
+                    include_style=True,
+                    include_effects=True
                 )
                 if theme_components and "style" in theme_components:
                     components.append(theme_components["style"])

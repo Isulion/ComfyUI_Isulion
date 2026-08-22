@@ -1,24 +1,29 @@
+import logging
 from abc import ABC, abstractmethod
 from typing import Dict, Optional, List
-import random
+
+logger = logging.getLogger(__name__)
 
 class BaseThemeHandler(ABC):
     """Base class for all theme handlers."""
-    
+
     def __init__(self, config_manager):
         """Initialize the theme handler with configuration manager."""
         self.config = config_manager
+        # Shared seeded PRNG (same object as ConfigManager.random):
+        # ConfigManager.set_seed() re-seeds every handler automatically.
+        self.rng = config_manager.random
         self.theme_config = {}
         self.debug_mode = False  # Default to debug off
-    
+
     def set_debug(self, debug: bool):
         """Enable or disable debug mode."""
         self.debug_mode = debug
-    
+
     def debug_print(self, message: str):
-        """Print debug message if debug mode is enabled."""
+        """Log a debug message if debug mode is enabled."""
         if self.debug_mode:
-            print(f"[DEBUG] {self.__class__.__name__} - {message}")
+            logger.debug("%s - %s", self.__class__.__name__, message)
 
     def _get_random_choice(self, config_key: str) -> str:
         """Get a random choice from configuration list."""
@@ -49,7 +54,7 @@ class BaseThemeHandler(ABC):
                 self.debug_print(f"Selected {config_key}: {result} (from 0 options, using default)")
                 return result
             
-            result = random.choice(choices)
+            result = self.rng.choice(choices)
             self.debug_print(f"Selected {config_key}: {result} (from {len(choices)} options)")
             return result
         except Exception as e:
@@ -60,7 +65,7 @@ class BaseThemeHandler(ABC):
         """Get a random choice from configuration list with a default value."""
         try:
             choices = self.config.get_config(config_key)
-            result = self.config.random.choice(choices) if choices else default_value
+            result = self.rng.choice(choices) if choices else default_value
             self.debug_print(f"Selected {config_key}: {result} (from {len(choices)} options)")
             return result
         except Exception as e:
@@ -103,7 +108,7 @@ class BaseThemeHandler(ABC):
         if len(choices) < count:
             choices = choices * (count // len(choices) + 1)
         
-        result = random.sample(choices, count)
+        result = self.rng.sample(choices, count)
         self.debug_print(f"Selected {config_key}: {result} (from {len(choices)} options)")
         return result
 

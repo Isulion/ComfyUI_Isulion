@@ -1,7 +1,8 @@
-import random
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("cyberpunk")
 class CyberpunkThemeHandler(BaseThemeHandler):
     """Handler for cyberpunk-themed prompt generation."""
     
@@ -23,8 +24,8 @@ class CyberpunkThemeHandler(BaseThemeHandler):
         tech_gear = ["plasma weapons", "neural deck", "holo-projectors", "cyber-ware", "nano-tech gear", "quantum hardware"]
 
         if custom_subject:
-            mod = random.choice(cyber_mods)
-            gear = random.choice(tech_gear)
+            mod = self.rng.choice(cyber_mods)
+            gear = self.rng.choice(tech_gear)
             components["subject"] = (
                 f"((masterful cyberpunk art)) of {custom_subject}, "
                 f"((equipped with {mod})), ((using {gear})), "
@@ -33,9 +34,9 @@ class CyberpunkThemeHandler(BaseThemeHandler):
                 f"((cybernetic augmentations)), ((urban tech))"
             )
         else:
-            subject = random.choice(subjects)
-            mod = random.choice(cyber_mods)
-            gear = random.choice(tech_gear)
+            subject = self.rng.choice(subjects)
+            mod = self.rng.choice(cyber_mods)
+            gear = self.rng.choice(tech_gear)
             components["subject"] = (
                 f"((masterful cyberpunk art)) of ((a {subject})), "
                 f"((equipped with {mod})), ((using {gear})), "
@@ -57,9 +58,9 @@ class CyberpunkThemeHandler(BaseThemeHandler):
                 urban_features = ["holographic billboards", "neon signs", "data streams", "cyber cafes", "black markets", "street tech vendors"]
                 weather = ["acid rain", "neon fog", "smog-filled", "electric storm", "synthetic snow", "digital haze"]
 
-                environment = random.choice(environments)
-                feature = random.choice(urban_features)
-                atmosphere = random.choice(weather)
+                environment = self.rng.choice(environments)
+                feature = self.rng.choice(urban_features)
+                atmosphere = self.rng.choice(weather)
 
                 components["environment"] = (
                     f"in ((a {atmosphere} {environment})) with ((massive {feature})), "
@@ -74,9 +75,9 @@ class CyberpunkThemeHandler(BaseThemeHandler):
             aesthetics = ["retrofuturistic", "neon-noir", "cyber-gritty", "tech-noir", "digital-decay", "chrome-punk"]
             color_schemes = ["neon-noir", "cyber-chrome", "digital-neon", "tech-glow", "urban-night", "synthetic-pulse"]
 
-            style = random.choice(styles)
-            aesthetic = random.choice(aesthetics)
-            colors = random.choice(color_schemes)
+            style = self.rng.choice(styles)
+            aesthetic = self.rng.choice(aesthetics)
+            colors = self.rng.choice(color_schemes)
 
             components["style"] = (
                 f"((rendered in {style} style)), "
@@ -92,8 +93,8 @@ class CyberpunkThemeHandler(BaseThemeHandler):
             effects = ["neon glow", "holographic glitch", "digital artifacts", "cyber distortion", "neural noise", "data corruption"]
             tech_details = ["data streams", "matrix code", "cyber grids", "neural patterns", "digital noise", "tech interference"]
 
-            effect = random.choice(effects)
-            detail = random.choice(tech_details)
+            effect = self.rng.choice(effects)
+            detail = self.rng.choice(tech_details)
 
             components["effects"] = (
                 f"with ((intense {effect})), ((dynamic {detail})), "

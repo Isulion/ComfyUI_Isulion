@@ -1,7 +1,8 @@
-import random
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("vintage_anthropomorphic")
 class VintageAnthropomorphicThemeHandler(BaseThemeHandler):
     """Handler for vintage anthropomorphic-themed prompt generation."""
     
@@ -77,22 +78,22 @@ class VintageAnthropomorphicThemeHandler(BaseThemeHandler):
 
     def generate_theme_prompt(self, subject=None, location=None):
         # Base style and art technique
-        style = random.choice(self.theme_config.get("styles", []))
-        art_technique = random.choice(self.theme_config.get("art_techniques", []))
+        style = self.rng.choice(self.theme_config.get("styles", []))
+        art_technique = self.rng.choice(self.theme_config.get("art_techniques", []))
         
         # Character elements
-        characteristic = random.choice(self.theme_config.get("characteristics", []))
-        clothing = random.choice(self.theme_config.get("clothing_styles", []))
+        characteristic = self.rng.choice(self.theme_config.get("characteristics", []))
+        clothing = self.rng.choice(self.theme_config.get("clothing_styles", []))
         
         # Environment and setting
-        scene = random.choice(self.theme_config.get("scene_settings", [])) if not location else location
-        environment = random.choice(self.theme_config.get("environments", []))
-        time_period = random.choice(self.theme_config.get("time_periods", []))
+        scene = self.rng.choice(self.theme_config.get("scene_settings", [])) if not location else location
+        environment = self.rng.choice(self.theme_config.get("environments", []))
+        time_period = self.rng.choice(self.theme_config.get("time_periods", []))
         
         # Additional details
-        prop = random.choice(self.theme_config.get("props", []))
-        mood = random.choice(self.theme_config.get("moods", []))
-        color_palette = random.choice(self.theme_config.get("color_palettes", []))
+        prop = self.rng.choice(self.theme_config.get("props", []))
+        mood = self.rng.choice(self.theme_config.get("moods", []))
+        color_palette = self.rng.choice(self.theme_config.get("color_palettes", []))
 
         # Build the prompt
         prompt_parts = []

@@ -1,7 +1,8 @@
-import random
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("village_world")
 class VillageWorldThemeHandler(BaseThemeHandler):
     """Handler for village of the world-themed prompt generation."""
     
@@ -76,24 +77,24 @@ class VillageWorldThemeHandler(BaseThemeHandler):
 
     def generate_theme_prompt(self, subject=None, location=None):
         # Base style and atmosphere
-        style = random.choice(self.theme_config.get("styles", []))
-        atmosphere = random.choice(self.theme_config.get("atmosphere", []))
+        style = self.rng.choice(self.theme_config.get("styles", []))
+        atmosphere = self.rng.choice(self.theme_config.get("atmosphere", []))
         
         # Architecture and village features
-        architecture = random.choice(self.theme_config.get("architecture", []))
-        village_feature = random.choice(self.theme_config.get("village_features", []))
+        architecture = self.rng.choice(self.theme_config.get("architecture", []))
+        village_feature = self.rng.choice(self.theme_config.get("village_features", []))
         
         # Natural and magical elements
-        natural_element = random.choice(self.theme_config.get("natural_elements", []))
-        magical_element = random.choice(self.theme_config.get("magical_elements", []))
+        natural_element = self.rng.choice(self.theme_config.get("natural_elements", []))
+        magical_element = self.rng.choice(self.theme_config.get("magical_elements", []))
         
         # Time and weather
-        time = random.choice(self.theme_config.get("time_of_day", []))
-        weather = random.choice(self.theme_config.get("weather_effects", []))
+        time = self.rng.choice(self.theme_config.get("time_of_day", []))
+        weather = self.rng.choice(self.theme_config.get("weather_effects", []))
         
         # Village life
-        inhabitants = random.choice(self.theme_config.get("inhabitants", []))
-        activity = random.choice(self.theme_config.get("activities", []))
+        inhabitants = self.rng.choice(self.theme_config.get("inhabitants", []))
+        activity = self.rng.choice(self.theme_config.get("activities", []))
 
         # Build the prompt
         prompt_parts = []

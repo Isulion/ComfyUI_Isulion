@@ -1,7 +1,8 @@
-import random
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("fantasy")
 class FantasyThemeHandler(BaseThemeHandler):
     """Handler for fantasy-themed prompt generation."""
     
@@ -18,9 +19,9 @@ class FantasyThemeHandler(BaseThemeHandler):
         components = {}
 
         # Always use random elements, even with custom_subject
-        character = random.choice(self.theme_config.get("characters", ["mystical hero", "ancient wizard", "elven warrior"]))
-        class_type = random.choice(self.theme_config.get("character_classes", ["mage", "warrior", "druid"]))
-        creature = random.choice(self.theme_config.get("creatures", ["dragon", "phoenix", "unicorn"]))
+        character = self.rng.choice(self.theme_config.get("characters", ["mystical hero", "ancient wizard", "elven warrior"]))
+        class_type = self.rng.choice(self.theme_config.get("character_classes", ["mage", "warrior", "druid"]))
+        creature = self.rng.choice(self.theme_config.get("creatures", ["dragon", "phoenix", "unicorn"]))
 
         # Generate subject with enhanced fantasy characteristics
         if custom_subject:
@@ -48,9 +49,9 @@ class FantasyThemeHandler(BaseThemeHandler):
                     f"((magical world building)), ((fantasy excellence))"
                 )
             else:
-                environment = random.choice(self.theme_config.get("environments", ["crystal castle", "enchanted forest", "floating islands"]))
-                architecture = random.choice(self.theme_config.get("architectural_elements", ["magical towers", "ancient temples", "crystal spires"]))
-                weather = random.choice(self.theme_config.get("weather_effects", ["mystical fog", "magical aurora", "ethereal storm"]))
+                environment = self.rng.choice(self.theme_config.get("environments", ["crystal castle", "enchanted forest", "floating islands"]))
+                architecture = self.rng.choice(self.theme_config.get("architectural_elements", ["magical towers", "ancient temples", "crystal spires"]))
+                weather = self.rng.choice(self.theme_config.get("weather_effects", ["mystical fog", "magical aurora", "ethereal storm"]))
                 components["environment"] = (
                     f"in ((magical {environment})) with "
                     f"((majestic {architecture})) during ((mystical {weather})), "
@@ -60,9 +61,9 @@ class FantasyThemeHandler(BaseThemeHandler):
 
         # Generate style with enhanced fantasy techniques
         if include_style:
-            style = random.choice(self.theme_config.get("styles", ["epic fantasy", "high fantasy", "magical realism"]))
-            lighting = random.choice(self.theme_config.get("lighting", ["ethereal glow", "magical radiance", "mystical light"]))
-            color_scheme = random.choice(self.theme_config.get("color_schemes", ["magical rainbow", "ethereal pastels", "mystical jewel tones"]))
+            style = self.rng.choice(self.theme_config.get("styles", ["epic fantasy", "high fantasy", "magical realism"]))
+            lighting = self.rng.choice(self.theme_config.get("lighting", ["ethereal glow", "magical radiance", "mystical light"]))
+            color_scheme = self.rng.choice(self.theme_config.get("color_schemes", ["magical rainbow", "ethereal pastels", "mystical jewel tones"]))
             components["style"] = (
                 f"((masterfully rendered in {style} style)), "
                 f"((with {lighting})), ((magical realism)), "
@@ -74,8 +75,8 @@ class FantasyThemeHandler(BaseThemeHandler):
 
         # Generate effects with enhanced magical elements
         if include_effects:
-            magic = random.choice(self.theme_config.get("magical_elements", ["ancient spells", "mystical runes", "magical crystals"]))
-            artifact = random.choice(self.theme_config.get("artifacts", ["enchanted staff", "magical sword", "mystical orb"]))
+            magic = self.rng.choice(self.theme_config.get("magical_elements", ["ancient spells", "mystical runes", "magical crystals"]))
+            artifact = self.rng.choice(self.theme_config.get("artifacts", ["enchanted staff", "magical sword", "mystical orb"]))
             components["effects"] = (
                 f"with ((powerful {magic})), ((mystical energy)), "
                 f"((legendary {artifact})), ((ethereal glow)), "

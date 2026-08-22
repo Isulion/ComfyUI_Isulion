@@ -1,9 +1,10 @@
-import random
 from typing import Dict, Optional
 from .base_handler import BaseThemeHandler
 import json
 import os
+from .registry import register_theme
 
+@register_theme("vintage_1800s_photography")
 class Vintage1800sPhotographyHandler(BaseThemeHandler):
     """Handler for generating 1800s vintage photography-themed prompts."""
 
@@ -32,7 +33,7 @@ class Vintage1800sPhotographyHandler(BaseThemeHandler):
         """Get random choice from theme configuration."""
         if key not in self.theme_config:
             raise KeyError(f"Missing {key} in vintage_1800s_photography config")
-        return random.choice(self.theme_config[key])
+        return self.rng.choice(self.theme_config[key])
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",

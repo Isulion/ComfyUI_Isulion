@@ -1,18 +1,19 @@
 from typing import Dict
 from .base_handler import BaseThemeHandler
-import random
+from .registry import register_theme
 
+@register_theme("chimera_animals")
 class ChimeraAnimalsThemeHandler(BaseThemeHandler):
     def _get_random_animal_from_category(self, category: str) -> str:
         """Get a random animal from a specific category."""
         animals = self.config.get_config(f"chimera_animals.categories.{category}")
-        return random.choice(animals) if animals else "lion"
+        return self.rng.choice(animals) if animals else "lion"
 
     def _get_different_category(self, exclude_category: str) -> str:
         """Get a random category different from the given one."""
         categories = list(self.config.get_config("chimera_animals.categories").keys())
         available_categories = [cat for cat in categories if cat != exclude_category]
-        return random.choice(available_categories) if available_categories else "big_cats"
+        return self.rng.choice(available_categories) if available_categories else "big_cats"
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
@@ -41,7 +42,7 @@ class ChimeraAnimalsThemeHandler(BaseThemeHandler):
                 head = "lion"
                 body = "eagle"
             else:
-                head_category = random.choice(all_categories)
+                head_category = self.rng.choice(all_categories)
                 body_category = self._get_different_category(head_category)
                 
                 # Get random animals from each category

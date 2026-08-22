@@ -1,7 +1,8 @@
-import random
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
+@register_theme("pixar")
 class PixarThemeHandler(BaseThemeHandler):
     """Handler for Pixar-style animation themed prompt generation with cinematic quality and storytelling elements."""
     
@@ -12,7 +13,7 @@ class PixarThemeHandler(BaseThemeHandler):
     def _safe_choice(self, key: str, default: str) -> str:
         """Safely choose a random item from a config list with a default fallback."""
         items = self.theme_config.get(key, [])
-        result = random.choice(items) if items else default
+        result = self.rng.choice(items) if items else default
         self.debug_print(f"Selected {key}: {result} (from {len(items)} options)")
         return result
 
