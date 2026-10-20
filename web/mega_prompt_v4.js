@@ -9,6 +9,28 @@ import { REELS, ROLL_REELS, readState, shortText, pickLang, historyRows, TEXT } 
 const NODE_NAME = "IsulionMegaPromptV4";
 const ROUTE = "/isulion/megaprompt_v4";
 const REEL_ICONS = { subject: "👤", location: "🗺️", style: "🎨", effects: "✨" };
+// symbols painted on the spinning strips (the theme strip also uses the theme icons)
+const REEL_SYMBOLS = {
+  theme: ["🐉", "🚀", "🎌", "🤖", "🌸", "📷", "🏯", "🎃", "🧪", "🌵"],
+  subject: ["👤", "🧝", "🤖", "🧙", "🦊", "👩‍🚀", "🐉", "🧜", "🦸", "👸"],
+  location: ["🗺️", "🌋", "🌊", "🌌", "🌲", "🏙️", "🏰", "🏜️", "🗻", "🏝️"],
+  style: ["🎨", "📷", "🖌️", "🧊", "🎞️", "✏️", "🖼️", "🎭", "💡", "🕹️"],
+  effects: ["✨", "⚡", "🔥", "💧", "🌈", "❄️", "💫", "🌙", "☄️", "🌟"],
+};
+// Reel motion is a pure function of time (no per-frame integration), so dropped
+// frames never make it stutter. Units: cells (one symbol) and seconds.
+const CELL = 34;          // px per symbol on a strip
+const LOOP = 10;          // symbols per loop; the strip holds three copies
+const KICK = 0.3;         // backward kick before launch, in cells
+const KICK_T = 0.14;      // kick duration
+const ACCEL = 40;         // launch acceleration, cells/s²
+const VMAX = 13;          // full speed, cells/s (~440 px/s: fast but no strobing)
+const BRAKE_T = 0.55;     // braking time onto the result symbol
+const OVERSHOOT = 0.15;   // passes the symbol by this much, then settles back
+const SETTLE_T = 0.16;
+const SPIN_MIN = 600;     // ms a reel spins at least before braking
+const STAGGER = 300;      // ms between two reels starting to brake
+const LAND_AFTER = (BRAKE_T + SETTLE_T) * 1000;
 const LANG_KEY = "isu-mpv4-lang";
 
 let themesPromise = null;  // one /themes request shared by every node
@@ -38,54 +60,68 @@ function el(tag, cls, text) {
 const stop = (e) => e.stopPropagation();
 
 const CSS = `
-.isu-mpv4-root{width:100%;height:100%;box-sizing:border-box;font:12px system-ui,sans-serif;color:#e5e7eb}
+.isu-mpv4-root{position:relative;--isu-mpv4-mono:"Cascadia Mono","Consolas","SF Mono","DejaVu Sans Mono",ui-monospace,monospace;width:100%;height:100%;box-sizing:border-box;font:12px system-ui,sans-serif;color:#e5e7eb;-webkit-font-smoothing:antialiased}
 .isu-mpv4-cab{position:relative;height:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:7px;padding:9px;border-radius:14px;
-  background:linear-gradient(#24103f,#12081f);border:3px solid #ff2fd0;box-shadow:0 0 18px #ff2fd088,inset 0 0 22px #00e5ff33;animation:isu-mpv4-neon 3s ease-in-out infinite;overflow:hidden}
-@keyframes isu-mpv4-neon{50%{box-shadow:0 0 28px #00e5ffaa,inset 0 0 22px #ff2fd044;border-color:#00e5ff}}
+  background:linear-gradient(#24103f,#12081f);border:3px solid #ff2fd0;box-shadow:0 0 18px #ff2fd088,inset 0 0 22px #00e5ff33;overflow:hidden}
+/* neon pulse: a cyan copy of the frame fading in and out (opacity only, never repaints the cabinet) */
+.isu-mpv4-glow{position:absolute;inset:0;border-radius:14px;border:3px solid #00e5ff;box-shadow:0 0 28px #00e5ffaa,inset 0 0 22px #ff2fd044;
+  box-sizing:border-box;pointer-events:none;opacity:0;will-change:opacity;animation:isu-mpv4-neon 3s ease-in-out infinite}
+@keyframes isu-mpv4-neon{50%{opacity:1}}
 .isu-mpv4-head{display:flex;align-items:center;justify-content:center;position:relative}
-.isu-mpv4-marquee{font:bold 15px "Courier New",monospace;letter-spacing:.2em;color:#ffe600;text-shadow:0 0 8px #ffe600,0 0 18px #ff2fd0}
+.isu-mpv4-marquee{font:bold 15px var(--isu-mpv4-mono);letter-spacing:.2em;color:#ffe600;text-shadow:0 0 8px #ffe600,0 0 18px #ff2fd0}
 .isu-mpv4-star{animation:isu-mpv4-blink 1.2s infinite}.isu-mpv4-star+.isu-mpv4-star{animation-delay:.6s}
 @keyframes isu-mpv4-blink{50%{opacity:.2}}
 .isu-mpv4-helpbtn{position:absolute;right:0;top:-2px;width:22px;height:22px;border-radius:50%;border:2px solid #00e5ff;background:#020617;color:#00e5ff;
-  font:bold 12px "Courier New",monospace;cursor:pointer;box-shadow:0 0 8px #00e5ff;padding:0}
+  font:bold 12px var(--isu-mpv4-mono);cursor:pointer;box-shadow:0 0 8px #00e5ff;padding:0}
 .isu-mpv4-top{display:flex;gap:8px}
 .isu-mpv4-crt{flex:1;position:relative;border-radius:12px;background:radial-gradient(ellipse at center,#06122a,#020617 75%);padding:7px;overflow:hidden;
-  border:2px solid #0f2a4a;font-family:"Courier New",monospace}
-.isu-mpv4-crt::after,.isu-mpv4-screen::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(#0000 0 2px,#0005 2px 3px);pointer-events:none;animation:isu-mpv4-roll 6s linear infinite}
-@keyframes isu-mpv4-roll{to{background-position:0 60px}}
+  border:2px solid #0f2a4a;font-family:var(--isu-mpv4-mono)}
+/* CRT scanlines only on the reel icons: over text they make it shimmer */
+/* scanlines slide by transform on their own layer: animating background-position repainted every icon each frame */
+.isu-mpv4-icon::after{content:"";position:absolute;left:0;right:0;top:-3px;bottom:0;background:repeating-linear-gradient(#0000 0 2px,#0006 2px 3px);pointer-events:none;will-change:transform;animation:isu-mpv4-roll .3s linear infinite}
+@keyframes isu-mpv4-roll{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,3px,0)}}
 .isu-mpv4-reels{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1fr;gap:4px}
-.isu-mpv4-reel{position:relative;height:108px;border:2px solid #00e5ff66;border-radius:4px;background:#020617;display:flex;flex-direction:column;
+.isu-mpv4-reel{position:relative;contain:paint;height:108px;border:2px solid #00e5ff66;border-radius:4px;background:#020617;display:flex;flex-direction:column;
   align-items:center;justify-content:space-between;padding:3px 2px;overflow:hidden}
-.isu-mpv4-name{font-size:8px;letter-spacing:.08em;color:#00e5ff;text-shadow:0 0 4px #00e5ff}
-.isu-mpv4-face{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
-.isu-mpv4-icon{font-size:24px;line-height:1.15}
-.isu-mpv4-label{font-size:8.5px;color:#cfe9ff;line-height:1.15;max-height:21px;overflow:hidden;word-break:break-word}
+.isu-mpv4-name,.isu-mpv4-btns{position:relative;z-index:2}
+.isu-mpv4-strip{position:absolute;left:0;right:0;top:0;display:none;flex-direction:column;align-items:center;will-change:transform;backface-visibility:hidden;pointer-events:none}
+.isu-mpv4-strip span{flex:0 0 34px;height:34px;line-height:34px}
+.isu-mpv4-spin .isu-mpv4-strip{display:flex}
+.isu-mpv4-spin .isu-mpv4-glyph{visibility:hidden}
+.isu-mpv4-label{transition:opacity .25s}
+.isu-mpv4-spin .isu-mpv4-label{opacity:0}
+.isu-mpv4-name{font-size:9px;letter-spacing:.08em;color:#00e5ff;text-shadow:0 0 4px #00e5ff}
+/* the reel window: the strip only ever shows through here, under a drum shading */
+.isu-mpv4-face{position:relative;overflow:hidden;flex:1;align-self:stretch;margin:2px 0;border-radius:3px;background:linear-gradient(#0a1428,#030712 50%,#0a1428);
+  box-shadow:inset 0 0 0 1px #00e5ff33;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-width:0}
+.isu-mpv4-face::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(#000e,#0000 30%,#0000 70%,#000e)}
+.isu-mpv4-icon{position:relative;display:block;width:100%;height:34px;line-height:34px;font-size:24px;text-align:center}
+.isu-mpv4-label{font-size:9.5px;color:#cfe9ff;line-height:1.15;max-height:23px;overflow:hidden;word-break:break-word}
 .isu-mpv4-btns{display:flex;gap:2px}
 .isu-mpv4-btn{background:none;border:0;padding:0 2px;font-size:10px;cursor:pointer;border-radius:3px;color:#cfe9ff}
 .isu-mpv4-btn:hover{background:#ffffff22}
 .isu-mpv4-locked{border-color:#ffe600;box-shadow:0 0 9px #ffe600}
 .isu-mpv4-off{opacity:.3;filter:grayscale(1)}
 .isu-mpv4-custom .isu-mpv4-name::after{content:" ✏️"}
-.isu-mpv4-spin .isu-mpv4-face{animation:isu-mpv4-spin .09s linear infinite}
-@keyframes isu-mpv4-spin{0%{transform:translateY(-12px);filter:blur(2px)}100%{transform:translateY(12px);filter:blur(2px)}}
-.isu-mpv4-land .isu-mpv4-face{animation:isu-mpv4-bounce .45s cubic-bezier(.3,1.6,.5,1)}
-@keyframes isu-mpv4-bounce{from{transform:translateY(-16px)}to{transform:none}}
+.isu-mpv4-reel::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 18px #ffe600;opacity:0}
+.isu-mpv4-land::after{animation:isu-mpv4-flash .45s ease-out}
+@keyframes isu-mpv4-flash{from{opacity:1}to{opacity:0}}
 .isu-mpv4-stick{width:36px;display:flex;flex-direction:column;align-items:center;padding-top:4px;cursor:pointer;background:none;border:0}
 .isu-mpv4-ball{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff9af3,#ff2fd0 60%,#7a0a63);box-shadow:0 0 14px #ff2fd0;transition:transform .25s}
 .isu-mpv4-shaft{width:6px;height:74px;background:linear-gradient(90deg,#555,#eee,#555);border-radius:3px;transform-origin:bottom;transition:transform .25s}
 .isu-mpv4-base{width:26px;height:10px;border-radius:4px;background:#444}
 .isu-mpv4-pull .isu-mpv4-shaft{transform:scaleY(.4)}.isu-mpv4-pull .isu-mpv4-ball{transform:translateY(44px)}
-.isu-mpv4-pulltxt{font:bold 8px "Courier New",monospace;color:#ff9af3;margin-top:4px}
-.isu-mpv4-panel{display:flex;gap:6px;align-items:center;font-family:"Courier New",monospace}
+.isu-mpv4-pulltxt{font:bold 9px var(--isu-mpv4-mono);color:#ff9af3;margin-top:4px}
+.isu-mpv4-panel{display:flex;gap:6px;align-items:center;font-family:var(--isu-mpv4-mono)}
 .isu-mpv4-sw{display:flex;border:2px solid #00e5ff66;border-radius:6px;overflow:hidden}
-.isu-mpv4-sw button{background:none;border:0;padding:4px 7px;font:9.5px "Courier New",monospace;color:#7dd3fc;cursor:pointer;letter-spacing:.05em}
+.isu-mpv4-sw button{background:none;border:0;padding:4px 7px;font:9.5px var(--isu-mpv4-mono);color:#7dd3fc;cursor:pointer;letter-spacing:.05em}
 .isu-mpv4-sw button.isu-mpv4-on{background:#00e5ff;color:#020617;box-shadow:0 0 10px #00e5ff;font-weight:bold}
 .isu-mpv4-lora{flex:1;display:flex;align-items:center;gap:5px;border:2px solid #ff2fd066;border-radius:6px;padding:2px 6px;min-width:0}
 .isu-mpv4-lora span{font-size:9px;color:#ff9af3}
-.isu-mpv4-lora input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#ffd6fa;font:11px "Courier New",monospace}
-.isu-mpv4-screen{position:relative;flex:1;min-height:0;display:flex;flex-direction:column;border-radius:10px;background:#020617;border:2px solid #0f2a4a;padding:8px;font-family:"Courier New",monospace;overflow:hidden}
+.isu-mpv4-lora input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#ffd6fa;font:11px var(--isu-mpv4-mono)}
+.isu-mpv4-screen{position:relative;flex:1;min-height:0;display:flex;flex-direction:column;border-radius:10px;background:#020617;border:2px solid #0f2a4a;padding:8px;font-family:var(--isu-mpv4-mono);overflow:hidden}
 .isu-mpv4-hd{display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:9px;color:#ffe600;margin-bottom:4px}
-.isu-mpv4-act{background:none;border:0;color:#ffe600;font:9px "Courier New",monospace;cursor:pointer;padding:0 2px}
+.isu-mpv4-act{background:none;border:0;color:#ffe600;font:9px var(--isu-mpv4-mono);cursor:pointer;padding:0 2px}
 .isu-mpv4-act:hover{text-shadow:0 0 6px #ffe600}
 .isu-mpv4-frozen{color:#7fe7ff;text-shadow:0 0 5px #7fe7ff}
 .isu-mpv4-out{font-size:11.5px;line-height:1.7;min-height:56px;color:#7CFF6B;word-break:break-word}
@@ -108,18 +144,18 @@ const CSS = `
 .isu-mpv4-foot{display:flex;justify-content:space-between;font-size:9px;color:#ffe600;margin-top:auto;padding-top:5px}
 .isu-mpv4-overlay{position:absolute;inset:6px;z-index:5;background:#020617f2;border:2px solid #00e5ff;border-radius:8px;padding:6px;display:flex;flex-direction:column;gap:5px}
 .isu-mpv4-overlay[hidden]{display:none}
-.isu-mpv4-overlay input,.isu-mpv4-overlay textarea{width:100%;box-sizing:border-box;background:#0b1530;border:1px solid #00e5ff66;color:#cfe9ff;font:11px "Courier New",monospace;padding:4px 6px;border-radius:4px;outline:0}
+.isu-mpv4-overlay input,.isu-mpv4-overlay textarea{width:100%;box-sizing:border-box;background:#0b1530;border:1px solid #00e5ff66;color:#cfe9ff;font:11px var(--isu-mpv4-mono);padding:4px 6px;border-radius:4px;outline:0}
 .isu-mpv4-overlay textarea{flex:1;resize:none;min-height:60px}
 .isu-mpv4-list{display:grid;grid-template-columns:1fr 1fr;gap:2px;overflow:auto;min-height:0}
 .isu-mpv4-list div{font-size:10px;color:#cfe9ff;padding:3px 5px;border-radius:3px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .isu-mpv4-list div:hover{background:#00e5ff33}
 .isu-mpv4-editrow{display:flex;gap:4px;justify-content:flex-end}
-.isu-mpv4-editrow button{background:#0b1530;border:1px solid #00e5ff66;color:#00e5ff;font:10px "Courier New",monospace;border-radius:4px;cursor:pointer;padding:3px 8px}
+.isu-mpv4-editrow button{background:#0b1530;border:1px solid #00e5ff66;color:#00e5ff;font:10px var(--isu-mpv4-mono);border-radius:4px;cursor:pointer;padding:3px 8px}
 .isu-mpv4-help{position:absolute;inset:8px;z-index:10;background:#0b0618;border:2px solid #ff2fd0;border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;box-shadow:0 0 24px #ff2fd088}
 .isu-mpv4-help[hidden]{display:none}
-.isu-mpv4-helphd{display:flex;align-items:center;gap:6px;font:bold 13px "Courier New",monospace;color:#ffe600}
+.isu-mpv4-helphd{display:flex;align-items:center;gap:6px;font:bold 13px var(--isu-mpv4-mono);color:#ffe600}
 .isu-mpv4-helphd span{flex:1}
-.isu-mpv4-helphd button{background:none;border:1px solid #ff2fd066;color:#ff9af3;border-radius:4px;cursor:pointer;font:10px "Courier New",monospace;padding:2px 6px}
+.isu-mpv4-helphd button{background:none;border:1px solid #ff2fd066;color:#ff9af3;border-radius:4px;cursor:pointer;font:10px var(--isu-mpv4-mono);padding:2px 6px}
 .isu-mpv4-helphd button.isu-mpv4-on{background:#ff2fd0;color:#fff}
 .isu-mpv4-helpbody{overflow:auto;min-height:0;font:12px/1.45 system-ui,sans-serif;color:#e5e7eb}
 .isu-mpv4-helpbody h4{margin:8px 0 2px;color:#00e5ff;font-size:12px}
@@ -139,6 +175,8 @@ class PromptJackpot {
     Object.assign(this, { node, dataWidget, root, reqId: 0, timers: new Set(), typing: null, disposed: false, visible: true, themes: [] });
     this.lang = pickLang(navigator.language, lsGet(LANG_KEY));
     this.knownThemes = new Map();  // theme entries seen in roll results, before /themes answers
+    this.spins = new Map();        // reel name -> { t0, brake } while its strip moves
+    this.spinRaf = null;
     this.docCleanups = [];
     injectStyles();
     this.build();
@@ -220,6 +258,7 @@ class PromptJackpot {
     screen.append(hd, ui.out, ui.hist, foot);
 
     cab.append(head, top, panel, screen, this.buildHelp());
+    this.root.appendChild(el("div", "isu-mpv4-glow"));
   }
 
   buildReel(name) {
@@ -227,6 +266,9 @@ class PromptJackpot {
     const nameEl = el("div", "isu-mpv4-name");
     const face = el("div", "isu-mpv4-face");
     const icon = el("span", "isu-mpv4-icon");
+    const glyph = el("span", "isu-mpv4-glyph");
+    const strip = el("div", "isu-mpv4-strip");  // spins inside the icon slot, so stopping is seamless
+    icon.append(glyph, strip);
     const label = el("span", "isu-mpv4-label");
     face.append(icon, label);
     const btnBox = el("div", "isu-mpv4-btns");
@@ -245,7 +287,7 @@ class PromptJackpot {
     if (name === "subject" || name === "location") add("edit", () => this.openInlineEdit(name));
     if (name !== "theme" && name !== "subject") add("toggle", () => this.toggleEnabled(name));
     box.append(nameEl, face, btnBox);
-    this.ui.reels[name] = { box, name: nameEl, face, icon, label, btns };
+    this.ui.reels[name] = { box, name: nameEl, face, icon, glyph, label, btns, strip };
     return box;
   }
 
@@ -385,6 +427,7 @@ class PromptJackpot {
     if (animate) {
       this.spinReels(payload.rolled ?? [], () => { this.renderReels(); this.typePrompt(segments); });
     } else {
+      this.stopSpins();
       this.renderReels();
       this.renderPrompt(segments);
     }
@@ -393,6 +436,7 @@ class PromptJackpot {
   onExecuted(payload) {
     if (!payload) return;
     this.reqId++;  // any roll still in flight is now stale
+    if (payload.rolled?.length) this.pullAnimation();  // the run pulls the lever too
     this.applyResult(payload, { animate: true, record: true, merge: true });
   }
 
@@ -408,7 +452,7 @@ class PromptJackpot {
   }
 
   showError(message) {
-    for (const name of REELS) this.ui.reels[name].box.classList.remove("isu-mpv4-spin");
+    this.stopSpins();
     this.renderPrompt([{ reel: "error", text: `${this.t.error}: ${message}` }]);
   }
 
@@ -416,7 +460,7 @@ class PromptJackpot {
   pullLever() {
     if (this.state.frozen_prompt) this.state.frozen_prompt = "";
     this.pullAnimation();
-    for (const name of this.freeReels()) this.ui.reels[name].box.classList.add("isu-mpv4-spin");
+    for (const name of this.freeReels()) this.startSpin(name);
     this.roll(REELS);
   }
 
@@ -455,7 +499,7 @@ class PromptJackpot {
     this.commit();
     this.closeSearch();
     this.renderReel("theme");
-    for (const r of ROLL_REELS) if (this.freeReels().includes(r)) this.ui.reels[r].box.classList.add("isu-mpv4-spin");
+    for (const r of ROLL_REELS) if (this.freeReels().includes(r)) this.startSpin(r);
     this.roll(ROLL_REELS);
   }
 
@@ -666,8 +710,7 @@ class PromptJackpot {
     for (const name of REELS) this.renderReel(name);
   }
 
-  renderReel(name) {
-    const r = this.ui.reels[name];
+  reelView(name) {
     let icon, label, locked, off = false, custom = false;
     if (name === "theme") {
       const info = this.themeInfo();
@@ -681,14 +724,19 @@ class PromptJackpot {
       label = shortText(reel.text || reel.custom);
       locked = reel.locked;
       off = reel.enabled === false;
-      if (r.btns.toggle) r.btns.toggle.textContent = off ? "🚫" : "👁";
     }
-    r.icon.textContent = icon;
+    return { icon, label, locked, off, custom };
+  }
+
+  renderReel(name) {
+    const r = this.ui.reels[name];
+    const { icon, label, locked, off, custom } = this.reelView(name);
+    if (r.btns.toggle) r.btns.toggle.textContent = off ? "🚫" : "👁";
+    r.glyph.textContent = icon;
     r.label.textContent = label;
     r.btns.lock.textContent = locked ? "🔒" : "🔓";
     if (r.btns.prev) { r.btns.prev.textContent = "◀"; r.btns.next.textContent = "▶"; r.btns.search.textContent = "🔍"; }
     if (r.btns.edit) r.btns.edit.textContent = "✏️";
-    r.box.classList.remove("isu-mpv4-spin");  // a rendered reel has stopped (also after an error draw)
     r.box.classList.toggle("isu-mpv4-locked", locked);
     r.box.classList.toggle("isu-mpv4-off", off);
     r.box.classList.toggle("isu-mpv4-custom", custom);
@@ -747,20 +795,115 @@ class PromptJackpot {
     this.setTimer(() => this.ui.lever.classList.remove("isu-mpv4-pull"), 320);
   }
 
+  // Reels: kick back, launch, run at full speed, brake onto the result, left to right.
   spinReels(names, done) {
+    for (const name of REELS) if (!names.includes(name) && this.spins.has(name)) this.landReel(name);
     if (!names.length) return done();
-    this.pullAnimation();
+    const now = performance.now();
     names.forEach((name, i) => {
-      const box = this.ui.reels[name].box;
-      box.classList.remove("isu-mpv4-land");
-      box.classList.add("isu-mpv4-spin");
+      if (!this.spins.has(name)) this.startSpin(name);
+      const spun = now - this.spins.get(name).t0;
+      const brakeAt = Math.max(0, SPIN_MIN - spun) + STAGGER * i;
+      this.setTimer(() => this.slowSpin(name), brakeAt);
       this.setTimer(() => {
-        box.classList.remove("isu-mpv4-spin");
-        box.classList.add("isu-mpv4-land");
-        this.renderReel(name);
+        this.landReel(name);
         if (i === names.length - 1) done();
-      }, 450 + 280 * i);
+      }, brakeAt + LAND_AFTER);
     });
+  }
+
+  startSpin(name) {
+    const r = this.ui.reels[name];
+    if (!this.spins.has(name)) {
+      const pool = name === "theme" && this.themes.length ? this.themes.map((t) => t.icon) : REEL_SYMBOLS[name];
+      const loop = Array.from({ length: LOOP }, () => pool[Math.floor(Math.random() * pool.length)]);
+      loop[0] = r.glyph.textContent || loop[0];  // the strip starts on the symbol already shown
+      r.strip.replaceChildren(...[...loop, ...loop, ...loop].map((c) => el("span", null, c)));
+      this.spins.set(name, { t0: performance.now(), brake: null });
+    }
+    r.box.classList.remove("isu-mpv4-land", "isu-mpv4-slow");
+    r.box.classList.add("isu-mpv4-spin");
+    this.paintStrip(name, performance.now());
+    this.spinRaf ??= requestAnimationFrame((t) => this.spinFrame(t));
+  }
+
+  // Plan a braking curve that keeps the current speed and stops exactly on the
+  // result symbol, which is written into the strip at the landing cell.
+  slowSpin(name) {
+    const spin = this.spins.get(name);
+    if (!spin || spin.brake) return;
+    const now = performance.now();
+    const u0 = this.travel(spin, now);
+    const v0 = this.freeSpeed((now - spin.t0) / 1000);
+    const wanted = Math.max(v0 * BRAKE_T / 2, 3);  // ~linear speed decay; never lands on a visible cell
+    const end = -Math.round(-(u0 + wanted));      // landing travel: a whole number of cells
+    spin.brake = { t0: now, u0, v0, d: end - u0 };
+    const cells = this.ui.reels[name].strip.children;
+    const idx = ((-end % LOOP) + LOOP) % LOOP;
+    for (const k of [idx, idx + LOOP, idx + 2 * LOOP]) cells[k].textContent = this.reelView(name).icon;
+    this.ui.reels[name].box.classList.add("isu-mpv4-slow");
+  }
+
+  landReel(name) {
+    this.spins.delete(name);
+    const box = this.ui.reels[name].box;
+    box.classList.remove("isu-mpv4-spin", "isu-mpv4-slow");
+    void box.offsetWidth;  // restart the flash
+    box.classList.add("isu-mpv4-land");
+    this.renderReel(name);
+  }
+
+  stopSpins() {
+    for (const name of [...this.spins.keys()]) {
+      this.spins.delete(name);
+      this.ui.reels[name].box.classList.remove("isu-mpv4-spin", "isu-mpv4-slow");
+    }
+  }
+
+  // speed (cells/s) of a free-running reel t seconds after launch
+  freeSpeed(t) {
+    if (t < KICK_T) return -KICK * Math.PI / KICK_T * Math.cos(Math.PI * t / KICK_T);
+    const v1 = KICK * Math.PI / KICK_T, ta = (VMAX - v1) / ACCEL, tt = t - KICK_T;
+    return tt < ta ? v1 + ACCEL * tt : VMAX;
+  }
+
+  // distance travelled (cells) at time `now`; symbols move down as it grows
+  travel(spin, now) {
+    const b = spin.brake;
+    if (b) {
+      const t = (now - b.t0) / 1000;
+      if (t >= BRAKE_T + SETTLE_T) return b.u0 + b.d;
+      if (t >= BRAKE_T) {  // settle back from the overshoot (smoothstep: no speed jump)
+        const s = (t - BRAKE_T) / SETTLE_T;
+        return b.u0 + b.d + OVERSHOOT * (1 - s * s * (3 - 2 * s));
+      }
+      // cubic Hermite: starts at the current speed, ends still, OVERSHOOT past the symbol
+      const s = t / BRAKE_T;
+      return b.u0 + b.v0 * BRAKE_T * (s * s * s - 2 * s * s + s) + (b.d + OVERSHOOT) * (3 * s * s - 2 * s * s * s);
+    }
+    const t = (now - spin.t0) / 1000;
+    if (t < KICK_T) return -KICK * Math.sin(Math.PI * t / KICK_T);
+    const v1 = KICK * Math.PI / KICK_T, ta = (VMAX - v1) / ACCEL, tt = t - KICK_T;
+    if (tt < ta) return v1 * tt + ACCEL * tt * tt / 2;
+    return v1 * ta + ACCEL * ta * ta / 2 + VMAX * (tt - ta);
+  }
+
+  // one rAF loop paints every moving strip
+  spinFrame(now) {
+    this.spinRaf = null;
+    if (this.disposed || !this.spins.size) return;
+    for (const name of this.spins.keys()) this.paintStrip(name, now);
+    this.spinRaf = requestAnimationFrame((t) => this.spinFrame(t));
+  }
+
+  paintStrip(name, now) {
+    const spin = this.spins.get(name);
+    if (!spin) return;
+    // no prefers-reduced-motion freeze: the spin is short, user-triggered and is the whole point
+    // of the machine (a frozen strip just showed overlapping symbols on systems with animations off)
+    const u = this.travel(spin, now);
+    const k = LOOP + (((-u % LOOP) + LOOP) % LOOP);  // stay on the middle copy of the loop
+    this.ui.reels[name].strip.style.transform = `translate3d(0,${(-k * CELL).toFixed(2)}px,0)`;
   }
 
   updatePaused() {
@@ -775,6 +918,9 @@ class PromptJackpot {
     this.timers.clear();
     clearInterval(this.typing);
     this.typing = null;
+    if (this.spinRaf !== null) cancelAnimationFrame(this.spinRaf);
+    this.spinRaf = null;
+    this.spins.clear();
     this.intersection.disconnect();
     document.removeEventListener("visibilitychange", this.onVisibility);
     for (const fn of this.docCleanups.splice(0)) fn();

@@ -210,6 +210,96 @@ test("reloading a history line restores its full state", async () => {
   assert.equal(JSON.parse(node.widgets[0].value).complexity, "simple");
 });
 
+test("scanline flicker is only on reel icons, text uses a crisp font", async () => {
+  await createNode();
+  const css = document.getElementById("isu-mpv4-styles").textContent;
+  assert.ok(!/isu-mpv4-(crt|screen)::after/.test(css), "no scanline overlay over the text screens");
+  assert.ok(/\.isu-mpv4-icon::after\{[^}]*repeating-linear-gradient/.test(css), "icons keep the scanline effect");
+  assert.ok(!css.includes("Courier New"), "no blurry Courier New");
+});
+
+test("reels spin a symbol strip, slow down, then land one after another", async () => {
+  const node = await createNode(); const j = node._jackpot;
+  api.responders["/isulion/megaprompt_v4/roll"] = payload({ rolled: ["theme", "subject", "location"] });
+  click(j.ui.lever);
+  assert.ok(j.ui.reels.subject.box.classList.contains("isu-mpv4-spin")); assert.ok(j.ui.reels.subject.strip.children.length >= 20);
+  await tick(); await tick();
+  const has = (r, c) => j.ui.reels[r].box.classList.contains(c);
+  fake.runTimers(650);                      // first reel braking, last one still at full speed
+  assert.ok(has("theme", "isu-mpv4-slow")); assert.ok(!has("location", "isu-mpv4-slow")); assert.ok(has("location", "isu-mpv4-spin"));
+  fake.runTimers(700);                      // first reel stopped, last one still moving
+  assert.ok(!has("theme", "isu-mpv4-spin")); assert.ok(has("location", "isu-mpv4-spin"));
+  fake.runTimers(5000);
+  assert.ok(REELS.every((r) => !has(r, "isu-mpv4-spin") && !has(r, "isu-mpv4-slow")));
+});
+
+// position of the strip in cells (0 = first cell in the icon window)
+const stripCell = (j, name) => -parseFloat(/translate3d\(0,(-?[\d.]+)px,0\)/.exec(j.ui.reels[name].strip.style.transform)[1]) / 34;
+function sample(j, name, ms) {
+  const cells = [];
+  for (let t = 0; t < ms; t += 16) { fake.runTimers(16); fake.flushFrames(); if (j.spins.has(name)) cells.push(stripCell(j, name)); }
+  return cells;
+}
+// unwrap the strip index (it jumps back by one loop to stay on the middle copy)
+const unwrap = (k) => k.map((v, i) => v).reduce((acc, v, i) => {
+  if (!i) return [v];
+  let d = v - (k[i - 1]); while (d > 5) d -= 10; while (d < -5) d += 10;
+  acc.push(acc[i - 1] + d); return acc;
+}, []);
+
+test("strip motion is continuous: kick, ramp up, steady speed", async () => {
+  const node = await createNode(); const j = node._jackpot;
+  j.startSpin("style");
+  const k = unwrap(sample(j, "style", 1500));
+  const steps = k.slice(1).map((v, i) => k[i] - v);          // cells moved per frame (symbols travel down = index decreases)
+  assert.ok(steps.slice(0, 4).some((d) => d < 0), "small backward kick first");
+  const cruise = steps.slice(-20);
+  assert.ok(cruise.every((d) => Math.abs(d - cruise[0]) < 1e-3), "constant speed once launched (0.01 px rounding)");
+  assert.ok(cruise[0] > 0.15 && cruise[0] < 0.3, "readable speed (cells per 16 ms)");
+  const accel = steps.slice(1).map((d, i) => d - steps[i]);
+  assert.ok(accel.every((a) => Math.abs(a) < 0.05), "no velocity jumps");
+});
+
+test("a braking reel stops exactly on its result symbol with a small bounce", async () => {
+  const node = await createNode(); const j = node._jackpot;
+  j.state.reels.style.text = "oil painting";            // final glyph for style is 🎨
+  j.startSpin("style"); sample(j, "style", 800);
+  j.slowSpin("style");
+  const raw = sample(j, "style", 1200);
+  const k = unwrap(raw);
+  const steps = k.slice(1).map((v, i) => k[i] - v);
+  const peak = steps.findIndex((d) => d < 0);
+  assert.ok(peak > 5, "brakes forward first");
+  assert.ok(steps.slice(0, peak).every((d, i) => i === 0 || d <= steps[i - 1] + 1e-9), "speed only decreases while braking");
+  const back = steps.slice(peak).reduce((a, d) => a + Math.min(0, d), 0);
+  assert.ok(back < -0.05 && back > -0.3, "small bounce back");
+  const final = raw.at(-1);
+  assert.ok(Math.abs(final - Math.round(final)) < 1e-6, "ends exactly on a cell");
+  assert.equal(j.ui.reels.style.strip.children[Math.round(final)].textContent, "🎨");
+  j.landReel("style");
+  assert.equal(j.ui.reels.style.glyph.textContent, "🎨"); assert.ok(!j.spins.has("style"));
+});
+
+test("the strip spins inside a clipped reel window, never over the name or the buttons", async () => {
+  const node = await createNode(); const r = node._jackpot.ui.reels.subject;
+  assert.ok(r.face.contains(r.strip), "strip lives in the window");
+  assert.ok(!r.face.contains(r.name) && !r.face.contains(r.btns.lock), "name and buttons are outside the window");
+  const css = document.getElementById("isu-mpv4-styles").textContent;
+  const rule = /\.isu-mpv4-face\{[^}]*\}/.exec(css)?.[0] ?? "";
+  assert.ok(/overflow:hidden/.test(rule) && /position:relative/.test(rule), "the window clips the strip");
+  assert.ok(/\.isu-mpv4-face::before\{[^}]*linear-gradient/.test(css), "drum shading sits in the window");
+});
+
+test("reels still spin when the system asks for reduced motion", async () => {
+  const node = await createNode(); const j = node._jackpot;
+  globalThis.matchMedia = (q) => ({ matches: q.includes("reduce"), media: q });
+  try {
+    j.startSpin("effects");
+    const k = sample(j, "effects", 600);
+    assert.ok(new Set(k.map((v) => v.toFixed(2))).size > 10, "the strip moves");
+  } finally { delete globalThis.matchMedia; j.landReel("effects"); }
+});
+
 // --- runner (keep last) ---------------------------------------------------
 let failures = 0;
 for (const [name, fn] of tests) {
