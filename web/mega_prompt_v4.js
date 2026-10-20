@@ -547,9 +547,34 @@ class PromptJackpot {
     this.roll([reel]);
   }
 
-  // history (Tâche 10)
-  pushHistory() {}
-  renderHistory() {}
+  // last draws: up to 5 favourites plus the 5 most recent others
+  pushHistory(payload) {
+    const history = [{ payload, fav: false }, ...this.view.history];
+    const favs = history.filter((h) => h.fav).slice(0, 5);
+    const rest = history.filter((h) => !h.fav).slice(0, 5);
+    this.view.history = history.filter((h) => favs.includes(h) || rest.includes(h));
+    this.renderHistory();
+  }
+
+  renderHistory() {
+    const hist = this.ui.hist;
+    hist.rows = historyRows(this.view.history).map((item, i) => {
+      const row = el("div", "isu-mpv4-row" + (item.fav ? " isu-mpv4-fav" : ""));
+      const text = el("span", "isu-mpv4-tx", item.payload?.prompt ?? "");
+      const star = el("button", "isu-mpv4-st", item.fav ? "★" : "☆");
+      row.append(el("span", "isu-mpv4-no", String(i + 1).padStart(2, "0")), text, star);
+      star.addEventListener("click", (e) => {
+        e.stopPropagation();  // starring must not also reload the line
+        item.fav = !item.fav;
+        this.saveView();
+        this.renderHistory();
+      });
+      row.addEventListener("click", () => this.applyResult(item.payload, { animate: false, record: false }));
+      return { row, text, star };
+    });
+    const title = el("div", "isu-mpv4-histtitle", this.t.history);
+    hist.replaceChildren(title, ...hist.rows.map((r) => r.row));
+  }
 
   // help (Tâche 11)
   toggleHelp() {}

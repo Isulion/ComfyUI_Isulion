@@ -144,6 +144,25 @@ test("edit prompt freezes it and the lever unfreezes", async () => {
   assert.equal(lastRoll().body.state.frozen_prompt, ""); assert.deepEqual(lastRoll().body.reels, REELS);
 });
 
+test("history keeps five lines, favourites first, and reloads a line", async () => {
+  const node = await createNode(); const j = node._jackpot;
+  for (let n = 1; n <= 7; n++) { node.onExecuted({ draw: [payload({ prompt: `p${n}`, seed: n, segments: [{ reel: "subject", text: `p${n}` }] })] }); fake.runTimers(5000); }
+  assert.equal(j.ui.hist.rows.length, 5); assert.equal(j.ui.hist.rows[0].text.textContent, "p7");
+  click(j.ui.hist.rows[2].star);                       // p5 becomes a favourite
+  node.onExecuted({ draw: [payload({ prompt: "p8", seed: 8 })] }); fake.runTimers(5000);
+  assert.equal(j.ui.hist.rows[0].text.textContent, "p5"); assert.equal(j.ui.hist.rows[0].star.textContent, "★");
+  assert.equal(j.ui.hist.rows[1].text.textContent, "p8");
+  click(j.ui.hist.rows[1].row);
+  assert.equal(node.properties.isu_mpv4.last.seed, 8); assert.equal(j.ui.draws.textContent, "TIRAGE #008");
+  assert.equal(node.properties.isu_mpv4.history.length, 6);                      // 1 favourite + 5 recent
+});
+test("history survives a reload through node.properties", async () => {
+  const node = await createNode();
+  node.onExecuted({ draw: [payload({ prompt: "kept", seed: 3 })] }); fake.runTimers(5000);
+  node._jackpot.load();
+  assert.equal(node._jackpot.ui.hist.rows[0].text.textContent, "kept");
+});
+
 // --- runner (keep last) ---------------------------------------------------
 let failures = 0;
 for (const [name, fn] of tests) {
