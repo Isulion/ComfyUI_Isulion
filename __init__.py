@@ -9,6 +9,7 @@ __description__ = "Advanced prompt generation nodes for ComfyUI with multiple th
 
 # Import all node classes
 from .Core_Nodes.mega_prompt_V3 import IsulionMegaPromptV3
+from .Core_Nodes.mega_prompt_v4 import IsulionMegaPromptV4
 from .Core_Nodes.mega_prompt_all_themes import IsulionMultiplePromptGenerator
 from .Core_Nodes.isucollage_node import IsuCollageNode
 from .Core_Nodes.load_images_node import IsulionLoadImagesNode
@@ -86,6 +87,7 @@ NODE_CLASS_MAPPINGS = {
     "IsulionCivitaiTrending": IsulionCivitaiTrending,
     "IsulionCivitaiImageDisplay": IsulionCivitaiImageDisplay,
     "IsulionMegaPromptV3": IsulionMegaPromptV3,
+    "IsulionMegaPromptV4": IsulionMegaPromptV4,
     "IsulionMultiplePromptGenerator": IsulionMultiplePromptGenerator,
     "IsuCollage_Node": IsuCollageNode,
     "IsulionLoadImagesNode": IsulionLoadImagesNode,
@@ -100,6 +102,7 @@ NODE_CLASS_MAPPINGS = {
 # Display name mappings
 NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionMegaPromptV3": "🚀 Isulion Mega Prompt V3",
+    "IsulionMegaPromptV4": "🕹️ Isulion Mega Prompt V4",
     "IsulionVideoPromptGenerator": "🎥 Isulion Video Prompt Generator",
     "IsulionMultiplePromptGenerator": "🔄 Isulion Multiple Prompt Generator",
     "IsulionAnimalRandom": "🦁 Isulion Animal Selector",

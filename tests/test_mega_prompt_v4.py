@@ -232,3 +232,29 @@ def test_roll_uses_the_shared_generation_lock():
         assert RecordingLock.entries == 1
     finally:
         mp4.GENERATION_LOCK = original
+
+
+import math
+
+
+def test_node_contract_and_registration():
+    pkg = import_package()
+    cls = pkg.NODE_CLASS_MAPPINGS["IsulionMegaPromptV4"]
+    assert pkg.NODE_DISPLAY_NAME_MAPPINGS["IsulionMegaPromptV4"] == "🕹️ Isulion Mega Prompt V4"
+    assert cls.INPUT_TYPES() == {"required": {"machine_state": ("STRING", {"default": '{"version": 1}'})}}
+    assert (cls.RETURN_TYPES, cls.RETURN_NAMES, cls.CATEGORY, cls.OUTPUT_NODE) == (("STRING",), ("prompt",), "Isulion/Core", True)
+    assert math.isnan(cls.IS_CHANGED('{"version": 1}'))
+
+
+def test_node_generate_rolls_everything_and_reports_ui():
+    mp4 = _mp4()
+    original, mp4.new_seed = mp4.new_seed, lambda: 5
+    try:
+        node = mp4.IsulionMegaPromptV4()
+        out = node.generate('{"version": 1}')
+        draw = out["ui"]["draw"]
+        assert len(draw) == 1 and draw[0]["seed"] == 5 and out["result"] == (draw[0]["prompt"],)
+        assert draw[0]["prompt"] and draw[0]["state"]["theme"]["name"] in mp4.get_theme_registry().handlers
+        assert node.generate("garbage")["result"] == out["result"]  # same seed, default state => same prompt
+    finally:
+        mp4.new_seed = original

@@ -21,6 +21,7 @@
   "IsulionLoadImagesNode",
   "IsulionMagicalEffectGenerator",
   "IsulionMegaPromptV3",
+  "IsulionMegaPromptV4",
   "IsulionMultiplePromptGenerator",
   "IsulionMythicalLocationGenerator",
   "IsulionNegativePromptGenerator",

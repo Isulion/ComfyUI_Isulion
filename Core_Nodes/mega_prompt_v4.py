@@ -222,3 +222,27 @@ def roll(state, reels, seed, registry=None):
 
     prompt, segments = assemble_prompt(state)
     return _result(state, prompt, segments, rolled + to_roll, seed, registry)
+
+
+class IsulionMegaPromptV4:
+    """Slot-machine prompt generator: every execution re-rolls the unlocked reels."""
+
+    TITLE = "🕹️ Mega Prompt V4"
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {"required": {"machine_state": ("STRING", {"default": DEFAULT_STATE})}}
+
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("prompt",)
+    FUNCTION = "generate"
+    CATEGORY = "Isulion/Core"
+    OUTPUT_NODE = True
+
+    @classmethod
+    def IS_CHANGED(cls, machine_state):
+        return float("nan")  # the machine spins on every run
+
+    def generate(self, machine_state):
+        result = roll(machine_state, REEL_NAMES, new_seed())
+        return {"ui": {"draw": [result]}, "result": (result["prompt"],)}

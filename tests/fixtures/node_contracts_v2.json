@@ -3643,5 +3643,15 @@
         }
       ]
     }
+  },
+  "IsulionMegaPromptV4": {
+    "required": {
+      "machine_state": [
+        "STRING",
+        {
+          "default": "{\"version\": 1}"
+        }
+      ]
+    }
   }
 }
