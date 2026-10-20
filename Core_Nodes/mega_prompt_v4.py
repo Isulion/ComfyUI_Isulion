@@ -7,10 +7,12 @@ reels with the V3 theme handlers and assembles the prompt. The same ``roll``
 serves workflow execution and the preview routes (mega_prompt_v4_routes.py).
 """
 
+import copy
 import json
 import logging
+import random
 
-from .mega_prompt_V3 import get_theme_registry
+from .mega_prompt_V3 import GENERATION_LOCK, get_theme_registry
 
 logger = logging.getLogger(__name__)
 
@@ -157,3 +159,66 @@ def list_themes(registry=None):
     registry = registry or get_theme_registry()
     entries = [theme_entry(name, registry) for name in registry.handlers]
     return sorted(entries, key=lambda e: e["display"].split(" ", 1)[-1].strip())
+
+
+# reel name -> key of the dict returned by BaseThemeHandler.generate
+COMPONENT_KEYS = {"subject": "subject", "location": "environment", "style": "style", "effects": "effects"}
+
+
+def new_seed():
+    return random.SystemRandom().randrange(0, 2**32)
+
+
+def _result(state, prompt, segments, rolled, seed, registry):
+    return {"state": state, "prompt": prompt, "segments": segments, "rolled": rolled,
+            "seed": seed, "theme": theme_entry(state["theme"]["name"], registry)}
+
+
+def roll(state, reels, seed, registry=None):
+    """Re-draw the requested, unlocked reels and assemble the prompt (RollResult).
+
+    Locked reels keep their exact text; a pinned custom subject/location is
+    passed to the handler, which rebuilds the wording around it.
+    """
+    registry = registry or get_theme_registry()
+    state = parse_state(state)
+    reels = set(reels) & set(REEL_NAMES)
+
+    if state["frozen_prompt"].strip():
+        prompt, segments = assemble_prompt(state)
+        return _result(state, prompt, segments, [], seed, registry)
+
+    rolled = []
+    theme = state["theme"]
+    rng = random.Random(seed)
+    if registry.handlers and (("theme" in reels and not theme["locked"]) or theme["name"] not in registry.handlers):
+        theme["name"] = rng.choice(sorted(registry.handlers))
+        rolled.append("theme")
+
+    r = state["reels"]
+    to_roll = [name for name in COMPONENT_KEYS
+               if name in reels and not r[name]["locked"] and r[name].get("enabled", True)]
+    if to_roll:
+        before = copy.deepcopy(state)
+        try:
+            handler = registry.handlers[theme["name"]]
+            with GENERATION_LOCK:
+                registry.config_manager.set_seed(seed)
+                components = handler.generate(
+                    custom_subject=r["subject"]["custom"],
+                    custom_location=r["location"]["custom"],
+                    include_environment=r["location"]["enabled"],
+                    include_style=r["style"]["enabled"],
+                    include_effects=r["effects"]["enabled"],
+                )
+        except Exception as e:
+            logger.error("Mega Prompt V4: theme '%s' failed: %s: %s", theme["name"], type(e).__name__, e)
+            message = f"Error: {type(e).__name__}: {e}"
+            return _result(before, message, [{"reel": "error", "text": message}], [], seed, registry)
+        if not isinstance(components, dict):
+            components = {}
+        for name in to_roll:
+            r[name]["text"] = str(components.get(COMPONENT_KEYS[name]) or "")
+
+    prompt, segments = assemble_prompt(state)
+    return _result(state, prompt, segments, rolled + to_roll, seed, registry)
