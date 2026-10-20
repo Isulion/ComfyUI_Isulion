@@ -20,6 +20,7 @@ from .Core_Nodes.video_prompt_generator import IsulionVideoPromptGenerator
 from .Core_Nodes.display_image_from_url import DisplayImageFromURL
 from .Core_Nodes.CustomTextNode import CustomTextNode
 from .Core_Nodes.prompt_vault_node import IsulionPromptVaultSave, IsulionPromptVaultLoad
+from .Core_Nodes.space_invaders_node import IsulionSpaceInvaders
 
 # Import category-specific nodes
 from .Core_Nodes.animals_nodes.isulion_animal_generator import Isulion_AnimalRandom
@@ -93,6 +94,7 @@ NODE_CLASS_MAPPINGS = {
     "CustomTextNode": CustomTextNode,
     "IsulionPromptVaultSave": IsulionPromptVaultSave,
     "IsulionPromptVaultLoad": IsulionPromptVaultLoad,
+    "IsulionSpaceInvaders": IsulionSpaceInvaders,
 }
 
 # Display name mappings
@@ -135,5 +137,10 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "💤 IsulionShutdown": "💤 Isulion Shutdown",
     "🧩 IsulionQRCode": "🧩 Isulion QRCode Generator",
     "⧉ IsulionOverlay": "⧉ IsulionOverlay",
-    "IsulionCensoredPart": "🔒 Isulion Censored Part"
+    "IsulionCensoredPart": "🔒 Isulion Censored Part",
+    "IsulionSpaceInvaders": "👾 Isulion Space Invaders",
 }
+
+# Frontend extensions (interactive nodes)
+WEB_DIRECTORY = "./web"
+

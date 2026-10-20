@@ -30,6 +30,7 @@ MODULES = [
     "test_load_images_sandbox",
     "test_censored_part",
     "test_prompt_vault",
+    "test_space_invaders",
 ]
 
 
