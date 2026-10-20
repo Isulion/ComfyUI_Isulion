@@ -92,6 +92,54 @@ def parse_state(raw):
     return state
 
 
+COMPLEXITY_SUFFIX = {
+    "simple": "",
+    "detailed": "highly detailed, sharp focus",
+    "complex": "highly detailed, intricate textures, cinematic composition, dramatic lighting, masterpiece",
+}
+# Generic quality boilerplate removed from each component in SIMPLE mode
+SIMPLE_DROP = frozenset({
+    "masterpiece", "best quality", "highly detailed", "ultra detailed", "artistic excellence",
+    "professional quality", "8k", "4k", "8k resolution",
+})
+
+
+def simplify_component(text):
+    kept = [chunk.strip() for chunk in text.split(",")
+            if chunk.strip() and chunk.strip().strip("()").strip().lower() not in SIMPLE_DROP]
+    return ", ".join(kept)
+
+
+def assemble_prompt(state):
+    """Return (prompt, segments); segments carry the reel each piece came from."""
+    frozen = state["frozen_prompt"]
+    if frozen.strip():
+        return frozen, [{"reel": "frozen", "text": frozen}]
+
+    simple = state["complexity"] == "simple"
+    segments = []
+    for name, reel in state["reels"].items():
+        if not reel.get("enabled", True):
+            continue
+        text = simplify_component(reel["text"]) if simple else reel["text"].strip()
+        if text:
+            segments.append({"reel": name, "text": text})
+    suffix = COMPLEXITY_SUFFIX[state["complexity"]]
+    if suffix:
+        segments.append({"reel": "complexity", "text": suffix})
+    lora = state["lora"].strip()
+    if lora:
+        segments.append({"reel": "lora", "text": lora})
+
+    seen, unique = set(), []
+    for seg in segments:
+        key = seg["text"].strip().lower()
+        if key not in seen:
+            seen.add(key)
+            unique.append(seg)
+    return ", ".join(seg["text"] for seg in unique), unique
+
+
 def theme_entry(name, registry=None):
     registry = registry or get_theme_registry()
     handler = registry.handlers.get(name)
