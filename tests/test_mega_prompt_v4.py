@@ -1,6 +1,10 @@
 """Checks for the Isulion Mega Prompt V4 node (Python side of web/mega_prompt_v4.js)."""
 
+import asyncio
 import json
+import math
+import random
+import types
 
 from isulion_testkit import import_package
 
@@ -101,10 +105,6 @@ def test_assemble_frozen_prompt_wins():
     mp4 = _mp4()
     prompt, segs = mp4.assemble_prompt(_state(frozen_prompt="exactly this", lora="x"))
     assert prompt == "exactly this" and segs == [{"reel": "frozen", "text": "exactly this"}]
-
-
-import random
-import types
 
 
 class _Handler:
@@ -234,9 +234,6 @@ def test_roll_uses_the_shared_generation_lock():
         mp4.GENERATION_LOCK = original
 
 
-import math
-
-
 def test_node_contract_and_registration():
     pkg = import_package()
     cls = pkg.NODE_CLASS_MAPPINGS["IsulionMegaPromptV4"]
@@ -258,9 +255,6 @@ def test_node_generate_rolls_everything_and_reports_ui():
         assert node.generate("garbage")["result"] == out["result"]  # same seed, default state => same prompt
     finally:
         mp4.new_seed = original
-
-
-import asyncio
 
 
 def _routes():
