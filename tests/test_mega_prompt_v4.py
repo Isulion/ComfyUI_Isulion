@@ -258,3 +258,55 @@ def test_node_generate_rolls_everything_and_reports_ui():
         assert node.generate("garbage")["result"] == out["result"]  # same seed, default state => same prompt
     finally:
         mp4.new_seed = original
+
+
+import asyncio
+
+
+def _routes():
+    import_package()
+    from isulion_pkg.Core_Nodes import mega_prompt_v4_routes as routes
+    return routes
+
+
+def test_themes_payload_lists_registry_sorted():
+    routes, mp4 = _routes(), _mp4()
+    assert routes.themes_payload() == mp4.list_themes()
+
+
+def test_roll_payload_rejects_invalid_input_and_tolerates_bad_state():
+    routes = _routes()
+    assert routes.roll_payload(None)[0] == 400 and routes.roll_payload([1])[0] == 400
+    assert routes.roll_payload({"reels": "theme"})[0] == 400
+    assert routes.roll_payload({"reels": ["wheel"]})[0] == 400
+    status, payload = routes.roll_payload({"state": "garbage", "reels": ["style"], "seed": True})
+    assert status == 200 and 0 <= payload["seed"] < 2**32 and payload["prompt"]
+    status, payload = routes.roll_payload({"state": {"version": 1, "theme": {"name": "anime", "locked": True}}, "reels": [], "seed": 9})
+    assert status == 200 and payload["seed"] == 9 and payload["rolled"] == []
+
+
+def test_register_routes_without_server_is_a_noop():
+    assert _routes().register_routes() is False
+
+
+def test_register_routes_with_fake_server_registers_both_handlers():
+    routes = _routes()
+    registered = {}
+
+    class Routes:
+        def get(self, path): return lambda fn: registered.setdefault(("GET", path), fn)
+        def post(self, path): return lambda fn: registered.setdefault(("POST", path), fn)
+
+    assert routes.register_routes(types.SimpleNamespace(routes=Routes())) is True
+    assert set(registered) == {("GET", "/isulion/megaprompt_v4/themes"), ("POST", "/isulion/megaprompt_v4/roll")}
+
+    class Req:
+        def __init__(self, body): self._b = body
+        async def json(self): return self._b
+
+    status, payload = asyncio.run(registered[("POST", "/isulion/megaprompt_v4/roll")](Req({"reels": [], "seed": 1})))
+    assert status == 200 and payload["seed"] == 1
+    status, _ = asyncio.run(registered[("POST", "/isulion/megaprompt_v4/roll")](Req("x")))
+    assert status == 400
+    status, themes = asyncio.run(registered[("GET", "/isulion/megaprompt_v4/themes")](Req(None)))
+    assert status == 200 and themes == routes.themes_payload()

@@ -10,6 +10,7 @@ __description__ = "Advanced prompt generation nodes for ComfyUI with multiple th
 # Import all node classes
 from .Core_Nodes.mega_prompt_V3 import IsulionMegaPromptV3
 from .Core_Nodes.mega_prompt_v4 import IsulionMegaPromptV4
+from .Core_Nodes import mega_prompt_v4_routes  # noqa: F401  (registers /isulion/megaprompt_v4/* when PromptServer exists)
 from .Core_Nodes.mega_prompt_all_themes import IsulionMultiplePromptGenerator
 from .Core_Nodes.isucollage_node import IsuCollageNode
 from .Core_Nodes.load_images_node import IsulionLoadImagesNode
