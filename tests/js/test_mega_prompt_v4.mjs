@@ -163,6 +163,22 @@ test("history survives a reload through node.properties", async () => {
   assert.equal(node._jackpot.ui.hist.rows[0].text.textContent, "kept");
 });
 
+test("help panel opens in the browser language, switches to EN and remembers it", async () => {
+  const docBefore = fake.docListeners();
+  const node = await createNode(); const j = node._jackpot;
+  assert.equal(j.lang, "fr"); assert.equal(j.ui.help.panel.hidden, true);
+  click(j.ui.helpBtn); assert.equal(j.ui.help.panel.hidden, false);
+  assert.ok(j.ui.help.body.textContent.includes(TEXT.fr.help.sections[0][0]));
+  click(j.ui.help.langEn);
+  assert.equal(localStorage.getItem("isu-mpv4-lang"), "en"); assert.ok(j.ui.help.body.textContent.includes(TEXT.en.help.sections[0][0]));
+  assert.equal(j.ui.reels.theme.name.textContent, TEXT.en.reels.theme);
+  document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" })); assert.equal(j.ui.help.panel.hidden, true);
+  assert.equal(fake.docListeners(), docBefore + 1);  // only visibilitychange is left
+  click(j.ui.helpBtn); click(j.ui.helpBtn); assert.equal(j.ui.help.panel.hidden, true);
+  const node2 = await createNode(); assert.equal(node2._jackpot.lang, "en");
+  localStorage.removeItem("isu-mpv4-lang");
+});
+
 // --- runner (keep last) ---------------------------------------------------
 let failures = 0;
 for (const [name, fn] of tests) {

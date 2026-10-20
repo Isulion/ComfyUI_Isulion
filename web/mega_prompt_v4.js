@@ -576,10 +576,49 @@ class PromptJackpot {
     hist.replaceChildren(title, ...hist.rows.map((r) => r.row));
   }
 
-  // help (Tâche 11)
-  toggleHelp() {}
-  closeHelp() {}
-  setLang() {}
+  // help panel, EN / FR
+  toggleHelp() {
+    this.ui.help.panel.hidden ? this.openHelp() : this.closeHelp();
+  }
+
+  openHelp() {
+    this.renderHelp();
+    this.ui.help.panel.hidden = false;
+    if (this.removeHelpKey) return;
+    const onKey = (e) => { if (e.key === "Escape") { e.stopPropagation(); this.closeHelp(); } };
+    document.addEventListener("keydown", onKey, true);
+    this.removeHelpKey = () => {
+      document.removeEventListener("keydown", onKey, true);
+      this.docCleanups = this.docCleanups.filter((fn) => fn !== this.removeHelpKey);
+      this.removeHelpKey = null;
+    };
+    this.docCleanups.push(this.removeHelpKey);
+  }
+
+  closeHelp() {
+    this.ui.help.panel.hidden = true;
+    this.removeHelpKey?.();
+  }
+
+  setLang(lang) {
+    this.lang = lang;
+    lsSet(LANG_KEY, lang);
+    this.renderLabels();
+    this.renderFooter();
+    this.renderHistory();
+    if (!this.view.last) this.renderPrompt([]);
+    this.renderHelp();
+  }
+
+  renderHelp() {
+    const { title, body, close, langFr, langEn } = this.ui.help;
+    const help = this.t.help;
+    title.textContent = help.title;
+    close.textContent = help.close;
+    langFr.classList.toggle("isu-mpv4-on", this.lang === "fr");
+    langEn.classList.toggle("isu-mpv4-on", this.lang === "en");
+    body.replaceChildren(...help.sections.flatMap(([h, p]) => [el("h4", null, h), el("p", null, p)]));
+  }
 
   // --- rendering ------------------------------------------------------------
   render() {
