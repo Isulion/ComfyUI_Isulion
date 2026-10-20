@@ -32,6 +32,7 @@ MODULES = [
     "test_prompt_vault",
     "test_space_invaders",
     "test_mega_prompt_v4",
+    "test_mega_prompt_v4_js",
 ]
 
 
