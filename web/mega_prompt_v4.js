@@ -365,11 +365,12 @@ class PromptJackpot {
     if (id !== this.reqId || this.disposed) return;  // a newer roll or an execution result won
     if (!r.ok) return this.showError(payload?.error ?? `HTTP ${r.status}`);
     const changed = payload.rolled?.length > 0;
-    this.applyResult(payload, { animate: changed, record: changed });
+    this.applyResult(payload, { animate: changed, record: changed, merge: true });
   }
 
-  applyResult(payload, { animate, record }) {
-    this.state = readState(payload.state);
+  applyResult(payload, { animate, record, merge = false }) {
+    if (merge) this.mergeRolled(payload);
+    else this.state = readState(payload.state);
     this.commit();
     if (payload.theme?.name) this.knownThemes.set(payload.theme.name, payload.theme);
     this.view.last = payload;
@@ -392,7 +393,18 @@ class PromptJackpot {
   onExecuted(payload) {
     if (!payload) return;
     this.reqId++;  // any roll still in flight is now stale
-    this.applyResult(payload, { animate: true, record: true });
+    this.applyResult(payload, { animate: true, record: true, merge: true });
+  }
+
+  // The server rolled a snapshot taken when the request was sent: take only the
+  // drawn texts, so locks/toggles/settings changed in the meantime are kept.
+  mergeRolled(payload) {
+    const server = readState(payload.state);
+    for (const name of payload.rolled ?? []) {
+      if (name === "theme") this.state.theme.name = server.theme.name;
+      else if (this.state.reels[name]) this.state.reels[name].text = server.reels[name].text;
+    }
+    if (!this.state.theme.name) this.state.theme.name = server.theme.name;
   }
 
   showError(message) {
@@ -426,7 +438,8 @@ class PromptJackpot {
     reel.enabled = !reel.enabled;
     this.commit();
     this.renderReel(name);
-    this.roll([]);
+    // a reel that was off during earlier draws has no text yet: draw it now
+    this.roll(reel.enabled && !reel.text && !reel.locked ? [name] : []);
   }
 
   stepTheme(dir) {
@@ -675,6 +688,7 @@ class PromptJackpot {
     r.btns.lock.textContent = locked ? "🔒" : "🔓";
     if (r.btns.prev) { r.btns.prev.textContent = "◀"; r.btns.next.textContent = "▶"; r.btns.search.textContent = "🔍"; }
     if (r.btns.edit) r.btns.edit.textContent = "✏️";
+    r.box.classList.remove("isu-mpv4-spin");  // a rendered reel has stopped (also after an error draw)
     r.box.classList.toggle("isu-mpv4-locked", locked);
     r.box.classList.toggle("isu-mpv4-off", off);
     r.box.classList.toggle("isu-mpv4-custom", custom);

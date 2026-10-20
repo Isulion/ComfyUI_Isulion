@@ -179,6 +179,37 @@ test("help panel opens in the browser language, switches to EN and remembers it"
   localStorage.removeItem("isu-mpv4-lang");
 });
 
+// --- final review fixes -----------------------------------------------------
+test("switching an empty reel back on rolls that reel", async () => {
+  const node = await createNode(); api.responders["/isulion/megaprompt_v4/roll"] = payload(); const j = node._jackpot;
+  j.state.reels.location.enabled = false; j.state.reels.location.text = "";
+  click(j.ui.reels.location.btns.toggle); await tick();
+  assert.equal(lastRoll().body.state.reels.location.enabled, true); assert.deepEqual(lastRoll().body.reels, ["location"]);
+});
+test("reels stop spinning when the server returns an error draw", async () => {
+  const node = await createNode(); const j = node._jackpot;
+  api.responders["/isulion/megaprompt_v4/roll"] = payload({ rolled: [], prompt: "Error: KeyError: x", segments: [{ reel: "error", text: "Error: KeyError: x" }] });
+  click(j.ui.lever); await tick(); await tick(); fake.runTimers(5000);
+  assert.ok(REELS.every((r) => !j.ui.reels[r].box.classList.contains("isu-mpv4-spin")));
+});
+test("a lock set while a run was queued survives onExecuted", async () => {
+  const node = await createNode(); const j = node._jackpot;
+  click(j.ui.reels.subject.btns.lock);                                  // user locks SUBJECT during the run
+  const server = { ...readState(null), theme: { name: "anime", locked: false } };
+  server.reels.subject.text = "queued subject"; server.reels.location.text = "new place";
+  node.onExecuted({ draw: [payload({ state: server, rolled: ["theme", "location"] })] }); fake.runTimers(5000);
+  const saved = JSON.parse(node.widgets[0].value);
+  assert.equal(saved.reels.subject.locked, true); assert.equal(saved.reels.location.text, "new place"); assert.equal(saved.theme.name, "anime");
+});
+test("reloading a history line restores its full state", async () => {
+  const node = await createNode(); const j = node._jackpot;
+  const past = { ...readState(null), theme: { name: "cyberpunk", locked: true }, complexity: "simple" };
+  node.onExecuted({ draw: [payload({ state: past, rolled: ["subject"] })] }); fake.runTimers(5000);
+  j.state.complexity = "complex"; j.commit();
+  click(j.ui.hist.rows[0].row);
+  assert.equal(JSON.parse(node.widgets[0].value).complexity, "simple");
+});
+
 // --- runner (keep last) ---------------------------------------------------
 let failures = 0;
 for (const [name, fn] of tests) {
