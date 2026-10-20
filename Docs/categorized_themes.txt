@@ -1,3 +1,5 @@
+NOTE (v6.1.0): this document predates v6 and is kept for reference only; the theme list is incomplete. See Docs/Theme_Creation_Guide.md and Core_Nodes/mega_prompt_all_themes.py for the current state.
+
 ARTISTIC STYLES
 1. 🎨 Abstract - Generates abstract art with non-representational forms, shapes, colors and compositions
 2. 🖼️ Digital Art - Produces digital artwork with modern tools and techniques

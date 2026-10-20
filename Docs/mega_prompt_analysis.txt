@@ -1,3 +1,5 @@
+NOTE (v6.1.0): this document predates v6 and is kept for reference only; the registration steps described here (editing __init__.py and the mappings in mega_prompt_V3.py) are no longer needed. See Docs/Theme_Creation_Guide.md and Core_Nodes/mega_prompt_all_themes.py for the current state.
+
 ### Summary
 
 The `MegaPromptV3` system is a sophisticated and flexible prompt generator designed for the ComfyUI platform. It leverages a modular architecture with various theme handlers to create diverse and customizable prompts. Key features include extensive theme mappings, robust error handling, and support for custom subjects and locations. The system integrates seamlessly with other components of ComfyUI, offering a user-friendly interface for prompt customization. This document provides a detailed analysis of the system's components, including theme handlers, configuration management, and additional context elements such as randomization logic and user feedback mechanisms.
