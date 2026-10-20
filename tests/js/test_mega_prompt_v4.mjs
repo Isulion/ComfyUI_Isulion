@@ -114,6 +114,36 @@ test("removing the node twice is safe and leaves nothing running", async () => {
   const mine = fake.observers.slice(obsBefore); assert.ok(mine.length >= 1 && mine.every((o) => o.disconnected));
 });
 
+test("inline edit pins a custom subject and rerolls that reel", async () => {
+  const node = await createNode(); api.responders["/isulion/megaprompt_v4/roll"] = payload();
+  const j = node._jackpot; click(j.ui.reels.subject.btns.edit);
+  assert.equal(j.ui.editor.panel.hidden, false); j.ui.editor.input.value = "  my elf queen ";
+  j.ui.editor.input.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" })); await tick();
+  assert.equal(lastRoll().body.state.reels.subject.custom, "my elf queen"); assert.deepEqual(lastRoll().body.reels, ["subject"]);
+  assert.equal(j.ui.editor.panel.hidden, true);
+});
+test("escape cancels the inline edit", async () => {
+  const node = await createNode(); const before = api.calls.length; const j = node._jackpot;
+  click(j.ui.reels.location.btns.edit); j.ui.editor.input.value = "x";
+  j.ui.editor.input.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+  assert.equal(j.state.reels.location.custom, ""); assert.equal(api.calls.length, before); assert.equal(j.ui.editor.panel.hidden, true);
+});
+test("clear button removes the custom text and rerolls", async () => {
+  const node = await createNode(); api.responders["/isulion/megaprompt_v4/roll"] = payload(); const j = node._jackpot;
+  j.state.reels.location.custom = "my castle"; click(j.ui.reels.location.btns.edit);
+  assert.equal(j.ui.editor.input.value, "my castle"); click(j.ui.editor.clear); await tick();
+  assert.equal(lastRoll().body.state.reels.location.custom, ""); assert.deepEqual(lastRoll().body.reels, ["location"]);
+});
+test("edit prompt freezes it and the lever unfreezes", async () => {
+  const node = await createNode(); api.responders["/isulion/megaprompt_v4/roll"] = payload({ rolled: [], segments: [{ reel: "frozen", text: "fixed text" }], prompt: "fixed text", state: { ...readState(null), frozen_prompt: "fixed text" } });
+  const j = node._jackpot; click(j.ui.editBtn); j.ui.editor.textarea.value = "fixed text";
+  click(j.ui.editor.ok); await tick();
+  assert.equal(lastRoll().body.state.frozen_prompt, "fixed text"); assert.deepEqual(lastRoll().body.reels, []); await tick();
+  assert.equal(j.ui.frozenBadge.hidden, false);
+  click(j.ui.lever); await tick();
+  assert.equal(lastRoll().body.state.frozen_prompt, ""); assert.deepEqual(lastRoll().body.reels, REELS);
+});
+
 // --- runner (keep last) ---------------------------------------------------
 let failures = 0;
 for (const [name, fn] of tests) {

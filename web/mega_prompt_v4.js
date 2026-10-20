@@ -278,6 +278,17 @@ class PromptJackpot {
     const ok = el("button");
     row.append(clear, cancel, ok);
     panel.append(input, textarea, row);
+    const onKey = (e) => {
+      e.stopPropagation();  // Delete/Backspace must not reach LiteGraph while typing
+      if (e.key === "Escape") this.closeEditor();
+      if (e.key === "Enter" && e.target === input) this.confirmEditor();
+    };
+    input.addEventListener("keydown", onKey);
+    textarea.addEventListener("keydown", onKey);
+    ok.addEventListener("click", () => this.confirmEditor());
+    cancel.addEventListener("click", () => this.closeEditor());
+    clear.addEventListener("click", () => this.clearCustom());
+    panel.addEventListener("pointerdown", (e) => { if (e.target === panel) this.closeEditor(); });
     this.ui.editor = { panel, input, textarea, clear, cancel, ok };
     return panel;
   }
@@ -481,9 +492,60 @@ class PromptJackpot {
     this.ui.search.list.replaceChildren(...rows);
   }
 
-  // inline editors (Tâche 9)
-  openInlineEdit() {}
-  openPromptEditor() {}
+  // on-screen editors: custom subject/location text, or the whole frozen prompt
+  openInlineEdit(reel) {
+    const { panel, input, textarea, clear } = this.ui.editor;
+    this.editing = { reel };
+    input.hidden = false;
+    clear.hidden = false;
+    textarea.hidden = true;
+    input.value = this.state.reels[reel].custom;
+    panel.hidden = false;
+    input.focus();
+  }
+
+  openPromptEditor() {
+    const { panel, input, textarea, clear } = this.ui.editor;
+    this.editing = { prompt: true };
+    input.hidden = true;
+    clear.hidden = true;
+    textarea.hidden = false;
+    textarea.value = this.state.frozen_prompt || (this.view.last?.prompt ?? "");
+    panel.hidden = false;
+    textarea.focus();
+  }
+
+  closeEditor() {
+    this.editing = null;
+    this.ui.editor.panel.hidden = true;
+  }
+
+  confirmEditor() {
+    const editing = this.editing;
+    if (!editing) return;
+    this.closeEditor();
+    if (editing.prompt) {
+      this.state.frozen_prompt = this.ui.editor.textarea.value;
+      this.commit();
+      this.roll([]);
+    } else {
+      this.setCustom(editing.reel, this.ui.editor.input.value.trim());
+    }
+  }
+
+  clearCustom() {
+    const editing = this.editing;
+    if (!editing?.reel) return;
+    this.closeEditor();
+    this.setCustom(editing.reel, "");
+  }
+
+  setCustom(reel, text) {
+    this.state.reels[reel].custom = text;
+    this.commit();
+    this.renderReel(reel);
+    this.roll([reel]);
+  }
 
   // history (Tâche 10)
   pushHistory() {}
