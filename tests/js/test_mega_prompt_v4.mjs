@@ -1,6 +1,8 @@
 // Node harness for web/mega_prompt_v4.js (no npm deps): node tests/js/test_mega_prompt_v4.mjs
 import assert from "node:assert/strict";
 import { REELS, ROLL_REELS, readState, shortText, pickLang, historyRows, TEXT } from "../../web/mega_prompt_v4_core.js";
+import { installFakeDom } from "./fake_dom.mjs";
+import { loadExtension } from "./load_extension.mjs";
 
 const tests = [];
 const test = (name, fn) => tests.push([name, fn]);
@@ -31,6 +33,85 @@ test("TEXT has the same keys in both languages", () => {
   assert.deepEqual(keys(TEXT.en), keys(TEXT.fr)); assert.ok(TEXT.fr.help.sections.length >= 8);
   assert.equal(TEXT.fr.help.sections.length, TEXT.en.help.sections.length);
   assert.equal(REELS.length, 5); assert.deepEqual(ROLL_REELS, ["subject", "location", "style", "effects"]);
+});
+
+// --- the cabinet ----------------------------------------------------------
+const fake = installFakeDom();
+const { app, api } = await loadExtension();
+const ext = app.extensions.find((e) => e.name === "Isulion.MegaPromptV4");
+const nodeType = function () {};
+ext?.beforeRegisterNodeDef(nodeType, { name: "IsulionMegaPromptV4" });
+
+function makeNode() {
+  const node = {
+    widgets: [{ name: "machine_state", value: '{"version": 1}' }],
+    size: [300, 200], properties: {},
+    graph: { changes: 0, change() { this.changes++; } },
+    setSize(s) { this.size = s; }, setDirtyCanvas() {},
+    addDOMWidget(name, type, el, opts) { this.dom = { name, type, el, opts }; return this.dom; },
+  };
+  Object.setPrototypeOf(node, nodeType.prototype);
+  return node;
+}
+const themes = [{ name: "anime", display: "🎌 Anime", icon: "🎌", label: "Anime" }, { name: "cyberpunk", display: "🤖 Cyberpunk", icon: "🤖", label: "Cyberpunk" }];
+const payload = (over = {}) => ({ state: { ...readState(null), theme: { name: "anime", locked: false } }, prompt: "hero, forest", rolled: ["theme", "subject", "location"],
+  segments: [{ reel: "subject", text: "hero" }, { reel: "location", text: "forest" }], seed: 482913, theme: themes[0], ...over });
+const tick = () => new Promise((r) => setImmediate(r));
+async function createNode() {
+  api.responders["/isulion/megaprompt_v4/themes"] = themes;
+  const node = makeNode(); node.onNodeCreated(); fake.flushFrames(); await tick(); await tick();
+  return node;
+}
+const lastRoll = () => api.calls.filter((c) => c.route === "/isulion/megaprompt_v4/roll").at(-1);
+const click = (el) => el.dispatchEvent(new Event("click"));
+
+test("registers extension and builds the cabinet once per node", async () => {
+  assert.ok(ext); const node = await createNode();
+  assert.ok(node._jackpot); assert.equal(node.dom.opts.serialize, false); assert.equal(node.dom.opts.hideOnZoom, false);
+  assert.equal(node.widgets[0].hidden, true); assert.equal(node.widgets[0].type, "converted-widget");
+  await createNode();
+  assert.equal(document.head.children.filter((c) => c.id === "isu-mpv4-styles").length, 1);
+});
+test("lever posts a roll for all reels and applies the result", async () => {
+  const node = await createNode(); api.responders["/isulion/megaprompt_v4/roll"] = payload();
+  click(node._jackpot.ui.lever); await tick(); await tick();
+  assert.deepEqual(lastRoll().body.reels, REELS); fake.runTimers(5000);
+  assert.equal(JSON.parse(node.widgets[0].value).theme.name, "anime");
+  assert.ok(node._jackpot.ui.out.textContent.includes("hero, forest")); assert.ok(node.graph.changes >= 1);
+  assert.equal(node.properties.isu_mpv4.last.seed, 482913);
+});
+test("lock writes the state without rolling", async () => {
+  const node = await createNode(); const before = api.calls.length;
+  click(node._jackpot.ui.reels.subject.btns.lock);
+  assert.equal(JSON.parse(node.widgets[0].value).reels.subject.locked, true); assert.equal(api.calls.length, before);
+});
+test("next theme locks the theme and rerolls the other reels", async () => {
+  const node = await createNode(); api.responders["/isulion/megaprompt_v4/roll"] = payload();
+  node._jackpot.state.theme.name = "anime";
+  click(node._jackpot.ui.reels.theme.btns.next); await tick();
+  const { body } = lastRoll(); assert.deepEqual(body.state.theme, { name: "cyberpunk", locked: true }); assert.deepEqual(body.reels, ROLL_REELS);
+});
+test("onExecuted replays the server result and records history", async () => {
+  const node = await createNode(); node.onExecuted({ draw: [payload({ prompt: "from server", segments: [{ reel: "subject", text: "from server" }] })] });
+  fake.runTimers(5000);
+  assert.equal(node._jackpot.ui.out.textContent.replace(/\s+$/, ""), "from server");
+  assert.equal(node.properties.isu_mpv4.draws, 1); assert.ok(node._jackpot.ui.seed.textContent.includes("482913"));
+});
+test("late roll response is ignored after onExecuted", async () => {
+  const node = await createNode(); let resolve; api.responders["/isulion/megaprompt_v4/roll"] = () => new Promise((r) => (resolve = r));
+  click(node._jackpot.ui.lever); await tick();
+  node.onExecuted({ draw: [payload({ prompt: "server wins", segments: [{ reel: "subject", text: "server wins" }] })] });
+  resolve(payload({ prompt: "late", segments: [{ reel: "subject", text: "late" }] })); await tick(); await tick(); fake.runTimers(5000);
+  assert.equal(node._jackpot.ui.out.textContent.replace(/\s+$/, ""), "server wins");
+});
+test("removing the node twice is safe and leaves nothing running", async () => {
+  const obsBefore = fake.observers.length, docBefore = fake.docListeners();
+  const node = await createNode(); api.responders["/isulion/megaprompt_v4/roll"] = payload();
+  click(node._jackpot.ui.lever); await tick(); await tick();
+  node.onRemoved(); node.dom.onRemove(); node._disposeJackpot();
+  assert.equal(node._jackpot, null); assert.equal(fake.pendingTimers(), 0);
+  assert.equal(fake.docListeners(), docBefore);
+  const mine = fake.observers.slice(obsBefore); assert.ok(mine.length >= 1 && mine.every((o) => o.disconnected));
 });
 
 // --- runner (keep last) ---------------------------------------------------
