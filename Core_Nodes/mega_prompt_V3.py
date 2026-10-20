@@ -1,6 +1,7 @@
 import json
 import os
 import random
+import threading
 from functools import lru_cache
 from typing import Dict, List, Tuple, Optional
 
@@ -160,6 +161,12 @@ class ThemeRegistry:
         return available_display_themes
 
 
+# Every handler shares ConfigManager.random, so seeding, the random theme pick
+# and handler.generate must not interleave between threads (workflow
+# execution vs. the Mega Prompt V4 preview routes).
+GENERATION_LOCK = threading.Lock()
+
+
 @lru_cache(maxsize=1)
 def get_theme_registry() -> "ThemeRegistry":
     """Shared ThemeRegistry singleton.
@@ -247,6 +254,13 @@ class IsulionMegaPromptV3:
                 lora_key: str = "",
                 include_environment: str = "yes", include_style: str = "yes",
                 include_effects: str = "yes", debug_mode: str = "off") -> Tuple[str, str, str, str, str, str, int]:
+        with GENERATION_LOCK:
+            return self._generate_unlocked(
+                theme, complexity, randomize, seed, custom_subject, custom_location, lora_key,
+                include_environment, include_style, include_effects, debug_mode)
+
+    def _generate_unlocked(self, theme, complexity, randomize, seed, custom_subject, custom_location,
+                           lora_key, include_environment, include_style, include_effects, debug_mode):
         self.debug_mode = (debug_mode == "on")
         if self.debug_mode:
             print(f"[DEBUG] generate called with theme={theme}, seed={seed}")

@@ -58,3 +58,20 @@ def test_generate_with_error_theme_returns_error_tuple_without_raising():
     assert isinstance(prompt, str)
     assert "error" in prompt.lower() or "failed" in prompt.lower()
     assert selected_theme == "--- Error ---"
+
+
+def test_v3_generate_runs_under_the_shared_generation_lock():
+    import_package()
+    from isulion_pkg.Core_Nodes import mega_prompt_V3 as v3
+
+    class RecordingLock:
+        def __init__(self): self.entries = 0
+        def __enter__(self): self.entries += 1
+        def __exit__(self, *a): return False
+
+    original, v3.GENERATION_LOCK = v3.GENERATION_LOCK, RecordingLock()
+    try:
+        v3.IsulionMegaPromptV3().generate(theme=ANIME_THEME, seed=1)
+        assert v3.GENERATION_LOCK.entries == 1
+    finally:
+        v3.GENERATION_LOCK = original
