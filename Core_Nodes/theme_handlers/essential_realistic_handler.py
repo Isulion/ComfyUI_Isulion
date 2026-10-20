@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("essential_realistic")
 class EssentialRealisticThemeHandler(BaseThemeHandler):
     """Handler for essential realistic-themed prompt generation."""
-    
+    DISPLAY_NAME = "📸 Essential Realistic"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class EssentialRealisticThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate essential realistic-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         detail = self._get_random_choice("essential_realistic.details")
         feature = self._get_random_choice("essential_realistic.features")
@@ -34,7 +35,7 @@ class EssentialRealisticThemeHandler(BaseThemeHandler):
                 f"((featuring {feature})), ((photorealistic)), "
                 f"((true to life)), ((natural appearance))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -51,7 +52,7 @@ class EssentialRealisticThemeHandler(BaseThemeHandler):
                     f"((authentic environment)), ((true setting)), "
                     f"((real world atmosphere))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("essential_realistic.styles")
@@ -62,7 +63,7 @@ class EssentialRealisticThemeHandler(BaseThemeHandler):
                 f"((photorealistic quality)), ((authentic representation)), "
                 f"((natural rendering))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("essential_realistic.effects")
@@ -72,5 +73,5 @@ class EssentialRealisticThemeHandler(BaseThemeHandler):
                 f"((natural {lighting} lighting)), "
                 f"((true to life)), ((authentic finish))"
             )
-        
+
         return components

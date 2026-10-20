@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("instagram")
 class InstagramThemeHandler(BaseThemeHandler):
     """Handler for Instagram-themed prompt generation."""
-    
+    DISPLAY_NAME = "📱 Instagram"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class InstagramThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate Instagram-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         pose = self._get_random_choice("instagram.poses")
         outfit = self._get_random_choice("instagram.outfits")
@@ -34,7 +35,7 @@ class InstagramThemeHandler(BaseThemeHandler):
                 f"((with {pose})), ((Instagram worthy)), "
                 f"((social media style)), ((influencer aesthetic))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -51,7 +52,7 @@ class InstagramThemeHandler(BaseThemeHandler):
                     f"((perfect lighting)), ((trendy setting)), "
                     f"((social media background))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("instagram.styles")
@@ -62,7 +63,7 @@ class InstagramThemeHandler(BaseThemeHandler):
                 f"((Instagram aesthetics)), ((social media quality)), "
                 f"((trendy photography))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("instagram.effects")
@@ -72,5 +73,5 @@ class InstagramThemeHandler(BaseThemeHandler):
                 f"((aesthetic {mood} mood)), "
                 f"((Instagram vibes)), ((social media appeal))"
             )
-        
+
         return components

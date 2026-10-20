@@ -5,6 +5,7 @@ from .registry import register_theme
 
 @register_theme("miura")
 class MiuraThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "⚔️ Miura Dark Fantasy"
     def __init__(self, config_manager: ConfigManager):
         super().__init__(config_manager)
         self.theme_name = "miura"
@@ -34,7 +35,7 @@ class MiuraThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate a prompt based on Kentarō Miura's distinctive style."""
         components = {}
-        
+
         # Always use random traits/details, even with custom_subject
         traits = self._get_multiple_random_choices(f"{self.theme_name}.character_traits", 2)
         details = self._get_multiple_random_choices(f"{self.theme_name}.detail_elements", 2)

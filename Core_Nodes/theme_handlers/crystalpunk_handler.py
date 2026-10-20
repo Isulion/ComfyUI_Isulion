@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("crystalpunk")
 class CrystalpunkThemeHandler(BaseThemeHandler):
     """Handler for crystalpunk-themed prompt generation."""
-    
+    DISPLAY_NAME = "💎 Crystalpunk"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class CrystalpunkThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate crystalpunk-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         feature = self._get_random_choice("crystalpunk.features")
         crystal = self._get_random_choice("crystalpunk.crystals")
@@ -34,7 +35,7 @@ class CrystalpunkThemeHandler(BaseThemeHandler):
                 f"((featuring {feature})), ((crystalline design)), "
                 f"((gemstone aesthetic)), ((mineral-tech fusion))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -51,7 +52,7 @@ class CrystalpunkThemeHandler(BaseThemeHandler):
                     f"((gemstone environment)), ((mineral background)), "
                     f"((crystal-tech world))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("crystalpunk.styles")
@@ -62,7 +63,7 @@ class CrystalpunkThemeHandler(BaseThemeHandler):
                 f"((crystalline design)), ((gemstone artistry)), "
                 f"((mineral-tech quality))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("crystalpunk.effects")
@@ -72,5 +73,5 @@ class CrystalpunkThemeHandler(BaseThemeHandler):
                 f"((crystalline {light} lighting)), "
                 f"((gemstone glow)), ((mineral-tech radiance))"
             )
-        
+
         return components

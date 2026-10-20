@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("chimera_cute_animals")
 class ChimeraCuteAnimalsThemeHandler(BaseThemeHandler):
     """Handler for chimera cute animals-themed prompt generation."""
-    
+    DISPLAY_NAME = "🐰 Chimera Cute Animals"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class ChimeraCuteAnimalsThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate chimera cute animals-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         feature = self._get_random_choice("chimera_cute_animals.features")
 
@@ -33,7 +34,7 @@ class ChimeraCuteAnimalsThemeHandler(BaseThemeHandler):
                 f"((featuring {feature})), ((adorable hybrid)), "
                 f"((kawaii creature)), ((magical pet))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -50,7 +51,7 @@ class ChimeraCuteAnimalsThemeHandler(BaseThemeHandler):
                     f"((kawaii setting)), ((magical surroundings)), "
                     f"((charming realm))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("chimera_cute_animals.styles")
@@ -61,7 +62,7 @@ class ChimeraCuteAnimalsThemeHandler(BaseThemeHandler):
                 f"((kawaii design)), ((adorable artistry)), "
                 f"((cute quality))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("chimera_cute_animals.effects")
@@ -71,5 +72,5 @@ class ChimeraCuteAnimalsThemeHandler(BaseThemeHandler):
                 f"((adorable {aura} aura)), "
                 f"((kawaii energy)), ((cute glow))"
             )
-        
+
         return components

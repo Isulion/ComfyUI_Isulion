@@ -1,7 +1,8 @@
-import random
+from ..base_selector import SimpleSelectorNode
 
-class IsulionTechGenerator:
-    technology = {
+
+class IsulionTechGenerator(SimpleSelectorNode):
+    POOLS = {
         "weapons": [
             "plasma rifle", "quantum blade", "sonic cannon", "gravity gun",
             "particle beam", "fusion blaster", "antimatter cannon", "phase disruptor",
@@ -30,35 +31,26 @@ class IsulionTechGenerator:
 
     @classmethod
     def INPUT_TYPES(s):
-        all_tech = [item for sublist in s.technology.values() for item in sublist]
         return {
             "required": {
                 "randomize": (["enable", "disable"],),
-                "tech": (all_tech,),
+                "tech": (s._pool_for(),),
             },
             "optional": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
                 "tech_type": (["any", "weapons", "gadgets", "augments", "power"], {"default": "any"}),
             }
         }
-    
+
     RETURN_TYPES = ("STRING", "INT",)
     RETURN_NAMES = ("tech", "seed",)
     FUNCTION = "generate"
     CATEGORY = "Isulion/SciFi"
 
     def generate(self, randomize, tech, seed=0, tech_type="any"):
+        rng, seed = self._make_rng(randomize, seed)
+
         if randomize == "enable":
-            if seed is not None and seed > 0:
-                random.seed(seed)
-            else:
-                seed = random.randint(0, 0xffffffffffffffff)
-                random.seed(seed)
-            
-            if tech_type != "any" and tech_type in self.technology:
-                tech = random.choice(self.technology[tech_type])
-            else:
-                all_tech = [item for sublist in self.technology.values() for item in sublist]
-                tech = random.choice(all_tech)
-        
-        return (tech, seed) 
+            tech = rng.choice(self._pool_for(tech_type))
+
+        return (tech, seed)

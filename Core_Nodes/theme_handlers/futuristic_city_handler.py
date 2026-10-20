@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("futuristic_city")
 class FuturisticCityThemeHandler(BaseThemeHandler):
     """Handler for futuristic city-themed prompt generation."""
-    
+    DISPLAY_NAME = "🌆 Futuristic City"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class FuturisticCityThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate futuristic city-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         structure = self._get_random_choice("futuristic_city.structures")
         material = self._get_random_choice("futuristic_city.materials")
@@ -35,7 +36,7 @@ class FuturisticCityThemeHandler(BaseThemeHandler):
                 f"((featuring {feature})), ((futuristic design)), "
                 f"((high-tech aesthetics)), ((advanced architecture))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -51,7 +52,7 @@ class FuturisticCityThemeHandler(BaseThemeHandler):
                     f"((integrated {tech})), "
                     f"((high-tech environment)), ((sci-fi atmosphere))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("futuristic_city.styles")
@@ -62,7 +63,7 @@ class FuturisticCityThemeHandler(BaseThemeHandler):
                 f"((ultra-modern design)), ((technological advancement)), "
                 f"((clean futuristic look))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             lighting = self._get_random_choice("futuristic_city.lighting")
@@ -72,5 +73,5 @@ class FuturisticCityThemeHandler(BaseThemeHandler):
                 f"((futuristic {atmosphere})), "
                 f"((high-tech ambiance)), ((sci-fi mood))"
             )
-        
+
         return components

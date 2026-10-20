@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("scifi")
 class SciFiThemeHandler(BaseThemeHandler):
     """Handler for science fiction themed prompt generation."""
-    
+    DISPLAY_NAME = "🚀 Sci-Fi"
+
     def __init__(self, config):
         super().__init__(config)
         self.theme_config = config.get_config("scifi")

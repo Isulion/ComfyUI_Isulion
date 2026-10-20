@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("y2k")
 class Y2KThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "🪩 Y2K Retro-Futurism"
     def generate(self, custom_subject: str = "",
                  custom_location: str = "",
                  include_environment: bool = True,

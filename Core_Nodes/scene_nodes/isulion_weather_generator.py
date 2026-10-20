@@ -1,7 +1,8 @@
-import random
+from ..base_selector import SimpleSelectorNode
 
-class Isulion_WeatherGenerator:
-    weather_conditions = [
+
+class Isulion_WeatherGenerator(SimpleSelectorNode):
+    POOL = [
         'Sunny', 'Cloudy', 'Partly Cloudy', 'Overcast', 'Rainy', 'Heavy Rain',
         'Thunderstorm', 'Lightning Storm', 'Snowy', 'Blizzard', 'Foggy', 'Misty',
         'Clear Sky', 'Stormy', 'Windy', 'Breezy', 'Hazy', 'Dusty', 'Sandstorm',
@@ -9,14 +10,15 @@ class Isulion_WeatherGenerator:
         'Heat Wave', 'Humid', 'Dry', 'Frost', 'Ice Storm', 'Tornado', 'Hurricane',
         'Tropical Storm', 'Monsoon', 'Clear Night', 'Starry Night'
     ]
-  
+    MAX_SEED = 999999999
+
     @classmethod
     def INPUT_TYPES(cls):
         return {
             "required": {
                 "randomize": (["enable", "disable"],),
                 "seed": ("INT", {"default": 0, "min": 0, "max": 999999999}),
-                "weather": (cls.weather_conditions,)
+                "weather": (cls.POOL,)
             }
         }
 
@@ -26,13 +28,9 @@ class Isulion_WeatherGenerator:
     CATEGORY = "Art/Styles"
 
     def generate_weather(self, randomize: str, seed: int, weather: str) -> tuple:
-        if randomize == "enable":
-            if seed is not None and seed > 0:
-                random.seed(seed)
-            else:
-                seed = random.randint(0, 999999999)
-                random.seed(seed)
+        rng, seed = self._make_rng(randomize, seed)
 
-            weather = random.choice(self.weather_conditions)
+        if randomize == "enable":
+            weather = rng.choice(self._pool_for())
 
         return (f"{weather}", seed)

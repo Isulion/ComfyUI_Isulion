@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("voxel")
 class VoxelThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "🕹️ Voxel Low-Poly"
     def generate(self, custom_subject: str = "",
                  custom_location: str = "",
                  include_environment: bool = True,

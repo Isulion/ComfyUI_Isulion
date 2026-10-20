@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("food_apocalypse")
 class FoodApocalypseThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "🍕 Food Apocalypse"
     def generate(self, custom_subject="", custom_location="",
                  include_environment=True, include_style=True, include_effects=True) -> Dict[str, str]:
         components = {}

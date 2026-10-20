@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("vintage_anthropomorphic")
 class VintageAnthropomorphicThemeHandler(BaseThemeHandler):
     """Handler for vintage anthropomorphic-themed prompt generation."""
-    
+    DISPLAY_NAME = "👴 Vintage Anthropomorphic"
+
     def __init__(self, config):
         super().__init__(config)
         self.theme_config = config.get_config("vintage_anthropomorphic")
@@ -80,16 +81,16 @@ class VintageAnthropomorphicThemeHandler(BaseThemeHandler):
         # Base style and art technique
         style = self.rng.choice(self.theme_config.get("styles", []))
         art_technique = self.rng.choice(self.theme_config.get("art_techniques", []))
-        
+
         # Character elements
         characteristic = self.rng.choice(self.theme_config.get("characteristics", []))
         clothing = self.rng.choice(self.theme_config.get("clothing_styles", []))
-        
+
         # Environment and setting
         scene = self.rng.choice(self.theme_config.get("scene_settings", [])) if not location else location
         environment = self.rng.choice(self.theme_config.get("environments", []))
         time_period = self.rng.choice(self.theme_config.get("time_periods", []))
-        
+
         # Additional details
         prop = self.rng.choice(self.theme_config.get("props", []))
         mood = self.rng.choice(self.theme_config.get("moods", []))
@@ -97,10 +98,10 @@ class VintageAnthropomorphicThemeHandler(BaseThemeHandler):
 
         # Build the prompt
         prompt_parts = []
-        
+
         # Add style and art technique
         prompt_parts.extend([style, art_technique])
-        
+
         # Add subject with characteristics if provided
         if subject:
             prompt_parts.extend([
@@ -108,24 +109,24 @@ class VintageAnthropomorphicThemeHandler(BaseThemeHandler):
                 f"wearing {clothing}",
                 characteristic
             ])
-        
+
         # Add environment and setting details
         prompt_parts.extend([
             f"in a {scene}",
             environment,
             f"set in {time_period}"
         ])
-        
+
         # Add props and atmosphere
         prompt_parts.extend([
             f"with {prop}",
             mood,
             color_palette
         ])
-        
+
         # Join all parts with commas
         prompt = ", ".join(prompt_parts)
-        
+
         return prompt
 
     def get_negative_prompt(self):

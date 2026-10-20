@@ -1,15 +1,16 @@
 # filepath: Core_Nodes/theme_handlers/skinny_blonde_girl_handler.py
-from typing import Dict, Optional
+from typing import Dict
 from .base_handler import BaseThemeHandler
 from .registry import register_theme
 
 @register_theme("skinny_blonde_girl")
 class SkinnyBlondeGirlHandler(BaseThemeHandler):
     """Instagram-style 'Skinny Blonde Girl' theme."""
+    DISPLAY_NAME = "👧 Skinny Blonde Girl"
 
     def generate(self,
                  custom_subject: str = "",
-                 custom_location: str = "",  
+                 custom_location: str = "",
                  include_environment: bool = True,
                  include_style: bool = True,
                  include_effects: bool = True) -> Dict[str, str]:
@@ -55,5 +56,5 @@ class SkinnyBlondeGirlHandler(BaseThemeHandler):
         top = self._get_random_choice("skinny_blonde_girl.outfits_top")
         bottom = self._get_random_choice("skinny_blonde_girl.outfits_bottom")
         accessories = self._get_random_choice("skinny_blonde_girl.accessories")
-        
+
         return f"{top} and {bottom}, accessorized with {accessories}"

@@ -1,20 +1,21 @@
-from typing import Dict, List, Optional
+from typing import Dict, List
 from .base_handler import BaseThemeHandler
 from .registry import register_theme
 
 @register_theme("puzzle_dimension")
 class PuzzleDimensionThemeHandler(BaseThemeHandler):
     """Handler for the Puzzle Dimension theme, featuring M.C. Escher-inspired impossible geometries."""
+    DISPLAY_NAME = "🧩 Puzzle Dimension"
 
-    def generate(self, custom_subject: str = "", 
+    def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
                 include_style: bool = True,
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate a puzzle dimension themed prompt with impossible geometries and mathematical patterns."""
-        
+
         components = {}
-        
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
@@ -29,7 +30,7 @@ class PuzzleDimensionThemeHandler(BaseThemeHandler):
                 f"((M.C. Escher style)), ((impossible geometry)), "
                 f"((mathematical precision)), ((intricate patterns))"
             )
-        
+
         # Generate environment
         if include_environment:
             if custom_location:
@@ -52,20 +53,20 @@ class PuzzleDimensionThemeHandler(BaseThemeHandler):
                     f"((recursive patterns)), ((mathematical precision)), "
                     f"((spatial paradox)), ((geometric harmony))"
                 )
-        
+
         # Add style elements
         if include_style:
             style = self.rng.choice(self.get_style_modifiers())
             lighting = self.rng.choice(self.get_lighting_modifiers())
             color = self.rng.choice(self.get_color_modifiers())
             composition = self.rng.choice(self.get_composition_modifiers())
-            
+
             components["style"] = (
                 f"((masterful {style})), ((perfect {lighting})), "
                 f"((beautiful {color})), ((stunning {composition})), "
                 f"((high detail)), ((professional quality))"
             )
-        
+
         # Add special effects
         if include_effects:
             effect = self.rng.choice(self.get_special_effects())
@@ -73,10 +74,10 @@ class PuzzleDimensionThemeHandler(BaseThemeHandler):
                 f"((dramatic {effect})), ((geometric transitions)), "
                 f"((mathematical transformations)), ((spatial warping))"
             )
-        
+
         # Add negative prompt
         components["negative"] = ", ".join(self.rng.sample(self.get_negative_prompts(), min(5, len(self.get_negative_prompts()))))
-        
+
         return components
 
     def get_style_modifiers(self) -> List[str]:

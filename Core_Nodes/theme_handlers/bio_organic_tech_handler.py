@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("bio_organic_tech")
 class BioOrganicTechThemeHandler(BaseThemeHandler):
     """Handler for bio-organic technology-themed prompt generation."""
-    
+    DISPLAY_NAME = "🧬 Bio-Organic Technology"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,

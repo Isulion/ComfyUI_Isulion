@@ -283,13 +283,19 @@ class OverlayQRCodeNode:
         margin_px_h = int(base_h * (margin_percent / 100.0))
         margin_px_w = int(base_w * (margin_percent / 100.0))
 
-        if vertical_align == "top": y_start = margin_px_h
-        elif vertical_align == "bottom": y_start = base_h - target_qr_h_final - margin_px_h
-        else: y_start = (base_h - target_qr_h_final) // 2
+        if vertical_align == "top":
+            y_start = margin_px_h
+        elif vertical_align == "bottom":
+            y_start = base_h - target_qr_h_final - margin_px_h
+        else:
+            y_start = (base_h - target_qr_h_final) // 2
 
-        if horizontal_align == "left": x_start = margin_px_w
-        elif horizontal_align == "right": x_start = base_w - target_qr_w_final - margin_px_w
-        else: x_start = (base_w - target_qr_w_final) // 2
+        if horizontal_align == "left":
+            x_start = margin_px_w
+        elif horizontal_align == "right":
+            x_start = base_w - target_qr_w_final - margin_px_w
+        else:
+            x_start = (base_w - target_qr_w_final) // 2
 
         y_end = y_start + target_qr_h_final
         x_end = x_start + target_qr_w_final
@@ -324,13 +330,3 @@ class OverlayQRCodeNode:
 
         blended_area = np.clip(self._alpha_composite(fg_area, bg_area), 0.0, 1.0)
         output_img_np[base_slice_y_start:base_slice_y_end, base_slice_x_start:base_slice_x_end, :] = blended_area
-
-
-# --- ComfyUI Mappings ---
-NODE_CLASS_MAPPINGS = {
-    "⧉ IsulionOverlay": OverlayQRCodeNode
-}
-
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "⧉ IsulionOverlay": "Overlay QR Code on Image"
-}

@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint-compile-test:
+    name: Lint, byte-compile & test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # torch/numpy/PIL/folder_paths are intentionally NOT installed: the test
+      # suite stubs them (see conftest.py / tests/isulion_testkit.py), keeping
+      # CI fast.
+      - name: Install lightweight tooling
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install ruff pytest requests
+
+      - name: Byte-compile all sources (syntax gate)
+        run: python -m compileall -q Core_Nodes .
+
+      - name: Run test suite
+        run: python -m pytest tests -q
+
+      - name: Ruff lint
+        run: ruff check .

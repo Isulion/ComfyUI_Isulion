@@ -1,1 +1,2 @@
-requests>=2.28.0
+# External HTTP client used by Civitai/URL nodes (torch/PIL/numpy are provided by ComfyUI itself)
+requests>=2.28.0,<3.0.0

@@ -1,12 +1,11 @@
-from typing import Dict, Optional
+from typing import Dict
 from .base_handler import BaseThemeHandler
-import json
-import os
 from .registry import register_theme
 
 @register_theme("vintage_1800s_photography")
 class Vintage1800sPhotographyHandler(BaseThemeHandler):
     """Handler for generating 1800s vintage photography-themed prompts."""
+    DISPLAY_NAME = "📸 Vintage 1800s Photography"
 
     def __init__(self, config):
         """Initialize with config manager."""
@@ -76,11 +75,11 @@ class Vintage1800sPhotographyHandler(BaseThemeHandler):
         # Effects
         if include_effects:
             components["effects"] = (
-                f"((extreme vintage artifacts:1.4)), ((severe aging:1.3)), "
-                f"((chemical stains)), ((scratched emulsion)), "
-                f"((deteriorated edges)), ((silver mirroring)), "
-                f"((foxing marks)), ((heavy patina)), "
-                f"((authentic vintage photograph damage:1.3))"
+                "((extreme vintage artifacts:1.4)), ((severe aging:1.3)), "
+                "((chemical stains)), ((scratched emulsion)), "
+                "((deteriorated edges)), ((silver mirroring)), "
+                "((foxing marks)), ((heavy patina)), "
+                "((authentic vintage photograph damage:1.3))"
             )
 
         return components

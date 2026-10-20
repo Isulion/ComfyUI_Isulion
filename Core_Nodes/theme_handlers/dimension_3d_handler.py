@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("dimension_3d")
 class Dimension3DThemeHandler(BaseThemeHandler):
     """Handler for 3D dimension-themed prompt generation."""
-    
+    DISPLAY_NAME = "💠 Dimension 3D"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,

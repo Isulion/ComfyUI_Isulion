@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("bioluminescent_jelly")
 class BioluminescentJellyThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "🪼 Bioluminescent Jelly"
     def generate(self, custom_subject="", custom_location="",
                  include_environment=True, include_style=True, include_effects=True) -> Dict[str, str]:
         components = {}

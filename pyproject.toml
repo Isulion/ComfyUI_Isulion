@@ -1,7 +1,7 @@
 [project]
 name = "comfyui_isulion"
 description = "ComfyUI Nodes that generate prompts and many more"
-version = "6.0.1"
+version = "6.1.0"
 license = "file: LICENSE"
 
 [project.urls]
@@ -12,3 +12,15 @@ Repository = "https://github.com/Isulion/ComfyUI_Isulion"
 PublisherId = "isulion"
 DisplayName = "ComfyUI_Isulion"
 Icon = ""
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+exclude = ["Core_Nodes/qrcodegen.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+# E501: legacy codebase predates the 120-col rule and no formatter is
+# adopted yet; long prompt/log strings are pervasive. Revisit if a
+# formatter (ruff format/black) is ever introduced.
+ignore = ["E501"]

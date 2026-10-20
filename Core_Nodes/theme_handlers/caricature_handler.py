@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("caricature")
 class CaricatureThemeHandler(BaseThemeHandler):
     """Handler for caricature-themed prompt generation."""
-    
+    DISPLAY_NAME = "😄 Caricature"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class CaricatureThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate caricature-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         expression = self._get_random_choice("caricature.expressions")
         pose = self._get_random_choice("caricature.poses")
@@ -34,7 +35,7 @@ class CaricatureThemeHandler(BaseThemeHandler):
                 f"((comical proportions)), ((expressive features)), "
                 f"((cartoon style))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -50,7 +51,7 @@ class CaricatureThemeHandler(BaseThemeHandler):
                     f"((humorous {props})), "
                     f"((playful atmosphere)), ((comic scene))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("caricature.styles")
@@ -61,7 +62,7 @@ class CaricatureThemeHandler(BaseThemeHandler):
                 f"((exaggerated art)), ((comic artistry)), "
                 f"((professional caricature))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("caricature.effects")
@@ -71,5 +72,5 @@ class CaricatureThemeHandler(BaseThemeHandler):
                 f"((exaggerated {detail})), "
                 f"((comic charm)), ((playful energy))"
             )
-        
+
         return components

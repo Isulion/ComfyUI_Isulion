@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("logo")
 class LogoThemeHandler(BaseThemeHandler):
     """Handler for logo-themed prompt generation."""
-    
+    DISPLAY_NAME = "🎯 Logo"
+
     # Default fallback values for various style elements
     _3D_STYLE_FALLBACKS = ["metallic", "glossy", "matte", "crystal", "glass", "chrome"]
     _3D_EFFECTS_FALLBACKS = ["reflection", "metallic sheen", "glass refraction", "ambient occlusion"]
@@ -15,7 +16,7 @@ class LogoThemeHandler(BaseThemeHandler):
         "geometric character", "playful mascot", "simple character",
         "minimalist mascot", "modern character", "unique mascot"
     ]
-    
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -23,68 +24,68 @@ class LogoThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate logo-themed components."""
         components = {}
-        
+
         # Determine logo style approach with adjusted weights
         style_approach = self.rng.choices(
             ["classic", "3D", "character", "artistic"],
             weights=[0.6, 0.2, 0.05, 0.15]
         )[0]
-        
+
         # Use custom subject if provided
         logo_text = custom_subject.strip() if custom_subject else "ISULION"
-        
+
         if style_approach == "classic":
             style = self._get_random_choice("logo.styles")
             typography = self._get_random_choice("logo.typography")
             element = self._get_random_choice("logo.elements")
             color_scheme = self._get_random_choice("logo.color_schemes")
-            
+
             components["subject"] = (
                 f"((professional {style} logo design)) with the text \"{logo_text}\", "
                 f"((using {typography} typography)), ((perfect letter spacing)), "
                 f"((masterful font design)), ((vector quality))"
             )
-            
+
         elif style_approach == "3D":
             # Try to get 3D style from config, fallback to default if not available
             try:
                 style_3d = self._get_random_choice("logo.3d_styles")
             except Exception:
                 style_3d = self.rng.choice(self._3D_STYLE_FALLBACKS)
-            
+
             components["subject"] = (
                 f"((highly detailed {style_3d} 3D typography)) of the text \"{logo_text}\", "
                 f"((volumetric letters)), ((dimensional depth)), "
                 f"((perfect 3D modeling)), ((ultra-detailed materials))"
             )
-            
+
         elif style_approach == "character":
             character = self.rng.choice(self._MASCOT_OPTIONS)
             decorative = self._get_random_choice("logo.elements")
-            
+
             components["subject"] = (
                 f"((adorable {character} mascot logo)) with the text \"{logo_text}\", "
                 f"((professional {character} logo)) with the text \"{logo_text}\", "
                 f"((cute character design)), ((playful typography)), "
                 f"((charming illustration)), ((logo style))"
             )
-            
+
         else:  # artistic
             theme = self._get_random_choice("logo.styles")
             decorative = self._get_random_choice("logo.elements")
-            
+
             components["subject"] = (
                 f"((creative {theme} logo artwork)) with the text \"{logo_text}\", "
                 f"((artistic typography)), ((illustrated elements)), "
                 f"((unique design)), ((hand-crafted style))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if style_approach == "3D":
                 components["environment"] = (
-                    f"with ((perfect lighting setup)), ((studio environment)), "
-                    f"((professional composition)), ((clean background))"
+                    "with ((perfect lighting setup)), ((studio environment)), "
+                    "((professional composition)), ((clean background))"
                 )
             elif style_approach == "character":
                 decorative = self._get_random_choice("logo.elements")
@@ -98,22 +99,22 @@ class LogoThemeHandler(BaseThemeHandler):
                     f"with ((clean {element})), ((perfect composition)), "
                     f"((balanced negative space)), ((professional layout))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             if style_approach == "3D":
                 components["style"] = (
-                    f"((premium 3D rendering)), ((perfect materials)), "
-                    f"((professional lighting)), ((high-end finish)), "
-                    f"((commercial quality)), ((volumetric effects)), "
-                    f"((brand identity)), 8k resolution"
+                    "((premium 3D rendering)), ((perfect materials)), "
+                    "((professional lighting)), ((high-end finish)), "
+                    "((commercial quality)), ((volumetric effects)), "
+                    "((brand identity)), 8k resolution"
                 )
             elif style_approach == "character":
                 components["style"] = (
-                    f"((kawaii aesthetic)), ((cute color palette)), "
-                    f"((playful design)), ((perfect proportions)), "
-                    f"((charming style)), ((mascot branding)), "
-                    f"((brand identity)), 8k resolution"
+                    "((kawaii aesthetic)), ((cute color palette)), "
+                    "((playful design)), ((perfect proportions)), "
+                    "((charming style)), ((mascot branding)), "
+                    "((brand identity)), 8k resolution"
                 )
             else:
                 color_scheme = self._get_random_choice("logo.color_schemes")
@@ -123,7 +124,7 @@ class LogoThemeHandler(BaseThemeHandler):
                     f"((commercial quality)), ((scalable graphics)), "
                     f"((brand identity)), 8k resolution"
                 )
-        
+
         # Generate effects if requested
         if include_effects:
             if style_approach == "3D":
@@ -131,7 +132,7 @@ class LogoThemeHandler(BaseThemeHandler):
                     effect = self._get_random_choice("logo.3d_effects")
                 except Exception:
                     effect = self.rng.choice(self._3D_EFFECTS_FALLBACKS)
-                    
+
                 components["effects"] = (
                     f"with (({effect})), ((perfect shadows)), "
                     f"((realistic materials)), ((professional rendering)), "
@@ -142,7 +143,7 @@ class LogoThemeHandler(BaseThemeHandler):
                     effect = self._get_random_choice("logo.character_effects")
                 except Exception:
                     effect = self.rng.choice(self._CHARACTER_EFFECTS_FALLBACKS)
-                    
+
                 components["effects"] = (
                     f"with (({effect})), ((sweet details)), "
                     f"((playful elements)), ((charming finish)), "
@@ -155,5 +156,5 @@ class LogoThemeHandler(BaseThemeHandler):
                     f"((perfect symmetry)), ((professional finish)), "
                     f"((brand consistency)), ((timeless design))"
                 )
-        
+
         return components

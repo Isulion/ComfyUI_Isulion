@@ -1,11 +1,14 @@
-import random
+import json
 import os
+import random
 from functools import lru_cache
 from typing import Dict, List, Tuple, Optional
 
+# Decorator-based theme registry: every handler module registers itself at import.
+from .theme_handlers.registry import THEME_HANDLERS
+
 import logging
 logger = logging.getLogger(__name__)
-import json
 
 # Config imports - Reverting to the original import that you said was working
 # This suggests that ComfyUI's loading context makes '.configs' resolve correctly.
@@ -63,10 +66,6 @@ except ImportError as e:
             return {"subject": "Error: Dummy handler used", "environment": "", "style": "", "effects": ""}
 
 
-# Decorator-based theme registry: every handler module registers itself at import.
-from .theme_handlers.registry import THEME_HANDLERS
-
-
 class ThemeRegistry:
     """Registry for managing theme handlers and their mappings."""
 
@@ -100,118 +99,17 @@ class ThemeRegistry:
 
     def _init_mappings(self):
         self._debug_print("[DEBUG] ThemeRegistry._init_mappings called")
+        # The "random" pseudo-theme has no handler module; everything else is
+        # derived from each handler's self-describing DISPLAY_NAME attribute.
         all_emoji_mappings = {
             "🎲 Dynamic Random": "random",
-            "🎨 Abstract": "abstract",
-            "📺 Animation Cartoon": "animation_cartoon",
-            "🎌 Anime": "anime",
-            "🏛️ Architectural": "architectural",
-            "🖼️ Binet Surreal": "binet_surreal",
-            "🧬 Bio-Organic Technology": "bio_organic_tech",
-            "😄 Caricature": "caricature",
-            "👤 Character Designer": "character_designer",
-            "🦄 Chimera Animals": "chimera_animals",
-            "🐰 Chimera Cute Animals": "chimera_cute_animals",
-            "🏮 Chinese New Year": "chinese_new_year",
-            "🎄 Christmas": "christmas",
-            "🎬 Cinema Studio": "cinema_studio",
-            "🏺 Clay Art": "clay_art",
-            "📚 Comic Book": "comic_book",
-            "🎨 Concept Art": "concept_art",
-            "🖍️ Crayon Art": "crayon_art",
-            "💎 Crystalpunk": "crystalpunk",
-            "🍳 Culinary/Food": "culinary_food",
-            "👗 Curvy Fashion": "curvy_fashion",
-            "🌆 Cyberpunk": "cyberpunk",
-            "👹 Dia de los Muertos": "dia_de_los_muertos",
-            "🖼️ Digital Art": "digital_art",
-            "💠 Dimension 3D": "dimension_3d",
-            "🎡 Disney": "disney",
-            "🎬 Dreamworks": "dreamworks",
-            "🐰 Easter": "easter",
-            "✨ Enchanted Fantasy": "enchanted_fantasy",
-            "📸 Essential Realistic": "essential_realistic",
-            "🕰️ Essential Vintage": "essential_vintage",
-            "✨ Ethereal Dreams": "ethereal_dreams",
-            "🔬 Experimental Art": "experimental_art",
-            "⚔️ Fantasy": "fantasy",
-            "🧺 50s Commercial": "fifties_commercial",
-            "⚔️ Futuristic Battlefield": "futuristic_battlefield",
-            "🌆 Futuristic City": "futuristic_city",
-            "🌆 Futuristic City Metropolis": "futuristic_city_metropolis",
-            "🚀 Futuristic Sci-Fi": "futuristic_scifi",
-            "🍃 Ghibli": "ghibli",
-            "🎃 Halloween": "halloween",
-            "👻 Halloween Ethereal": "halloween_ethereal",
-            "🏛️ Historical Monuments": "historical_monuments",
-            "👻 Horror": "horror",
-            "🎨 Impressionist": "impressionist",
-            "📱 Instagram": "instagram",
-            "📱 Instagram Lifestyle": "instagram_lifestyle",
-            "🏠 Interior Spaces": "interior_spaces",
-            "🎯 Logo": "logo",
-            "📺 Manga Panel": "manga_panel",
-            "🦸 Marvel": "marvel",
-            "⚔️ Medieval": "medieval",
-            "🔬 Microscopic": "microscopic",
-            "⬜ Minimalist": "minimalist",
-            "⚔️ Miura Dark Fantasy": "miura",
-            "🌿 Nature": "nature",
-            "🎆 New Year's Eve": "new_years_eve",
-            "🎬 Nolan Epic": "nolan",
-            "🕴️ Peaky Blinders": "peaky_blinders",
-            "💫 Pixar": "pixar",
-            "🌪️ Post Apocalyptic": "post_apocalyptic",
-            "🧩 Puzzle Dimension": "puzzle_dimension",
-            "🚀 Sci-Fi": "scifi",
-            "📚 School Manga": "school_manga",
-            "📱 Selfie": "selfie",
-            "👧 Skinny Blonde Girl": "skinny_blonde_girl",
-            "🏛️ Spartan 300": "Spartan_300",
-            "💗 Spectral Mist": "spectral_mist",
-            "🍀 St. Patrick's Day": "st_patricks_day",
-            "🚀 Star Wars": "star_wars",
-            "⚙️ Steampunk": "steampunk",
-            "🎭 Stop Motion": "stopmotion",
-            "🥙 Street Food Kebab": "street_food_kebab",
-            "🦃 Thanksgiving": "thanksgiving",
-            "🌊 Underwater Civilization": "underwater_civilization",
-            "🏙️ Urban Tag": "urban_tag",
-            "💘 Valentine's Day": "valentines_day",
-            "🏠 Village World": "village_world",
-            "📸 Vintage 1800s Photography": "vintage_1800s_photography",
-            "👴 Vintage Anthropomorphic": "vintage_anthropomorphic",
-            "🎨 Watercolor": "watercolor",
-            "🧸 Starter Pack": "starter_pack",
-            "🚀 Space Colony": "space_colony",
-            "🏝️ Tropical Paradise": "tropical_paradise",
-            "🧊 Glassmorphism": "glassmorphism",
-            "🪩 Y2K Retro-Futurism": "y2k",
-            "🎬 Analog 35mm Film": "analog_film",
-            "🌌 Astrophotography": "astrophotography",
-            "🩻 X-Ray Anatomy": "xray_anatomy",
-            "🌧️ Cinematic Neon Rain": "cinematic_neon_rain",
-            "✂️ Papercraft": "papercraft",
-            "🕹️ Voxel Low-Poly": "voxel",
-            "👾 16-Bit Pixel Art": "pixel_art",
-            "🌿 Overgrown Ruins": "overgrown_ruins",
-            "🐱 Giant Cat-zilla": "giant_cat_zilla",
-            "🍕 Food Apocalypse": "food_apocalypse",
-            "🪩 Disco Medieval": "disco_medieval",
-            "🦆 Rubber Duck Supremacy": "rubber_duck",
-            "🎈 Inflatable World": "inflatable_world",
-            "🪼 Bioluminescent Jelly": "bioluminescent_jelly",
-            "🧶 Knitted World": "knitted_world",
-            "🧊 Liquid Chrome": "liquid_chrome",
-            "🛋️ IKEA Backrooms": "ikea_backrooms",
-            "🌌 Glitch Core": "glitch_core",
-            "🍄 Psychedelic Cyber Fungus": "psychedelic_cyber_fungus",
-            "📦 Unboxing Surrealism": "unboxing_surrealism",
-            "📹 VHS Found Footage": "vhs_found_footage",
-            "👟 Cyber Hypebeast": "cyber_hypebeast",
-            "🛒 Retro Vaporwave Mall": "retro_vaporwave_mall",
-            "📱 Fisheye Action Cam": "fisheye_action_cam"
         }
+        for internal_name, handler_class in THEME_HANDLERS.items():
+            display = getattr(handler_class, "DISPLAY_NAME", "")
+            if not display:
+                logger.warning("Handler '%s' has no DISPLAY_NAME; falling back to internal name.", internal_name)
+                display = internal_name
+            all_emoji_mappings[display] = internal_name
 
         available_internal_names = set(self.handlers.keys()).union({"random"})
 
@@ -311,7 +209,6 @@ class IsulionMegaPromptV3:
 
     @classmethod
     def INPUT_TYPES(cls) -> Dict:
-        debug_mode = False
         try:
             available_themes_list = available_themes()
         except Exception as e:

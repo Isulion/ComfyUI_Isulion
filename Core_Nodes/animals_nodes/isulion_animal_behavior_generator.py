@@ -1,7 +1,8 @@
-import random
+from ..base_selector import SimpleSelectorNode
 
-class Isulion_AnimalBehaviorGenerator:
-    behaviors = [
+
+class Isulion_AnimalBehaviorGenerator(SimpleSelectorNode):
+    POOL = [
         'Hunting', 'Sleeping', 'Playing', 'Flying', 'Swimming', 'Running',
         'Walking', 'Eating', 'Drinking', 'Grooming', 'Nesting', 'Perching',
         'Climbing', 'Jumping', 'Diving', 'Stalking', 'Resting', 'Foraging',
@@ -11,14 +12,15 @@ class Isulion_AnimalBehaviorGenerator:
         'Exploring', 'Hiding', 'Camouflaging', 'Gathering', 'Building',
         'Communicating'
     ]
-  
+    MAX_SEED = 999999999
+
     @classmethod
     def INPUT_TYPES(cls):
         return {
             "required": {
                 "randomize": (["enable", "disable"],),
                 "seed": ("INT", {"default": 0, "min": 0, "max": 999999999}),
-                "behavior": (cls.behaviors,)
+                "behavior": (cls.POOL,)
             }
         }
 
@@ -28,13 +30,9 @@ class Isulion_AnimalBehaviorGenerator:
     CATEGORY = "Art/Styles"
 
     def generate_behavior(self, randomize: str, seed: int, behavior: str) -> tuple:
-        if randomize == "enable":
-            if seed is not None and seed > 0:
-                random.seed(seed)
-            else:
-                seed = random.randint(0, 999999999)
-                random.seed(seed)
+        rng, seed = self._make_rng(randomize, seed)
 
-            behavior = random.choice(self.behaviors)
+        if randomize == "enable":
+            behavior = rng.choice(self._pool_for())
 
         return (f"{behavior}", seed)

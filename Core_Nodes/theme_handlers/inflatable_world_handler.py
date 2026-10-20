@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("inflatable_world")
 class InflatableWorldThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "🎈 Inflatable World"
     def generate(self, custom_subject="", custom_location="",
                  include_environment=True, include_style=True, include_effects=True) -> Dict[str, str]:
         components = {}

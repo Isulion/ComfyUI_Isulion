@@ -1,7 +1,8 @@
-import random
+from ..base_selector import SimpleSelectorNode
 
-class Isulion_TimeOfDayGenerator:
-    times = [
+
+class Isulion_TimeOfDayGenerator(SimpleSelectorNode):
+    POOL = [
         'Dawn', 'Sunrise', 'Early Morning', 'Morning', 'Late Morning', 'Noon',
         'Early Afternoon', 'Afternoon', 'Late Afternoon', 'Golden Hour',
         'Sunset', 'Dusk', 'Twilight', 'Evening', 'Night', 'Midnight',
@@ -9,14 +10,15 @@ class Isulion_TimeOfDayGenerator:
         'Astronomical Twilight', 'Nautical Twilight', 'Witching Hour',
         'Pre-dawn', 'Post-sunset'
     ]
-  
+    MAX_SEED = 999999999
+
     @classmethod
     def INPUT_TYPES(cls):
         return {
             "required": {
                 "randomize": (["enable", "disable"],),
                 "seed": ("INT", {"default": 0, "min": 0, "max": 999999999}),
-                "time": (cls.times,)
+                "time": (cls.POOL,)
             }
         }
 
@@ -26,13 +28,9 @@ class Isulion_TimeOfDayGenerator:
     CATEGORY = "Art/Styles"
 
     def generate_time(self, randomize: str, seed: int, time: str) -> tuple:
-        if randomize == "enable":
-            if seed is not None and seed > 0:
-                random.seed(seed)
-            else:
-                seed = random.randint(0, 999999999)
-                random.seed(seed)
+        rng, seed = self._make_rng(randomize, seed)
 
-            time = random.choice(self.times)
+        if randomize == "enable":
+            time = rng.choice(self._pool_for())
 
         return (f"{time}", seed)

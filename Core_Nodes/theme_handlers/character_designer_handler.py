@@ -1,10 +1,11 @@
-from typing import Dict, List, Optional
+from typing import Dict, List
 from .base_handler import BaseThemeHandler
 from .registry import register_theme
 
 @register_theme("character_designer")
 class CharacterDesignerThemeHandler(BaseThemeHandler):
     """Handler for creating detailed character designs with customizable attributes."""
+    DISPLAY_NAME = "👤 Character Designer"
 
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
@@ -12,34 +13,34 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
                 include_style: bool = True,
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate a detailed character design with various customizable elements."""
-        
+
         self.debug_print("Generating new prompt...")
         components = {}
-        
+
         # Generate character base
         if custom_subject:
             base_character = custom_subject
         else:
             base_character = self.rng.choice(self.get_character_types())
-        
+
         self.debug_print(f"Selected base character: {base_character}")
-        
+
         # Add profession and role
         profession = self.rng.choice(self.get_professions())
         role_description = self.rng.choice(self.get_role_descriptions())
-        
+
         self.debug_print(f"Selected profession: {profession}")
         self.debug_print(f"Selected role description: {role_description}")
-        
+
         # Generate clothing and accessories
         era = self.rng.choice(self.get_historical_periods())
         outfit = self.rng.choice(self.get_outfits(era))
         accessories = self.rng.choice(self.get_accessories(era))
-        
+
         self.debug_print(f"Selected era: {era}")
         self.debug_print(f"Selected outfit: {outfit}")
         self.debug_print(f"Selected accessories: {accessories}")
-        
+
         # Combine character elements
         components["subject"] = (
             f"((masterful portrait)) of {base_character} as a {profession}, {role_description}, "
@@ -47,44 +48,44 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
             f"((perfect character design)), ((expressive features)), "
             f"((professional quality)), ((character excellence))"
         )
-        
+
         # Generate environment based on profession and era
         if include_environment:
             if custom_location:
                 setting = custom_location
             else:
                 setting = self.rng.choice(self.get_settings(era, profession))
-            
+
             self.debug_print(f"Selected setting: {setting}")
-            
+
             time_of_day = self.rng.choice(self.get_times_of_day())
             atmosphere = self.rng.choice(self.get_atmospheres())
-            
+
             self.debug_print(f"Selected time of day: {time_of_day}")
             self.debug_print(f"Selected atmosphere: {atmosphere}")
-            
+
             components["environment"] = (
                 f"in ((detailed {setting})) during {time_of_day}, "
                 f"((with {atmosphere} atmosphere)), ((period-accurate details)), "
                 f"((environmental storytelling)), ((perfect composition))"
             )
-        
+
         # Add style elements
         if include_style:
             art_style = self.rng.choice(self.get_art_styles())
             lighting = self.rng.choice(self.get_lighting_styles())
             color_palette = self.rng.choice(self.get_color_palettes(era))
-            
+
             self.debug_print(f"Selected art style: {art_style}")
             self.debug_print(f"Selected lighting: {lighting}")
             self.debug_print(f"Selected color palette: {color_palette}")
-            
+
             components["style"] = (
                 f"((masterful {art_style})), ((perfect {lighting})), "
                 f"((beautiful {color_palette} color palette)), "
                 f"((high detail)), ((professional quality))"
             )
-        
+
         # Add special effects
         if include_effects:
             effect = self.rng.choice(self.get_special_effects())
@@ -92,7 +93,7 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
                 f"((dramatic {effect})), ((character focus)), "
                 f"((subtle details)), ((perfect rendering))"
             )
-        
+
         # Add negative prompt
         components["negative"] = ", ".join([
             "deformed", "distorted", "unrealistic anatomy",
@@ -100,7 +101,7 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
             "amateur", "poorly drawn", "bad art",
             "anachronistic elements"
         ])
-        
+
         return components
 
     def get_character_types(self) -> List[str]:
@@ -461,7 +462,7 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
             "renewable energy facility", "digital art gallery",
             "modern medical center", "space research facility"
         ]
-        
+
         future_settings = [
             "vertical city", "space colony",
             "underwater metropolis", "floating city",
@@ -472,7 +473,7 @@ class CharacterDesignerThemeHandler(BaseThemeHandler):
             "neo-tokyo streets", "mars settlement",
             "artificial habitat", "digital dimension"
         ]
-        
+
         if era in ["Contemporary", "2020s", "Near Future"]:
             return modern_settings
         elif era in ["Cyberpunk", "Solarpunk", "Post-Cyberpunk"]:

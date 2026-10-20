@@ -1,7 +1,8 @@
-import random
+from ..base_selector import SimpleSelectorNode
 
-class IsulionFantasyRaceGenerator:
-    races = [
+
+class IsulionFantasyRaceGenerator(SimpleSelectorNode):
+    POOL = [
         "elf", "dwarf", "orc", "halfling", "gnome", "fairy",
         "dragon-born", "tiefling", "angel", "demon", "merfolk",
         "centaur", "satyr", "nymph", "giant", "goblin",
@@ -19,26 +20,22 @@ class IsulionFantasyRaceGenerator:
         return {
             "required": {
                 "randomize": (["enable", "disable"],),
-                "race": (s.races,),
+                "race": (s.POOL,),
             },
             "optional": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
             }
         }
-    
+
     RETURN_TYPES = ("STRING", "INT",)
     RETURN_NAMES = ("race", "seed",)
     FUNCTION = "generate"
     CATEGORY = "Isulion/Character"
 
     def generate(self, randomize, race, seed=0):
+        rng, seed = self._make_rng(randomize, seed)
+
         if randomize == "enable":
-            if seed is not None and seed > 0:
-                random.seed(seed)
-            else:
-                seed = random.randint(0, 0xffffffffffffffff)
-                random.seed(seed)
-            
-            race = random.choice(self.races)
-        
-        return (race, seed) 
+            race = rng.choice(self._pool_for())
+
+        return (race, seed)

@@ -1,11 +1,14 @@
 import logging
 from abc import ABC, abstractmethod
-from typing import Dict, Optional, List
+from typing import Dict, List
 
 logger = logging.getLogger(__name__)
 
 class BaseThemeHandler(ABC):
     """Base class for all theme handlers."""
+
+    # Human-facing dropdown label; every concrete handler MUST override this.
+    DISPLAY_NAME: str = ""
 
     def __init__(self, config_manager):
         """Initialize the theme handler with configuration manager."""
@@ -53,7 +56,7 @@ class BaseThemeHandler(ABC):
                 result = defaults.get(last_part, "element")
                 self.debug_print(f"Selected {config_key}: {result} (from 0 options, using default)")
                 return result
-            
+
             result = self.rng.choice(choices)
             self.debug_print(f"Selected {config_key}: {result} (from {len(choices)} options)")
             return result
@@ -79,7 +82,7 @@ class BaseThemeHandler(ABC):
         except Exception as e:
             self.debug_print(f"Warning: Could not get random choices for {config_key}: {str(e)}")
             return ["default"] * count
-        
+
         if not choices:
             # Default values for different types of configurations
             defaults = {
@@ -103,11 +106,11 @@ class BaseThemeHandler(ABC):
             result = ["default"] * count
             self.debug_print(f"Selected {config_key}: {result} (from 0 options, using default)")
             return result
-        
+
         # If we don't have enough choices, repeat them to meet the count
         if len(choices) < count:
             choices = choices * (count // len(choices) + 1)
-        
+
         result = self.rng.sample(choices, count)
         self.debug_print(f"Selected {config_key}: {result} (from {len(choices)} options)")
         return result
@@ -119,14 +122,14 @@ class BaseThemeHandler(ABC):
                 include_style: bool = True,
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate theme-specific components.
-        
+
         Args:
             custom_subject (str): Custom subject override
             custom_location (str): Custom location override
             include_environment (str): Whether to include environment
             include_style (str): Whether to include style
             include_effects (str): Whether to include effects
-            
+
         Returns:
             Dict[str, str]: Dictionary containing generated components
         """

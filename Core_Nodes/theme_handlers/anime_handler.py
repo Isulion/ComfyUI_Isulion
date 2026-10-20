@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("anime")
 class AnimeThemeHandler(BaseThemeHandler):
     """Handler for anime-themed prompt generation."""
-    
+    DISPLAY_NAME = "🎌 Anime"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,

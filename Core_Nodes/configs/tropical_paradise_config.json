@@ -1,34 +1,4 @@
 {
-  "space_colony": {
-    "main_elements": [
-      "dome habitat",
-      "hydroponic farm",
-      "command center",
-      "solar array",
-      "terraforming module"
-    ],
-    "settings": [
-      "lunar surface",
-      "Martian desert",
-      "asteroid belt",
-      "orbiting space station",
-      "icy moon"
-    ],
-    "styles": [
-      "sleek futuristic",
-      "brutalist architecture",
-      "biophilic design",
-      "retro sci-fi",
-      "high-tech minimalism"
-    ],
-    "effects": [
-      "glowing neon lights",
-      "dust storms",
-      "starfield backdrop",
-      "artificial gravity",
-      "transparent domes"
-    ]
-  },
   "tropical_paradise": {
     "main_elements": ["beach", "lagoon", "island", "waterfall", "coral reef"],
     "flora": ["orchids", "hibiscus", "plumeria", "bamboo", "palm trees", "banana trees"],

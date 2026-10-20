@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("chimera_animals")
 class ChimeraAnimalsThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "🦄 Chimera Animals"
     def _get_random_animal_from_category(self, category: str) -> str:
         """Get a random animal from a specific category."""
         animals = self.config.get_config(f"chimera_animals.categories.{category}")
@@ -22,7 +23,7 @@ class ChimeraAnimalsThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate chimera animals-themed components."""
         components = {}
-        
+
         # Initialize variables for head and body selection
         head = None
         body = None
@@ -44,7 +45,7 @@ class ChimeraAnimalsThemeHandler(BaseThemeHandler):
             else:
                 head_category = self.rng.choice(all_categories)
                 body_category = self._get_different_category(head_category)
-                
+
                 # Get random animals from each category
                 head = self._get_random_animal_from_category(head_category)
                 body = self._get_random_animal_from_category(body_category)
@@ -83,18 +84,18 @@ class ChimeraAnimalsThemeHandler(BaseThemeHandler):
         # Generate style if requested
         if include_style:
             components["style"] = (
-                f"((wildlife photography)), ((ultra-detailed)), "
-                f"((perfect exposure)), ((dramatic composition)), "
-                f"((photorealistic quality)), ((natural detail)), "
-                f"((masterful technique))"
+                "((wildlife photography)), ((ultra-detailed)), "
+                "((perfect exposure)), ((dramatic composition)), "
+                "((photorealistic quality)), ((natural detail)), "
+                "((masterful technique))"
             )
 
         # Generate effects if requested
         if include_effects:
             components["effects"] = (
-                f"with ((natural lighting)), ((volumetric atmosphere)), "
-                f"((perfect shadows)), ((depth of field)), "
-                f"((cinematic mood)), ((photographic excellence))"
+                "with ((natural lighting)), ((volumetric atmosphere)), "
+                "((perfect shadows)), ((depth of field)), "
+                "((cinematic mood)), ((photographic excellence))"
             )
 
         return components

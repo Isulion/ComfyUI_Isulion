@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("culinary_food")
 class CulinaryFoodThemeHandler(BaseThemeHandler):
     """Handler for culinary/food-themed prompt generation."""
-    
+    DISPLAY_NAME = "🍳 Culinary/Food"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class CulinaryFoodThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate culinary/food-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         feature = self._get_random_choice("culinary_food.features")
 
@@ -34,7 +35,7 @@ class CulinaryFoodThemeHandler(BaseThemeHandler):
                 f"((featuring {feature})), ((food photography)), "
                 f"((gourmet presentation)), ((professional food styling))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -51,7 +52,7 @@ class CulinaryFoodThemeHandler(BaseThemeHandler):
                     f"((professional staging)), ((culinary background)), "
                     f"((gourmet environment))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("culinary_food.styles")
@@ -62,7 +63,7 @@ class CulinaryFoodThemeHandler(BaseThemeHandler):
                 f"((culinary artistry)), ((food styling)), "
                 f"((professional presentation))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("culinary_food.effects")
@@ -72,5 +73,5 @@ class CulinaryFoodThemeHandler(BaseThemeHandler):
                 f"((food {lighting} lighting)), "
                 f"((gourmet quality)), ((professional finish))"
             )
-        
+
         return components

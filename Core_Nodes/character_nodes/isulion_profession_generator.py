@@ -1,7 +1,8 @@
-import random
+from ..base_selector import SimpleSelectorNode
 
-class IsulionProfessionGenerator:
-    professions = [
+
+class IsulionProfessionGenerator(SimpleSelectorNode):
+    POOL = [
         "chef", "wizard", "warrior", "merchant", "scholar", "artist",
         "blacksmith", "alchemist", "hunter", "healer", "guard", "noble",
         "farmer", "sailor", "explorer", "musician", "dancer", "priest",
@@ -17,26 +18,22 @@ class IsulionProfessionGenerator:
         return {
             "required": {
                 "randomize": (["enable", "disable"],),
-                "profession": (s.professions,),
+                "profession": (s.POOL,),
             },
             "optional": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
             }
         }
-    
+
     RETURN_TYPES = ("STRING", "INT",)
     RETURN_NAMES = ("profession", "seed",)
     FUNCTION = "generate"
     CATEGORY = "Isulion/Character"
 
     def generate(self, randomize, profession, seed=0):
+        rng, seed = self._make_rng(randomize, seed)
+
         if randomize == "enable":
-            if seed is not None and seed > 0:
-                random.seed(seed)
-            else:
-                seed = random.randint(0, 0xffffffffffffffff)
-                random.seed(seed)
-            
-            profession = random.choice(self.professions)
-        
-        return (profession, seed) 
+            profession = rng.choice(self._pool_for())
+
+        return (profession, seed)

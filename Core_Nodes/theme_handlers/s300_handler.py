@@ -5,6 +5,7 @@ from .registry import register_theme
 @register_theme("Spartan_300")
 class s300ThemeHandler(BaseThemeHandler):
     """ Handler for the s300 cinematic dark fantasy theme """
+    DISPLAY_NAME = "🏛️ Spartan 300"
 
     def _get_random_choice(self, key):
         FALLBACKS = {
@@ -34,10 +35,10 @@ class s300ThemeHandler(BaseThemeHandler):
         except Exception:
             return fallback
 
-    def generate(self, 
-                 custom_subject: str = "", 
-                 custom_location: str = "", 
-                 include_environment: bool = True, 
+    def generate(self,
+                 custom_subject: str = "",
+                 custom_location: str = "",
+                 include_environment: bool = True,
                  include_style: bool = True,
                  include_effects: bool = True) -> Dict[str, str]:
         components = {}

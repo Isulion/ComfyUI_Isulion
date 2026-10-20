@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("nature")
 class NatureThemeHandler(BaseThemeHandler):
     """Handler for nature-themed prompt generation."""
-    
+    DISPLAY_NAME = "🌿 Nature"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class NatureThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate nature-themed components with enhanced realism and detail."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         atmosphere = self._get_random_choice("nature.atmospheres")
         season = self._get_random_choice("nature.seasons")
@@ -31,7 +32,9 @@ class NatureThemeHandler(BaseThemeHandler):
             )
         else:
             landscape = self._get_random_choice("nature.landscapes")
-            water = self._get_random_choice("nature.water_features")
+            # Draw consumes the shared RNG stream; keep the call (and its
+            # position) so seeded outputs stay reproducible.
+            water = self._get_random_choice("nature.water_features")  # noqa: F841
             flora = self._get_random_choice("nature.flora")
             season = self._get_random_choice("nature.seasons")
             atmosphere = self._get_random_choice("nature.atmospheres")
@@ -42,7 +45,7 @@ class NatureThemeHandler(BaseThemeHandler):
                 f"((perfect composition)), ((pristine wilderness)), "
                 f"((professional landscape photography))"
             )
-        
+
         # Generate environment with natural settings
         if include_environment:
             if custom_location:
@@ -62,7 +65,7 @@ class NatureThemeHandler(BaseThemeHandler):
                     f"((environmental harmony)), ((pristine wilderness)), "
                     f"((raw natural beauty))"
                 )
-        
+
         # Generate style with nature photography techniques
         if include_style:
             style = self._get_random_choice("nature.styles")
@@ -75,7 +78,7 @@ class NatureThemeHandler(BaseThemeHandler):
                 f"((8k resolution)), ((professional landscape photography)), "
                 f"((award-winning landscape photograph)), ((National Geographic style))"
             )
-        
+
         # Generate effects with natural elements
         if include_effects:
             effect = self._get_random_choice("nature.effects")
@@ -86,5 +89,5 @@ class NatureThemeHandler(BaseThemeHandler):
                 f"((natural color grading)), ((pristine conditions)), "
                 f"((perfect exposure)), ((sharp details)), ((rich textures))"
             )
-        
+
         return components

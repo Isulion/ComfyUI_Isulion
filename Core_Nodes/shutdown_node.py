@@ -42,7 +42,7 @@ class ShutdownNode:
     CATEGORY = "utils"
     OUTPUT_NODE = True
 
-    def shutdown_computer(self, input, delay):
+    def shutdown_computer(self, any, delay):
         if not ISULION_ENABLE_SHUTDOWN:
             logger.info("IsulionShutdown: disabled (set ISULION_ENABLE_SHUTDOWN=1 to arm). Skipping shutdown.")
             return ()

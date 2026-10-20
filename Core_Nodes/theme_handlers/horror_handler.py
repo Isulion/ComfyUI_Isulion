@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("horror")
 class HorrorThemeHandler(BaseThemeHandler):
     """Handler for horror-themed prompt generation with enhanced atmospheric and psychological elements."""
-    
+    DISPLAY_NAME = "👻 Horror"
+
     def __init__(self, config):
         super().__init__(config)
         self.theme_config = config.get_config("horror")
@@ -17,7 +18,7 @@ class HorrorThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate sophisticated horror-themed components with psychological depth."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         state = self._get_random_choice("horror.states")
         pose = self._get_random_choice("horror.poses")
@@ -46,7 +47,7 @@ class HorrorThemeHandler(BaseThemeHandler):
                 f"((intricate macabre details)), ((unsettling anatomical features)), "
                 f"((masterful horror design)), ((visceral fear)), ((primal dread))"
             )
-        
+
         # Generate environment with enhanced atmospheric horror
         if include_environment:
             if custom_location:
@@ -70,7 +71,7 @@ class HorrorThemeHandler(BaseThemeHandler):
                     f"((haunting mood)), ((unsettling perspective)), "
                     f"((masterful environmental horror))"
                 )
-        
+
         # Generate style with enhanced horror aesthetics
         if include_style:
             style = self._get_random_choice("horror.styles")
@@ -86,7 +87,7 @@ class HorrorThemeHandler(BaseThemeHandler):
                 f"((psychological depth)), ((horror excellence)), "
                 f"8k resolution, perfect details"
             )
-        
+
         # Generate effects with enhanced horror elements
         if include_effects:
             effect = self._get_random_choice("horror.effects")
@@ -100,7 +101,7 @@ class HorrorThemeHandler(BaseThemeHandler):
                 f"((masterful horror atmosphere)), ((perfect dread)), "
                 f"((unsettling details)), ((horror excellence))"
             )
-        
+
         return components
 
     def get_negative_prompt(self):

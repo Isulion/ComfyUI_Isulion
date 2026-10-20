@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("curvy_fashion")
 class CurvyFashionThemeHandler(BaseThemeHandler):
     """Handler for curvy fashion-themed prompt generation."""
-    
+    DISPLAY_NAME = "👗 Curvy Fashion"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class CurvyFashionThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate curvy fashion-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         model = self._get_random_choice("curvy_fashion.models")
         outfit = self._get_random_choice("curvy_fashion.outfits")
@@ -33,7 +34,7 @@ class CurvyFashionThemeHandler(BaseThemeHandler):
                 f"((featuring {feature})), ((plus size model)), "
                 f"((body positive)), ((fashion photography))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -50,7 +51,7 @@ class CurvyFashionThemeHandler(BaseThemeHandler):
                     f"((professional setting)), ((fashion backdrop)), "
                     f"((studio environment))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("curvy_fashion.styles")
@@ -61,7 +62,7 @@ class CurvyFashionThemeHandler(BaseThemeHandler):
                 f"((fashion photography)), ((professional styling)), "
                 f"((body positive representation))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("curvy_fashion.effects")
@@ -71,5 +72,5 @@ class CurvyFashionThemeHandler(BaseThemeHandler):
                 f"((studio {lighting} lighting)), "
                 f"((professional finish)), ((fashion quality))"
             )
-        
+
         return components

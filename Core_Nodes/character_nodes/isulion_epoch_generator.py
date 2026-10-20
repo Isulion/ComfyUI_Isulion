@@ -1,8 +1,9 @@
-import random
+from ..base_selector import SimpleSelectorNode
 
-class IsulionEpochGenerator:
-    epochs = [
-        "Ancient Egypt", "Ancient Greece", "Roman Empire", "Middle Ages", 
+
+class IsulionEpochGenerator(SimpleSelectorNode):
+    POOL = [
+        "Ancient Egypt", "Ancient Greece", "Roman Empire", "Middle Ages",
         "Renaissance", "Industrial Revolution", "Victorian Era", "Roaring Twenties",
         "Modern Era", "Digital Age", "Bronze Age", "Iron Age", "Stone Age",
         "Byzantine Empire", "Ming Dynasty", "Edo Period", "Colonial Period",
@@ -19,26 +20,22 @@ class IsulionEpochGenerator:
         return {
             "required": {
                 "randomize": (["enable", "disable"],),
-                "epoch": (s.epochs,),
+                "epoch": (s.POOL,),
             },
             "optional": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
             }
         }
-    
+
     RETURN_TYPES = ("STRING", "INT",)
     RETURN_NAMES = ("epoch", "seed",)
     FUNCTION = "generate"
     CATEGORY = "Isulion/Character"
 
     def generate(self, randomize, epoch, seed=0):
+        rng, seed = self._make_rng(randomize, seed)
+
         if randomize == "enable":
-            if seed is not None and seed > 0:
-                random.seed(seed)
-            else:
-                seed = random.randint(0, 0xffffffffffffffff)
-                random.seed(seed)
-            
-            epoch = random.choice(self.epochs)
-        
+            epoch = rng.choice(self._pool_for())
+
         return (epoch, seed)

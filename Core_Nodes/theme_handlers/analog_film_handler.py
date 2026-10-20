@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("analog_film")
 class AnalogFilmThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "🎬 Analog 35mm Film"
     def generate(self, custom_subject: str = "",
                  custom_location: str = "",
                  include_environment: bool = True,

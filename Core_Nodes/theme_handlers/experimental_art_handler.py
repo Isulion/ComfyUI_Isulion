@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("experimental_art")
 class ExperimentalArtThemeHandler(BaseThemeHandler):
     """Handler for experimental art-themed prompt generation."""
-    
+    DISPLAY_NAME = "🔬 Experimental Art"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class ExperimentalArtThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate experimental art-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         concept = self._get_random_choice("experimental_art.concepts")
         technique = self._get_random_choice("experimental_art.techniques")
@@ -34,7 +35,7 @@ class ExperimentalArtThemeHandler(BaseThemeHandler):
                 f"((using {technique})), ((avant-garde)), "
                 f"((innovative)), ((unconventional approach))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -51,7 +52,7 @@ class ExperimentalArtThemeHandler(BaseThemeHandler):
                     f"((abstract environment)), ((avant-garde atmosphere)), "
                     f"((unconventional space))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("experimental_art.styles")
@@ -62,7 +63,7 @@ class ExperimentalArtThemeHandler(BaseThemeHandler):
                 f"((experimental aesthetic)), ((innovative artistry)), "
                 f"((avant-garde quality))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("experimental_art.effects")
@@ -72,5 +73,5 @@ class ExperimentalArtThemeHandler(BaseThemeHandler):
                 f"((innovative {texture} textures)), "
                 f"((avant-garde finish)), ((unconventional treatment))"
             )
-        
+
         return components

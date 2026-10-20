@@ -47,3 +47,4 @@ models/
 .tracking
 temp_img/
 *:Zone.Identifier
+Core_Nodes/user_data/

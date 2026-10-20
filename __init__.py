@@ -3,7 +3,7 @@ Isulion ComfyUI Custom Nodes
 A collection of powerful prompt generation nodes for ComfyUI
 """
 
-__version__ = "6.0.1"
+__version__ = "6.1.0"
 __author__ = "Isulion"
 __description__ = "Advanced prompt generation nodes for ComfyUI with multiple themes and styles"
 
@@ -13,11 +13,13 @@ from .Core_Nodes.mega_prompt_all_themes import IsulionMultiplePromptGenerator
 from .Core_Nodes.isucollage_node import IsuCollageNode
 from .Core_Nodes.load_images_node import IsulionLoadImagesNode
 from .Core_Nodes.shutdown_node import NODE_CLASS_MAPPINGS as ShutdownNode
-from .Core_Nodes.QrCode_Generator import NODE_CLASS_MAPPINGS as QRCodeNode
-from .Core_Nodes.Overlay_node import NODE_CLASS_MAPPINGS as OverlayQRCodeNode
-from .Core_Nodes.video_prompt_generator import NODE_CLASS_MAPPINGS as VIDEO_PROMPT_NODES
+from .Core_Nodes.QrCode_Generator import QRCodeNode
+from .Core_Nodes.Overlay_node import OverlayQRCodeNode
+from .Core_Nodes.isulion_censored_part import IsulionCensoredPart
+from .Core_Nodes.video_prompt_generator import IsulionVideoPromptGenerator
 from .Core_Nodes.display_image_from_url import DisplayImageFromURL
 from .Core_Nodes.CustomTextNode import CustomTextNode
+from .Core_Nodes.prompt_vault_node import IsulionPromptVaultSave, IsulionPromptVaultLoad
 
 # Import category-specific nodes
 from .Core_Nodes.animals_nodes.isulion_animal_generator import Isulion_AnimalRandom
@@ -52,10 +54,11 @@ from .Core_Nodes.civitai_nodes.civitai_API_node import IsulionCivitaiModelExplor
 
 # Node mappings
 NODE_CLASS_MAPPINGS = {
-    **VIDEO_PROMPT_NODES,
+    "IsulionVideoPromptGenerator": IsulionVideoPromptGenerator,
     **ShutdownNode,
-    **QRCodeNode,
-    **OverlayQRCodeNode,
+    "🧩 IsulionQRCode": QRCodeNode,
+    "⧉ IsulionOverlay": OverlayQRCodeNode,
+    "IsulionCensoredPart": IsulionCensoredPart,
     "IsulionAnimalRandom": Isulion_AnimalRandom,
     "IsulionCuteAnimalRandom": IsulionCuteAnimalRandom,
     "IsulionAnimalBehaviorGenerator": Isulion_AnimalBehaviorGenerator,
@@ -88,6 +91,8 @@ NODE_CLASS_MAPPINGS = {
     "IsulionEpochGenerator": IsulionEpochGenerator,
     "DisplayImageFromURL": DisplayImageFromURL,
     "CustomTextNode": CustomTextNode,
+    "IsulionPromptVaultSave": IsulionPromptVaultSave,
+    "IsulionPromptVaultLoad": IsulionPromptVaultLoad,
 }
 
 # Display name mappings
@@ -125,7 +130,10 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IsulionEpochGenerator": "⏳ Isulion Epoch Generator",
     "DisplayImageFromURL": "🖼️ Isulion Display Image From URL",
     "CustomTextNode": "📝 Custom Text Node",
+    "IsulionPromptVaultSave": "💾 Isulion Prompt Vault Save",
+    "IsulionPromptVaultLoad": "🗃️ Isulion Prompt Vault Load",
     "💤 IsulionShutdown": "💤 Isulion Shutdown",
     "🧩 IsulionQRCode": "🧩 Isulion QRCode Generator",
-    "⧉ IsulionOverlay": "⧉ IsulionOverlay"
+    "⧉ IsulionOverlay": "⧉ IsulionOverlay",
+    "IsulionCensoredPart": "🔒 Isulion Censored Part"
 }

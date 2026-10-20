@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("pixel_art")
 class PixelArtThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "👾 16-Bit Pixel Art"
     def generate(self, custom_subject: str = "",
                  custom_location: str = "",
                  include_environment: bool = True,

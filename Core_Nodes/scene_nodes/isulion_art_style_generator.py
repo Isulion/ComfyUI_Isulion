@@ -1,7 +1,8 @@
-import random
+from ..base_selector import SimpleSelectorNode
 
-class Isulion_ArtStyleGenerator:
-    styles = [
+
+class Isulion_ArtStyleGenerator(SimpleSelectorNode):
+    POOL = [
         'Realistic', 'Watercolor', 'Oil Painting', 'Sketch', 'Digital Art',
         'Impressionism', 'Expressionism', 'Surrealism', 'Pop Art', 'Abstract',
         'Minimalist', 'Comic Book', 'Manga', 'Anime', 'Pixel Art',
@@ -11,14 +12,15 @@ class Isulion_ArtStyleGenerator:
         'Folk Art', 'Street Art', 'Graffiti', 'Retro', 'Vintage',
         'Steampunk', 'Cyberpunk', 'Vaporwave', 'Ukiyo-e', 'Chinese Painting'
     ]
-  
+    MAX_SEED = 999999999
+
     @classmethod
     def INPUT_TYPES(cls):
         return {
             "required": {
                 "randomize": (["enable", "disable"],),
                 "seed": ("INT", {"default": 0, "min": 0, "max": 999999999}),
-                "style": (cls.styles,)
+                "style": (cls.POOL,)
             }
         }
 
@@ -28,13 +30,9 @@ class Isulion_ArtStyleGenerator:
     CATEGORY = "Art/Styles"
 
     def generate_style(self, randomize: str, seed: int, style: str) -> tuple:
-        if randomize == "enable":
-            if seed is not None and seed > 0:
-                random.seed(seed)
-            else:
-                seed = random.randint(0, 999999999)
-                random.seed(seed)
+        rng, seed = self._make_rng(randomize, seed)
 
-            style = random.choice(self.styles)
+        if randomize == "enable":
+            style = rng.choice(self._pool_for())
 
         return (f"{style}", seed)

@@ -5,6 +5,7 @@ from .registry import register_theme
 @register_theme("space_colony")
 class SpaceColonyHandler(BaseThemeHandler):
     """Handler for the Space Colony theme."""
+    DISPLAY_NAME = "🚀 Space Colony"
 
     def __init__(self, config):
         super().__init__(config)

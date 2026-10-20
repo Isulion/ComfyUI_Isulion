@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("watercolor")
 class WatercolorThemeHandler(BaseThemeHandler):
     """Handler for watercolor-themed prompt generation."""
-    
+    DISPLAY_NAME = "🎨 Watercolor"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class WatercolorThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate watercolor-themed components."""
         components = {}
-        
+
         # Generate subject
         if custom_subject:
             technique = self._get_random_choice("watercolor.techniques")
@@ -31,7 +32,7 @@ class WatercolorThemeHandler(BaseThemeHandler):
                 f"((using {technique})), ((in {style} style)), "
                 f"((soft edges)), ((fluid forms))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -49,7 +50,7 @@ class WatercolorThemeHandler(BaseThemeHandler):
                     f"((during {time})), ((with {mood} mood)), "
                     f"((flowing colors)), ((artistic atmosphere))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("watercolor.painting_styles")
@@ -60,7 +61,7 @@ class WatercolorThemeHandler(BaseThemeHandler):
                 f"((perfect composition)), ((artistic lighting)), "
                 f"((painterly quality)), 8k resolution"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("watercolor.effects")
@@ -70,5 +71,5 @@ class WatercolorThemeHandler(BaseThemeHandler):
                 f"((color bleeding)), ((paint flow)), "
                 f"((artistic medium)), ((traditional techniques))"
             )
-        
+
         return components

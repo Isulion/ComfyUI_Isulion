@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("clay_art")
 class ClayArtThemeHandler(BaseThemeHandler):
     """Handler for clay art-themed prompt generation."""
-    
+    DISPLAY_NAME = "🏺 Clay Art"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class ClayArtThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate clay art-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         texture = self._get_random_choice("clay_art.textures")
         detail = self._get_random_choice("clay_art.details")
@@ -34,7 +35,7 @@ class ClayArtThemeHandler(BaseThemeHandler):
                 f"((featuring {detail})), ((sculpted figure)), "
                 f"((ceramic design)), ((moldable creation))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -51,7 +52,7 @@ class ClayArtThemeHandler(BaseThemeHandler):
                     f"((sculpted environment)), ((moldable surroundings)), "
                     f"((pottery world))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("clay_art.styles")
@@ -62,7 +63,7 @@ class ClayArtThemeHandler(BaseThemeHandler):
                 f"((ceramic design)), ((clay artistry)), "
                 f"((sculptural quality))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("clay_art.effects")
@@ -72,5 +73,5 @@ class ClayArtThemeHandler(BaseThemeHandler):
                 f"((ceramic {finish} finish)), "
                 f"((sculptural texture)), ((pottery surface))"
             )
-        
+
         return components

@@ -1,7 +1,8 @@
-import random
+from ..base_selector import SimpleSelectorNode
 
-class IsulionSpacecraftGenerator:
-    ships = {
+
+class IsulionSpacecraftGenerator(SimpleSelectorNode):
+    POOLS = {
         "military": [
             "battlecruiser", "stealth frigate", "carrier", "destroyer",
             "dreadnought", "assault ship", "combat vessel", "strike craft",
@@ -44,37 +45,27 @@ class IsulionSpacecraftGenerator:
 
     @classmethod
     def INPUT_TYPES(s):
-        all_ships = [ship for sublist in s.ships.values() for ship in sublist]
         return {
             "required": {
                 "randomize": (["enable", "disable"],),
-                "ship": (all_ships,),
+                "ship": (s._pool_for(),),
             },
             "optional": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
                 "ship_class": (["any", "military", "civilian", "exploration", "special"], {"default": "any"}),
             }
         }
-    
+
     RETURN_TYPES = ("STRING", "INT",)
     RETURN_NAMES = ("ship", "seed",)
     FUNCTION = "generate"
     CATEGORY = "Isulion/SciFi"
 
     def generate(self, randomize, ship, seed=0, ship_class="any"):
+        rng, seed = self._make_rng(randomize, seed)
+
         if randomize == "enable":
-            if seed is not None and seed > 0:
-                random.seed(seed)
-            else:
-                seed = random.randint(0, 0xffffffffffffffff)
-                random.seed(seed)
-            
-            if ship_class != "any" and ship_class in self.ships:
-                base_ship = random.choice(self.ships[ship_class])
-            else:
-                all_ships = [ship for sublist in self.ships.values() for ship in sublist]
-                base_ship = random.choice(all_ships)
-            
-            ship = f"{random.choice(self.prefixes)} {base_ship} {random.choice(self.features)}"
-        
-        return (ship, seed) 
+            base_ship = rng.choice(self._pool_for(ship_class))
+            ship = f"{rng.choice(self.prefixes)} {base_ship} {rng.choice(self.features)}"
+
+        return (ship, seed)

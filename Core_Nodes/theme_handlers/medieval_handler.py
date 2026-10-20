@@ -5,14 +5,15 @@ from .registry import register_theme
 @register_theme("medieval")
 class MedievalThemeHandler(BaseThemeHandler):
     """Handler for medieval-themed prompt generation."""
-    
+    DISPLAY_NAME = "⚔️ Medieval"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
                 include_style: bool = True,
                 include_effects: bool = True) -> Dict[str, str]:
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         attire = self._get_random_choice("medieval.attire")
         character = self._get_random_choice("medieval.characters")
@@ -32,7 +33,7 @@ class MedievalThemeHandler(BaseThemeHandler):
                 f"((medieval {character})), wearing ((authentic {attire})), "
                 f"((period-accurate details)), ((medieval craftsmanship))"
             )
-            
+
         # Environment
         if include_environment:
             setting = self._get_random_choice("medieval.settings")
@@ -42,7 +43,7 @@ class MedievalThemeHandler(BaseThemeHandler):
                 f"during ((the {time_period})), "
                 f"((historical accuracy)), ((period-appropriate surroundings))"
             )
-            
+
         # Style
         if include_style:
             style = self._get_random_choice("medieval.artistic_styles")
@@ -52,7 +53,7 @@ class MedievalThemeHandler(BaseThemeHandler):
                 f"((medieval art style)), ((historical painting)), "
                 f"((masterwork quality)), ((8k resolution))"
             )
-            
+
         # Effects
         if include_effects:
             lighting = self._get_random_choice("medieval.lighting")
@@ -62,5 +63,5 @@ class MedievalThemeHandler(BaseThemeHandler):
                 f"((historical ambiance)), ((period authenticity)), "
                 f"((rich details)), ((perfect exposure))"
             )
-            
+
         return components

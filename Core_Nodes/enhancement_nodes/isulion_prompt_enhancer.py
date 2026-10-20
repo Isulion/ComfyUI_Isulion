@@ -13,14 +13,14 @@ class IsulionPromptEnhancer:
                 "focus": (["detail", "mood", "composition", "lighting", "color"], {"default": "detail"}),
             }
         }
-    
+
     RETURN_TYPES = ("STRING",)
     FUNCTION = "enhance"
     CATEGORY = "Isulion/Enhancement"
 
     def enhance(self, base_prompt, seed=0, enhancement_level="moderate", focus="detail"):
-        random.seed(seed)
-        
+        rng = random.Random(seed)
+
         enhancements = {
             "detail": {
                 "subtle": ["detailed", "fine", "precise", "clean", "polished", "neat", "crisp", "clear", "defined", "sharp"],
@@ -48,8 +48,8 @@ class IsulionPromptEnhancer:
                 "dramatic": ["stunning colors", "extreme color contrast", "vivid colors", "spectacular color palette", "extraordinary hues", "intense chromatic range", "dazzling colors", "electrifying palette", "magnificent color harmony", "phenomenal color composition"]
             }
         }
-        
-        enhancement = random.choice(enhancements[focus][enhancement_level])
+
+        enhancement = rng.choice(enhancements[focus][enhancement_level])
         enhanced_prompt = f"{base_prompt}, {enhancement}"
-        
-        return (enhanced_prompt,) 
+
+        return (enhanced_prompt,)

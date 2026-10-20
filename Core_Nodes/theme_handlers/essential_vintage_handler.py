@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("essential_vintage")
 class EssentialVintageThemeHandler(BaseThemeHandler):
     """Handler for essential vintage-themed prompt generation."""
-    
+    DISPLAY_NAME = "🕰️ Essential Vintage"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class EssentialVintageThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate essential vintage-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         era = self._get_random_choice("essential_vintage.eras")
         feature = self._get_random_choice("essential_vintage.features")
@@ -34,7 +35,7 @@ class EssentialVintageThemeHandler(BaseThemeHandler):
                 f"((featuring {feature})), ((retro style)), "
                 f"((classic look)), ((nostalgic appearance))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -51,7 +52,7 @@ class EssentialVintageThemeHandler(BaseThemeHandler):
                     f"((classic environment)), ((nostalgic atmosphere)), "
                     f"((period accurate details))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("essential_vintage.styles")
@@ -62,7 +63,7 @@ class EssentialVintageThemeHandler(BaseThemeHandler):
                 f"((vintage aesthetic)), ((retro artistry)), "
                 f"((classic quality))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("essential_vintage.effects")
@@ -72,5 +73,5 @@ class EssentialVintageThemeHandler(BaseThemeHandler):
                 f"((retro {tone} tones)), "
                 f"((classic finish)), ((nostalgic mood))"
             )
-        
+
         return components

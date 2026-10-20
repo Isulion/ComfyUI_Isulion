@@ -5,6 +5,7 @@ from .registry import register_theme
 @register_theme("street_food_kebab")
 class StreetFoodKebabThemeHandler(BaseThemeHandler):
     """Handler for generating street food kebab-themed prompts. Updated to reflect a blend of professional food photography and stylized illustration."""
+    DISPLAY_NAME = "🥙 Street Food Kebab"
 
     def generate_subject(self, custom_subject: str = "") -> str:
         breads = [
@@ -14,7 +15,7 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             "soft pita bread",
             "warm Turkish flatbread"
         ]
-        
+
         meats = [
             "thinly sliced seasoned lamb",
             "tender grilled chicken döner",
@@ -22,7 +23,7 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             "mixed meat döner",
             "spiced lamb and chicken blend"
         ]
-        
+
         vegetables = [
             "crisp lettuce, cucumber, tomato, and red cabbage",
             "fresh mixed salad with red onions",
@@ -30,7 +31,7 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             "garden-fresh cucumber, tomato, and red onion mix",
             "traditional Turkish vegetable medley"
         ]
-        
+
         sauces = [
             "creamy garlic sauce",
             "traditional white döner sauce",
@@ -38,7 +39,7 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             "herb-infused yogurt sauce",
             "tangy Mediterranean sauce"
         ]
-        
+
         fries_descriptions = [
             "golden and crispy Turkish-style fries",
             "freshly cooked crisp potato wedges",
@@ -46,7 +47,7 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             "hot, seasoned potato fries",
             "golden-brown crispy side fries"
         ]
-        
+
         packaging_details = [
             "a traditional döner wrap paper",
             "an authentic Turkish street food packaging",
@@ -54,7 +55,7 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             "a rustic food service paper",
             "a classic döner presentation wrap"
         ]
-        
+
         sauce_details = [
             "three small containers of sauces: white, red, and herb-green",
             "a variety of traditional döner sauces",
@@ -62,7 +63,7 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             "artfully arranged sauce selection",
             "classic döner accompaniment sauces"
         ]
-        
+
         subject_template = (
             "an authentic image of a döner kebab{custom} featuring {bread} filled with {meat}, "
             "layered with {vegetables}, and topped with {sauce}. {packaging} is visible beside the kebab. "
@@ -83,7 +84,7 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
     def generate_environment(self, custom_location: str = "") -> str:
         if custom_location:
             return custom_location
-            
+
         backgrounds = [
             "dark background which makes the food stand out prominently",
             "black plate highlighting the food's colors",
@@ -91,7 +92,7 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             "deep charcoal background",
             "shadowy background emphasizing the food"
         ]
-        
+
         lighting = [
             "soft side lighting",
             "dramatic overhead light",
@@ -99,7 +100,7 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             "studio-style food photography lighting",
             "carefully controlled directional light"
         ]
-        
+
         placement = [
             "neatly arranged on a clean surface",
             "positioned to showcase both the sandwich and fries",
@@ -107,7 +108,7 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             "artfully displayed with attention to detail",
             "strategically placed for maximum visual appeal"
         ]
-        
+
         return f"on {self.config.random.choice(backgrounds)}, with {self.config.random.choice(lighting)}, {self.config.random.choice(placement)}"
 
     def generate_style(self) -> str:
@@ -118,7 +119,7 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             "stylized fast food illustration",
             "professional food photography"
         ]
-        
+
         details = [
             "with a warm and appetizing color palette",
             "with exaggerated features for appeal",
@@ -126,7 +127,7 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             "emphasizing freshness and quality",
             "with vibrant colors against a dark background"
         ]
-        
+
         return f"{self.config.random.choice(styles)}, {self.config.random.choice(details)}"
 
     def generate_effects(self) -> str:
@@ -137,37 +138,37 @@ class StreetFoodKebabThemeHandler(BaseThemeHandler):
             "soft natural lighting",
             "crisp focus on the food"
         ]
-        
+
         return self.config.random.choice(effects)
 
-    def generate(self, custom_subject: str = "", 
+    def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
                 include_style: bool = True,
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate street food kebab-themed components.
-        
+
         Args:
             custom_subject (str): Custom subject override
             custom_location (str): Custom location override
             include_environment (bool): Whether to include environment
             include_style (bool): Whether to include style
             include_effects (bool): Whether to include effects
-            
+
         Returns:
             Dict[str, str]: Dictionary containing generated components
         """
         result = {
             "subject": self.generate_subject(custom_subject),
         }
-        
+
         if include_environment:
             result["environment"] = self.generate_environment(custom_location)
-            
+
         if include_style:
             result["style"] = self.generate_style()
-            
+
         if include_effects:
             result["effects"] = self.generate_effects()
-            
+
         return result

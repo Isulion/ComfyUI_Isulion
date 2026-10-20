@@ -6,19 +6,20 @@ This guide documents how to add a new theme to both the **IsulionMegaPromptV3** 
 
 ```
 Core_Nodes/
-├── mega_prompt_V3.py               # Node + ThemeRegistry + HANDLER_CLASS_NAMES_MAP
+├── mega_prompt_V3.py               # Node (reads themes from the handler registry)
 ├── mega_prompt_all_themes.py        # Multiple Prompt Generator (theme categories)
 ├── configs/
 │   └── <theme>_config.json          # Data lists (characters, locations, styles, effects...)
 └── theme_handlers/
-    ├── __init__.py                  # Exports all handler classes
+    ├── __init__.py                  # Package init
+    ├── registry.py                  # @register_theme decorator (THEME_HANDLERS registry)
     ├── base_handler.py              # BaseThemeHandler (abstract)
-    └── <theme>_handler.py           # Handler logic
+    └── <theme>_handler.py           # Handler logic (auto-discovered & registered)
 ```
 
 ## Step-by-step: Add theme `my_theme`
 
-You must touch **4 files** and optionally a **5th** for the Multiple Prompt Generator.
+You only need to create **2 files** and optionally edit a third for the Multiple Prompt Generator. Nothing else needs to be registered — auto-discovery handles the rest.
 
 ---
 
@@ -54,15 +55,19 @@ Any category keys work — the handler reads them with dot notation: `"my_theme.
 
 **File:** `Core_Nodes/theme_handlers/my_theme_handler.py`
 
-Inherit `BaseThemeHandler` and implement `generate()`. Use `self._get_random_choice("my_theme.<key>")` to pull from your config.
+Inherit `BaseThemeHandler`, decorate the class with `@register_theme("my_theme")`, and set a `DISPLAY_NAME` attribute (emoji + title, exactly as it should appear in the ComfyUI dropdown). Implement `generate()`, using `self._get_random_choice("my_theme.<key>")` to pull from your config.
 
 ```python
 from typing import Dict
 from .base_handler import BaseThemeHandler
+from .registry import register_theme
 
 
+@register_theme("my_theme")
 class MyThemeHandler(BaseThemeHandler):
     """Handler for My Theme."""
+
+    DISPLAY_NAME = "⚔️ My Theme"
 
     def generate(
         self,
@@ -129,53 +134,18 @@ class MyThemeHandler(BaseThemeHandler):
 
 ---
 
-### 3. Register the handler in `theme_handlers/__init__.py`
+### 3. Done — nothing else to register
 
-Add an import and include the class name in `__all__`:
+The `@register_theme("my_theme")` decorator adds your handler to the central registry (`theme_handlers/registry.py`) as soon as the module is loaded. Auto-discovery picks up new handler files automatically:
 
-```python
-# Import (group with similar themes)
-from .my_theme_handler import MyThemeHandler
+- **No edits to `theme_handlers/__init__.py`**
+- **No edits to `mega_prompt_V3.py`** (no handler-name map or emoji-mapping edits)
 
-# In __all__ list
-__all__ = [
-    # ...
-    'MyThemeHandler',
-    # ...
-]
-```
+Your theme appears in the IsulionMegaPromptV3 dropdown under its `DISPLAY_NAME`, linked to the internal name you registered.
 
 ---
 
-### 4. Register in `mega_prompt_V3.py` — two places
-
-**File:** `Core_Nodes/mega_prompt_V3.py`
-
-**4a. `HANDLER_CLASS_NAMES_MAP` (line ~84)** — maps internal name → handler class name string:
-
-```python
-HANDLER_CLASS_NAMES_MAP = {
-    # ...
-    "my_theme": "MyThemeHandler",
-    # ...
-}
-```
-
-**4b. `_init_mappings()` (line ~210)** — maps display name with emoji → internal name:
-
-```python
-all_emoji_mappings = {
-    # ...
-    "⚔️ My Theme": "my_theme",
-    # ...
-}
-```
-
-The display name (with emoji) is what users see in the ComfyUI dropdown. The internal name links to the handler and config.
-
----
-
-### 5. (Optional) Add to Isulion Multiple Prompt Generator
+### 4. (Optional) Add to Isulion Multiple Prompt Generator
 
 **File:** `Core_Nodes/mega_prompt_all_themes.py`
 
@@ -202,10 +172,8 @@ The node automatically picks it up from there. If your theme doesn't fit an exis
 | # | File | Action |
 |---|------|--------|
 | 1 | `Core_Nodes/configs/my_theme_config.json` | Create JSON with data lists |
-| 2 | `Core_Nodes/theme_handlers/my_theme_handler.py` | Create handler class extending `BaseThemeHandler` |
-| 3 | `Core_Nodes/theme_handlers/__init__.py` | Add import + `__all__` entry |
-| 4 | `Core_Nodes/mega_prompt_V3.py` | Add to `HANDLER_CLASS_NAMES_MAP` + `all_emoji_mappings` |
-| 5 | `Core_Nodes/mega_prompt_all_themes.py` | Add to `theme_categories` category list |
+| 2 | `Core_Nodes/theme_handlers/my_theme_handler.py` | Create handler class with `@register_theme("my_theme")` + `DISPLAY_NAME` |
+| 3 | `Core_Nodes/mega_prompt_all_themes.py` | (Optional) Add to `theme_categories` category list |
 
 After making these changes, **restart ComfyUI**.
 
@@ -236,7 +204,8 @@ A handler calls `self._get_random_choice("my_theme.characters")` which resolves 
 
 ## Troubleshooting
 
-- **"Handler not found"** → check that `HANDLER_CLASS_NAMES_MAP` value matches the class name exactly, and the class is exported in `theme_handlers/__init__.py`
-- **"Config key not found"** → verify the top-level key in your JSON matches the internal name, and the JSON is valid (no trailing commas)
-- **Theme not in dropdown** → check that internal name in `all_emoji_mappings` matches a key in `HANDLER_CLASS_NAMES_MAP`
-- **Theme not in Multiple Prompt Generator** → verify the display name in `theme_categories` matches the display name in `all_emoji_mappings` exactly
+- **"Duplicate theme registration"** → another handler is already registered under your internal name; pick a unique one
+- **"Handler not found" / handler never loads** → verify the module is importable (no syntax errors) and that `@register_theme("my_theme")` uses the same internal name as your config JSON top-level key
+- **"Config key not found"** → verify the top-level key in your JSON matches the internal name passed to `@register_theme`, and the JSON is valid (no trailing commas)
+- **Theme not in dropdown** → check that `DISPLAY_NAME` is set on the handler class
+- **Theme not in Multiple Prompt Generator** → add its display name to a category in `theme_categories` (`mega_prompt_all_themes.py`)

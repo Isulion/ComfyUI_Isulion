@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("astrophotography")
 class AstrophotographyThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "🌌 Astrophotography"
     def generate(self, custom_subject: str = "",
                  custom_location: str = "",
                  include_environment: bool = True,

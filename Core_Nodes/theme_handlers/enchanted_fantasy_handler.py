@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("enchanted_fantasy")
 class EnchantedFantasyThemeHandler(BaseThemeHandler):
     """Handler for enchanted fantasy-themed prompt generation."""
-    
+    DISPLAY_NAME = "✨ Enchanted Fantasy"
+
     def __init__(self, config):
         super().__init__(config)
         self.theme_config = config.get_config("enchanted_fantasy")
@@ -17,7 +18,7 @@ class EnchantedFantasyThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate enchanted fantasy-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         feature = self._get_random_choice("enchanted_fantasy.features")
         realm = self._get_random_choice("enchanted_fantasy.realms")
@@ -38,7 +39,7 @@ class EnchantedFantasyThemeHandler(BaseThemeHandler):
                 f"((featuring {feature})), ((magical being)), "
                 f"((fantasy creature)), ((mystical character))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -55,7 +56,7 @@ class EnchantedFantasyThemeHandler(BaseThemeHandler):
                     f"((fantasy environment)), ((mystical world)), "
                     f"((enchanted realm))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("enchanted_fantasy.styles")
@@ -66,7 +67,7 @@ class EnchantedFantasyThemeHandler(BaseThemeHandler):
                 f"((enchanted artistry)), ((fantasy aesthetic)), "
                 f"((magical quality))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("enchanted_fantasy.effects")
@@ -76,41 +77,41 @@ class EnchantedFantasyThemeHandler(BaseThemeHandler):
                 f"((enchanted {aura} aura)), "
                 f"((mystical atmosphere)), ((fantasy ambiance))"
             )
-        
+
         return components
 
     def generate_theme_prompt(self, subject=None, location=None):
         # Base style and atmosphere
         style = self.rng.choice(self.theme_config.get("styles", []))
         atmosphere = self.rng.choice(self.theme_config.get("atmosphere", []))
-        
+
         # Magical elements and artifacts
         magical_element = self.rng.choice(self.theme_config.get("magical_elements", []))
         artifact = self.rng.choice(self.theme_config.get("artifacts", []))
-        
+
         # Environment and architecture
         environment = self.rng.choice(self.theme_config.get("environments", [])) if not location else location
         architecture = self.rng.choice(self.theme_config.get("architectural_elements", []))
-        
+
         # Lighting and atmosphere
         lighting = self.rng.choice(self.theme_config.get("lighting_effects", []))
         time = self.rng.choice(self.theme_config.get("time_of_day", []))
         weather = self.rng.choice(self.theme_config.get("weather_effects", []))
-        
+
         # Color and creatures
         color_scheme = self.rng.choice(self.theme_config.get("color_schemes", []))
         creature = self.rng.choice(self.theme_config.get("creatures", []))
 
         # Build the prompt
         prompt_parts = []
-        
+
         # Add style and atmosphere
         prompt_parts.extend([style, atmosphere])
-        
+
         # Add subject if provided
         if subject:
             prompt_parts.append(f"{subject} in an enchanted fantasy setting")
-        
+
         # Add environment and architectural details
         if location:
             prompt_parts.append(f"in {location}")
@@ -119,29 +120,29 @@ class EnchantedFantasyThemeHandler(BaseThemeHandler):
                 f"in a {environment}",
                 f"with {architecture}"
             ])
-        
+
         # Add magical elements and artifacts
         prompt_parts.extend([
             f"surrounded by {magical_element}",
             f"featuring {artifact}"
         ])
-        
+
         # Add lighting and atmosphere
         prompt_parts.extend([
             lighting,
             f"during {time}",
             f"with {weather}"
         ])
-        
+
         # Add color and creatures
         prompt_parts.extend([
             color_scheme,
             f"with {creature} in the scene"
         ])
-        
+
         # Join all parts with commas
         prompt = ", ".join(prompt_parts)
-        
+
         return prompt
 
     def get_negative_prompt(self):

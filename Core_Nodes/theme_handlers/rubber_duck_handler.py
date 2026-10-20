@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("rubber_duck")
 class RubberDuckThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "🦆 Rubber Duck Supremacy"
     def generate(self, custom_subject="", custom_location="",
                  include_environment=True, include_style=True, include_effects=True) -> Dict[str, str]:
         components = {}

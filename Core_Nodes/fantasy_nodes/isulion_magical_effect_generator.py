@@ -1,7 +1,8 @@
-import random
+from ..base_selector import SimpleSelectorNode
 
-class IsulionMagicalEffectGenerator:
-    effects = {
+
+class IsulionMagicalEffectGenerator(SimpleSelectorNode):
+    POOLS = {
         "fire": ["blazing aura", "flame burst", "phoenix wings", "inferno vortex"],
         "ice": ["frost crystals", "blizzard swirl", "arctic mist", "frozen aura"],
         "lightning": ["crackling energy", "thunder bolts", "static field", "plasma arc"],
@@ -11,35 +12,26 @@ class IsulionMagicalEffectGenerator:
 
     @classmethod
     def INPUT_TYPES(s):
-        all_effects = [effect for sublist in s.effects.values() for effect in sublist]
         return {
             "required": {
                 "randomize": (["enable", "disable"],),
-                "effect": (all_effects,),
+                "effect": (s._pool_for(),),
             },
             "optional": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
                 "element": (["any", "fire", "ice", "lightning", "nature", "arcane"], {"default": "any"}),
             }
         }
-    
+
     RETURN_TYPES = ("STRING", "INT",)
     RETURN_NAMES = ("effect", "seed",)
     FUNCTION = "generate"
     CATEGORY = "Isulion/Fantasy"
 
     def generate(self, randomize, effect, seed=0, element="any"):
+        rng, seed = self._make_rng(randomize, seed)
+
         if randomize == "enable":
-            if seed is not None and seed > 0:
-                random.seed(seed)
-            else:
-                seed = random.randint(0, 0xffffffffffffffff)
-                random.seed(seed)
-            
-            if element != "any" and element in self.effects:
-                effect = random.choice(self.effects[element])
-            else:
-                all_effects = [e for sublist in self.effects.values() for e in sublist]
-                effect = random.choice(all_effects)
-        
-        return (effect, seed) 
+            effect = rng.choice(self._pool_for(element))
+
+        return (effect, seed)

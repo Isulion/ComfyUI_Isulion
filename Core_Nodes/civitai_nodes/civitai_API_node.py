@@ -8,12 +8,14 @@ from io import BytesIO
 import numpy as np
 import torch
 import logging
-import PIL
 
 from ..net_utils import safe_download, DownloadError
 
 
 logger = logging.getLogger(__name__)
+
+VERBOSE_API_LOGS = os.getenv("ISULION_VERBOSE_CIVITAI_LOGS", "0") == "1"
+_MAX_CACHE_ENTRIES = 32
 
 
 class IsulionCivitaiModelExplorer:
@@ -49,11 +51,6 @@ class IsulionCivitaiModelExplorer:
                     "default": 1,
                     "min": 1,
                     "max": 100
-                }),
-                "api_key": ("STRING", {
-                    "default": "",
-                    "multiline": False,
-                    "placeholder": "Enter your Civitai API token..."
                 })
             },
         }
@@ -72,26 +69,24 @@ class IsulionCivitaiModelExplorer:
                       sort_by: str,
                       nsfw_filter: str,
                       model_type: str,
-                      page: int = 1,
-                      api_key: str = "") -> Tuple[List[str]]:
+                      page: int = 1) -> Tuple[List[str]]:
         """Search for models and return associated information."""
 
         logger.info("\n=== Starting Civitai API Search ===")
-        logger.debug(f"Debug - Search params:")
+        logger.debug("Debug - Search params:")
         logger.debug(f"  Query: {search_query}")
         logger.debug(f"  Sort: {sort_by}")
         logger.debug(f"  NSFW Filter: {nsfw_filter}")
         logger.debug(f"  Model Type: {model_type}")
         logger.debug(f"  Page: {page}")
-        logger.debug(f"  API Key provided: {'Yes' if api_key else 'No'}")
+        logger.debug(f"  API Key provided: {'Yes' if self.api_key else 'No'}")
 
-        api_key = api_key.strip() or self.api_key
-        logger.debug(f"Debug - Final API key present: {'Yes' if api_key else 'No'}")
+        api_key = self.api_key
 
         if not api_key:
             logger.error("Debug - Error: No API key available")
             return (
-                ["Error: No API key provided. Please provide a Civitai API token."],
+                ["Error: No API key provided. Set the CIVITAI_API_TOKEN environment variable and restart ComfyUI."],
             )
 
         logger.debug(f"Debug - Final page number: {page}")
@@ -143,13 +138,15 @@ class IsulionCivitaiModelExplorer:
             )
 
             logger.debug(f"Debug - API Response Status: {response.status_code}")
-            logger.debug(f"Debug - API Response Headers: {dict(response.headers)}")
-            logger.debug(f"Debug - API Response Content: {response.text[:500]}...")
+            if VERBOSE_API_LOGS:
+                logger.debug(f"Debug - API Response Headers: {dict(response.headers)}")
+                logger.debug(f"Debug - API Response Content: {response.text[:500]}...")
 
             response.raise_for_status()
             data = response.json()
-            logger.debug(f"Debug - Successfully parsed JSON response")
-            logger.debug(f"API Response Body: {data}")
+            logger.debug("Debug - Successfully parsed JSON response")
+            if VERBOSE_API_LOGS:
+                logger.debug(f"API Response Body: {data}")
 
 
             model_infos = []
@@ -158,7 +155,7 @@ class IsulionCivitaiModelExplorer:
 
             if not items:
                 logger.warning("Debug - API returned empty items list.")
-                return ["Warning: No results found for the given query."]
+                return (["Warning: No results found for the given query."],)
 
             for item in items:
                 versions = item.get("modelVersions", [])
@@ -173,11 +170,13 @@ class IsulionCivitaiModelExplorer:
 
                 model_infos.append(model_info)
             result = (model_infos,)
+            if len(self.results_cache) >= _MAX_CACHE_ENTRIES:
+                self.results_cache.pop(next(iter(self.results_cache)))
             self.results_cache[cache_key] = result
             return result
 
         except requests.RequestException as e:
-            logger.error(f"Debug - Request Exception Details:")
+            logger.error("Debug - Request Exception Details:")
             logger.error(f"  Error Type: {type(e).__name__}")
             logger.error(f"  Error Message: {str(e)}")
             if hasattr(e, 'response') and e.response is not None:
@@ -186,14 +185,14 @@ class IsulionCivitaiModelExplorer:
                 logger.error(f"  Response Content: {e.response.text[:500]}...")
             logger.error("Debug - Full traceback:")
             traceback.print_exc()
-            return ["Error: Failed to connect to Civitai API"]
+            return (["Error: Failed to connect to Civitai API"],)
         except Exception as e:
-            logger.error(f"Debug - Unexpected Error Details:")
+            logger.error("Debug - Unexpected Error Details:")
             logger.error(f"  Error Type: {type(e).__name__}")
             logger.error(f"  Error Message: {str(e)}")
             logger.error("Debug - Full traceback:")
             traceback.print_exc()
-            return ["Error: Unexpected error occurred"]
+            return (["Error: Unexpected error occurred"],)
 
 
 class IsulionCivitaiTrending:
@@ -222,11 +221,6 @@ class IsulionCivitaiTrending:
                     "min": 1,
                     "max": 10,
                     "step": 1
-                }),
-                "api_key": ("STRING", {
-                    "default": "",
-                    "multiline": False,
-                    "placeholder": "Enter your Civitai API token..."
                 })
             },
         }
@@ -244,18 +238,17 @@ class IsulionCivitaiTrending:
                     nsfw_filter: str,
                     sort_by: str,
                     period: str,
-                    number_of_images: int,
-                    api_key: str = "") -> Tuple[List[str]]:
+                    number_of_images: int) -> Tuple[List[str]]:
         """Retrieve trending images for the specified period."""
 
         logger.info("\n=== Starting Civitai Trending Images Search ===")
-        logger.debug(f"Debug - Search params:")
+        logger.debug("Debug - Search params:")
         logger.debug(f"  NSFW Filter: {nsfw_filter}")
 
-        api_key = api_key.strip() or self.api_key
+        api_key = self.api_key
 
         if not api_key:
-            return (["Error: No API key provided. Please provide a Civitai API token."],)
+            return (["Error: No API key provided. Set the CIVITAI_API_TOKEN environment variable and restart ComfyUI."],)
 
         # Updated NSFW mapping with correct API parameters
         nsfw_params = {
@@ -287,7 +280,7 @@ class IsulionCivitaiTrending:
         # Add NSFW parameters
         current_nsfw_params = nsfw_params[nsfw_filter]
         params["nsfw"] = current_nsfw_params["nsfw"]
-        
+
         # Handle nsfwLevel as a comma-separated string
         if current_nsfw_params["nsfwLevel"]:
             params["nsfwLevel"] = ",".join(current_nsfw_params["nsfwLevel"])
@@ -315,7 +308,7 @@ class IsulionCivitaiTrending:
 
             response.raise_for_status()
             data = response.json()
-            logger.debug(f"Debug - Successfully parsed JSON response")
+            logger.debug("Debug - Successfully parsed JSON response")
 
             image_infos = []
             items = data.get("items", [])
@@ -331,7 +324,7 @@ class IsulionCivitaiTrending:
 
                 stats = item.get("stats", {})
                 meta = item.get("meta", {})
-                
+
                 image_info = (
                     f"Image: {item.get('name', 'Untitled')}\n"
                     f"URL: {item.get('url', 'No URL available')}\n"
@@ -345,7 +338,7 @@ class IsulionCivitaiTrending:
                 if meta:
                     prompt = meta.get("prompt", "").strip()
                     negative_prompt = meta.get("negativePrompt", "").strip()
-                    
+
                     if prompt:
                         image_info += f"\nPrompt: {prompt}\n"
                     if negative_prompt:
@@ -366,6 +359,8 @@ class IsulionCivitaiTrending:
                 return (["No images found in the current selection."],)
 
             result = (image_infos,)
+            if len(self.results_cache) >= _MAX_CACHE_ENTRIES:
+                self.results_cache.pop(next(iter(self.results_cache)))
             self.results_cache[cache_key] = result
             return result
 
@@ -419,7 +414,7 @@ class IsulionCivitaiImageDisplay:
         """Resize image to exact target size with padding."""
         # Create a new blank image with the target size
         new_image = Image.new('RGB', (target_size, target_size), (0, 0, 0))
-        
+
         # Calculate scaling factor to fit within target size
         aspect_ratio = image.width / image.height
         if aspect_ratio > 1:
@@ -428,17 +423,17 @@ class IsulionCivitaiImageDisplay:
         else:
             new_height = target_size
             new_width = int(target_size * aspect_ratio)
-            
+
         # Resize the original image
         resized = image.resize((new_width, new_height), Image.Resampling.LANCZOS)
-        
+
         # Calculate position to paste (center)
         paste_x = (target_size - new_width) // 2
         paste_y = (target_size - new_height) // 2
-        
+
         # Paste the resized image onto the new image
         new_image.paste(resized, (paste_x, paste_y))
-        
+
         return new_image
 
     def create_error_image(self, target_size: int, message: str = "No valid images found"):
@@ -459,10 +454,10 @@ class IsulionCivitaiImageDisplay:
                 entries = [entry.strip() for entry in entries if entry.strip()]
 
             if not entries:
-                return (self.create_error_image(target_size), 
-                       "No images found", 
-                       "No prompt available", 
-                       "", 
+                return (self.create_error_image(target_size),
+                       "No images found",
+                       "No prompt available",
+                       "",
                        "No model available")
 
             # Handle "All" mode
@@ -513,17 +508,17 @@ class IsulionCivitaiImageDisplay:
                         continue
 
                 if not all_tensors:
-                    return (self.create_error_image(target_size), 
-                           "No valid images found", 
-                           "No prompt available", 
-                           "", 
+                    return (self.create_error_image(target_size),
+                           "No valid images found",
+                           "No prompt available",
+                           "",
                            "No model available")
 
                 final_tensor = torch.cat(all_tensors, dim=0)
- 
-                return (final_tensor, 
-                       " | ".join(all_titles), 
-                       " | ".join(all_prompts), 
+
+                return (final_tensor,
+                       " | ".join(all_titles),
+                       " | ".join(all_prompts),
                        " | ".join(all_urls),
                        " | ".join(all_models))
 
@@ -581,7 +576,7 @@ class IsulionCivitaiImageDisplay:
                        "No prompt available",
                        "",
                        "No model available")
-            
+
         except Exception as e:
             logger.error("Error loading image from URL: %s", e)
             return (self.create_error_image(target_size),
@@ -589,11 +584,3 @@ class IsulionCivitaiImageDisplay:
                    "No prompt available",
                    "",
                    "No model available")
-
-
-# Register the nodes with ComfyUI
-NODE_CLASS_MAPPINGS = {
-    "Isulion Civitai Model Explorer": IsulionCivitaiModelExplorer,
-    "Isulion Civitai Trending": IsulionCivitaiTrending,
-    "Isulion Civitai Image Display": IsulionCivitaiImageDisplay
-}

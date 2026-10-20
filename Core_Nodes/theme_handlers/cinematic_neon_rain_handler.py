@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("cinematic_neon_rain")
 class CinematicNeonRainThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "🌧️ Cinematic Neon Rain"
     def generate(self, custom_subject: str = "",
                  custom_location: str = "",
                  include_environment: bool = True,

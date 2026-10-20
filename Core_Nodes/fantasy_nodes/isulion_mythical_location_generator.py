@@ -1,7 +1,8 @@
-import random
+from ..base_selector import SimpleSelectorNode
 
-class IsulionMythicalLocationGenerator:
-    locations = [
+
+class IsulionMythicalLocationGenerator(SimpleSelectorNode):
+    POOL = [
         "crystal cave", "floating islands", "ancient temple", "enchanted forest",
         "dragon's lair", "wizard's tower", "fairy grove", "rainbow bridge",
         "underwater palace", "cloud castle", "phoenix nest", "mystic library",
@@ -18,26 +19,22 @@ class IsulionMythicalLocationGenerator:
         return {
             "required": {
                 "randomize": (["enable", "disable"],),
-                "location": (s.locations,),
+                "location": (s.POOL,),
             },
             "optional": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
             }
         }
-    
+
     RETURN_TYPES = ("STRING", "INT",)
     RETURN_NAMES = ("location", "seed",)
     FUNCTION = "generate"
     CATEGORY = "Isulion/Fantasy"
 
     def generate(self, randomize, location, seed=0):
+        rng, seed = self._make_rng(randomize, seed)
+
         if randomize == "enable":
-            if seed is not None and seed > 0:
-                random.seed(seed)
-            else:
-                seed = random.randint(0, 0xffffffffffffffff)
-                random.seed(seed)
-            
-            location = random.choice(self.locations)
-        
-        return (location, seed) 
+            location = rng.choice(self._pool_for())
+
+        return (location, seed)

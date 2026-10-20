@@ -1,7 +1,8 @@
-import random
+from ..base_selector import SimpleSelectorNode
 
-class Isulion_HabitatGenerator:
-    habitats = [
+
+class Isulion_HabitatGenerator(SimpleSelectorNode):
+    POOL = [
         'Jungle', 'Rainforest', 'Savanna', 'Desert', 'Arctic Tundra', 'Ocean', 'Coral Reef',
         'Mountain Range', 'Alpine Forest', 'Grassland', 'Wetland', 'Mangrove Swamp',
         'Deciduous Forest', 'Coniferous Forest', 'Rocky Shore', 'Sandy Beach', 'Cave System',
@@ -10,14 +11,15 @@ class Isulion_HabitatGenerator:
         'Shallow Reef', 'Underground Cave', 'Hot Spring', 'Oasis', 'Canyon', 'Delta',
         'Estuary', 'Fjord', 'Glacier', 'Ice Sheet', 'Island', 'Peninsula'
     ]
-  
+    MAX_SEED = 999999999
+
     @classmethod
     def INPUT_TYPES(cls):
         return {
             "required": {
                 "randomize": (["enable", "disable"],),
                 "seed": ("INT", {"default": 0, "min": 0, "max": 999999999}),
-                "habitat": (cls.habitats,)
+                "habitat": (cls.POOL,)
             }
         }
 
@@ -27,13 +29,9 @@ class Isulion_HabitatGenerator:
     CATEGORY = "Art/Styles"
 
     def generate_habitat(self, randomize: str, seed: int, habitat: str) -> tuple:
-        if randomize == "enable":
-            if seed is not None and seed > 0:
-                random.seed(seed)
-            else:
-                seed = random.randint(0, 999999999)
-                random.seed(seed)
+        rng, seed = self._make_rng(randomize, seed)
 
-            habitat = random.choice(self.habitats)
+        if randomize == "enable":
+            habitat = rng.choice(self._pool_for())
 
         return (f"{habitat}", seed)

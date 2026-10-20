@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("minimalist")
 class MinimalistThemeHandler(BaseThemeHandler):
     """Handler for minimalist-themed prompt generation."""
-    
+    DISPLAY_NAME = "⬜ Minimalist"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class MinimalistThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate minimalist-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         form = self._get_random_choice("minimalist.forms")
         element = self._get_random_choice("minimalist.elements")
@@ -34,7 +35,7 @@ class MinimalistThemeHandler(BaseThemeHandler):
                 f"((featuring {element})), ((clean design)), "
                 f"((elegant simplicity)), ((pure form))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -51,7 +52,7 @@ class MinimalistThemeHandler(BaseThemeHandler):
                     f"((clean space)), ((pure background)), "
                     f"((minimal setting))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("minimalist.styles")
@@ -62,7 +63,7 @@ class MinimalistThemeHandler(BaseThemeHandler):
                 f"((minimalist design)), ((clean artistry)), "
                 f"((simple elegance))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("minimalist.effects")
@@ -72,5 +73,5 @@ class MinimalistThemeHandler(BaseThemeHandler):
                 f"((simple {tone} tones)), "
                 f"((clean finish)), ((pure lighting))"
             )
-        
+
         return components

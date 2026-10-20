@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("architectural")
 class ArchitecturalThemeHandler(BaseThemeHandler):
     """Handler for architectural-themed prompt generation."""
-    
+    DISPLAY_NAME = "🏛️ Architectural"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,

@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("impressionist")
 class ImpressionistThemeHandler(BaseThemeHandler):
     """Handler for impressionist-style prompt generation."""
-    
+    DISPLAY_NAME = "🎨 Impressionist"
+
     def __init__(self, config):
         super().__init__(config)
         self.theme_config = config.get_config("impressionist")
@@ -17,7 +18,7 @@ class ImpressionistThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate impressionist-styled components."""
         components = {}
-        
+
         # Prepare random elements for both branches
         techniques = ["broken color", "visible brushstrokes", "impasto technique", "optical mixing", "pure color application"]
         palette = ["vibrant", "pure", "complementary", "atmospheric", "light-filled"]
@@ -49,7 +50,7 @@ class ImpressionistThemeHandler(BaseThemeHandler):
                 f"((vibrant color impressionism)), ((light and atmosphere)), "
                 f"((impressionist style)), ((artistic excellence)), ((painterly quality))"
             )
-        
+
         # Generate environment with impressionist atmosphere
         if include_environment:
             if custom_location:
@@ -63,18 +64,18 @@ class ImpressionistThemeHandler(BaseThemeHandler):
                 environments = ["garden", "riverside", "countryside", "city street", "park", "seaside", "meadow", "terrace"]
                 time_of_day = ["sunset", "midday", "morning light", "afternoon glow", "dusk"]
                 weather = ["misty", "sunny", "cloudy", "rainy", "atmospheric"]
-                
+
                 environment = self.rng.choice(environments)
                 time = self.rng.choice(time_of_day)
                 atmosphere = self.rng.choice(weather)
-                
+
                 components["environment"] = (
                     f"in ((an impressionist {environment})) during (({time})), "
                     f"((with {atmosphere} atmosphere)), ((natural light)), "
                     f"((atmospheric perspective)), ((en plein air)), "
                     f"((changing light effects)), ((impressionist scene))"
                 )
-        
+
         # Generate style with impressionist techniques
         if include_style:
             technique = self.rng.choice(techniques)
@@ -88,22 +89,22 @@ class ImpressionistThemeHandler(BaseThemeHandler):
                 f"((impressionist excellence)), ((artistic mastery)), "
                 f"8k resolution, oil painting, canvas texture"
             )
-        
+
         # Generate effects with impressionist elements
         if include_effects:
             effects = ["light diffusion", "color vibration", "atmospheric haze", "natural reflections", "dappled light"]
             details = ["loose details", "suggestive forms", "spontaneous marks", "textural variety", "gestural strokes"]
-            
+
             effect = self.rng.choice(effects)
             detail = self.rng.choice(details)
-            
+
             components["effects"] = (
                 f"with ((masterful {effect})), ((beautiful {detail})), "
                 f"((impressionist light)), ((atmospheric depth)), "
                 f"((painterly effects)), ((artistic excellence)), "
                 f"((impressionist mastery))"
             )
-        
+
         return components
 
     def get_negative_prompt(self):

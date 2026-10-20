@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("post_apocalyptic")
 class PostApocalypticThemeHandler(BaseThemeHandler):
     """Handler for post-apocalyptic wasteland-themed prompt generation."""
-    
+    DISPLAY_NAME = "🌪️ Post Apocalyptic"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class PostApocalypticThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate post-apocalyptic wasteland-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         equipment = self._get_random_choice("post_apocalyptic.equipment")
         vehicle = self._get_random_choice("post_apocalyptic.vehicles")
@@ -35,7 +36,7 @@ class PostApocalypticThemeHandler(BaseThemeHandler):
                 f"((wearing {equipment})), ((with {vehicle})), "
                 f"((wasteland style)), ((survival))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -52,7 +53,7 @@ class PostApocalypticThemeHandler(BaseThemeHandler):
                     f"((featuring {structure})), "
                     f"((wasteland vista)), ((destroyed world))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             atmosphere = self._get_random_choice("post_apocalyptic.atmospheres")
@@ -62,7 +63,7 @@ class PostApocalypticThemeHandler(BaseThemeHandler):
                 f"((wasteland design)), ((survival look)), "
                 f"((post-nuclear authenticity))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("post_apocalyptic.effects")
@@ -71,5 +72,5 @@ class PostApocalypticThemeHandler(BaseThemeHandler):
                 f"((wasteland atmosphere)), "
                 f"((post-apocalyptic ambiance)), ((destroyed environment))"
             )
-        
+
         return components

@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("abstract")
 class AbstractThemeHandler(BaseThemeHandler):
     """Handler for abstract-themed prompt generation."""
-    
+    DISPLAY_NAME = "🎨 Abstract"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class AbstractThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate abstract-themed components with enhanced emphasis and detail."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         shape = self._get_random_choice("abstract.shapes")
         motion = self._get_random_choice("abstract.motions")
@@ -34,7 +35,7 @@ class AbstractThemeHandler(BaseThemeHandler):
                 f"((sophisticated minimalist design)), ((perfect geometric harmony)), "
                 f"((artistic excellence)), ((compositional balance))"
             )
-        
+
         # Generate environment with enhanced spatial elements
         if include_environment:
             texture = self._get_random_choice("abstract.textures")
@@ -53,7 +54,7 @@ class AbstractThemeHandler(BaseThemeHandler):
                     f"((sophisticated dimensional depth)), ((abstract environment mastery)), "
                     f"((harmonious background))"
                 )
-        
+
         # Generate style with enhanced artistic techniques
         if include_style:
             style = self._get_random_choice("abstract.styles")
@@ -64,7 +65,7 @@ class AbstractThemeHandler(BaseThemeHandler):
                 f"((enhanced with professional {technique})), ((artistic mastery)), "
                 f"((flawless composition)), ((color harmony)), 8k resolution"
             )
-        
+
         # Generate effects with enhanced artistic elements
         if include_effects:
             effect = self._get_random_choice("abstract.effects")
@@ -74,7 +75,7 @@ class AbstractThemeHandler(BaseThemeHandler):
                 f"((masterful artistic finish)), ((visual excellence)), "
                 f"((abstract perfection))"
             )
-        
+
         return components
 
     def get_negative_prompt(self):

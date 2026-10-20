@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("futuristic_scifi")
 class FuturisticSciFiThemeHandler(BaseThemeHandler):
     """Handler for futuristic sci-fi-themed prompt generation."""
-    
+    DISPLAY_NAME = "🚀 Futuristic Sci-Fi"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class FuturisticSciFiThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate futuristic sci-fi-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         tech = self._get_random_choice("futuristic_scifi.technology")
         artifact = self._get_random_choice("futuristic_scifi.artifacts")
@@ -35,7 +36,7 @@ class FuturisticSciFiThemeHandler(BaseThemeHandler):
                 f"((wielding {tech})), ((with {artifact})), "
                 f"((science fiction)), ((advanced being))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -51,7 +52,7 @@ class FuturisticSciFiThemeHandler(BaseThemeHandler):
                     f"(({atmosphere} atmosphere)), "
                     f"((cosmic vista)), ((otherworldly scene))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("futuristic_scifi.styles")
@@ -62,7 +63,7 @@ class FuturisticSciFiThemeHandler(BaseThemeHandler):
                 f"((sci-fi precision)), ((advanced design)), "
                 f"((futuristic technology))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("futuristic_scifi.effects")
@@ -71,5 +72,5 @@ class FuturisticSciFiThemeHandler(BaseThemeHandler):
                 f"((cosmic atmosphere)), "
                 f"((sci-fi ambiance)), ((otherworldly environment))"
             )
-        
+
         return components

@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("unboxing_surrealism")
 class UnboxingSurrealismThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "📦 Unboxing Surrealism"
     def generate(self, custom_subject="", custom_location="",
                  include_environment=True, include_style=True, include_effects=True) -> Dict[str, str]:
         components = {}

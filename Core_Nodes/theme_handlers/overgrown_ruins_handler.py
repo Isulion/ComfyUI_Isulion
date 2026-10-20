@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("overgrown_ruins")
 class OvergrownRuinsThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "🌿 Overgrown Ruins"
     def generate(self, custom_subject: str = "",
                  custom_location: str = "",
                  include_environment: bool = True,

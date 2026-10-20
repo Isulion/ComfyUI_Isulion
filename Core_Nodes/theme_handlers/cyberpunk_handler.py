@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("cyberpunk")
 class CyberpunkThemeHandler(BaseThemeHandler):
     """Handler for cyberpunk-themed prompt generation."""
-    
+    DISPLAY_NAME = "🌆 Cyberpunk"
+
     def __init__(self, config):
         super().__init__(config)
         self.theme_config = config.get_config("cyberpunk")

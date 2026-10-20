@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("spectral_mist")
 class SpectralMistThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "💗 Spectral Mist"
     def __init__(self, config):
         super().__init__(config)
         self.theme_config = config.get_config("SpectralMist")

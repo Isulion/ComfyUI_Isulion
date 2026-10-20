@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("peaky_blinders")
 class PeakyBlindersThemeHandler(BaseThemeHandler):
     """Handler for Peaky Blinders-themed prompt generation, focusing on 1920s Birmingham."""
-    
+    DISPLAY_NAME = "🕴️ Peaky Blinders"
+
     def get_negative_prompt(self) -> str:
         """Get negative prompt to avoid modern elements."""
         try:
@@ -46,12 +47,12 @@ class PeakyBlindersThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate historically accurate 1920s Peaky Blinders-themed components."""
         components = {}
-        
+
         try:
             # Get custom inputs and enforce 1920s theme
             custom_subject = self._enforce_1920s_theme(custom_subject.strip())
             custom_location = custom_location.strip()
-            
+
             # Select core elements with safe fallbacks
             character = self._get_safe_random_choice(
                 "peaky_blinders.characters",
@@ -76,7 +77,7 @@ class PeakyBlindersThemeHandler(BaseThemeHandler):
                 3,
                 ["gas lamps", "cobblestone streets", "brick buildings"]
             )
-            
+
             # Generate subject component
             if custom_subject:
                 components["subject"] = (
@@ -93,7 +94,7 @@ class PeakyBlindersThemeHandler(BaseThemeHandler):
                     f"((strictly period accurate details)), ((1920s Birmingham style)), "
                     f"in tones of {color_scheme}, ((historical accuracy)), ((1920s era))"
                 )
-            
+
             # Generate environment component
             if include_environment:
                 if custom_location:
@@ -122,7 +123,7 @@ class PeakyBlindersThemeHandler(BaseThemeHandler):
                         f"((1920s industrial atmosphere)), ((Victorian era architecture)), "
                         f"((no modern elements)), ((period accurate Birmingham))"
                     )
-            
+
             # Generate style component
             if include_style:
                 style = self._get_safe_random_choice(
@@ -140,38 +141,38 @@ class PeakyBlindersThemeHandler(BaseThemeHandler):
                     f"((historical drama)), ((period appropriate film grain)), "
                     f"((Victorian industrial era)), ((1920s Birmingham)), 8k resolution"
                 )
-            
+
             # Generate effects component
             if include_effects:
                 components["effects"] = (
-                    f"with ((1920s photo effects)), ((period appropriate film grain)), "
-                    f"((historical color grading)), ((authentic aging)), "
-                    f"((early photography style)), ((industrial atmosphere)), "
-                    f"((coal smoke ambiance)), ((historical authenticity)), "
-                    f"((no modern post-processing)), ((1920s photographic technique))"
+                    "with ((1920s photo effects)), ((period appropriate film grain)), "
+                    "((historical color grading)), ((authentic aging)), "
+                    "((early photography style)), ((industrial atmosphere)), "
+                    "((coal smoke ambiance)), ((historical authenticity)), "
+                    "((no modern post-processing)), ((1920s photographic technique))"
                 )
-            
+
             return components
-            
+
         except Exception as e:
             print(f"Warning: Error in Peaky Blinders handler: {str(e)}")
             # Return safe fallback components that maintain theme instead of going to abstract
             return {
                 "subject": (
-                    f"((1920s historical portrait)) of a ((Birmingham character)), "
-                    f"((wearing period appropriate clothing)), ((with period props)), "
-                    f"((strictly period accurate details)), ((1920s Birmingham style))"
+                    "((1920s historical portrait)) of a ((Birmingham character)), "
+                    "((wearing period appropriate clothing)), ((with period props)), "
+                    "((strictly period accurate details)), ((1920s Birmingham style))"
                 ),
                 "environment": (
-                    f"in ((a 1920s industrial setting)), ((with period elements)), "
-                    f"((authentic historical setting)), ((Victorian era architecture))"
+                    "in ((a 1920s industrial setting)), ((with period elements)), "
+                    "((authentic historical setting)), ((Victorian era architecture))"
                 ),
                 "style": (
-                    f"((1920s photography)), ((historical accuracy)), "
-                    f"((vintage photo quality)), ((period appropriate film grain))"
+                    "((1920s photography)), ((historical accuracy)), "
+                    "((vintage photo quality)), ((period appropriate film grain))"
                 ),
                 "effects": (
-                    f"with ((1920s photo effects)), ((historical color grading)), "
-                    f"((authentic aging)), ((period appropriate details))"
+                    "with ((1920s photo effects)), ((historical color grading)), "
+                    "((authentic aging)), ((period appropriate details))"
                 )
             }

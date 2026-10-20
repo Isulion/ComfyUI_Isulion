@@ -9,17 +9,21 @@ IMAGE_EXTENSIONS = {'.png', '.jpg', '.jpeg', '.bmp', '.gif', '.webp'}
 
 class IsulionLoadImagesNode:
     """
-    A flexible image loading node that preserves image characteristics 
+    A flexible image loading node that preserves image characteristics
     and prepares images for dynamic collage generation.
     """
 
     @staticmethod
     def _resolve_directory(directory: str) -> str:
-        """Resolve user input against ComfyUI's input directory sandbox."""
+        """Resolve user input strictly inside ComfyUI's input directory sandbox."""
         directory = directory.strip()
         if os.path.isabs(directory):
-            return os.path.abspath(os.path.expanduser(directory))
-        return os.path.join(folder_paths.get_input_directory(), directory)
+            raise ValueError(f"Directory escapes input sandbox: {directory} (move the folder into ComfyUI/input and give a relative path)")
+        base = os.path.realpath(folder_paths.get_input_directory())
+        candidate = os.path.realpath(os.path.join(base, directory.lstrip("/\\")))
+        if candidate != base and not candidate.startswith(base + os.sep):
+            raise ValueError(f"Directory escapes input sandbox: {directory} (move the folder into ComfyUI/input and give a relative path)")
+        return candidate
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -42,35 +46,35 @@ class IsulionLoadImagesNode:
     def load_images(self, directory, target_row_height=300):
         """
         Load images from a directory with intelligent processing.
-        
+
         :param directory: Path to directory containing images
         :param target_row_height: Target height for image rows
         :return: Tensor of processed images
         """
         # Resolve the full path (relative paths are sandboxed to ComfyUI's input dir)
         full_directory = self._resolve_directory(directory)
-        
+
         # Validate directory exists
         if not os.path.isdir(full_directory):
             raise ValueError(f"Directory does not exist: {full_directory}")
-        
+
         # Get all image files in the directory
         image_files = [
             os.path.join(full_directory, f) for f in os.listdir(full_directory)
-            if os.path.isfile(os.path.join(full_directory, f)) and 
+            if os.path.isfile(os.path.join(full_directory, f)) and
                os.path.splitext(f)[1].lower() in IMAGE_EXTENSIONS
         ]
-        
+
         # Sort files for consistent order
         image_files.sort()
-        
+
         # Check if any images were found
         if not image_files:
             raise ValueError(f"No images found in directory: {full_directory}")
-        
+
         # Process images
         processed_images = []
-        
+
         for image_path in image_files:
             with Image.open(image_path) as img:
                 # Correct orientation and convert to RGB
@@ -86,7 +90,7 @@ class IsulionLoadImagesNode:
                 new_width = int(new_height * aspect_ratio)
 
                 # Resize maintaining aspect ratio
-                resized_img = img.resize((new_width, new_height), Image.LANCZOS)
+                resized_img = img.resize((new_width, new_height), Image.Resampling.LANCZOS)
 
                 # Convert to numpy array and normalize
                 img_array = np.array(resized_img).astype(np.float32) / 255.0
@@ -95,7 +99,7 @@ class IsulionLoadImagesNode:
             img_tensor = torch.from_numpy(img_array)
 
             processed_images.append(img_tensor)
-        
+
         # Return the list as-is: each image keeps its own size (no padding),
         # preserving native aspect ratios for downstream collage layout.
         return (processed_images,)
@@ -114,7 +118,7 @@ class IsulionLoadImagesNode:
                     stat = os.stat(path)
                     entries.append((f, stat.st_mtime_ns, stat.st_size))
             return hashlib.sha1(repr(entries).encode()).hexdigest()
-        except OSError:
+        except (OSError, ValueError):
             # Missing/unreadable directory: force re-execution so the node
             # raises a proper validation error instead.
             return float("NaN")
@@ -123,7 +127,7 @@ class IsulionLoadImagesNode:
     def VALIDATE_INPUTS(cls, directory, **kwargs):
         """
         Validate the input directory.
-        
+
         :param directory: Directory to validate
         :return: True if valid, error message if not
         """
@@ -137,7 +141,7 @@ class IsulionLoadImagesNode:
             # Check if directory has any image files
             image_files = [
                 f for f in os.listdir(full_directory)
-                if os.path.isfile(os.path.join(full_directory, f)) and 
+                if os.path.isfile(os.path.join(full_directory, f)) and
                    os.path.splitext(f)[1].lower() in IMAGE_EXTENSIONS
             ]
 

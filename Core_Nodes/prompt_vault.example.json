@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "name": "cyberpunk_neon_street",
+      "text": "a lone samurai walking through a rain-soaked neon city at night, holographic advertisements reflected in puddles, cinematic lighting, volumetric fog, cyberpunk style, highly detailed"
+    },
+    {
+      "name": "ghibli_cottage",
+      "text": "a cozy cottage on a hillside with a winding path, lush greenery, soft morning light, cumulus clouds, Studio Ghibli inspired, peaceful atmosphere, hand-painted background"
+    },
+    {
+      "name": "horror_abandoned_hospital",
+      "text": "an abandoned hospital corridor with flickering fluorescent lights, peeling wallpaper, dust motes in the air, VHS found footage aesthetic, unsettling silence, horror atmosphere"
+    }
+  ]
+}

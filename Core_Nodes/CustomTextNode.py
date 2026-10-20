@@ -13,7 +13,3 @@ class CustomTextNode:
 
     def display_text(self, text):
         return (text,)
-
-NODE_CLASS_MAPPINGS = {
-    "CustomTextNode ⌨️": CustomTextNode
-}

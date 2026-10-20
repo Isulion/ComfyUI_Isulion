@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("xray_anatomy")
 class XRayAnatomyThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "🩻 X-Ray Anatomy"
     def generate(self, custom_subject: str = "",
                  custom_location: str = "",
                  include_environment: bool = True,

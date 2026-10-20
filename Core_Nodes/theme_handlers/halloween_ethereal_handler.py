@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("halloween_ethereal")
 class HalloweenEtherealThemeHandler(BaseThemeHandler):
     """Handler for halloween ethereal-themed prompt generation."""
-    
+    DISPLAY_NAME = "👻 Halloween Ethereal"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class HalloweenEtherealThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate halloween ethereal-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         creature = self._get_random_choice("halloween_ethereal.creatures")
         obj = self._get_random_choice("halloween_ethereal.objects")
@@ -35,7 +36,7 @@ class HalloweenEtherealThemeHandler(BaseThemeHandler):
                 f"((with {creature})), ((holding {obj})), "
                 f"((halloween spirit)), ((mystical being))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -52,7 +53,7 @@ class HalloweenEtherealThemeHandler(BaseThemeHandler):
                     f"(({atmosphere} atmosphere)), "
                     f"((haunted vista)), ((mystical scene))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("halloween_ethereal.styles")
@@ -62,7 +63,7 @@ class HalloweenEtherealThemeHandler(BaseThemeHandler):
                 f"((haunting beauty)), ((mystical design)), "
                 f"((supernatural elegance))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("halloween_ethereal.effects")
@@ -71,5 +72,5 @@ class HalloweenEtherealThemeHandler(BaseThemeHandler):
                 f"((ethereal atmosphere)), "
                 f"((mystical ambiance)), ((haunted environment))"
             )
-        
+
         return components

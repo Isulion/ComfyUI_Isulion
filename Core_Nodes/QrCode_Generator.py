@@ -1,7 +1,6 @@
 # Core_Nodes/qrcode_node.py
 import torch
 import numpy as np
-import re # Using built-in 're' for color parsing
 import traceback # For detailed error printing
 
 import logging
@@ -168,18 +167,20 @@ class QRCodeNode:
         # --- 4. Handle Optional Logo ---
         if logo is not None and logo.numel() > 0:
             # Warnings about ECL vs logo size
-            if ecl == qrcodegen.QrCode.Ecc.LOW: logger.warning("QRCodeNode - Using logo with LOW ECL is not recommended.")
-            elif ecl == qrcodegen.QrCode.Ecc.MEDIUM and logo_scale_percent > 20: logger.warning("QRCodeNode - Logo > 20% with MEDIUM ECL might impact scannability.")
+            if ecl == qrcodegen.QrCode.Ecc.LOW:
+                logger.warning("QRCodeNode - Using logo with LOW ECL is not recommended.")
+            elif ecl == qrcodegen.QrCode.Ecc.MEDIUM and logo_scale_percent > 20:
+                logger.warning("QRCodeNode - Logo > 20% with MEDIUM ECL might impact scannability.")
 
             try:
                 # --- 4a. Prepare Input Logo ---
                 logo_input_tensor = logo # B, H, W, C float
-                if logo_input_tensor.shape[0] > 1: logger.warning("QRCodeNode - Multiple logos in batch, using only the first one.")
+                if logo_input_tensor.shape[0] > 1:
+                    logger.warning("QRCodeNode - Multiple logos in batch, using only the first one.")
                 logo_np_float = logo_input_tensor[0].cpu().numpy() # H, W, C float [0, 1]
 
                 # Check input logo channels and handle grayscale
                 input_logo_channels = logo_np_float.shape[2] if logo_np_float.ndim == 3 else 1
-                input_has_alpha = False
                 if logo_np_float.ndim == 2: # Grayscale (H, W)
                     logger.info("QRCodeNode - Input logo is grayscale, converting to RGB.")
                     logo_np_float = np.stack((logo_np_float,) * 3, axis=-1) # -> H, W, 3
@@ -190,7 +191,6 @@ class QRCodeNode:
                      input_logo_channels = 3
                 elif input_logo_channels == 4: # RGBA
                     logger.info("QRCodeNode - Input logo has alpha channel.")
-                    input_has_alpha = True
                 elif input_logo_channels != 3: # RGB
                      logger.warning(f"QRCodeNode - Input logo has unsupported channel count ({input_logo_channels}). Treating as RGB.")
                      logo_np_float = logo_np_float[:, :, :3] # Take first 3 channels if > 4? Risky. Better to just treat as RGB.
@@ -287,13 +287,3 @@ class QRCodeNode:
             return (dummy_tensor,)
 
         return (img_tensor_out,)
-
-
-# --- ComfyUI Mappings ---
-NODE_CLASS_MAPPINGS = {
-    "🧩 IsulionQRCode": QRCodeNode
-}
-
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "🧩 IsulionQRCode": "🧩 Isulion QRCode"
-}

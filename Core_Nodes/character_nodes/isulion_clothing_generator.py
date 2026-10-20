@@ -1,7 +1,8 @@
-import random
+from ..base_selector import SimpleSelectorNode
 
-class IsulionClothingGenerator:
-    clothing = {
+
+class IsulionClothingGenerator(SimpleSelectorNode):
+    POOLS = {
         "fantasy": [
             "ornate robes", "leather armor", "silk dress", "royal garments",
             "mage's cloak", "warrior's plate", "peasant's tunic", "noble's attire",
@@ -28,35 +29,26 @@ class IsulionClothingGenerator:
 
     @classmethod
     def INPUT_TYPES(s):
-        all_clothing = [item for sublist in s.clothing.values() for item in sublist]
         return {
             "required": {
                 "randomize": (["enable", "disable"],),
-                "clothing": (all_clothing,),
+                "clothing": (s._pool_for(),),
             },
             "optional": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
                 "style": (["any", "fantasy", "modern", "sci_fi"], {"default": "any"}),
             }
         }
-    
+
     RETURN_TYPES = ("STRING", "INT",)
     RETURN_NAMES = ("clothing", "seed",)
     FUNCTION = "generate"
     CATEGORY = "Isulion/Character"
 
     def generate(self, randomize, clothing, seed=0, style="any"):
+        rng, seed = self._make_rng(randomize, seed)
+
         if randomize == "enable":
-            if seed is not None and seed > 0:
-                random.seed(seed)
-            else:
-                seed = random.randint(0, 0xffffffffffffffff)
-                random.seed(seed)
-            
-            if style != "any" and style in self.clothing:
-                clothing = random.choice(self.clothing[style])
-            else:
-                all_clothing = [item for sublist in self.clothing.values() for item in sublist]
-                clothing = random.choice(all_clothing)
-        
-        return (clothing, seed) 
+            clothing = rng.choice(self._pool_for(style))
+
+        return (clothing, seed)

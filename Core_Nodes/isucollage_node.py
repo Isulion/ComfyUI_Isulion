@@ -56,6 +56,25 @@ def plan_rows(aspects, width):
     return rows, y
 
 
+def _to_rgb(frame):
+    """Normalize an HxWxC float frame to RGB.
+
+    RGBA frames are alpha-composited over the collage background color;
+    frames with more than 4 channels are truncated to their first three;
+    fewer than 3 channels is unsupported.
+    """
+    channels = frame.shape[-1]
+    if channels == 4:
+        rgb = frame[..., :3]
+        alpha = frame[..., 3:4]
+        return rgb * alpha + BACKGROUND * (1.0 - alpha)
+    if channels > 4:
+        return frame[..., :3]
+    if channels < 3:
+        raise ValueError(f"Unsupported image channel count: {channels}")
+    return frame
+
+
 def rows_to_pixels(rows, width):
     """Snap float rects to integer pixels while keeping the tiling exact.
 
@@ -148,6 +167,7 @@ class IsuCollageNode:
         pixel_rects, canvas_h = rows_to_pixels(rows, width)
 
         imgs = [f.float() for f in frames]
+        imgs = [_to_rgb(f) for f in imgs]
 
         device = imgs[0].device
         canvas = torch.full((canvas_h, width, 3), BACKGROUND,

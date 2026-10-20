@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("crayon_art")
 class CrayonArtThemeHandler(BaseThemeHandler):
     """Handler for crayon art-themed prompt generation."""
-    
+    DISPLAY_NAME = "🖍️ Crayon Art"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class CrayonArtThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate crayon art-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         color = self._get_random_choice("crayon_art.colors")
         feature = self._get_random_choice("crayon_art.features")
@@ -34,7 +35,7 @@ class CrayonArtThemeHandler(BaseThemeHandler):
                 f"((featuring {feature})), ((childlike drawing)), "
                 f"((crayon sketch)), ((hand-drawn creation))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -51,7 +52,7 @@ class CrayonArtThemeHandler(BaseThemeHandler):
                     f"((hand-drawn environment)), ((crayon background)), "
                     f"((sketched surroundings))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("crayon_art.styles")
@@ -62,7 +63,7 @@ class CrayonArtThemeHandler(BaseThemeHandler):
                 f"((childlike art)), ((crayon artistry)), "
                 f"((hand-drawn quality))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("crayon_art.effects")
@@ -72,5 +73,5 @@ class CrayonArtThemeHandler(BaseThemeHandler):
                 f"((childlike {texture} texture)), "
                 f"((hand-drawn style)), ((sketched finish))"
             )
-        
+
         return components

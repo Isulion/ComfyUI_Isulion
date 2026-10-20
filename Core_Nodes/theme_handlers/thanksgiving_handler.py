@@ -5,11 +5,12 @@ from .registry import register_theme
 @register_theme("thanksgiving")
 class ThanksgivingThemeHandler(BaseThemeHandler):
     """Handler for Thanksgiving-themed prompt generation."""
-    
+    DISPLAY_NAME = "🦃 Thanksgiving"
+
     def get_negative_prompt(self) -> str:
         """Get negative prompt to avoid unwanted styles."""
         negative_elements = [
-            "modern technology", "futuristic elements", "urban landscapes", 
+            "modern technology", "futuristic elements", "urban landscapes",
             "cold colors", "industrial settings", "minimalist design"
         ]
         return ", ".join(negative_elements)
@@ -21,20 +22,20 @@ class ThanksgivingThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate Thanksgiving-themed components."""
         components = {}
-        
+
         # Custom inputs
         custom_subject = custom_subject.strip()
         custom_location = custom_location.strip()
-        
+
         # Select core elements
         characters = ["family gathering", "warm family scene", "thanksgiving dinner group", "grateful people", "festive family"]
         attire = ["cozy sweater", "autumn dress", "warm clothing", "traditional outfit", "comfortable family attire"]
         props = ["roasted turkey", "pumpkin pie", "cornucopia", "autumn harvest basket", "thanksgiving feast"]
         color_schemes = ["warm autumn colors", "golden brown", "harvest palette", "rustic orange and red", "earthy tones"]
-        
+
         character = self.config.random.choice(characters)
         color_scheme = self.config.random.choice(color_schemes)
-        
+
         if custom_subject:
             components["subject"] = (
                 f"((heartwarming Thanksgiving scene)) of {custom_subject}, "
@@ -49,7 +50,7 @@ class ThanksgivingThemeHandler(BaseThemeHandler):
                 f"((with {self.config.random.choice(props)}) ), "
                 f"in {color_scheme} colors, ((gratitude atmosphere)), ((family magic))"
             )
-        
+
         if include_environment:
             if custom_location:
                 components["environment"] = (
@@ -60,31 +61,31 @@ class ThanksgivingThemeHandler(BaseThemeHandler):
             else:
                 settings = ["family dining room", "rustic farmhouse", "autumn garden", "traditional home", "harvest celebration space"]
                 lighting = ["warm fireplace glow", "soft autumn light", "golden hour", "gentle indoor lighting"]
-                
+
                 setting = self.config.random.choice(settings)
                 light = self.config.random.choice(lighting)
-                
+
                 components["environment"] = (
                     f"in ((a magical {setting})), ((illuminated by {light})), "
                     f"((family atmosphere)), ((Thanksgiving setting)), "
                     f"((autumn landscape)), ((moments of gratitude))"
                 )
-        
+
         if include_style:
             components["style"] = (
-                f"((heartwarming Thanksgiving artwork)), ((family illustration style)), "
-                f"((warm painting technique)), ((nostalgic composition)), "
-                f"((autumn color palette)), ((grateful holiday mood)), "
-                f"((family gathering quality)), ((tender artistic rendering)), "
-                f"8k resolution, ((magical family lighting))"
+                "((heartwarming Thanksgiving artwork)), ((family illustration style)), "
+                "((warm painting technique)), ((nostalgic composition)), "
+                "((autumn color palette)), ((grateful holiday mood)), "
+                "((family gathering quality)), ((tender artistic rendering)), "
+                "8k resolution, ((magical family lighting))"
             )
-        
+
         if include_effects:
             components["effects"] = (
-                f"with ((magical gratitude glow)), ((warm soft light)), "
-                f"((falling autumn leaves)), ((feast sparkle)), "
-                f"((cozy atmosphere)), ((family magic)), "
-                f"((harvest shimmer)), ((tender family effects))"
+                "with ((magical gratitude glow)), ((warm soft light)), "
+                "((falling autumn leaves)), ((feast sparkle)), "
+                "((cozy atmosphere)), ((family magic)), "
+                "((harvest shimmer)), ((tender family effects))"
             )
-        
+
         return components

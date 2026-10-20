@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("futuristic_battlefield")
 class FuturisticBattlefieldThemeHandler(BaseThemeHandler):
     """Handler for futuristic battlefield-themed prompt generation."""
-    
+    DISPLAY_NAME = "⚔️ Futuristic Battlefield"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class FuturisticBattlefieldThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate futuristic battlefield-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         weapon = self._get_random_choice("futuristic_battlefield.weapons")
         tech = self._get_random_choice("futuristic_battlefield.tech")
@@ -34,7 +35,7 @@ class FuturisticBattlefieldThemeHandler(BaseThemeHandler):
                 f"((equipped with {tech})), ((advanced warfare)), "
                 f"((high-tech combat)), ((military technology))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -51,7 +52,7 @@ class FuturisticBattlefieldThemeHandler(BaseThemeHandler):
                     f"((war-torn environment)), ((combat zone)), "
                     f"((military installation))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("futuristic_battlefield.styles")
@@ -62,7 +63,7 @@ class FuturisticBattlefieldThemeHandler(BaseThemeHandler):
                 f"((military precision)), ((advanced technology)), "
                 f"((futuristic warfare))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("futuristic_battlefield.effects")
@@ -72,5 +73,5 @@ class FuturisticBattlefieldThemeHandler(BaseThemeHandler):
                 f"((combat {atmosphere} atmosphere)), "
                 f"((battlefield ambiance)), ((war-torn environment))"
             )
-        
+
         return components

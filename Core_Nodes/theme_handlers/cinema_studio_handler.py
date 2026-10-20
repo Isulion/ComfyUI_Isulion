@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("cinema_studio")
 class CinemaStudioThemeHandler(BaseThemeHandler):
     """Handler for cinema studio-themed prompt generation."""
-    
+    DISPLAY_NAME = "🎬 Cinema Studio"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class CinemaStudioThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate cinema studio-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         shot = self._get_random_choice("cinema_studio.shots")
         feature = self._get_random_choice("cinema_studio.features")
@@ -32,7 +33,7 @@ class CinemaStudioThemeHandler(BaseThemeHandler):
                 f"((featuring {feature})), ((professional film quality)), "
                 f"((movie production)), ((studio cinematography))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -49,7 +50,7 @@ class CinemaStudioThemeHandler(BaseThemeHandler):
                     f"((film set)), ((production background)), "
                     f"((movie environment))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("cinema_studio.styles")
@@ -60,7 +61,7 @@ class CinemaStudioThemeHandler(BaseThemeHandler):
                 f"((cinematic quality)), ((studio production)), "
                 f"((professional filming))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("cinema_studio.effects")
@@ -70,5 +71,5 @@ class CinemaStudioThemeHandler(BaseThemeHandler):
                 f"((studio {lighting} lighting)), "
                 f"((film grade)), ((production finish))"
             )
-        
+
         return components

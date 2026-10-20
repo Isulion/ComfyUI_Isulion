@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("instagram_lifestyle")
 class InstagramLifestyleThemeHandler(BaseThemeHandler):
     """Handler for Instagram lifestyle-themed prompt generation."""
-    
+    DISPLAY_NAME = "📱 Instagram Lifestyle"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class InstagramLifestyleThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate Instagram lifestyle-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         activity = self._get_random_choice("instagram_lifestyle.activities")
         prop = self._get_random_choice("instagram_lifestyle.props")
@@ -35,7 +36,7 @@ class InstagramLifestyleThemeHandler(BaseThemeHandler):
                 f"((with {prop})), "
                 f"((instagram aesthetic)), ((influencer style))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -52,7 +53,7 @@ class InstagramLifestyleThemeHandler(BaseThemeHandler):
                     f"((creating {mood} atmosphere)), "
                     f"((instagram worthy)), ((lifestyle scene))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("instagram_lifestyle.styles")
@@ -62,7 +63,7 @@ class InstagramLifestyleThemeHandler(BaseThemeHandler):
                 f"((social media beauty)), ((lifestyle design)), "
                 f"((influencer quality))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("instagram_lifestyle.effects")
@@ -71,5 +72,5 @@ class InstagramLifestyleThemeHandler(BaseThemeHandler):
                 f"((instagram atmosphere)), "
                 f"((lifestyle ambiance)), ((social media environment))"
             )
-        
+
         return components

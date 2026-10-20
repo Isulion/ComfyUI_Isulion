@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("marvel")
 class MarvelThemeHandler(BaseThemeHandler):
     """Handler for Marvel-themed prompt generation."""
-    
+    DISPLAY_NAME = "🦸 Marvel"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class MarvelThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate Marvel-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         costume = self._get_random_choice("marvel.costumes")
         pose = self._get_random_choice("marvel.poses")
@@ -34,7 +35,7 @@ class MarvelThemeHandler(BaseThemeHandler):
                 f"((in {pose})), ((superhero aesthetic)), "
                 f"((comic book style)), ((dynamic pose))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -51,7 +52,7 @@ class MarvelThemeHandler(BaseThemeHandler):
                     f"((Marvel atmosphere)), ((superhero setting)), "
                     f"((comic book environment))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("marvel.styles")
@@ -62,7 +63,7 @@ class MarvelThemeHandler(BaseThemeHandler):
                 f"((Marvel comics aesthetics)), ((superhero art)), "
                 f"((dynamic comic style))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("marvel.effects")
@@ -72,5 +73,5 @@ class MarvelThemeHandler(BaseThemeHandler):
                 f"((dramatic {power} powers)), "
                 f"((Marvel energy)), ((superhero impact))"
             )
-        
+
         return components

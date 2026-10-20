@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("manga_panel")
 class MangaPanelThemeHandler(BaseThemeHandler):
     """Handler for manga panel-themed prompt generation."""
-    
+    DISPLAY_NAME = "📺 Manga Panel"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class MangaPanelThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate manga panel-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         panel_type = self._get_random_choice("manga_panel.panel_types")
         composition = self._get_random_choice("manga_panel.compositions")
@@ -36,7 +37,7 @@ class MangaPanelThemeHandler(BaseThemeHandler):
                 f"((with {composition})), ((featuring {element})), "
                 f"((manga art style)), ((comic panel))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -53,7 +54,7 @@ class MangaPanelThemeHandler(BaseThemeHandler):
                     f"((creating {emotion} mood)), "
                     f"((manga scene)), ((comic panel environment))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             atmosphere = self._get_random_choice("manga_panel.atmospheres")
@@ -63,7 +64,7 @@ class MangaPanelThemeHandler(BaseThemeHandler):
                 f"((comic panel aesthetic)), ((manga design)), "
                 f"((japanese comic style))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("manga_panel.effects")
@@ -72,5 +73,5 @@ class MangaPanelThemeHandler(BaseThemeHandler):
                 f"((manga atmosphere)), "
                 f"((comic panel effects)), ((manga environment))"
             )
-        
+
         return components

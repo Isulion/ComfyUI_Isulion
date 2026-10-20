@@ -5,11 +5,12 @@ from .registry import register_theme
 @register_theme("school_manga")
 class SchoolMangaThemeHandler(BaseThemeHandler):
     """Handler for professional school manga-themed prompt generation with authentic Japanese aesthetics and technical manga mastery."""
-    
+    DISPLAY_NAME = "📚 School Manga"
+
     def __init__(self, config):
         super().__init__(config)
         self.theme_config = config.get_config("school_manga")
-    
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,

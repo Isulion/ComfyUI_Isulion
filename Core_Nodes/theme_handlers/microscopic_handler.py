@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("microscopic")
 class MicroscopicThemeHandler(BaseThemeHandler):
     """Handler for microscopic-themed prompt generation."""
-    
+    DISPLAY_NAME = "🔬 Microscopic"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class MicroscopicThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate microscopic-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         style = self._get_random_choice("microscopic.styles")
         technique = self._get_random_choice("microscopic.techniques")
@@ -37,7 +38,7 @@ class MicroscopicThemeHandler(BaseThemeHandler):
                 f"((with {detail})), ((cellular detail)), "
                 f"((molecular structure)), ((microscope magnification))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -54,7 +55,7 @@ class MicroscopicThemeHandler(BaseThemeHandler):
                     f"((cellular environment)), ((molecular surroundings)), "
                     f"((microscopic world))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("microscopic.styles")
@@ -65,7 +66,7 @@ class MicroscopicThemeHandler(BaseThemeHandler):
                 f"((scientific visualization)), ((microscopic detail)), "
                 f"((cellular aesthetics))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("microscopic.effects")
@@ -75,5 +76,5 @@ class MicroscopicThemeHandler(BaseThemeHandler):
                 f"((cellular {coloring} coloring)), "
                 f"((molecular visualization)), ((microscope lens effects))"
             )
-        
+
         return components

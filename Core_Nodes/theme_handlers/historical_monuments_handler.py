@@ -5,6 +5,7 @@ from .registry import register_theme
 @register_theme("historical_monuments")
 class HistoricalMonumentsHandler(BaseThemeHandler):
     """Handler for historical monuments theme generation."""
+    DISPLAY_NAME = "🏛️ Historical Monuments"
 
     def __init__(self, config_manager=None):
         super().__init__(config_manager)
@@ -46,7 +47,7 @@ class HistoricalMonumentsHandler(BaseThemeHandler):
                 include_style: bool = True,
                 include_effects: bool = True) -> Dict[str, str]:
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         architectural_style = self._get_random_choice("historical_monuments.architectural_styles")
         historical_period = self._get_random_choice("historical_monuments.historical_periods")
@@ -75,7 +76,7 @@ class HistoricalMonumentsHandler(BaseThemeHandler):
                 f"((in {historical_period})), ((perfectly preserved)), "
                 f"((architectural magnificence)), ((original appearance))"
             )
-            
+
         # Enhanced historical environment
         if include_environment:
             era = self._get_random_choice("historical_monuments.eras")
@@ -87,7 +88,7 @@ class HistoricalMonumentsHandler(BaseThemeHandler):
                 f"((bustling with period-appropriate life)), "
                 f"((rich historical context)), ((cultural significance))"
             )
-            
+
         # Enhanced artistic style
         if include_style:
             style = self._get_random_choice("historical_monuments.artistic_styles")
@@ -98,7 +99,7 @@ class HistoricalMonumentsHandler(BaseThemeHandler):
                 f"((supreme architectural detail)), ((perfect scale representation)), "
                 f"((professional historical record)), ((8k resolution))"
             )
-            
+
         # Enhanced atmospheric effects
         if include_effects:
             lighting = self._get_random_choice("historical_monuments.lighting")
@@ -110,5 +111,5 @@ class HistoricalMonumentsHandler(BaseThemeHandler):
                 f"((awe-inspiring presence)), ((timeless beauty)), "
                 f"((perfect historical preservation))"
             )
-            
+
         return components

@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("interior_spaces")
 class InteriorSpacesThemeHandler(BaseThemeHandler):
     """Handler for interior spaces-themed prompt generation."""
-    
+    DISPLAY_NAME = "🏠 Interior Spaces"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class InteriorSpacesThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate interior spaces-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         style = self._get_random_choice("interior_spaces.styles")
         lighting = self._get_random_choice("interior_spaces.lighting")
@@ -37,7 +38,7 @@ class InteriorSpacesThemeHandler(BaseThemeHandler):
                 f"((featuring {furniture})), ((with {decor})), "
                 f"((architectural interior)), ((interior design))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -54,7 +55,7 @@ class InteriorSpacesThemeHandler(BaseThemeHandler):
                     f"((featuring {material_env} elements)), "
                     f"((interior vista)), ((designed space))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             color = self._get_random_choice("interior_spaces.colors")
@@ -65,13 +66,13 @@ class InteriorSpacesThemeHandler(BaseThemeHandler):
                 f"((interior design aesthetic)), ((architectural beauty)), "
                 f"((spatial harmony))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             components["effects"] = (
-                f"with ((natural lighting effects)), "
-                f"((interior atmosphere)), "
-                f"((spatial ambiance)), ((architectural environment))"
+                "with ((natural lighting effects)), "
+                "((interior atmosphere)), "
+                "((spatial ambiance)), ((architectural environment))"
             )
-        
+
         return components

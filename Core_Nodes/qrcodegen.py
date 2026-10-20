@@ -1,6 +1,12 @@
-# 
+# Vendored dependency notice:
+# Bundled copy of Project Nayuki's QR Code generator library (Python edition),
+# MIT License, https://www.nayuki.io/page/qr-code-generator-library
+# Vendored on 2026-08 to avoid a runtime pip dependency; update by replacing
+# this whole file with an upstream release. Do not hand-edit library internals.
+
+#
 # QR Code generator library (Python)
-# 
+#
 # Copyright (c) Project Nayuki. (MIT License)
 # https://www.nayuki.io/page/qr-code-generator-library
 # 

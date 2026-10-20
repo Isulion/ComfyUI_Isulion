@@ -1,40 +1,46 @@
 import json
-import random
 import os
+import random
 
 import logging
-logger = logging.getLogger(__name__)
+
 from .mega_prompt_V3 import get_theme_registry, available_themes
+
+logger = logging.getLogger(__name__)
+
+_DEFAULT_CONFIG = {
+    "subjects": ["a person"],
+    "locations": ["in a room"],
+    "camera_angles": ["The camera remains stationary"],
+    "lighting_conditions": ["with natural lighting"],
+    "presets": {},
+    "quality_modifiers": {
+        "Standard": "professional quality",
+        "High Quality": "high quality",
+        "Best Quality": "best quality"
+    }
+}
 
 # Must be the exact same name as used in registration
 class IsulionVideoPromptGenerator:
     """Video prompt generator node for ComfyUI"""
-    
+
     def __init__(self):
-        self.config_path = os.path.join(os.path.dirname(__file__), 
+        self.config_path = os.path.join(os.path.dirname(__file__),
                                       "configs", "video_prompt_config.json")
         self.load_config()
-    
+
     @classmethod
     def INPUT_TYPES(cls):
         """Define input types for the node."""
         try:
-            config_path = os.path.join(os.path.dirname(__file__), 
+            config_path = os.path.join(os.path.dirname(__file__),
                                       "configs", "video_prompt_config.json")
             with open(config_path, 'r') as f:
                 config = json.load(f)
         except Exception as e:
             logger.error(f"Error loading config for INPUT_TYPES: {e}")
-            config = {
-                "camera_angles": ["The camera remains stationary"],
-                "lighting_conditions": ["with natural lighting"],
-                "presets": {},
-                "quality_modifiers": {
-                    "Standard": "professional quality",
-                    "High Quality": "high quality",
-                    "Best Quality": "best quality"
-                }
-            }
+            config = _DEFAULT_CONFIG
 
         # Initialize MegaPromptV3 themes from the shared registry (cached)
         try:
@@ -58,8 +64,8 @@ class IsulionVideoPromptGenerator:
                     "description": "Pre-configured video scenarios with professional settings"
                 }),
                 "seed": ("INT", {
-                    "default": 0, 
-                    "min": 0, 
+                    "default": 0,
+                    "min": 0,
                     "max": 0xffffffffffffffff
                 }),
                 "quality_level": (quality_levels, {
@@ -82,7 +88,7 @@ class IsulionVideoPromptGenerator:
                 })
             }
         }
-    
+
     RETURN_TYPES = ("STRING",)
     FUNCTION = "generate_prompt"
     CATEGORY = "Isulion/Prompt"
@@ -93,17 +99,43 @@ class IsulionVideoPromptGenerator:
                 self.config = json.load(f)
         except Exception as e:
             logger.error(f"Error loading config: {e}")
-            self.config = {
-                "subjects": ["a person"],
-                "locations": ["in a room"],
-                "camera_angles": ["The camera remains stationary"],
-                "lighting_conditions": ["with natural lighting"],
-                "quality_modifiers": {
-                    "Standard": "professional quality",
-                    "High Quality": "high quality",
-                    "Best Quality": "best quality"
-                }
-            }
+            self.config = _DEFAULT_CONFIG
+
+    @staticmethod
+    def _camera_component(rng, config, camera_angle):
+        camera = rng.choice(config["camera_angles"]) if camera_angle == "Random" else camera_angle
+        if not camera.startswith("(("):
+            camera = f"(({camera}))"
+        return camera
+
+    @staticmethod
+    def _lighting_component(rng, config, lighting):
+        return rng.choice(config["lighting_conditions"]) if lighting == "Random" else lighting
+
+    @staticmethod
+    def _theme_style(registry, theme):
+        if theme == "None" or theme not in registry.theme_mappings:
+            return None
+        handler = registry.handlers.get(registry.theme_mappings[theme])
+        if not handler:
+            return None
+        theme_components = handler.generate(
+            custom_subject="",
+            custom_location="",
+            include_environment=False,
+            include_style=True,
+            include_effects=True
+        )
+        if theme_components and "style" in theme_components:
+            return theme_components["style"]
+        return None
+
+    @staticmethod
+    def _finalize(components):
+        final_prompt = ", ".join(components)
+        if not final_prompt.endswith("."):
+            final_prompt += "."
+        return final_prompt
 
     def generate_prompt(self, preset, seed, quality_level, custom_subject, custom_location, camera_angle, lighting, theme):
         rng = random.Random(seed)
@@ -129,36 +161,19 @@ class IsulionVideoPromptGenerator:
 
                 # Add camera movement
                 if camera_angle != "None":
-                    camera = rng.choice(self.config["camera_angles"]) if camera_angle == "Random" else camera_angle
-                    if not camera.startswith("(("):
-                        camera = f"(({camera}))"
-                    components.append(camera)
+                    components.append(self._camera_component(rng, self.config, camera_angle))
 
                 # Add lighting
                 if lighting != "None":
-                    light = rng.choice(self.config["lighting_conditions"]) if lighting == "Random" else lighting
-                    components.append(light)
+                    components.append(self._lighting_component(rng, self.config, lighting))
 
                 # Add theme if selected
-                if theme != "None" and theme in registry.theme_mappings:
-                    theme_key = registry.theme_mappings[theme]
-                    handler = registry.handlers.get(theme_key)
-                    if handler:
-                        theme_components = handler.generate(
-                            custom_subject="",
-                            custom_location="",
-                            include_environment=False,
-                            include_style=True,
-                            include_effects=True
-                        )
-                        if theme_components and "style" in theme_components:
-                            components.append(theme_components["style"])
+                theme_style = self._theme_style(registry, theme)
+                if theme_style:
+                    components.append(theme_style)
 
                 # Format and return preset-based prompt
-                final_prompt = ", ".join(components)
-                if not final_prompt.endswith("."):
-                    final_prompt += "."
-                return (final_prompt,)
+                return (self._finalize(components),)
 
         # Handle custom prompt generation (when no preset is selected)
         subject = custom_subject if custom_subject else rng.choice(self.config["subjects"])
@@ -167,44 +182,16 @@ class IsulionVideoPromptGenerator:
 
         # Add camera movement for custom prompt
         if camera_angle != "None":
-            camera = rng.choice(self.config["camera_angles"]) if camera_angle == "Random" else camera_angle
-            if not camera.startswith("(("):
-                camera = f"(({camera}))"
-            components.append(camera)
+            components.append(self._camera_component(rng, self.config, camera_angle))
 
         # Add lighting for custom prompt
         if lighting != "None":
-            light = rng.choice(self.config["lighting_conditions"]) if lighting == "Random" else lighting
-            components.append(light)
+            components.append(self._lighting_component(rng, self.config, lighting))
 
         # Add theme for custom prompt
-        if theme != "None" and theme in registry.theme_mappings:
-            theme_key = registry.theme_mappings[theme]
-            handler = registry.handlers.get(theme_key)
-            if handler:
-                theme_components = handler.generate(
-                    custom_subject="",
-                    custom_location="",
-                    include_environment=False,
-                    include_style=True,
-                    include_effects=True
-                )
-                if theme_components and "style" in theme_components:
-                    components.append(theme_components["style"])
+        theme_style = self._theme_style(registry, theme)
+        if theme_style:
+            components.append(theme_style)
 
         # Format final prompt
-        final_prompt = ", ".join(components)
-        if not final_prompt.endswith("."):
-            final_prompt += "."
-        
-        return (final_prompt,)
-
-# Update node registration - Use exact class name
-NODE_CLASS_MAPPINGS = {
-    "IsulionVideoPromptGenerator": IsulionVideoPromptGenerator
-}
-
-# Update display name
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "IsulionVideoPromptGenerator": "Isulion Video Prompt Generator 🎥"
-}
+        return (self._finalize(components),)

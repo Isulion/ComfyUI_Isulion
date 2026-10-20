@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("concept_art")
 class ConceptArtThemeHandler(BaseThemeHandler):
     """Handler for concept art-themed prompt generation."""
-    
+    DISPLAY_NAME = "🎨 Concept Art"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,

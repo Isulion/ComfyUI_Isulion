@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("halloween")
 class HalloweenThemeHandler(BaseThemeHandler):
     """Handler for Halloween-themed prompt generation."""
-    
+    DISPLAY_NAME = "🎃 Halloween"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class HalloweenThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate Halloween-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         costume = self._get_random_choice("halloween.costumes")
         pose = self._get_random_choice("halloween.poses")
@@ -34,7 +35,7 @@ class HalloweenThemeHandler(BaseThemeHandler):
                 f"((in {pose})), ((Halloween theme)), "
                 f"((eerie presence)), ((haunting appearance))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -50,7 +51,7 @@ class HalloweenThemeHandler(BaseThemeHandler):
                     f"((spooky {decoration})), "
                     f"((Halloween atmosphere)), ((eerie setting))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("halloween.styles")
@@ -61,7 +62,7 @@ class HalloweenThemeHandler(BaseThemeHandler):
                 f"((Halloween aesthetics)), ((spooky artistry)), "
                 f"((haunting quality))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("halloween.effects")
@@ -71,5 +72,5 @@ class HalloweenThemeHandler(BaseThemeHandler):
                 f"((eerie {lighting} lighting)), "
                 f"((Halloween ambiance)), ((haunting atmosphere))"
             )
-        
+
         return components

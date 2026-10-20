@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("glassmorphism")
 class GlassmorphismThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "🧊 Glassmorphism"
     def generate(self, custom_subject: str = "",
                  custom_location: str = "",
                  include_environment: bool = True,

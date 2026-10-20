@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("underwater_civilization")
 class UnderwaterCivilizationThemeHandler(BaseThemeHandler):
     """Handler for underwater civilization-themed prompt generation."""
-    
+    DISPLAY_NAME = "🌊 Underwater Civilization"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class UnderwaterCivilizationThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate underwater civilization-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         technology = self._get_random_choice("underwater_civilization.technology")
         creature = self._get_random_choice("underwater_civilization.creatures")
@@ -34,7 +35,7 @@ class UnderwaterCivilizationThemeHandler(BaseThemeHandler):
                 f"((using {technology})), ((with {creature})), "
                 f"((aquatic)), ((oceanic))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -51,7 +52,7 @@ class UnderwaterCivilizationThemeHandler(BaseThemeHandler):
                     f"((featuring {element})), "
                     f"((underwater vista)), ((oceanic realm))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             atmosphere = self._get_random_choice("underwater_civilization.atmospheres")
@@ -61,7 +62,7 @@ class UnderwaterCivilizationThemeHandler(BaseThemeHandler):
                 f"((aquatic design)), ((oceanic look)), "
                 f"((submerged authenticity))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("underwater_civilization.effects")
@@ -70,5 +71,5 @@ class UnderwaterCivilizationThemeHandler(BaseThemeHandler):
                 f"((underwater atmosphere)), "
                 f"((aquatic ambiance)), ((oceanic environment))"
             )
-        
+
         return components

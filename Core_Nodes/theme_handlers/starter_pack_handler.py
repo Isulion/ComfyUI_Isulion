@@ -5,6 +5,7 @@ from .registry import register_theme
 @register_theme("starter_pack")
 class StarterPackThemeHandler(BaseThemeHandler):
     """Handler for AI action-figure starter pack meme prompt generation."""
+    DISPLAY_NAME = "🧸 Starter Pack"
 
     def generate(self,
                  custom_subject: str = "",
@@ -59,7 +60,6 @@ class StarterPackThemeHandler(BaseThemeHandler):
                         items.append(choice)
 
         color = self._get_random_choice("starter_pack.colors")
-        tagline = f"Includes: {', '.join(items)}"
         style = self._get_random_choice("starter_pack.styles")
 
         # Compose the action-figure-in-packaging meme prompt

@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("ethereal_dreams")
 class EtherealDreamsThemeHandler(BaseThemeHandler):
     """Handler for ethereal dreams-themed prompt generation."""
-    
+    DISPLAY_NAME = "✨ Ethereal Dreams"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,7 +14,7 @@ class EtherealDreamsThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate ethereal dreams-themed components."""
         components = {}
-        
+
         # Always use random elements, even with custom_subject
         realm = self._get_random_choice("ethereal_dreams.realms")
         feature = self._get_random_choice("ethereal_dreams.features")
@@ -34,7 +35,7 @@ class EtherealDreamsThemeHandler(BaseThemeHandler):
                 f"((featuring {feature})), ((dreamlike)), "
                 f"((surreal)), ((otherworldly appearance))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -51,7 +52,7 @@ class EtherealDreamsThemeHandler(BaseThemeHandler):
                     f"((surreal environment)), ((otherworldly atmosphere)), "
                     f"((ethereal realm))"
                 )
-        
+
         # Generate style if requested
         if include_style:
             style = self._get_random_choice("ethereal_dreams.styles")
@@ -62,7 +63,7 @@ class EtherealDreamsThemeHandler(BaseThemeHandler):
                 f"((ethereal artistry)), ((dreamlike aesthetic)), "
                 f"((surreal beauty))"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("ethereal_dreams.effects")
@@ -72,5 +73,5 @@ class EtherealDreamsThemeHandler(BaseThemeHandler):
                 f"((dreamlike {aura} aura)), "
                 f"((surreal atmosphere)), ((otherworldly ambiance))"
             )
-        
+
         return components

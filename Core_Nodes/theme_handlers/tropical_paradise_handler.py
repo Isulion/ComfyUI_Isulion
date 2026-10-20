@@ -5,6 +5,7 @@ from .registry import register_theme
 @register_theme("tropical_paradise")
 class TropicalParadiseThemeHandler(BaseThemeHandler):
     """Handler for tropical paradise-themed prompt generation."""
+    DISPLAY_NAME = "🏝️ Tropical Paradise"
 
     def __init__(self, config):
         super().__init__(config)

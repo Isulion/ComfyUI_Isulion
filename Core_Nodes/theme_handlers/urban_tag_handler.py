@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("urban_tag")
 class UrbanTagThemeHandler(BaseThemeHandler):
     """Handler for urban tag and street art-themed prompt generation."""
-    
+    DISPLAY_NAME = "🏙️ Urban Tag"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,
@@ -13,13 +14,13 @@ class UrbanTagThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate urban tag and street art-themed components."""
         components = {}
-        
+
         # Get base elements
         style = self._get_random_choice("urban_tag.styles")
         effect = self._get_random_choice("urban_tag.effects")
         color_scheme = self._get_random_choice("urban_tag.colors")
         base_desc = self._get_random_choice("urban_tag.base_descriptions")
-        
+
         # Generate subject
         if custom_subject:
             components["subject"] = (
@@ -42,7 +43,7 @@ class UrbanTagThemeHandler(BaseThemeHandler):
                 f"((with {color_scheme} color scheme)), "
                 f"((dynamic typography))"
             )
-        
+
         # Generate environment if requested
         if include_environment:
             if custom_location:
@@ -60,20 +61,22 @@ class UrbanTagThemeHandler(BaseThemeHandler):
                     f"((street culture)), ((urban decay)), "
                     f"((metropolitan setting))"
                 )
-        
+
         # Generate style if requested
         if include_style:
-            atmosphere = self._get_random_choice("urban_tag.atmospheres")
+            # Draw consumes the shared RNG stream; keep it so seeded
+            # outputs stay reproducible.
+            atmosphere = self._get_random_choice("urban_tag.atmospheres")  # noqa: F841
             components["style"] = (
-                f"((street art style)), ((graffiti aesthetic)), "
-                f"((urban art)), ((spray paint technique)), "
-                f"((professional street art)), ((urban culture)), "
-                f"((stylized urban art)), ((graffiti character design)), "
-                f"((street art interpretation)), ((not photorealistic)), "
-                f"((complex fresco style)), ((hip hop culture)), "
-                f"8k resolution"
+                "((street art style)), ((graffiti aesthetic)), "
+                "((urban art)), ((spray paint technique)), "
+                "((professional street art)), ((urban culture)), "
+                "((stylized urban art)), ((graffiti character design)), "
+                "((street art interpretation)), ((not photorealistic)), "
+                "((complex fresco style)), ((hip hop culture)), "
+                "8k resolution"
             )
-        
+
         # Generate effects if requested
         if include_effects:
             effect = self._get_random_choice("urban_tag.effects")
@@ -84,5 +87,5 @@ class UrbanTagThemeHandler(BaseThemeHandler):
                 f"((stylized urban artwork)), ((street art character)), "
                 f"((multicolored spray paint)), ((detailed fresco))"
             )
-        
+
         return components

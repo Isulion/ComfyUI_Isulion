@@ -1,0 +1,3637 @@
+{
+  "CustomTextNode": {
+    "required": {
+      "text": [
+        "STRING",
+        {
+          "default": "Hello, World!",
+          "multiline": true
+        }
+      ]
+    }
+  },
+  "DisplayImageFromURL": {
+    "required": {
+      "image_url": [
+        "STRING",
+        {
+          "multiline": false,
+          "default": ""
+        }
+      ]
+    }
+  },
+  "IsuCollage_Node": {
+    "required": {
+      "images": [
+        "IMAGE"
+      ],
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ]
+    },
+    "optional": {
+      "width": [
+        "INT",
+        {
+          "default": 1024,
+          "min": 256,
+          "max": 8192,
+          "step": 64
+        }
+      ]
+    }
+  },
+  "IsulionActionGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "action": [
+        [
+          "running",
+          "jumping",
+          "fighting",
+          "casting spell",
+          "dancing",
+          "flying",
+          "swimming",
+          "climbing",
+          "meditating",
+          "reading",
+          "wielding weapon",
+          "performing ritual",
+          "crafting"
+        ]
+      ]
+    },
+    "optional": {
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ]
+    }
+  },
+  "IsulionAlienWorldGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "atmosphere": [
+        [
+          "toxic",
+          "breathable",
+          "dense",
+          "thin",
+          "crystalline",
+          "plasma",
+          "gaseous",
+          "corrosive",
+          "radioactive",
+          "electromagnetic",
+          "quantum",
+          "temporal",
+          "bio-organic",
+          "multi-phasic",
+          "energy-based"
+        ]
+      ],
+      "terrain": [
+        [
+          "crystalline desert",
+          "floating islands",
+          "metallic plains",
+          "bio-luminescent jungle",
+          "liquid methane ocean",
+          "plasma storms",
+          "geometric mountains",
+          "silicon forests",
+          "magnetic fields",
+          "quantum crystals",
+          "living metal",
+          "energy vortexes",
+          "gravity wells",
+          "temporal rifts",
+          "phase-shifted landscapes",
+          "void chasms",
+          "antimatter lakes",
+          "fractal canyons",
+          "morphic plains",
+          "sentient coral"
+        ]
+      ],
+      "color": [
+        [
+          "purple",
+          "emerald",
+          "crimson",
+          "azure",
+          "golden",
+          "silver",
+          "iridescent",
+          "prismatic",
+          "void-black",
+          "plasma-blue",
+          "quantum-white",
+          "temporal-green",
+          "nebula-pink",
+          "star-gold",
+          "cosmic-violet"
+        ]
+      ],
+      "feature": [
+        [
+          "multiple moons",
+          "binary suns",
+          "ring system",
+          "quantum anomalies",
+          "temporal rifts",
+          "space elevator",
+          "orbital habitats",
+          "ancient megastructures",
+          "artificial moons",
+          "plasma rivers",
+          "crystal spires",
+          "gravity anomalies",
+          "bio-mechanical forests",
+          "energy storms",
+          "dimensional portals",
+          "living cities",
+          "floating continents"
+        ]
+      ]
+    },
+    "optional": {
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ]
+    }
+  },
+  "IsulionAnimalBehaviorGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 999999999
+        }
+      ],
+      "behavior": [
+        [
+          "Hunting",
+          "Sleeping",
+          "Playing",
+          "Flying",
+          "Swimming",
+          "Running",
+          "Walking",
+          "Eating",
+          "Drinking",
+          "Grooming",
+          "Nesting",
+          "Perching",
+          "Climbing",
+          "Jumping",
+          "Diving",
+          "Stalking",
+          "Resting",
+          "Foraging",
+          "Grazing",
+          "Prowling",
+          "Pouncing",
+          "Soaring",
+          "Gliding",
+          "Hovering",
+          "Fishing",
+          "Basking",
+          "Burrowing",
+          "Hibernating",
+          "Migrating",
+          "Mating",
+          "Nurturing",
+          "Teaching",
+          "Fighting",
+          "Defending",
+          "Exploring",
+          "Hiding",
+          "Camouflaging",
+          "Gathering",
+          "Building",
+          "Communicating"
+        ]
+      ]
+    }
+  },
+  "IsulionAnimalRandom": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 999999999
+        }
+      ],
+      "animal": [
+        [
+          "Dog",
+          "Cat",
+          "Horse",
+          "Cow",
+          "Chicken",
+          "Pig",
+          "Sheep",
+          "Goat",
+          "Lion",
+          "Tiger",
+          "Elephant",
+          "Bear",
+          "Wolf",
+          "Fox",
+          "Deer",
+          "Rabbit",
+          "Kangaroo",
+          "Giraffe",
+          "Zebra",
+          "Monkey",
+          "Chimpanzee",
+          "Gorilla",
+          "Orangutan",
+          "Panda",
+          "Koala",
+          "Hippopotamus",
+          "Rhinoceros",
+          "Crocodile",
+          "Alligator",
+          "Eagle",
+          "Hawk",
+          "Falcon",
+          "Owl",
+          "Penguin",
+          "Dolphin",
+          "Whale",
+          "Shark",
+          "Octopus",
+          "Squid",
+          "Jellyfish",
+          "Crab",
+          "Lobster",
+          "Clownfish",
+          "Sea Turtle",
+          "Frog",
+          "Toad",
+          "Snake",
+          "Lizard",
+          "Gecko",
+          "Tortoise",
+          "Camel",
+          "Donkey",
+          "Bat",
+          "Rat",
+          "Mouse",
+          "Squirrel",
+          "Chipmunk",
+          "Porcupine",
+          "Hedgehog",
+          "Skunk",
+          "Raccoon",
+          "Otter",
+          "Seal",
+          "Walrus",
+          "Polar Bear",
+          "Grizzly Bear",
+          "Cheetah",
+          "Leopard",
+          "Jaguar",
+          "Antelope",
+          "Buffalo",
+          "Bison",
+          "Moose",
+          "Reindeer",
+          "Mole",
+          "Platypus",
+          "Echidna",
+          "Parrot",
+          "Peacock",
+          "Swan",
+          "Duck",
+          "Goose",
+          "Turkey",
+          "Flamingo",
+          "Pelican",
+          "Seagull",
+          "Sparrow",
+          "Pigeon",
+          "Crow",
+          "Magpie",
+          "Woodpecker",
+          "Hummingbird",
+          "Butterfly",
+          "Bee",
+          "Ant",
+          "Spider",
+          "Scorpion",
+          "Worm",
+          "Snail",
+          "Slug"
+        ]
+      ]
+    }
+  },
+  "IsulionArtStyleGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 999999999
+        }
+      ],
+      "style": [
+        [
+          "Realistic",
+          "Watercolor",
+          "Oil Painting",
+          "Sketch",
+          "Digital Art",
+          "Impressionism",
+          "Expressionism",
+          "Surrealism",
+          "Pop Art",
+          "Abstract",
+          "Minimalist",
+          "Comic Book",
+          "Manga",
+          "Anime",
+          "Pixel Art",
+          "Vector Art",
+          "Low Poly",
+          "3D Rendering",
+          "Concept Art",
+          "Fantasy Art",
+          "Gothic",
+          "Baroque",
+          "Renaissance",
+          "Art Nouveau",
+          "Art Deco",
+          "Cubism",
+          "Pointillism",
+          "Photorealism",
+          "Hyperrealism",
+          "Naive Art",
+          "Folk Art",
+          "Street Art",
+          "Graffiti",
+          "Retro",
+          "Vintage",
+          "Steampunk",
+          "Cyberpunk",
+          "Vaporwave",
+          "Ukiyo-e",
+          "Chinese Painting"
+        ]
+      ]
+    }
+  },
+  "IsulionArtifactGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "artifact": [
+        [
+          "legendary sword",
+          "mystic staff",
+          "enchanted bow",
+          "divine spear",
+          "dragon slayer blade",
+          "phoenix feather wand",
+          "thunder hammer",
+          "frost axe",
+          "soul reaver",
+          "starforged blade",
+          "crystal dagger",
+          "void staff",
+          "light bringer",
+          "shadow blade",
+          "power amulet",
+          "magic ring",
+          "crystal crown",
+          "soul gem",
+          "dragon heart pendant",
+          "phoenix eye necklace",
+          "moonstone ring",
+          "sunfire crown",
+          "starlight tiara",
+          "void crystal",
+          "eternity band",
+          "wisdom pendant",
+          "fate's circlet",
+          "dream catcher",
+          "seeing glass",
+          "teleport stone",
+          "wisdom scroll",
+          "healing chalice",
+          "truth mirror",
+          "fate dice",
+          "levitation boots",
+          "cloak of shadows",
+          "bag of holding",
+          "time turner",
+          "memory crystal",
+          "dreamcatcher",
+          "compass of desires",
+          "book of secrets",
+          "ancient tablet",
+          "dragon scale",
+          "phoenix feather",
+          "unicorn horn",
+          "mermaid's tear",
+          "giant's tooth",
+          "fairy dust",
+          "demon's heart",
+          "angel's feather",
+          "dragon's eye",
+          "witch's grimoire",
+          "wizard's orb",
+          "elemental crystal",
+          "void shard"
+        ]
+      ]
+    },
+    "optional": {
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ],
+      "type": [
+        [
+          "any",
+          "weapon",
+          "jewelry",
+          "tool",
+          "relic"
+        ],
+        {
+          "default": "any"
+        }
+      ]
+    }
+  },
+  "IsulionCivitaiImageDisplay": {
+    "required": {
+      "image_info": [
+        "STRING",
+        {
+          "multiline": true,
+          "default": "",
+          "placeholder": "Paste Civitai image information here..."
+        }
+      ],
+      "mode": [
+        [
+          "Single",
+          "All"
+        ],
+        {
+          "default": "Single"
+        }
+      ],
+      "image_index": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "step": 1
+        }
+      ],
+      "target_size": [
+        "INT",
+        {
+          "default": 512,
+          "min": 64,
+          "max": 2048,
+          "step": 64
+        }
+      ]
+    }
+  },
+  "IsulionCivitaiModelExplorer": {
+    "required": {
+      "search_query": [
+        "STRING",
+        {
+          "default": "",
+          "multiline": false,
+          "placeholder": "Enter search terms..."
+        }
+      ],
+      "sort_by": [
+        [
+          "Highest Rated",
+          "Most Downloaded",
+          "Newest"
+        ],
+        {
+          "default": "Highest Rated"
+        }
+      ],
+      "nsfw_filter": [
+        [
+          "Hide NSFW",
+          "Show All",
+          "Only NSFW"
+        ],
+        {
+          "default": "Hide NSFW"
+        }
+      ],
+      "model_type": [
+        [
+          "Checkpoint",
+          "LORA",
+          "Embedding",
+          "All"
+        ],
+        {
+          "default": "All"
+        }
+      ],
+      "page": [
+        "INT",
+        {
+          "default": 1,
+          "min": 1,
+          "max": 100
+        }
+      ]
+    }
+  },
+  "IsulionCivitaiTrending": {
+    "required": {
+      "nsfw_filter": [
+        [
+          "Hide NSFW",
+          "Only NSFW"
+        ],
+        {
+          "default": "Hide NSFW"
+        }
+      ],
+      "sort_by": [
+        [
+          "Most Reactions",
+          "Most Comments",
+          "Newest"
+        ],
+        {
+          "default": "Most Reactions"
+        }
+      ],
+      "period": [
+        [
+          "Day",
+          "Week",
+          "Month",
+          "Year",
+          "All Time"
+        ],
+        {
+          "default": "Day"
+        }
+      ],
+      "number_of_images": [
+        "INT",
+        {
+          "default": 1,
+          "min": 1,
+          "max": 10,
+          "step": 1
+        }
+      ]
+    }
+  },
+  "IsulionClothingGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "clothing": [
+        [
+          "ornate robes",
+          "leather armor",
+          "silk dress",
+          "royal garments",
+          "mage's cloak",
+          "warrior's plate",
+          "peasant's tunic",
+          "noble's attire",
+          "dragon scale armor",
+          "elven silk robes",
+          "dwarven battle gear",
+          "wizard's hat",
+          "enchanted cloak",
+          "mythril chainmail",
+          "ranger's camouflage",
+          "paladin's armor",
+          "druid's vestments",
+          "assassin's garb",
+          "ceremonial robes",
+          "battle mage armor",
+          "fairy gossamer dress",
+          "necromancer's robes",
+          "barbarian furs",
+          "royal crown jewels",
+          "business suit",
+          "casual wear",
+          "formal dress",
+          "streetwear",
+          "sporty outfit",
+          "bohemian style",
+          "punk fashion",
+          "minimalist clothing",
+          "vintage dress",
+          "designer jeans",
+          "leather jacket",
+          "summer dress",
+          "athletic wear",
+          "cocktail dress",
+          "winter coat",
+          "beach wear",
+          "office attire",
+          "evening gown",
+          "urban streetwear",
+          "loungewear",
+          "hipster fashion",
+          "gothic style",
+          "preppy outfit",
+          "activewear",
+          "space suit",
+          "cybernetic armor",
+          "holographic clothing",
+          "neon bodysuit",
+          "power armor",
+          "anti-gravity boots",
+          "plasma shield wear",
+          "quantum fabric dress",
+          "cyborg enhancements",
+          "energy field suit",
+          "stealth camouflage",
+          "bio-luminescent wear",
+          "techno-organic suit",
+          "neural interface gear",
+          "phase shift clothing",
+          "zero-g suit"
+        ]
+      ]
+    },
+    "optional": {
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ],
+      "style": [
+        [
+          "any",
+          "fantasy",
+          "modern",
+          "sci_fi"
+        ],
+        {
+          "default": "any"
+        }
+      ]
+    }
+  },
+  "IsulionCuteAnimalRandom": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 999999999
+        }
+      ],
+      "animal": [
+        [
+          "Red Panda",
+          "Koala",
+          "Fennec Fox",
+          "Pygmy Marmoset",
+          "Quokka",
+          "Sea Otter",
+          "Harp Seal Pup",
+          "Panda Cub",
+          "Penguin Chick",
+          "Hedgehog",
+          "Axolotl",
+          "Sloth",
+          "Rabbit",
+          "Kitten",
+          "Puppy",
+          "Meerkat",
+          "Sugar Glider",
+          "Chinchilla",
+          "Slow Loris",
+          "Hamster",
+          "Red Fox Kit",
+          "Lamb",
+          "Piglet",
+          "Duckling",
+          "Pygmy Hippo",
+          "Baby Giraffe",
+          "Baby Alpaca",
+          "Otter Pup",
+          "Corgi Puppy",
+          "Golden Retriever Puppy",
+          "Seal Pup",
+          "Snow Leopard Cub",
+          "Tiger Cub",
+          "Lion Cub",
+          "Baby Gorilla",
+          "Baby Orangutan",
+          "Pygmy Goat",
+          "Fawn (Baby Deer)",
+          "Ferret",
+          "Platypus",
+          "Kangaroo Joey",
+          "Wallaby",
+          "Dik-Dik",
+          "Serval Kitten",
+          "Caracal Kitten",
+          "Clouded Leopard Cub",
+          "Red Squirrel",
+          "Chipmunk",
+          "Prairie Dog",
+          "Arctic Fox",
+          "Polar Bear Cub",
+          "Bottlenose Dolphin Calf",
+          "Beluga Whale Calf",
+          "Manatee Calf",
+          "Baby Skunk",
+          "Raccoon Kit",
+          "Baby Opossum",
+          "Baby Echidna (Puggle)",
+          "Baby Tapir",
+          "GiantPanda Cub",
+          "Baby Hippo",
+          "Baby Rhino",
+          "Baby Zebra",
+          "Baby Elephant Seal",
+          "Baby Wombat",
+          "Baby Emu",
+          "Baby Kiwi Bird",
+          "Baby Flamingo",
+          "Cygnet (Baby Swan)",
+          "Baby Tortoise",
+          "Baby Alligator",
+          "Baby Crocodile",
+          "Baby Chameleon",
+          "Baby Iguana",
+          "Baby Frog",
+          "Baby Toad",
+          "Baby Gecko",
+          "Ring-tailed Lemur",
+          "Sifaka Lemur",
+          "Mouse Lemur",
+          "Bush Baby",
+          "PygmyPossum",
+          "Baby Mole",
+          "Baby Bat",
+          "Leveret (Baby Hare)",
+          "Baby Mole Rat",
+          "Baby Porcupine",
+          "Baby Badger",
+          "Pygmy Rabbit",
+          "Baby Seal",
+          "Baby Puffin",
+          "Owlet (Baby Owl)",
+          "Hoglet(Baby Hedgehog)",
+          "Baby Armadillo",
+          "Baby Pangolin",
+          "Baby Okapi",
+          "Baby Cheetah",
+          "Baby Ocelot",
+          "Baby Lynx",
+          "Baby Tasmanian Devil"
+        ]
+      ]
+    }
+  },
+  "IsulionEmotionGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 999999999
+        }
+      ],
+      "emotion": [
+        [
+          "Happy",
+          "Sad",
+          "Angry",
+          "Excited",
+          "Nervous",
+          "Calm",
+          "Peaceful",
+          "Anxious",
+          "Joyful",
+          "Melancholic",
+          "Furious",
+          "Cheerful",
+          "Depressed",
+          "Enthusiastic",
+          "Frustrated",
+          "Content",
+          "Worried",
+          "Serene",
+          "Irritated",
+          "Ecstatic",
+          "Gloomy",
+          "Relaxed",
+          "Stressed",
+          "Satisfied",
+          "Disappointed",
+          "Proud",
+          "Scared",
+          "Confident",
+          "Shy",
+          "Jealous",
+          "Grateful",
+          "Lonely",
+          "Loved",
+          "Confused",
+          "Determined",
+          "Hopeful",
+          "Tired",
+          "Energetic",
+          "Bored",
+          "Surprised",
+          "Curious",
+          "Embarrassed",
+          "Guilty",
+          "Relief",
+          "Nostalgic"
+        ]
+      ]
+    }
+  },
+  "IsulionEpochGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "epoch": [
+        [
+          "Ancient Egypt",
+          "Ancient Greece",
+          "Roman Empire",
+          "Middle Ages",
+          "Renaissance",
+          "Industrial Revolution",
+          "Victorian Era",
+          "Roaring Twenties",
+          "Modern Era",
+          "Digital Age",
+          "Bronze Age",
+          "Iron Age",
+          "Stone Age",
+          "Byzantine Empire",
+          "Ming Dynasty",
+          "Edo Period",
+          "Colonial Period",
+          "Belle \u00c9poque",
+          "Art Deco Period",
+          "Space Age",
+          "Information Age",
+          "Medieval Japan",
+          "Viking Age",
+          "Golden Age of Piracy",
+          "Wild West",
+          "Prehistoric Times",
+          "Age of Enlightenment",
+          "Age of Exploration",
+          "Classical Antiquity",
+          "Dark Ages",
+          "Age of Discovery",
+          "Baroque Period",
+          "Gothic Era",
+          "Romantic Period",
+          "Jazz Age",
+          "Post-Modern Era",
+          "Cyberpunk Future",
+          "Steampunk Era"
+        ]
+      ]
+    },
+    "optional": {
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ]
+    }
+  },
+  "IsulionFantasyRaceGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "race": [
+        [
+          "elf",
+          "dwarf",
+          "orc",
+          "halfling",
+          "gnome",
+          "fairy",
+          "dragon-born",
+          "tiefling",
+          "angel",
+          "demon",
+          "merfolk",
+          "centaur",
+          "satyr",
+          "nymph",
+          "giant",
+          "goblin",
+          "vampire",
+          "werewolf",
+          "phoenix",
+          "unicorn",
+          "griffin",
+          "minotaur",
+          "harpy",
+          "mermaid",
+          "siren",
+          "dryad",
+          "elemental",
+          "golem",
+          "chimera",
+          "sphinx",
+          "pegasus",
+          "troll",
+          "ogre",
+          "pixie",
+          "sprite",
+          "banshee",
+          "wraith",
+          "ghost",
+          "lich",
+          "djinn",
+          "ifrit",
+          "sylph",
+          "undine",
+          "kitsune",
+          "tanuki",
+          "yokai",
+          "wendigo",
+          "skinwalker",
+          "changeling",
+          "doppelganger",
+          "shapeshifter"
+        ]
+      ]
+    },
+    "optional": {
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ]
+    }
+  },
+  "IsulionHabitatGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 999999999
+        }
+      ],
+      "habitat": [
+        [
+          "Jungle",
+          "Rainforest",
+          "Savanna",
+          "Desert",
+          "Arctic Tundra",
+          "Ocean",
+          "Coral Reef",
+          "Mountain Range",
+          "Alpine Forest",
+          "Grassland",
+          "Wetland",
+          "Mangrove Swamp",
+          "Deciduous Forest",
+          "Coniferous Forest",
+          "Rocky Shore",
+          "Sandy Beach",
+          "Cave System",
+          "River Valley",
+          "Lake Shore",
+          "Bamboo Forest",
+          "Salt Marsh",
+          "Kelp Forest",
+          "Volcanic Region",
+          "Coastal Cliff",
+          "Prairie",
+          "Steppe",
+          "Taiga",
+          "Deep Ocean",
+          "Shallow Reef",
+          "Underground Cave",
+          "Hot Spring",
+          "Oasis",
+          "Canyon",
+          "Delta",
+          "Estuary",
+          "Fjord",
+          "Glacier",
+          "Ice Sheet",
+          "Island",
+          "Peninsula"
+        ]
+      ]
+    }
+  },
+  "IsulionLoadImagesNode": {
+    "required": {
+      "directory": [
+        "STRING",
+        {
+          "default": "./input"
+        }
+      ],
+      "target_row_height": [
+        "INT",
+        {
+          "default": 300,
+          "min": 100,
+          "max": 1024,
+          "step": 50
+        }
+      ]
+    }
+  },
+  "IsulionMagicalEffectGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "effect": [
+        [
+          "blazing aura",
+          "flame burst",
+          "phoenix wings",
+          "inferno vortex",
+          "frost crystals",
+          "blizzard swirl",
+          "arctic mist",
+          "frozen aura",
+          "crackling energy",
+          "thunder bolts",
+          "static field",
+          "plasma arc",
+          "vine growth",
+          "flower bloom",
+          "leaf storm",
+          "forest spirits",
+          "magical runes",
+          "mystic circles",
+          "astral projection",
+          "ethereal wisps"
+        ]
+      ]
+    },
+    "optional": {
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ],
+      "element": [
+        [
+          "any",
+          "fire",
+          "ice",
+          "lightning",
+          "nature",
+          "arcane"
+        ],
+        {
+          "default": "any"
+        }
+      ]
+    }
+  },
+  "IsulionMegaPromptV3": {
+    "required": {
+      "theme": [
+        [
+          "\ud83c\udfb2 Dynamic Random",
+          "\ud83d\udc7e 16-Bit Pixel Art",
+          "\ud83e\uddfa 50s Commercial",
+          "\ud83c\udfa8 Abstract",
+          "\ud83c\udfac Analog 35mm Film",
+          "\ud83d\udcfa Animation Cartoon",
+          "\ud83c\udf8c Anime",
+          "\ud83c\udfdb\ufe0f Architectural",
+          "\ud83c\udf0c Astrophotography",
+          "\ud83d\uddbc\ufe0f Binet Surreal",
+          "\ud83e\uddec Bio-Organic Technology",
+          "\ud83e\udebc Bioluminescent Jelly",
+          "\ud83d\ude04 Caricature",
+          "\ud83d\udc64 Character Designer",
+          "\ud83e\udd84 Chimera Animals",
+          "\ud83d\udc30 Chimera Cute Animals",
+          "\ud83c\udfee Chinese New Year",
+          "\ud83c\udf84 Christmas",
+          "\ud83c\udfac Cinema Studio",
+          "\ud83c\udf27\ufe0f Cinematic Neon Rain",
+          "\ud83c\udffa Clay Art",
+          "\ud83d\udcda Comic Book",
+          "\ud83c\udfa8 Concept Art",
+          "\ud83d\udd8d\ufe0f Crayon Art",
+          "\ud83d\udc8e Crystalpunk",
+          "\ud83c\udf73 Culinary/Food",
+          "\ud83d\udc57 Curvy Fashion",
+          "\ud83d\udc5f Cyber Hypebeast",
+          "\ud83c\udf06 Cyberpunk",
+          "\ud83d\udc79 Dia de los Muertos",
+          "\ud83d\uddbc\ufe0f Digital Art",
+          "\ud83d\udca0 Dimension 3D",
+          "\ud83e\udea9 Disco Medieval",
+          "\ud83c\udfa1 Disney",
+          "\ud83c\udfac Dreamworks",
+          "\ud83d\udc30 Easter",
+          "\u2728 Enchanted Fantasy",
+          "\ud83d\udcf8 Essential Realistic",
+          "\ud83d\udd70\ufe0f Essential Vintage",
+          "\u2728 Ethereal Dreams",
+          "\ud83d\udd2c Experimental Art",
+          "\u2694\ufe0f Fantasy",
+          "\ud83d\udcf1 Fisheye Action Cam",
+          "\ud83c\udf55 Food Apocalypse",
+          "\u2694\ufe0f Futuristic Battlefield",
+          "\ud83c\udf06 Futuristic City",
+          "\ud83c\udf06 Futuristic City Metropolis",
+          "\ud83d\ude80 Futuristic Sci-Fi",
+          "\ud83c\udf43 Ghibli",
+          "\ud83d\udc31 Giant Cat-zilla",
+          "\ud83e\uddca Glassmorphism",
+          "\ud83c\udf0c Glitch Core",
+          "\ud83c\udf83 Halloween",
+          "\ud83d\udc7b Halloween Ethereal",
+          "\ud83c\udfdb\ufe0f Historical Monuments",
+          "\ud83d\udc7b Horror",
+          "\ud83d\udecb\ufe0f IKEA Backrooms",
+          "\ud83c\udfa8 Impressionist",
+          "\ud83c\udf88 Inflatable World",
+          "\ud83d\udcf1 Instagram",
+          "\ud83d\udcf1 Instagram Lifestyle",
+          "\ud83c\udfe0 Interior Spaces",
+          "\ud83e\uddf6 Knitted World",
+          "\ud83e\uddca Liquid Chrome",
+          "\ud83c\udfaf Logo",
+          "\ud83d\udcfa Manga Panel",
+          "\ud83e\uddb8 Marvel",
+          "\u2694\ufe0f Medieval",
+          "\ud83d\udd2c Microscopic",
+          "\u2b1c Minimalist",
+          "\u2694\ufe0f Miura Dark Fantasy",
+          "\ud83c\udf3f Nature",
+          "\ud83c\udf86 New Year's Eve",
+          "\ud83c\udfac Nolan Epic",
+          "\ud83c\udf3f Overgrown Ruins",
+          "\u2702\ufe0f Papercraft",
+          "\ud83d\udd74\ufe0f Peaky Blinders",
+          "\ud83d\udcab Pixar",
+          "\ud83c\udf2a\ufe0f Post Apocalyptic",
+          "\ud83c\udf44 Psychedelic Cyber Fungus",
+          "\ud83e\udde9 Puzzle Dimension",
+          "\ud83d\uded2 Retro Vaporwave Mall",
+          "\ud83e\udd86 Rubber Duck Supremacy",
+          "\ud83d\udcda School Manga",
+          "\ud83d\ude80 Sci-Fi",
+          "\ud83d\udcf1 Selfie",
+          "\ud83d\udc67 Skinny Blonde Girl",
+          "\ud83d\ude80 Space Colony",
+          "\ud83c\udfdb\ufe0f Spartan 300",
+          "\ud83d\udc97 Spectral Mist",
+          "\ud83c\udf40 St. Patrick's Day",
+          "\ud83d\ude80 Star Wars",
+          "\ud83e\uddf8 Starter Pack",
+          "\u2699\ufe0f Steampunk",
+          "\ud83c\udfad Stop Motion",
+          "\ud83e\udd59 Street Food Kebab",
+          "\ud83e\udd83 Thanksgiving",
+          "\ud83c\udfdd\ufe0f Tropical Paradise",
+          "\ud83d\udce6 Unboxing Surrealism",
+          "\ud83c\udf0a Underwater Civilization",
+          "\ud83c\udfd9\ufe0f Urban Tag",
+          "\ud83d\udcf9 VHS Found Footage",
+          "\ud83d\udc98 Valentine's Day",
+          "\ud83c\udfe0 Village World",
+          "\ud83d\udcf8 Vintage 1800s Photography",
+          "\ud83d\udc74 Vintage Anthropomorphic",
+          "\ud83d\udd79\ufe0f Voxel Low-Poly",
+          "\ud83c\udfa8 Watercolor",
+          "\ud83e\ude7b X-Ray Anatomy",
+          "\ud83e\udea9 Y2K Retro-Futurism"
+        ],
+        {
+          "default": "\ud83c\udfb2 Dynamic Random"
+        }
+      ],
+      "complexity": [
+        [
+          "simple",
+          "detailed",
+          "complex"
+        ],
+        {
+          "default": "detailed"
+        }
+      ],
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ],
+        {
+          "default": "enable"
+        }
+      ],
+      "debug_mode": [
+        [
+          "off",
+          "on"
+        ],
+        {
+          "default": "off"
+        }
+      ]
+    },
+    "optional": {
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ],
+      "custom_subject": [
+        "STRING",
+        {
+          "default": "",
+          "multiline": true
+        }
+      ],
+      "custom_location": [
+        "STRING",
+        {
+          "default": "",
+          "multiline": true
+        }
+      ],
+      "lora_key": [
+        "STRING",
+        {
+          "default": "",
+          "multiline": true
+        }
+      ],
+      "include_environment": [
+        [
+          "yes",
+          "no"
+        ],
+        {
+          "default": "yes"
+        }
+      ],
+      "include_style": [
+        [
+          "yes",
+          "no"
+        ],
+        {
+          "default": "yes"
+        }
+      ],
+      "include_effects": [
+        [
+          "yes",
+          "no"
+        ],
+        {
+          "default": "yes"
+        }
+      ]
+    }
+  },
+  "IsulionMultiplePromptGenerator": {
+    "required": {
+      "selection_mode": [
+        [
+          "Theme Selection",
+          "All Themes"
+        ],
+        {
+          "default": "Theme Selection"
+        }
+      ],
+      "custom_subject": [
+        "STRING",
+        {
+          "default": "",
+          "multiline": true,
+          "placeholder": "Enter custom subject..."
+        }
+      ],
+      "custom_location": [
+        "STRING",
+        {
+          "default": "",
+          "multiline": true,
+          "placeholder": "Enter custom location..."
+        }
+      ],
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ],
+      "complexity": [
+        [
+          "simple",
+          "detailed",
+          "complex"
+        ],
+        {
+          "default": "detailed"
+        }
+      ],
+      "include_environment": [
+        [
+          "yes",
+          "no"
+        ],
+        {
+          "default": "yes"
+        }
+      ],
+      "include_style": [
+        [
+          "yes",
+          "no"
+        ],
+        {
+          "default": "yes"
+        }
+      ],
+      "include_effects": [
+        [
+          "yes",
+          "no"
+        ],
+        {
+          "default": "yes"
+        }
+      ],
+      "lora_key": [
+        "STRING",
+        {
+          "default": "",
+          "multiline": true,
+          "placeholder": "(lora:key:weight)..."
+        }
+      ]
+    },
+    "optional": {
+      "category_animation_entertainment": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "Select All Animation & Entertainment"
+        }
+      ],
+      "category_architectural_spaces": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "Select All Architectural & Spaces"
+        }
+      ],
+      "category_art_styles_techniques": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "Select All Art Styles & Techniques"
+        }
+      ],
+      "category_character_art": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "Select All Character Art"
+        }
+      ],
+      "category_dark_horror": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "Select All Dark & Horror"
+        }
+      ],
+      "category_food": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "Select All Food"
+        }
+      ],
+      "category_holiday_themes": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "Select All Holiday Themes"
+        }
+      ],
+      "category_nature_environment": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "Select All Nature & Environment"
+        }
+      ],
+      "category_photography_fashion": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "Select All Photography & Fashion"
+        }
+      ],
+      "category_post-apocalyptic": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "Select All Post-Apocalyptic"
+        }
+      ],
+      "category_random": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "Select All Random"
+        }
+      ],
+      "category_science_fiction_fantasy": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "Select All Science Fiction & Fantasy"
+        }
+      ],
+      "category_surreal_dreams": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "Select All Surreal & Dreams"
+        }
+      ],
+      "category_vintage_historical": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "Select All Vintage & Historical"
+        }
+      ],
+      "\ud83d\udc7e_16_bit_pixel_art": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udc7e 16-Bit Pixel Art"
+        }
+      ],
+      "\ud83e\uddfa_50s_commercial": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83e\uddfa 50s Commercial"
+        }
+      ],
+      "\ud83c\udfa8_abstract": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfa8 Abstract"
+        }
+      ],
+      "\ud83c\udfac_analog_35mm_film": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfac Analog 35mm Film"
+        }
+      ],
+      "\ud83d\udcfa_animation_cartoon": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udcfa Animation Cartoon"
+        }
+      ],
+      "\ud83c\udf8c_anime": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf8c Anime"
+        }
+      ],
+      "\ud83c\udfdb\ufe0f_architectural": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfdb\ufe0f Architectural"
+        }
+      ],
+      "\ud83c\udf0c_astrophotography": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf0c Astrophotography"
+        }
+      ],
+      "\ud83d\uddbc\ufe0f_binet_surreal": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\uddbc\ufe0f Binet Surreal"
+        }
+      ],
+      "\ud83e\uddec_bio_organic_technology": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83e\uddec Bio-Organic Technology"
+        }
+      ],
+      "\ud83e\udebc_bioluminescent_jelly": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83e\udebc Bioluminescent Jelly"
+        }
+      ],
+      "\ud83d\ude04_caricature": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\ude04 Caricature"
+        }
+      ],
+      "\ud83d\udc64_character_designer": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udc64 Character Designer"
+        }
+      ],
+      "\ud83e\udd84_chimera_animals": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83e\udd84 Chimera Animals"
+        }
+      ],
+      "\ud83d\udc30_chimera_cute_animals": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udc30 Chimera Cute Animals"
+        }
+      ],
+      "\ud83c\udfee_chinese_new_year": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfee Chinese New Year"
+        }
+      ],
+      "\ud83c\udf84_christmas": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf84 Christmas"
+        }
+      ],
+      "\ud83c\udfac_cinema_studio": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfac Cinema Studio"
+        }
+      ],
+      "\ud83c\udf27\ufe0f_cinematic_neon_rain": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf27\ufe0f Cinematic Neon Rain"
+        }
+      ],
+      "\ud83c\udffa_clay_art": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udffa Clay Art"
+        }
+      ],
+      "\ud83d\udcda_comic_book": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udcda Comic Book"
+        }
+      ],
+      "\ud83c\udfa8_concept_art": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfa8 Concept Art"
+        }
+      ],
+      "\ud83d\udd8d\ufe0f_crayon_art": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udd8d\ufe0f Crayon Art"
+        }
+      ],
+      "\ud83d\udc8e_crystalpunk": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udc8e Crystalpunk"
+        }
+      ],
+      "\ud83c\udf73_culinary_food": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf73 Culinary/Food"
+        }
+      ],
+      "\ud83d\udc57_curvy_fashion": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udc57 Curvy Fashion"
+        }
+      ],
+      "\ud83d\udc5f_cyber_hypebeast": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udc5f Cyber Hypebeast"
+        }
+      ],
+      "\ud83c\udf06_cyberpunk": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf06 Cyberpunk"
+        }
+      ],
+      "\ud83d\udc79_dia_de_los_muertos": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udc79 Dia de los Muertos"
+        }
+      ],
+      "\ud83d\uddbc\ufe0f_digital_art": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\uddbc\ufe0f Digital Art"
+        }
+      ],
+      "\ud83d\udca0_dimension_3d": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udca0 Dimension 3D"
+        }
+      ],
+      "\ud83e\udea9_disco_medieval": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83e\udea9 Disco Medieval"
+        }
+      ],
+      "\ud83c\udfa1_disney": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfa1 Disney"
+        }
+      ],
+      "\ud83c\udfac_dreamworks": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfac Dreamworks"
+        }
+      ],
+      "\ud83c\udfb2_dynamic_random": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfb2 Dynamic Random"
+        }
+      ],
+      "\ud83d\udc30_easter": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udc30 Easter"
+        }
+      ],
+      "\u2728_enchanted_fantasy": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\u2728 Enchanted Fantasy"
+        }
+      ],
+      "\ud83d\udcf8_essential_realistic": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udcf8 Essential Realistic"
+        }
+      ],
+      "\ud83d\udd70\ufe0f_essential_vintage": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udd70\ufe0f Essential Vintage"
+        }
+      ],
+      "\u2728_ethereal_dreams": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\u2728 Ethereal Dreams"
+        }
+      ],
+      "\ud83d\udd2c_experimental_art": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udd2c Experimental Art"
+        }
+      ],
+      "\u2694\ufe0f_fantasy": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\u2694\ufe0f Fantasy"
+        }
+      ],
+      "\ud83d\udcf1_fisheye_action_cam": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udcf1 Fisheye Action Cam"
+        }
+      ],
+      "\ud83c\udf55_food_apocalypse": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf55 Food Apocalypse"
+        }
+      ],
+      "\u2694\ufe0f_futuristic_battlefield": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\u2694\ufe0f Futuristic Battlefield"
+        }
+      ],
+      "\ud83c\udf06_futuristic_city": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf06 Futuristic City"
+        }
+      ],
+      "\ud83c\udf06_futuristic_city_metropolis": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf06 Futuristic City Metropolis"
+        }
+      ],
+      "\ud83d\ude80_futuristic_sci_fi": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\ude80 Futuristic Sci-Fi"
+        }
+      ],
+      "\ud83c\udf43_ghibli": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf43 Ghibli"
+        }
+      ],
+      "\ud83d\udc31_giant_cat_zilla": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udc31 Giant Cat-zilla"
+        }
+      ],
+      "\ud83e\uddca_glassmorphism": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83e\uddca Glassmorphism"
+        }
+      ],
+      "\ud83c\udf0c_glitch_core": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf0c Glitch Core"
+        }
+      ],
+      "\ud83c\udf83_halloween": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf83 Halloween"
+        }
+      ],
+      "\ud83d\udc7b_halloween_ethereal": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udc7b Halloween Ethereal"
+        }
+      ],
+      "\ud83c\udfdb\ufe0f_historical_monuments": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfdb\ufe0f Historical Monuments"
+        }
+      ],
+      "\ud83d\udc7b_horror": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udc7b Horror"
+        }
+      ],
+      "\ud83d\udecb\ufe0f_ikea_backrooms": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udecb\ufe0f IKEA Backrooms"
+        }
+      ],
+      "\ud83c\udfa8_impressionist": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfa8 Impressionist"
+        }
+      ],
+      "\ud83c\udf88_inflatable_world": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf88 Inflatable World"
+        }
+      ],
+      "\ud83d\udcf1_instagram": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udcf1 Instagram"
+        }
+      ],
+      "\ud83d\udcf1_instagram_lifestyle": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udcf1 Instagram Lifestyle"
+        }
+      ],
+      "\ud83c\udfe0_interior_spaces": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfe0 Interior Spaces"
+        }
+      ],
+      "\ud83e\uddf6_knitted_world": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83e\uddf6 Knitted World"
+        }
+      ],
+      "\ud83e\uddca_liquid_chrome": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83e\uddca Liquid Chrome"
+        }
+      ],
+      "\ud83c\udfaf_logo": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfaf Logo"
+        }
+      ],
+      "\ud83d\udcfa_manga_panel": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udcfa Manga Panel"
+        }
+      ],
+      "\ud83e\uddb8_marvel": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83e\uddb8 Marvel"
+        }
+      ],
+      "\u2694\ufe0f_medieval": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\u2694\ufe0f Medieval"
+        }
+      ],
+      "\ud83d\udd2c_microscopic": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udd2c Microscopic"
+        }
+      ],
+      "\u2b1c_minimalist": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\u2b1c Minimalist"
+        }
+      ],
+      "\u2694\ufe0f_miura_dark_fantasy": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\u2694\ufe0f Miura Dark Fantasy"
+        }
+      ],
+      "\ud83c\udf3f_nature": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf3f Nature"
+        }
+      ],
+      "\ud83c\udf86_new_year's_eve": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf86 New Year's Eve"
+        }
+      ],
+      "\ud83c\udfac_nolan_epic": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfac Nolan Epic"
+        }
+      ],
+      "\ud83c\udf3f_overgrown_ruins": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf3f Overgrown Ruins"
+        }
+      ],
+      "\u2702\ufe0f_papercraft": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\u2702\ufe0f Papercraft"
+        }
+      ],
+      "\ud83d\udd74\ufe0f_peaky_blinders": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udd74\ufe0f Peaky Blinders"
+        }
+      ],
+      "\ud83d\udcab_pixar": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udcab Pixar"
+        }
+      ],
+      "\ud83c\udf2a\ufe0f_post_apocalyptic": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf2a\ufe0f Post Apocalyptic"
+        }
+      ],
+      "\ud83c\udf44_psychedelic_cyber_fungus": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf44 Psychedelic Cyber Fungus"
+        }
+      ],
+      "\ud83e\udde9_puzzle_dimension": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83e\udde9 Puzzle Dimension"
+        }
+      ],
+      "\ud83d\uded2_retro_vaporwave_mall": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\uded2 Retro Vaporwave Mall"
+        }
+      ],
+      "\ud83e\udd86_rubber_duck_supremacy": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83e\udd86 Rubber Duck Supremacy"
+        }
+      ],
+      "\ud83d\udcda_school_manga": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udcda School Manga"
+        }
+      ],
+      "\ud83d\ude80_sci_fi": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\ude80 Sci-Fi"
+        }
+      ],
+      "\ud83d\udcf1_selfie": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udcf1 Selfie"
+        }
+      ],
+      "\ud83d\udc67_skinny_blonde_girl": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udc67 Skinny Blonde Girl"
+        }
+      ],
+      "\ud83d\ude80_space_colony": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\ude80 Space Colony"
+        }
+      ],
+      "\ud83c\udfdb\ufe0f_spartan_300": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfdb\ufe0f Spartan 300"
+        }
+      ],
+      "\ud83d\udc97_spectral_mist": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udc97 Spectral Mist"
+        }
+      ],
+      "\ud83c\udf40_st._patrick's_day": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf40 St. Patrick's Day"
+        }
+      ],
+      "\ud83d\ude80_star_wars": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\ude80 Star Wars"
+        }
+      ],
+      "\ud83e\uddf8_starter_pack": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83e\uddf8 Starter Pack"
+        }
+      ],
+      "\u2699\ufe0f_steampunk": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\u2699\ufe0f Steampunk"
+        }
+      ],
+      "\ud83c\udfad_stop_motion": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfad Stop Motion"
+        }
+      ],
+      "\ud83e\udd59_street_food_kebab": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83e\udd59 Street Food Kebab"
+        }
+      ],
+      "\ud83e\udd83_thanksgiving": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83e\udd83 Thanksgiving"
+        }
+      ],
+      "\ud83c\udfdd\ufe0f_tropical_paradise": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfdd\ufe0f Tropical Paradise"
+        }
+      ],
+      "\ud83d\udce6_unboxing_surrealism": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udce6 Unboxing Surrealism"
+        }
+      ],
+      "\ud83c\udf0a_underwater_civilization": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udf0a Underwater Civilization"
+        }
+      ],
+      "\ud83c\udfd9\ufe0f_urban_tag": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfd9\ufe0f Urban Tag"
+        }
+      ],
+      "\ud83d\udcf9_vhs_found_footage": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udcf9 VHS Found Footage"
+        }
+      ],
+      "\ud83d\udc98_valentine's_day": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udc98 Valentine's Day"
+        }
+      ],
+      "\ud83c\udfe0_village_world": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfe0 Village World"
+        }
+      ],
+      "\ud83d\udcf8_vintage_1800s_photography": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udcf8 Vintage 1800s Photography"
+        }
+      ],
+      "\ud83d\udc74_vintage_anthropomorphic": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udc74 Vintage Anthropomorphic"
+        }
+      ],
+      "\ud83d\udd79\ufe0f_voxel_low_poly": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83d\udd79\ufe0f Voxel Low-Poly"
+        }
+      ],
+      "\ud83c\udfa8_watercolor": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83c\udfa8 Watercolor"
+        }
+      ],
+      "\ud83e\ude7b_x_ray_anatomy": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83e\ude7b X-Ray Anatomy"
+        }
+      ],
+      "\ud83e\udea9_y2k_retro_futurism": [
+        "BOOLEAN",
+        {
+          "default": false,
+          "label": "\ud83e\udea9 Y2K Retro-Futurism"
+        }
+      ],
+      "debug_mode": [
+        [
+          "off",
+          "on"
+        ],
+        {
+          "default": "off"
+        }
+      ],
+      "theme_names": [
+        [
+          "[Animation & Entertainment]",
+          "[Architectural & Spaces]",
+          "[Art Styles & Techniques]",
+          "[Character Art]",
+          "[Dark & Horror]",
+          "[Food]",
+          "[Holiday Themes]",
+          "[Nature & Environment]",
+          "[Photography & Fashion]",
+          "[Post-Apocalyptic]",
+          "[Random]",
+          "[Science Fiction & Fantasy]",
+          "[Surreal & Dreams]",
+          "[Vintage & Historical]",
+          "\ud83d\udc7e 16-Bit Pixel Art",
+          "\ud83e\uddfa 50s Commercial",
+          "\ud83c\udfa8 Abstract",
+          "\ud83c\udfac Analog 35mm Film",
+          "\ud83d\udcfa Animation Cartoon",
+          "\ud83c\udf8c Anime",
+          "\ud83c\udfdb\ufe0f Architectural",
+          "\ud83c\udf0c Astrophotography",
+          "\ud83d\uddbc\ufe0f Binet Surreal",
+          "\ud83e\uddec Bio-Organic Technology",
+          "\ud83e\udebc Bioluminescent Jelly",
+          "\ud83d\ude04 Caricature",
+          "\ud83d\udc64 Character Designer",
+          "\ud83e\udd84 Chimera Animals",
+          "\ud83d\udc30 Chimera Cute Animals",
+          "\ud83c\udfee Chinese New Year",
+          "\ud83c\udf84 Christmas",
+          "\ud83c\udfac Cinema Studio",
+          "\ud83c\udf27\ufe0f Cinematic Neon Rain",
+          "\ud83c\udffa Clay Art",
+          "\ud83d\udcda Comic Book",
+          "\ud83c\udfa8 Concept Art",
+          "\ud83d\udd8d\ufe0f Crayon Art",
+          "\ud83d\udc8e Crystalpunk",
+          "\ud83c\udf73 Culinary/Food",
+          "\ud83d\udc57 Curvy Fashion",
+          "\ud83d\udc5f Cyber Hypebeast",
+          "\ud83c\udf06 Cyberpunk",
+          "\ud83d\udc79 Dia de los Muertos",
+          "\ud83d\uddbc\ufe0f Digital Art",
+          "\ud83d\udca0 Dimension 3D",
+          "\ud83e\udea9 Disco Medieval",
+          "\ud83c\udfa1 Disney",
+          "\ud83c\udfac Dreamworks",
+          "\ud83c\udfb2 Dynamic Random",
+          "\ud83d\udc30 Easter",
+          "\u2728 Enchanted Fantasy",
+          "\ud83d\udcf8 Essential Realistic",
+          "\ud83d\udd70\ufe0f Essential Vintage",
+          "\u2728 Ethereal Dreams",
+          "\ud83d\udd2c Experimental Art",
+          "\u2694\ufe0f Fantasy",
+          "\ud83d\udcf1 Fisheye Action Cam",
+          "\ud83c\udf55 Food Apocalypse",
+          "\u2694\ufe0f Futuristic Battlefield",
+          "\ud83c\udf06 Futuristic City",
+          "\ud83c\udf06 Futuristic City Metropolis",
+          "\ud83d\ude80 Futuristic Sci-Fi",
+          "\ud83c\udf43 Ghibli",
+          "\ud83d\udc31 Giant Cat-zilla",
+          "\ud83e\uddca Glassmorphism",
+          "\ud83c\udf0c Glitch Core",
+          "\ud83c\udf83 Halloween",
+          "\ud83d\udc7b Halloween Ethereal",
+          "\ud83c\udfdb\ufe0f Historical Monuments",
+          "\ud83d\udc7b Horror",
+          "\ud83d\udecb\ufe0f IKEA Backrooms",
+          "\ud83c\udfa8 Impressionist",
+          "\ud83c\udf88 Inflatable World",
+          "\ud83d\udcf1 Instagram",
+          "\ud83d\udcf1 Instagram Lifestyle",
+          "\ud83c\udfe0 Interior Spaces",
+          "\ud83e\uddf6 Knitted World",
+          "\ud83e\uddca Liquid Chrome",
+          "\ud83c\udfaf Logo",
+          "\ud83d\udcfa Manga Panel",
+          "\ud83e\uddb8 Marvel",
+          "\u2694\ufe0f Medieval",
+          "\ud83d\udd2c Microscopic",
+          "\u2b1c Minimalist",
+          "\u2694\ufe0f Miura Dark Fantasy",
+          "\ud83c\udf3f Nature",
+          "\ud83c\udf86 New Year's Eve",
+          "\ud83c\udfac Nolan Epic",
+          "\ud83c\udf3f Overgrown Ruins",
+          "\u2702\ufe0f Papercraft",
+          "\ud83d\udd74\ufe0f Peaky Blinders",
+          "\ud83d\udcab Pixar",
+          "\ud83c\udf2a\ufe0f Post Apocalyptic",
+          "\ud83c\udf44 Psychedelic Cyber Fungus",
+          "\ud83e\udde9 Puzzle Dimension",
+          "\ud83d\uded2 Retro Vaporwave Mall",
+          "\ud83e\udd86 Rubber Duck Supremacy",
+          "\ud83d\udcda School Manga",
+          "\ud83d\ude80 Sci-Fi",
+          "\ud83d\udcf1 Selfie",
+          "\ud83d\udc67 Skinny Blonde Girl",
+          "\ud83d\ude80 Space Colony",
+          "\ud83c\udfdb\ufe0f Spartan 300",
+          "\ud83d\udc97 Spectral Mist",
+          "\ud83c\udf40 St. Patrick's Day",
+          "\ud83d\ude80 Star Wars",
+          "\ud83e\uddf8 Starter Pack",
+          "\u2699\ufe0f Steampunk",
+          "\ud83c\udfad Stop Motion",
+          "\ud83e\udd59 Street Food Kebab",
+          "\ud83e\udd83 Thanksgiving",
+          "\ud83c\udfdd\ufe0f Tropical Paradise",
+          "\ud83d\udce6 Unboxing Surrealism",
+          "\ud83c\udf0a Underwater Civilization",
+          "\ud83c\udfd9\ufe0f Urban Tag",
+          "\ud83d\udcf9 VHS Found Footage",
+          "\ud83d\udc98 Valentine's Day",
+          "\ud83c\udfe0 Village World",
+          "\ud83d\udcf8 Vintage 1800s Photography",
+          "\ud83d\udc74 Vintage Anthropomorphic",
+          "\ud83d\udd79\ufe0f Voxel Low-Poly",
+          "\ud83c\udfa8 Watercolor",
+          "\ud83e\ude7b X-Ray Anatomy",
+          "\ud83e\udea9 Y2K Retro-Futurism"
+        ],
+        {
+          "default": "[Animation & Entertainment]",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "IsulionMythicalLocationGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "location": [
+        [
+          "crystal cave",
+          "floating islands",
+          "ancient temple",
+          "enchanted forest",
+          "dragon's lair",
+          "wizard's tower",
+          "fairy grove",
+          "rainbow bridge",
+          "underwater palace",
+          "cloud castle",
+          "phoenix nest",
+          "mystic library",
+          "forgotten ruins",
+          "elemental sanctuary",
+          "starlit grove",
+          "demon realm",
+          "celestial observatory",
+          "ethereal gardens",
+          "astral plane",
+          "shadow realm",
+          "elven citadel",
+          "dwarven halls",
+          "dragon's peak",
+          "mermaid lagoon",
+          "phoenix sanctuary",
+          "unicorn glade",
+          "goblin market",
+          "witch's cottage",
+          "giant's stronghold",
+          "fae court",
+          "crystal spires",
+          "void gates",
+          "ancient battleground",
+          "sacred grove",
+          "cursed castle",
+          "magic academy"
+        ]
+      ]
+    },
+    "optional": {
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ]
+    }
+  },
+  "IsulionNegativePromptGenerator": {
+    "optional": {
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ],
+      "strictness": [
+        [
+          "basic",
+          "standard",
+          "strict"
+        ],
+        {
+          "default": "standard"
+        }
+      ]
+    }
+  },
+  "IsulionProfessionGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "profession": [
+        [
+          "chef",
+          "wizard",
+          "warrior",
+          "merchant",
+          "scholar",
+          "artist",
+          "blacksmith",
+          "alchemist",
+          "hunter",
+          "healer",
+          "guard",
+          "noble",
+          "farmer",
+          "sailor",
+          "explorer",
+          "musician",
+          "dancer",
+          "priest",
+          "actor",
+          "tour guide",
+          "florist",
+          "cake decorator",
+          "zookeeper",
+          "ski instructor",
+          "software developer",
+          "nurse practitioner",
+          "doctor",
+          "physician",
+          "information security analyst",
+          "truck driver",
+          "teacher",
+          "firefighter",
+          "police officer",
+          "lawyer",
+          "engineer",
+          "pilot",
+          "astronaut",
+          "archaeologist",
+          "detective",
+          "librarian",
+          "architect"
+        ]
+      ]
+    },
+    "optional": {
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ]
+    }
+  },
+  "IsulionPromptEnhancer": {
+    "required": {
+      "base_prompt": [
+        "STRING",
+        {
+          "default": ""
+        }
+      ]
+    },
+    "optional": {
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ],
+      "enhancement_level": [
+        [
+          "subtle",
+          "moderate",
+          "dramatic"
+        ],
+        {
+          "default": "moderate"
+        }
+      ],
+      "focus": [
+        [
+          "detail",
+          "mood",
+          "composition",
+          "lighting",
+          "color"
+        ],
+        {
+          "default": "detail"
+        }
+      ]
+    }
+  },
+  "IsulionPromptVaultLoad": {
+    "required": {
+      "entry": [
+        [
+          "cyberpunk_neon_street",
+          "ghibli_cottage",
+          "horror_abandoned_hospital"
+        ],
+        {
+          "default": "cyberpunk_neon_street",
+          "allowCustomValue": true
+        }
+      ]
+    }
+  },
+  "IsulionPromptVaultSave": {
+    "required": {
+      "name": [
+        "STRING",
+        {
+          "default": "",
+          "placeholder": "entry name"
+        }
+      ],
+      "text": [
+        "STRING",
+        {
+          "default": "",
+          "multiline": true
+        }
+      ]
+    }
+  },
+  "IsulionSceneComposition": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "composition": [
+        [
+          "close-up shot",
+          "wide angle",
+          "birds eye view",
+          "low angle",
+          "dutch angle",
+          "panoramic view",
+          "portrait shot",
+          "action shot",
+          "dramatic angle",
+          "symmetrical composition"
+        ]
+      ]
+    },
+    "optional": {
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ]
+    }
+  },
+  "IsulionSpacecraftGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "ship": [
+        [
+          "battlecruiser",
+          "stealth frigate",
+          "carrier",
+          "destroyer",
+          "dreadnought",
+          "assault ship",
+          "combat vessel",
+          "strike craft",
+          "war barge",
+          "missile frigate",
+          "plasma cruiser",
+          "void hunter",
+          "quantum warship",
+          "battle station",
+          "star fortress",
+          "passenger liner",
+          "cargo hauler",
+          "mining vessel",
+          "colony ship",
+          "space yacht",
+          "trading vessel",
+          "transport ship",
+          "cruise liner",
+          "construction ship",
+          "medical frigate",
+          "research vessel",
+          "supply ship",
+          "merchant vessel",
+          "repair ship",
+          "salvage craft",
+          "scout ship",
+          "research vessel",
+          "survey craft",
+          "deep space probe",
+          "pathfinder ship",
+          "expedition craft",
+          "discovery vessel",
+          "stellar explorer",
+          "cartographer ship",
+          "science vessel",
+          "observatory ship",
+          "mapping drone",
+          "reconnaissance craft",
+          "sensor platform",
+          "probe carrier",
+          "dimensional ship",
+          "time vessel",
+          "living ship",
+          "quantum craft",
+          "phase shifter",
+          "void walker",
+          "reality bender",
+          "star seed",
+          "consciousness vessel",
+          "dream ship",
+          "infinity craft",
+          "cosmic weaver",
+          "paradox jumper",
+          "eternity vessel",
+          "dimension breaker"
+        ]
+      ]
+    },
+    "optional": {
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ],
+      "ship_class": [
+        [
+          "any",
+          "military",
+          "civilian",
+          "exploration",
+          "special"
+        ],
+        {
+          "default": "any"
+        }
+      ]
+    }
+  },
+  "IsulionStyleMixer": {
+    "required": {
+      "style1": [
+        "STRING",
+        {
+          "forceInput": true
+        }
+      ],
+      "style2": [
+        "STRING",
+        {
+          "forceInput": true
+        }
+      ],
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ],
+      "blend_mode": [
+        [
+          "balanced",
+          "style1_dominant",
+          "style2_dominant"
+        ],
+        {
+          "default": "balanced"
+        }
+      ]
+    }
+  },
+  "IsulionTechGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "tech": [
+        [
+          "plasma rifle",
+          "quantum blade",
+          "sonic cannon",
+          "gravity gun",
+          "particle beam",
+          "fusion blaster",
+          "antimatter cannon",
+          "phase disruptor",
+          "laser sword",
+          "temporal gun",
+          "void cannon",
+          "energy whip",
+          "nano swarm launcher",
+          "dark matter projector",
+          "tachyon emitter",
+          "holographic display",
+          "neural interface",
+          "quantum computer",
+          "teleporter",
+          "force field generator",
+          "cloaking device",
+          "matter replicator",
+          "bio scanner",
+          "universal translator",
+          "time dilation device",
+          "gravity manipulator",
+          "mind probe",
+          "energy shield",
+          "wormhole generator",
+          "quantum entangler",
+          "cybernetic implant",
+          "nano-enhancer",
+          "bio-mod",
+          "exoskeleton",
+          "neural booster",
+          "synthetic organ",
+          "quantum processor",
+          "memory augment",
+          "reflex enhancer",
+          "strength amplifier",
+          "sensory upgrade",
+          "stealth system",
+          "healing matrix",
+          "combat suite",
+          "energy core",
+          "fusion core",
+          "antimatter reactor",
+          "zero-point module",
+          "quantum battery",
+          "dark energy tap",
+          "plasma converter",
+          "neutron source",
+          "void crystal",
+          "temporal capacitor",
+          "stellar cell",
+          "dimensional core",
+          "entropy inverter",
+          "quantum flux generator",
+          "cosmic energy collector",
+          "singularity engine"
+        ]
+      ]
+    },
+    "optional": {
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ],
+      "tech_type": [
+        [
+          "any",
+          "weapons",
+          "gadgets",
+          "augments",
+          "power"
+        ],
+        {
+          "default": "any"
+        }
+      ]
+    }
+  },
+  "IsulionTimeOfDayGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 999999999
+        }
+      ],
+      "time": [
+        [
+          "Dawn",
+          "Sunrise",
+          "Early Morning",
+          "Morning",
+          "Late Morning",
+          "Noon",
+          "Early Afternoon",
+          "Afternoon",
+          "Late Afternoon",
+          "Golden Hour",
+          "Sunset",
+          "Dusk",
+          "Twilight",
+          "Evening",
+          "Night",
+          "Midnight",
+          "Blue Hour",
+          "First Light",
+          "Magic Hour",
+          "Civil Twilight",
+          "Astronomical Twilight",
+          "Nautical Twilight",
+          "Witching Hour",
+          "Pre-dawn",
+          "Post-sunset"
+        ]
+      ]
+    }
+  },
+  "IsulionVideoPromptGenerator": {
+    "required": {
+      "preset": [
+        [
+          "None",
+          "Nature Documentary",
+          "Travel Vlog",
+          "Wedding Video",
+          "Music Video",
+          "News Report",
+          "Sports Coverage",
+          "Fashion Show",
+          "Food Review",
+          "Real Estate Tour",
+          "Product Commercial"
+        ],
+        {
+          "default": "None",
+          "display": "\ud83d\udcfd\ufe0f Preset Scenario",
+          "description": "Pre-configured video scenarios with professional settings"
+        }
+      ],
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ],
+      "quality_level": [
+        [
+          "Standard",
+          "High Quality",
+          "Best Quality",
+          "Experimental",
+          "Raw Footage",
+          "Film",
+          "Broadcast"
+        ],
+        {
+          "default": "Standard"
+        }
+      ],
+      "custom_subject": [
+        "STRING",
+        {
+          "default": ""
+        }
+      ],
+      "custom_location": [
+        "STRING",
+        {
+          "default": ""
+        }
+      ],
+      "camera_angle": [
+        [
+          "None",
+          "Random",
+          "((The camera remains stationary))",
+          "((The camera pans slowly))",
+          "((The camera follows the subject))",
+          "((The camera zooms in gradually))",
+          "((The camera circles around))",
+          "((The camera moves from left to right))",
+          "((The camera captures from a low angle))",
+          "((The camera shoots from above))",
+          "((The camera tracks backward))",
+          "((The camera moves in for a close-up))",
+          "((The camera glides smoothly))",
+          "((The camera sweeps across))",
+          "((The camera rises upward))",
+          "((The camera descends slowly))",
+          "((The camera spirals around))"
+        ],
+        {
+          "default": "None"
+        }
+      ],
+      "lighting": [
+        [
+          "None",
+          "Random",
+          "natural sunlight streams through windows",
+          "warm artificial lighting creates a cozy atmosphere",
+          "harsh fluorescent lights illuminate the space",
+          "soft ambient lighting fills the room",
+          "dramatic shadows create contrast",
+          "golden hour sunlight bathes the scene",
+          "moody low-key lighting",
+          "bright and even lighting",
+          "dappled light filtering through trees",
+          "cool blue evening light",
+          "misty morning light creates a dreamy atmosphere",
+          "dramatic storm clouds cast shifting shadows",
+          "moonlight casts a silvery glow",
+          "neon lights create vibrant color contrasts",
+          "candlelight flickers softly",
+          "sunrise paints the sky in pastel hues",
+          "sunset creates long dramatic shadows",
+          "starlight twinkles in the darkness",
+          "fog diffuses the light mysteriously",
+          "rainbow light refracts through crystal"
+        ],
+        {
+          "default": "None"
+        }
+      ],
+      "theme": [
+        [
+          "None",
+          "\ud83c\udfb2 Dynamic Random",
+          "\ud83d\udc7e 16-Bit Pixel Art",
+          "\ud83e\uddfa 50s Commercial",
+          "\ud83c\udfa8 Abstract",
+          "\ud83c\udfac Analog 35mm Film",
+          "\ud83d\udcfa Animation Cartoon",
+          "\ud83c\udf8c Anime",
+          "\ud83c\udfdb\ufe0f Architectural",
+          "\ud83c\udf0c Astrophotography",
+          "\ud83d\uddbc\ufe0f Binet Surreal",
+          "\ud83e\uddec Bio-Organic Technology",
+          "\ud83e\udebc Bioluminescent Jelly",
+          "\ud83d\ude04 Caricature",
+          "\ud83d\udc64 Character Designer",
+          "\ud83e\udd84 Chimera Animals",
+          "\ud83d\udc30 Chimera Cute Animals",
+          "\ud83c\udfee Chinese New Year",
+          "\ud83c\udf84 Christmas",
+          "\ud83c\udfac Cinema Studio",
+          "\ud83c\udf27\ufe0f Cinematic Neon Rain",
+          "\ud83c\udffa Clay Art",
+          "\ud83d\udcda Comic Book",
+          "\ud83c\udfa8 Concept Art",
+          "\ud83d\udd8d\ufe0f Crayon Art",
+          "\ud83d\udc8e Crystalpunk",
+          "\ud83c\udf73 Culinary/Food",
+          "\ud83d\udc57 Curvy Fashion",
+          "\ud83d\udc5f Cyber Hypebeast",
+          "\ud83c\udf06 Cyberpunk",
+          "\ud83d\udc79 Dia de los Muertos",
+          "\ud83d\uddbc\ufe0f Digital Art",
+          "\ud83d\udca0 Dimension 3D",
+          "\ud83e\udea9 Disco Medieval",
+          "\ud83c\udfa1 Disney",
+          "\ud83c\udfac Dreamworks",
+          "\ud83d\udc30 Easter",
+          "\u2728 Enchanted Fantasy",
+          "\ud83d\udcf8 Essential Realistic",
+          "\ud83d\udd70\ufe0f Essential Vintage",
+          "\u2728 Ethereal Dreams",
+          "\ud83d\udd2c Experimental Art",
+          "\u2694\ufe0f Fantasy",
+          "\ud83d\udcf1 Fisheye Action Cam",
+          "\ud83c\udf55 Food Apocalypse",
+          "\u2694\ufe0f Futuristic Battlefield",
+          "\ud83c\udf06 Futuristic City",
+          "\ud83c\udf06 Futuristic City Metropolis",
+          "\ud83d\ude80 Futuristic Sci-Fi",
+          "\ud83c\udf43 Ghibli",
+          "\ud83d\udc31 Giant Cat-zilla",
+          "\ud83e\uddca Glassmorphism",
+          "\ud83c\udf0c Glitch Core",
+          "\ud83c\udf83 Halloween",
+          "\ud83d\udc7b Halloween Ethereal",
+          "\ud83c\udfdb\ufe0f Historical Monuments",
+          "\ud83d\udc7b Horror",
+          "\ud83d\udecb\ufe0f IKEA Backrooms",
+          "\ud83c\udfa8 Impressionist",
+          "\ud83c\udf88 Inflatable World",
+          "\ud83d\udcf1 Instagram",
+          "\ud83d\udcf1 Instagram Lifestyle",
+          "\ud83c\udfe0 Interior Spaces",
+          "\ud83e\uddf6 Knitted World",
+          "\ud83e\uddca Liquid Chrome",
+          "\ud83c\udfaf Logo",
+          "\ud83d\udcfa Manga Panel",
+          "\ud83e\uddb8 Marvel",
+          "\u2694\ufe0f Medieval",
+          "\ud83d\udd2c Microscopic",
+          "\u2b1c Minimalist",
+          "\u2694\ufe0f Miura Dark Fantasy",
+          "\ud83c\udf3f Nature",
+          "\ud83c\udf86 New Year's Eve",
+          "\ud83c\udfac Nolan Epic",
+          "\ud83c\udf3f Overgrown Ruins",
+          "\u2702\ufe0f Papercraft",
+          "\ud83d\udd74\ufe0f Peaky Blinders",
+          "\ud83d\udcab Pixar",
+          "\ud83c\udf2a\ufe0f Post Apocalyptic",
+          "\ud83c\udf44 Psychedelic Cyber Fungus",
+          "\ud83e\udde9 Puzzle Dimension",
+          "\ud83d\uded2 Retro Vaporwave Mall",
+          "\ud83e\udd86 Rubber Duck Supremacy",
+          "\ud83d\udcda School Manga",
+          "\ud83d\ude80 Sci-Fi",
+          "\ud83d\udcf1 Selfie",
+          "\ud83d\udc67 Skinny Blonde Girl",
+          "\ud83d\ude80 Space Colony",
+          "\ud83c\udfdb\ufe0f Spartan 300",
+          "\ud83d\udc97 Spectral Mist",
+          "\ud83c\udf40 St. Patrick's Day",
+          "\ud83d\ude80 Star Wars",
+          "\ud83e\uddf8 Starter Pack",
+          "\u2699\ufe0f Steampunk",
+          "\ud83c\udfad Stop Motion",
+          "\ud83e\udd59 Street Food Kebab",
+          "\ud83e\udd83 Thanksgiving",
+          "\ud83c\udfdd\ufe0f Tropical Paradise",
+          "\ud83d\udce6 Unboxing Surrealism",
+          "\ud83c\udf0a Underwater Civilization",
+          "\ud83c\udfd9\ufe0f Urban Tag",
+          "\ud83d\udcf9 VHS Found Footage",
+          "\ud83d\udc98 Valentine's Day",
+          "\ud83c\udfe0 Village World",
+          "\ud83d\udcf8 Vintage 1800s Photography",
+          "\ud83d\udc74 Vintage Anthropomorphic",
+          "\ud83d\udd79\ufe0f Voxel Low-Poly",
+          "\ud83c\udfa8 Watercolor",
+          "\ud83e\ude7b X-Ray Anatomy",
+          "\ud83e\udea9 Y2K Retro-Futurism"
+        ],
+        {
+          "default": "None"
+        }
+      ]
+    }
+  },
+  "IsulionWeatherGenerator": {
+    "required": {
+      "randomize": [
+        [
+          "enable",
+          "disable"
+        ]
+      ],
+      "seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 999999999
+        }
+      ],
+      "weather": [
+        [
+          "Sunny",
+          "Cloudy",
+          "Partly Cloudy",
+          "Overcast",
+          "Rainy",
+          "Heavy Rain",
+          "Thunderstorm",
+          "Lightning Storm",
+          "Snowy",
+          "Blizzard",
+          "Foggy",
+          "Misty",
+          "Clear Sky",
+          "Stormy",
+          "Windy",
+          "Breezy",
+          "Hazy",
+          "Dusty",
+          "Sandstorm",
+          "Drizzle",
+          "Sleet",
+          "Hail",
+          "Rainbow",
+          "Double Rainbow",
+          "Aurora Borealis",
+          "Heat Wave",
+          "Humid",
+          "Dry",
+          "Frost",
+          "Ice Storm",
+          "Tornado",
+          "Hurricane",
+          "Tropical Storm",
+          "Monsoon",
+          "Clear Night",
+          "Starry Night"
+        ]
+      ]
+    }
+  },
+  "\u29c9 IsulionOverlay": {
+    "required": {
+      "base_image": [
+        "IMAGE"
+      ],
+      "qr_code_image": [
+        "IMAGE"
+      ],
+      "size_percent": [
+        "FLOAT",
+        {
+          "default": 20.0,
+          "min": 1.0,
+          "max": 100.0,
+          "step": 0.5,
+          "display": "slider"
+        }
+      ],
+      "opacity": [
+        "FLOAT",
+        {
+          "default": 1.0,
+          "min": 0.0,
+          "max": 1.0,
+          "step": 0.01,
+          "display": "slider"
+        }
+      ],
+      "rotation_angle": [
+        "FLOAT",
+        {
+          "default": 0.0,
+          "min": -360.0,
+          "max": 360.0,
+          "step": 0.1,
+          "display": "number"
+        }
+      ],
+      "repeat_pattern": [
+        "BOOLEAN",
+        {
+          "default": false
+        }
+      ]
+    },
+    "optional": {
+      "vertical_align": [
+        [
+          "top",
+          "bottom",
+          "center"
+        ],
+        {
+          "default": "bottom"
+        }
+      ],
+      "horizontal_align": [
+        [
+          "left",
+          "right",
+          "center"
+        ],
+        {
+          "default": "right"
+        }
+      ],
+      "margin_percent": [
+        "FLOAT",
+        {
+          "default": 2.0,
+          "min": 0.0,
+          "max": 50.0,
+          "step": 0.1,
+          "display": "slider"
+        }
+      ]
+    }
+  },
+  "\ud83d\udca4 IsulionShutdown": {
+    "required": {
+      "any": [
+        "*"
+      ],
+      "delay": [
+        "INT",
+        {
+          "default": 30,
+          "min": 0,
+          "display": "number"
+        }
+      ]
+    }
+  },
+  "\ud83e\udde9 IsulionQRCode": {
+    "required": {
+      "text": [
+        "STRING",
+        {
+          "multiline": true,
+          "default": "https://civitai.com/user/Isulion"
+        }
+      ],
+      "error_correction": [
+        [
+          "L",
+          "M",
+          "Q",
+          "H"
+        ],
+        {
+          "default": "H"
+        }
+      ],
+      "scale": [
+        "INT",
+        {
+          "default": 10,
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "display": "number"
+        }
+      ],
+      "border": [
+        "INT",
+        {
+          "default": 4,
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "display": "number"
+        }
+      ],
+      "foreground_color": [
+        "STRING",
+        {
+          "default": "#000000",
+          "multiline": false
+        }
+      ],
+      "background_color": [
+        "STRING",
+        {
+          "default": "#FFFFFF",
+          "multiline": false
+        }
+      ],
+      "transparent_background": [
+        "BOOLEAN",
+        {
+          "default": false
+        }
+      ]
+    },
+    "optional": {
+      "logo": [
+        "IMAGE"
+      ],
+      "logo_scale_percent": [
+        "FLOAT",
+        {
+          "default": 23.0,
+          "min": 5.0,
+          "max": 33.0,
+          "step": 0.5,
+          "display": "number"
+        }
+      ],
+      "clear_behind_logo": [
+        "BOOLEAN",
+        {
+          "default": true
+        }
+      ]
+    }
+  },
+  "IsulionCensoredPart": {
+    "required": {
+      "image": [
+        "IMAGE"
+      ],
+      "censor_mode": [
+        [
+          "blur",
+          "pixelate",
+          "pixelate+blur",
+          "black_bar",
+          "noise"
+        ]
+      ],
+      "blur_strength": [
+        "FLOAT",
+        {
+          "default": 15.0,
+          "min": 0.0,
+          "max": 100.0,
+          "step": 0.5,
+          "display": "slider"
+        }
+      ],
+      "pixel_size": [
+        "FLOAT",
+        {
+          "default": 5.0,
+          "min": 0.5,
+          "max": 50.0,
+          "step": 0.5,
+          "display": "slider"
+        }
+      ],
+      "use_region_rect": [
+        "BOOLEAN",
+        {
+          "default": false
+        }
+      ],
+      "region_x": [
+        "FLOAT",
+        {
+          "default": 25.0,
+          "min": 0.0,
+          "max": 100.0,
+          "step": 0.5,
+          "display": "slider"
+        }
+      ],
+      "region_y": [
+        "FLOAT",
+        {
+          "default": 25.0,
+          "min": 0.0,
+          "max": 100.0,
+          "step": 0.5,
+          "display": "slider"
+        }
+      ],
+      "region_width": [
+        "FLOAT",
+        {
+          "default": 50.0,
+          "min": 0.0,
+          "max": 100.0,
+          "step": 0.5,
+          "display": "slider"
+        }
+      ],
+      "region_height": [
+        "FLOAT",
+        {
+          "default": 50.0,
+          "min": 0.0,
+          "max": 100.0,
+          "step": 0.5,
+          "display": "slider"
+        }
+      ],
+      "grow_region": [
+        "FLOAT",
+        {
+          "default": 0.0,
+          "min": -50.0,
+          "max": 50.0,
+          "step": 0.5,
+          "display": "slider"
+        }
+      ],
+      "invert_region": [
+        "BOOLEAN",
+        {
+          "default": false
+        }
+      ],
+      "feather_edge": [
+        "FLOAT",
+        {
+          "default": 4.0,
+          "min": 0.0,
+          "max": 100.0,
+          "step": 0.5,
+          "display": "slider"
+        }
+      ],
+      "noise_seed": [
+        "INT",
+        {
+          "default": 0,
+          "min": 0,
+          "max": 18446744073709551615
+        }
+      ]
+    },
+    "optional": {
+      "mask": [
+        "MASK"
+      ]
+    }
+  }
+}

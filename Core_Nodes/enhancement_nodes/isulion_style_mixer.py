@@ -11,22 +11,22 @@ class IsulionStyleMixer:
                 "blend_mode": (["balanced", "style1_dominant", "style2_dominant"], {"default": "balanced"}),
             }
         }
-    
+
     RETURN_TYPES = ("STRING",)
     FUNCTION = "mix"
     CATEGORY = "Isulion/Enhancement"
 
     def mix(self, style1, style2, seed=0, blend_mode="balanced"):
-        random.seed(seed)
-        
+        rng = random.Random(seed)
+
         # Common connecting words for style mixing
         connectors = {
             "balanced": ["mixed with", "combined with", "blended with", "fused with"],
             "style1_dominant": ["with subtle elements of", "with hints of", "slightly influenced by"],
             "style2_dominant": ["incorporating", "heavily influenced by", "dominated by elements of"]
         }
-        
-        connector = random.choice(connectors[blend_mode])
+
+        connector = rng.choice(connectors[blend_mode])
         mixed_style = f"{style1} {connector} {style2}"
-        
-        return (mixed_style,) 
+
+        return (mixed_style,)

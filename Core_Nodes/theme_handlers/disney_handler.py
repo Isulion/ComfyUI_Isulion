@@ -4,6 +4,7 @@ from .registry import register_theme
 
 @register_theme("disney")
 class DisneyThemeHandler(BaseThemeHandler):
+    DISPLAY_NAME = "🎡 Disney"
     def __init__(self, config):
         super().__init__(config)
         self.theme_config = config.get_config("disney")
@@ -19,36 +20,36 @@ class DisneyThemeHandler(BaseThemeHandler):
         # Base style and character features
         style = self._safe_choice("styles", "default style")
         character_feature = self._safe_choice("character_features", "default feature")
-        
+
         # Magical elements and props
         magic = self._safe_choice("magical_elements", "default magic")
         prop = self._safe_choice("props", "default prop")
-        
+
         # Environment and architecture
         environment = self._safe_choice("environments", "default environment") if not location else location
         architecture = self._safe_choice("architectural_elements", "default architecture")
-        
+
         # Lighting and atmosphere
         lighting = self._safe_choice("lighting", "default lighting")
         atmosphere = self._safe_choice("atmospheres", "default atmosphere")
-        
+
         # Color and emotion
         color_scheme = self._safe_choice("color_schemes", "default color scheme")
         emotional_tone = self._safe_choice("emotional_tones", "default emotional tone")
-        
+
         # Animation effect and character type
         animation_effect = self._safe_choice("animation_effects", "default animation effect")
         character_type = self._safe_choice("character_types", "default character type")
-        
+
         # Build the prompt
         prompt_parts = []
-        
+
         # Add subject if provided
         if subject:
             prompt_parts.append(f"((masterful portrait of {subject}))")
         else:
             prompt_parts.append(f"((masterful portrait of {character_type}))")
-        
+
         # Add character details
         prompt_parts.extend([
             f"((with {character_feature}))",
@@ -56,16 +57,16 @@ class DisneyThemeHandler(BaseThemeHandler):
             f"((holding {prop}))",
             f"((with {magic} magical effects))"
         ])
-        
+
         # Add environment if location provided
         if location:
             prompt_parts.append(f"((in {location}))")
         else:
             prompt_parts.append(f"((in {environment}))")
-        
+
         # Add architectural elements
         prompt_parts.append(f"((with {architecture}))")
-        
+
         # Add atmosphere and lighting
         prompt_parts.extend([
             f"((in {atmosphere} atmosphere))",
@@ -74,10 +75,10 @@ class DisneyThemeHandler(BaseThemeHandler):
             f"((showing {emotional_tone} emotion))",
             f"((with {animation_effect} animation style))"
         ])
-        
+
         # Join all parts
         prompt = ", ".join(prompt_parts)
-        
+
         # Add quality tags
         quality_tags = [
             "((Disney animation style))",
@@ -87,7 +88,7 @@ class DisneyThemeHandler(BaseThemeHandler):
             "((professional quality))",
             "((magical atmosphere))"
         ]
-        
+
         return f"{prompt}, {', '.join(quality_tags)}"
 
     def get_negative_prompt(self):
@@ -101,7 +102,7 @@ class DisneyThemeHandler(BaseThemeHandler):
         """Generate Disney-themed components with magical and whimsical elements."""
         self.debug_print(f"\n[DEBUG] {self.__class__.__name__} - Generating new prompt...")
         components = {}
-        
+
         # Generate subject
         subject = custom_subject if custom_subject else "character"  # Default to generic character if no custom subject
         style = self._safe_choice("styles", "default style")
@@ -109,7 +110,7 @@ class DisneyThemeHandler(BaseThemeHandler):
         magic = self._safe_choice("magical_elements", "default magic")
         prop = self._safe_choice("props", "default prop")
         emotional_tone = self._safe_choice("emotional_tones", "default emotional tone")
-        
+
         components["subject"] = (
             f"((masterful Disney style portrait)) of {subject}, {character_feature}, "
             f"((with {magic})), ((holding {prop})), "
@@ -117,30 +118,30 @@ class DisneyThemeHandler(BaseThemeHandler):
             f"((Disney animation excellence)), ((magical quality)), "
             f"(({emotional_tone} expression))"
         )
-        
+
         # Add environment if requested
         if include_environment:
             environment = custom_location if custom_location else self._safe_choice("environments", "default environment")
             architecture = self._safe_choice("architectural_elements", "default architecture")
             atmosphere = self._safe_choice("atmospheres", "default atmosphere")
-            
+
             components["environment"] = (
                 f"in ((detailed {environment})) with ((detailed {architecture})), "
                 f"((perfect Disney environment)), (({atmosphere})), "
                 f"((masterful background)), ((perfect composition))"
             )
-        
+
         # Add style elements if requested
         if include_style:
             lighting = self._safe_choice("lighting", "default lighting")
             color_scheme = self._safe_choice("color_schemes", "default color scheme")
-            
+
             components["style"] = (
                 f"((Disney animation style)), ((perfect {lighting})), "
                 f"((beautiful {color_scheme})), "
                 f"((high detail)), ((professional quality))"
             )
-        
+
         # Add effects if requested
         if include_effects:
             magic_effect = self._safe_choice("magical_elements", "default magic")
@@ -149,7 +150,7 @@ class DisneyThemeHandler(BaseThemeHandler):
                 f"((magical {magic_effect})), (({atmosphere})), "
                 f"((Disney magic)), ((perfect rendering))"
             )
-        
+
         # Add negative prompt
         components["negative"] = ", ".join([
             "deformed", "distorted", "unrealistic anatomy",
@@ -157,5 +158,5 @@ class DisneyThemeHandler(BaseThemeHandler):
             "amateur", "poorly drawn", "bad art",
             "non-Disney style", "dark themes", "horror elements"
         ])
-        
+
         return components

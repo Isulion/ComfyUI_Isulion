@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("fantasy")
 class FantasyThemeHandler(BaseThemeHandler):
     """Handler for fantasy-themed prompt generation."""
-    
+    DISPLAY_NAME = "⚔️ Fantasy"
+
     def __init__(self, config):
         super().__init__(config)
         self.theme_config = config.get_config("fantasy")

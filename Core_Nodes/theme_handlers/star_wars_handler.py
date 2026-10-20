@@ -5,11 +5,12 @@ from .registry import register_theme
 @register_theme("star_wars")
 class StarWarsThemeHandler(BaseThemeHandler):
     """Handler for Star Wars universe-themed prompt generation with cinematic quality and authentic details."""
-    
+    DISPLAY_NAME = "🚀 Star Wars"
+
     def __init__(self, config):
         super().__init__(config)
         self.theme_config = config.get_config("star_wars")
-    
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,

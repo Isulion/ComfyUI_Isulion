@@ -1,7 +1,8 @@
-import random
+from ..base_selector import SimpleSelectorNode
 
-class IsulionArtifactGenerator:
-    artifacts = {
+
+class IsulionArtifactGenerator(SimpleSelectorNode):
+    POOLS = {
         "weapon": [
             "legendary sword", "mystic staff", "enchanted bow", "divine spear",
             "dragon slayer blade", "phoenix feather wand", "thunder hammer",
@@ -30,35 +31,26 @@ class IsulionArtifactGenerator:
 
     @classmethod
     def INPUT_TYPES(s):
-        all_artifacts = [item for sublist in s.artifacts.values() for item in sublist]
         return {
             "required": {
                 "randomize": (["enable", "disable"],),
-                "artifact": (all_artifacts,),
+                "artifact": (s._pool_for(),),
             },
             "optional": {
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
                 "type": (["any", "weapon", "jewelry", "tool", "relic"], {"default": "any"}),
             }
         }
-    
+
     RETURN_TYPES = ("STRING", "INT",)
     RETURN_NAMES = ("artifact", "seed",)
     FUNCTION = "generate"
     CATEGORY = "Isulion/Fantasy"
 
     def generate(self, randomize, artifact, seed=0, type="any"):
+        rng, seed = self._make_rng(randomize, seed)
+
         if randomize == "enable":
-            if seed is not None and seed > 0:
-                random.seed(seed)
-            else:
-                seed = random.randint(0, 0xffffffffffffffff)
-                random.seed(seed)
-            
-            if type != "any" and type in self.artifacts:
-                artifact = random.choice(self.artifacts[type])
-            else:
-                all_artifacts = [item for sublist in self.artifacts.values() for item in sublist]
-                artifact = random.choice(all_artifacts)
-        
-        return (artifact, seed) 
+            artifact = rng.choice(self._pool_for(type))
+
+        return (artifact, seed)

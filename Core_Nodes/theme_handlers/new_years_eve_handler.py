@@ -5,11 +5,12 @@ from .registry import register_theme
 @register_theme("new_years_eve")
 class NewYearsEveThemeHandler(BaseThemeHandler):
     """Handler for New Year's Eve-themed prompt generation."""
-    
+    DISPLAY_NAME = "🎆 New Year's Eve"
+
     def get_negative_prompt(self) -> str:
         """Get negative prompt to avoid unwanted styles."""
         negative_elements = [
-            "dark colors", "horror elements", "industrial settings", 
+            "dark colors", "horror elements", "industrial settings",
             "urban landscapes", "dull tones", "mundane imagery"
         ]
         return ", ".join(negative_elements)
@@ -21,20 +22,20 @@ class NewYearsEveThemeHandler(BaseThemeHandler):
                 include_effects: bool = True) -> Dict[str, str]:
         """Generate New Year's Eve-themed components."""
         components = {}
-        
+
         # Custom inputs
         custom_subject = custom_subject.strip()
         custom_location = custom_location.strip()
-        
+
         # Select core elements
         characters = ["party crowd", "celebratory group", "festive revelers", "elegant party-goers", "joyful people"]
         attire = ["party dress", "tuxedo", "sparkling outfit", "festive costume", "glamorous attire"]
         props = ["champagne glass", "party hat", "countdown clock", "fireworks", "celebration confetti"]
         color_schemes = ["gold and silver", "midnight blue", "glittering metallics", "festive rainbow", "elegant black and white"]
-        
+
         character = self.config.random.choice(characters)
         color_scheme = self.config.random.choice(color_schemes)
-        
+
         if custom_subject:
             components["subject"] = (
                 f"((vibrant New Year's Eve scene)) of {custom_subject}, "
@@ -49,7 +50,7 @@ class NewYearsEveThemeHandler(BaseThemeHandler):
                 f"((with {self.config.random.choice(props)}) ), "
                 f"in {color_scheme} colors, ((celebration atmosphere)), ((festive magic))"
             )
-        
+
         if include_environment:
             if custom_location:
                 components["environment"] = (
@@ -60,31 +61,31 @@ class NewYearsEveThemeHandler(BaseThemeHandler):
             else:
                 settings = ["city square", "grand ballroom", "rooftop party", "elegant venue", "festive celebration space"]
                 lighting = ["fireworks display", "city lights", "sparkling decorations", "midnight glow"]
-                
+
                 setting = self.config.random.choice(settings)
                 light = self.config.random.choice(lighting)
-                
+
                 components["environment"] = (
                     f"in ((a magical {setting})), ((illuminated by {light})), "
                     f"((celebration atmosphere)), ((New Year's Eve setting)), "
                     f"((festive landscape)), ((moment of transition))"
                 )
-        
+
         if include_style:
             components["style"] = (
-                f"((celebratory New Year's artwork)), ((festive illustration style)), "
-                f"((dynamic painting technique)), ((energetic composition)), "
-                f"((festive color palette)), ((joyful holiday mood)), "
-                f"((celebration card quality)), ((vibrant artistic rendering)), "
-                f"8k resolution, ((magical celebration lighting))"
+                "((celebratory New Year's artwork)), ((festive illustration style)), "
+                "((dynamic painting technique)), ((energetic composition)), "
+                "((festive color palette)), ((joyful holiday mood)), "
+                "((celebration card quality)), ((vibrant artistic rendering)), "
+                "8k resolution, ((magical celebration lighting))"
             )
-        
+
         if include_effects:
             components["effects"] = (
-                f"with ((magical celebration glow)), ((sparkling light)), "
-                f"((floating confetti)), ((fireworks sparkle)), "
-                f"((jubilant atmosphere)), ((festive magic)), "
-                f"((countdown shimmer)), ((dynamic celebration effects))"
+                "with ((magical celebration glow)), ((sparkling light)), "
+                "((floating confetti)), ((fireworks sparkle)), "
+                "((jubilant atmosphere)), ((festive magic)), "
+                "((countdown shimmer)), ((dynamic celebration effects))"
             )
-        
+
         return components

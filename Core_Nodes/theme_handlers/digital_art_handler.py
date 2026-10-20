@@ -5,7 +5,8 @@ from .registry import register_theme
 @register_theme("digital_art")
 class DigitalArtThemeHandler(BaseThemeHandler):
     """Handler for digital art-themed prompt generation."""
-    
+    DISPLAY_NAME = "🖼️ Digital Art"
+
     def generate(self, custom_subject: str = "",
                 custom_location: str = "",
                 include_environment: bool = True,

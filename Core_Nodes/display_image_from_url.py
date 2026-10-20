@@ -1,17 +1,18 @@
+import logging
+from io import BytesIO
+
+import numpy as np
 import torch
 from PIL import Image
-from io import BytesIO
-import numpy as np
-
-import logging
-logger = logging.getLogger(__name__)
 
 from .net_utils import safe_download, DownloadError
+
+logger = logging.getLogger(__name__)
 
 class DisplayImageFromURL:
     def __init__(self):
         pass
-    
+
     @classmethod
     def INPUT_TYPES(cls):
         return {
@@ -50,4 +51,4 @@ class DisplayImageFromURL:
             raise Exception(f"Failed to load image from URL: {str(e)}")
         except Exception as e:
             logger.error(f"Error loading image from URL: {str(e)}")
-            raise Exception(f"Failed to load image from URL: {str(e)}") 
+            raise Exception(f"Failed to load image from URL: {str(e)}")
