@@ -124,7 +124,7 @@ const CSS = `
 .isu-mpv4-act{background:none;border:0;color:#ffe600;font:9px var(--isu-mpv4-mono);cursor:pointer;padding:0 2px}
 .isu-mpv4-act:hover{text-shadow:0 0 6px #ffe600}
 .isu-mpv4-frozen{color:#7fe7ff;text-shadow:0 0 5px #7fe7ff}
-.isu-mpv4-out{font-size:11.5px;line-height:1.7;min-height:56px;color:#7CFF6B;word-break:break-word}
+.isu-mpv4-out{flex:0 1 auto;font-size:11.5px;line-height:1.7;min-height:56px;overflow-y:auto;color:#7CFF6B;word-break:break-word}
 .isu-mpv4-seg{padding:1px 3px;border-radius:3px;text-shadow:0 0 5px currentColor;animation:isu-mpv4-pop .4s both}
 .isu-mpv4-seg-subject,.isu-mpv4-seg-location,.isu-mpv4-seg-style,.isu-mpv4-seg-effects{cursor:pointer}
 .isu-mpv4-seg:hover{outline:1px dashed currentColor}
@@ -133,7 +133,7 @@ const CSS = `
 .isu-mpv4-seg-complexity{color:#c4b5fd}.isu-mpv4-seg-lora{color:#e2e8f0;border:1px dashed #64748b}.isu-mpv4-seg-frozen{color:#7fe7ff}.isu-mpv4-seg-error{color:#ff6b6b}
 .isu-mpv4-cursor{display:inline-block;width:7px;height:12px;background:#7CFF6B;vertical-align:middle;animation:isu-mpv4-blink .7s infinite}
 .isu-mpv4-hint{color:#6b7280}
-.isu-mpv4-hist{display:flex;flex-direction:column;gap:3px;margin-top:6px}
+.isu-mpv4-hist{flex:0 0 auto;display:flex;flex-direction:column;gap:3px;margin-top:6px}
 .isu-mpv4-histtitle{font-size:9px;color:#ffe600;letter-spacing:.08em}
 .isu-mpv4-row{display:flex;gap:6px;align-items:baseline;font-size:10.5px;padding:3px 7px;border-radius:6px;background:#1e1036;color:#d8b4fe;border:1px solid #ff2fd033;cursor:pointer}
 .isu-mpv4-row:hover{border-color:#ff2fd0;background:#2a1450}
@@ -141,7 +141,7 @@ const CSS = `
 .isu-mpv4-tx{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .isu-mpv4-st{flex:0 0 auto;color:#6b5a8a;background:none;border:0;cursor:pointer;font-size:11px;padding:0}
 .isu-mpv4-fav{border-color:#ffe60088;color:#fff3a3}.isu-mpv4-fav .isu-mpv4-st{color:#ffe600;text-shadow:0 0 5px #ffe600}
-.isu-mpv4-foot{display:flex;justify-content:space-between;font-size:9px;color:#ffe600;margin-top:auto;padding-top:5px}
+.isu-mpv4-foot{flex:0 0 auto;display:flex;justify-content:space-between;font-size:9px;color:#ffe600;margin-top:auto;padding-top:5px}
 .isu-mpv4-overlay{position:absolute;inset:6px;z-index:5;background:#020617f2;border:2px solid #00e5ff;border-radius:8px;padding:6px;display:flex;flex-direction:column;gap:5px}
 .isu-mpv4-overlay[hidden]{display:none}
 .isu-mpv4-overlay input,.isu-mpv4-overlay textarea{width:100%;box-sizing:border-box;background:#0b1530;border:1px solid #00e5ff66;color:#cfe9ff;font:11px var(--isu-mpv4-mono);padding:4px 6px;border-radius:4px;outline:0}
