@@ -1,12 +1,11 @@
 <p align="right"><a href="README.md">English</a> · <b>Français</b></p>
 
-# ComfyUI_Isulion
+# Mega Prompt Generator Node
 
-**Tire le levier, récupère un prompt.** Un pack de nodes ComfyUI construit autour des générateurs Mega Prompt : 109 thèmes faits main, une machine à sous d'arcade qui écrit tes prompts, et une série de petits générateurs et d'outils d'image pour les accompagner.
+Le Mega Prompt Generator est un node ComfyUI élaboré qui génère des prompts détaillés et thématiques pour la génération d'images. Il propose de nombreux thèmes et styles, avec de larges possibilités de personnalisation.
 
-<p align="center">
-  <img src="assets/readme/megaprompt_v4_spin.gif" alt="La machine à sous Mega Prompt V4 fait tourner ses rouleaux" width="460">
-</p>
+![Showcase](https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/82d13074-b383-49ab-a19f-5633c8c109a5/original=true,quality=90/Batman_v3.jpeg)
+[Source](https://civitai.com/user/Isulion/images?sort=Newest)
 
 ## Installation
 
@@ -32,7 +31,8 @@ Ces deux nodes dessinent leur propre interface à l'intérieur du node (leur cod
 Une machine à sous qui écrit ton prompt. Cinq rouleaux tirent chacun un morceau du prompt dans les thèmes Isulion, et le node n'a qu'une sortie : `prompt`.
 
 <p align="center">
-  <img src="assets/readme/megaprompt_v4_fr.png" alt="Mega Prompt V4 au repos, avec un prompt coloré et les derniers tirages" width="460">
+  <img src="assets/readme/megaprompt_v4_spin.gif" alt="La machine à sous Mega Prompt V4 fait tourner ses rouleaux" width="400">
+  <img src="assets/readme/megaprompt_v4_fr.png" alt="Mega Prompt V4 au repos, avec un prompt coloré et les derniers tirages" width="400">
 </p>
 
 **Mode d'emploi**
@@ -74,9 +74,6 @@ Un petit Space Invaders jouable dans le node, pour patienter pendant que la file
 ### 🚀 Isulion Mega Prompt V3
 
 Le générateur classique : choisis un thème et une complexité, il construit un prompt détaillé. Contrairement à la V4, il sort aussi chaque morceau séparément (`prompt`, `subject`, `environment`, `style`, `effects`, `seed`).
-
-![Showcase](https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/82d13074-b383-49ab-a19f-5633c8c109a5/original=true,quality=90/Batman_v3.jpeg)
-[Source](https://civitai.com/user/Isulion/images?sort=Newest)
 
 **Entrées**
 

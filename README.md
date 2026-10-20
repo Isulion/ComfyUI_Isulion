@@ -1,12 +1,11 @@
 <p align="right"><b>English</b> · <a href="README.fr.md">Français</a></p>
 
-# ComfyUI_Isulion
+# Mega Prompt Generator Node
 
-**Pull the lever, get a prompt.** A ComfyUI node pack built around the Mega Prompt generators: 109 hand-made themes, an arcade slot machine that writes your prompts, and a set of small generators and image tools to go with them.
+The Mega Prompt Generator is a sophisticated ComfyUI node that generates detailed, thematic prompts for image generation. It supports multiple themes and styles with extensive customization options.
 
-<p align="center">
-  <img src="assets/readme/megaprompt_v4_spin.gif" alt="Mega Prompt V4 slot machine spinning its reels" width="460">
-</p>
+![Showcase](https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/82d13074-b383-49ab-a19f-5633c8c109a5/original=true,quality=90/Batman_v3.jpeg)
+[Source](https://civitai.com/user/Isulion/images?sort=Newest)
 
 ## Installation
 
@@ -32,7 +31,8 @@ These two nodes draw their own interface inside the node (their frontend lives i
 A slot machine that writes your prompt. Five reels each draw one part of the prompt from the Isulion themes, and the node has a single output: `prompt`.
 
 <p align="center">
-  <img src="assets/readme/megaprompt_v4.png" alt="Mega Prompt V4 at rest, showing a coloured prompt and the last draws" width="460">
+  <img src="assets/readme/megaprompt_v4_spin.gif" alt="Mega Prompt V4 slot machine spinning its reels" width="400">
+  <img src="assets/readme/megaprompt_v4.png" alt="Mega Prompt V4 at rest, showing a coloured prompt and the last draws" width="400">
 </p>
 
 **How to use it**
@@ -74,9 +74,6 @@ A small Space Invaders game you play inside the node, for while the queue runs.
 ### 🚀 Isulion Mega Prompt V3
 
 The classic generator: pick a theme and a complexity, and it builds a detailed prompt. Unlike V4, it also exposes each part on its own output (`prompt`, `subject`, `environment`, `style`, `effects`, `seed`).
-
-![Showcase](https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/82d13074-b383-49ab-a19f-5633c8c109a5/original=true,quality=90/Batman_v3.jpeg)
-[Source](https://civitai.com/user/Isulion/images?sort=Newest)
 
 **Inputs**
 
