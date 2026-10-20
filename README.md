@@ -1,42 +1,97 @@
-# Mega Prompt Generator Node
+<p align="right"><b>English</b> · <a href="README.fr.md">Français</a></p>
 
-The Mega Prompt Generator is a sophisticated ComfyUI node that generates detailed, thematic prompts for image generation. It supports multiple themes and styles with extensive customization options.
+# ComfyUI_Isulion
+
+**Pull the lever, get a prompt.** A ComfyUI node pack built around the Mega Prompt generators: 109 hand-made themes, an arcade slot machine that writes your prompts, and a set of small generators and image tools to go with them.
+
+<p align="center">
+  <img src="assets/readme/megaprompt_v4_spin.gif" alt="Mega Prompt V4 slot machine spinning its reels" width="460">
+</p>
+
+## Installation
+
+**ComfyUI Manager (recommended):** open the **Custom Nodes Manager**, search for **Isulion** and install.
+
+**Manual install:**
+
+```bash
+cd your_ComfyUI_install_dir/custom_nodes
+git clone https://github.com/Isulion/ComfyUI_Isulion
+```
+
+Restart ComfyUI, then refresh the browser page. The only extra Python dependency is `requests` (see `requirements.txt`); everything else comes with ComfyUI.
+
+--------------
+
+## Interactive nodes
+
+These two nodes draw their own interface inside the node (their frontend lives in `web/`).
+
+### 🕹️ Isulion Mega Prompt V4 — "Prompt Jackpot"
+
+A slot machine that writes your prompt. Five reels each draw one part of the prompt from the Isulion themes, and the node has a single output: `prompt`.
+
+<p align="center">
+  <img src="assets/readme/megaprompt_v4.png" alt="Mega Prompt V4 at rest, showing a coloured prompt and the last draws" width="460">
+</p>
+
+**How to use it**
+
+1. Add **🕹️ Isulion Mega Prompt V4** (category `Isulion/Core`) and connect `prompt` to your text encoder (e.g. `CLIPTextEncode`).
+2. Pull the **PULL** lever to preview draws in the browser, without running the workflow.
+3. Queue the workflow: the machine spins again on every run, and the screen shows exactly the prompt that was sent.
+
+| Control | What it does |
+|---|---|
+| **Reels** | THEME (◀ ▶ to browse, 🔍 to search the 109 themes), SUBJECT, PLACE, STYLE, EFFECTS |
+| 🔒 **Lock** | A locked reel never moves, neither with the lever nor when the workflow runs. Picking a theme locks it; leave it unlocked for a random theme each time. |
+| ✏️ **Your own text** | On SUBJECT and PLACE: your text stays on every draw and the theme rebuilds the wording around it. ✕ clears it. |
+| 👁 / 🚫 **On / off** | PLACE, STYLE and EFFECTS can be switched off: they turn grey and leave the prompt. |
+| **SIMPLE / DETAILED / COMPLEX** | From no quality boilerplate, to a few detail words, to a richer block (composition, textures, lighting). |
+| **LoRA** | Fixed text always added at the end, e.g. a trigger word or `<lora:name:0.8>`. |
+| **PROMPT screen** | Each reel has its colour. Click a piece to re-draw only that reel. **COPY** copies the prompt; **EDIT** freezes a hand-written prompt, sent as-is on every run until you pull the lever again. |
+| **Last draws** | The last 5 draws. Click one to load it back; ☆ keeps it as a favourite, on top of the list. The footer shows the draw counter and the seed. |
+| **?** | Built-in help in English or French; the language you choose is remembered. |
+
+The machine state (theme, locks, your texts, complexity, LoRA) is saved with the workflow. **Mega Prompt V3 is still available, unchanged**, for existing workflows.
+
+### 👾 Isulion Space Invaders
+
+A small Space Invaders game you play inside the node, for while the queue runs.
+
+<p align="center">
+  <img src="assets/readme/space_invaders.png" alt="Space Invaders game running inside a ComfyUI node" width="380">
+</p>
+
+- Click the game to give it focus, then **Enter** or **Space** to start (**Enter** to play again after a game over).
+- **← →** or **A D** to move, **Space** to fire, **P** to pause. The game pauses when it loses focus and only reads the keyboard while it has focus, so ComfyUI shortcuts keep working.
+- Outputs: `high_score` (INT), `last_score` (INT) and `summary` (STRING). Scores are saved with the workflow, so your best score can feed a seed or a prompt.
+
+--------------
+
+## Prompt generators
+
+### 🚀 Isulion Mega Prompt V3
+
+The classic generator: pick a theme and a complexity, and it builds a detailed prompt. Unlike V4, it also exposes each part on its own output (`prompt`, `subject`, `environment`, `style`, `effects`, `seed`).
 
 ![Showcase](https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/82d13074-b383-49ab-a19f-5633c8c109a5/original=true,quality=90/Batman_v3.jpeg)
 [Source](https://civitai.com/user/Isulion/images?sort=Newest)
 
-## Breaking changes in v6.1.0
+**Inputs**
 
-- **Civitai Explorer / Civitai Trending no longer take an `api_key` widget.** Set the `CIVITAI_API_TOKEN` environment variable instead — this prevents API tokens from leaking into shared workflow files.
-- **URL/image download nodes now refuse non-http(s) schemes and private/internal network addresses** (SSRF protection).
-- **IsulionLoadImagesNode resolves directories strictly inside ComfyUI's input directory**; absolute paths outside it are rejected.
-- **Selector nodes use an instance-seeded RNG**: the same seeds give the same results regardless of execution order.
-- **Negative Prompt Generator pools are de-duplicated**: `strict` now yields 32–43 unique terms (previously 60–80 picks, many of them duplicates), so outputs for a given seed differ from v6.0.
-- **🎲 Dynamic Random** may pick a different theme for a given seed than v6.0, because themes are now discovered automatically (alphabetical order).
+- **Theme**: one of the 109 themes, or 🎲 Dynamic Random
+- **Complexity**: simple, detailed or complex
+- **Randomization**: enable or disable random generation
+- **Custom subject / custom location**: force your own subject or place, and let the theme describe the rest
+- **include environment / style / effects**: leave any part out of the prompt
 
-## Installation
+![Custom Subject and location example](https://github.com/user-attachments/assets/10e6a34d-b509-48e7-bac5-7a8c78615371)
 
-### Quick Start
+**🔄 Isulion Multiple Prompt Generator** produces one prompt per theme in a single run: tick the themes you want (or use a selection mode) and it outputs a list of prompts with their theme names.
 
-Use [ComfyUI Manager](https://github.com/ltdrdata/ComfyUI-Manager), go to "<span style="color: #00ff00">Custom Nodes Manager</span>" and search  "<span style="color: #00ff00">Isulion</span>" !
-
-### Old install
-
-```bash
-cd "your_ComfyUI_install_dir"
-cd custom_nodes
-git clone https://github.com/Isulion/ComfyUI_Isulion
-```
-
---------------
-
-## Available Nodes
-
-## 🎯 Mega Prompt Generator V3 🎯
-
-### Theme Categories
-
-Here's a categorized overview of all available themes (109):
+<details>
+<summary><b>All 109 themes, by category</b></summary>
 
 #### 1. Art Styles & Techniques
 - 🎨 Abstract
@@ -180,208 +235,121 @@ Here's a categorized overview of all available themes (109):
 - 👧 Skinny Blonde Girl
 - ⚔️ Medieval
 - 🏛️ Spartan 300
+</details>
 
-### Input Parameters
-
-- **Theme**: Select from 109 themed generators
-- **Complexity**: Choose between simple, detailed, or complex outputs
-- **Randomization**: Enable/disable random generation
-- **Custom Inputs**:
-- ![Custom Subject and location example](https://github.com/user-attachments/assets/10e6a34d-b509-48e7-bac5-7a8c78615371)
-  - Custom Subject: Define specific subjects
-  - Custom Location: Specify scene locations
-
-## Node List
-
-- 🚀 Isulion Mega Prompt V3
-- 🔄 Isulion Multiple Prompt Generator
-- 🦁 Isulion Animal Selector
-- 🐰 Isulion Cute Animal Selector
-- 🦊 Isulion Animal Behavior Generator
-- 🌳 Isulion Habitat Generator
-- 🌤️ Isulion Weather Generator
-- 🌅 Isulion Time of Day Generator
-- 🖼️ Isulion Art Style Generator
-- ⚡ Isulion Action Generator
-- 🎬 Isulion Scene Composition
-- 👨‍💼 Isulion Profession Generator
-- 🧝‍♂️ Isulion Fantasy Race Generator
-- 👔 Isulion Clothing Generator
-- ✨ Isulion Magical Effect Generator
-- 🏰 Isulion Mythical Location Generator
-- ⚔️ Isulion Artifact Generator
-- 🤖 Isulion Tech Generator
-- 👽 Isulion Alien World Generator
-- 🛸 Isulion Spacecraft Generator
-- 😊 Isulion Emotion Generator
-- 🎨 Isulion Style Mixer
-- 💫 Isulion Prompt Enhancer
-- ⛔ Isulion Negative Prompt Generator
-- 🖼️ Isulion Image Collage
-- 📁 Isulion Load Images from Directory
-- ⏳ Isulion Epoch Generator
-- 🧩 Isulion QRCode Generator
-- ⧉ IsulionOverlay
-- 🔒 Isulion Censored Part
-- 🖼️ Isulion Display Image From URL
-- 💾 Isulion Prompt Vault Save
-- 🗃️ Isulion Prompt Vault Load
-- 🔍 Isulion Civitai Model Explorer
-- 🔥 Isulion Civitai Trending
-- 🖼️ Isulion Civitai Image Display
-
-## 🖼️ Load Images Node
-
-The Load Images node allows you to load multiple images from a specified directory, making it easy to work with batches of images in your workflow.
-
-## 🎭 Image Collage Node
-
-The Image Collage node enables you to create visually appealing collages from multiple input images, perfect for showcasing collections or creating mood boards.
-
-## 🗃️ Prompt Vault
-
-A shared library of named prompt fragments, stored in ComfyUI's user directory (`ComfyUI/user/isulion/prompt_vault.json`) so your entries survive node updates. Until your first save, the example entries from `Core_Nodes/prompt_vault.example.json` are offered.
-
-- **💾 Isulion Prompt Vault Save** — stores the `text` widget (typed or connected from any STRING node, e.g. Mega Prompt) under `name`, and passes the text through unchanged so it can be chained straight into KSampler. Saving an existing name updates it in place.
-- **🗃️ Isulion Prompt Vault Load** — picks a stored entry from a dropdown and outputs its text, ready to feed any prompt input.
-
-The vault path can be overridden with the `ISULION_PROMPT_VAULT` environment variable. A missing or corrupt vault file degrades to an empty vault instead of crashing the queue.
-
-> **Note:** the load node's dropdown is populated from the vault at page load, so newly saved entries appear in the list after a browser refresh (Ctrl+Shift+R). In the meantime you can always type any entry name directly into the widget — it accepts free text as well as dropdown picks, and the load node re-runs automatically whenever the vault file changes.
-
-## Specific Nodes
-
-- 🦊 Animal Behavior - Animal actions and poses
-- 🦁 Animal - General animal selection
-- 🐱 Cute Animal - Cute and baby animal selection
-- 👔 Clothing Style - Outfit and fashion descriptions
-- 👨‍🍳 Character Profession - Occupations and roles
-- 🧝‍♂️ Fantasy Race - Fantasy species and races
-- ⚔️ Action - Dynamic poses and activities
-- 🎥 Scene Composition - Camera angles and shot types
-- 🌲 Habitat - Natural environments and landscapes
-- 🌅 Time of Day - Time and lighting conditions
-- ⛅ Weather - Weather conditions
-- 🖌️ Art Style - Artistic styles and techniques
-- 😊 Emotion - Emotional characteristics
-- 🏰 Artifact - Magical items and artifacts
-- 🌟 Magical Effect - Spell effects and magical phenomena
-- 🏰 Mythical Location - Fantasy environments
-- 🪐 Alien World - Exotic planet environments
-- 🛸 Spacecraft - Space vehicle descriptions
-- 🤖 Tech - Futuristic technology descriptions
-
-### 🔧 Enhancement Nodes
-
-- 📝 Prompt Enhancer - More details, mood, composition, lighting, or color enhancements
-- ⛔ Negative Prompt - Creates matching negative prompts with adjustable strictness
-- 🎨 Style Mixer - Combines multiple art styles with adjustable blend modes
+Want to add your own theme? See the [Theme Creation Guide](Docs/Theme_Creation_Guide.md).
 
 --------------
 
-## Directory Structure
+## All nodes
 
-```
-ComfyUI_Isulion/
-├── Core_Nodes/         # Core functionality nodes
-├── animals_nodes/      # Animal-related node implementations
-├── character_nodes/    # Character generation nodes
-├── configs/           # Configuration files
-├── enhancement_nodes/ # Enhancement and improvement nodes
-├── fantasy_nodes/    # Fantasy-themed node implementations
-├── scene_nodes/      # Scene generation nodes
-├── scifi_nodes/      # Science fiction themed nodes
-├── theme_handlers/   # Theme-specific handling logic
-├── isucollage_node.py   # Collage generation functionality
-├── load_images_node.py  # Image loading utilities
-└── mega_prompt_V3.py    # Latest version of Mega Prompt generator
-```
+| Category | Nodes |
+|---|---|
+| **Interactive** | 🕹️ Isulion Mega Prompt V4 · 👾 Isulion Space Invaders |
+| **Prompt generators** | 🚀 Isulion Mega Prompt V3 · 🔄 Isulion Multiple Prompt Generator · 🎥 Isulion Video Prompt Generator (camera angle, lighting, quality presets for video models) |
+| **Animals** | 🦁 Animal Selector · 🐰 Cute Animal Selector · 🦊 Animal Behavior Generator (actions and poses) |
+| **Scene** | 🌳 Habitat Generator · 🌤️ Weather Generator · 🌅 Time of Day Generator · 🖼️ Art Style Generator · ⚡ Action Generator · 🎬 Scene Composition (camera angles, shot types) |
+| **Character** | 👨‍💼 Profession Generator · 🧝‍♂️ Fantasy Race Generator · 👔 Clothing Generator · ⏳ Epoch Generator (historical periods) |
+| **Fantasy** | ✨ Magical Effect Generator · 🏰 Mythical Location Generator · ⚔️ Artifact Generator (magical items) |
+| **Sci-Fi** | 🤖 Tech Generator · 👽 Alien World Generator · 🛸 Spacecraft Generator |
+| **Enhancement** | 😊 Emotion Generator · 🎨 Style Mixer (blend several art styles) · 💫 Prompt Enhancer (details, mood, composition, lighting, colour) · ⛔ Negative Prompt Generator (adjustable strictness) |
+| **Image** | 🖼️ Image Collage · 📁 Load Images from Directory · 🔒 Censored Part · ⧉ IsulionOverlay (overlays and watermarks) · 🧩 QRCode Generator · 🖼️ Display Image From URL |
+| **Utilities** | 📝 Custom Text Node · 💾 Prompt Vault Save · 🗃️ Prompt Vault Load · 💤 Isulion Shutdown |
+| **Civitai** | 🔍 Civitai Model Explorer · 🔥 Civitai Trending · 🖼️ Civitai Image Display |
+
+In the node search, the full names start with "Isulion" (e.g. *Isulion Weather Generator*), except 📝 Custom Text Node.
+
+### Notes on some nodes
+
+- **📁 Load Images from Directory** loads every image of a folder as a batch. Folders are resolved strictly inside ComfyUI's `input` directory; absolute paths outside it are rejected.
+- **🖼️ Image Collage** builds a collage from several input images, for collections or mood boards.
+- **🔒 Censored Part** censors part of an image with blur, pixelate, pixelate + blur, black bar or noise. Pick the area with a painted mask (MaskEditor) or the built-in rectangle widgets; supports mask grow/shrink, invert and edge feathering, and outputs the censor mask for inpainting.
+- **🖼️ Display Image From URL** downloads an image and shows it in the queue. URL download nodes only accept http(s) and refuse private or internal network addresses.
+- **💤 Isulion Shutdown** shuts ComfyUI down when a workflow finishes. It does nothing unless the environment variable `ISULION_ENABLE_SHUTDOWN=1` is set.
+- **🔍 Civitai Explorer / 🔥 Civitai Trending** authenticate with the `CIVITAI_API_TOKEN` environment variable; there is no API key widget, so tokens never end up in shared workflow files.
+
+### 🗃️ Prompt Vault
+
+A shared library of named prompt fragments, stored in ComfyUI's user directory (`ComfyUI/user/isulion/prompt_vault.json`) so your entries survive node updates. Until your first save, the example entries from `Core_Nodes/prompt_vault.example.json` are offered.
+
+- **💾 Isulion Prompt Vault Save** stores the `text` widget (typed, or connected from any STRING node such as Mega Prompt) under `name`, and passes the text through unchanged so it can go straight on to your encoder. Saving an existing name updates it.
+- **🗃️ Isulion Prompt Vault Load** picks a stored entry from a dropdown and outputs its text.
+
+The vault path can be changed with the `ISULION_PROMPT_VAULT` environment variable. A missing or corrupt vault file gives an empty vault instead of breaking the queue.
+
+> **Note:** the load node's dropdown is filled at page load, so newly saved entries appear after a browser refresh (Ctrl+Shift+R). Meanwhile you can type any entry name in the widget: it accepts free text, and the load node re-runs whenever the vault file changes.
 
 --------------
 
 ## Example workflows
 
-The bundled workflows in `example_workflows/*.json` reference the `ShowText|pysssss` node, which is provided by [ComfyUI-Custom-Scripts](https://github.com/pythongosssss/ComfyUI-Custom-Scripts) ("pysssss" custom nodes). Install that pack first, or replace those nodes with any other text-display node.
+Drag a file from `example_workflows/` onto the ComfyUI canvas:
 
-## FLUX Workflow (old) Examples
+| Workflow | Contents |
+|---|---|
+| `Simple_Megaprompt_V4.workflow.json` | Mega Prompt V4 and Space Invaders. No other node pack needed. |
+| `Simple_Megaprompt_V3.workflow.json` | Mega Prompt V3 and a text display. |
+| `Full_Flux_Megaprompt_v3.workflow.json` | Mega Prompt V3 driving a full FLUX (GGUF) text-to-image pipeline. |
+| `Multiple Mega Prompt.json` | Multiple Prompt Generator: one prompt per selected theme. |
+| `Isulion_Civitai_Nodes_Workflow.json` | Civitai Trending and Civitai Image Display (set `CIVITAI_API_TOKEN`). |
+| `All_Isulion_Nodes_Workflow.json` | A tour of most nodes of the pack. |
 
-[More Workflows and Examples](https://civitai.com/articles/8673/discover-the-mega-prompt-generator-for-comfyui)
+Except for the V4 one, these workflows use `ShowText|pysssss` from [ComfyUI-Custom-Scripts](https://github.com/pythongosssss/ComfyUI-Custom-Scripts) to display text. Install that pack, or replace those nodes with any text-display node. The FLUX workflow also needs the GGUF loader nodes and the FLUX models it references.
 
-### Basic MegaPrompt (old) Workflow
+### Older FLUX examples
+
+[More workflows and examples on Civitai](https://civitai.com/articles/8673/discover-the-mega-prompt-generator-for-comfyui)
+
+**Basic MegaPrompt (old) workflow**
 
 ![IsulionFLUX_00468_](https://github.com/user-attachments/assets/91e7db26-9315-45d3-8461-83f0bba457b1)
 
-### Chimera (with Ollama) (old) Workflow
+**Chimera (with Ollama) (old) workflow**
 
 ![IsulionFlux_00492_](https://github.com/user-attachments/assets/0e097a70-3821-4440-94d9-589703ab7ad1)
 
-### MegaPrompt + Ollama + LoRa (old) Workflow
+**MegaPrompt + Ollama + LoRA (old) workflow**
 
 ![IsulionFLUX_00484_](https://github.com/user-attachments/assets/6cbc3ea8-650b-44b3-9a59-a3476a7e513c)
-[LoRa used for this](https://civitai.com/models/673513/will-smith-flux-dev-lora)
+[LoRA used for this](https://civitai.com/models/673513/will-smith-flux-dev-lora)
 
-## 🦙 Ollama Requirements
+The Ollama workflows need the Ollama_generator node in ComfyUI, with the environment variables `OLLAMA_KEEP_ALIVE=0` and `OLLAMA_ORIGINS=*`.
 
-- Ollama_generator node installed in ComfyUI
+--------------
 
-### Environment Variables
+## Directory structure
 
-- OLLAMA_KEEP_ALIVE: 0
-- OLLAMA_ORIGINS: *
+```
+ComfyUI_Isulion/
+├── __init__.py               # node registration, version, WEB_DIRECTORY
+├── Core_Nodes/
+│   ├── mega_prompt_V3.py     # Mega Prompt V3
+│   ├── mega_prompt_v4.py     # Mega Prompt V4 (machine state, roll, prompt assembly)
+│   ├── mega_prompt_v4_routes.py  # /isulion/megaprompt_v4/* HTTP routes used by the lever
+│   ├── mega_prompt_all_themes.py # Multiple Prompt Generator
+│   ├── space_invaders_node.py
+│   ├── theme_handlers/       # one handler per theme
+│   ├── configs/              # theme word lists (JSON) and config manager
+│   ├── animals_nodes/  character_nodes/  scene_nodes/
+│   ├── fantasy_nodes/  scifi_nodes/  enhancement_nodes/
+│   ├── civitai_nodes/
+│   └── …                     # image and utility nodes (collage, load images, QR code, vault…)
+├── web/                      # frontend of the interactive nodes
+│   ├── mega_prompt_v4.js     # slot machine widget
+│   ├── mega_prompt_v4_core.js  # pure helpers and EN/FR texts
+│   └── space_invaders.js
+├── example_workflows/
+├── Docs/                     # Theme Creation Guide
+├── assets/readme/            # README images
+└── tests/                    # Python tests, tests/js for the V4 widget
+```
 
-# All Available Nodes
+## Development
 
-### Core Nodes
-- **Isulion Mega Prompt V3**: Advanced version of the prompt generator node with extended capabilities
+```bash
+python3 tests/run_all.py
+```
 
-### Animal-Related Nodes
-- **Isulion Animal Selector**: Generate random animal prompts
-- **Isulion Cute Animal Selector**: Generate cute animal-specific prompts
-- **Isulion Animal Behavior Generator**: Create prompts for animal behaviors and actions
+Runs the whole suite without pytest (it works with pytest too). It also runs the JavaScript tests of the V4 widget, `node tests/js/test_mega_prompt_v4.mjs` (skipped when Node.js is not installed).
 
-### Scene Generation Nodes
-- **Isulion Habitat Generator**: Create environment and habitat descriptions
-- **Isulion Weather Generator**: Generate weather condition prompts
-- **Isulion Time of Day Generator**: Add time-of-day elements to scenes
-- **Isulion Art Style Generator**: Generate various artistic style prompts
-- **Isulion Action Generator**: Create action and movement descriptions
-- **Isulion Scene Composition**: Generate complete scene composition prompts
-
-### Character Generation Nodes
-- **Isulion Profession Generator**: Create profession-based character descriptions
-- **Isulion Fantasy Race Generator**: Generate fantasy race characteristics
-- **Isulion Clothing Generator**: Create detailed clothing descriptions
-- **Isulion Epoch Generator**: Generate historical period-specific elements
-
-### Fantasy Nodes
-- **Isulion Magical Effect Generator**: Create magical effect descriptions
-- **Isulion Mythical Location Generator**: Generate mythical place descriptions
-- **Isulion Artifact Generator**: Create magical item and artifact descriptions
-
-### Sci-Fi Nodes
-- **Isulion Tech Generator**: Generate futuristic technology descriptions
-- **Isulion Alien World Generator**: Create alien planet and environment descriptions
-- **Isulion Spacecraft Generator**: Generate spacecraft and space vehicle descriptions
-
-### Enhancement Nodes
-- **Isulion Emotion Generator**: Add emotional elements to prompts
-- **Isulion Style Mixer**: Combine different artistic styles
-- **Isulion Prompt Enhancer**: Enhance existing prompts with additional details
-- **Isulion Negative Prompt Generator**: Generate effective negative prompts
-
-### Utility Nodes
-- **IsuCollage Node**: Create image collages
-- **Isulion Load Images Node**: Load and manage multiple images (directories are resolved strictly inside ComfyUI's input directory)
-- **💤 IsulionShutdown**: Shut down ComfyUI when a workflow finishes. It is a safe no-op by default — it only actually arms when the environment variable `ISULION_ENABLE_SHUTDOWN=1` is set.
-- **Overlay Node**: Add overlay or watermarks to your images
-- **Censored Part Node**: Censor part of an image with blur, pixelate, pixelate+blur, black bar or noise. Select the area via a painted mask (MaskEditor) or the built-in rectangle widgets; supports mask grow/shrink, invert, edge feathering and outputs the censor mask for inpainting.
-- **QRCode Node**: Create Various moderns QRCode
-- **Display Image From URL**: Download an image from a URL and display it in the ComfyUI queue
-- **💾 Prompt Vault Save / 🗃️ Prompt Vault Load**: Save named prompt fragments to a shared JSON vault and load them back via dropdown in any workflow (see the Prompt Vault section above)
-
-### Civitai Nodes
-- **Isulion Civitai Model Explorer**: Browse/search Civitai models from within ComfyUI
-- **Isulion Civitai Trending**: List currently trending Civitai models
-- **Isulion Civitai Image Display**: Fetch and display images from Civitai
-
-> The Explorer/Trending nodes authenticate via the `CIVITAI_API_TOKEN` environment variable (no API key widget in the node itself).
+See [CHANGELOG.md](CHANGELOG.md) for the release history and breaking changes.

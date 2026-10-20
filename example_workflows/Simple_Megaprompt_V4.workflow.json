@@ -1,0 +1,93 @@
+{
+  "id": "d6ae5b6e-8d06-4cfc-b39d-e19d1b85873c",
+  "revision": 0,
+  "last_node_id": 2,
+  "last_link_id": 0,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "IsulionMegaPromptV4",
+      "pos": [
+        0,
+        0
+      ],
+      "size": [
+        520,
+        700
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_isulion",
+        "ver": "6.2.0",
+        "Node name for S&R": "IsulionMegaPromptV4"
+      },
+      "widgets_values": [
+        "{\"version\": 1}"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "IsulionSpaceInvaders",
+      "pos": [
+        560,
+        0
+      ],
+      "size": [
+        420,
+        460
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "high_score",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "last_score",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "summary",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_isulion",
+        "ver": "6.2.0",
+        "Node name for S&R": "IsulionSpaceInvaders"
+      },
+      "widgets_values": [
+        "{\"version\": 1, \"high_score\": 0, \"last_score\": 0, \"best_wave\": 1}"
+      ]
+    }
+  ],
+  "links": [],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1,
+      "offset": [
+        40,
+        60
+      ]
+    }
+  },
+  "version": 0.4
+}
